@@ -1,0 +1,411 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`hello1.4gl 1`] = `
+"main 
+  display \\"hello \\"
+end main
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[
+  {
+    \\"kind\\": \\"program\\",
+    \\"value\\": [
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"main\\",
+        \\"offset\\": {
+          \\"start\\": 0,
+          \\"end\\": 4
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\\\n  \\",
+        \\"offset\\": {
+          \\"start\\": 4,
+          \\"end\\": 8
+        }
+      },
+      [
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"display\\",
+              \\"offset\\": {
+                \\"start\\": 8,
+                \\"end\\": 15
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 15,
+                \\"end\\": 16
+              }
+            },
+            [
+              {
+                \\"kind\\": \\"string\\",
+                \\"value\\": \\"\\\\\\"hello \\\\\\"\\",
+                \\"offset\\": {
+                  \\"start\\": 16,
+                  \\"end\\": 24
+                },
+                \\"info\\": {
+                  \\"type\\": \\"string\\"
+                }
+              }
+            ]
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"\\\\n\\",
+            \\"offset\\": {
+              \\"start\\": 24,
+              \\"end\\": 25
+            }
+          },
+          null,
+          null
+        ]
+      ],
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"end\\",
+        \\"offset\\": {
+          \\"start\\": 25,
+          \\"end\\": 28
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 28,
+          \\"end\\": 29
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"main\\",
+        \\"offset\\": {
+          \\"start\\": 29,
+          \\"end\\": 33
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\"\\\\n\\",
+        \\"offset\\": {
+          \\"start\\": 33,
+          \\"end\\": 34
+        }
+      }
+    ]
+  }
+]"
+`;
+
+exports[`hello2.4gl 1`] = `
+"main 
+
+  define nome char(50) # abc
+  prompt \\"digite seu nome : \\" for nome
+  
+  call fgl_winmessage( \\"hello\\",nome, \\"info\\")
+  
+end main
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[
+  {
+    \\"kind\\": \\"program\\",
+    \\"value\\": [
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"main\\",
+        \\"offset\\": {
+          \\"start\\": 0,
+          \\"end\\": 4
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\\\n\\\\n  \\",
+        \\"offset\\": {
+          \\"start\\": 4,
+          \\"end\\": 9
+        }
+      },
+      [
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"define\\",
+              \\"offset\\": {
+                \\"start\\": 9,
+                \\"end\\": 15
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 15,
+                \\"end\\": 16
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"nome\\",
+              \\"offset\\": {
+                \\"start\\": 16,
+                \\"end\\": 20
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 20,
+                \\"end\\": 21
+              }
+            },
+            \\"char(50)\\"
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\" \\",
+            \\"offset\\": {
+              \\"start\\": 29,
+              \\"end\\": 30
+            }
+          },
+          {
+            \\"kind\\": \\"comment\\",
+            \\"value\\": \\"# abc\\\\n\\",
+            \\"offset\\": {
+              \\"start\\": 30,
+              \\"end\\": 36
+            }
+          },
+          null
+        ],
+        [
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"  \\",
+            \\"offset\\": {
+              \\"start\\": 36,
+              \\"end\\": 38
+            }
+          },
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"prompt\\",
+              \\"offset\\": {
+                \\"start\\": 38,
+                \\"end\\": 44
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 44,
+                \\"end\\": 45
+              }
+            },
+            {
+              \\"kind\\": \\"string\\",
+              \\"value\\": \\"\\\\\\"digite seu nome : \\\\\\"\\",
+              \\"offset\\": {
+                \\"start\\": 45,
+                \\"end\\": 65
+              },
+              \\"info\\": {
+                \\"type\\": \\"string\\"
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 65,
+                \\"end\\": 66
+              }
+            },
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"for\\",
+              \\"offset\\": {
+                \\"start\\": 66,
+                \\"end\\": 69
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 69,
+                \\"end\\": 70
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"nome\\",
+              \\"offset\\": {
+                \\"start\\": 70,
+                \\"end\\": 74
+              }
+            }
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"\\\\n  \\\\n  \\",
+            \\"offset\\": {
+              \\"start\\": 74,
+              \\"end\\": 80
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"call\\",
+              \\"offset\\": {
+                \\"start\\": 80,
+                \\"end\\": 84
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 84,
+                \\"end\\": 85
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"fgl_winmessage\\",
+              \\"offset\\": {
+                \\"start\\": 85,
+                \\"end\\": 99
+              }
+            },
+            null,
+            [
+              [
+                {
+                  \\"kind\\": \\"string\\",
+                  \\"value\\": \\"\\\\\\"hello\\\\\\"\\",
+                  \\"offset\\": {
+                    \\"start\\": 101,
+                    \\"end\\": 108
+                  },
+                  \\"info\\": {
+                    \\"type\\": \\"string\\"
+                  }
+                }
+              ],
+              [
+                {
+                  \\"kind\\": \\"variable\\",
+                  \\"value\\": {
+                    \\"kind\\": \\"identifier\\",
+                    \\"value\\": \\"nome\\",
+                    \\"offset\\": {
+                      \\"start\\": 109,
+                      \\"end\\": 113
+                    }
+                  },
+                  \\"offset\\": {
+                    \\"start\\": 109,
+                    \\"end\\": 113
+                  },
+                  \\"info\\": {}
+                }
+              ],
+              [
+                {
+                  \\"kind\\": \\"string\\",
+                  \\"value\\": \\"\\\\\\"info\\\\\\"\\",
+                  \\"offset\\": {
+                    \\"start\\": 115,
+                    \\"end\\": 121
+                  },
+                  \\"info\\": {
+                    \\"type\\": \\"string\\"
+                  }
+                }
+              ]
+            ],
+            null
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"\\\\n  \\\\n\\",
+            \\"offset\\": {
+              \\"start\\": 122,
+              \\"end\\": 126
+            }
+          },
+          null,
+          null
+        ]
+      ],
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"end\\",
+        \\"offset\\": {
+          \\"start\\": 126,
+          \\"end\\": 129
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 129,
+          \\"end\\": 130
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"main\\",
+        \\"offset\\": {
+          \\"start\\": 130,
+          \\"end\\": 134
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\"\\\\n\\",
+        \\"offset\\": {
+          \\"start\\": 134,
+          \\"end\\": 135
+        }
+      }
+    ]
+  }
+]"
+`;
+
+exports[`hello3.4gl 1`] = `
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[
+  {
+    \\"kind\\": \\"program\\",
+    \\"value\\": []
+  }
+]"
+`;

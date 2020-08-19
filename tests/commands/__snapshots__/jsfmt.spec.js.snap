@@ -1,0 +1,2827 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`call.4gl 1`] = `
+"MAIN 
+
+  CALL fgl_winmessage()
+
+  CALL fgl_winmessage(\\"p1\\")
+
+
+
+
+  CALL fgl_winmessage(\\"p1\\",\\"p2\\", \\"p3\\")
+  CALL fgl_winmessage(1,2,    3)
+
+end main
+
+function f1() 
+
+  CALL fgl_winmessage() returning var1
+
+  CALL fgl_winmessage() returning var1 , var2
+
+CALL fgl_winmessage() returning var1,var2,var3
+
+end function
+
+function f2() 
+
+  CALL fgl_winmessage() returning var1[ind1]
+
+end function
+
+function f3() 
+
+  CALL fgl_winmessage() returning rec1.var1
+
+  CALL fgl_winmessage() returning rec1.*
+
+end function
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[
+  {
+    \\"kind\\": \\"program\\",
+    \\"value\\": [
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"MAIN\\",
+        \\"offset\\": {
+          \\"start\\": 0,
+          \\"end\\": 4
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\\\n\\\\n  \\",
+        \\"offset\\": {
+          \\"start\\": 4,
+          \\"end\\": 9
+        }
+      },
+      [
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"CALL\\",
+              \\"offset\\": {
+                \\"start\\": 9,
+                \\"end\\": 13
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 13,
+                \\"end\\": 14
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"fgl_winmessage\\",
+              \\"offset\\": {
+                \\"start\\": 14,
+                \\"end\\": 28
+              }
+            },
+            null,
+            [],
+            null
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"\\\\n\\\\n  \\",
+            \\"offset\\": {
+              \\"start\\": 30,
+              \\"end\\": 34
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"CALL\\",
+              \\"offset\\": {
+                \\"start\\": 34,
+                \\"end\\": 38
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 38,
+                \\"end\\": 39
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"fgl_winmessage\\",
+              \\"offset\\": {
+                \\"start\\": 39,
+                \\"end\\": 53
+              }
+            },
+            null,
+            [
+              [
+                {
+                  \\"kind\\": \\"string\\",
+                  \\"value\\": \\"\\\\\\"p1\\\\\\"\\",
+                  \\"offset\\": {
+                    \\"start\\": 54,
+                    \\"end\\": 58
+                  },
+                  \\"info\\": {
+                    \\"type\\": \\"string\\"
+                  }
+                }
+              ]
+            ],
+            null
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"\\\\n\\\\n\\\\n\\\\n\\\\n  \\",
+            \\"offset\\": {
+              \\"start\\": 59,
+              \\"end\\": 66
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"CALL\\",
+              \\"offset\\": {
+                \\"start\\": 66,
+                \\"end\\": 70
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 70,
+                \\"end\\": 71
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"fgl_winmessage\\",
+              \\"offset\\": {
+                \\"start\\": 71,
+                \\"end\\": 85
+              }
+            },
+            null,
+            [
+              [
+                {
+                  \\"kind\\": \\"string\\",
+                  \\"value\\": \\"\\\\\\"p1\\\\\\"\\",
+                  \\"offset\\": {
+                    \\"start\\": 86,
+                    \\"end\\": 90
+                  },
+                  \\"info\\": {
+                    \\"type\\": \\"string\\"
+                  }
+                }
+              ],
+              [
+                {
+                  \\"kind\\": \\"string\\",
+                  \\"value\\": \\"\\\\\\"p2\\\\\\"\\",
+                  \\"offset\\": {
+                    \\"start\\": 91,
+                    \\"end\\": 95
+                  },
+                  \\"info\\": {
+                    \\"type\\": \\"string\\"
+                  }
+                }
+              ],
+              [
+                {
+                  \\"kind\\": \\"string\\",
+                  \\"value\\": \\"\\\\\\"p3\\\\\\"\\",
+                  \\"offset\\": {
+                    \\"start\\": 97,
+                    \\"end\\": 101
+                  },
+                  \\"info\\": {
+                    \\"type\\": \\"string\\"
+                  }
+                }
+              ]
+            ],
+            null
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"\\\\n  \\",
+            \\"offset\\": {
+              \\"start\\": 102,
+              \\"end\\": 105
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"CALL\\",
+              \\"offset\\": {
+                \\"start\\": 105,
+                \\"end\\": 109
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 109,
+                \\"end\\": 110
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"fgl_winmessage\\",
+              \\"offset\\": {
+                \\"start\\": 110,
+                \\"end\\": 124
+              }
+            },
+            null,
+            [
+              [
+                null
+              ],
+              [
+                null
+              ],
+              [
+                null
+              ]
+            ],
+            null
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"\\\\n\\\\n\\",
+            \\"offset\\": {
+              \\"start\\": 135,
+              \\"end\\": 137
+            }
+          },
+          null,
+          null
+        ]
+      ],
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"end\\",
+        \\"offset\\": {
+          \\"start\\": 137,
+          \\"end\\": 140
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 140,
+          \\"end\\": 141
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"main\\",
+        \\"offset\\": {
+          \\"start\\": 141,
+          \\"end\\": 145
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\"\\\\n\\\\n\\",
+        \\"offset\\": {
+          \\"start\\": 145,
+          \\"end\\": 147
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"function\\",
+        \\"offset\\": {
+          \\"start\\": 147,
+          \\"end\\": 155
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 155,
+          \\"end\\": 156
+        }
+      },
+      {
+        \\"kind\\": \\"identifier\\",
+        \\"value\\": \\"f1\\",
+        \\"offset\\": {
+          \\"start\\": 156,
+          \\"end\\": 158
+        }
+      },
+      [],
+      [
+        [
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\" \\\\n\\\\n  \\",
+            \\"offset\\": {
+              \\"start\\": 160,
+              \\"end\\": 165
+            }
+          },
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"CALL\\",
+              \\"offset\\": {
+                \\"start\\": 165,
+                \\"end\\": 169
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 169,
+                \\"end\\": 170
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"fgl_winmessage\\",
+              \\"offset\\": {
+                \\"start\\": 170,
+                \\"end\\": 184
+              }
+            },
+            null,
+            [],
+            [
+              {
+                \\"kind\\": \\"whitespace\\",
+                \\"value\\": \\" \\",
+                \\"offset\\": {
+                  \\"start\\": 186,
+                  \\"end\\": 187
+                }
+              },
+              {
+                \\"kind\\": \\"keyword\\",
+                \\"value\\": \\"returning\\",
+                \\"offset\\": {
+                  \\"start\\": 187,
+                  \\"end\\": 196
+                }
+              },
+              {
+                \\"kind\\": \\"whitespace\\",
+                \\"value\\": \\" \\",
+                \\"offset\\": {
+                  \\"start\\": 196,
+                  \\"end\\": 197
+                }
+              },
+              [
+                {
+                  \\"kind\\": \\"variable\\",
+                  \\"value\\": {
+                    \\"kind\\": \\"identifier\\",
+                    \\"value\\": \\"var1\\",
+                    \\"offset\\": {
+                      \\"start\\": 197,
+                      \\"end\\": 201
+                    }
+                  },
+                  \\"offset\\": {
+                    \\"start\\": 197,
+                    \\"end\\": 201
+                  },
+                  \\"info\\": {}
+                }
+              ]
+            ]
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"\\\\n\\\\n  \\",
+            \\"offset\\": {
+              \\"start\\": 201,
+              \\"end\\": 205
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"CALL\\",
+              \\"offset\\": {
+                \\"start\\": 205,
+                \\"end\\": 209
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 209,
+                \\"end\\": 210
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"fgl_winmessage\\",
+              \\"offset\\": {
+                \\"start\\": 210,
+                \\"end\\": 224
+              }
+            },
+            null,
+            [],
+            [
+              {
+                \\"kind\\": \\"whitespace\\",
+                \\"value\\": \\" \\",
+                \\"offset\\": {
+                  \\"start\\": 226,
+                  \\"end\\": 227
+                }
+              },
+              {
+                \\"kind\\": \\"keyword\\",
+                \\"value\\": \\"returning\\",
+                \\"offset\\": {
+                  \\"start\\": 227,
+                  \\"end\\": 236
+                }
+              },
+              {
+                \\"kind\\": \\"whitespace\\",
+                \\"value\\": \\" \\",
+                \\"offset\\": {
+                  \\"start\\": 236,
+                  \\"end\\": 237
+                }
+              },
+              [
+                null,
+                {
+                  \\"kind\\": \\"variable\\",
+                  \\"value\\": {
+                    \\"kind\\": \\"identifier\\",
+                    \\"value\\": \\"var2\\",
+                    \\"offset\\": {
+                      \\"start\\": 244,
+                      \\"end\\": 248
+                    }
+                  },
+                  \\"offset\\": {
+                    \\"start\\": 244,
+                    \\"end\\": 248
+                  },
+                  \\"info\\": {}
+                }
+              ]
+            ]
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"\\\\n\\\\n\\",
+            \\"offset\\": {
+              \\"start\\": 248,
+              \\"end\\": 250
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"CALL\\",
+              \\"offset\\": {
+                \\"start\\": 250,
+                \\"end\\": 254
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 254,
+                \\"end\\": 255
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"fgl_winmessage\\",
+              \\"offset\\": {
+                \\"start\\": 255,
+                \\"end\\": 269
+              }
+            },
+            null,
+            [],
+            [
+              {
+                \\"kind\\": \\"whitespace\\",
+                \\"value\\": \\" \\",
+                \\"offset\\": {
+                  \\"start\\": 271,
+                  \\"end\\": 272
+                }
+              },
+              {
+                \\"kind\\": \\"keyword\\",
+                \\"value\\": \\"returning\\",
+                \\"offset\\": {
+                  \\"start\\": 272,
+                  \\"end\\": 281
+                }
+              },
+              {
+                \\"kind\\": \\"whitespace\\",
+                \\"value\\": \\" \\",
+                \\"offset\\": {
+                  \\"start\\": 281,
+                  \\"end\\": 282
+                }
+              },
+              [
+                null,
+                null,
+                {
+                  \\"kind\\": \\"variable\\",
+                  \\"value\\": {
+                    \\"kind\\": \\"identifier\\",
+                    \\"value\\": \\"var3\\",
+                    \\"offset\\": {
+                      \\"start\\": 292,
+                      \\"end\\": 296
+                    }
+                  },
+                  \\"offset\\": {
+                    \\"start\\": 292,
+                    \\"end\\": 296
+                  },
+                  \\"info\\": {}
+                }
+              ]
+            ]
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"\\\\n\\\\n\\",
+            \\"offset\\": {
+              \\"start\\": 296,
+              \\"end\\": 298
+            }
+          },
+          null,
+          null
+        ]
+      ],
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"end\\",
+        \\"offset\\": {
+          \\"start\\": 298,
+          \\"end\\": 301
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 301,
+          \\"end\\": 302
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"function\\",
+        \\"offset\\": {
+          \\"start\\": 302,
+          \\"end\\": 310
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\"\\\\n\\\\n\\",
+        \\"offset\\": {
+          \\"start\\": 310,
+          \\"end\\": 312
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"function\\",
+        \\"offset\\": {
+          \\"start\\": 312,
+          \\"end\\": 320
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 320,
+          \\"end\\": 321
+        }
+      },
+      {
+        \\"kind\\": \\"identifier\\",
+        \\"value\\": \\"f2\\",
+        \\"offset\\": {
+          \\"start\\": 321,
+          \\"end\\": 323
+        }
+      },
+      [],
+      [
+        [
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\" \\\\n\\\\n  \\",
+            \\"offset\\": {
+              \\"start\\": 325,
+              \\"end\\": 330
+            }
+          },
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"CALL\\",
+              \\"offset\\": {
+                \\"start\\": 330,
+                \\"end\\": 334
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 334,
+                \\"end\\": 335
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"fgl_winmessage\\",
+              \\"offset\\": {
+                \\"start\\": 335,
+                \\"end\\": 349
+              }
+            },
+            null,
+            [],
+            [
+              {
+                \\"kind\\": \\"whitespace\\",
+                \\"value\\": \\" \\",
+                \\"offset\\": {
+                  \\"start\\": 351,
+                  \\"end\\": 352
+                }
+              },
+              {
+                \\"kind\\": \\"keyword\\",
+                \\"value\\": \\"returning\\",
+                \\"offset\\": {
+                  \\"start\\": 352,
+                  \\"end\\": 361
+                }
+              },
+              {
+                \\"kind\\": \\"whitespace\\",
+                \\"value\\": \\" \\",
+                \\"offset\\": {
+                  \\"start\\": 361,
+                  \\"end\\": 362
+                }
+              },
+              [
+                {
+                  \\"kind\\": \\"variable\\",
+                  \\"value\\": {
+                    \\"kind\\": \\"identifier\\",
+                    \\"value\\": \\"var1\\",
+                    \\"offset\\": {
+                      \\"start\\": 362,
+                      \\"end\\": 366
+                    }
+                  },
+                  \\"offset\\": {
+                    \\"start\\": 362,
+                    \\"end\\": 372
+                  },
+                  \\"info\\": {
+                    \\"index\\": [
+                      {
+                        \\"kind\\": \\"variable\\",
+                        \\"value\\": {
+                          \\"kind\\": \\"identifier\\",
+                          \\"value\\": \\"ind1\\",
+                          \\"offset\\": {
+                            \\"start\\": 367,
+                            \\"end\\": 371
+                          }
+                        },
+                        \\"offset\\": {
+                          \\"start\\": 367,
+                          \\"end\\": 371
+                        },
+                        \\"info\\": {}
+                      }
+                    ]
+                  }
+                }
+              ]
+            ]
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"\\\\n\\\\n\\",
+            \\"offset\\": {
+              \\"start\\": 372,
+              \\"end\\": 374
+            }
+          },
+          null,
+          null
+        ]
+      ],
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"end\\",
+        \\"offset\\": {
+          \\"start\\": 374,
+          \\"end\\": 377
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 377,
+          \\"end\\": 378
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"function\\",
+        \\"offset\\": {
+          \\"start\\": 378,
+          \\"end\\": 386
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\"\\\\n\\\\n\\",
+        \\"offset\\": {
+          \\"start\\": 386,
+          \\"end\\": 388
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"function\\",
+        \\"offset\\": {
+          \\"start\\": 388,
+          \\"end\\": 396
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 396,
+          \\"end\\": 397
+        }
+      },
+      {
+        \\"kind\\": \\"identifier\\",
+        \\"value\\": \\"f3\\",
+        \\"offset\\": {
+          \\"start\\": 397,
+          \\"end\\": 399
+        }
+      },
+      [],
+      [
+        [
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\" \\\\n\\\\n  \\",
+            \\"offset\\": {
+              \\"start\\": 401,
+              \\"end\\": 406
+            }
+          },
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"CALL\\",
+              \\"offset\\": {
+                \\"start\\": 406,
+                \\"end\\": 410
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 410,
+                \\"end\\": 411
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"fgl_winmessage\\",
+              \\"offset\\": {
+                \\"start\\": 411,
+                \\"end\\": 425
+              }
+            },
+            null,
+            [],
+            [
+              {
+                \\"kind\\": \\"whitespace\\",
+                \\"value\\": \\" \\",
+                \\"offset\\": {
+                  \\"start\\": 427,
+                  \\"end\\": 428
+                }
+              },
+              {
+                \\"kind\\": \\"keyword\\",
+                \\"value\\": \\"returning\\",
+                \\"offset\\": {
+                  \\"start\\": 428,
+                  \\"end\\": 437
+                }
+              },
+              {
+                \\"kind\\": \\"whitespace\\",
+                \\"value\\": \\" \\",
+                \\"offset\\": {
+                  \\"start\\": 437,
+                  \\"end\\": 438
+                }
+              },
+              [
+                {
+                  \\"kind\\": \\"variable\\",
+                  \\"value\\": \\"rec1.var1\\",
+                  \\"offset\\": {
+                    \\"start\\": 438,
+                    \\"end\\": 447
+                  },
+                  \\"info\\": {}
+                }
+              ]
+            ]
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"\\\\n\\\\n  \\",
+            \\"offset\\": {
+              \\"start\\": 447,
+              \\"end\\": 451
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"CALL\\",
+              \\"offset\\": {
+                \\"start\\": 451,
+                \\"end\\": 455
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 455,
+                \\"end\\": 456
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"fgl_winmessage\\",
+              \\"offset\\": {
+                \\"start\\": 456,
+                \\"end\\": 470
+              }
+            },
+            null,
+            [],
+            [
+              {
+                \\"kind\\": \\"whitespace\\",
+                \\"value\\": \\" \\",
+                \\"offset\\": {
+                  \\"start\\": 472,
+                  \\"end\\": 473
+                }
+              },
+              {
+                \\"kind\\": \\"keyword\\",
+                \\"value\\": \\"returning\\",
+                \\"offset\\": {
+                  \\"start\\": 473,
+                  \\"end\\": 482
+                }
+              },
+              {
+                \\"kind\\": \\"whitespace\\",
+                \\"value\\": \\" \\",
+                \\"offset\\": {
+                  \\"start\\": 482,
+                  \\"end\\": 483
+                }
+              },
+              [
+                {
+                  \\"kind\\": \\"variable\\",
+                  \\"value\\": \\"rec1.*\\",
+                  \\"offset\\": {
+                    \\"start\\": 483,
+                    \\"end\\": 489
+                  },
+                  \\"info\\": {}
+                }
+              ]
+            ]
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"\\\\n\\\\n\\",
+            \\"offset\\": {
+              \\"start\\": 489,
+              \\"end\\": 491
+            }
+          },
+          null,
+          null
+        ]
+      ],
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"end\\",
+        \\"offset\\": {
+          \\"start\\": 491,
+          \\"end\\": 494
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 494,
+          \\"end\\": 495
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"function\\",
+        \\"offset\\": {
+          \\"start\\": 495,
+          \\"end\\": 503
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\"\\\\n\\\\n\\",
+        \\"offset\\": {
+          \\"start\\": 503,
+          \\"end\\": 505
+        }
+      }
+    ]
+  }
+]"
+`;
+
+exports[`define.4gl 1`] = `
+"MAIN 
+
+	DEFINE VAR1 BIGINT   
+	DEFINE VAR1 BYTE   
+	DEFINE VAR1 CHAR(100)
+	DEFINE VAR1 CHARACTER  
+	DEFINE VAR1 DATE   
+	DEFINE VAR1 DATETIME  day to day
+	DEFINE VAR1 DEC   
+	DEFINE VAR1 DECIMAL(10,2)
+	DEFINE VAR1 DECIMAL(10)
+	DEFINE VAR1 DOUBLE PRECISION  
+	DEFINE VAR1 DYNAMIC ARRAY  
+	DEFINE VAR1 FLOAT  
+	DEFINE VAR1 INT  
+	DEFINE VAR1 INTEGER  
+	DEFINE VAR1 MONEY  
+	DEFINE VAR1 NCHAR(100)  
+	DEFINE VAR1 NUMERIC  
+	DEFINE VAR1 NVARCHAR(100)  
+
+end MAIN
+
+function f1() 
+	--DEFINE VAR1 INTERVAL  
+end function
+
+function f2() 
+	DEFINE REC1 RECORD
+    VAR1 BIGINT
+  END RECORD
+
+	DEFINE REC2 RECORD
+    VAR1 CHAR(100),
+    VAR1 CHARACTER,
+    VAR1 DATE,
+    VAR1 DATETIME  day to day,
+    VAR1 DEC,
+    VAR1 DECIMAL(10,2),
+    VAR1 DECIMAL(10),
+    VAR1 DOUBLE PRECISION,
+    VAR1 FLOAT,
+    VAR1 INT,
+    VAR1 INTEGER,
+    VAR1 MONEY,
+    VAR1 NCHAR(100),
+    VAR1 NUMERIC,
+    VAR1 NVARCHAR(100)
+  END RECORD  
+
+end function
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[
+  {
+    \\"kind\\": \\"program\\",
+    \\"value\\": [
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"MAIN\\",
+        \\"offset\\": {
+          \\"start\\": 0,
+          \\"end\\": 4
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\\\n\\\\n\\\\t\\",
+        \\"offset\\": {
+          \\"start\\": 4,
+          \\"end\\": 8
+        }
+      },
+      [
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"DEFINE\\",
+              \\"offset\\": {
+                \\"start\\": 8,
+                \\"end\\": 14
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 14,
+                \\"end\\": 15
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"VAR1\\",
+              \\"offset\\": {
+                \\"start\\": 15,
+                \\"end\\": 19
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 19,
+                \\"end\\": 20
+              }
+            },
+            \\"BIGINT\\"
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"   \\\\n\\\\t\\",
+            \\"offset\\": {
+              \\"start\\": 26,
+              \\"end\\": 31
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"DEFINE\\",
+              \\"offset\\": {
+                \\"start\\": 31,
+                \\"end\\": 37
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 37,
+                \\"end\\": 38
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"VAR1\\",
+              \\"offset\\": {
+                \\"start\\": 38,
+                \\"end\\": 42
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 42,
+                \\"end\\": 43
+              }
+            },
+            \\"BYTE\\"
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"   \\\\n\\\\t\\",
+            \\"offset\\": {
+              \\"start\\": 47,
+              \\"end\\": 52
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"DEFINE\\",
+              \\"offset\\": {
+                \\"start\\": 52,
+                \\"end\\": 58
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 58,
+                \\"end\\": 59
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"VAR1\\",
+              \\"offset\\": {
+                \\"start\\": 59,
+                \\"end\\": 63
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 63,
+                \\"end\\": 64
+              }
+            },
+            \\"CHAR(100)\\"
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"\\\\n\\\\t\\",
+            \\"offset\\": {
+              \\"start\\": 73,
+              \\"end\\": 75
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"DEFINE\\",
+              \\"offset\\": {
+                \\"start\\": 75,
+                \\"end\\": 81
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 81,
+                \\"end\\": 82
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"VAR1\\",
+              \\"offset\\": {
+                \\"start\\": 82,
+                \\"end\\": 86
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 86,
+                \\"end\\": 87
+              }
+            },
+            \\"CHARACTER\\"
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"  \\\\n\\\\t\\",
+            \\"offset\\": {
+              \\"start\\": 96,
+              \\"end\\": 100
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"DEFINE\\",
+              \\"offset\\": {
+                \\"start\\": 100,
+                \\"end\\": 106
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 106,
+                \\"end\\": 107
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"VAR1\\",
+              \\"offset\\": {
+                \\"start\\": 107,
+                \\"end\\": 111
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 111,
+                \\"end\\": 112
+              }
+            },
+            \\"DATE\\"
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"   \\\\n\\\\t\\",
+            \\"offset\\": {
+              \\"start\\": 116,
+              \\"end\\": 121
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"DEFINE\\",
+              \\"offset\\": {
+                \\"start\\": 121,
+                \\"end\\": 127
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 127,
+                \\"end\\": 128
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"VAR1\\",
+              \\"offset\\": {
+                \\"start\\": 128,
+                \\"end\\": 132
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 132,
+                \\"end\\": 133
+              }
+            },
+            \\"DATETIME  day to day\\"
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"\\\\n\\\\t\\",
+            \\"offset\\": {
+              \\"start\\": 153,
+              \\"end\\": 155
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"DEFINE\\",
+              \\"offset\\": {
+                \\"start\\": 155,
+                \\"end\\": 161
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 161,
+                \\"end\\": 162
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"VAR1\\",
+              \\"offset\\": {
+                \\"start\\": 162,
+                \\"end\\": 166
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 166,
+                \\"end\\": 167
+              }
+            },
+            \\"DEC\\"
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"   \\\\n\\\\t\\",
+            \\"offset\\": {
+              \\"start\\": 170,
+              \\"end\\": 175
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"DEFINE\\",
+              \\"offset\\": {
+                \\"start\\": 175,
+                \\"end\\": 181
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 181,
+                \\"end\\": 182
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"VAR1\\",
+              \\"offset\\": {
+                \\"start\\": 182,
+                \\"end\\": 186
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 186,
+                \\"end\\": 187
+              }
+            },
+            \\"DECIMAL(10,2)\\"
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"\\\\n\\\\t\\",
+            \\"offset\\": {
+              \\"start\\": 200,
+              \\"end\\": 202
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"DEFINE\\",
+              \\"offset\\": {
+                \\"start\\": 202,
+                \\"end\\": 208
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 208,
+                \\"end\\": 209
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"VAR1\\",
+              \\"offset\\": {
+                \\"start\\": 209,
+                \\"end\\": 213
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 213,
+                \\"end\\": 214
+              }
+            },
+            \\"DECIMAL(10)\\"
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"\\\\n\\\\t\\",
+            \\"offset\\": {
+              \\"start\\": 225,
+              \\"end\\": 227
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"DEFINE\\",
+              \\"offset\\": {
+                \\"start\\": 227,
+                \\"end\\": 233
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 233,
+                \\"end\\": 234
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"VAR1\\",
+              \\"offset\\": {
+                \\"start\\": 234,
+                \\"end\\": 238
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 238,
+                \\"end\\": 239
+              }
+            },
+            \\"DOUBLE PRECISION\\"
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"  \\\\n\\\\t\\",
+            \\"offset\\": {
+              \\"start\\": 255,
+              \\"end\\": 259
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"DEFINE\\",
+              \\"offset\\": {
+                \\"start\\": 259,
+                \\"end\\": 265
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 265,
+                \\"end\\": 266
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"VAR1\\",
+              \\"offset\\": {
+                \\"start\\": 266,
+                \\"end\\": 270
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 270,
+                \\"end\\": 271
+              }
+            },
+            \\"DYNAMIC ARRAY\\"
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"  \\\\n\\\\t\\",
+            \\"offset\\": {
+              \\"start\\": 284,
+              \\"end\\": 288
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"DEFINE\\",
+              \\"offset\\": {
+                \\"start\\": 288,
+                \\"end\\": 294
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 294,
+                \\"end\\": 295
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"VAR1\\",
+              \\"offset\\": {
+                \\"start\\": 295,
+                \\"end\\": 299
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 299,
+                \\"end\\": 300
+              }
+            },
+            \\"FLOAT\\"
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"  \\\\n\\\\t\\",
+            \\"offset\\": {
+              \\"start\\": 305,
+              \\"end\\": 309
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"DEFINE\\",
+              \\"offset\\": {
+                \\"start\\": 309,
+                \\"end\\": 315
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 315,
+                \\"end\\": 316
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"VAR1\\",
+              \\"offset\\": {
+                \\"start\\": 316,
+                \\"end\\": 320
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 320,
+                \\"end\\": 321
+              }
+            },
+            \\"INT\\"
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"  \\\\n\\\\t\\",
+            \\"offset\\": {
+              \\"start\\": 324,
+              \\"end\\": 328
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"DEFINE\\",
+              \\"offset\\": {
+                \\"start\\": 328,
+                \\"end\\": 334
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 334,
+                \\"end\\": 335
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"VAR1\\",
+              \\"offset\\": {
+                \\"start\\": 335,
+                \\"end\\": 339
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 339,
+                \\"end\\": 340
+              }
+            },
+            \\"INTEGER\\"
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"  \\\\n\\\\t\\",
+            \\"offset\\": {
+              \\"start\\": 347,
+              \\"end\\": 351
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"DEFINE\\",
+              \\"offset\\": {
+                \\"start\\": 351,
+                \\"end\\": 357
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 357,
+                \\"end\\": 358
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"VAR1\\",
+              \\"offset\\": {
+                \\"start\\": 358,
+                \\"end\\": 362
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 362,
+                \\"end\\": 363
+              }
+            },
+            \\"MONEY\\"
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"  \\\\n\\\\t\\",
+            \\"offset\\": {
+              \\"start\\": 368,
+              \\"end\\": 372
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"DEFINE\\",
+              \\"offset\\": {
+                \\"start\\": 372,
+                \\"end\\": 378
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 378,
+                \\"end\\": 379
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"VAR1\\",
+              \\"offset\\": {
+                \\"start\\": 379,
+                \\"end\\": 383
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 383,
+                \\"end\\": 384
+              }
+            },
+            \\"NCHAR(100)\\"
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"  \\\\n\\\\t\\",
+            \\"offset\\": {
+              \\"start\\": 394,
+              \\"end\\": 398
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"DEFINE\\",
+              \\"offset\\": {
+                \\"start\\": 398,
+                \\"end\\": 404
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 404,
+                \\"end\\": 405
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"VAR1\\",
+              \\"offset\\": {
+                \\"start\\": 405,
+                \\"end\\": 409
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 409,
+                \\"end\\": 410
+              }
+            },
+            \\"NUMERIC\\"
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"  \\\\n\\\\t\\",
+            \\"offset\\": {
+              \\"start\\": 417,
+              \\"end\\": 421
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"DEFINE\\",
+              \\"offset\\": {
+                \\"start\\": 421,
+                \\"end\\": 427
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 427,
+                \\"end\\": 428
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"VAR1\\",
+              \\"offset\\": {
+                \\"start\\": 428,
+                \\"end\\": 432
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 432,
+                \\"end\\": 433
+              }
+            },
+            \\"NVARCHAR(100)\\"
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"  \\\\n\\\\n\\",
+            \\"offset\\": {
+              \\"start\\": 446,
+              \\"end\\": 450
+            }
+          },
+          null,
+          null
+        ]
+      ],
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"end\\",
+        \\"offset\\": {
+          \\"start\\": 450,
+          \\"end\\": 453
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 453,
+          \\"end\\": 454
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"MAIN\\",
+        \\"offset\\": {
+          \\"start\\": 454,
+          \\"end\\": 458
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\"\\\\n\\\\n\\",
+        \\"offset\\": {
+          \\"start\\": 458,
+          \\"end\\": 460
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"function\\",
+        \\"offset\\": {
+          \\"start\\": 460,
+          \\"end\\": 468
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 468,
+          \\"end\\": 469
+        }
+      },
+      {
+        \\"kind\\": \\"identifier\\",
+        \\"value\\": \\"f1\\",
+        \\"offset\\": {
+          \\"start\\": 469,
+          \\"end\\": 471
+        }
+      },
+      [],
+      [
+        {
+          \\"kind\\": \\"whitespace\\",
+          \\"value\\": \\" \\\\n\\\\t\\",
+          \\"offset\\": {
+            \\"start\\": 473,
+            \\"end\\": 476
+          }
+        },
+        {
+          \\"kind\\": \\"comment\\",
+          \\"value\\": \\"--DEFINE VAR1 INTERVAL  \\\\n\\",
+          \\"offset\\": {
+            \\"start\\": 476,
+            \\"end\\": 501
+          }
+        }
+      ],
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"end\\",
+        \\"offset\\": {
+          \\"start\\": 501,
+          \\"end\\": 504
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 504,
+          \\"end\\": 505
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"function\\",
+        \\"offset\\": {
+          \\"start\\": 505,
+          \\"end\\": 513
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\"\\\\n\\\\n\\",
+        \\"offset\\": {
+          \\"start\\": 513,
+          \\"end\\": 515
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"function\\",
+        \\"offset\\": {
+          \\"start\\": 515,
+          \\"end\\": 523
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 523,
+          \\"end\\": 524
+        }
+      },
+      {
+        \\"kind\\": \\"identifier\\",
+        \\"value\\": \\"f2\\",
+        \\"offset\\": {
+          \\"start\\": 524,
+          \\"end\\": 526
+        }
+      },
+      [],
+      [
+        [
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\" \\\\n\\\\t\\",
+            \\"offset\\": {
+              \\"start\\": 528,
+              \\"end\\": 531
+            }
+          },
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"DEFINE\\",
+              \\"offset\\": {
+                \\"start\\": 531,
+                \\"end\\": 537
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 537,
+                \\"end\\": 538
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"REC1\\",
+              \\"offset\\": {
+                \\"start\\": 538,
+                \\"end\\": 542
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 542,
+                \\"end\\": 543
+              }
+            },
+            [
+              {
+                \\"kind\\": \\"keyword\\",
+                \\"value\\": \\"RECORD\\",
+                \\"offset\\": {
+                  \\"start\\": 543,
+                  \\"end\\": 549
+                }
+              },
+              [
+                {
+                  \\"kind\\": \\"identifier\\",
+                  \\"value\\": \\"VAR1\\",
+                  \\"offset\\": {
+                    \\"start\\": 554,
+                    \\"end\\": 558
+                  }
+                }
+              ],
+              {
+                \\"kind\\": \\"keyword\\",
+                \\"value\\": \\"END\\",
+                \\"offset\\": {
+                  \\"start\\": 568,
+                  \\"end\\": 571
+                }
+              },
+              {
+                \\"kind\\": \\"whitespace\\",
+                \\"value\\": \\" \\",
+                \\"offset\\": {
+                  \\"start\\": 571,
+                  \\"end\\": 572
+                }
+              },
+              {
+                \\"kind\\": \\"keyword\\",
+                \\"value\\": \\"RECORD\\",
+                \\"offset\\": {
+                  \\"start\\": 572,
+                  \\"end\\": 578
+                }
+              }
+            ]
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"\\\\n\\\\n\\\\t\\",
+            \\"offset\\": {
+              \\"start\\": 578,
+              \\"end\\": 581
+            }
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"DEFINE\\",
+              \\"offset\\": {
+                \\"start\\": 581,
+                \\"end\\": 587
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 587,
+                \\"end\\": 588
+              }
+            },
+            {
+              \\"kind\\": \\"identifier\\",
+              \\"value\\": \\"REC2\\",
+              \\"offset\\": {
+                \\"start\\": 588,
+                \\"end\\": 592
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 592,
+                \\"end\\": 593
+              }
+            },
+            [
+              {
+                \\"kind\\": \\"keyword\\",
+                \\"value\\": \\"RECORD\\",
+                \\"offset\\": {
+                  \\"start\\": 593,
+                  \\"end\\": 599
+                }
+              },
+              [
+                {
+                  \\"kind\\": \\"identifier\\",
+                  \\"value\\": \\"VAR1\\",
+                  \\"offset\\": {
+                    \\"start\\": 604,
+                    \\"end\\": 608
+                  }
+                },
+                {
+                  \\"kind\\": \\"identifier\\",
+                  \\"value\\": \\"VAR1\\",
+                  \\"offset\\": {
+                    \\"start\\": 624,
+                    \\"end\\": 628
+                  }
+                },
+                {
+                  \\"kind\\": \\"identifier\\",
+                  \\"value\\": \\"VAR1\\",
+                  \\"offset\\": {
+                    \\"start\\": 644,
+                    \\"end\\": 648
+                  }
+                },
+                {
+                  \\"kind\\": \\"identifier\\",
+                  \\"value\\": \\"VAR1\\",
+                  \\"offset\\": {
+                    \\"start\\": 659,
+                    \\"end\\": 663
+                  }
+                },
+                {
+                  \\"kind\\": \\"identifier\\",
+                  \\"value\\": \\"VAR1\\",
+                  \\"offset\\": {
+                    \\"start\\": 690,
+                    \\"end\\": 694
+                  }
+                },
+                {
+                  \\"kind\\": \\"identifier\\",
+                  \\"value\\": \\"VAR1\\",
+                  \\"offset\\": {
+                    \\"start\\": 704,
+                    \\"end\\": 708
+                  }
+                },
+                {
+                  \\"kind\\": \\"identifier\\",
+                  \\"value\\": \\"VAR1\\",
+                  \\"offset\\": {
+                    \\"start\\": 728,
+                    \\"end\\": 732
+                  }
+                },
+                {
+                  \\"kind\\": \\"identifier\\",
+                  \\"value\\": \\"VAR1\\",
+                  \\"offset\\": {
+                    \\"start\\": 750,
+                    \\"end\\": 754
+                  }
+                },
+                {
+                  \\"kind\\": \\"identifier\\",
+                  \\"value\\": \\"VAR1\\",
+                  \\"offset\\": {
+                    \\"start\\": 777,
+                    \\"end\\": 781
+                  }
+                },
+                {
+                  \\"kind\\": \\"identifier\\",
+                  \\"value\\": \\"VAR1\\",
+                  \\"offset\\": {
+                    \\"start\\": 793,
+                    \\"end\\": 797
+                  }
+                },
+                {
+                  \\"kind\\": \\"identifier\\",
+                  \\"value\\": \\"VAR1\\",
+                  \\"offset\\": {
+                    \\"start\\": 807,
+                    \\"end\\": 811
+                  }
+                },
+                {
+                  \\"kind\\": \\"identifier\\",
+                  \\"value\\": \\"VAR1\\",
+                  \\"offset\\": {
+                    \\"start\\": 825,
+                    \\"end\\": 829
+                  }
+                },
+                {
+                  \\"kind\\": \\"identifier\\",
+                  \\"value\\": \\"VAR1\\",
+                  \\"offset\\": {
+                    \\"start\\": 841,
+                    \\"end\\": 845
+                  }
+                },
+                {
+                  \\"kind\\": \\"identifier\\",
+                  \\"value\\": \\"VAR1\\",
+                  \\"offset\\": {
+                    \\"start\\": 862,
+                    \\"end\\": 866
+                  }
+                },
+                {
+                  \\"kind\\": \\"identifier\\",
+                  \\"value\\": \\"VAR1\\",
+                  \\"offset\\": {
+                    \\"start\\": 880,
+                    \\"end\\": 884
+                  }
+                }
+              ],
+              {
+                \\"kind\\": \\"keyword\\",
+                \\"value\\": \\"END\\",
+                \\"offset\\": {
+                  \\"start\\": 901,
+                  \\"end\\": 904
+                }
+              },
+              {
+                \\"kind\\": \\"whitespace\\",
+                \\"value\\": \\" \\",
+                \\"offset\\": {
+                  \\"start\\": 904,
+                  \\"end\\": 905
+                }
+              },
+              {
+                \\"kind\\": \\"keyword\\",
+                \\"value\\": \\"RECORD\\",
+                \\"offset\\": {
+                  \\"start\\": 905,
+                  \\"end\\": 911
+                }
+              }
+            ]
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"  \\\\n\\\\n\\",
+            \\"offset\\": {
+              \\"start\\": 911,
+              \\"end\\": 915
+            }
+          },
+          null,
+          null
+        ]
+      ],
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"end\\",
+        \\"offset\\": {
+          \\"start\\": 915,
+          \\"end\\": 918
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 918,
+          \\"end\\": 919
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"function\\",
+        \\"offset\\": {
+          \\"start\\": 919,
+          \\"end\\": 927
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\"\\\\n\\\\n\\",
+        \\"offset\\": {
+          \\"start\\": 927,
+          \\"end\\": 929
+        }
+      }
+    ]
+  }
+]"
+`;
+
+exports[`define2.4gl 1`] = `
+"main 
+	--DEFINE VAR1 record LIKE TAB1.*
+end main
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[
+  {
+    \\"kind\\": \\"program\\",
+    \\"value\\": [
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"main\\",
+        \\"offset\\": {
+          \\"start\\": 0,
+          \\"end\\": 4
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\\\n\\\\t\\",
+        \\"offset\\": {
+          \\"start\\": 4,
+          \\"end\\": 7
+        }
+      },
+      [
+        {
+          \\"kind\\": \\"comment\\",
+          \\"value\\": \\"--DEFINE VAR1 record LIKE TAB1.*\\\\n\\",
+          \\"offset\\": {
+            \\"start\\": 7,
+            \\"end\\": 40
+          }
+        }
+      ],
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"end\\",
+        \\"offset\\": {
+          \\"start\\": 40,
+          \\"end\\": 43
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 43,
+          \\"end\\": 44
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"main\\",
+        \\"offset\\": {
+          \\"start\\": 44,
+          \\"end\\": 48
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\"\\\\n\\",
+        \\"offset\\": {
+          \\"start\\": 48,
+          \\"end\\": 49
+        }
+      }
+    ]
+  }
+]"
+`;
+
+exports[`function.4gl 1`] = `
+"main
+   
+end main
+
+function f0()
+   
+end function
+
+function f1(p1)
+   
+end function
+
+function f2(p1, p2)
+   
+end function
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[
+  {
+    \\"kind\\": \\"program\\",
+    \\"value\\": [
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"main\\",
+        \\"offset\\": {
+          \\"start\\": 0,
+          \\"end\\": 4
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\"\\\\n   \\\\n\\",
+        \\"offset\\": {
+          \\"start\\": 4,
+          \\"end\\": 9
+        }
+      },
+      null,
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"end\\",
+        \\"offset\\": {
+          \\"start\\": 9,
+          \\"end\\": 12
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 12,
+          \\"end\\": 13
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"main\\",
+        \\"offset\\": {
+          \\"start\\": 13,
+          \\"end\\": 17
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\"\\\\n\\\\n\\",
+        \\"offset\\": {
+          \\"start\\": 17,
+          \\"end\\": 19
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"function\\",
+        \\"offset\\": {
+          \\"start\\": 19,
+          \\"end\\": 27
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 27,
+          \\"end\\": 28
+        }
+      },
+      {
+        \\"kind\\": \\"identifier\\",
+        \\"value\\": \\"f0\\",
+        \\"offset\\": {
+          \\"start\\": 28,
+          \\"end\\": 30
+        }
+      },
+      [],
+      [
+        {
+          \\"kind\\": \\"whitespace\\",
+          \\"value\\": \\"\\\\n   \\\\n\\",
+          \\"offset\\": {
+            \\"start\\": 32,
+            \\"end\\": 37
+          }
+        }
+      ],
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"end\\",
+        \\"offset\\": {
+          \\"start\\": 37,
+          \\"end\\": 40
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 40,
+          \\"end\\": 41
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"function\\",
+        \\"offset\\": {
+          \\"start\\": 41,
+          \\"end\\": 49
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\"\\\\n\\\\n\\",
+        \\"offset\\": {
+          \\"start\\": 49,
+          \\"end\\": 51
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"function\\",
+        \\"offset\\": {
+          \\"start\\": 51,
+          \\"end\\": 59
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 59,
+          \\"end\\": 60
+        }
+      },
+      {
+        \\"kind\\": \\"identifier\\",
+        \\"value\\": \\"f1\\",
+        \\"offset\\": {
+          \\"start\\": 60,
+          \\"end\\": 62
+        }
+      },
+      [
+        {
+          \\"kind\\": \\"identifier\\",
+          \\"value\\": \\"p1\\",
+          \\"offset\\": {
+            \\"start\\": 63,
+            \\"end\\": 65
+          }
+        }
+      ],
+      [
+        {
+          \\"kind\\": \\"whitespace\\",
+          \\"value\\": \\"\\\\n   \\\\n\\",
+          \\"offset\\": {
+            \\"start\\": 66,
+            \\"end\\": 71
+          }
+        }
+      ],
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"end\\",
+        \\"offset\\": {
+          \\"start\\": 71,
+          \\"end\\": 74
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 74,
+          \\"end\\": 75
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"function\\",
+        \\"offset\\": {
+          \\"start\\": 75,
+          \\"end\\": 83
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\"\\\\n\\\\n\\",
+        \\"offset\\": {
+          \\"start\\": 83,
+          \\"end\\": 85
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"function\\",
+        \\"offset\\": {
+          \\"start\\": 85,
+          \\"end\\": 93
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 93,
+          \\"end\\": 94
+        }
+      },
+      {
+        \\"kind\\": \\"identifier\\",
+        \\"value\\": \\"f2\\",
+        \\"offset\\": {
+          \\"start\\": 94,
+          \\"end\\": 96
+        }
+      },
+      [
+        null,
+        {
+          \\"kind\\": \\"identifier\\",
+          \\"value\\": \\"p2\\",
+          \\"offset\\": {
+            \\"start\\": 101,
+            \\"end\\": 103
+          }
+        }
+      ],
+      [
+        {
+          \\"kind\\": \\"whitespace\\",
+          \\"value\\": \\"\\\\n   \\\\n\\",
+          \\"offset\\": {
+            \\"start\\": 104,
+            \\"end\\": 109
+          }
+        }
+      ],
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"end\\",
+        \\"offset\\": {
+          \\"start\\": 109,
+          \\"end\\": 112
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 112,
+          \\"end\\": 113
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"function\\",
+        \\"offset\\": {
+          \\"start\\": 113,
+          \\"end\\": 121
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\"\\\\n\\",
+        \\"offset\\": {
+          \\"start\\": 121,
+          \\"end\\": 122
+        }
+      }
+    ]
+  }
+]"
+`;

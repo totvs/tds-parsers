@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pragma.4gl 1`] = `
+"--@format
+main 
+  display \\"hello \\"
+end main
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[
+  {
+    \\"kind\\": \\"program\\",
+    \\"value\\": [
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"main\\",
+        \\"offset\\": {
+          \\"start\\": 10,
+          \\"end\\": 14
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\\\n  \\",
+        \\"offset\\": {
+          \\"start\\": 14,
+          \\"end\\": 18
+        }
+      },
+      [
+        [
+          null,
+          [
+            {
+              \\"kind\\": \\"keyword\\",
+              \\"value\\": \\"display\\",
+              \\"offset\\": {
+                \\"start\\": 18,
+                \\"end\\": 25
+              }
+            },
+            {
+              \\"kind\\": \\"whitespace\\",
+              \\"value\\": \\" \\",
+              \\"offset\\": {
+                \\"start\\": 25,
+                \\"end\\": 26
+              }
+            },
+            [
+              {
+                \\"kind\\": \\"string\\",
+                \\"value\\": \\"\\\\\\"hello \\\\\\"\\",
+                \\"offset\\": {
+                  \\"start\\": 26,
+                  \\"end\\": 34
+                },
+                \\"info\\": {
+                  \\"type\\": \\"string\\"
+                }
+              }
+            ]
+          ],
+          {
+            \\"kind\\": \\"whitespace\\",
+            \\"value\\": \\"\\\\n\\",
+            \\"offset\\": {
+              \\"start\\": 34,
+              \\"end\\": 35
+            }
+          },
+          null,
+          null
+        ]
+      ],
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"end\\",
+        \\"offset\\": {
+          \\"start\\": 35,
+          \\"end\\": 38
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\" \\",
+        \\"offset\\": {
+          \\"start\\": 38,
+          \\"end\\": 39
+        }
+      },
+      {
+        \\"kind\\": \\"keyword\\",
+        \\"value\\": \\"main\\",
+        \\"offset\\": {
+          \\"start\\": 39,
+          \\"end\\": 43
+        }
+      },
+      {
+        \\"kind\\": \\"whitespace\\",
+        \\"value\\": \\"\\\\n\\",
+        \\"offset\\": {
+          \\"start\\": 43,
+          \\"end\\": 44
+        }
+      }
+    ]
+  }
+]"
+`;

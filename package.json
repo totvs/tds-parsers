@@ -1,0 +1,87 @@
+{
+  "name": "@totvs/tds-parsers",
+  "displayName": "TOTVS Developer Studio: Parsers",
+  "description": "Extensão para análise sintática das linguagens proprietárias TOTVS e de terceiros.",
+  "version": "0.0.1",
+  "publisher": "TOTVS",
+  "author": {
+    "name": "TOTVS",
+    "email": "tecnologia@totvs.com.br"
+  },
+  "license": "MIT",
+  "keywords": [
+    "4gl",
+    "advpl",
+    "tds",
+    "totvs",
+    "parser"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/totvs/tds-parsers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/totvs/tds-parsers/issues"
+  },
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "main": "lib/index.js",
+  "types": "typings/tds-parser.d.ts",
+  "files": [
+    "bin/",
+    "lib/",
+    "typings/",
+    "README.md",
+    "LICENSE"
+  ],
+  "bin": {
+    "tds-parser": "./bin/tds-parser-cli.js"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "tsc -p ./src",
+    "watch": "tsc -p ./src --watch",
+    "prebuild": "npm run clean & npm run pegjs:4gl",
+    "pegjs:4gl": "pegjs -o src/4gl.js grammar/4gl.pegjs",
+    "-----": "",
+    "test": "jest",
+    "test:snapshot": "npm run test -- -u ",
+    "pretest": "npm run build",
+    "------": "",
+    "release": "standard-version",
+    "tag": "git push --follow-tags",
+    "publish": "npm publish",
+    "-------": "",
+    "contributors:check": "all-contributors check",
+    "contributors:generate": "all-contributors generate"
+  },
+  "peerDependencies": {},
+  "dependencies": {
+    "@types/node": "^14.6.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "codecov": "^3.7.2",
+    "husky": "^4.2.5",
+    "jest": "^26.3.0",
+    "jest-watch-typeahead": "^0.6.0",
+    "pegjs": "^0.10.0",
+    "prettier-plugin-pegjs": "^0.3.1",
+    "standard-version": "^8.0.2"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
