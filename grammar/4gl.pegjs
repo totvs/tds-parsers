@@ -220,37 +220,26 @@
   };
 
   var program = { kind: "program", value: [], offset: undefined };
-  var nodes = [];
 
-  function addNode(node, subnode) {
-    nodes.push(node);
+  function addNode(node) {
+    program.value.push(node);
 
-    if (subnode) {
-      if (node.type) {
-        program.value.push(node);
-      } else if (Array.isArray(node.value)) {
-        program.value.push(...node.value);
-      } else {
-        program.value.push(node);
-      }
-      nodes = [];
-    } 
-
-    return node
+    return program;
   }
 
-  function createNode(kind, value, info) {
+  function createNode(kind, value) {
     if (value) {
       const _location = location();
       const offset = {
         start: _location.start.offset,
         end: _location.end.offset,
       };
-      const obj = { kind: kind, value: value, offset: offset };
 
-      if (info) obj.info = info;
+      const obj = { kind: kind, value: value, offset: offset, line: _location.start.line, column: _location.start.column };
 
       return obj;
+    } else {
+      console.log("********");
     }
   }
 
@@ -270,11 +259,6 @@
     return createNode(TokenKind.comment, value);
   }
 
-  function createNodeLine(line) {
-
-    return createNode(TokenKind.line, line);
-  }
-
   function createNodeSession(session) {
 
     return createNode(TokenKind.session, session);
@@ -290,17 +274,10 @@
     return createNode(TokenKind.global, value);
   }
 
-  function createNodeMain(code) {
-    const info = { id: "main", arguments: [], block: code };
-
-    return createNode(TokenKind.main, info.id, info);
-  }
-
-
   function createNodeVar(variable, index) {
-    const info = { index: index };
+    const info = { variable: variable, index: index };
 
-    return createNode(TokenKind.variable, variable, info);
+    return createNode(TokenKind.variable, info);
   }
 
   function createNodeBuiltInVar(variable) {
@@ -310,33 +287,33 @@
   function createNodeFunction(id, _arguments, code) {
     const info = { id: id, arguments: _arguments, block: code };
 
-    return createNode(TokenKind.function, id.value, info);
+    return createNode(TokenKind.function, info);
+  }
+
+  function createNodeCommand(...args) {
+    return createNode(TokenKind.command, args);
   }
 
   function createNodeExpression(operator, expression) {
     const info = { operator: operator, expression: expression };
 
-    return createNode(TokenKind.expression, "", info);
+    return createNode(TokenKind.expression, info);
   }
 
   function createNodeOperator(operator) {
     return createNode(TokenKind.operator, operator);
   }
 
-  function createNodeCommand(command) {
-    return createNode(TokenKind.command, command);
-  }
-
   function createNodeNumber(dataType, value) {
-    const info = { type: dataType };
+    const info = { type: dataType, value: value };
 
-    return createNode(TokenKind.number, value, info);
+    return createNode(TokenKind.number, info);
   }
 
   function createNodeString(value) {
-    const info = { type: ConstType.string };
+    const info = { type: ConstType.string, value: value };
 
-    return createNode(TokenKind.string, value, info);
+    return createNode(TokenKind.string, info);
   }
 
 }
@@ -344,19 +321,19 @@
 start = l:line* { return program }
 
 line
-  = SPACE? session SPACE? comment?
-  / comment
+  = SPACE? s:session SPACE? comment? { addNode(s)}
+  / c: comment { addNode(c) }
   / SPACE
 
 session
-  = s:modular  { addNode(createNodeSession(s), true); }
-  / s:globals  { addNode(createNodeSession(s), true); }
-  / s:function { addNode(createNodeSession(s), true); }
+  = s:modular  { return createNodeSession(s); }
+  / s:globals  { return createNodeSession(s); }
+  / s:function { return s; }
 
 comment
-  = c:$("#" (!NL .)* NL) { return addNode(createNodeComment(c)); }
-  / c:$("--" (!NL .)* NL) { return addNode(createNodeComment(c)); }
-  / c:$("{" (!"}" .)* "}") { return addNode(createNodeComment(c)); }
+  = c:$("#" (!NL .)* NL) { return createNodeComment(c); }
+  / c:$("--" (!NL .)* NL) { return createNodeComment(c); }
+  / c:$("{" (!"}" .)* "}") { return createNodeComment(c); }
 
 modular = define+
 
@@ -365,21 +342,21 @@ globals
   / GLOBALS SPACE string_exp
 
 function
-  = MAIN SPACE blockCommand? END SPACE MAIN SPACE
+  = MAIN SPACE b:blockCommand? END SPACE MAIN SPACE { return createNodeFunction("main", [], b); }
   / FUNCTION
     SPACE
-    ID
-    parameterList
-    blockCommand?
+    f:ID
+    a:parameterList
+    b:blockCommand?
     END
     SPACE
     FUNCTION
-    SPACE
+    SPACE { return createNodeFunction(f, a?a:[], b); }
 
 blockCommand = commands+
 
 commands
-  = SPACE? command SPACE? comment? NL?
+  = SPACE? c:command SPACE? comment? NL? { return createNodeCommand(c); }
   / SPACE
   / comment
 
@@ -450,36 +427,36 @@ variable
   / v:$(ID DOT ASTERISK) { return createNodeVar(v); }
   / v:ID O_BRACKET i:expressions C_BRACKET { return createNodeVar(v, i); }
   / v:ID { return createNodeVar(v); }
-  / v:builtInVariables { return v; }
+  / v:builtInVariables { return createNodeBuiltInVar(v); }
 
 builtInVariables
-  = v:"arg_val"i { return createNodeBuiltInVar(v); }
-  / v:"arr_count"i { return createNodeBuiltInVar(v); }
-  / v:"arr_curr"i { return createNodeBuiltInVar(v); }
-  / v:"errorlog"i { return createNodeBuiltInVar(v); }
-  / v:"fgl_keyval"i { return createNodeBuiltInVar(v); }
-  / v:"fgl_lastkey"i { return createNodeBuiltInVar(v); }
-  / v:"infield"i { return createNodeBuiltInVar(v); }
-  / v:"int_flag"i { return createNodeBuiltInVar(v); }
-  / v:"quit_flag"i { return createNodeBuiltInVar(v); }
-  / v:"num_args"i { return createNodeBuiltInVar(v); }
-  / v:"scr_line"i { return createNodeBuiltInVar(v); }
-  / v:"set_count"i { return createNodeBuiltInVar(v); }
-  / v:"showhelp"i { return createNodeBuiltInVar(v); }
-  / v:"sqlca"i { return createNodeBuiltInVar(v); }
-  / v:"sqlcode"i { return createNodeBuiltInVar(v); }
-  / v:"sqlerrd"i { return createNodeBuiltInVar(v); }
-  / v:"startlog"i { return createNodeBuiltInVar(v); }
+  = "arg_val"i 
+  / "arr_count"i 
+  / "arr_curr"i 
+  / "errorlog"i 
+  / "fgl_keyval"i 
+  / "fgl_lastkey"i 
+  / "infield"i 
+  / "int_flag"i 
+  / "quit_flag"i 
+  / "num_args"i 
+  / "scr_line"i 
+  / "set_count"i 
+  / "showhelp"i 
+  / "sqlca"i 
+  / "sqlcode"i 
+  / "sqlerrd"i 
+  / "startlog"i 
 
 dataType
-  = r:simpleDataType     { return r; }
-  / r:structuredDataType { return r; }
-  / r:largeDataType      { return r; }
+  = simpleDataType     
+  / structuredDataType 
+  / largeDataType      
 
 simpleDataType
-  = r:numberType    { return r; }
-  / r:timeType      { return r; }
-  / r:characterType { return r; }
+  = numberType    
+  / timeType      
+  / characterType 
 
 numberType
   = $(BIGINT / INTEGER / INT)
@@ -684,11 +661,7 @@ FRACTION = k:"fraction"i { return createNodeKeyword(k); }
 // }
 
 integer_exp
-  = t:integer_text { return createNodeNumber(ConstType.integer, parseInt(text, 10)); }
-
-integer_text
-  = "+"? d:$DIGIT+ !"."
-  / "-" d:$DIGIT+ !"."
+  = t:([-+]? $DIGIT+) { return createNodeNumber(ConstType.integer, parseInt(t, 10)) }
 
 string_exp
   = s:(double_quoted_string / single_quoted_string) { return createNodeString(s); }
@@ -722,10 +695,10 @@ ESCAPED
 DIGIT = [0-9]
 
 SPACE
-  = s:$[ \t\n\r]+ { return createNodeSpace(s); }
+  = s:$[ \t\n\r]+ { /*return createNodeSpace(s);*/ }
   / s:NL+
 
-NL = s:$("\n" / "\r\n") { return createNodeSpace(s); }
+NL = s:$("\n" / "\r\n") { /*return createNodeSpace(s);*/ }
 
 NLS
   = NL

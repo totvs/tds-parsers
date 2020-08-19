@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`builtInVars.4gl 1`] = `
-"main
+main
 
     let x, y = arg_val
     let x, y = arr_count
@@ -12,496 +12,390 @@ end main
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 [
   {
-    \\"kind\\": \\"program\\",
-    \\"value\\": [
+    "kind": "program",
+    "value": [
       {
-        \\"kind\\": \\"keyword\\",
-        \\"value\\": \\"main\\",
-        \\"offset\\": {
-          \\"start\\": 0,
-          \\"end\\": 4
-        }
-      },
-      {
-        \\"kind\\": \\"whitespace\\",
-        \\"value\\": \\"\\\\n\\\\n    \\",
-        \\"offset\\": {
-          \\"start\\": 4,
-          \\"end\\": 10
-        }
-      },
-      [
-        [
-          null,
-          [
+        "kind": "function",
+        "value": {
+          "id": "main",
+          "arguments": [],
+          "block": [
             {
-              \\"kind\\": \\"keyword\\",
-              \\"value\\": \\"let\\",
-              \\"offset\\": {
-                \\"start\\": 10,
-                \\"end\\": 13
-              }
+              "kind": "command",
+              "value": [
+                [
+                  {
+                    "kind": "keyword",
+                    "value": "let",
+                    "offset": {
+                      "start": 10,
+                      "end": 13
+                    },
+                    "line": 3,
+                    "column": 5
+                  },
+                  null,
+                  [
+                    null,
+                    {
+                      "kind": "variable",
+                      "value": {
+                        "variable": {
+                          "kind": "identifier",
+                          "value": "y",
+                          "offset": {
+                            "start": 17,
+                            "end": 18
+                          },
+                          "line": 3,
+                          "column": 12
+                        }
+                      },
+                      "offset": {
+                        "start": 17,
+                        "end": 18
+                      },
+                      "line": 3,
+                      "column": 12
+                    }
+                  ],
+                  null,
+                  {
+                    "kind": "operator",
+                    "value": "=",
+                    "offset": {
+                      "start": 19,
+                      "end": 20
+                    },
+                    "line": 3,
+                    "column": 14
+                  },
+                  null,
+                  [
+                    {
+                      "kind": "variable",
+                      "value": {
+                        "variable": {
+                          "kind": "identifier",
+                          "value": "arg_val",
+                          "offset": {
+                            "start": 21,
+                            "end": 28
+                          },
+                          "line": 3,
+                          "column": 16
+                        }
+                      },
+                      "offset": {
+                        "start": 21,
+                        "end": 28
+                      },
+                      "line": 3,
+                      "column": 16
+                    }
+                  ]
+                ]
+              ],
+              "offset": {
+                "start": 10,
+                "end": 33
+              },
+              "line": 3,
+              "column": 5
             },
             {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 13,
-                \\"end\\": 14
-              }
+              "kind": "command",
+              "value": [
+                [
+                  {
+                    "kind": "keyword",
+                    "value": "let",
+                    "offset": {
+                      "start": 33,
+                      "end": 36
+                    },
+                    "line": 4,
+                    "column": 5
+                  },
+                  null,
+                  [
+                    null,
+                    {
+                      "kind": "variable",
+                      "value": {
+                        "variable": {
+                          "kind": "identifier",
+                          "value": "y",
+                          "offset": {
+                            "start": 40,
+                            "end": 41
+                          },
+                          "line": 4,
+                          "column": 12
+                        }
+                      },
+                      "offset": {
+                        "start": 40,
+                        "end": 41
+                      },
+                      "line": 4,
+                      "column": 12
+                    }
+                  ],
+                  null,
+                  {
+                    "kind": "operator",
+                    "value": "=",
+                    "offset": {
+                      "start": 42,
+                      "end": 43
+                    },
+                    "line": 4,
+                    "column": 14
+                  },
+                  null,
+                  [
+                    {
+                      "kind": "variable",
+                      "value": {
+                        "variable": {
+                          "kind": "identifier",
+                          "value": "arr_count",
+                          "offset": {
+                            "start": 44,
+                            "end": 53
+                          },
+                          "line": 4,
+                          "column": 16
+                        }
+                      },
+                      "offset": {
+                        "start": 44,
+                        "end": 53
+                      },
+                      "line": 4,
+                      "column": 16
+                    }
+                  ]
+                ]
+              ],
+              "offset": {
+                "start": 33,
+                "end": 58
+              },
+              "line": 4,
+              "column": 5
             },
-            [
-              null,
-              {
-                \\"kind\\": \\"variable\\",
-                \\"value\\": {
-                  \\"kind\\": \\"identifier\\",
-                  \\"value\\": \\"y\\",
-                  \\"offset\\": {
-                    \\"start\\": 17,
-                    \\"end\\": 18
-                  }
-                },
-                \\"offset\\": {
-                  \\"start\\": 17,
-                  \\"end\\": 18
-                },
-                \\"info\\": {}
-              }
-            ],
             {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 18,
-                \\"end\\": 19
-              }
+              "kind": "command",
+              "value": [
+                [
+                  {
+                    "kind": "keyword",
+                    "value": "let",
+                    "offset": {
+                      "start": 58,
+                      "end": 61
+                    },
+                    "line": 5,
+                    "column": 5
+                  },
+                  null,
+                  [
+                    null,
+                    {
+                      "kind": "variable",
+                      "value": {
+                        "variable": {
+                          "kind": "identifier",
+                          "value": "y",
+                          "offset": {
+                            "start": 65,
+                            "end": 66
+                          },
+                          "line": 5,
+                          "column": 12
+                        }
+                      },
+                      "offset": {
+                        "start": 65,
+                        "end": 66
+                      },
+                      "line": 5,
+                      "column": 12
+                    }
+                  ],
+                  null,
+                  {
+                    "kind": "operator",
+                    "value": "=",
+                    "offset": {
+                      "start": 67,
+                      "end": 68
+                    },
+                    "line": 5,
+                    "column": 14
+                  },
+                  null,
+                  [
+                    {
+                      "kind": "variable",
+                      "value": {
+                        "variable": {
+                          "kind": "identifier",
+                          "value": "arr_cur",
+                          "offset": {
+                            "start": 69,
+                            "end": 76
+                          },
+                          "line": 5,
+                          "column": 16
+                        }
+                      },
+                      "offset": {
+                        "start": 69,
+                        "end": 76
+                      },
+                      "line": 5,
+                      "column": 16
+                    }
+                  ]
+                ]
+              ],
+              "offset": {
+                "start": 58,
+                "end": 81
+              },
+              "line": 5,
+              "column": 5
             },
             {
-              \\"kind\\": \\"operator\\",
-              \\"value\\": \\"=\\",
-              \\"offset\\": {
-                \\"start\\": 19,
-                \\"end\\": 20
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 20,
-                \\"end\\": 21
-              }
-            },
-            [
-              {
-                \\"kind\\": \\"variable\\",
-                \\"value\\": {
-                  \\"kind\\": \\"identifier\\",
-                  \\"value\\": \\"arg_val\\",
-                  \\"offset\\": {
-                    \\"start\\": 21,
-                    \\"end\\": 28
-                  }
-                },
-                \\"offset\\": {
-                  \\"start\\": 21,
-                  \\"end\\": 28
-                },
-                \\"info\\": {}
-              }
-            ]
-          ],
-          {
-            \\"kind\\": \\"whitespace\\",
-            \\"value\\": \\"\\\\n    \\",
-            \\"offset\\": {
-              \\"start\\": 28,
-              \\"end\\": 33
+              "kind": "command",
+              "value": [
+                [
+                  {
+                    "kind": "keyword",
+                    "value": "let",
+                    "offset": {
+                      "start": 81,
+                      "end": 84
+                    },
+                    "line": 6,
+                    "column": 5
+                  },
+                  null,
+                  [
+                    null,
+                    {
+                      "kind": "variable",
+                      "value": {
+                        "variable": {
+                          "kind": "identifier",
+                          "value": "y",
+                          "offset": {
+                            "start": 88,
+                            "end": 89
+                          },
+                          "line": 6,
+                          "column": 12
+                        }
+                      },
+                      "offset": {
+                        "start": 88,
+                        "end": 89
+                      },
+                      "line": 6,
+                      "column": 12
+                    }
+                  ],
+                  null,
+                  {
+                    "kind": "operator",
+                    "value": "=",
+                    "offset": {
+                      "start": 90,
+                      "end": 91
+                    },
+                    "line": 6,
+                    "column": 14
+                  },
+                  null,
+                  [
+                    {
+                      "kind": "variable",
+                      "value": {
+                        "variable": {
+                          "kind": "identifier",
+                          "value": "sqlca",
+                          "offset": {
+                            "start": 92,
+                            "end": 97
+                          },
+                          "line": 6,
+                          "column": 16
+                        }
+                      },
+                      "offset": {
+                        "start": 92,
+                        "end": 97
+                      },
+                      "line": 6,
+                      "column": 16
+                    }
+                  ]
+                ]
+              ],
+              "offset": {
+                "start": 81,
+                "end": 103
+              },
+              "line": 6,
+              "column": 5
             }
-          },
-          null,
-          null
-        ],
-        [
-          null,
-          [
-            {
-              \\"kind\\": \\"keyword\\",
-              \\"value\\": \\"let\\",
-              \\"offset\\": {
-                \\"start\\": 33,
-                \\"end\\": 36
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 36,
-                \\"end\\": 37
-              }
-            },
-            [
-              null,
-              {
-                \\"kind\\": \\"variable\\",
-                \\"value\\": {
-                  \\"kind\\": \\"identifier\\",
-                  \\"value\\": \\"y\\",
-                  \\"offset\\": {
-                    \\"start\\": 40,
-                    \\"end\\": 41
-                  }
-                },
-                \\"offset\\": {
-                  \\"start\\": 40,
-                  \\"end\\": 41
-                },
-                \\"info\\": {}
-              }
-            ],
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 41,
-                \\"end\\": 42
-              }
-            },
-            {
-              \\"kind\\": \\"operator\\",
-              \\"value\\": \\"=\\",
-              \\"offset\\": {
-                \\"start\\": 42,
-                \\"end\\": 43
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 43,
-                \\"end\\": 44
-              }
-            },
-            [
-              {
-                \\"kind\\": \\"variable\\",
-                \\"value\\": {
-                  \\"kind\\": \\"identifier\\",
-                  \\"value\\": \\"arr_count\\",
-                  \\"offset\\": {
-                    \\"start\\": 44,
-                    \\"end\\": 53
-                  }
-                },
-                \\"offset\\": {
-                  \\"start\\": 44,
-                  \\"end\\": 53
-                },
-                \\"info\\": {}
-              }
-            ]
-          ],
-          {
-            \\"kind\\": \\"whitespace\\",
-            \\"value\\": \\"\\\\n    \\",
-            \\"offset\\": {
-              \\"start\\": 53,
-              \\"end\\": 58
-            }
-          },
-          null,
-          null
-        ],
-        [
-          null,
-          [
-            {
-              \\"kind\\": \\"keyword\\",
-              \\"value\\": \\"let\\",
-              \\"offset\\": {
-                \\"start\\": 58,
-                \\"end\\": 61
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 61,
-                \\"end\\": 62
-              }
-            },
-            [
-              null,
-              {
-                \\"kind\\": \\"variable\\",
-                \\"value\\": {
-                  \\"kind\\": \\"identifier\\",
-                  \\"value\\": \\"y\\",
-                  \\"offset\\": {
-                    \\"start\\": 65,
-                    \\"end\\": 66
-                  }
-                },
-                \\"offset\\": {
-                  \\"start\\": 65,
-                  \\"end\\": 66
-                },
-                \\"info\\": {}
-              }
-            ],
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 66,
-                \\"end\\": 67
-              }
-            },
-            {
-              \\"kind\\": \\"operator\\",
-              \\"value\\": \\"=\\",
-              \\"offset\\": {
-                \\"start\\": 67,
-                \\"end\\": 68
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 68,
-                \\"end\\": 69
-              }
-            },
-            [
-              {
-                \\"kind\\": \\"variable\\",
-                \\"value\\": {
-                  \\"kind\\": \\"identifier\\",
-                  \\"value\\": \\"arr_cur\\",
-                  \\"offset\\": {
-                    \\"start\\": 69,
-                    \\"end\\": 76
-                  }
-                },
-                \\"offset\\": {
-                  \\"start\\": 69,
-                  \\"end\\": 76
-                },
-                \\"info\\": {}
-              }
-            ]
-          ],
-          {
-            \\"kind\\": \\"whitespace\\",
-            \\"value\\": \\"\\\\n    \\",
-            \\"offset\\": {
-              \\"start\\": 76,
-              \\"end\\": 81
-            }
-          },
-          null,
-          null
-        ],
-        [
-          null,
-          [
-            {
-              \\"kind\\": \\"keyword\\",
-              \\"value\\": \\"let\\",
-              \\"offset\\": {
-                \\"start\\": 81,
-                \\"end\\": 84
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 84,
-                \\"end\\": 85
-              }
-            },
-            [
-              null,
-              {
-                \\"kind\\": \\"variable\\",
-                \\"value\\": {
-                  \\"kind\\": \\"identifier\\",
-                  \\"value\\": \\"y\\",
-                  \\"offset\\": {
-                    \\"start\\": 88,
-                    \\"end\\": 89
-                  }
-                },
-                \\"offset\\": {
-                  \\"start\\": 88,
-                  \\"end\\": 89
-                },
-                \\"info\\": {}
-              }
-            ],
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 89,
-                \\"end\\": 90
-              }
-            },
-            {
-              \\"kind\\": \\"operator\\",
-              \\"value\\": \\"=\\",
-              \\"offset\\": {
-                \\"start\\": 90,
-                \\"end\\": 91
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 91,
-                \\"end\\": 92
-              }
-            },
-            [
-              {
-                \\"kind\\": \\"variable\\",
-                \\"value\\": {
-                  \\"kind\\": \\"identifier\\",
-                  \\"value\\": \\"sqlca\\",
-                  \\"offset\\": {
-                    \\"start\\": 92,
-                    \\"end\\": 97
-                  }
-                },
-                \\"offset\\": {
-                  \\"start\\": 92,
-                  \\"end\\": 97
-                },
-                \\"info\\": {}
-              }
-            ]
-          ],
-          {
-            \\"kind\\": \\"whitespace\\",
-            \\"value\\": \\"\\\\n    \\\\n\\",
-            \\"offset\\": {
-              \\"start\\": 97,
-              \\"end\\": 103
-            }
-          },
-          null,
-          null
-        ]
-      ],
-      {
-        \\"kind\\": \\"keyword\\",
-        \\"value\\": \\"end\\",
-        \\"offset\\": {
-          \\"start\\": 103,
-          \\"end\\": 106
-        }
-      },
-      {
-        \\"kind\\": \\"whitespace\\",
-        \\"value\\": \\" \\",
-        \\"offset\\": {
-          \\"start\\": 106,
-          \\"end\\": 107
-        }
-      },
-      {
-        \\"kind\\": \\"keyword\\",
-        \\"value\\": \\"main\\",
-        \\"offset\\": {
-          \\"start\\": 107,
-          \\"end\\": 111
-        }
-      },
-      {
-        \\"kind\\": \\"whitespace\\",
-        \\"value\\": \\"\\\\n\\",
-        \\"offset\\": {
-          \\"start\\": 111,
-          \\"end\\": 112
-        }
+          ]
+        },
+        "offset": {
+          "start": 0,
+          "end": 112
+        },
+        "line": 1,
+        "column": 1
       }
     ]
   }
-]"
+]
 `;
 
 exports[`empty_main.4gl 1`] = `
-"main
+main
 
 end main
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 [
   {
-    \\"kind\\": \\"program\\",
-    \\"value\\": [
+    "kind": "program",
+    "value": [
       {
-        \\"kind\\": \\"keyword\\",
-        \\"value\\": \\"main\\",
-        \\"offset\\": {
-          \\"start\\": 0,
-          \\"end\\": 4
-        }
-      },
-      {
-        \\"kind\\": \\"whitespace\\",
-        \\"value\\": \\"\\\\n\\\\n\\",
-        \\"offset\\": {
-          \\"start\\": 4,
-          \\"end\\": 6
-        }
-      },
-      null,
-      {
-        \\"kind\\": \\"keyword\\",
-        \\"value\\": \\"end\\",
-        \\"offset\\": {
-          \\"start\\": 6,
-          \\"end\\": 9
-        }
-      },
-      {
-        \\"kind\\": \\"whitespace\\",
-        \\"value\\": \\" \\",
-        \\"offset\\": {
-          \\"start\\": 9,
-          \\"end\\": 10
-        }
-      },
-      {
-        \\"kind\\": \\"keyword\\",
-        \\"value\\": \\"main\\",
-        \\"offset\\": {
-          \\"start\\": 10,
-          \\"end\\": 14
-        }
-      },
-      {
-        \\"kind\\": \\"whitespace\\",
-        \\"value\\": \\"\\\\n\\",
-        \\"offset\\": {
-          \\"start\\": 14,
-          \\"end\\": 15
-        }
+        "kind": "function",
+        "value": {
+          "id": "main",
+          "arguments": [],
+          "block": null
+        },
+        "offset": {
+          "start": 0,
+          "end": 15
+        },
+        "line": 1,
+        "column": 1
       }
     ]
   }
-]"
+]
 `;
 
 exports[`globals.4gl 1`] = `
-"globals \\"abc.txt\\"
+globals "abc.txt"
 
 globals
   DEFINE NOME CHAR(50) # abc
@@ -513,1026 +407,805 @@ end main
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 [
   {
-    \\"kind\\": \\"program\\",
-    \\"value\\": [
+    "kind": "program",
+    "value": [
       {
-        \\"kind\\": \\"keyword\\",
-        \\"value\\": \\"globals\\",
-        \\"offset\\": {
-          \\"start\\": 0,
-          \\"end\\": 7
-        }
-      },
-      {
-        \\"kind\\": \\"whitespace\\",
-        \\"value\\": \\" \\",
-        \\"offset\\": {
-          \\"start\\": 7,
-          \\"end\\": 8
-        }
-      },
-      {
-        \\"kind\\": \\"string\\",
-        \\"value\\": \\"\\\\\\"abc.txt\\\\\\"\\",
-        \\"offset\\": {
-          \\"start\\": 8,
-          \\"end\\": 17
-        },
-        \\"info\\": {
-          \\"type\\": \\"string\\"
-        }
-      },
-      {
-        \\"kind\\": \\"keyword\\",
-        \\"value\\": \\"globals\\",
-        \\"offset\\": {
-          \\"start\\": 19,
-          \\"end\\": 26
-        }
-      },
-      {
-        \\"kind\\": \\"whitespace\\",
-        \\"value\\": \\"\\\\n  \\",
-        \\"offset\\": {
-          \\"start\\": 26,
-          \\"end\\": 29
-        }
-      },
-      [
-        [
+        "value": [
           {
-            \\"kind\\": \\"keyword\\",
-            \\"value\\": \\"DEFINE\\",
-            \\"offset\\": {
-              \\"start\\": 29,
-              \\"end\\": 35
-            }
+            "kind": "keyword",
+            "value": "globals",
+            "offset": {
+              "start": 0,
+              "end": 7
+            },
+            "line": 1,
+            "column": 1
           },
+          null,
           {
-            \\"kind\\": \\"whitespace\\",
-            \\"value\\": \\" \\",
-            \\"offset\\": {
-              \\"start\\": 35,
-              \\"end\\": 36
-            }
-          },
-          {
-            \\"kind\\": \\"identifier\\",
-            \\"value\\": \\"NOME\\",
-            \\"offset\\": {
-              \\"start\\": 36,
-              \\"end\\": 40
-            }
-          },
-          {
-            \\"kind\\": \\"whitespace\\",
-            \\"value\\": \\" \\",
-            \\"offset\\": {
-              \\"start\\": 40,
-              \\"end\\": 41
-            }
-          },
-          \\"CHAR(50)\\"
+            "kind": "string",
+            "value": {
+              "type": "string",
+              "value": "\\"abc.txt\\""
+            },
+            "offset": {
+              "start": 8,
+              "end": 17
+            },
+            "line": 1,
+            "column": 9
+          }
         ],
-        {
-          \\"kind\\": \\"whitespace\\",
-          \\"value\\": \\" \\",
-          \\"offset\\": {
-            \\"start\\": 49,
-            \\"end\\": 50
-          }
+        "offset": {
+          "start": 0,
+          "end": 17
         },
-        {
-          \\"kind\\": \\"comment\\",
-          \\"value\\": \\"# abc\\\\n\\",
-          \\"offset\\": {
-            \\"start\\": 50,
-            \\"end\\": 56
-          }
-        }
-      ],
-      {
-        \\"kind\\": \\"keyword\\",
-        \\"value\\": \\"end\\",
-        \\"offset\\": {
-          \\"start\\": 56,
-          \\"end\\": 59
-        }
+        "line": 1,
+        "column": 1
       },
       {
-        \\"kind\\": \\"whitespace\\",
-        \\"value\\": \\" \\",
-        \\"offset\\": {
-          \\"start\\": 59,
-          \\"end\\": 60
-        }
+        "value": [
+          {
+            "kind": "keyword",
+            "value": "globals",
+            "offset": {
+              "start": 19,
+              "end": 26
+            },
+            "line": 3,
+            "column": 1
+          },
+          null,
+          [
+            [
+              {
+                "kind": "keyword",
+                "value": "DEFINE",
+                "offset": {
+                  "start": 29,
+                  "end": 35
+                },
+                "line": 4,
+                "column": 3
+              },
+              null,
+              {
+                "kind": "identifier",
+                "value": "NOME",
+                "offset": {
+                  "start": 36,
+                  "end": 40
+                },
+                "line": 4,
+                "column": 10
+              },
+              null,
+              "CHAR(50)"
+            ],
+            null,
+            {
+              "kind": "comment",
+              "value": "# abc\\n",
+              "offset": {
+                "start": 50,
+                "end": 56
+              },
+              "line": 4,
+              "column": 24
+            }
+          ],
+          {
+            "kind": "keyword",
+            "value": "end",
+            "offset": {
+              "start": 56,
+              "end": 59
+            },
+            "line": 5,
+            "column": 1
+          },
+          null,
+          {
+            "kind": "keyword",
+            "value": "globals",
+            "offset": {
+              "start": 60,
+              "end": 67
+            },
+            "line": 5,
+            "column": 5
+          },
+          null
+        ],
+        "offset": {
+          "start": 19,
+          "end": 69
+        },
+        "line": 3,
+        "column": 1
       },
       {
-        \\"kind\\": \\"keyword\\",
-        \\"value\\": \\"globals\\",
-        \\"offset\\": {
-          \\"start\\": 60,
-          \\"end\\": 67
-        }
-      },
-      {
-        \\"kind\\": \\"whitespace\\",
-        \\"value\\": \\"\\\\n\\\\n\\",
-        \\"offset\\": {
-          \\"start\\": 67,
-          \\"end\\": 69
-        }
-      },
-      {
-        \\"kind\\": \\"keyword\\",
-        \\"value\\": \\"main\\",
-        \\"offset\\": {
-          \\"start\\": 69,
-          \\"end\\": 73
-        }
-      },
-      {
-        \\"kind\\": \\"whitespace\\",
-        \\"value\\": \\"\\\\n\\\\n\\",
-        \\"offset\\": {
-          \\"start\\": 73,
-          \\"end\\": 75
-        }
-      },
-      null,
-      {
-        \\"kind\\": \\"keyword\\",
-        \\"value\\": \\"end\\",
-        \\"offset\\": {
-          \\"start\\": 75,
-          \\"end\\": 78
-        }
-      },
-      {
-        \\"kind\\": \\"whitespace\\",
-        \\"value\\": \\" \\",
-        \\"offset\\": {
-          \\"start\\": 78,
-          \\"end\\": 79
-        }
-      },
-      {
-        \\"kind\\": \\"keyword\\",
-        \\"value\\": \\"main\\",
-        \\"offset\\": {
-          \\"start\\": 79,
-          \\"end\\": 83
-        }
-      },
-      {
-        \\"kind\\": \\"whitespace\\",
-        \\"value\\": \\"\\\\n\\",
-        \\"offset\\": {
-          \\"start\\": 83,
-          \\"end\\": 84
-        }
+        "kind": "function",
+        "value": {
+          "id": "main",
+          "arguments": [],
+          "block": null
+        },
+        "offset": {
+          "start": 69,
+          "end": 84
+        },
+        "line": 7,
+        "column": 1
       }
     ]
   }
-]"
+]
 `;
 
 exports[`strings.4gl 1`] = `
-"main
+main
 
     let x, y = ''
     let x, y = 'ABC,DEF'
-    let x, y = '\\"'
-    let x, y = 'ABC\\\\'DEF'
+    let x, y = '"'
+    let x, y = 'ABC\\'DEF'
     
 end main
 
 function f1()
 
-    let x, y = \\"\\"
-    let x, y = \\"ABC,DEF\\"
-    let x, y = \\"'\\"
-    let x, y = \\"ABC\\\\\\"DEF\\"
+    let x, y = ""
+    let x, y = "ABC,DEF"
+    let x, y = "'"
+    let x, y = "ABC\\"DEF"
     
 end function
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 [
   {
-    \\"kind\\": \\"program\\",
-    \\"value\\": [
+    "kind": "program",
+    "value": [
       {
-        \\"kind\\": \\"keyword\\",
-        \\"value\\": \\"main\\",
-        \\"offset\\": {
-          \\"start\\": 0,
-          \\"end\\": 4
-        }
-      },
-      {
-        \\"kind\\": \\"whitespace\\",
-        \\"value\\": \\"\\\\n\\\\n    \\",
-        \\"offset\\": {
-          \\"start\\": 4,
-          \\"end\\": 10
-        }
-      },
-      [
-        [
-          null,
-          [
+        "kind": "function",
+        "value": {
+          "id": "main",
+          "arguments": [],
+          "block": [
             {
-              \\"kind\\": \\"keyword\\",
-              \\"value\\": \\"let\\",
-              \\"offset\\": {
-                \\"start\\": 10,
-                \\"end\\": 13
-              }
+              "kind": "command",
+              "value": [
+                [
+                  {
+                    "kind": "keyword",
+                    "value": "let",
+                    "offset": {
+                      "start": 10,
+                      "end": 13
+                    },
+                    "line": 3,
+                    "column": 5
+                  },
+                  null,
+                  [
+                    null,
+                    {
+                      "kind": "variable",
+                      "value": {
+                        "variable": {
+                          "kind": "identifier",
+                          "value": "y",
+                          "offset": {
+                            "start": 17,
+                            "end": 18
+                          },
+                          "line": 3,
+                          "column": 12
+                        }
+                      },
+                      "offset": {
+                        "start": 17,
+                        "end": 18
+                      },
+                      "line": 3,
+                      "column": 12
+                    }
+                  ],
+                  null,
+                  {
+                    "kind": "operator",
+                    "value": "=",
+                    "offset": {
+                      "start": 19,
+                      "end": 20
+                    },
+                    "line": 3,
+                    "column": 14
+                  },
+                  null,
+                  [
+                    {
+                      "kind": "string",
+                      "value": {
+                        "type": "string",
+                        "value": "''"
+                      },
+                      "offset": {
+                        "start": 21,
+                        "end": 23
+                      },
+                      "line": 3,
+                      "column": 16
+                    }
+                  ]
+                ]
+              ],
+              "offset": {
+                "start": 10,
+                "end": 28
+              },
+              "line": 3,
+              "column": 5
             },
             {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 13,
-                \\"end\\": 14
-              }
+              "kind": "command",
+              "value": [
+                [
+                  {
+                    "kind": "keyword",
+                    "value": "let",
+                    "offset": {
+                      "start": 28,
+                      "end": 31
+                    },
+                    "line": 4,
+                    "column": 5
+                  },
+                  null,
+                  [
+                    null,
+                    {
+                      "kind": "variable",
+                      "value": {
+                        "variable": {
+                          "kind": "identifier",
+                          "value": "y",
+                          "offset": {
+                            "start": 35,
+                            "end": 36
+                          },
+                          "line": 4,
+                          "column": 12
+                        }
+                      },
+                      "offset": {
+                        "start": 35,
+                        "end": 36
+                      },
+                      "line": 4,
+                      "column": 12
+                    }
+                  ],
+                  null,
+                  {
+                    "kind": "operator",
+                    "value": "=",
+                    "offset": {
+                      "start": 37,
+                      "end": 38
+                    },
+                    "line": 4,
+                    "column": 14
+                  },
+                  null,
+                  [
+                    {
+                      "kind": "string",
+                      "value": {
+                        "type": "string",
+                        "value": "'ABC,DEF'"
+                      },
+                      "offset": {
+                        "start": 39,
+                        "end": 48
+                      },
+                      "line": 4,
+                      "column": 16
+                    }
+                  ]
+                ]
+              ],
+              "offset": {
+                "start": 28,
+                "end": 53
+              },
+              "line": 4,
+              "column": 5
             },
-            [
-              null,
-              {
-                \\"kind\\": \\"variable\\",
-                \\"value\\": {
-                  \\"kind\\": \\"identifier\\",
-                  \\"value\\": \\"y\\",
-                  \\"offset\\": {
-                    \\"start\\": 17,
-                    \\"end\\": 18
-                  }
-                },
-                \\"offset\\": {
-                  \\"start\\": 17,
-                  \\"end\\": 18
-                },
-                \\"info\\": {}
-              }
-            ],
             {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 18,
-                \\"end\\": 19
-              }
+              "kind": "command",
+              "value": [
+                [
+                  {
+                    "kind": "keyword",
+                    "value": "let",
+                    "offset": {
+                      "start": 53,
+                      "end": 56
+                    },
+                    "line": 5,
+                    "column": 5
+                  },
+                  null,
+                  [
+                    null,
+                    {
+                      "kind": "variable",
+                      "value": {
+                        "variable": {
+                          "kind": "identifier",
+                          "value": "y",
+                          "offset": {
+                            "start": 60,
+                            "end": 61
+                          },
+                          "line": 5,
+                          "column": 12
+                        }
+                      },
+                      "offset": {
+                        "start": 60,
+                        "end": 61
+                      },
+                      "line": 5,
+                      "column": 12
+                    }
+                  ],
+                  null,
+                  {
+                    "kind": "operator",
+                    "value": "=",
+                    "offset": {
+                      "start": 62,
+                      "end": 63
+                    },
+                    "line": 5,
+                    "column": 14
+                  },
+                  null,
+                  [
+                    {
+                      "kind": "string",
+                      "value": {
+                        "type": "string",
+                        "value": "'\\"'"
+                      },
+                      "offset": {
+                        "start": 64,
+                        "end": 67
+                      },
+                      "line": 5,
+                      "column": 16
+                    }
+                  ]
+                ]
+              ],
+              "offset": {
+                "start": 53,
+                "end": 72
+              },
+              "line": 5,
+              "column": 5
             },
             {
-              \\"kind\\": \\"operator\\",
-              \\"value\\": \\"=\\",
-              \\"offset\\": {
-                \\"start\\": 19,
-                \\"end\\": 20
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 20,
-                \\"end\\": 21
-              }
-            },
-            [
-              {
-                \\"kind\\": \\"string\\",
-                \\"value\\": \\"''\\",
-                \\"offset\\": {
-                  \\"start\\": 21,
-                  \\"end\\": 23
-                },
-                \\"info\\": {
-                  \\"type\\": \\"string\\"
-                }
-              }
-            ]
-          ],
-          {
-            \\"kind\\": \\"whitespace\\",
-            \\"value\\": \\"\\\\n    \\",
-            \\"offset\\": {
-              \\"start\\": 23,
-              \\"end\\": 28
+              "kind": "command",
+              "value": [
+                [
+                  {
+                    "kind": "keyword",
+                    "value": "let",
+                    "offset": {
+                      "start": 72,
+                      "end": 75
+                    },
+                    "line": 6,
+                    "column": 5
+                  },
+                  null,
+                  [
+                    null,
+                    {
+                      "kind": "variable",
+                      "value": {
+                        "variable": {
+                          "kind": "identifier",
+                          "value": "y",
+                          "offset": {
+                            "start": 79,
+                            "end": 80
+                          },
+                          "line": 6,
+                          "column": 12
+                        }
+                      },
+                      "offset": {
+                        "start": 79,
+                        "end": 80
+                      },
+                      "line": 6,
+                      "column": 12
+                    }
+                  ],
+                  null,
+                  {
+                    "kind": "operator",
+                    "value": "=",
+                    "offset": {
+                      "start": 81,
+                      "end": 82
+                    },
+                    "line": 6,
+                    "column": 14
+                  },
+                  null,
+                  [
+                    {
+                      "kind": "string",
+                      "value": {
+                        "type": "string",
+                        "value": "'ABC\\\\'DEF'"
+                      },
+                      "offset": {
+                        "start": 83,
+                        "end": 93
+                      },
+                      "line": 6,
+                      "column": 16
+                    }
+                  ]
+                ]
+              ],
+              "offset": {
+                "start": 72,
+                "end": 99
+              },
+              "line": 6,
+              "column": 5
             }
+          ]
+        },
+        "offset": {
+          "start": 0,
+          "end": 109
+        },
+        "line": 1,
+        "column": 1
+      },
+      {
+        "kind": "function",
+        "value": {
+          "id": {
+            "kind": "identifier",
+            "value": "f1",
+            "offset": {
+              "start": 118,
+              "end": 120
+            },
+            "line": 10,
+            "column": 10
           },
-          null,
-          null
-        ],
-        [
-          null,
-          [
+          "arguments": [],
+          "block": [
             {
-              \\"kind\\": \\"keyword\\",
-              \\"value\\": \\"let\\",
-              \\"offset\\": {
-                \\"start\\": 28,
-                \\"end\\": 31
-              }
+              "kind": "command",
+              "value": [
+                [
+                  {
+                    "kind": "keyword",
+                    "value": "let",
+                    "offset": {
+                      "start": 128,
+                      "end": 131
+                    },
+                    "line": 12,
+                    "column": 5
+                  },
+                  null,
+                  [
+                    null,
+                    {
+                      "kind": "variable",
+                      "value": {
+                        "variable": {
+                          "kind": "identifier",
+                          "value": "y",
+                          "offset": {
+                            "start": 135,
+                            "end": 136
+                          },
+                          "line": 12,
+                          "column": 12
+                        }
+                      },
+                      "offset": {
+                        "start": 135,
+                        "end": 136
+                      },
+                      "line": 12,
+                      "column": 12
+                    }
+                  ],
+                  null,
+                  {
+                    "kind": "operator",
+                    "value": "=",
+                    "offset": {
+                      "start": 137,
+                      "end": 138
+                    },
+                    "line": 12,
+                    "column": 14
+                  },
+                  null,
+                  [
+                    {
+                      "kind": "string",
+                      "value": {
+                        "type": "string",
+                        "value": "\\"\\""
+                      },
+                      "offset": {
+                        "start": 139,
+                        "end": 141
+                      },
+                      "line": 12,
+                      "column": 16
+                    }
+                  ]
+                ]
+              ],
+              "offset": {
+                "start": 122,
+                "end": 146
+              },
+              "line": 10,
+              "column": 14
             },
             {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 31,
-                \\"end\\": 32
-              }
+              "kind": "command",
+              "value": [
+                [
+                  {
+                    "kind": "keyword",
+                    "value": "let",
+                    "offset": {
+                      "start": 146,
+                      "end": 149
+                    },
+                    "line": 13,
+                    "column": 5
+                  },
+                  null,
+                  [
+                    null,
+                    {
+                      "kind": "variable",
+                      "value": {
+                        "variable": {
+                          "kind": "identifier",
+                          "value": "y",
+                          "offset": {
+                            "start": 153,
+                            "end": 154
+                          },
+                          "line": 13,
+                          "column": 12
+                        }
+                      },
+                      "offset": {
+                        "start": 153,
+                        "end": 154
+                      },
+                      "line": 13,
+                      "column": 12
+                    }
+                  ],
+                  null,
+                  {
+                    "kind": "operator",
+                    "value": "=",
+                    "offset": {
+                      "start": 155,
+                      "end": 156
+                    },
+                    "line": 13,
+                    "column": 14
+                  },
+                  null,
+                  [
+                    {
+                      "kind": "string",
+                      "value": {
+                        "type": "string",
+                        "value": "\\"ABC,DEF\\""
+                      },
+                      "offset": {
+                        "start": 157,
+                        "end": 166
+                      },
+                      "line": 13,
+                      "column": 16
+                    }
+                  ]
+                ]
+              ],
+              "offset": {
+                "start": 146,
+                "end": 171
+              },
+              "line": 13,
+              "column": 5
             },
-            [
-              null,
-              {
-                \\"kind\\": \\"variable\\",
-                \\"value\\": {
-                  \\"kind\\": \\"identifier\\",
-                  \\"value\\": \\"y\\",
-                  \\"offset\\": {
-                    \\"start\\": 35,
-                    \\"end\\": 36
-                  }
-                },
-                \\"offset\\": {
-                  \\"start\\": 35,
-                  \\"end\\": 36
-                },
-                \\"info\\": {}
-              }
-            ],
             {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 36,
-                \\"end\\": 37
-              }
+              "kind": "command",
+              "value": [
+                [
+                  {
+                    "kind": "keyword",
+                    "value": "let",
+                    "offset": {
+                      "start": 171,
+                      "end": 174
+                    },
+                    "line": 14,
+                    "column": 5
+                  },
+                  null,
+                  [
+                    null,
+                    {
+                      "kind": "variable",
+                      "value": {
+                        "variable": {
+                          "kind": "identifier",
+                          "value": "y",
+                          "offset": {
+                            "start": 178,
+                            "end": 179
+                          },
+                          "line": 14,
+                          "column": 12
+                        }
+                      },
+                      "offset": {
+                        "start": 178,
+                        "end": 179
+                      },
+                      "line": 14,
+                      "column": 12
+                    }
+                  ],
+                  null,
+                  {
+                    "kind": "operator",
+                    "value": "=",
+                    "offset": {
+                      "start": 180,
+                      "end": 181
+                    },
+                    "line": 14,
+                    "column": 14
+                  },
+                  null,
+                  [
+                    {
+                      "kind": "string",
+                      "value": {
+                        "type": "string",
+                        "value": "\\"'\\""
+                      },
+                      "offset": {
+                        "start": 182,
+                        "end": 185
+                      },
+                      "line": 14,
+                      "column": 16
+                    }
+                  ]
+                ]
+              ],
+              "offset": {
+                "start": 171,
+                "end": 190
+              },
+              "line": 14,
+              "column": 5
             },
             {
-              \\"kind\\": \\"operator\\",
-              \\"value\\": \\"=\\",
-              \\"offset\\": {
-                \\"start\\": 37,
-                \\"end\\": 38
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 38,
-                \\"end\\": 39
-              }
-            },
-            [
-              {
-                \\"kind\\": \\"string\\",
-                \\"value\\": \\"'ABC,DEF'\\",
-                \\"offset\\": {
-                  \\"start\\": 39,
-                  \\"end\\": 48
-                },
-                \\"info\\": {
-                  \\"type\\": \\"string\\"
-                }
-              }
-            ]
-          ],
-          {
-            \\"kind\\": \\"whitespace\\",
-            \\"value\\": \\"\\\\n    \\",
-            \\"offset\\": {
-              \\"start\\": 48,
-              \\"end\\": 53
+              "kind": "command",
+              "value": [
+                [
+                  {
+                    "kind": "keyword",
+                    "value": "let",
+                    "offset": {
+                      "start": 190,
+                      "end": 193
+                    },
+                    "line": 15,
+                    "column": 5
+                  },
+                  null,
+                  [
+                    null,
+                    {
+                      "kind": "variable",
+                      "value": {
+                        "variable": {
+                          "kind": "identifier",
+                          "value": "y",
+                          "offset": {
+                            "start": 197,
+                            "end": 198
+                          },
+                          "line": 15,
+                          "column": 12
+                        }
+                      },
+                      "offset": {
+                        "start": 197,
+                        "end": 198
+                      },
+                      "line": 15,
+                      "column": 12
+                    }
+                  ],
+                  null,
+                  {
+                    "kind": "operator",
+                    "value": "=",
+                    "offset": {
+                      "start": 199,
+                      "end": 200
+                    },
+                    "line": 15,
+                    "column": 14
+                  },
+                  null,
+                  [
+                    {
+                      "kind": "string",
+                      "value": {
+                        "type": "string",
+                        "value": "\\"ABC\\\\\\"DEF\\""
+                      },
+                      "offset": {
+                        "start": 201,
+                        "end": 211
+                      },
+                      "line": 15,
+                      "column": 16
+                    }
+                  ]
+                ]
+              ],
+              "offset": {
+                "start": 190,
+                "end": 217
+              },
+              "line": 15,
+              "column": 5
             }
-          },
-          null,
-          null
-        ],
-        [
-          null,
-          [
-            {
-              \\"kind\\": \\"keyword\\",
-              \\"value\\": \\"let\\",
-              \\"offset\\": {
-                \\"start\\": 53,
-                \\"end\\": 56
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 56,
-                \\"end\\": 57
-              }
-            },
-            [
-              null,
-              {
-                \\"kind\\": \\"variable\\",
-                \\"value\\": {
-                  \\"kind\\": \\"identifier\\",
-                  \\"value\\": \\"y\\",
-                  \\"offset\\": {
-                    \\"start\\": 60,
-                    \\"end\\": 61
-                  }
-                },
-                \\"offset\\": {
-                  \\"start\\": 60,
-                  \\"end\\": 61
-                },
-                \\"info\\": {}
-              }
-            ],
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 61,
-                \\"end\\": 62
-              }
-            },
-            {
-              \\"kind\\": \\"operator\\",
-              \\"value\\": \\"=\\",
-              \\"offset\\": {
-                \\"start\\": 62,
-                \\"end\\": 63
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 63,
-                \\"end\\": 64
-              }
-            },
-            [
-              {
-                \\"kind\\": \\"string\\",
-                \\"value\\": \\"'\\\\\\"'\\",
-                \\"offset\\": {
-                  \\"start\\": 64,
-                  \\"end\\": 67
-                },
-                \\"info\\": {
-                  \\"type\\": \\"string\\"
-                }
-              }
-            ]
-          ],
-          {
-            \\"kind\\": \\"whitespace\\",
-            \\"value\\": \\"\\\\n    \\",
-            \\"offset\\": {
-              \\"start\\": 67,
-              \\"end\\": 72
-            }
-          },
-          null,
-          null
-        ],
-        [
-          null,
-          [
-            {
-              \\"kind\\": \\"keyword\\",
-              \\"value\\": \\"let\\",
-              \\"offset\\": {
-                \\"start\\": 72,
-                \\"end\\": 75
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 75,
-                \\"end\\": 76
-              }
-            },
-            [
-              null,
-              {
-                \\"kind\\": \\"variable\\",
-                \\"value\\": {
-                  \\"kind\\": \\"identifier\\",
-                  \\"value\\": \\"y\\",
-                  \\"offset\\": {
-                    \\"start\\": 79,
-                    \\"end\\": 80
-                  }
-                },
-                \\"offset\\": {
-                  \\"start\\": 79,
-                  \\"end\\": 80
-                },
-                \\"info\\": {}
-              }
-            ],
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 80,
-                \\"end\\": 81
-              }
-            },
-            {
-              \\"kind\\": \\"operator\\",
-              \\"value\\": \\"=\\",
-              \\"offset\\": {
-                \\"start\\": 81,
-                \\"end\\": 82
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 82,
-                \\"end\\": 83
-              }
-            },
-            [
-              {
-                \\"kind\\": \\"string\\",
-                \\"value\\": \\"'ABC\\\\\\\\'DEF'\\",
-                \\"offset\\": {
-                  \\"start\\": 83,
-                  \\"end\\": 93
-                },
-                \\"info\\": {
-                  \\"type\\": \\"string\\"
-                }
-              }
-            ]
-          ],
-          {
-            \\"kind\\": \\"whitespace\\",
-            \\"value\\": \\"\\\\n    \\\\n\\",
-            \\"offset\\": {
-              \\"start\\": 93,
-              \\"end\\": 99
-            }
-          },
-          null,
-          null
-        ]
-      ],
-      {
-        \\"kind\\": \\"keyword\\",
-        \\"value\\": \\"end\\",
-        \\"offset\\": {
-          \\"start\\": 99,
-          \\"end\\": 102
-        }
-      },
-      {
-        \\"kind\\": \\"whitespace\\",
-        \\"value\\": \\" \\",
-        \\"offset\\": {
-          \\"start\\": 102,
-          \\"end\\": 103
-        }
-      },
-      {
-        \\"kind\\": \\"keyword\\",
-        \\"value\\": \\"main\\",
-        \\"offset\\": {
-          \\"start\\": 103,
-          \\"end\\": 107
-        }
-      },
-      {
-        \\"kind\\": \\"whitespace\\",
-        \\"value\\": \\"\\\\n\\\\n\\",
-        \\"offset\\": {
-          \\"start\\": 107,
-          \\"end\\": 109
-        }
-      },
-      {
-        \\"kind\\": \\"keyword\\",
-        \\"value\\": \\"function\\",
-        \\"offset\\": {
-          \\"start\\": 109,
-          \\"end\\": 117
-        }
-      },
-      {
-        \\"kind\\": \\"whitespace\\",
-        \\"value\\": \\" \\",
-        \\"offset\\": {
-          \\"start\\": 117,
-          \\"end\\": 118
-        }
-      },
-      {
-        \\"kind\\": \\"identifier\\",
-        \\"value\\": \\"f1\\",
-        \\"offset\\": {
-          \\"start\\": 118,
-          \\"end\\": 120
-        }
-      },
-      [],
-      [
-        [
-          {
-            \\"kind\\": \\"whitespace\\",
-            \\"value\\": \\"\\\\n\\\\n    \\",
-            \\"offset\\": {
-              \\"start\\": 122,
-              \\"end\\": 128
-            }
-          },
-          [
-            {
-              \\"kind\\": \\"keyword\\",
-              \\"value\\": \\"let\\",
-              \\"offset\\": {
-                \\"start\\": 128,
-                \\"end\\": 131
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 131,
-                \\"end\\": 132
-              }
-            },
-            [
-              null,
-              {
-                \\"kind\\": \\"variable\\",
-                \\"value\\": {
-                  \\"kind\\": \\"identifier\\",
-                  \\"value\\": \\"y\\",
-                  \\"offset\\": {
-                    \\"start\\": 135,
-                    \\"end\\": 136
-                  }
-                },
-                \\"offset\\": {
-                  \\"start\\": 135,
-                  \\"end\\": 136
-                },
-                \\"info\\": {}
-              }
-            ],
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 136,
-                \\"end\\": 137
-              }
-            },
-            {
-              \\"kind\\": \\"operator\\",
-              \\"value\\": \\"=\\",
-              \\"offset\\": {
-                \\"start\\": 137,
-                \\"end\\": 138
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 138,
-                \\"end\\": 139
-              }
-            },
-            [
-              {
-                \\"kind\\": \\"string\\",
-                \\"value\\": \\"\\\\\\"\\\\\\"\\",
-                \\"offset\\": {
-                  \\"start\\": 139,
-                  \\"end\\": 141
-                },
-                \\"info\\": {
-                  \\"type\\": \\"string\\"
-                }
-              }
-            ]
-          ],
-          {
-            \\"kind\\": \\"whitespace\\",
-            \\"value\\": \\"\\\\n    \\",
-            \\"offset\\": {
-              \\"start\\": 141,
-              \\"end\\": 146
-            }
-          },
-          null,
-          null
-        ],
-        [
-          null,
-          [
-            {
-              \\"kind\\": \\"keyword\\",
-              \\"value\\": \\"let\\",
-              \\"offset\\": {
-                \\"start\\": 146,
-                \\"end\\": 149
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 149,
-                \\"end\\": 150
-              }
-            },
-            [
-              null,
-              {
-                \\"kind\\": \\"variable\\",
-                \\"value\\": {
-                  \\"kind\\": \\"identifier\\",
-                  \\"value\\": \\"y\\",
-                  \\"offset\\": {
-                    \\"start\\": 153,
-                    \\"end\\": 154
-                  }
-                },
-                \\"offset\\": {
-                  \\"start\\": 153,
-                  \\"end\\": 154
-                },
-                \\"info\\": {}
-              }
-            ],
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 154,
-                \\"end\\": 155
-              }
-            },
-            {
-              \\"kind\\": \\"operator\\",
-              \\"value\\": \\"=\\",
-              \\"offset\\": {
-                \\"start\\": 155,
-                \\"end\\": 156
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 156,
-                \\"end\\": 157
-              }
-            },
-            [
-              {
-                \\"kind\\": \\"string\\",
-                \\"value\\": \\"\\\\\\"ABC,DEF\\\\\\"\\",
-                \\"offset\\": {
-                  \\"start\\": 157,
-                  \\"end\\": 166
-                },
-                \\"info\\": {
-                  \\"type\\": \\"string\\"
-                }
-              }
-            ]
-          ],
-          {
-            \\"kind\\": \\"whitespace\\",
-            \\"value\\": \\"\\\\n    \\",
-            \\"offset\\": {
-              \\"start\\": 166,
-              \\"end\\": 171
-            }
-          },
-          null,
-          null
-        ],
-        [
-          null,
-          [
-            {
-              \\"kind\\": \\"keyword\\",
-              \\"value\\": \\"let\\",
-              \\"offset\\": {
-                \\"start\\": 171,
-                \\"end\\": 174
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 174,
-                \\"end\\": 175
-              }
-            },
-            [
-              null,
-              {
-                \\"kind\\": \\"variable\\",
-                \\"value\\": {
-                  \\"kind\\": \\"identifier\\",
-                  \\"value\\": \\"y\\",
-                  \\"offset\\": {
-                    \\"start\\": 178,
-                    \\"end\\": 179
-                  }
-                },
-                \\"offset\\": {
-                  \\"start\\": 178,
-                  \\"end\\": 179
-                },
-                \\"info\\": {}
-              }
-            ],
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 179,
-                \\"end\\": 180
-              }
-            },
-            {
-              \\"kind\\": \\"operator\\",
-              \\"value\\": \\"=\\",
-              \\"offset\\": {
-                \\"start\\": 180,
-                \\"end\\": 181
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 181,
-                \\"end\\": 182
-              }
-            },
-            [
-              {
-                \\"kind\\": \\"string\\",
-                \\"value\\": \\"\\\\\\"'\\\\\\"\\",
-                \\"offset\\": {
-                  \\"start\\": 182,
-                  \\"end\\": 185
-                },
-                \\"info\\": {
-                  \\"type\\": \\"string\\"
-                }
-              }
-            ]
-          ],
-          {
-            \\"kind\\": \\"whitespace\\",
-            \\"value\\": \\"\\\\n    \\",
-            \\"offset\\": {
-              \\"start\\": 185,
-              \\"end\\": 190
-            }
-          },
-          null,
-          null
-        ],
-        [
-          null,
-          [
-            {
-              \\"kind\\": \\"keyword\\",
-              \\"value\\": \\"let\\",
-              \\"offset\\": {
-                \\"start\\": 190,
-                \\"end\\": 193
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 193,
-                \\"end\\": 194
-              }
-            },
-            [
-              null,
-              {
-                \\"kind\\": \\"variable\\",
-                \\"value\\": {
-                  \\"kind\\": \\"identifier\\",
-                  \\"value\\": \\"y\\",
-                  \\"offset\\": {
-                    \\"start\\": 197,
-                    \\"end\\": 198
-                  }
-                },
-                \\"offset\\": {
-                  \\"start\\": 197,
-                  \\"end\\": 198
-                },
-                \\"info\\": {}
-              }
-            ],
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 198,
-                \\"end\\": 199
-              }
-            },
-            {
-              \\"kind\\": \\"operator\\",
-              \\"value\\": \\"=\\",
-              \\"offset\\": {
-                \\"start\\": 199,
-                \\"end\\": 200
-              }
-            },
-            {
-              \\"kind\\": \\"whitespace\\",
-              \\"value\\": \\" \\",
-              \\"offset\\": {
-                \\"start\\": 200,
-                \\"end\\": 201
-              }
-            },
-            [
-              {
-                \\"kind\\": \\"string\\",
-                \\"value\\": \\"\\\\\\"ABC\\\\\\\\\\\\\\"DEF\\\\\\"\\",
-                \\"offset\\": {
-                  \\"start\\": 201,
-                  \\"end\\": 211
-                },
-                \\"info\\": {
-                  \\"type\\": \\"string\\"
-                }
-              }
-            ]
-          ],
-          {
-            \\"kind\\": \\"whitespace\\",
-            \\"value\\": \\"\\\\n    \\\\n\\",
-            \\"offset\\": {
-              \\"start\\": 211,
-              \\"end\\": 217
-            }
-          },
-          null,
-          null
-        ]
-      ],
-      {
-        \\"kind\\": \\"keyword\\",
-        \\"value\\": \\"end\\",
-        \\"offset\\": {
-          \\"start\\": 217,
-          \\"end\\": 220
-        }
-      },
-      {
-        \\"kind\\": \\"whitespace\\",
-        \\"value\\": \\" \\",
-        \\"offset\\": {
-          \\"start\\": 220,
-          \\"end\\": 221
-        }
-      },
-      {
-        \\"kind\\": \\"keyword\\",
-        \\"value\\": \\"function\\",
-        \\"offset\\": {
-          \\"start\\": 221,
-          \\"end\\": 229
-        }
-      },
-      {
-        \\"kind\\": \\"whitespace\\",
-        \\"value\\": \\"\\\\n\\",
-        \\"offset\\": {
-          \\"start\\": 229,
-          \\"end\\": 230
-        }
+          ]
+        },
+        "offset": {
+          "start": 109,
+          "end": 230
+        },
+        "line": 10,
+        "column": 1
       }
     ]
   }
-]"
+]
 `;
