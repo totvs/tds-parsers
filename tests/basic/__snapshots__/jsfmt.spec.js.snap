@@ -17,7 +17,16 @@ end main
       {
         "kind": "function",
         "value": {
-          "id": "main",
+          "id": {
+            "kind": "keyword",
+            "value": "main",
+            "offset": {
+              "start": 0,
+              "end": 4
+            },
+            "line": 1,
+            "column": 1
+          },
           "arguments": [],
           "block": [
             {
@@ -352,6 +361,30 @@ end main
               "line": 6,
               "column": 5
             }
+          ],
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 103,
+                "end": 106
+              },
+              "line": 8,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "main",
+              "offset": {
+                "start": 107,
+                "end": 111
+              },
+              "line": 8,
+              "column": 5
+            },
+            null
           ]
         },
         "offset": {
@@ -378,9 +411,42 @@ end main
       {
         "kind": "function",
         "value": {
-          "id": "main",
+          "id": {
+            "kind": "keyword",
+            "value": "main",
+            "offset": {
+              "start": 0,
+              "end": 4
+            },
+            "line": 1,
+            "column": 1
+          },
           "arguments": [],
-          "block": null
+          "block": null,
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 6,
+                "end": 9
+              },
+              "line": 3,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "main",
+              "offset": {
+                "start": 10,
+                "end": 14
+              },
+              "line": 3,
+              "column": 5
+            },
+            null
+          ]
         },
         "offset": {
           "start": 0,
@@ -527,9 +593,42 @@ end main
       {
         "kind": "function",
         "value": {
-          "id": "main",
+          "id": {
+            "kind": "keyword",
+            "value": "main",
+            "offset": {
+              "start": 69,
+              "end": 73
+            },
+            "line": 7,
+            "column": 1
+          },
           "arguments": [],
-          "block": null
+          "block": null,
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 75,
+                "end": 78
+              },
+              "line": 9,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "main",
+              "offset": {
+                "start": 79,
+                "end": 83
+              },
+              "line": 9,
+              "column": 5
+            },
+            null
+          ]
         },
         "offset": {
           "start": 69,
@@ -569,7 +668,16 @@ end function
       {
         "kind": "function",
         "value": {
-          "id": "main",
+          "id": {
+            "kind": "keyword",
+            "value": "main",
+            "offset": {
+              "start": 0,
+              "end": 4
+            },
+            "line": 1,
+            "column": 1
+          },
           "arguments": [],
           "block": [
             {
@@ -872,6 +980,30 @@ end function
               "line": 6,
               "column": 5
             }
+          ],
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 99,
+                "end": 102
+              },
+              "line": 8,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "main",
+              "offset": {
+                "start": 103,
+                "end": 107
+              },
+              "line": 8,
+              "column": 5
+            },
+            null
           ]
         },
         "offset": {
@@ -894,7 +1026,29 @@ end function
             "line": 10,
             "column": 10
           },
-          "arguments": [],
+          "arguments": [
+            {
+              "kind": "operator",
+              "value": "(",
+              "offset": {
+                "start": 120,
+                "end": 121
+              },
+              "line": 10,
+              "column": 12
+            },
+            [],
+            {
+              "kind": "operator",
+              "value": ")",
+              "offset": {
+                "start": 121,
+                "end": 122
+              },
+              "line": 10,
+              "column": 13
+            }
+          ],
           "block": [
             {
               "kind": "command",
@@ -1196,6 +1350,30 @@ end function
               "line": 15,
               "column": 5
             }
+          ],
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 217,
+                "end": 220
+              },
+              "line": 17,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "function",
+              "offset": {
+                "start": 221,
+                "end": 229
+              },
+              "line": 17,
+              "column": 5
+            },
+            null
           ]
         },
         "offset": {

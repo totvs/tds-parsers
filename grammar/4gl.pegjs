@@ -201,7 +201,6 @@
     whitespace: "whitespace",
     comment: "comment",
     identifier: "identifier",
-    main: "main",
     global: "global",
     function: "function",
     command: "command",
@@ -284,8 +283,8 @@
     return createNode(TokenKind.builtInVar, variable);
   }
 
-  function createNodeFunction(id, _arguments, code) {
-    const info = { id: id, arguments: _arguments, block: code };
+  function createNodeFunction(id, _arguments, code, end) {
+    const info = { id: id, arguments: _arguments, block: code, endFunction: end };
 
     return createNode(TokenKind.function, info);
   }
@@ -342,16 +341,17 @@ globals
   / GLOBALS SPACE string_exp
 
 function
-  = MAIN SPACE b:blockCommand? END SPACE MAIN SPACE { return createNodeFunction("main", [], b); }
+  = f:MAIN SPACE b:blockCommand? e:(END SPACE MAIN SPACE) { return createNodeFunction(f, [], b, e); }
   / FUNCTION
     SPACE
     f:ID
-    a:parameterList
+    SPACE? 
+    a:(o:O_PARENTHESIS SPACE? p:parameterList? SPACE? c:C_PARENTHESIS { return [o, p?p:[], c]; })
     b:blockCommand?
-    END
+    e:(END
     SPACE
     FUNCTION
-    SPACE { return createNodeFunction(f, a?a:[], b); }
+    SPACE) { return createNodeFunction(f, a?a:[], b, e); }
 
 blockCommand = commands+
 
@@ -372,7 +372,10 @@ call
     ID
     SPACE?
     argumentList
-    (SPACE RETURNING SPACE receivingVariables)?
+    returning?
+
+returning
+    = SPACE RETURNING SPACE receivingVariables
 
 let = LET SPACE receivingVariables SPACE? EQUAL SPACE? expressions
 
@@ -392,26 +395,23 @@ expression
   / variable
 
 argumentList
-  = O_PARENTHESIS SPACE? C_PARENTHESIS { return []; }
-  / O_PARENTHESIS a:arg_value C_PARENTHESIS { return [a]; }
-  / O_PARENTHESIS a:arg_value_list+ C_PARENTHESIS { return a; }
-  / O_PARENTHESIS l:arg_value_list+ a:arg_value+ C_PARENTHESIS {
-      return l.concat(a);
-    }
+  = o:O_PARENTHESIS SPACE? a:arguments? SPACE? c:C_PARENTHESIS { return [o, a , c]; }
+
+arguments
+  = l:arg_list+ p:arg_value+ { return l.concat(p); }
+  / p:arg_list+ { return p; }
+  / p:arg_value { return [p]; }
 
 arg_value = SPACE? e:expressions SPACE? { return e; }
 
-arg_value_list = SPACE? e:expressions SPACE? COMMA SPACE? { return e; }
+arg_list = SPACE? e:expressions SPACE? COMMA SPACE? { return e; }
 
 parameterList
-  = O_PARENTHESIS SPACE? C_PARENTHESIS { return []; }
-  / O_PARENTHESIS p:param_id C_PARENTHESIS { return [p]; }
-  / O_PARENTHESIS p:param_value_list+ C_PARENTHESIS { return p; }
-  / O_PARENTHESIS l:param_value_list+ p:param_id+ C_PARENTHESIS {
-      return l.concat(p);
-    }
+  = l:param_list+ p:param_id+ { return l.concat(p); }
+  / p:param_list+ { return p; }
+  / p:param_id { return [p]; }
 
-param_value_list = SPACE? v:ID SPACE? COMMA SPACE? { return; }
+param_list = v:param_id COMMA SPACE? { return v; }
 
 param_id = SPACE? v:ID SPACE? { return v; }
 
@@ -531,6 +531,26 @@ tableQualifier
 
 columnQualifier = ID DOT (ID / ASTERISK)
 
+integer_exp
+  = t:([-+]? $DIGIT+) { return createNodeNumber(ConstType.integer, parseInt(t, 10)) }
+
+string_exp
+  = s:(double_quoted_string / single_quoted_string) { return createNodeString(s); }
+
+double_quoted_string = $(D_QUOTE double_quoted_char* D_QUOTE)
+
+single_quoted_string = $(S_QUOTE single_quoted_char* S_QUOTE)
+
+double_quoted_char
+  = ESCAPED
+  / !D_QUOTE c:. { return c; }
+
+single_quoted_char
+  = ESCAPED
+  / !S_QUOTE c:. { return c; }
+
+// ======================================================================================
+
 ID = id:$([a-zA-Z_] [a-zA-Z0-9_]*) { return createNodeId(id); }
 
 DEFINE = k:"define"i { return createNodeKeyword(k); }
@@ -648,35 +668,6 @@ MINUTE = k:"minute"i { return createNodeKeyword(k); }
 SECOND = k:"second"i { return createNodeKeyword(k); }
 
 FRACTION = k:"fraction"i { return createNodeKeyword(k); }
-
-// words
-//   = (word (SPACE / NL))+
-
-// word
-//   = w:([a-zA-Z0-9_]+)  {
-//     const word = w.join("");
-//     const _type = keywordList.indexOf(word.toUpperCase()) === -1?TokenKind.word:TokenKind.keyword;
-
-//   return createNode_type, word);
-// }
-
-integer_exp
-  = t:([-+]? $DIGIT+) { return createNodeNumber(ConstType.integer, parseInt(t, 10)) }
-
-string_exp
-  = s:(double_quoted_string / single_quoted_string) { return createNodeString(s); }
-
-double_quoted_string = $(D_QUOTE double_quoted_char* D_QUOTE)
-
-single_quoted_string = $(S_QUOTE single_quoted_char* S_QUOTE)
-
-double_quoted_char
-  = ESCAPED
-  / !D_QUOTE c:. { return c; }
-
-single_quoted_char
-  = ESCAPED
-  / !S_QUOTE c:. { return c; }
 
 D_QUOTE = "\""
 

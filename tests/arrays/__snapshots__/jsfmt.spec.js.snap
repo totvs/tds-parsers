@@ -19,7 +19,16 @@ end function
       {
         "kind": "function",
         "value": {
-          "id": "main",
+          "id": {
+            "kind": "keyword",
+            "value": "main",
+            "offset": {
+              "start": 0,
+              "end": 4
+            },
+            "line": 1,
+            "column": 1
+          },
           "arguments": [],
           "block": [
             {
@@ -58,6 +67,30 @@ end function
               "line": 2,
               "column": 5
             }
+          ],
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 43,
+                "end": 46
+              },
+              "line": 3,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "main",
+              "offset": {
+                "start": 47,
+                "end": 51
+              },
+              "line": 3,
+              "column": 5
+            },
+            null
           ]
         },
         "offset": {
@@ -80,7 +113,29 @@ end function
             "line": 6,
             "column": 10
           },
-          "arguments": [],
+          "arguments": [
+            {
+              "kind": "operator",
+              "value": "(",
+              "offset": {
+                "start": 65,
+                "end": 66
+              },
+              "line": 6,
+              "column": 12
+            },
+            [],
+            {
+              "kind": "operator",
+              "value": ")",
+              "offset": {
+                "start": 66,
+                "end": 67
+              },
+              "line": 6,
+              "column": 13
+            }
+          ],
           "block": [
             {
               "kind": "command",
@@ -154,6 +209,30 @@ end function
               "line": 8,
               "column": 2
             }
+          ],
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 143,
+                "end": 146
+              },
+              "line": 10,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "function",
+              "offset": {
+                "start": 147,
+                "end": 155
+              },
+              "line": 10,
+              "column": 5
+            },
+            null
           ]
         },
         "offset": {

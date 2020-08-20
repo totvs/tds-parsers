@@ -1,41 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`call.4gl 1`] = `
-MAIN 
+main 
 
-  CALL fgl_winmessage()
+  call fgl_winmessage()
 
-  CALL fgl_winmessage("p1")
-
-
+  call fgl_winmessage("p1")
 
 
-  CALL fgl_winmessage("p1","p2", "p3")
-  CALL fgl_winmessage(1,2,    3)
+
+
+  call fgl_winmessage("p1","p2", "p3")
+  call fgl_winmessage(1,2,    3)
 
 end main
 
 function f1() 
 
-  CALL fgl_winmessage() returning var1
+  call fgl_winmessage() returning var1
 
-  CALL fgl_winmessage() returning var1 , var2
+  call fgl_winmessage() returning var1 , var2
 
-CALL fgl_winmessage() returning var1,var2,var3
+call fgl_winmessage() returning var1,var2,var3
 
 end function
 
 function f2() 
 
-  CALL fgl_winmessage() returning var1[ind1]
+  call fgl_winmessage() returning var1[ind1]
 
 end function
 
 function f3() 
 
-  CALL fgl_winmessage() returning rec1.var1
+  call fgl_winmessage() returning rec1.var1
 
-  CALL fgl_winmessage() returning rec1.*
+  call fgl_winmessage() returning rec1.*
 
 end function
 
@@ -47,7 +47,16 @@ end function
       {
         "kind": "function",
         "value": {
-          "id": "main",
+          "id": {
+            "kind": "keyword",
+            "value": "main",
+            "offset": {
+              "start": 0,
+              "end": 4
+            },
+            "line": 1,
+            "column": 1
+          },
           "arguments": [],
           "block": [
             {
@@ -56,7 +65,7 @@ end function
                 [
                   {
                     "kind": "keyword",
-                    "value": "CALL",
+                    "value": "call",
                     "offset": {
                       "start": 9,
                       "end": 13
@@ -76,7 +85,29 @@ end function
                     "column": 8
                   },
                   null,
-                  [],
+                  [
+                    {
+                      "kind": "operator",
+                      "value": "(",
+                      "offset": {
+                        "start": 28,
+                        "end": 29
+                      },
+                      "line": 3,
+                      "column": 22
+                    },
+                    null,
+                    {
+                      "kind": "operator",
+                      "value": ")",
+                      "offset": {
+                        "start": 29,
+                        "end": 30
+                      },
+                      "line": 3,
+                      "column": 23
+                    }
+                  ],
                   null
                 ]
               ],
@@ -93,7 +124,7 @@ end function
                 [
                   {
                     "kind": "keyword",
-                    "value": "CALL",
+                    "value": "call",
                     "offset": {
                       "start": 34,
                       "end": 38
@@ -114,21 +145,43 @@ end function
                   },
                   null,
                   [
+                    {
+                      "kind": "operator",
+                      "value": "(",
+                      "offset": {
+                        "start": 53,
+                        "end": 54
+                      },
+                      "line": 5,
+                      "column": 22
+                    },
                     [
-                      {
-                        "kind": "string",
-                        "value": {
-                          "type": "string",
-                          "value": "\\"p1\\""
-                        },
-                        "offset": {
-                          "start": 54,
-                          "end": 58
-                        },
-                        "line": 5,
-                        "column": 23
-                      }
-                    ]
+                      [
+                        {
+                          "kind": "string",
+                          "value": {
+                            "type": "string",
+                            "value": "\\"p1\\""
+                          },
+                          "offset": {
+                            "start": 54,
+                            "end": 58
+                          },
+                          "line": 5,
+                          "column": 23
+                        }
+                      ]
+                    ],
+                    {
+                      "kind": "operator",
+                      "value": ")",
+                      "offset": {
+                        "start": 58,
+                        "end": 59
+                      },
+                      "line": 5,
+                      "column": 27
+                    }
                   ],
                   null
                 ]
@@ -146,7 +199,7 @@ end function
                 [
                   {
                     "kind": "keyword",
-                    "value": "CALL",
+                    "value": "call",
                     "offset": {
                       "start": 66,
                       "end": 70
@@ -167,51 +220,73 @@ end function
                   },
                   null,
                   [
+                    {
+                      "kind": "operator",
+                      "value": "(",
+                      "offset": {
+                        "start": 85,
+                        "end": 86
+                      },
+                      "line": 10,
+                      "column": 22
+                    },
                     [
-                      {
-                        "kind": "string",
-                        "value": {
-                          "type": "string",
-                          "value": "\\"p1\\""
-                        },
-                        "offset": {
-                          "start": 86,
-                          "end": 90
-                        },
-                        "line": 10,
-                        "column": 23
-                      }
+                      [
+                        {
+                          "kind": "string",
+                          "value": {
+                            "type": "string",
+                            "value": "\\"p1\\""
+                          },
+                          "offset": {
+                            "start": 86,
+                            "end": 90
+                          },
+                          "line": 10,
+                          "column": 23
+                        }
+                      ],
+                      [
+                        {
+                          "kind": "string",
+                          "value": {
+                            "type": "string",
+                            "value": "\\"p2\\""
+                          },
+                          "offset": {
+                            "start": 91,
+                            "end": 95
+                          },
+                          "line": 10,
+                          "column": 28
+                        }
+                      ],
+                      [
+                        {
+                          "kind": "string",
+                          "value": {
+                            "type": "string",
+                            "value": "\\"p3\\""
+                          },
+                          "offset": {
+                            "start": 97,
+                            "end": 101
+                          },
+                          "line": 10,
+                          "column": 34
+                        }
+                      ]
                     ],
-                    [
-                      {
-                        "kind": "string",
-                        "value": {
-                          "type": "string",
-                          "value": "\\"p2\\""
-                        },
-                        "offset": {
-                          "start": 91,
-                          "end": 95
-                        },
-                        "line": 10,
-                        "column": 28
-                      }
-                    ],
-                    [
-                      {
-                        "kind": "string",
-                        "value": {
-                          "type": "string",
-                          "value": "\\"p3\\""
-                        },
-                        "offset": {
-                          "start": 97,
-                          "end": 101
-                        },
-                        "line": 10,
-                        "column": 34
-                      }
-                    ]
+                    {
+                      "kind": "operator",
+                      "value": ")",
+                      "offset": {
+                        "start": 101,
+                        "end": 102
+                      },
+                      "line": 10,
+                      "column": 38
+                    }
                   ],
                   null
                 ]
@@ -229,7 +304,7 @@ end function
                 [
                   {
                     "kind": "keyword",
-                    "value": "CALL",
+                    "value": "call",
                     "offset": {
                       "start": 105,
                       "end": 109
@@ -250,51 +325,73 @@ end function
                   },
                   null,
                   [
+                    {
+                      "kind": "operator",
+                      "value": "(",
+                      "offset": {
+                        "start": 124,
+                        "end": 125
+                      },
+                      "line": 11,
+                      "column": 22
+                    },
                     [
-                      {
-                        "kind": "number",
-                        "value": {
-                          "type": "integer",
-                          "value": null
-                        },
-                        "offset": {
-                          "start": 125,
-                          "end": 126
-                        },
-                        "line": 11,
-                        "column": 23
-                      }
+                      [
+                        {
+                          "kind": "number",
+                          "value": {
+                            "type": "integer",
+                            "value": null
+                          },
+                          "offset": {
+                            "start": 125,
+                            "end": 126
+                          },
+                          "line": 11,
+                          "column": 23
+                        }
+                      ],
+                      [
+                        {
+                          "kind": "number",
+                          "value": {
+                            "type": "integer",
+                            "value": null
+                          },
+                          "offset": {
+                            "start": 127,
+                            "end": 128
+                          },
+                          "line": 11,
+                          "column": 25
+                        }
+                      ],
+                      [
+                        {
+                          "kind": "number",
+                          "value": {
+                            "type": "integer",
+                            "value": null
+                          },
+                          "offset": {
+                            "start": 133,
+                            "end": 134
+                          },
+                          "line": 11,
+                          "column": 31
+                        }
+                      ]
                     ],
-                    [
-                      {
-                        "kind": "number",
-                        "value": {
-                          "type": "integer",
-                          "value": null
-                        },
-                        "offset": {
-                          "start": 127,
-                          "end": 128
-                        },
-                        "line": 11,
-                        "column": 25
-                      }
-                    ],
-                    [
-                      {
-                        "kind": "number",
-                        "value": {
-                          "type": "integer",
-                          "value": null
-                        },
-                        "offset": {
-                          "start": 133,
-                          "end": 134
-                        },
-                        "line": 11,
-                        "column": 31
-                      }
-                    ]
+                    {
+                      "kind": "operator",
+                      "value": ")",
+                      "offset": {
+                        "start": 134,
+                        "end": 135
+                      },
+                      "line": 11,
+                      "column": 32
+                    }
                   ],
                   null
                 ]
@@ -306,6 +403,30 @@ end function
               "line": 11,
               "column": 3
             }
+          ],
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 137,
+                "end": 140
+              },
+              "line": 13,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "main",
+              "offset": {
+                "start": 141,
+                "end": 145
+              },
+              "line": 13,
+              "column": 5
+            },
+            null
           ]
         },
         "offset": {
@@ -328,7 +449,29 @@ end function
             "line": 15,
             "column": 10
           },
-          "arguments": [],
+          "arguments": [
+            {
+              "kind": "operator",
+              "value": "(",
+              "offset": {
+                "start": 158,
+                "end": 159
+              },
+              "line": 15,
+              "column": 12
+            },
+            [],
+            {
+              "kind": "operator",
+              "value": ")",
+              "offset": {
+                "start": 159,
+                "end": 160
+              },
+              "line": 15,
+              "column": 13
+            }
+          ],
           "block": [
             {
               "kind": "command",
@@ -336,7 +479,7 @@ end function
                 [
                   {
                     "kind": "keyword",
-                    "value": "CALL",
+                    "value": "call",
                     "offset": {
                       "start": 165,
                       "end": 169
@@ -356,7 +499,29 @@ end function
                     "column": 8
                   },
                   null,
-                  [],
+                  [
+                    {
+                      "kind": "operator",
+                      "value": "(",
+                      "offset": {
+                        "start": 184,
+                        "end": 185
+                      },
+                      "line": 17,
+                      "column": 22
+                    },
+                    null,
+                    {
+                      "kind": "operator",
+                      "value": ")",
+                      "offset": {
+                        "start": 185,
+                        "end": 186
+                      },
+                      "line": 17,
+                      "column": 23
+                    }
+                  ],
                   [
                     null,
                     {
@@ -409,7 +574,7 @@ end function
                 [
                   {
                     "kind": "keyword",
-                    "value": "CALL",
+                    "value": "call",
                     "offset": {
                       "start": 205,
                       "end": 209
@@ -429,7 +594,29 @@ end function
                     "column": 8
                   },
                   null,
-                  [],
+                  [
+                    {
+                      "kind": "operator",
+                      "value": "(",
+                      "offset": {
+                        "start": 224,
+                        "end": 225
+                      },
+                      "line": 19,
+                      "column": 22
+                    },
+                    null,
+                    {
+                      "kind": "operator",
+                      "value": ")",
+                      "offset": {
+                        "start": 225,
+                        "end": 226
+                      },
+                      "line": 19,
+                      "column": 23
+                    }
+                  ],
                   [
                     null,
                     {
@@ -483,7 +670,7 @@ end function
                 [
                   {
                     "kind": "keyword",
-                    "value": "CALL",
+                    "value": "call",
                     "offset": {
                       "start": 250,
                       "end": 254
@@ -503,7 +690,29 @@ end function
                     "column": 6
                   },
                   null,
-                  [],
+                  [
+                    {
+                      "kind": "operator",
+                      "value": "(",
+                      "offset": {
+                        "start": 269,
+                        "end": 270
+                      },
+                      "line": 21,
+                      "column": 20
+                    },
+                    null,
+                    {
+                      "kind": "operator",
+                      "value": ")",
+                      "offset": {
+                        "start": 270,
+                        "end": 271
+                      },
+                      "line": 21,
+                      "column": 21
+                    }
+                  ],
                   [
                     null,
                     {
@@ -552,6 +761,30 @@ end function
               "line": 21,
               "column": 1
             }
+          ],
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 298,
+                "end": 301
+              },
+              "line": 23,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "function",
+              "offset": {
+                "start": 302,
+                "end": 310
+              },
+              "line": 23,
+              "column": 5
+            },
+            null
           ]
         },
         "offset": {
@@ -574,7 +807,29 @@ end function
             "line": 25,
             "column": 10
           },
-          "arguments": [],
+          "arguments": [
+            {
+              "kind": "operator",
+              "value": "(",
+              "offset": {
+                "start": 323,
+                "end": 324
+              },
+              "line": 25,
+              "column": 12
+            },
+            [],
+            {
+              "kind": "operator",
+              "value": ")",
+              "offset": {
+                "start": 324,
+                "end": 325
+              },
+              "line": 25,
+              "column": 13
+            }
+          ],
           "block": [
             {
               "kind": "command",
@@ -582,7 +837,7 @@ end function
                 [
                   {
                     "kind": "keyword",
-                    "value": "CALL",
+                    "value": "call",
                     "offset": {
                       "start": 330,
                       "end": 334
@@ -602,7 +857,29 @@ end function
                     "column": 8
                   },
                   null,
-                  [],
+                  [
+                    {
+                      "kind": "operator",
+                      "value": "(",
+                      "offset": {
+                        "start": 349,
+                        "end": 350
+                      },
+                      "line": 27,
+                      "column": 22
+                    },
+                    null,
+                    {
+                      "kind": "operator",
+                      "value": ")",
+                      "offset": {
+                        "start": 350,
+                        "end": 351
+                      },
+                      "line": 27,
+                      "column": 23
+                    }
+                  ],
                   [
                     null,
                     {
@@ -672,6 +949,30 @@ end function
               "line": 25,
               "column": 14
             }
+          ],
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 374,
+                "end": 377
+              },
+              "line": 29,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "function",
+              "offset": {
+                "start": 378,
+                "end": 386
+              },
+              "line": 29,
+              "column": 5
+            },
+            null
           ]
         },
         "offset": {
@@ -694,7 +995,29 @@ end function
             "line": 31,
             "column": 10
           },
-          "arguments": [],
+          "arguments": [
+            {
+              "kind": "operator",
+              "value": "(",
+              "offset": {
+                "start": 399,
+                "end": 400
+              },
+              "line": 31,
+              "column": 12
+            },
+            [],
+            {
+              "kind": "operator",
+              "value": ")",
+              "offset": {
+                "start": 400,
+                "end": 401
+              },
+              "line": 31,
+              "column": 13
+            }
+          ],
           "block": [
             {
               "kind": "command",
@@ -702,7 +1025,7 @@ end function
                 [
                   {
                     "kind": "keyword",
-                    "value": "CALL",
+                    "value": "call",
                     "offset": {
                       "start": 406,
                       "end": 410
@@ -722,7 +1045,29 @@ end function
                     "column": 8
                   },
                   null,
-                  [],
+                  [
+                    {
+                      "kind": "operator",
+                      "value": "(",
+                      "offset": {
+                        "start": 425,
+                        "end": 426
+                      },
+                      "line": 33,
+                      "column": 22
+                    },
+                    null,
+                    {
+                      "kind": "operator",
+                      "value": ")",
+                      "offset": {
+                        "start": 426,
+                        "end": 427
+                      },
+                      "line": 33,
+                      "column": 23
+                    }
+                  ],
                   [
                     null,
                     {
@@ -766,7 +1111,7 @@ end function
                 [
                   {
                     "kind": "keyword",
-                    "value": "CALL",
+                    "value": "call",
                     "offset": {
                       "start": 451,
                       "end": 455
@@ -786,7 +1131,29 @@ end function
                     "column": 8
                   },
                   null,
-                  [],
+                  [
+                    {
+                      "kind": "operator",
+                      "value": "(",
+                      "offset": {
+                        "start": 470,
+                        "end": 471
+                      },
+                      "line": 35,
+                      "column": 22
+                    },
+                    null,
+                    {
+                      "kind": "operator",
+                      "value": ")",
+                      "offset": {
+                        "start": 471,
+                        "end": 472
+                      },
+                      "line": 35,
+                      "column": 23
+                    }
+                  ],
                   [
                     null,
                     {
@@ -824,6 +1191,30 @@ end function
               "line": 35,
               "column": 3
             }
+          ],
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 491,
+                "end": 494
+              },
+              "line": 37,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "function",
+              "offset": {
+                "start": 495,
+                "end": 503
+              },
+              "line": 37,
+              "column": 5
+            },
+            null
           ]
         },
         "offset": {
@@ -899,7 +1290,16 @@ end function
       {
         "kind": "function",
         "value": {
-          "id": "main",
+          "id": {
+            "kind": "keyword",
+            "value": "MAIN",
+            "offset": {
+              "start": 0,
+              "end": 4
+            },
+            "line": 1,
+            "column": 1
+          },
           "arguments": [],
           "block": [
             {
@@ -1550,6 +1950,30 @@ end function
               "line": 20,
               "column": 2
             }
+          ],
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 450,
+                "end": 453
+              },
+              "line": 22,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "MAIN",
+              "offset": {
+                "start": 454,
+                "end": 458
+              },
+              "line": 22,
+              "column": 5
+            },
+            null
           ]
         },
         "offset": {
@@ -1572,7 +1996,29 @@ end function
             "line": 24,
             "column": 10
           },
-          "arguments": [],
+          "arguments": [
+            {
+              "kind": "operator",
+              "value": "(",
+              "offset": {
+                "start": 471,
+                "end": 472
+              },
+              "line": 24,
+              "column": 12
+            },
+            [],
+            {
+              "kind": "operator",
+              "value": ")",
+              "offset": {
+                "start": 472,
+                "end": 473
+              },
+              "line": 24,
+              "column": 13
+            }
+          ],
           "block": [
             null,
             {
@@ -1585,6 +2031,30 @@ end function
               "line": 25,
               "column": 2
             }
+          ],
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 501,
+                "end": 504
+              },
+              "line": 26,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "function",
+              "offset": {
+                "start": 505,
+                "end": 513
+              },
+              "line": 26,
+              "column": 5
+            },
+            null
           ]
         },
         "offset": {
@@ -1607,7 +2077,29 @@ end function
             "line": 28,
             "column": 10
           },
-          "arguments": [],
+          "arguments": [
+            {
+              "kind": "operator",
+              "value": "(",
+              "offset": {
+                "start": 526,
+                "end": 527
+              },
+              "line": 28,
+              "column": 12
+            },
+            [],
+            {
+              "kind": "operator",
+              "value": ")",
+              "offset": {
+                "start": 527,
+                "end": 528
+              },
+              "line": 28,
+              "column": 13
+            }
+          ],
           "block": [
             {
               "kind": "command",
@@ -1909,6 +2401,30 @@ end function
               "line": 33,
               "column": 2
             }
+          ],
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 915,
+                "end": 918
+              },
+              "line": 51,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "function",
+              "offset": {
+                "start": 919,
+                "end": 927
+              },
+              "line": 51,
+              "column": 5
+            },
+            null
           ]
         },
         "offset": {
@@ -1935,7 +2451,16 @@ end main
       {
         "kind": "function",
         "value": {
-          "id": "main",
+          "id": {
+            "kind": "keyword",
+            "value": "main",
+            "offset": {
+              "start": 0,
+              "end": 4
+            },
+            "line": 1,
+            "column": 1
+          },
           "arguments": [],
           "block": [
             {
@@ -1948,6 +2473,30 @@ end main
               "line": 2,
               "column": 2
             }
+          ],
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 40,
+                "end": 43
+              },
+              "line": 3,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "main",
+              "offset": {
+                "start": 44,
+                "end": 48
+              },
+              "line": 3,
+              "column": 5
+            },
+            null
           ]
         },
         "offset": {
@@ -1986,9 +2535,42 @@ end function
       {
         "kind": "function",
         "value": {
-          "id": "main",
+          "id": {
+            "kind": "keyword",
+            "value": "main",
+            "offset": {
+              "start": 0,
+              "end": 4
+            },
+            "line": 1,
+            "column": 1
+          },
           "arguments": [],
-          "block": null
+          "block": null,
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 9,
+                "end": 12
+              },
+              "line": 3,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "main",
+              "offset": {
+                "start": 13,
+                "end": 17
+              },
+              "line": 3,
+              "column": 5
+            },
+            null
+          ]
         },
         "offset": {
           "start": 0,
@@ -2010,8 +2592,54 @@ end function
             "line": 5,
             "column": 10
           },
-          "arguments": [],
+          "arguments": [
+            {
+              "kind": "operator",
+              "value": "(",
+              "offset": {
+                "start": 30,
+                "end": 31
+              },
+              "line": 5,
+              "column": 12
+            },
+            [],
+            {
+              "kind": "operator",
+              "value": ")",
+              "offset": {
+                "start": 31,
+                "end": 32
+              },
+              "line": 5,
+              "column": 13
+            }
+          ],
           "block": [
+            null
+          ],
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 37,
+                "end": 40
+              },
+              "line": 7,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "function",
+              "offset": {
+                "start": 41,
+                "end": 49
+              },
+              "line": 7,
+              "column": 5
+            },
             null
           ]
         },
@@ -2037,17 +2665,63 @@ end function
           },
           "arguments": [
             {
-              "kind": "identifier",
-              "value": "p1",
+              "kind": "operator",
+              "value": "(",
               "offset": {
-                "start": 63,
-                "end": 65
+                "start": 62,
+                "end": 63
               },
               "line": 9,
-              "column": 13
+              "column": 12
+            },
+            [
+              {
+                "kind": "identifier",
+                "value": "p1",
+                "offset": {
+                  "start": 63,
+                  "end": 65
+                },
+                "line": 9,
+                "column": 13
+              }
+            ],
+            {
+              "kind": "operator",
+              "value": ")",
+              "offset": {
+                "start": 65,
+                "end": 66
+              },
+              "line": 9,
+              "column": 15
             }
           ],
           "block": [
+            null
+          ],
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 71,
+                "end": 74
+              },
+              "line": 11,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "function",
+              "offset": {
+                "start": 75,
+                "end": 83
+              },
+              "line": 11,
+              "column": 5
+            },
             null
           ]
         },
@@ -2072,19 +2746,74 @@ end function
             "column": 10
           },
           "arguments": [
-            null,
             {
-              "kind": "identifier",
-              "value": "p2",
+              "kind": "operator",
+              "value": "(",
               "offset": {
-                "start": 101,
-                "end": 103
+                "start": 96,
+                "end": 97
               },
               "line": 13,
-              "column": 17
+              "column": 12
+            },
+            [
+              {
+                "kind": "identifier",
+                "value": "p1",
+                "offset": {
+                  "start": 97,
+                  "end": 99
+                },
+                "line": 13,
+                "column": 13
+              },
+              {
+                "kind": "identifier",
+                "value": "p2",
+                "offset": {
+                  "start": 101,
+                  "end": 103
+                },
+                "line": 13,
+                "column": 17
+              }
+            ],
+            {
+              "kind": "operator",
+              "value": ")",
+              "offset": {
+                "start": 103,
+                "end": 104
+              },
+              "line": 13,
+              "column": 19
             }
           ],
           "block": [
+            null
+          ],
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 109,
+                "end": 112
+              },
+              "line": 15,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "function",
+              "offset": {
+                "start": 113,
+                "end": 121
+              },
+              "line": 15,
+              "column": 5
+            },
             null
           ]
         },

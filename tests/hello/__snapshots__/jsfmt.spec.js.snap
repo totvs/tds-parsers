@@ -12,7 +12,16 @@ end main
       {
         "kind": "function",
         "value": {
-          "id": "main",
+          "id": {
+            "kind": "keyword",
+            "value": "main",
+            "offset": {
+              "start": 0,
+              "end": 4
+            },
+            "line": 1,
+            "column": 1
+          },
           "arguments": [],
           "block": [
             {
@@ -54,6 +63,30 @@ end main
               "line": 2,
               "column": 3
             }
+          ],
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 25,
+                "end": 28
+              },
+              "line": 3,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "main",
+              "offset": {
+                "start": 29,
+                "end": 33
+              },
+              "line": 3,
+              "column": 5
+            },
+            null
           ]
         },
         "offset": {
@@ -85,7 +118,16 @@ end main
       {
         "kind": "function",
         "value": {
-          "id": "main",
+          "id": {
+            "kind": "keyword",
+            "value": "main",
+            "offset": {
+              "start": 0,
+              "end": 4
+            },
+            "line": 1,
+            "column": 1
+          },
           "arguments": [],
           "block": [
             {
@@ -210,59 +252,81 @@ end main
                   },
                   null,
                   [
+                    {
+                      "kind": "operator",
+                      "value": "(",
+                      "offset": {
+                        "start": 99,
+                        "end": 100
+                      },
+                      "line": 6,
+                      "column": 22
+                    },
                     [
-                      {
-                        "kind": "string",
-                        "value": {
-                          "type": "string",
-                          "value": "\\"hello\\""
-                        },
-                        "offset": {
-                          "start": 101,
-                          "end": 108
-                        },
-                        "line": 6,
-                        "column": 24
-                      }
+                      [
+                        {
+                          "kind": "string",
+                          "value": {
+                            "type": "string",
+                            "value": "\\"hello\\""
+                          },
+                          "offset": {
+                            "start": 101,
+                            "end": 108
+                          },
+                          "line": 6,
+                          "column": 24
+                        }
+                      ],
+                      [
+                        {
+                          "kind": "variable",
+                          "value": {
+                            "variable": {
+                              "kind": "identifier",
+                              "value": "nome",
+                              "offset": {
+                                "start": 109,
+                                "end": 113
+                              },
+                              "line": 6,
+                              "column": 32
+                            }
+                          },
+                          "offset": {
+                            "start": 109,
+                            "end": 113
+                          },
+                          "line": 6,
+                          "column": 32
+                        }
+                      ],
+                      [
+                        {
+                          "kind": "string",
+                          "value": {
+                            "type": "string",
+                            "value": "\\"info\\""
+                          },
+                          "offset": {
+                            "start": 115,
+                            "end": 121
+                          },
+                          "line": 6,
+                          "column": 38
+                        }
+                      ]
                     ],
-                    [
-                      {
-                        "kind": "variable",
-                        "value": {
-                          "variable": {
-                            "kind": "identifier",
-                            "value": "nome",
-                            "offset": {
-                              "start": 109,
-                              "end": 113
-                            },
-                            "line": 6,
-                            "column": 32
-                          }
-                        },
-                        "offset": {
-                          "start": 109,
-                          "end": 113
-                        },
-                        "line": 6,
-                        "column": 32
-                      }
-                    ],
-                    [
-                      {
-                        "kind": "string",
-                        "value": {
-                          "type": "string",
-                          "value": "\\"info\\""
-                        },
-                        "offset": {
-                          "start": 115,
-                          "end": 121
-                        },
-                        "line": 6,
-                        "column": 38
-                      }
-                    ]
+                    {
+                      "kind": "operator",
+                      "value": ")",
+                      "offset": {
+                        "start": 121,
+                        "end": 122
+                      },
+                      "line": 6,
+                      "column": 44
+                    }
                   ],
                   null
                 ]
@@ -274,6 +338,30 @@ end main
               "line": 6,
               "column": 3
             }
+          ],
+          "endFunction": [
+            {
+              "kind": "keyword",
+              "value": "end",
+              "offset": {
+                "start": 126,
+                "end": 129
+              },
+              "line": 8,
+              "column": 1
+            },
+            null,
+            {
+              "kind": "keyword",
+              "value": "main",
+              "offset": {
+                "start": 130,
+                "end": 134
+              },
+              "line": 8,
+              "column": 5
+            },
+            null
           ]
         },
         "offset": {
