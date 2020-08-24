@@ -5,7 +5,7 @@ export interface IParserOptions {
   debug?: boolean;
   vscodeLanguageId?: string;
   filepath?: string;
-  parser?: string;
+  parser?: string
 }
 
 export const defaultOptions: IParserOptions = {

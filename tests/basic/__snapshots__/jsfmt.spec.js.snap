@@ -15,384 +15,566 @@ end main
     "kind": "program",
     "value": [
       {
-        "kind": "function",
-        "value": {
-          "id": {
-            "kind": "keyword",
-            "value": "main",
-            "offset": {
-              "start": 0,
-              "end": 4
-            },
-            "line": 1,
-            "column": 1
-          },
-          "arguments": [],
-          "block": [
-            {
-              "kind": "command",
-              "value": [
-                [
-                  {
-                    "kind": "keyword",
-                    "value": "let",
-                    "offset": {
-                      "start": 10,
-                      "end": 13
-                    },
-                    "line": 3,
-                    "column": 5
-                  },
-                  null,
-                  [
-                    null,
-                    {
-                      "kind": "variable",
-                      "value": {
-                        "variable": {
-                          "kind": "identifier",
-                          "value": "y",
-                          "offset": {
-                            "start": 17,
-                            "end": 18
-                          },
-                          "line": 3,
-                          "column": 12
-                        }
-                      },
-                      "offset": {
-                        "start": 17,
-                        "end": 18
-                      },
-                      "line": 3,
-                      "column": 12
-                    }
-                  ],
-                  null,
-                  {
-                    "kind": "operator",
-                    "value": "=",
-                    "offset": {
-                      "start": 19,
-                      "end": 20
-                    },
-                    "line": 3,
-                    "column": 14
-                  },
-                  null,
-                  [
-                    {
-                      "kind": "variable",
-                      "value": {
-                        "variable": {
-                          "kind": "identifier",
-                          "value": "arg_val",
-                          "offset": {
-                            "start": 21,
-                            "end": 28
-                          },
-                          "line": 3,
-                          "column": 16
-                        }
-                      },
-                      "offset": {
-                        "start": 21,
-                        "end": 28
-                      },
-                      "line": 3,
-                      "column": 16
-                    }
-                  ]
-                ]
-              ],
-              "offset": {
-                "start": 10,
-                "end": 33
-              },
-              "line": 3,
-              "column": 5
-            },
-            {
-              "kind": "command",
-              "value": [
-                [
-                  {
-                    "kind": "keyword",
-                    "value": "let",
-                    "offset": {
-                      "start": 33,
-                      "end": 36
-                    },
-                    "line": 4,
-                    "column": 5
-                  },
-                  null,
-                  [
-                    null,
-                    {
-                      "kind": "variable",
-                      "value": {
-                        "variable": {
-                          "kind": "identifier",
-                          "value": "y",
-                          "offset": {
-                            "start": 40,
-                            "end": 41
-                          },
-                          "line": 4,
-                          "column": 12
-                        }
-                      },
-                      "offset": {
-                        "start": 40,
-                        "end": 41
-                      },
-                      "line": 4,
-                      "column": 12
-                    }
-                  ],
-                  null,
-                  {
-                    "kind": "operator",
-                    "value": "=",
-                    "offset": {
-                      "start": 42,
-                      "end": 43
-                    },
-                    "line": 4,
-                    "column": 14
-                  },
-                  null,
-                  [
-                    {
-                      "kind": "variable",
-                      "value": {
-                        "variable": {
-                          "kind": "identifier",
-                          "value": "arr_count",
-                          "offset": {
-                            "start": 44,
-                            "end": 53
-                          },
-                          "line": 4,
-                          "column": 16
-                        }
-                      },
-                      "offset": {
-                        "start": 44,
-                        "end": 53
-                      },
-                      "line": 4,
-                      "column": 16
-                    }
-                  ]
-                ]
-              ],
-              "offset": {
-                "start": 33,
-                "end": 58
-              },
-              "line": 4,
-              "column": 5
-            },
-            {
-              "kind": "command",
-              "value": [
-                [
-                  {
-                    "kind": "keyword",
-                    "value": "let",
-                    "offset": {
-                      "start": 58,
-                      "end": 61
-                    },
-                    "line": 5,
-                    "column": 5
-                  },
-                  null,
-                  [
-                    null,
-                    {
-                      "kind": "variable",
-                      "value": {
-                        "variable": {
-                          "kind": "identifier",
-                          "value": "y",
-                          "offset": {
-                            "start": 65,
-                            "end": 66
-                          },
-                          "line": 5,
-                          "column": 12
-                        }
-                      },
-                      "offset": {
-                        "start": 65,
-                        "end": 66
-                      },
-                      "line": 5,
-                      "column": 12
-                    }
-                  ],
-                  null,
-                  {
-                    "kind": "operator",
-                    "value": "=",
-                    "offset": {
-                      "start": 67,
-                      "end": 68
-                    },
-                    "line": 5,
-                    "column": 14
-                  },
-                  null,
-                  [
-                    {
-                      "kind": "variable",
-                      "value": {
-                        "variable": {
-                          "kind": "identifier",
-                          "value": "arr_cur",
-                          "offset": {
-                            "start": 69,
-                            "end": 76
-                          },
-                          "line": 5,
-                          "column": 16
-                        }
-                      },
-                      "offset": {
-                        "start": 69,
-                        "end": 76
-                      },
-                      "line": 5,
-                      "column": 16
-                    }
-                  ]
-                ]
-              ],
-              "offset": {
-                "start": 58,
-                "end": 81
-              },
-              "line": 5,
-              "column": 5
-            },
-            {
-              "kind": "command",
-              "value": [
-                [
-                  {
-                    "kind": "keyword",
-                    "value": "let",
-                    "offset": {
-                      "start": 81,
-                      "end": 84
-                    },
-                    "line": 6,
-                    "column": 5
-                  },
-                  null,
-                  [
-                    null,
-                    {
-                      "kind": "variable",
-                      "value": {
-                        "variable": {
-                          "kind": "identifier",
-                          "value": "y",
-                          "offset": {
-                            "start": 88,
-                            "end": 89
-                          },
-                          "line": 6,
-                          "column": 12
-                        }
-                      },
-                      "offset": {
-                        "start": 88,
-                        "end": 89
-                      },
-                      "line": 6,
-                      "column": 12
-                    }
-                  ],
-                  null,
-                  {
-                    "kind": "operator",
-                    "value": "=",
-                    "offset": {
-                      "start": 90,
-                      "end": 91
-                    },
-                    "line": 6,
-                    "column": 14
-                  },
-                  null,
-                  [
-                    {
-                      "kind": "variable",
-                      "value": {
-                        "variable": {
-                          "kind": "identifier",
-                          "value": "sqlca",
-                          "offset": {
-                            "start": 92,
-                            "end": 97
-                          },
-                          "line": 6,
-                          "column": 16
-                        }
-                      },
-                      "offset": {
-                        "start": 92,
-                        "end": 97
-                      },
-                      "line": 6,
-                      "column": 16
-                    }
-                  ]
-                ]
-              ],
-              "offset": {
-                "start": 81,
-                "end": 103
-              },
-              "line": 6,
-              "column": 5
-            }
-          ],
-          "endFunction": [
-            {
-              "kind": "keyword",
-              "value": "end",
-              "offset": {
-                "start": 103,
-                "end": 106
-              },
-              "line": 8,
-              "column": 1
-            },
-            null,
-            {
-              "kind": "keyword",
-              "value": "main",
-              "offset": {
-                "start": 107,
-                "end": 111
-              },
-              "line": 8,
-              "column": 5
-            },
-            null
-          ]
-        },
+        "kind": "main",
         "offset": {
           "start": 0,
           "end": 112
         },
         "line": 1,
-        "column": 1
+        "column": 1,
+        "value": [
+          [
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 0,
+                "end": 4
+              },
+              "line": 1,
+              "column": 1,
+              "value": "main"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 4,
+                "end": 10
+              },
+              "line": 1,
+              "column": 5,
+              "value": "\\n\\n    "
+            }
+          ],
+          {
+            "kind": "block",
+            "offset": {
+              "start": 10,
+              "end": 103
+            },
+            "line": 3,
+            "column": 5,
+            "value": [
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 10,
+                  "end": 33
+                },
+                "line": 3,
+                "column": 5,
+                "value": [
+                  null,
+                  [
+                    {
+                      "kind": "keyword",
+                      "offset": {
+                        "start": 10,
+                        "end": 13
+                      },
+                      "line": 3,
+                      "column": 5,
+                      "value": "let"
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 13,
+                        "end": 14
+                      },
+                      "line": 3,
+                      "column": 8,
+                      "value": " "
+                    },
+                    [
+                      null,
+                      {
+                        "kind": "variable",
+                        "offset": {
+                          "start": 17,
+                          "end": 18
+                        },
+                        "line": 3,
+                        "column": 12,
+                        "value": {
+                          "kind": "identifier",
+                          "offset": {
+                            "start": 17,
+                            "end": 18
+                          },
+                          "line": 3,
+                          "column": 12,
+                          "value": "y"
+                        }
+                      }
+                    ],
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 18,
+                        "end": 19
+                      },
+                      "line": 3,
+                      "column": 13,
+                      "value": " "
+                    },
+                    {
+                      "kind": "operator",
+                      "offset": {
+                        "start": 19,
+                        "end": 20
+                      },
+                      "line": 3,
+                      "column": 14,
+                      "value": "="
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 20,
+                        "end": 21
+                      },
+                      "line": 3,
+                      "column": 15,
+                      "value": " "
+                    },
+                    [
+                      {
+                        "kind": "variable",
+                        "offset": {
+                          "start": 21,
+                          "end": 28
+                        },
+                        "line": 3,
+                        "column": 16,
+                        "value": {
+                          "kind": "identifier",
+                          "offset": {
+                            "start": 21,
+                            "end": 28
+                          },
+                          "line": 3,
+                          "column": 16,
+                          "value": "arg_val"
+                        }
+                      }
+                    ]
+                  ],
+                  {
+                    "kind": "whitespace",
+                    "offset": {
+                      "start": 28,
+                      "end": 33
+                    },
+                    "line": 3,
+                    "column": 23,
+                    "value": "\\n    "
+                  },
+                  null,
+                  null
+                ]
+              },
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 33,
+                  "end": 58
+                },
+                "line": 4,
+                "column": 5,
+                "value": [
+                  null,
+                  [
+                    {
+                      "kind": "keyword",
+                      "offset": {
+                        "start": 33,
+                        "end": 36
+                      },
+                      "line": 4,
+                      "column": 5,
+                      "value": "let"
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 36,
+                        "end": 37
+                      },
+                      "line": 4,
+                      "column": 8,
+                      "value": " "
+                    },
+                    [
+                      null,
+                      {
+                        "kind": "variable",
+                        "offset": {
+                          "start": 40,
+                          "end": 41
+                        },
+                        "line": 4,
+                        "column": 12,
+                        "value": {
+                          "kind": "identifier",
+                          "offset": {
+                            "start": 40,
+                            "end": 41
+                          },
+                          "line": 4,
+                          "column": 12,
+                          "value": "y"
+                        }
+                      }
+                    ],
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 41,
+                        "end": 42
+                      },
+                      "line": 4,
+                      "column": 13,
+                      "value": " "
+                    },
+                    {
+                      "kind": "operator",
+                      "offset": {
+                        "start": 42,
+                        "end": 43
+                      },
+                      "line": 4,
+                      "column": 14,
+                      "value": "="
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 43,
+                        "end": 44
+                      },
+                      "line": 4,
+                      "column": 15,
+                      "value": " "
+                    },
+                    [
+                      {
+                        "kind": "variable",
+                        "offset": {
+                          "start": 44,
+                          "end": 53
+                        },
+                        "line": 4,
+                        "column": 16,
+                        "value": {
+                          "kind": "identifier",
+                          "offset": {
+                            "start": 44,
+                            "end": 53
+                          },
+                          "line": 4,
+                          "column": 16,
+                          "value": "arr_count"
+                        }
+                      }
+                    ]
+                  ],
+                  {
+                    "kind": "whitespace",
+                    "offset": {
+                      "start": 53,
+                      "end": 58
+                    },
+                    "line": 4,
+                    "column": 25,
+                    "value": "\\n    "
+                  },
+                  null,
+                  null
+                ]
+              },
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 58,
+                  "end": 81
+                },
+                "line": 5,
+                "column": 5,
+                "value": [
+                  null,
+                  [
+                    {
+                      "kind": "keyword",
+                      "offset": {
+                        "start": 58,
+                        "end": 61
+                      },
+                      "line": 5,
+                      "column": 5,
+                      "value": "let"
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 61,
+                        "end": 62
+                      },
+                      "line": 5,
+                      "column": 8,
+                      "value": " "
+                    },
+                    [
+                      null,
+                      {
+                        "kind": "variable",
+                        "offset": {
+                          "start": 65,
+                          "end": 66
+                        },
+                        "line": 5,
+                        "column": 12,
+                        "value": {
+                          "kind": "identifier",
+                          "offset": {
+                            "start": 65,
+                            "end": 66
+                          },
+                          "line": 5,
+                          "column": 12,
+                          "value": "y"
+                        }
+                      }
+                    ],
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 66,
+                        "end": 67
+                      },
+                      "line": 5,
+                      "column": 13,
+                      "value": " "
+                    },
+                    {
+                      "kind": "operator",
+                      "offset": {
+                        "start": 67,
+                        "end": 68
+                      },
+                      "line": 5,
+                      "column": 14,
+                      "value": "="
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 68,
+                        "end": 69
+                      },
+                      "line": 5,
+                      "column": 15,
+                      "value": " "
+                    },
+                    [
+                      {
+                        "kind": "variable",
+                        "offset": {
+                          "start": 69,
+                          "end": 76
+                        },
+                        "line": 5,
+                        "column": 16,
+                        "value": {
+                          "kind": "identifier",
+                          "offset": {
+                            "start": 69,
+                            "end": 76
+                          },
+                          "line": 5,
+                          "column": 16,
+                          "value": "arr_cur"
+                        }
+                      }
+                    ]
+                  ],
+                  {
+                    "kind": "whitespace",
+                    "offset": {
+                      "start": 76,
+                      "end": 81
+                    },
+                    "line": 5,
+                    "column": 23,
+                    "value": "\\n    "
+                  },
+                  null,
+                  null
+                ]
+              },
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 81,
+                  "end": 103
+                },
+                "line": 6,
+                "column": 5,
+                "value": [
+                  null,
+                  [
+                    {
+                      "kind": "keyword",
+                      "offset": {
+                        "start": 81,
+                        "end": 84
+                      },
+                      "line": 6,
+                      "column": 5,
+                      "value": "let"
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 84,
+                        "end": 85
+                      },
+                      "line": 6,
+                      "column": 8,
+                      "value": " "
+                    },
+                    [
+                      null,
+                      {
+                        "kind": "variable",
+                        "offset": {
+                          "start": 88,
+                          "end": 89
+                        },
+                        "line": 6,
+                        "column": 12,
+                        "value": {
+                          "kind": "identifier",
+                          "offset": {
+                            "start": 88,
+                            "end": 89
+                          },
+                          "line": 6,
+                          "column": 12,
+                          "value": "y"
+                        }
+                      }
+                    ],
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 89,
+                        "end": 90
+                      },
+                      "line": 6,
+                      "column": 13,
+                      "value": " "
+                    },
+                    {
+                      "kind": "operator",
+                      "offset": {
+                        "start": 90,
+                        "end": 91
+                      },
+                      "line": 6,
+                      "column": 14,
+                      "value": "="
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 91,
+                        "end": 92
+                      },
+                      "line": 6,
+                      "column": 15,
+                      "value": " "
+                    },
+                    [
+                      {
+                        "kind": "variable",
+                        "offset": {
+                          "start": 92,
+                          "end": 97
+                        },
+                        "line": 6,
+                        "column": 16,
+                        "value": {
+                          "kind": "identifier",
+                          "offset": {
+                            "start": 92,
+                            "end": 97
+                          },
+                          "line": 6,
+                          "column": 16,
+                          "value": "sqlca"
+                        }
+                      }
+                    ]
+                  ],
+                  {
+                    "kind": "whitespace",
+                    "offset": {
+                      "start": 97,
+                      "end": 103
+                    },
+                    "line": 6,
+                    "column": 21,
+                    "value": "\\n    \\n"
+                  },
+                  null,
+                  null
+                ]
+              }
+            ]
+          },
+          [
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 103,
+                "end": 106
+              },
+              "line": 8,
+              "column": 1,
+              "value": "end"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 106,
+                "end": 107
+              },
+              "line": 8,
+              "column": 4,
+              "value": " "
+            },
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 107,
+                "end": 111
+              },
+              "line": 8,
+              "column": 5,
+              "value": "main"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 111,
+                "end": 112
+              },
+              "line": 8,
+              "column": 9,
+              "value": "\\n"
+            }
+          ]
+        ]
       }
     ]
   }
@@ -409,51 +591,80 @@ end main
     "kind": "program",
     "value": [
       {
-        "kind": "function",
-        "value": {
-          "id": {
-            "kind": "keyword",
-            "value": "main",
-            "offset": {
-              "start": 0,
-              "end": 4
-            },
-            "line": 1,
-            "column": 1
-          },
-          "arguments": [],
-          "block": null,
-          "endFunction": [
-            {
-              "kind": "keyword",
-              "value": "end",
-              "offset": {
-                "start": 6,
-                "end": 9
-              },
-              "line": 3,
-              "column": 1
-            },
-            null,
-            {
-              "kind": "keyword",
-              "value": "main",
-              "offset": {
-                "start": 10,
-                "end": 14
-              },
-              "line": 3,
-              "column": 5
-            },
-            null
-          ]
-        },
+        "kind": "main",
         "offset": {
           "start": 0,
           "end": 15
         },
         "line": 1,
-        "column": 1
+        "column": 1,
+        "value": [
+          [
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 0,
+                "end": 4
+              },
+              "line": 1,
+              "column": 1,
+              "value": "main"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 4,
+                "end": 6
+              },
+              "line": 1,
+              "column": 5,
+              "value": "\\n\\n"
+            }
+          ],
+          null,
+          [
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 6,
+                "end": 9
+              },
+              "line": 3,
+              "column": 1,
+              "value": "end"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 9,
+                "end": 10
+              },
+              "line": 3,
+              "column": 4,
+              "value": " "
+            },
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 10,
+                "end": 14
+              },
+              "line": 3,
+              "column": 5,
+              "value": "main"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 14,
+                "end": 15
+              },
+              "line": 3,
+              "column": 9,
+              "value": "\\n"
+            }
+          ]
+        ]
       }
     ]
   }
@@ -476,166 +687,350 @@ end main
     "kind": "program",
     "value": [
       {
-        "value": [
-          {
-            "kind": "keyword",
-            "value": "globals",
-            "offset": {
-              "start": 0,
-              "end": 7
-            },
-            "line": 1,
-            "column": 1
-          },
-          null,
-          {
-            "kind": "string",
-            "value": {
-              "type": "string",
-              "value": "\\"abc.txt\\""
-            },
-            "offset": {
-              "start": 8,
-              "end": 17
-            },
-            "line": 1,
-            "column": 9
-          }
-        ],
+        "kind": "global",
         "offset": {
           "start": 0,
           "end": 17
         },
         "line": 1,
-        "column": 1
-      },
-      {
+        "column": 1,
         "value": [
           {
             "kind": "keyword",
-            "value": "globals",
             "offset": {
-              "start": 19,
-              "end": 26
+              "start": 0,
+              "end": 7
             },
-            "line": 3,
-            "column": 1
+            "line": 1,
+            "column": 1,
+            "value": "globals"
           },
-          null,
-          [
-            [
-              {
-                "kind": "keyword",
-                "value": "DEFINE",
-                "offset": {
-                  "start": 29,
-                  "end": 35
-                },
-                "line": 4,
-                "column": 3
-              },
-              null,
-              {
-                "kind": "identifier",
-                "value": "NOME",
-                "offset": {
-                  "start": 36,
-                  "end": 40
-                },
-                "line": 4,
-                "column": 10
-              },
-              null,
-              "CHAR(50)"
-            ],
-            null,
-            {
-              "kind": "comment",
-              "value": "# abc\\n",
-              "offset": {
-                "start": 50,
-                "end": 56
-              },
-              "line": 4,
-              "column": 24
+          {
+            "kind": "whitespace",
+            "offset": {
+              "start": 7,
+              "end": 8
+            },
+            "line": 1,
+            "column": 8,
+            "value": " "
+          },
+          {
+            "kind": "string",
+            "offset": {
+              "start": 8,
+              "end": 17
+            },
+            "line": 1,
+            "column": 9,
+            "value": {
+              "type": "string",
+              "value": [
+                "\\"",
+                "abc.txt",
+                "\\""
+              ]
             }
-          ],
-          {
-            "kind": "keyword",
-            "value": "end",
-            "offset": {
-              "start": 56,
-              "end": 59
-            },
-            "line": 5,
-            "column": 1
-          },
-          null,
-          {
-            "kind": "keyword",
-            "value": "globals",
-            "offset": {
-              "start": 60,
-              "end": 67
-            },
-            "line": 5,
-            "column": 5
-          },
-          null
-        ],
+          }
+        ]
+      },
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 17,
+          "end": 19
+        },
+        "line": 1,
+        "column": 18,
+        "value": "\\n\\n"
+      },
+      {
+        "kind": "global",
         "offset": {
           "start": 19,
           "end": 69
         },
         "line": 3,
-        "column": 1
+        "column": 1,
+        "value": [
+          {
+            "kind": "keyword",
+            "offset": {
+              "start": 19,
+              "end": 26
+            },
+            "line": 3,
+            "column": 1,
+            "value": "globals"
+          },
+          {
+            "kind": "whitespace",
+            "offset": {
+              "start": 26,
+              "end": 29
+            },
+            "line": 3,
+            "column": 8,
+            "value": "\\n  "
+          },
+          [
+            [
+              {
+                "kind": "keyword",
+                "offset": {
+                  "start": 29,
+                  "end": 35
+                },
+                "line": 4,
+                "column": 3,
+                "value": "DEFINE"
+              },
+              {
+                "kind": "whitespace",
+                "offset": {
+                  "start": 35,
+                  "end": 36
+                },
+                "line": 4,
+                "column": 9,
+                "value": " "
+              },
+              {
+                "kind": "identifier",
+                "offset": {
+                  "start": 36,
+                  "end": 40
+                },
+                "line": 4,
+                "column": 10,
+                "value": "NOME"
+              },
+              {
+                "kind": "whitespace",
+                "offset": {
+                  "start": 40,
+                  "end": 41
+                },
+                "line": 4,
+                "column": 14,
+                "value": " "
+              },
+              [
+                {
+                  "kind": "keyword",
+                  "offset": {
+                    "start": 41,
+                    "end": 45
+                  },
+                  "line": 4,
+                  "column": 15,
+                  "value": "CHAR"
+                },
+                [
+                  {
+                    "kind": "bracket",
+                    "offset": {
+                      "start": 45,
+                      "end": 46
+                    },
+                    "line": 4,
+                    "column": 19,
+                    "value": "("
+                  },
+                  {
+                    "kind": "number",
+                    "offset": {
+                      "start": 46,
+                      "end": 48
+                    },
+                    "line": 4,
+                    "column": 20,
+                    "value": {
+                      "type": "integer",
+                      "value": null
+                    }
+                  },
+                  {
+                    "kind": "bracket",
+                    "offset": {
+                      "start": 48,
+                      "end": 49
+                    },
+                    "line": 4,
+                    "column": 22,
+                    "value": ")"
+                  }
+                ]
+              ]
+            ],
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 49,
+                "end": 50
+              },
+              "line": 4,
+              "column": 23,
+              "value": " "
+            },
+            {
+              "kind": "comment",
+              "offset": {
+                "start": 50,
+                "end": 56
+              },
+              "line": 4,
+              "column": 24,
+              "value": [
+                "#",
+                [
+                  [
+                    null,
+                    " "
+                  ],
+                  [
+                    null,
+                    "a"
+                  ],
+                  [
+                    null,
+                    "b"
+                  ],
+                  [
+                    null,
+                    "c"
+                  ]
+                ],
+                {
+                  "kind": "whitespace",
+                  "offset": {
+                    "start": 55,
+                    "end": 56
+                  },
+                  "line": 4,
+                  "column": 29,
+                  "value": "\\n"
+                }
+              ]
+            }
+          ],
+          {
+            "kind": "keyword",
+            "offset": {
+              "start": 56,
+              "end": 59
+            },
+            "line": 5,
+            "column": 1,
+            "value": "end"
+          },
+          {
+            "kind": "whitespace",
+            "offset": {
+              "start": 59,
+              "end": 60
+            },
+            "line": 5,
+            "column": 4,
+            "value": " "
+          },
+          {
+            "kind": "keyword",
+            "offset": {
+              "start": 60,
+              "end": 67
+            },
+            "line": 5,
+            "column": 5,
+            "value": "globals"
+          },
+          {
+            "kind": "whitespace",
+            "offset": {
+              "start": 67,
+              "end": 69
+            },
+            "line": 5,
+            "column": 12,
+            "value": "\\n\\n"
+          }
+        ]
       },
       {
-        "kind": "function",
-        "value": {
-          "id": {
-            "kind": "keyword",
-            "value": "main",
-            "offset": {
-              "start": 69,
-              "end": 73
-            },
-            "line": 7,
-            "column": 1
-          },
-          "arguments": [],
-          "block": null,
-          "endFunction": [
-            {
-              "kind": "keyword",
-              "value": "end",
-              "offset": {
-                "start": 75,
-                "end": 78
-              },
-              "line": 9,
-              "column": 1
-            },
-            null,
-            {
-              "kind": "keyword",
-              "value": "main",
-              "offset": {
-                "start": 79,
-                "end": 83
-              },
-              "line": 9,
-              "column": 5
-            },
-            null
-          ]
-        },
+        "kind": "main",
         "offset": {
           "start": 69,
           "end": 84
         },
         "line": 7,
-        "column": 1
+        "column": 1,
+        "value": [
+          [
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 69,
+                "end": 73
+              },
+              "line": 7,
+              "column": 1,
+              "value": "main"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 73,
+                "end": 75
+              },
+              "line": 7,
+              "column": 5,
+              "value": "\\n\\n"
+            }
+          ],
+          null,
+          [
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 75,
+                "end": 78
+              },
+              "line": 9,
+              "column": 1,
+              "value": "end"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 78,
+                "end": 79
+              },
+              "line": 9,
+              "column": 4,
+              "value": " "
+            },
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 79,
+                "end": 83
+              },
+              "line": 9,
+              "column": 5,
+              "value": "main"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 83,
+                "end": 84
+              },
+              "line": 9,
+              "column": 9,
+              "value": "\\n"
+            }
+          ]
+        ]
       }
     ]
   }
@@ -666,722 +1061,1155 @@ end function
     "kind": "program",
     "value": [
       {
-        "kind": "function",
-        "value": {
-          "id": {
-            "kind": "keyword",
-            "value": "main",
-            "offset": {
-              "start": 0,
-              "end": 4
-            },
-            "line": 1,
-            "column": 1
-          },
-          "arguments": [],
-          "block": [
-            {
-              "kind": "command",
-              "value": [
-                [
-                  {
-                    "kind": "keyword",
-                    "value": "let",
-                    "offset": {
-                      "start": 10,
-                      "end": 13
-                    },
-                    "line": 3,
-                    "column": 5
-                  },
-                  null,
-                  [
-                    null,
-                    {
-                      "kind": "variable",
-                      "value": {
-                        "variable": {
-                          "kind": "identifier",
-                          "value": "y",
-                          "offset": {
-                            "start": 17,
-                            "end": 18
-                          },
-                          "line": 3,
-                          "column": 12
-                        }
-                      },
-                      "offset": {
-                        "start": 17,
-                        "end": 18
-                      },
-                      "line": 3,
-                      "column": 12
-                    }
-                  ],
-                  null,
-                  {
-                    "kind": "operator",
-                    "value": "=",
-                    "offset": {
-                      "start": 19,
-                      "end": 20
-                    },
-                    "line": 3,
-                    "column": 14
-                  },
-                  null,
-                  [
-                    {
-                      "kind": "string",
-                      "value": {
-                        "type": "string",
-                        "value": "''"
-                      },
-                      "offset": {
-                        "start": 21,
-                        "end": 23
-                      },
-                      "line": 3,
-                      "column": 16
-                    }
-                  ]
-                ]
-              ],
-              "offset": {
-                "start": 10,
-                "end": 28
-              },
-              "line": 3,
-              "column": 5
-            },
-            {
-              "kind": "command",
-              "value": [
-                [
-                  {
-                    "kind": "keyword",
-                    "value": "let",
-                    "offset": {
-                      "start": 28,
-                      "end": 31
-                    },
-                    "line": 4,
-                    "column": 5
-                  },
-                  null,
-                  [
-                    null,
-                    {
-                      "kind": "variable",
-                      "value": {
-                        "variable": {
-                          "kind": "identifier",
-                          "value": "y",
-                          "offset": {
-                            "start": 35,
-                            "end": 36
-                          },
-                          "line": 4,
-                          "column": 12
-                        }
-                      },
-                      "offset": {
-                        "start": 35,
-                        "end": 36
-                      },
-                      "line": 4,
-                      "column": 12
-                    }
-                  ],
-                  null,
-                  {
-                    "kind": "operator",
-                    "value": "=",
-                    "offset": {
-                      "start": 37,
-                      "end": 38
-                    },
-                    "line": 4,
-                    "column": 14
-                  },
-                  null,
-                  [
-                    {
-                      "kind": "string",
-                      "value": {
-                        "type": "string",
-                        "value": "'ABC,DEF'"
-                      },
-                      "offset": {
-                        "start": 39,
-                        "end": 48
-                      },
-                      "line": 4,
-                      "column": 16
-                    }
-                  ]
-                ]
-              ],
-              "offset": {
-                "start": 28,
-                "end": 53
-              },
-              "line": 4,
-              "column": 5
-            },
-            {
-              "kind": "command",
-              "value": [
-                [
-                  {
-                    "kind": "keyword",
-                    "value": "let",
-                    "offset": {
-                      "start": 53,
-                      "end": 56
-                    },
-                    "line": 5,
-                    "column": 5
-                  },
-                  null,
-                  [
-                    null,
-                    {
-                      "kind": "variable",
-                      "value": {
-                        "variable": {
-                          "kind": "identifier",
-                          "value": "y",
-                          "offset": {
-                            "start": 60,
-                            "end": 61
-                          },
-                          "line": 5,
-                          "column": 12
-                        }
-                      },
-                      "offset": {
-                        "start": 60,
-                        "end": 61
-                      },
-                      "line": 5,
-                      "column": 12
-                    }
-                  ],
-                  null,
-                  {
-                    "kind": "operator",
-                    "value": "=",
-                    "offset": {
-                      "start": 62,
-                      "end": 63
-                    },
-                    "line": 5,
-                    "column": 14
-                  },
-                  null,
-                  [
-                    {
-                      "kind": "string",
-                      "value": {
-                        "type": "string",
-                        "value": "'\\"'"
-                      },
-                      "offset": {
-                        "start": 64,
-                        "end": 67
-                      },
-                      "line": 5,
-                      "column": 16
-                    }
-                  ]
-                ]
-              ],
-              "offset": {
-                "start": 53,
-                "end": 72
-              },
-              "line": 5,
-              "column": 5
-            },
-            {
-              "kind": "command",
-              "value": [
-                [
-                  {
-                    "kind": "keyword",
-                    "value": "let",
-                    "offset": {
-                      "start": 72,
-                      "end": 75
-                    },
-                    "line": 6,
-                    "column": 5
-                  },
-                  null,
-                  [
-                    null,
-                    {
-                      "kind": "variable",
-                      "value": {
-                        "variable": {
-                          "kind": "identifier",
-                          "value": "y",
-                          "offset": {
-                            "start": 79,
-                            "end": 80
-                          },
-                          "line": 6,
-                          "column": 12
-                        }
-                      },
-                      "offset": {
-                        "start": 79,
-                        "end": 80
-                      },
-                      "line": 6,
-                      "column": 12
-                    }
-                  ],
-                  null,
-                  {
-                    "kind": "operator",
-                    "value": "=",
-                    "offset": {
-                      "start": 81,
-                      "end": 82
-                    },
-                    "line": 6,
-                    "column": 14
-                  },
-                  null,
-                  [
-                    {
-                      "kind": "string",
-                      "value": {
-                        "type": "string",
-                        "value": "'ABC\\\\'DEF'"
-                      },
-                      "offset": {
-                        "start": 83,
-                        "end": 93
-                      },
-                      "line": 6,
-                      "column": 16
-                    }
-                  ]
-                ]
-              ],
-              "offset": {
-                "start": 72,
-                "end": 99
-              },
-              "line": 6,
-              "column": 5
-            }
-          ],
-          "endFunction": [
-            {
-              "kind": "keyword",
-              "value": "end",
-              "offset": {
-                "start": 99,
-                "end": 102
-              },
-              "line": 8,
-              "column": 1
-            },
-            null,
-            {
-              "kind": "keyword",
-              "value": "main",
-              "offset": {
-                "start": 103,
-                "end": 107
-              },
-              "line": 8,
-              "column": 5
-            },
-            null
-          ]
-        },
+        "kind": "main",
         "offset": {
           "start": 0,
           "end": 109
         },
         "line": 1,
-        "column": 1
+        "column": 1,
+        "value": [
+          [
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 0,
+                "end": 4
+              },
+              "line": 1,
+              "column": 1,
+              "value": "main"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 4,
+                "end": 10
+              },
+              "line": 1,
+              "column": 5,
+              "value": "\\n\\n    "
+            }
+          ],
+          {
+            "kind": "block",
+            "offset": {
+              "start": 10,
+              "end": 99
+            },
+            "line": 3,
+            "column": 5,
+            "value": [
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 10,
+                  "end": 28
+                },
+                "line": 3,
+                "column": 5,
+                "value": [
+                  null,
+                  [
+                    {
+                      "kind": "keyword",
+                      "offset": {
+                        "start": 10,
+                        "end": 13
+                      },
+                      "line": 3,
+                      "column": 5,
+                      "value": "let"
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 13,
+                        "end": 14
+                      },
+                      "line": 3,
+                      "column": 8,
+                      "value": " "
+                    },
+                    [
+                      null,
+                      {
+                        "kind": "variable",
+                        "offset": {
+                          "start": 17,
+                          "end": 18
+                        },
+                        "line": 3,
+                        "column": 12,
+                        "value": {
+                          "kind": "identifier",
+                          "offset": {
+                            "start": 17,
+                            "end": 18
+                          },
+                          "line": 3,
+                          "column": 12,
+                          "value": "y"
+                        }
+                      }
+                    ],
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 18,
+                        "end": 19
+                      },
+                      "line": 3,
+                      "column": 13,
+                      "value": " "
+                    },
+                    {
+                      "kind": "operator",
+                      "offset": {
+                        "start": 19,
+                        "end": 20
+                      },
+                      "line": 3,
+                      "column": 14,
+                      "value": "="
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 20,
+                        "end": 21
+                      },
+                      "line": 3,
+                      "column": 15,
+                      "value": " "
+                    },
+                    [
+                      {
+                        "kind": "string",
+                        "offset": {
+                          "start": 21,
+                          "end": 23
+                        },
+                        "line": 3,
+                        "column": 16,
+                        "value": {
+                          "type": "string",
+                          "value": [
+                            "'",
+                            "",
+                            "'"
+                          ]
+                        }
+                      }
+                    ]
+                  ],
+                  {
+                    "kind": "whitespace",
+                    "offset": {
+                      "start": 23,
+                      "end": 28
+                    },
+                    "line": 3,
+                    "column": 18,
+                    "value": "\\n    "
+                  },
+                  null,
+                  null
+                ]
+              },
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 28,
+                  "end": 53
+                },
+                "line": 4,
+                "column": 5,
+                "value": [
+                  null,
+                  [
+                    {
+                      "kind": "keyword",
+                      "offset": {
+                        "start": 28,
+                        "end": 31
+                      },
+                      "line": 4,
+                      "column": 5,
+                      "value": "let"
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 31,
+                        "end": 32
+                      },
+                      "line": 4,
+                      "column": 8,
+                      "value": " "
+                    },
+                    [
+                      null,
+                      {
+                        "kind": "variable",
+                        "offset": {
+                          "start": 35,
+                          "end": 36
+                        },
+                        "line": 4,
+                        "column": 12,
+                        "value": {
+                          "kind": "identifier",
+                          "offset": {
+                            "start": 35,
+                            "end": 36
+                          },
+                          "line": 4,
+                          "column": 12,
+                          "value": "y"
+                        }
+                      }
+                    ],
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 36,
+                        "end": 37
+                      },
+                      "line": 4,
+                      "column": 13,
+                      "value": " "
+                    },
+                    {
+                      "kind": "operator",
+                      "offset": {
+                        "start": 37,
+                        "end": 38
+                      },
+                      "line": 4,
+                      "column": 14,
+                      "value": "="
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 38,
+                        "end": 39
+                      },
+                      "line": 4,
+                      "column": 15,
+                      "value": " "
+                    },
+                    [
+                      {
+                        "kind": "string",
+                        "offset": {
+                          "start": 39,
+                          "end": 48
+                        },
+                        "line": 4,
+                        "column": 16,
+                        "value": {
+                          "type": "string",
+                          "value": [
+                            "'",
+                            "ABC,DEF",
+                            "'"
+                          ]
+                        }
+                      }
+                    ]
+                  ],
+                  {
+                    "kind": "whitespace",
+                    "offset": {
+                      "start": 48,
+                      "end": 53
+                    },
+                    "line": 4,
+                    "column": 25,
+                    "value": "\\n    "
+                  },
+                  null,
+                  null
+                ]
+              },
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 53,
+                  "end": 72
+                },
+                "line": 5,
+                "column": 5,
+                "value": [
+                  null,
+                  [
+                    {
+                      "kind": "keyword",
+                      "offset": {
+                        "start": 53,
+                        "end": 56
+                      },
+                      "line": 5,
+                      "column": 5,
+                      "value": "let"
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 56,
+                        "end": 57
+                      },
+                      "line": 5,
+                      "column": 8,
+                      "value": " "
+                    },
+                    [
+                      null,
+                      {
+                        "kind": "variable",
+                        "offset": {
+                          "start": 60,
+                          "end": 61
+                        },
+                        "line": 5,
+                        "column": 12,
+                        "value": {
+                          "kind": "identifier",
+                          "offset": {
+                            "start": 60,
+                            "end": 61
+                          },
+                          "line": 5,
+                          "column": 12,
+                          "value": "y"
+                        }
+                      }
+                    ],
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 61,
+                        "end": 62
+                      },
+                      "line": 5,
+                      "column": 13,
+                      "value": " "
+                    },
+                    {
+                      "kind": "operator",
+                      "offset": {
+                        "start": 62,
+                        "end": 63
+                      },
+                      "line": 5,
+                      "column": 14,
+                      "value": "="
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 63,
+                        "end": 64
+                      },
+                      "line": 5,
+                      "column": 15,
+                      "value": " "
+                    },
+                    [
+                      {
+                        "kind": "string",
+                        "offset": {
+                          "start": 64,
+                          "end": 67
+                        },
+                        "line": 5,
+                        "column": 16,
+                        "value": {
+                          "type": "string",
+                          "value": [
+                            "'",
+                            "\\"",
+                            "'"
+                          ]
+                        }
+                      }
+                    ]
+                  ],
+                  {
+                    "kind": "whitespace",
+                    "offset": {
+                      "start": 67,
+                      "end": 72
+                    },
+                    "line": 5,
+                    "column": 19,
+                    "value": "\\n    "
+                  },
+                  null,
+                  null
+                ]
+              },
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 72,
+                  "end": 99
+                },
+                "line": 6,
+                "column": 5,
+                "value": [
+                  null,
+                  [
+                    {
+                      "kind": "keyword",
+                      "offset": {
+                        "start": 72,
+                        "end": 75
+                      },
+                      "line": 6,
+                      "column": 5,
+                      "value": "let"
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 75,
+                        "end": 76
+                      },
+                      "line": 6,
+                      "column": 8,
+                      "value": " "
+                    },
+                    [
+                      null,
+                      {
+                        "kind": "variable",
+                        "offset": {
+                          "start": 79,
+                          "end": 80
+                        },
+                        "line": 6,
+                        "column": 12,
+                        "value": {
+                          "kind": "identifier",
+                          "offset": {
+                            "start": 79,
+                            "end": 80
+                          },
+                          "line": 6,
+                          "column": 12,
+                          "value": "y"
+                        }
+                      }
+                    ],
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 80,
+                        "end": 81
+                      },
+                      "line": 6,
+                      "column": 13,
+                      "value": " "
+                    },
+                    {
+                      "kind": "operator",
+                      "offset": {
+                        "start": 81,
+                        "end": 82
+                      },
+                      "line": 6,
+                      "column": 14,
+                      "value": "="
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 82,
+                        "end": 83
+                      },
+                      "line": 6,
+                      "column": 15,
+                      "value": " "
+                    },
+                    [
+                      {
+                        "kind": "string",
+                        "offset": {
+                          "start": 83,
+                          "end": 93
+                        },
+                        "line": 6,
+                        "column": 16,
+                        "value": {
+                          "type": "string",
+                          "value": [
+                            "'",
+                            "ABC\\\\'DEF",
+                            "'"
+                          ]
+                        }
+                      }
+                    ]
+                  ],
+                  {
+                    "kind": "whitespace",
+                    "offset": {
+                      "start": 93,
+                      "end": 99
+                    },
+                    "line": 6,
+                    "column": 26,
+                    "value": "\\n    \\n"
+                  },
+                  null,
+                  null
+                ]
+              }
+            ]
+          },
+          [
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 99,
+                "end": 102
+              },
+              "line": 8,
+              "column": 1,
+              "value": "end"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 102,
+                "end": 103
+              },
+              "line": 8,
+              "column": 4,
+              "value": " "
+            },
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 103,
+                "end": 107
+              },
+              "line": 8,
+              "column": 5,
+              "value": "main"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 107,
+                "end": 109
+              },
+              "line": 8,
+              "column": 9,
+              "value": "\\n\\n"
+            }
+          ]
+        ]
       },
       {
         "kind": "function",
-        "value": {
-          "id": {
-            "kind": "identifier",
-            "value": "f1",
-            "offset": {
-              "start": 118,
-              "end": 120
-            },
-            "line": 10,
-            "column": 10
-          },
-          "arguments": [
-            {
-              "kind": "operator",
-              "value": "(",
-              "offset": {
-                "start": 120,
-                "end": 121
-              },
-              "line": 10,
-              "column": 12
-            },
-            [],
-            {
-              "kind": "operator",
-              "value": ")",
-              "offset": {
-                "start": 121,
-                "end": 122
-              },
-              "line": 10,
-              "column": 13
-            }
-          ],
-          "block": [
-            {
-              "kind": "command",
-              "value": [
-                [
-                  {
-                    "kind": "keyword",
-                    "value": "let",
-                    "offset": {
-                      "start": 128,
-                      "end": 131
-                    },
-                    "line": 12,
-                    "column": 5
-                  },
-                  null,
-                  [
-                    null,
-                    {
-                      "kind": "variable",
-                      "value": {
-                        "variable": {
-                          "kind": "identifier",
-                          "value": "y",
-                          "offset": {
-                            "start": 135,
-                            "end": 136
-                          },
-                          "line": 12,
-                          "column": 12
-                        }
-                      },
-                      "offset": {
-                        "start": 135,
-                        "end": 136
-                      },
-                      "line": 12,
-                      "column": 12
-                    }
-                  ],
-                  null,
-                  {
-                    "kind": "operator",
-                    "value": "=",
-                    "offset": {
-                      "start": 137,
-                      "end": 138
-                    },
-                    "line": 12,
-                    "column": 14
-                  },
-                  null,
-                  [
-                    {
-                      "kind": "string",
-                      "value": {
-                        "type": "string",
-                        "value": "\\"\\""
-                      },
-                      "offset": {
-                        "start": 139,
-                        "end": 141
-                      },
-                      "line": 12,
-                      "column": 16
-                    }
-                  ]
-                ]
-              ],
-              "offset": {
-                "start": 122,
-                "end": 146
-              },
-              "line": 10,
-              "column": 14
-            },
-            {
-              "kind": "command",
-              "value": [
-                [
-                  {
-                    "kind": "keyword",
-                    "value": "let",
-                    "offset": {
-                      "start": 146,
-                      "end": 149
-                    },
-                    "line": 13,
-                    "column": 5
-                  },
-                  null,
-                  [
-                    null,
-                    {
-                      "kind": "variable",
-                      "value": {
-                        "variable": {
-                          "kind": "identifier",
-                          "value": "y",
-                          "offset": {
-                            "start": 153,
-                            "end": 154
-                          },
-                          "line": 13,
-                          "column": 12
-                        }
-                      },
-                      "offset": {
-                        "start": 153,
-                        "end": 154
-                      },
-                      "line": 13,
-                      "column": 12
-                    }
-                  ],
-                  null,
-                  {
-                    "kind": "operator",
-                    "value": "=",
-                    "offset": {
-                      "start": 155,
-                      "end": 156
-                    },
-                    "line": 13,
-                    "column": 14
-                  },
-                  null,
-                  [
-                    {
-                      "kind": "string",
-                      "value": {
-                        "type": "string",
-                        "value": "\\"ABC,DEF\\""
-                      },
-                      "offset": {
-                        "start": 157,
-                        "end": 166
-                      },
-                      "line": 13,
-                      "column": 16
-                    }
-                  ]
-                ]
-              ],
-              "offset": {
-                "start": 146,
-                "end": 171
-              },
-              "line": 13,
-              "column": 5
-            },
-            {
-              "kind": "command",
-              "value": [
-                [
-                  {
-                    "kind": "keyword",
-                    "value": "let",
-                    "offset": {
-                      "start": 171,
-                      "end": 174
-                    },
-                    "line": 14,
-                    "column": 5
-                  },
-                  null,
-                  [
-                    null,
-                    {
-                      "kind": "variable",
-                      "value": {
-                        "variable": {
-                          "kind": "identifier",
-                          "value": "y",
-                          "offset": {
-                            "start": 178,
-                            "end": 179
-                          },
-                          "line": 14,
-                          "column": 12
-                        }
-                      },
-                      "offset": {
-                        "start": 178,
-                        "end": 179
-                      },
-                      "line": 14,
-                      "column": 12
-                    }
-                  ],
-                  null,
-                  {
-                    "kind": "operator",
-                    "value": "=",
-                    "offset": {
-                      "start": 180,
-                      "end": 181
-                    },
-                    "line": 14,
-                    "column": 14
-                  },
-                  null,
-                  [
-                    {
-                      "kind": "string",
-                      "value": {
-                        "type": "string",
-                        "value": "\\"'\\""
-                      },
-                      "offset": {
-                        "start": 182,
-                        "end": 185
-                      },
-                      "line": 14,
-                      "column": 16
-                    }
-                  ]
-                ]
-              ],
-              "offset": {
-                "start": 171,
-                "end": 190
-              },
-              "line": 14,
-              "column": 5
-            },
-            {
-              "kind": "command",
-              "value": [
-                [
-                  {
-                    "kind": "keyword",
-                    "value": "let",
-                    "offset": {
-                      "start": 190,
-                      "end": 193
-                    },
-                    "line": 15,
-                    "column": 5
-                  },
-                  null,
-                  [
-                    null,
-                    {
-                      "kind": "variable",
-                      "value": {
-                        "variable": {
-                          "kind": "identifier",
-                          "value": "y",
-                          "offset": {
-                            "start": 197,
-                            "end": 198
-                          },
-                          "line": 15,
-                          "column": 12
-                        }
-                      },
-                      "offset": {
-                        "start": 197,
-                        "end": 198
-                      },
-                      "line": 15,
-                      "column": 12
-                    }
-                  ],
-                  null,
-                  {
-                    "kind": "operator",
-                    "value": "=",
-                    "offset": {
-                      "start": 199,
-                      "end": 200
-                    },
-                    "line": 15,
-                    "column": 14
-                  },
-                  null,
-                  [
-                    {
-                      "kind": "string",
-                      "value": {
-                        "type": "string",
-                        "value": "\\"ABC\\\\\\"DEF\\""
-                      },
-                      "offset": {
-                        "start": 201,
-                        "end": 211
-                      },
-                      "line": 15,
-                      "column": 16
-                    }
-                  ]
-                ]
-              ],
-              "offset": {
-                "start": 190,
-                "end": 217
-              },
-              "line": 15,
-              "column": 5
-            }
-          ],
-          "endFunction": [
-            {
-              "kind": "keyword",
-              "value": "end",
-              "offset": {
-                "start": 217,
-                "end": 220
-              },
-              "line": 17,
-              "column": 1
-            },
-            null,
-            {
-              "kind": "keyword",
-              "value": "function",
-              "offset": {
-                "start": 221,
-                "end": 229
-              },
-              "line": 17,
-              "column": 5
-            },
-            null
-          ]
-        },
         "offset": {
           "start": 109,
           "end": 230
         },
         "line": 10,
-        "column": 1
+        "column": 1,
+        "value": [
+          [
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 109,
+                "end": 117
+              },
+              "line": 10,
+              "column": 1,
+              "value": "function"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 117,
+                "end": 118
+              },
+              "line": 10,
+              "column": 9,
+              "value": " "
+            },
+            {
+              "kind": "identifier",
+              "offset": {
+                "start": 118,
+                "end": 120
+              },
+              "line": 10,
+              "column": 10,
+              "value": "f1"
+            },
+            null,
+            {
+              "kind": "bracket",
+              "offset": {
+                "start": 120,
+                "end": 121
+              },
+              "line": 10,
+              "column": 12,
+              "value": "("
+            },
+            null,
+            null,
+            null,
+            {
+              "kind": "bracket",
+              "offset": {
+                "start": 121,
+                "end": 122
+              },
+              "line": 10,
+              "column": 13,
+              "value": ")"
+            }
+          ],
+          {
+            "kind": "block",
+            "offset": {
+              "start": 122,
+              "end": 217
+            },
+            "line": 10,
+            "column": 14,
+            "value": [
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 122,
+                  "end": 146
+                },
+                "line": 10,
+                "column": 14,
+                "value": [
+                  {
+                    "kind": "whitespace",
+                    "offset": {
+                      "start": 122,
+                      "end": 128
+                    },
+                    "line": 10,
+                    "column": 14,
+                    "value": "\\n\\n    "
+                  },
+                  [
+                    {
+                      "kind": "keyword",
+                      "offset": {
+                        "start": 128,
+                        "end": 131
+                      },
+                      "line": 12,
+                      "column": 5,
+                      "value": "let"
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 131,
+                        "end": 132
+                      },
+                      "line": 12,
+                      "column": 8,
+                      "value": " "
+                    },
+                    [
+                      null,
+                      {
+                        "kind": "variable",
+                        "offset": {
+                          "start": 135,
+                          "end": 136
+                        },
+                        "line": 12,
+                        "column": 12,
+                        "value": {
+                          "kind": "identifier",
+                          "offset": {
+                            "start": 135,
+                            "end": 136
+                          },
+                          "line": 12,
+                          "column": 12,
+                          "value": "y"
+                        }
+                      }
+                    ],
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 136,
+                        "end": 137
+                      },
+                      "line": 12,
+                      "column": 13,
+                      "value": " "
+                    },
+                    {
+                      "kind": "operator",
+                      "offset": {
+                        "start": 137,
+                        "end": 138
+                      },
+                      "line": 12,
+                      "column": 14,
+                      "value": "="
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 138,
+                        "end": 139
+                      },
+                      "line": 12,
+                      "column": 15,
+                      "value": " "
+                    },
+                    [
+                      {
+                        "kind": "string",
+                        "offset": {
+                          "start": 139,
+                          "end": 141
+                        },
+                        "line": 12,
+                        "column": 16,
+                        "value": {
+                          "type": "string",
+                          "value": [
+                            "\\"",
+                            "",
+                            "\\""
+                          ]
+                        }
+                      }
+                    ]
+                  ],
+                  {
+                    "kind": "whitespace",
+                    "offset": {
+                      "start": 141,
+                      "end": 146
+                    },
+                    "line": 12,
+                    "column": 18,
+                    "value": "\\n    "
+                  },
+                  null,
+                  null
+                ]
+              },
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 146,
+                  "end": 171
+                },
+                "line": 13,
+                "column": 5,
+                "value": [
+                  null,
+                  [
+                    {
+                      "kind": "keyword",
+                      "offset": {
+                        "start": 146,
+                        "end": 149
+                      },
+                      "line": 13,
+                      "column": 5,
+                      "value": "let"
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 149,
+                        "end": 150
+                      },
+                      "line": 13,
+                      "column": 8,
+                      "value": " "
+                    },
+                    [
+                      null,
+                      {
+                        "kind": "variable",
+                        "offset": {
+                          "start": 153,
+                          "end": 154
+                        },
+                        "line": 13,
+                        "column": 12,
+                        "value": {
+                          "kind": "identifier",
+                          "offset": {
+                            "start": 153,
+                            "end": 154
+                          },
+                          "line": 13,
+                          "column": 12,
+                          "value": "y"
+                        }
+                      }
+                    ],
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 154,
+                        "end": 155
+                      },
+                      "line": 13,
+                      "column": 13,
+                      "value": " "
+                    },
+                    {
+                      "kind": "operator",
+                      "offset": {
+                        "start": 155,
+                        "end": 156
+                      },
+                      "line": 13,
+                      "column": 14,
+                      "value": "="
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 156,
+                        "end": 157
+                      },
+                      "line": 13,
+                      "column": 15,
+                      "value": " "
+                    },
+                    [
+                      {
+                        "kind": "string",
+                        "offset": {
+                          "start": 157,
+                          "end": 166
+                        },
+                        "line": 13,
+                        "column": 16,
+                        "value": {
+                          "type": "string",
+                          "value": [
+                            "\\"",
+                            "ABC,DEF",
+                            "\\""
+                          ]
+                        }
+                      }
+                    ]
+                  ],
+                  {
+                    "kind": "whitespace",
+                    "offset": {
+                      "start": 166,
+                      "end": 171
+                    },
+                    "line": 13,
+                    "column": 25,
+                    "value": "\\n    "
+                  },
+                  null,
+                  null
+                ]
+              },
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 171,
+                  "end": 190
+                },
+                "line": 14,
+                "column": 5,
+                "value": [
+                  null,
+                  [
+                    {
+                      "kind": "keyword",
+                      "offset": {
+                        "start": 171,
+                        "end": 174
+                      },
+                      "line": 14,
+                      "column": 5,
+                      "value": "let"
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 174,
+                        "end": 175
+                      },
+                      "line": 14,
+                      "column": 8,
+                      "value": " "
+                    },
+                    [
+                      null,
+                      {
+                        "kind": "variable",
+                        "offset": {
+                          "start": 178,
+                          "end": 179
+                        },
+                        "line": 14,
+                        "column": 12,
+                        "value": {
+                          "kind": "identifier",
+                          "offset": {
+                            "start": 178,
+                            "end": 179
+                          },
+                          "line": 14,
+                          "column": 12,
+                          "value": "y"
+                        }
+                      }
+                    ],
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 179,
+                        "end": 180
+                      },
+                      "line": 14,
+                      "column": 13,
+                      "value": " "
+                    },
+                    {
+                      "kind": "operator",
+                      "offset": {
+                        "start": 180,
+                        "end": 181
+                      },
+                      "line": 14,
+                      "column": 14,
+                      "value": "="
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 181,
+                        "end": 182
+                      },
+                      "line": 14,
+                      "column": 15,
+                      "value": " "
+                    },
+                    [
+                      {
+                        "kind": "string",
+                        "offset": {
+                          "start": 182,
+                          "end": 185
+                        },
+                        "line": 14,
+                        "column": 16,
+                        "value": {
+                          "type": "string",
+                          "value": [
+                            "\\"",
+                            "'",
+                            "\\""
+                          ]
+                        }
+                      }
+                    ]
+                  ],
+                  {
+                    "kind": "whitespace",
+                    "offset": {
+                      "start": 185,
+                      "end": 190
+                    },
+                    "line": 14,
+                    "column": 19,
+                    "value": "\\n    "
+                  },
+                  null,
+                  null
+                ]
+              },
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 190,
+                  "end": 217
+                },
+                "line": 15,
+                "column": 5,
+                "value": [
+                  null,
+                  [
+                    {
+                      "kind": "keyword",
+                      "offset": {
+                        "start": 190,
+                        "end": 193
+                      },
+                      "line": 15,
+                      "column": 5,
+                      "value": "let"
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 193,
+                        "end": 194
+                      },
+                      "line": 15,
+                      "column": 8,
+                      "value": " "
+                    },
+                    [
+                      null,
+                      {
+                        "kind": "variable",
+                        "offset": {
+                          "start": 197,
+                          "end": 198
+                        },
+                        "line": 15,
+                        "column": 12,
+                        "value": {
+                          "kind": "identifier",
+                          "offset": {
+                            "start": 197,
+                            "end": 198
+                          },
+                          "line": 15,
+                          "column": 12,
+                          "value": "y"
+                        }
+                      }
+                    ],
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 198,
+                        "end": 199
+                      },
+                      "line": 15,
+                      "column": 13,
+                      "value": " "
+                    },
+                    {
+                      "kind": "operator",
+                      "offset": {
+                        "start": 199,
+                        "end": 200
+                      },
+                      "line": 15,
+                      "column": 14,
+                      "value": "="
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 200,
+                        "end": 201
+                      },
+                      "line": 15,
+                      "column": 15,
+                      "value": " "
+                    },
+                    [
+                      {
+                        "kind": "string",
+                        "offset": {
+                          "start": 201,
+                          "end": 211
+                        },
+                        "line": 15,
+                        "column": 16,
+                        "value": {
+                          "type": "string",
+                          "value": [
+                            "\\"",
+                            "ABC\\\\\\"DEF",
+                            "\\""
+                          ]
+                        }
+                      }
+                    ]
+                  ],
+                  {
+                    "kind": "whitespace",
+                    "offset": {
+                      "start": 211,
+                      "end": 217
+                    },
+                    "line": 15,
+                    "column": 26,
+                    "value": "\\n    \\n"
+                  },
+                  null,
+                  null
+                ]
+              }
+            ]
+          },
+          [
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 217,
+                "end": 220
+              },
+              "line": 17,
+              "column": 1,
+              "value": "end"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 220,
+                "end": 221
+              },
+              "line": 17,
+              "column": 4,
+              "value": " "
+            },
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 221,
+                "end": 229
+              },
+              "line": 17,
+              "column": 5,
+              "value": "function"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 229,
+                "end": 230
+              },
+              "line": 17,
+              "column": 13,
+              "value": "\\n"
+            }
+          ]
+        ]
       }
     ]
   }
