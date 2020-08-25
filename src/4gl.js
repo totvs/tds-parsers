@@ -167,12 +167,12 @@ function peg$parse(input, options) {
       peg$c23 = function(l, e) { return l.concat(e); },
       peg$c24 = function(e) { return [e]; },
       peg$c25 = function(e) { return createNodeExpression(e); },
-      peg$c26 = function(o, a, c) { return [o, createNodeList(a) , c]; },
+      peg$c26 = function(o, a, c) { return [o, a?createNodeList(a):[] , c]; },
       peg$c27 = function(l, p) { return l.concat(p); },
       peg$c28 = function(p) { return p; },
       peg$c29 = function(p) { return [p]; },
       peg$c30 = function(e) { return e; },
-      peg$c31 = function(l) { return createNodeList(l); },
+      peg$c31 = function(l) { return l?createNodeList(l):[]; },
       peg$c32 = function(v) { return v; },
       peg$c33 = function(l, v) { return l.concat(v); },
       peg$c34 = function(v) { return [v]; },
@@ -1125,9 +1125,6 @@ function peg$parse(input, options) {
                 }
                 if (s8 !== peg$FAILED) {
                   s9 = peg$parseparameterList();
-                  if (s9 === peg$FAILED) {
-                    s9 = null;
-                  }
                   if (s9 !== peg$FAILED) {
                     s10 = peg$parseSPACE();
                     if (s10 === peg$FAILED) {
@@ -2007,6 +2004,9 @@ function peg$parse(input, options) {
 
     s0 = peg$currPos;
     s1 = peg$parseparmList();
+    if (s1 === peg$FAILED) {
+      s1 = null;
+    }
     if (s1 !== peg$FAILED) {
       peg$savedPos = s0;
       s1 = peg$c31(s1);
@@ -5645,8 +5645,10 @@ function peg$parse(input, options) {
     var program = { kind: "program", value: [], offset: undefined };
 
     function addNode(node) {
-      program.value.push(node);
-
+      if (!node) {
+        program.value.push(node);
+      }
+      
       return program;
     }
 

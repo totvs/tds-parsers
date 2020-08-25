@@ -224,8 +224,10 @@
   var program = { kind: "program", value: [], offset: undefined };
 
   function addNode(node) {
-    program.value.push(node);
-
+    if (!node) {
+      program.value.push(node);
+    }
+    
     return program;
   }
 
@@ -359,7 +361,7 @@ globals
 
 function
   = f:((MAIN SPACE) (block?) (END SPACE MAIN SPACE)) { return createNodeMain(f); }
-  / f:((FUNCTION SPACE ID SPACE? O_PARENTHESIS SPACE? parameterList? SPACE? C_PARENTHESIS)
+  / f:((FUNCTION SPACE ID SPACE? O_PARENTHESIS SPACE? parameterList SPACE? C_PARENTHESIS)
          (block?)
        (END SPACE FUNCTION SPACE)) { return createNodeFunction(f); }
 
@@ -410,7 +412,7 @@ expression
   / variable
 
 argumentList
-  = o:O_PARENTHESIS SPACE? a:arguments? SPACE? c:C_PARENTHESIS { return [o, createNodeList(a) , c]; }
+  = o:O_PARENTHESIS SPACE? a:arguments? SPACE? c:C_PARENTHESIS { return [o, a?createNodeList(a):[] , c]; }
 
 arguments
   = l:arg_list+ p:arg_value+ { return l.concat(p); }
@@ -422,7 +424,7 @@ arg_value = SPACE? e:expressions SPACE? { return e; }
 arg_list = SPACE? e:expressions SPACE? COMMA SPACE? { return e; }
 
 parameterList
-  = l:parmList { return createNodeList(l); }
+  = l:parmList? { return l?createNodeList(l):[]; }
 
 parmList
   = l:param_list+ p:param_id+ { return l.concat(p); }
