@@ -302,7 +302,7 @@ end main
                           "column": 20,
                           "value": {
                             "type": "integer",
-                            "value": null
+                            "value": 50
                           }
                         },
                         {
@@ -536,67 +536,76 @@ end main
                         "column": 22,
                         "value": "("
                       },
-                      [
-                        [
-                          {
-                            "kind": "string",
-                            "offset": {
-                              "start": 101,
-                              "end": 108
-                            },
-                            "line": 6,
-                            "column": 24,
-                            "value": {
-                              "type": "string",
-                              "value": [
-                                "\\"",
-                                "hello",
-                                "\\""
-                              ]
+                      {
+                        "kind": "list",
+                        "offset": {
+                          "start": 99,
+                          "end": 122
+                        },
+                        "line": 6,
+                        "column": 22,
+                        "value": [
+                          [
+                            {
+                              "kind": "string",
+                              "offset": {
+                                "start": 101,
+                                "end": 108
+                              },
+                              "line": 6,
+                              "column": 24,
+                              "value": {
+                                "type": "string",
+                                "value": [
+                                  "\\"",
+                                  "hello",
+                                  "\\""
+                                ]
+                              }
                             }
-                          }
-                        ],
-                        [
-                          {
-                            "kind": "variable",
-                            "offset": {
-                              "start": 109,
-                              "end": 113
-                            },
-                            "line": 6,
-                            "column": 32,
-                            "value": {
-                              "kind": "identifier",
+                          ],
+                          [
+                            {
+                              "kind": "variable",
                               "offset": {
                                 "start": 109,
                                 "end": 113
                               },
                               "line": 6,
                               "column": 32,
-                              "value": "nome"
+                              "value": {
+                                "kind": "identifier",
+                                "offset": {
+                                  "start": 109,
+                                  "end": 113
+                                },
+                                "line": 6,
+                                "column": 32,
+                                "value": "nome"
+                              }
                             }
-                          }
-                        ],
-                        [
-                          {
-                            "kind": "string",
-                            "offset": {
-                              "start": 115,
-                              "end": 121
-                            },
-                            "line": 6,
-                            "column": 38,
-                            "value": {
-                              "type": "string",
-                              "value": [
-                                "\\"",
-                                "info",
-                                "\\""
-                              ]
+                          ],
+                          [
+                            {
+                              "kind": "string",
+                              "offset": {
+                                "start": 115,
+                                "end": 121
+                              },
+                              "line": 6,
+                              "column": 38,
+                              "value": {
+                                "type": "string",
+                                "value": [
+                                  "\\"",
+                                  "info",
+                                  "\\""
+                                ]
+                              }
                             }
-                          }
+                          ]
                         ]
-                      ],
+                      },
                       {
                         "kind": "bracket",
                         "offset": {

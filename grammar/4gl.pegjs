@@ -212,6 +212,7 @@
     bracket: "bracket",
     builtInVar: "builtInVar",
     block: "block",
+    list: "list",
     unknown: "unknown",
   };
 
@@ -326,6 +327,11 @@
     return createNode(TokenKind.string, info);
   }
 
+  function createNodeList(list) {
+
+    return createNode(TokenKind.list, list);
+  }
+
 }
 
 start = l:line* { return program }
@@ -404,7 +410,7 @@ expression
   / variable
 
 argumentList
-  = o:O_PARENTHESIS SPACE? a:arguments? SPACE? c:C_PARENTHESIS { return [o, a , c]; }
+  = o:O_PARENTHESIS SPACE? a:arguments? SPACE? c:C_PARENTHESIS { return [o, createNodeList(a) , c]; }
 
 arguments
   = l:arg_list+ p:arg_value+ { return l.concat(p); }
@@ -416,6 +422,9 @@ arg_value = SPACE? e:expressions SPACE? { return e; }
 arg_list = SPACE? e:expressions SPACE? COMMA SPACE? { return e; }
 
 parameterList
+  = l:parmList { return createNodeList(l); }
+
+parmList
   = l:param_list+ p:param_id+ { return l.concat(p); }
   / p:param_list+ { return p; }
   / p:param_id { return [p]; }
@@ -429,7 +438,7 @@ receivingVariables
   / l:var_list+ { return l; }
   / v:variable { return [v]; }
 
-var_list = SPACE? v:variable SPACE? COMMA SPACE? { return; }
+var_list = SPACE? variable SPACE? COMMA SPACE?
 
 variable
   = v:(ID DOT ID) { return createNodeVar(v); }
@@ -471,7 +480,7 @@ numberType
   = (BIGINT / INTEGER / INT)
   / $SMALLINT
   / ((DECIMAL / DEC / NUMERIC / MONEY) (O_PARENTHESIS scale C_PARENTHESIS)?)
-  / ((DOUBLE_PRECISION / FLOAT) (O_PARENTHESIS integer_exp C_PARENTHESIS)?)
+  / ((DOUBLE SPACE PRECISION / FLOAT) (O_PARENTHESIS integer_exp C_PARENTHESIS)?)
   / (REAL / SMALLFLOAT)
 
 timeType
@@ -497,7 +506,7 @@ structuredDataType
       OF SPACE
       (simpleDataType / recordDataType / largeDataType)
   )
-  / $DYNAMIC_ARRAY
+  / (DYNAMIC SPACE ARRAY)
   / recordDataType
 
 sizeArray = integer_exp (COMMA integer_exp)*
@@ -521,7 +530,7 @@ scale = integer_exp (COMMA integer_exp)?
 
 member
   = LIKE tableQualifier columnQualifier
-  / identifierList
+  / l:identifierList { return createNodeList(l)}
 
 identifierList
   = l:identifier_list+ i:identifier+ { return l.concat(i); }
@@ -541,7 +550,7 @@ tableQualifier
 columnQualifier = ID DOT (ID / ASTERISK)
 
 integer_exp
-  = t:([-+]? $DIGIT+) { return createNodeNumber(ConstType.integer, parseInt(t, 10)) }
+  = t:$([-+]? DIGIT+) { return createNodeNumber(ConstType.integer, parseInt(t, 10)) }
 
 string_exp
   = s:(double_quoted_string / single_quoted_string) { return createNodeString(s); }
@@ -606,8 +615,6 @@ COMMA = o:"," { return createNodeOperator(o); }
 
 ASTERISK = o:"*" { return createNodeOperator(o); }
 
-ARRAY = k:"array"i { return createNodeKeyword(k); }
-
 BIGINT = k:"bigint"i { return createNodeKeyword(k); }
 
 BYTE = k:"byte"i { return createNodeKeyword(k); }
@@ -624,9 +631,13 @@ DEC = k:"dec"i { return createNodeKeyword(k); }
 
 DECIMAL = k:"decimal"i { return createNodeKeyword(k); }
 
-DOUBLE_PRECISION = k:("double"i SPACE "precision"i) { return createNodeKeyword(k); }
+DOUBLE = k:("double"i) { return createNodeKeyword(k); }
 
-DYNAMIC_ARRAY = k:("dynamic"i SPACE "array"i) { return createNodeKeyword(k); }
+PRECISION = k:("precision"i) { return createNodeKeyword(k); }
+
+DYNAMIC = k:("dynamic"i) { return createNodeKeyword(k); }
+
+ARRAY = k:("array"i) { return createNodeKeyword(k); }
 
 FLOAT = k:"float"i { return createNodeKeyword(k); }
 

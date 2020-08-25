@@ -86,7 +86,49 @@ end main
                       "value": " "
                     },
                     [
-                      null,
+                      [
+                        null,
+                        {
+                          "kind": "variable",
+                          "offset": {
+                            "start": 14,
+                            "end": 15
+                          },
+                          "line": 3,
+                          "column": 9,
+                          "value": {
+                            "kind": "identifier",
+                            "offset": {
+                              "start": 14,
+                              "end": 15
+                            },
+                            "line": 3,
+                            "column": 9,
+                            "value": "x"
+                          }
+                        },
+                        null,
+                        {
+                          "kind": "operator",
+                          "offset": {
+                            "start": 15,
+                            "end": 16
+                          },
+                          "line": 3,
+                          "column": 10,
+                          "value": ","
+                        },
+                        {
+                          "kind": "whitespace",
+                          "offset": {
+                            "start": 16,
+                            "end": 17
+                          },
+                          "line": 3,
+                          "column": 11,
+                          "value": " "
+                        }
+                      ],
                       {
                         "kind": "variable",
                         "offset": {
@@ -205,7 +247,49 @@ end main
                       "value": " "
                     },
                     [
-                      null,
+                      [
+                        null,
+                        {
+                          "kind": "variable",
+                          "offset": {
+                            "start": 37,
+                            "end": 38
+                          },
+                          "line": 4,
+                          "column": 9,
+                          "value": {
+                            "kind": "identifier",
+                            "offset": {
+                              "start": 37,
+                              "end": 38
+                            },
+                            "line": 4,
+                            "column": 9,
+                            "value": "x"
+                          }
+                        },
+                        null,
+                        {
+                          "kind": "operator",
+                          "offset": {
+                            "start": 38,
+                            "end": 39
+                          },
+                          "line": 4,
+                          "column": 10,
+                          "value": ","
+                        },
+                        {
+                          "kind": "whitespace",
+                          "offset": {
+                            "start": 39,
+                            "end": 40
+                          },
+                          "line": 4,
+                          "column": 11,
+                          "value": " "
+                        }
+                      ],
                       {
                         "kind": "variable",
                         "offset": {
@@ -324,7 +408,49 @@ end main
                       "value": " "
                     },
                     [
-                      null,
+                      [
+                        null,
+                        {
+                          "kind": "variable",
+                          "offset": {
+                            "start": 62,
+                            "end": 63
+                          },
+                          "line": 5,
+                          "column": 9,
+                          "value": {
+                            "kind": "identifier",
+                            "offset": {
+                              "start": 62,
+                              "end": 63
+                            },
+                            "line": 5,
+                            "column": 9,
+                            "value": "x"
+                          }
+                        },
+                        null,
+                        {
+                          "kind": "operator",
+                          "offset": {
+                            "start": 63,
+                            "end": 64
+                          },
+                          "line": 5,
+                          "column": 10,
+                          "value": ","
+                        },
+                        {
+                          "kind": "whitespace",
+                          "offset": {
+                            "start": 64,
+                            "end": 65
+                          },
+                          "line": 5,
+                          "column": 11,
+                          "value": " "
+                        }
+                      ],
                       {
                         "kind": "variable",
                         "offset": {
@@ -443,7 +569,49 @@ end main
                       "value": " "
                     },
                     [
-                      null,
+                      [
+                        null,
+                        {
+                          "kind": "variable",
+                          "offset": {
+                            "start": 85,
+                            "end": 86
+                          },
+                          "line": 6,
+                          "column": 9,
+                          "value": {
+                            "kind": "identifier",
+                            "offset": {
+                              "start": 85,
+                              "end": 86
+                            },
+                            "line": 6,
+                            "column": 9,
+                            "value": "x"
+                          }
+                        },
+                        null,
+                        {
+                          "kind": "operator",
+                          "offset": {
+                            "start": 86,
+                            "end": 87
+                          },
+                          "line": 6,
+                          "column": 10,
+                          "value": ","
+                        },
+                        {
+                          "kind": "whitespace",
+                          "offset": {
+                            "start": 87,
+                            "end": 88
+                          },
+                          "line": 6,
+                          "column": 11,
+                          "value": " "
+                        }
+                      ],
                       {
                         "kind": "variable",
                         "offset": {
@@ -847,7 +1015,7 @@ end main
                     "column": 20,
                     "value": {
                       "type": "integer",
-                      "value": null
+                      "value": 50
                     }
                   },
                   {
@@ -1132,7 +1300,49 @@ end function
                       "value": " "
                     },
                     [
-                      null,
+                      [
+                        null,
+                        {
+                          "kind": "variable",
+                          "offset": {
+                            "start": 14,
+                            "end": 15
+                          },
+                          "line": 3,
+                          "column": 9,
+                          "value": {
+                            "kind": "identifier",
+                            "offset": {
+                              "start": 14,
+                              "end": 15
+                            },
+                            "line": 3,
+                            "column": 9,
+                            "value": "x"
+                          }
+                        },
+                        null,
+                        {
+                          "kind": "operator",
+                          "offset": {
+                            "start": 15,
+                            "end": 16
+                          },
+                          "line": 3,
+                          "column": 10,
+                          "value": ","
+                        },
+                        {
+                          "kind": "whitespace",
+                          "offset": {
+                            "start": 16,
+                            "end": 17
+                          },
+                          "line": 3,
+                          "column": 11,
+                          "value": " "
+                        }
+                      ],
                       {
                         "kind": "variable",
                         "offset": {
@@ -1249,7 +1459,49 @@ end function
                       "value": " "
                     },
                     [
-                      null,
+                      [
+                        null,
+                        {
+                          "kind": "variable",
+                          "offset": {
+                            "start": 32,
+                            "end": 33
+                          },
+                          "line": 4,
+                          "column": 9,
+                          "value": {
+                            "kind": "identifier",
+                            "offset": {
+                              "start": 32,
+                              "end": 33
+                            },
+                            "line": 4,
+                            "column": 9,
+                            "value": "x"
+                          }
+                        },
+                        null,
+                        {
+                          "kind": "operator",
+                          "offset": {
+                            "start": 33,
+                            "end": 34
+                          },
+                          "line": 4,
+                          "column": 10,
+                          "value": ","
+                        },
+                        {
+                          "kind": "whitespace",
+                          "offset": {
+                            "start": 34,
+                            "end": 35
+                          },
+                          "line": 4,
+                          "column": 11,
+                          "value": " "
+                        }
+                      ],
                       {
                         "kind": "variable",
                         "offset": {
@@ -1366,7 +1618,49 @@ end function
                       "value": " "
                     },
                     [
-                      null,
+                      [
+                        null,
+                        {
+                          "kind": "variable",
+                          "offset": {
+                            "start": 57,
+                            "end": 58
+                          },
+                          "line": 5,
+                          "column": 9,
+                          "value": {
+                            "kind": "identifier",
+                            "offset": {
+                              "start": 57,
+                              "end": 58
+                            },
+                            "line": 5,
+                            "column": 9,
+                            "value": "x"
+                          }
+                        },
+                        null,
+                        {
+                          "kind": "operator",
+                          "offset": {
+                            "start": 58,
+                            "end": 59
+                          },
+                          "line": 5,
+                          "column": 10,
+                          "value": ","
+                        },
+                        {
+                          "kind": "whitespace",
+                          "offset": {
+                            "start": 59,
+                            "end": 60
+                          },
+                          "line": 5,
+                          "column": 11,
+                          "value": " "
+                        }
+                      ],
                       {
                         "kind": "variable",
                         "offset": {
@@ -1483,7 +1777,49 @@ end function
                       "value": " "
                     },
                     [
-                      null,
+                      [
+                        null,
+                        {
+                          "kind": "variable",
+                          "offset": {
+                            "start": 76,
+                            "end": 77
+                          },
+                          "line": 6,
+                          "column": 9,
+                          "value": {
+                            "kind": "identifier",
+                            "offset": {
+                              "start": 76,
+                              "end": 77
+                            },
+                            "line": 6,
+                            "column": 9,
+                            "value": "x"
+                          }
+                        },
+                        null,
+                        {
+                          "kind": "operator",
+                          "offset": {
+                            "start": 77,
+                            "end": 78
+                          },
+                          "line": 6,
+                          "column": 10,
+                          "value": ","
+                        },
+                        {
+                          "kind": "whitespace",
+                          "offset": {
+                            "start": 78,
+                            "end": 79
+                          },
+                          "line": 6,
+                          "column": 11,
+                          "value": " "
+                        }
+                      ],
                       {
                         "kind": "variable",
                         "offset": {
@@ -1729,7 +2065,49 @@ end function
                       "value": " "
                     },
                     [
-                      null,
+                      [
+                        null,
+                        {
+                          "kind": "variable",
+                          "offset": {
+                            "start": 132,
+                            "end": 133
+                          },
+                          "line": 12,
+                          "column": 9,
+                          "value": {
+                            "kind": "identifier",
+                            "offset": {
+                              "start": 132,
+                              "end": 133
+                            },
+                            "line": 12,
+                            "column": 9,
+                            "value": "x"
+                          }
+                        },
+                        null,
+                        {
+                          "kind": "operator",
+                          "offset": {
+                            "start": 133,
+                            "end": 134
+                          },
+                          "line": 12,
+                          "column": 10,
+                          "value": ","
+                        },
+                        {
+                          "kind": "whitespace",
+                          "offset": {
+                            "start": 134,
+                            "end": 135
+                          },
+                          "line": 12,
+                          "column": 11,
+                          "value": " "
+                        }
+                      ],
                       {
                         "kind": "variable",
                         "offset": {
@@ -1846,7 +2224,49 @@ end function
                       "value": " "
                     },
                     [
-                      null,
+                      [
+                        null,
+                        {
+                          "kind": "variable",
+                          "offset": {
+                            "start": 150,
+                            "end": 151
+                          },
+                          "line": 13,
+                          "column": 9,
+                          "value": {
+                            "kind": "identifier",
+                            "offset": {
+                              "start": 150,
+                              "end": 151
+                            },
+                            "line": 13,
+                            "column": 9,
+                            "value": "x"
+                          }
+                        },
+                        null,
+                        {
+                          "kind": "operator",
+                          "offset": {
+                            "start": 151,
+                            "end": 152
+                          },
+                          "line": 13,
+                          "column": 10,
+                          "value": ","
+                        },
+                        {
+                          "kind": "whitespace",
+                          "offset": {
+                            "start": 152,
+                            "end": 153
+                          },
+                          "line": 13,
+                          "column": 11,
+                          "value": " "
+                        }
+                      ],
                       {
                         "kind": "variable",
                         "offset": {
@@ -1963,7 +2383,49 @@ end function
                       "value": " "
                     },
                     [
-                      null,
+                      [
+                        null,
+                        {
+                          "kind": "variable",
+                          "offset": {
+                            "start": 175,
+                            "end": 176
+                          },
+                          "line": 14,
+                          "column": 9,
+                          "value": {
+                            "kind": "identifier",
+                            "offset": {
+                              "start": 175,
+                              "end": 176
+                            },
+                            "line": 14,
+                            "column": 9,
+                            "value": "x"
+                          }
+                        },
+                        null,
+                        {
+                          "kind": "operator",
+                          "offset": {
+                            "start": 176,
+                            "end": 177
+                          },
+                          "line": 14,
+                          "column": 10,
+                          "value": ","
+                        },
+                        {
+                          "kind": "whitespace",
+                          "offset": {
+                            "start": 177,
+                            "end": 178
+                          },
+                          "line": 14,
+                          "column": 11,
+                          "value": " "
+                        }
+                      ],
                       {
                         "kind": "variable",
                         "offset": {
@@ -2080,7 +2542,49 @@ end function
                       "value": " "
                     },
                     [
-                      null,
+                      [
+                        null,
+                        {
+                          "kind": "variable",
+                          "offset": {
+                            "start": 194,
+                            "end": 195
+                          },
+                          "line": 15,
+                          "column": 9,
+                          "value": {
+                            "kind": "identifier",
+                            "offset": {
+                              "start": 194,
+                              "end": 195
+                            },
+                            "line": 15,
+                            "column": 9,
+                            "value": "x"
+                          }
+                        },
+                        null,
+                        {
+                          "kind": "operator",
+                          "offset": {
+                            "start": 195,
+                            "end": 196
+                          },
+                          "line": 15,
+                          "column": 10,
+                          "value": ","
+                        },
+                        {
+                          "kind": "whitespace",
+                          "offset": {
+                            "start": 196,
+                            "end": 197
+                          },
+                          "line": 15,
+                          "column": 11,
+                          "value": " "
+                        }
+                      ],
                       {
                         "kind": "variable",
                         "offset": {
