@@ -27,8 +27,8 @@ end function
 
 function f2() 
 	DEFINE REC1 RECORD
-    VAR1 BIGINT
-  END RECORD
+    	VAR1 BIGINT
+  	END RECORD
 
 	DEFINE REC2 RECORD
     VAR1 CHAR(100),

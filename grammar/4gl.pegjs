@@ -224,7 +224,7 @@
   var program = { kind: "program", value: [], offset: undefined };
 
   function addNode(node) {
-    if (!node) {
+    if (node) {
       program.value.push(node);
     }
     
@@ -249,10 +249,6 @@
 
   function createNodeKeyword(value) {
     return createNode(TokenKind.keyword, value);
-  }
-
-  function createNodeId(value) {
-    return createNode(TokenKind.identifier, value);
   }
 
   function createNodeSpace(value) {
@@ -332,6 +328,12 @@
   function createNodeList(list) {
 
     return createNode(TokenKind.list, list);
+  }
+
+
+  function createNodeIdentifier(id, dataType) {
+
+    return createNode(TokenKind.identifier, [id, dataType]);
   }
 
 }
@@ -515,7 +517,7 @@ sizeArray = integer_exp (COMMA integer_exp)*
 
 recordDataType
   = (RECORD SPACE LIKE tableQualifier columnQualifier)
-  / RECORD member END SPACE RECORD
+  / RECORD SPACE member END SPACE RECORD
 
 datetimeQualifier = datetimeQualifierWord SPACE TO SPACE datetimeQualifierWord
 
@@ -539,9 +541,9 @@ identifierList
   / l:identifier_list+ { return l; }
   / i:identifier { return [i]; }
 
-identifier_list = SPACE? i:identifier SPACE? COMMA SPACE? { return i; }
+identifier_list = i:identifier SPACE? COMMA SPACE? { return i; }
 
-identifier = SPACE? i:ID SPACE simpleDataType SPACE? { return i; }
+identifier = ID SPACE simpleDataType SPACE?
 
 tableQualifier
   = s:(
@@ -571,7 +573,7 @@ single_quoted_char
 
 // ======================================================================================
 
-ID = id:$([a-zA-Z_] [a-zA-Z0-9_]*) { return createNodeId(id); }
+ID = id:$([a-zA-Z_] [a-zA-Z0-9_]*) { return id; }
 
 DEFINE = k:"define"i { return createNodeKeyword(k); }
 
