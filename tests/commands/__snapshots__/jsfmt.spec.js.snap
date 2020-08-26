@@ -4787,6 +4787,426 @@ end function
 ]
 `;
 
+exports[`define1.4gl 1`] = `
+globals
+define mod char(10)
+end globals
+
+main 
+	--define var1 record like tab1.*
+end main
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[
+  {
+    "kind": "program",
+    "value": [
+      {
+        "kind": "global",
+        "offset": {
+          "start": 0,
+          "end": 41
+        },
+        "line": 1,
+        "column": 1,
+        "value": [
+          {
+            "kind": "keyword",
+            "offset": {
+              "start": 0,
+              "end": 7
+            },
+            "line": 1,
+            "column": 1,
+            "value": "globals"
+          },
+          {
+            "kind": "whitespace",
+            "offset": {
+              "start": 7,
+              "end": 8
+            },
+            "line": 1,
+            "column": 8,
+            "value": "\\n"
+          },
+          [
+            [
+              {
+                "kind": "keyword",
+                "offset": {
+                  "start": 8,
+                  "end": 14
+                },
+                "line": 2,
+                "column": 1,
+                "value": "define"
+              },
+              {
+                "kind": "whitespace",
+                "offset": {
+                  "start": 14,
+                  "end": 15
+                },
+                "line": 2,
+                "column": 7,
+                "value": " "
+              },
+              "mod",
+              {
+                "kind": "whitespace",
+                "offset": {
+                  "start": 18,
+                  "end": 19
+                },
+                "line": 2,
+                "column": 11,
+                "value": " "
+              },
+              [
+                {
+                  "kind": "keyword",
+                  "offset": {
+                    "start": 19,
+                    "end": 23
+                  },
+                  "line": 2,
+                  "column": 12,
+                  "value": "char"
+                },
+                [
+                  {
+                    "kind": "bracket",
+                    "offset": {
+                      "start": 23,
+                      "end": 24
+                    },
+                    "line": 2,
+                    "column": 16,
+                    "value": "("
+                  },
+                  {
+                    "kind": "number",
+                    "offset": {
+                      "start": 24,
+                      "end": 26
+                    },
+                    "line": 2,
+                    "column": 17,
+                    "value": {
+                      "type": "integer",
+                      "value": 10
+                    }
+                  },
+                  {
+                    "kind": "bracket",
+                    "offset": {
+                      "start": 26,
+                      "end": 27
+                    },
+                    "line": 2,
+                    "column": 19,
+                    "value": ")"
+                  }
+                ]
+              ]
+            ],
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 27,
+                "end": 28
+              },
+              "line": 2,
+              "column": 20,
+              "value": "\\n"
+            }
+          ],
+          {
+            "kind": "keyword",
+            "offset": {
+              "start": 28,
+              "end": 31
+            },
+            "line": 3,
+            "column": 1,
+            "value": "end"
+          },
+          {
+            "kind": "whitespace",
+            "offset": {
+              "start": 31,
+              "end": 32
+            },
+            "line": 3,
+            "column": 4,
+            "value": " "
+          },
+          {
+            "kind": "keyword",
+            "offset": {
+              "start": 32,
+              "end": 39
+            },
+            "line": 3,
+            "column": 5,
+            "value": "globals"
+          },
+          {
+            "kind": "whitespace",
+            "offset": {
+              "start": 39,
+              "end": 41
+            },
+            "line": 3,
+            "column": 12,
+            "value": "\\n\\n"
+          }
+        ]
+      },
+      {
+        "kind": "main",
+        "offset": {
+          "start": 41,
+          "end": 90
+        },
+        "line": 5,
+        "column": 1,
+        "value": [
+          [
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 41,
+                "end": 45
+              },
+              "line": 5,
+              "column": 1,
+              "value": "main"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 45,
+                "end": 48
+              },
+              "line": 5,
+              "column": 5,
+              "value": " \\n\\t"
+            }
+          ],
+          {
+            "kind": "block",
+            "offset": {
+              "start": 48,
+              "end": 81
+            },
+            "line": 6,
+            "column": 2,
+            "value": [
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 48,
+                  "end": 81
+                },
+                "line": 6,
+                "column": 2,
+                "value": {
+                  "kind": "comment",
+                  "offset": {
+                    "start": 48,
+                    "end": 81
+                  },
+                  "line": 6,
+                  "column": 2,
+                  "value": [
+                    "--",
+                    [
+                      [
+                        null,
+                        "d"
+                      ],
+                      [
+                        null,
+                        "e"
+                      ],
+                      [
+                        null,
+                        "f"
+                      ],
+                      [
+                        null,
+                        "i"
+                      ],
+                      [
+                        null,
+                        "n"
+                      ],
+                      [
+                        null,
+                        "e"
+                      ],
+                      [
+                        null,
+                        " "
+                      ],
+                      [
+                        null,
+                        "v"
+                      ],
+                      [
+                        null,
+                        "a"
+                      ],
+                      [
+                        null,
+                        "r"
+                      ],
+                      [
+                        null,
+                        "1"
+                      ],
+                      [
+                        null,
+                        " "
+                      ],
+                      [
+                        null,
+                        "r"
+                      ],
+                      [
+                        null,
+                        "e"
+                      ],
+                      [
+                        null,
+                        "c"
+                      ],
+                      [
+                        null,
+                        "o"
+                      ],
+                      [
+                        null,
+                        "r"
+                      ],
+                      [
+                        null,
+                        "d"
+                      ],
+                      [
+                        null,
+                        " "
+                      ],
+                      [
+                        null,
+                        "l"
+                      ],
+                      [
+                        null,
+                        "i"
+                      ],
+                      [
+                        null,
+                        "k"
+                      ],
+                      [
+                        null,
+                        "e"
+                      ],
+                      [
+                        null,
+                        " "
+                      ],
+                      [
+                        null,
+                        "t"
+                      ],
+                      [
+                        null,
+                        "a"
+                      ],
+                      [
+                        null,
+                        "b"
+                      ],
+                      [
+                        null,
+                        "1"
+                      ],
+                      [
+                        null,
+                        "."
+                      ],
+                      [
+                        null,
+                        "*"
+                      ]
+                    ],
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 80,
+                        "end": 81
+                      },
+                      "line": 6,
+                      "column": 34,
+                      "value": "\\n"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          [
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 81,
+                "end": 84
+              },
+              "line": 7,
+              "column": 1,
+              "value": "end"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 84,
+                "end": 85
+              },
+              "line": 7,
+              "column": 4,
+              "value": " "
+            },
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 85,
+                "end": 89
+              },
+              "line": 7,
+              "column": 5,
+              "value": "main"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 89,
+                "end": 90
+              },
+              "line": 7,
+              "column": 9,
+              "value": "\\n"
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]
+`;
+
 exports[`define2.4gl 1`] = `
 main 
 	--DEFINE VAR1 record LIKE TAB1.*
