@@ -200,7 +200,8 @@
     whitespace: "whitespace",
     comment: "comment",
     identifier: "identifier",
-    global: "global",
+    globals: "globals",
+    modular: "modular",
     main: "main",
     function: "function",
     command: "command",
@@ -252,11 +253,18 @@
   }
 
   function createNodeSpace(value) {
+
     return createNode(TokenKind.whitespace, value);
   }
 
-  function createNodeComment(value) {
-    return createNode(TokenKind.comment, value);
+  function createNodeComment(open, comment, close) {
+
+    return createNode(TokenKind.comment, [open, comment, close]);
+  }
+
+  function createNodeModular(value) {
+
+    return createNode(TokenKind.modular, value);
   }
 
   function createNodeSession(session) {
@@ -264,21 +272,18 @@
     return createNode(TokenKind.session, session);
   }
 
-
-
-
-
-
-
   function createNodeGlobal(value) {
-    return createNode(TokenKind.global, value);
+
+    return createNode(TokenKind.globals, value);
   }
 
   function createNodeVar(value) {
+
     return createNode(TokenKind.variable, value);
   }
 
   function createNodeBuiltInVar(value) {
+
     return createNode(TokenKind.builtInVar, value);
   }
 
@@ -346,23 +351,27 @@ line
   / l:SPACE { return addNode(l); }
 
 session
-  = s:modular  { return createNodeSession(s); }
-  / s:globals  { return createNodeGlobal(s); }
+  = s:modular  { return s; }
+  / s:globals  { return s; }
   / s:function { return s; }
 
 comment
-  = c:("#" (!NL .)* NL) { return createNodeComment(c); }
-  / c:("--" (!NL .)* NL) { return createNodeComment(c); }
-  / c:("{" (!"}" .)* "}") { return createNodeComment(c); }
+  = o:"#" c:$(!NL .)* e:NL { return createNodeComment(o, c, e); }
+  / o:"--" c:$(!NL .)* e:NL { return createNodeComment(o, c, e); }
+  / o:"{" c:$(!"}" .)* e:"}" { return createNodeComment(o, c, e); }
 
-modular = define+
+modular = d:define+ { return createNodeModular(d); }
 
 globals
-  = GLOBALS SPACE (define / SPACE / comment)* END SPACE GLOBALS SPACE
-  / GLOBALS SPACE string_exp
+  = g:((GLOBALS SPACE) 
+        (block?) 
+      (END SPACE GLOBALS SPACE)) { return createNodeGlobal(g); }
+  / g:(GLOBALS SPACE string_exp comment? SPACE) { return createNodeGlobal(g); }
 
 function
-  = f:((MAIN SPACE) (block?) (END SPACE MAIN SPACE)) { return createNodeMain(f); }
+  = f:((MAIN SPACE) 
+        (block?) 
+      (END SPACE MAIN SPACE)) { return createNodeMain(f); }
   / f:((FUNCTION SPACE ID SPACE? O_PARENTHESIS SPACE? parameterList SPACE? C_PARENTHESIS)
          (block?)
        (END SPACE FUNCTION SPACE)) { return createNodeFunction(f); }
@@ -375,9 +384,9 @@ blockCommand
   / c:commands { return [c]; }
 
 commands
-  = c:(SPACE? command SPACE? comment? NL?) { return createNodeCommand(c); }
-  / c:(SPACE) { return createNodeCommand(c); }
-  / c:comment { return createNodeCommand(c); }
+  = c:(SPACE) { return c; }
+  / c:(SPACE? comment) { return c; }
+  / c:(SPACE? command SPACE? comment? NL?) { return createNodeCommand(c); }
 
 command = c:(define / display / call / let / prompt) { return c; }
 

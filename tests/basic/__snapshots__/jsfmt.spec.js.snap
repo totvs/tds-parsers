@@ -747,10 +747,10 @@ end main
     "kind": "program",
     "value": [
       {
-        "kind": "global",
+        "kind": "globals",
         "offset": {
           "start": 0,
-          "end": 17
+          "end": 19
         },
         "line": 1,
         "column": 1,
@@ -791,21 +791,22 @@ end main
                 "\\""
               ]
             }
+          },
+          null,
+          {
+            "kind": "whitespace",
+            "offset": {
+              "start": 17,
+              "end": 19
+            },
+            "line": 1,
+            "column": 18,
+            "value": "\\n\\n"
           }
         ]
       },
       {
-        "kind": "whitespace",
-        "offset": {
-          "start": 17,
-          "end": 19
-        },
-        "line": 1,
-        "column": 18,
-        "value": "\\n\\n"
-      },
-      {
-        "kind": "global",
+        "kind": "globals",
         "offset": {
           "start": 19,
           "end": 69
@@ -813,198 +814,207 @@ end main
         "line": 3,
         "column": 1,
         "value": [
-          {
-            "kind": "keyword",
-            "offset": {
-              "start": 19,
-              "end": 26
-            },
-            "line": 3,
-            "column": 1,
-            "value": "globals"
-          },
-          {
-            "kind": "whitespace",
-            "offset": {
-              "start": 26,
-              "end": 29
-            },
-            "line": 3,
-            "column": 8,
-            "value": "\\n  "
-          },
           [
-            [
-              {
-                "kind": "keyword",
-                "offset": {
-                  "start": 29,
-                  "end": 35
-                },
-                "line": 4,
-                "column": 3,
-                "value": "DEFINE"
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 19,
+                "end": 26
               },
-              {
-                "kind": "whitespace",
-                "offset": {
-                  "start": 35,
-                  "end": 36
-                },
-                "line": 4,
-                "column": 9,
-                "value": " "
-              },
-              "NOME",
-              {
-                "kind": "whitespace",
-                "offset": {
-                  "start": 40,
-                  "end": 41
-                },
-                "line": 4,
-                "column": 14,
-                "value": " "
-              },
-              [
-                {
-                  "kind": "keyword",
-                  "offset": {
-                    "start": 41,
-                    "end": 45
-                  },
-                  "line": 4,
-                  "column": 15,
-                  "value": "CHAR"
-                },
-                [
-                  {
-                    "kind": "bracket",
-                    "offset": {
-                      "start": 45,
-                      "end": 46
-                    },
-                    "line": 4,
-                    "column": 19,
-                    "value": "("
-                  },
-                  {
-                    "kind": "number",
-                    "offset": {
-                      "start": 46,
-                      "end": 48
-                    },
-                    "line": 4,
-                    "column": 20,
-                    "value": {
-                      "type": "integer",
-                      "value": 50
-                    }
-                  },
-                  {
-                    "kind": "bracket",
-                    "offset": {
-                      "start": 48,
-                      "end": 49
-                    },
-                    "line": 4,
-                    "column": 22,
-                    "value": ")"
-                  }
-                ]
-              ]
-            ],
+              "line": 3,
+              "column": 1,
+              "value": "globals"
+            },
             {
               "kind": "whitespace",
               "offset": {
-                "start": 49,
-                "end": 50
+                "start": 26,
+                "end": 29
               },
-              "line": 4,
-              "column": 23,
-              "value": " "
-            },
-            {
-              "kind": "comment",
-              "offset": {
-                "start": 50,
-                "end": 56
-              },
-              "line": 4,
-              "column": 24,
-              "value": [
-                "#",
-                [
-                  [
-                    null,
-                    " "
-                  ],
-                  [
-                    null,
-                    "a"
-                  ],
-                  [
-                    null,
-                    "b"
-                  ],
-                  [
-                    null,
-                    "c"
-                  ]
-                ],
-                {
-                  "kind": "whitespace",
-                  "offset": {
-                    "start": 55,
-                    "end": 56
-                  },
-                  "line": 4,
-                  "column": 29,
-                  "value": "\\n"
-                }
-              ]
+              "line": 3,
+              "column": 8,
+              "value": "\\n  "
             }
           ],
           {
-            "kind": "keyword",
+            "kind": "block",
             "offset": {
-              "start": 56,
-              "end": 59
+              "start": 29,
+              "end": 56
             },
-            "line": 5,
-            "column": 1,
-            "value": "end"
+            "line": 4,
+            "column": 3,
+            "value": [
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 29,
+                  "end": 56
+                },
+                "line": 4,
+                "column": 3,
+                "value": [
+                  null,
+                  [
+                    {
+                      "kind": "keyword",
+                      "offset": {
+                        "start": 29,
+                        "end": 35
+                      },
+                      "line": 4,
+                      "column": 3,
+                      "value": "DEFINE"
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 35,
+                        "end": 36
+                      },
+                      "line": 4,
+                      "column": 9,
+                      "value": " "
+                    },
+                    "NOME",
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 40,
+                        "end": 41
+                      },
+                      "line": 4,
+                      "column": 14,
+                      "value": " "
+                    },
+                    [
+                      {
+                        "kind": "keyword",
+                        "offset": {
+                          "start": 41,
+                          "end": 45
+                        },
+                        "line": 4,
+                        "column": 15,
+                        "value": "CHAR"
+                      },
+                      [
+                        {
+                          "kind": "bracket",
+                          "offset": {
+                            "start": 45,
+                            "end": 46
+                          },
+                          "line": 4,
+                          "column": 19,
+                          "value": "("
+                        },
+                        {
+                          "kind": "number",
+                          "offset": {
+                            "start": 46,
+                            "end": 48
+                          },
+                          "line": 4,
+                          "column": 20,
+                          "value": {
+                            "type": "integer",
+                            "value": 50
+                          }
+                        },
+                        {
+                          "kind": "bracket",
+                          "offset": {
+                            "start": 48,
+                            "end": 49
+                          },
+                          "line": 4,
+                          "column": 22,
+                          "value": ")"
+                        }
+                      ]
+                    ]
+                  ],
+                  {
+                    "kind": "whitespace",
+                    "offset": {
+                      "start": 49,
+                      "end": 50
+                    },
+                    "line": 4,
+                    "column": 23,
+                    "value": " "
+                  },
+                  {
+                    "kind": "comment",
+                    "offset": {
+                      "start": 50,
+                      "end": 56
+                    },
+                    "line": 4,
+                    "column": 24,
+                    "value": [
+                      "#",
+                      " abc",
+                      {
+                        "kind": "whitespace",
+                        "offset": {
+                          "start": 55,
+                          "end": 56
+                        },
+                        "line": 4,
+                        "column": 29,
+                        "value": "\\n"
+                      }
+                    ]
+                  },
+                  null
+                ]
+              }
+            ]
           },
-          {
-            "kind": "whitespace",
-            "offset": {
-              "start": 59,
-              "end": 60
+          [
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 56,
+                "end": 59
+              },
+              "line": 5,
+              "column": 1,
+              "value": "end"
             },
-            "line": 5,
-            "column": 4,
-            "value": " "
-          },
-          {
-            "kind": "keyword",
-            "offset": {
-              "start": 60,
-              "end": 67
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 59,
+                "end": 60
+              },
+              "line": 5,
+              "column": 4,
+              "value": " "
             },
-            "line": 5,
-            "column": 5,
-            "value": "globals"
-          },
-          {
-            "kind": "whitespace",
-            "offset": {
-              "start": 67,
-              "end": 69
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 60,
+                "end": 67
+              },
+              "line": 5,
+              "column": 5,
+              "value": "globals"
             },
-            "line": 5,
-            "column": 12,
-            "value": "\\n\\n"
-          }
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 67,
+                "end": 69
+              },
+              "line": 5,
+              "column": 12,
+              "value": "\\n\\n"
+            }
+          ]
         ]
       },
       {
@@ -1827,24 +1837,25 @@ end function
             "column": 14,
             "value": [
               {
-                "kind": "command",
+                "kind": "whitespace",
                 "offset": {
                   "start": 122,
-                  "end": 146
+                  "end": 128
                 },
                 "line": 10,
                 "column": 14,
+                "value": "\\n\\n    "
+              },
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 128,
+                  "end": 146
+                },
+                "line": 12,
+                "column": 5,
                 "value": [
-                  {
-                    "kind": "whitespace",
-                    "offset": {
-                      "start": 122,
-                      "end": 128
-                    },
-                    "line": 10,
-                    "column": 14,
-                    "value": "\\n\\n    "
-                  },
+                  null,
                   [
                     {
                       "kind": "keyword",

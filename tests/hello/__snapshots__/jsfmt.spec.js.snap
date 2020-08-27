@@ -329,24 +329,7 @@ end main
                     "column": 24,
                     "value": [
                       "#",
-                      [
-                        [
-                          null,
-                          " "
-                        ],
-                        [
-                          null,
-                          "a"
-                        ],
-                        [
-                          null,
-                          "b"
-                        ],
-                        [
-                          null,
-                          "c"
-                        ]
-                      ],
+                      " abc",
                       {
                         "kind": "whitespace",
                         "offset": {
@@ -363,24 +346,25 @@ end main
                 ]
               },
               {
-                "kind": "command",
+                "kind": "whitespace",
                 "offset": {
                   "start": 36,
-                  "end": 80
+                  "end": 38
                 },
                 "line": 4,
                 "column": 1,
+                "value": "  "
+              },
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 38,
+                  "end": 80
+                },
+                "line": 4,
+                "column": 3,
                 "value": [
-                  {
-                    "kind": "whitespace",
-                    "offset": {
-                      "start": 36,
-                      "end": 38
-                    },
-                    "line": 4,
-                    "column": 1,
-                    "value": "  "
-                  },
+                  null,
                   [
                     {
                       "kind": "keyword",

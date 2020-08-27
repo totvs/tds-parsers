@@ -37,40 +37,7 @@ exports[`comment.4gl 1`] = `
         "column": 1,
         "value": [
           "#",
-          [
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "l"
-            ],
-            [
-              null,
-              "i"
-            ],
-            [
-              null,
-              "n"
-            ],
-            [
-              null,
-              "h"
-            ],
-            [
-              null,
-              "a"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "1"
-            ]
-          ],
+          " linha 1",
           {
             "kind": "whitespace",
             "offset": {
@@ -93,40 +60,7 @@ exports[`comment.4gl 1`] = `
         "column": 1,
         "value": [
           "#",
-          [
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "l"
-            ],
-            [
-              null,
-              "i"
-            ],
-            [
-              null,
-              "n"
-            ],
-            [
-              null,
-              "h"
-            ],
-            [
-              null,
-              "a"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "2"
-            ]
-          ],
+          " linha 2",
           {
             "kind": "whitespace",
             "offset": {
@@ -149,40 +83,7 @@ exports[`comment.4gl 1`] = `
         "column": 1,
         "value": [
           "#",
-          [
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "l"
-            ],
-            [
-              null,
-              "i"
-            ],
-            [
-              null,
-              "n"
-            ],
-            [
-              null,
-              "h"
-            ],
-            [
-              null,
-              "a"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "3"
-            ]
-          ],
+          " linha 3",
           {
             "kind": "whitespace",
             "offset": {
@@ -215,36 +116,7 @@ exports[`comment.4gl 1`] = `
         "column": 1,
         "value": [
           "--",
-          [
-            [
-              null,
-              "l"
-            ],
-            [
-              null,
-              "i"
-            ],
-            [
-              null,
-              "n"
-            ],
-            [
-              null,
-              "h"
-            ],
-            [
-              null,
-              "a"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "A"
-            ]
-          ],
+          "linha A",
           {
             "kind": "whitespace",
             "offset": {
@@ -267,36 +139,7 @@ exports[`comment.4gl 1`] = `
         "column": 1,
         "value": [
           "--",
-          [
-            [
-              null,
-              "l"
-            ],
-            [
-              null,
-              "i"
-            ],
-            [
-              null,
-              "n"
-            ],
-            [
-              null,
-              "h"
-            ],
-            [
-              null,
-              "a"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "B"
-            ]
-          ],
+          "linha B",
           {
             "kind": "whitespace",
             "offset": {
@@ -329,40 +172,7 @@ exports[`comment.4gl 1`] = `
         "column": 1,
         "value": [
           "--",
-          [
-            [
-              null,
-              "l"
-            ],
-            [
-              null,
-              "i"
-            ],
-            [
-              null,
-              "n"
-            ],
-            [
-              null,
-              "h"
-            ],
-            [
-              null,
-              "a"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "A"
-            ],
-            [
-              null,
-              "1"
-            ]
-          ],
+          "linha A1",
           {
             "kind": "whitespace",
             "offset": {
@@ -395,40 +205,7 @@ exports[`comment.4gl 1`] = `
         "column": 1,
         "value": [
           "--",
-          [
-            [
-              null,
-              "l"
-            ],
-            [
-              null,
-              "i"
-            ],
-            [
-              null,
-              "n"
-            ],
-            [
-              null,
-              "h"
-            ],
-            [
-              null,
-              "a"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "B"
-            ],
-            [
-              null,
-              "2"
-            ]
-          ],
+          "linha B2",
           {
             "kind": "whitespace",
             "offset": {
@@ -451,40 +228,7 @@ exports[`comment.4gl 1`] = `
         "column": 1,
         "value": [
           "--",
-          [
-            [
-              null,
-              "l"
-            ],
-            [
-              null,
-              "i"
-            ],
-            [
-              null,
-              "n"
-            ],
-            [
-              null,
-              "h"
-            ],
-            [
-              null,
-              "a"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "B"
-            ],
-            [
-              null,
-              "3"
-            ]
-          ],
+          "linha B3",
           {
             "kind": "whitespace",
             "offset": {
@@ -517,128 +261,7 @@ exports[`comment.4gl 1`] = `
         "column": 1,
         "value": [
           "{",
-          [
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "b"
-            ],
-            [
-              null,
-              "l"
-            ],
-            [
-              null,
-              "o"
-            ],
-            [
-              null,
-              "c"
-            ],
-            [
-              null,
-              "o"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "c"
-            ],
-            [
-              null,
-              "o"
-            ],
-            [
-              null,
-              "m"
-            ],
-            [
-              null,
-              "e"
-            ],
-            [
-              null,
-              "n"
-            ],
-            [
-              null,
-              "t"
-            ],
-            [
-              null,
-              "a"
-            ],
-            [
-              null,
-              "d"
-            ],
-            [
-              null,
-              "o"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "d"
-            ],
-            [
-              null,
-              "e"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "u"
-            ],
-            [
-              null,
-              "m"
-            ],
-            [
-              null,
-              "a"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "l"
-            ],
-            [
-              null,
-              "i"
-            ],
-            [
-              null,
-              "n"
-            ],
-            [
-              null,
-              "h"
-            ],
-            [
-              null,
-              "a"
-            ],
-            [
-              null,
-              " "
-            ]
-          ],
+          " bloco comentado de uma linha ",
           "}"
         ]
       },
@@ -662,244 +285,7 @@ exports[`comment.4gl 1`] = `
         "column": 1,
         "value": [
           "{",
-          [
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "\\n"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "b"
-            ],
-            [
-              null,
-              "l"
-            ],
-            [
-              null,
-              "o"
-            ],
-            [
-              null,
-              "c"
-            ],
-            [
-              null,
-              "o"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "\\n"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "c"
-            ],
-            [
-              null,
-              "o"
-            ],
-            [
-              null,
-              "m"
-            ],
-            [
-              null,
-              "e"
-            ],
-            [
-              null,
-              "n"
-            ],
-            [
-              null,
-              "t"
-            ],
-            [
-              null,
-              "a"
-            ],
-            [
-              null,
-              "d"
-            ],
-            [
-              null,
-              "o"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "\\n"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "d"
-            ],
-            [
-              null,
-              "e"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "\\n"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "v"
-            ],
-            [
-              null,
-              "a"
-            ],
-            [
-              null,
-              "r"
-            ],
-            [
-              null,
-              "i"
-            ],
-            [
-              null,
-              "a"
-            ],
-            [
-              null,
-              "s"
-            ],
-            [
-              null,
-              "\\n"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "l"
-            ],
-            [
-              null,
-              "i"
-            ],
-            [
-              null,
-              "n"
-            ],
-            [
-              null,
-              "h"
-            ],
-            [
-              null,
-              "a"
-            ],
-            [
-              null,
-              "s"
-            ],
-            [
-              null,
-              " "
-            ],
-            [
-              null,
-              "\\n"
-            ]
-          ],
+          " \\n    bloco \\n    comentado \\n    de \\n    varias\\n    linhas \\n",
           "}"
         ]
       },
