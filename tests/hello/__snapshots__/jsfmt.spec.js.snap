@@ -1,0 +1,1123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`4gl: Sintax hello1.4gl 1`] = `
+main 
+  display "hello "
+end main
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[
+  {
+    "kind": "program",
+    "value": [
+      {
+        "kind": "main",
+        "offset": {
+          "start": 0,
+          "end": 34
+        },
+        "line": 1,
+        "column": 1,
+        "value": [
+          [
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 0,
+                "end": 4
+              },
+              "line": 1,
+              "column": 1,
+              "value": "main"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 4,
+                "end": 8
+              },
+              "line": 1,
+              "column": 5,
+              "value": " \\n  "
+            }
+          ],
+          {
+            "kind": "block",
+            "offset": {
+              "start": 8,
+              "end": 25
+            },
+            "line": 2,
+            "column": 3,
+            "value": [
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 8,
+                  "end": 25
+                },
+                "line": 2,
+                "column": 3,
+                "value": [
+                  null,
+                  [
+                    {
+                      "kind": "keyword",
+                      "offset": {
+                        "start": 8,
+                        "end": 15
+                      },
+                      "line": 2,
+                      "column": 3,
+                      "value": "display"
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 15,
+                        "end": 16
+                      },
+                      "line": 2,
+                      "column": 10,
+                      "value": " "
+                    },
+                    [
+                      {
+                        "kind": "string",
+                        "offset": {
+                          "start": 16,
+                          "end": 24
+                        },
+                        "line": 2,
+                        "column": 11,
+                        "value": "\\"hello \\""
+                      }
+                    ]
+                  ],
+                  {
+                    "kind": "whitespace",
+                    "offset": {
+                      "start": 24,
+                      "end": 25
+                    },
+                    "line": 2,
+                    "column": 19,
+                    "value": "\\n"
+                  },
+                  null,
+                  null
+                ]
+              }
+            ]
+          },
+          [
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 25,
+                "end": 28
+              },
+              "line": 3,
+              "column": 1,
+              "value": "end"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 28,
+                "end": 29
+              },
+              "line": 3,
+              "column": 4,
+              "value": " "
+            },
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 29,
+                "end": 33
+              },
+              "line": 3,
+              "column": 5,
+              "value": "main"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 33,
+                "end": 34
+              },
+              "line": 3,
+              "column": 9,
+              "value": "\\n"
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]
+`;
+
+exports[`4gl: Sintax hello2.4gl 1`] = `
+main 
+
+  define nome char(50) # abc
+  prompt "digite seu nome : " for nome
+  
+  call fgl_winmessage( "hello",nome, "info")
+  
+end main
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[
+  {
+    "kind": "program",
+    "value": [
+      {
+        "kind": "main",
+        "offset": {
+          "start": 0,
+          "end": 135
+        },
+        "line": 1,
+        "column": 1,
+        "value": [
+          [
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 0,
+                "end": 4
+              },
+              "line": 1,
+              "column": 1,
+              "value": "main"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 4,
+                "end": 9
+              },
+              "line": 1,
+              "column": 5,
+              "value": " \\n\\n  "
+            }
+          ],
+          {
+            "kind": "block",
+            "offset": {
+              "start": 9,
+              "end": 126
+            },
+            "line": 3,
+            "column": 3,
+            "value": [
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 9,
+                  "end": 36
+                },
+                "line": 3,
+                "column": 3,
+                "value": [
+                  null,
+                  [
+                    {
+                      "kind": "keyword",
+                      "offset": {
+                        "start": 9,
+                        "end": 15
+                      },
+                      "line": 3,
+                      "column": 3,
+                      "value": "define"
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 15,
+                        "end": 16
+                      },
+                      "line": 3,
+                      "column": 9,
+                      "value": " "
+                    },
+                    "nome",
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 20,
+                        "end": 21
+                      },
+                      "line": 3,
+                      "column": 14,
+                      "value": " "
+                    },
+                    [
+                      {
+                        "kind": "keyword",
+                        "offset": {
+                          "start": 21,
+                          "end": 25
+                        },
+                        "line": 3,
+                        "column": 15,
+                        "value": "char"
+                      },
+                      [
+                        {
+                          "kind": "bracket",
+                          "offset": {
+                            "start": 25,
+                            "end": 26
+                          },
+                          "line": 3,
+                          "column": 19,
+                          "value": "("
+                        },
+                        {
+                          "offset": {
+                            "start": 26,
+                            "end": 28
+                          },
+                          "line": 3,
+                          "column": 20,
+                          "value": 50
+                        },
+                        {
+                          "kind": "bracket",
+                          "offset": {
+                            "start": 28,
+                            "end": 29
+                          },
+                          "line": 3,
+                          "column": 22,
+                          "value": ")"
+                        }
+                      ]
+                    ]
+                  ],
+                  {
+                    "kind": "whitespace",
+                    "offset": {
+                      "start": 29,
+                      "end": 30
+                    },
+                    "line": 3,
+                    "column": 23,
+                    "value": " "
+                  },
+                  {
+                    "kind": "comment",
+                    "offset": {
+                      "start": 30,
+                      "end": 36
+                    },
+                    "line": 3,
+                    "column": 24,
+                    "value": [
+                      "#",
+                      " abc",
+                      {
+                        "kind": "whitespace",
+                        "offset": {
+                          "start": 35,
+                          "end": 36
+                        },
+                        "line": 3,
+                        "column": 29,
+                        "value": "\\n"
+                      }
+                    ]
+                  },
+                  null
+                ]
+              },
+              {
+                "kind": "whitespace",
+                "offset": {
+                  "start": 36,
+                  "end": 38
+                },
+                "line": 4,
+                "column": 1,
+                "value": "  "
+              },
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 38,
+                  "end": 80
+                },
+                "line": 4,
+                "column": 3,
+                "value": [
+                  null,
+                  [
+                    {
+                      "kind": "keyword",
+                      "offset": {
+                        "start": 38,
+                        "end": 44
+                      },
+                      "line": 4,
+                      "column": 3,
+                      "value": "prompt"
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 44,
+                        "end": 45
+                      },
+                      "line": 4,
+                      "column": 9,
+                      "value": " "
+                    },
+                    {
+                      "kind": "string",
+                      "offset": {
+                        "start": 45,
+                        "end": 65
+                      },
+                      "line": 4,
+                      "column": 10,
+                      "value": "\\"digite seu nome : \\""
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 65,
+                        "end": 66
+                      },
+                      "line": 4,
+                      "column": 30,
+                      "value": " "
+                    },
+                    {
+                      "kind": "keyword",
+                      "offset": {
+                        "start": 66,
+                        "end": 69
+                      },
+                      "line": 4,
+                      "column": 31,
+                      "value": "for"
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 69,
+                        "end": 70
+                      },
+                      "line": 4,
+                      "column": 34,
+                      "value": " "
+                    },
+                    "nome"
+                  ],
+                  {
+                    "kind": "whitespace",
+                    "offset": {
+                      "start": 74,
+                      "end": 80
+                    },
+                    "line": 4,
+                    "column": 39,
+                    "value": "\\n  \\n  "
+                  },
+                  null,
+                  null
+                ]
+              },
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 80,
+                  "end": 126
+                },
+                "line": 6,
+                "column": 3,
+                "value": [
+                  null,
+                  [
+                    {
+                      "kind": "keyword",
+                      "offset": {
+                        "start": 80,
+                        "end": 84
+                      },
+                      "line": 6,
+                      "column": 3,
+                      "value": "call"
+                    },
+                    {
+                      "kind": "whitespace",
+                      "offset": {
+                        "start": 84,
+                        "end": 85
+                      },
+                      "line": 6,
+                      "column": 7,
+                      "value": " "
+                    },
+                    "fgl_winmessage",
+                    null,
+                    [
+                      {
+                        "kind": "bracket",
+                        "offset": {
+                          "start": 99,
+                          "end": 100
+                        },
+                        "line": 6,
+                        "column": 22,
+                        "value": "("
+                      },
+                      {
+                        "kind": "list",
+                        "offset": {
+                          "start": 99,
+                          "end": 122
+                        },
+                        "line": 6,
+                        "column": 22,
+                        "value": [
+                          [
+                            {
+                              "kind": "string",
+                              "offset": {
+                                "start": 101,
+                                "end": 108
+                              },
+                              "line": 6,
+                              "column": 24,
+                              "value": "\\"hello\\""
+                            }
+                          ],
+                          [
+                            {
+                              "kind": "variable",
+                              "offset": {
+                                "start": 109,
+                                "end": 113
+                              },
+                              "line": 6,
+                              "column": 32,
+                              "value": "nome"
+                            }
+                          ],
+                          [
+                            {
+                              "kind": "string",
+                              "offset": {
+                                "start": 115,
+                                "end": 121
+                              },
+                              "line": 6,
+                              "column": 38,
+                              "value": "\\"info\\""
+                            }
+                          ]
+                        ]
+                      },
+                      {
+                        "kind": "bracket",
+                        "offset": {
+                          "start": 121,
+                          "end": 122
+                        },
+                        "line": 6,
+                        "column": 44,
+                        "value": ")"
+                      }
+                    ],
+                    null
+                  ],
+                  {
+                    "kind": "whitespace",
+                    "offset": {
+                      "start": 122,
+                      "end": 126
+                    },
+                    "line": 6,
+                    "column": 45,
+                    "value": "\\n  \\n"
+                  },
+                  null,
+                  null
+                ]
+              }
+            ]
+          },
+          [
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 126,
+                "end": 129
+              },
+              "line": 8,
+              "column": 1,
+              "value": "end"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 129,
+                "end": 130
+              },
+              "line": 8,
+              "column": 4,
+              "value": " "
+            },
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 130,
+                "end": 134
+              },
+              "line": 8,
+              "column": 5,
+              "value": "main"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 134,
+                "end": 135
+              },
+              "line": 8,
+              "column": 9,
+              "value": "\\n"
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]
+`;
+
+exports[`4gl: Sintax hello3.4gl 1`] = `
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[
+  {
+    "kind": "program",
+    "value": []
+  }
+]
+`;
+
+exports[`4gl: Token hello1.4gl 1`] = `
+main 
+  display "hello "
+end main
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[
+  [
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 0,
+        "end": 4
+      },
+      "line": 1,
+      "column": 1,
+      "value": "main"
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 4,
+        "end": 8
+      },
+      "line": 1,
+      "column": 5,
+      "value": " \\n  "
+    },
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 8,
+        "end": 15
+      },
+      "line": 2,
+      "column": 3,
+      "value": "display"
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 15,
+        "end": 16
+      },
+      "line": 2,
+      "column": 10,
+      "value": " "
+    },
+    {
+      "kind": "string",
+      "offset": {
+        "start": 16,
+        "end": 24
+      },
+      "line": 2,
+      "column": 11,
+      "value": "\\"hello \\""
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 24,
+        "end": 25
+      },
+      "line": 2,
+      "column": 19,
+      "value": "\\n"
+    },
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 25,
+        "end": 28
+      },
+      "line": 3,
+      "column": 1,
+      "value": "end"
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 28,
+        "end": 29
+      },
+      "line": 3,
+      "column": 4,
+      "value": " "
+    },
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 29,
+        "end": 33
+      },
+      "line": 3,
+      "column": 5,
+      "value": "main"
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 33,
+        "end": 34
+      },
+      "line": 3,
+      "column": 9,
+      "value": "\\n"
+    }
+  ]
+]
+`;
+
+exports[`4gl: Token hello2.4gl 1`] = `
+main 
+
+  define nome char(50) # abc
+  prompt "digite seu nome : " for nome
+  
+  call fgl_winmessage( "hello",nome, "info")
+  
+end main
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[
+  [
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 0,
+        "end": 4
+      },
+      "line": 1,
+      "column": 1,
+      "value": "main"
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 4,
+        "end": 9
+      },
+      "line": 1,
+      "column": 5,
+      "value": " \\n\\n  "
+    },
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 9,
+        "end": 15
+      },
+      "line": 3,
+      "column": 3,
+      "value": "define"
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 15,
+        "end": 16
+      },
+      "line": 3,
+      "column": 9,
+      "value": " "
+    },
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 16,
+        "end": 18
+      },
+      "line": 3,
+      "column": 10,
+      "value": "no"
+    },
+    "me",
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 20,
+        "end": 21
+      },
+      "line": 3,
+      "column": 14,
+      "value": " "
+    },
+    "char",
+    {
+      "kind": "operator",
+      "offset": {
+        "start": 25,
+        "end": 26
+      },
+      "line": 3,
+      "column": 19,
+      "value": "("
+    },
+    {
+      "kind": "number",
+      "offset": {
+        "start": 26,
+        "end": 28
+      },
+      "line": 3,
+      "column": 20,
+      "value": 50
+    },
+    {
+      "kind": "operator",
+      "offset": {
+        "start": 28,
+        "end": 29
+      },
+      "line": 3,
+      "column": 22,
+      "value": ")"
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 29,
+        "end": 30
+      },
+      "line": 3,
+      "column": 23,
+      "value": " "
+    },
+    {
+      "kind": "comment",
+      "offset": {
+        "start": 30,
+        "end": 36
+      },
+      "line": 3,
+      "column": 24,
+      "value": [
+        "#",
+        " abc",
+        {
+          "kind": "whitespace",
+          "offset": {
+            "start": 35,
+            "end": 36
+          },
+          "line": 3,
+          "column": 29,
+          "value": "\\n"
+        }
+      ]
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 36,
+        "end": 38
+      },
+      "line": 4,
+      "column": 1,
+      "value": "  "
+    },
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 38,
+        "end": 44
+      },
+      "line": 4,
+      "column": 3,
+      "value": "prompt"
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 44,
+        "end": 45
+      },
+      "line": 4,
+      "column": 9,
+      "value": " "
+    },
+    {
+      "kind": "string",
+      "offset": {
+        "start": 45,
+        "end": 65
+      },
+      "line": 4,
+      "column": 10,
+      "value": "\\"digite seu nome : \\""
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 65,
+        "end": 66
+      },
+      "line": 4,
+      "column": 30,
+      "value": " "
+    },
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 66,
+        "end": 69
+      },
+      "line": 4,
+      "column": 31,
+      "value": "for"
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 69,
+        "end": 70
+      },
+      "line": 4,
+      "column": 34,
+      "value": " "
+    },
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 70,
+        "end": 72
+      },
+      "line": 4,
+      "column": 35,
+      "value": "no"
+    },
+    "me",
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 74,
+        "end": 80
+      },
+      "line": 4,
+      "column": 39,
+      "value": "\\n  \\n  "
+    },
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 80,
+        "end": 84
+      },
+      "line": 6,
+      "column": 3,
+      "value": "call"
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 84,
+        "end": 85
+      },
+      "line": 6,
+      "column": 7,
+      "value": " "
+    },
+    "fgl_winmessage",
+    {
+      "kind": "operator",
+      "offset": {
+        "start": 99,
+        "end": 100
+      },
+      "line": 6,
+      "column": 22,
+      "value": "("
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 100,
+        "end": 101
+      },
+      "line": 6,
+      "column": 23,
+      "value": " "
+    },
+    {
+      "kind": "string",
+      "offset": {
+        "start": 101,
+        "end": 108
+      },
+      "line": 6,
+      "column": 24,
+      "value": "\\"hello\\""
+    },
+    {
+      "kind": "operator",
+      "offset": {
+        "start": 108,
+        "end": 109
+      },
+      "line": 6,
+      "column": 31,
+      "value": ","
+    },
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 109,
+        "end": 111
+      },
+      "line": 6,
+      "column": 32,
+      "value": "no"
+    },
+    "me",
+    {
+      "kind": "operator",
+      "offset": {
+        "start": 113,
+        "end": 114
+      },
+      "line": 6,
+      "column": 36,
+      "value": ","
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 114,
+        "end": 115
+      },
+      "line": 6,
+      "column": 37,
+      "value": " "
+    },
+    {
+      "kind": "string",
+      "offset": {
+        "start": 115,
+        "end": 121
+      },
+      "line": 6,
+      "column": 38,
+      "value": "\\"info\\""
+    },
+    {
+      "kind": "operator",
+      "offset": {
+        "start": 121,
+        "end": 122
+      },
+      "line": 6,
+      "column": 44,
+      "value": ")"
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 122,
+        "end": 126
+      },
+      "line": 6,
+      "column": 45,
+      "value": "\\n  \\n"
+    },
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 126,
+        "end": 129
+      },
+      "line": 8,
+      "column": 1,
+      "value": "end"
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 129,
+        "end": 130
+      },
+      "line": 8,
+      "column": 4,
+      "value": " "
+    },
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 130,
+        "end": 134
+      },
+      "line": 8,
+      "column": 5,
+      "value": "main"
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 134,
+        "end": 135
+      },
+      "line": 8,
+      "column": 9,
+      "value": "\\n"
+    }
+  ]
+]
+`;
+
+exports[`4gl: Token hello3.4gl 1`] = `
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[
+  []
+]
+`;

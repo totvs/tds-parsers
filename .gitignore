@@ -1,0 +1,7 @@
+node_modules/
+coverage/
+package-lock.json
+*.log
+out/
+lib/
+typings/

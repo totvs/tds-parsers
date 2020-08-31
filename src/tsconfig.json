@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "ES6",
+        "outDir": "../lib",
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noUnusedLocals": false,
+        "noImplicitThis": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": false,
+        "allowJs": true,
+        "lib": [
+            "es2015",
+            "dom"
+        ],
+        "jsx": "react",
+        "declaration": true,
+        "declarationMap": true,
+        "declarationDir": "../typings",
+        "strict": false, /* enable all strict type-checking options */
+        "noUnusedParameters": false,
+        "resolveJsonModule": true,
+    },
+    "exclude": [
+        "node_modules/",
+        "../out/",
+        "test/",
+    ]
+}

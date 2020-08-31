@@ -1,0 +1,606 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`4gl: Sintax comment.4gl 1`] = `
+# linha 1
+# linha 2
+# linha 3
+
+--linha A
+--linha B
+
+--linha A1
+
+--linha B2
+--linha B3
+
+{ bloco comentado de uma linha }
+
+{ 
+    bloco 
+    comentado 
+    de 
+    varias
+    linhas 
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[
+  {
+    "kind": "program",
+    "value": [
+      {
+        "kind": "comment",
+        "offset": {
+          "start": 0,
+          "end": 10
+        },
+        "line": 1,
+        "column": 1,
+        "value": [
+          "#",
+          " linha 1",
+          {
+            "kind": "whitespace",
+            "offset": {
+              "start": 9,
+              "end": 10
+            },
+            "line": 1,
+            "column": 10,
+            "value": "\\n"
+          }
+        ]
+      },
+      {
+        "kind": "comment",
+        "offset": {
+          "start": 10,
+          "end": 20
+        },
+        "line": 2,
+        "column": 1,
+        "value": [
+          "#",
+          " linha 2",
+          {
+            "kind": "whitespace",
+            "offset": {
+              "start": 19,
+              "end": 20
+            },
+            "line": 2,
+            "column": 10,
+            "value": "\\n"
+          }
+        ]
+      },
+      {
+        "kind": "comment",
+        "offset": {
+          "start": 20,
+          "end": 30
+        },
+        "line": 3,
+        "column": 1,
+        "value": [
+          "#",
+          " linha 3",
+          {
+            "kind": "whitespace",
+            "offset": {
+              "start": 29,
+              "end": 30
+            },
+            "line": 3,
+            "column": 10,
+            "value": "\\n"
+          }
+        ]
+      },
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 30,
+          "end": 31
+        },
+        "line": 4,
+        "column": 1,
+        "value": "\\n"
+      },
+      {
+        "kind": "comment",
+        "offset": {
+          "start": 31,
+          "end": 41
+        },
+        "line": 5,
+        "column": 1,
+        "value": [
+          "--",
+          "linha A",
+          {
+            "kind": "whitespace",
+            "offset": {
+              "start": 40,
+              "end": 41
+            },
+            "line": 5,
+            "column": 10,
+            "value": "\\n"
+          }
+        ]
+      },
+      {
+        "kind": "comment",
+        "offset": {
+          "start": 41,
+          "end": 51
+        },
+        "line": 6,
+        "column": 1,
+        "value": [
+          "--",
+          "linha B",
+          {
+            "kind": "whitespace",
+            "offset": {
+              "start": 50,
+              "end": 51
+            },
+            "line": 6,
+            "column": 10,
+            "value": "\\n"
+          }
+        ]
+      },
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 51,
+          "end": 52
+        },
+        "line": 7,
+        "column": 1,
+        "value": "\\n"
+      },
+      {
+        "kind": "comment",
+        "offset": {
+          "start": 52,
+          "end": 63
+        },
+        "line": 8,
+        "column": 1,
+        "value": [
+          "--",
+          "linha A1",
+          {
+            "kind": "whitespace",
+            "offset": {
+              "start": 62,
+              "end": 63
+            },
+            "line": 8,
+            "column": 11,
+            "value": "\\n"
+          }
+        ]
+      },
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 63,
+          "end": 64
+        },
+        "line": 9,
+        "column": 1,
+        "value": "\\n"
+      },
+      {
+        "kind": "comment",
+        "offset": {
+          "start": 64,
+          "end": 75
+        },
+        "line": 10,
+        "column": 1,
+        "value": [
+          "--",
+          "linha B2",
+          {
+            "kind": "whitespace",
+            "offset": {
+              "start": 74,
+              "end": 75
+            },
+            "line": 10,
+            "column": 11,
+            "value": "\\n"
+          }
+        ]
+      },
+      {
+        "kind": "comment",
+        "offset": {
+          "start": 75,
+          "end": 86
+        },
+        "line": 11,
+        "column": 1,
+        "value": [
+          "--",
+          "linha B3",
+          {
+            "kind": "whitespace",
+            "offset": {
+              "start": 85,
+              "end": 86
+            },
+            "line": 11,
+            "column": 11,
+            "value": "\\n"
+          }
+        ]
+      },
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 86,
+          "end": 87
+        },
+        "line": 12,
+        "column": 1,
+        "value": "\\n"
+      },
+      {
+        "kind": "comment",
+        "offset": {
+          "start": 87,
+          "end": 119
+        },
+        "line": 13,
+        "column": 1,
+        "value": [
+          "{",
+          " bloco comentado de uma linha ",
+          "}"
+        ]
+      },
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 119,
+          "end": 121
+        },
+        "line": 13,
+        "column": 33,
+        "value": "\\n\\n"
+      },
+      {
+        "kind": "comment",
+        "offset": {
+          "start": 121,
+          "end": 182
+        },
+        "line": 15,
+        "column": 1,
+        "value": [
+          "{",
+          " \\n    bloco \\n    comentado \\n    de \\n    varias\\n    linhas \\n",
+          "}"
+        ]
+      },
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 182,
+          "end": 183
+        },
+        "line": 21,
+        "column": 2,
+        "value": "\\n"
+      }
+    ]
+  }
+]
+`;
+
+exports[`4gl: Token comment.4gl 1`] = `
+# linha 1
+# linha 2
+# linha 3
+
+--linha A
+--linha B
+
+--linha A1
+
+--linha B2
+--linha B3
+
+{ bloco comentado de uma linha }
+
+{ 
+    bloco 
+    comentado 
+    de 
+    varias
+    linhas 
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[
+  [
+    {
+      "kind": "comment",
+      "offset": {
+        "start": 0,
+        "end": 10
+      },
+      "line": 1,
+      "column": 1,
+      "value": [
+        "#",
+        " linha 1",
+        {
+          "kind": "whitespace",
+          "offset": {
+            "start": 9,
+            "end": 10
+          },
+          "line": 1,
+          "column": 10,
+          "value": "\\n"
+        }
+      ]
+    },
+    {
+      "kind": "comment",
+      "offset": {
+        "start": 10,
+        "end": 20
+      },
+      "line": 2,
+      "column": 1,
+      "value": [
+        "#",
+        " linha 2",
+        {
+          "kind": "whitespace",
+          "offset": {
+            "start": 19,
+            "end": 20
+          },
+          "line": 2,
+          "column": 10,
+          "value": "\\n"
+        }
+      ]
+    },
+    {
+      "kind": "comment",
+      "offset": {
+        "start": 20,
+        "end": 30
+      },
+      "line": 3,
+      "column": 1,
+      "value": [
+        "#",
+        " linha 3",
+        {
+          "kind": "whitespace",
+          "offset": {
+            "start": 29,
+            "end": 30
+          },
+          "line": 3,
+          "column": 10,
+          "value": "\\n"
+        }
+      ]
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 30,
+        "end": 31
+      },
+      "line": 4,
+      "column": 1,
+      "value": "\\n"
+    },
+    {
+      "kind": "comment",
+      "offset": {
+        "start": 31,
+        "end": 41
+      },
+      "line": 5,
+      "column": 1,
+      "value": [
+        "--",
+        "linha A",
+        {
+          "kind": "whitespace",
+          "offset": {
+            "start": 40,
+            "end": 41
+          },
+          "line": 5,
+          "column": 10,
+          "value": "\\n"
+        }
+      ]
+    },
+    {
+      "kind": "comment",
+      "offset": {
+        "start": 41,
+        "end": 51
+      },
+      "line": 6,
+      "column": 1,
+      "value": [
+        "--",
+        "linha B",
+        {
+          "kind": "whitespace",
+          "offset": {
+            "start": 50,
+            "end": 51
+          },
+          "line": 6,
+          "column": 10,
+          "value": "\\n"
+        }
+      ]
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 51,
+        "end": 52
+      },
+      "line": 7,
+      "column": 1,
+      "value": "\\n"
+    },
+    {
+      "kind": "comment",
+      "offset": {
+        "start": 52,
+        "end": 63
+      },
+      "line": 8,
+      "column": 1,
+      "value": [
+        "--",
+        "linha A1",
+        {
+          "kind": "whitespace",
+          "offset": {
+            "start": 62,
+            "end": 63
+          },
+          "line": 8,
+          "column": 11,
+          "value": "\\n"
+        }
+      ]
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 63,
+        "end": 64
+      },
+      "line": 9,
+      "column": 1,
+      "value": "\\n"
+    },
+    {
+      "kind": "comment",
+      "offset": {
+        "start": 64,
+        "end": 75
+      },
+      "line": 10,
+      "column": 1,
+      "value": [
+        "--",
+        "linha B2",
+        {
+          "kind": "whitespace",
+          "offset": {
+            "start": 74,
+            "end": 75
+          },
+          "line": 10,
+          "column": 11,
+          "value": "\\n"
+        }
+      ]
+    },
+    {
+      "kind": "comment",
+      "offset": {
+        "start": 75,
+        "end": 86
+      },
+      "line": 11,
+      "column": 1,
+      "value": [
+        "--",
+        "linha B3",
+        {
+          "kind": "whitespace",
+          "offset": {
+            "start": 85,
+            "end": 86
+          },
+          "line": 11,
+          "column": 11,
+          "value": "\\n"
+        }
+      ]
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 86,
+        "end": 87
+      },
+      "line": 12,
+      "column": 1,
+      "value": "\\n"
+    },
+    {
+      "kind": "comment",
+      "offset": {
+        "start": 87,
+        "end": 119
+      },
+      "line": 13,
+      "column": 1,
+      "value": [
+        "{",
+        " bloco comentado de uma linha ",
+        "}"
+      ]
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 119,
+        "end": 121
+      },
+      "line": 13,
+      "column": 33,
+      "value": "\\n\\n"
+    },
+    {
+      "kind": "comment",
+      "offset": {
+        "start": 121,
+        "end": 182
+      },
+      "line": 15,
+      "column": 1,
+      "value": [
+        "{",
+        " \\n    bloco \\n    comentado \\n    de \\n    varias\\n    linhas \\n",
+        "}"
+      ]
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 182,
+        "end": 183
+      },
+      "line": 21,
+      "column": 2,
+      "value": "\\n"
+    }
+  ]
+]
+`;
