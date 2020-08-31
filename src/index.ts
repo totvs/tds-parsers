@@ -6,7 +6,7 @@ const LANGUAGES = [
   {
     extensions: [".4gl"],
     name: "4GL",
-    parsers: ["4gl"],
+    parsers: ["4gl", "4gl-token"],
     vscodeLanguageIds: ["4gl"],
   },
 ];
@@ -15,6 +15,11 @@ const PARSERS = {
   "4gl": {
     parse: (text, options) => {
       return call_parser.parser(text, options);
+    },
+  },
+  "4gl-token": {
+    parse: (text, options) => {
+      return call_parser.parser_token(text, options);
     },
   },
 };
@@ -34,12 +39,16 @@ export function parser(content: string, options: IParserOptions): any[] {
     parserList = LANGUAGES.filter((language) => {
       return language.parsers.includes(options.parser);
     }).map((lang) => {
-      return lang.parsers;
+      return lang.parsers.filter((parser) => {
+        return parser == options.parser;
+      });
     });
   }
 
   if (!parserList || parserList.length == 0) {
     throw new Error(ERRORS.E002);
+  } else if (parserList.length > 1) {
+    throw new Error(ERRORS.E003);
   }
 
   const result = [];

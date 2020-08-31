@@ -390,7 +390,7 @@ commands
   / c:(SPACE? comment) { return c; }
   / c:(SPACE? command SPACE? comment? NL?) { return createNodeCommand(c); }
 
-command = c:(define / display / call / let / prompt) { return c; }
+command = c:(define / display / call / let / prompt / if) { return c; }
 
 define = DEFINE SPACE ID SPACE dataType
 
@@ -403,6 +403,12 @@ returning = SPACE RETURNING SPACE receivingVariables
 let = LET SPACE receivingVariables SPACE? EQUAL SPACE? expressions
 
 prompt = PROMPT SPACE string_exp SPACE FOR SPACE ID
+
+if
+  = (IF SPACE expressions SPACE THEN SPACE?)
+    block?
+    (SPACE? ELSE block?)?
+    (END SPACE IF)
 
 expressions
   = l:exp_list+ e:expression { return l.concat(e); }
@@ -618,7 +624,7 @@ STRING = k:"string"i { return createNodeKeyword(k); }
 
 RETURNING = k:"returning"i { return createNodeKeyword(k); }
 
-OPERATOR = o:[~!@%^&*-+|/{}\:;<>?#_] { return createNodeOperator(o); }
+OPERATOR = o:[~!@%^&*-+|/{}\:;<>?#_=] { return createNodeOperator(o); }
 
 EQUAL = o:"=" { return createNodeOperator(o); }
 
@@ -697,6 +703,12 @@ SMALLINT = k:"smallint"i { return createNodeKeyword(k); }
 TEXT = k:"text"i { return createNodeKeyword(k); }
 
 TO = k:"to"i { return createNodeKeyword(k); }
+
+IF = k:"if"i { return createNodeKeyword(k); }
+
+THEN = k:"then"i { return createNodeKeyword(k); }
+
+ELSE = k:"else"i { return createNodeKeyword(k); }
 
 VARCHAR = k:"varchar"i { return createNodeKeyword(k); }
 

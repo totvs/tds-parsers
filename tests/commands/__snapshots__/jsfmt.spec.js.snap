@@ -5620,3 +5620,265 @@ end function
   }
 ]
 `;
+
+exports[`if.4gl 1`] = `
+main 
+
+  if a=b then
+      end if
+
+end main
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[
+  {
+    "kind": "program",
+    "value": [
+      {
+        "kind": "main",
+        "offset": {
+          "start": 0,
+          "end": 45
+        },
+        "line": 1,
+        "column": 1,
+        "value": [
+          [
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 0,
+                "end": 4
+              },
+              "line": 1,
+              "column": 1,
+              "value": "main"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 4,
+                "end": 9
+              },
+              "line": 1,
+              "column": 5,
+              "value": " \\n\\n  "
+            }
+          ],
+          {
+            "kind": "block",
+            "offset": {
+              "start": 9,
+              "end": 35
+            },
+            "line": 3,
+            "column": 3,
+            "value": [
+              {
+                "kind": "command",
+                "offset": {
+                  "start": 9,
+                  "end": 35
+                },
+                "line": 3,
+                "column": 3,
+                "value": [
+                  null,
+                  [
+                    [
+                      {
+                        "kind": "keyword",
+                        "offset": {
+                          "start": 9,
+                          "end": 11
+                        },
+                        "line": 3,
+                        "column": 3,
+                        "value": "if"
+                      },
+                      {
+                        "kind": "whitespace",
+                        "offset": {
+                          "start": 11,
+                          "end": 12
+                        },
+                        "line": 3,
+                        "column": 5,
+                        "value": " "
+                      },
+                      [
+                        {
+                          "kind": "expression",
+                          "offset": {
+                            "start": 12,
+                            "end": 14
+                          },
+                          "line": 3,
+                          "column": 6,
+                          "value": [
+                            null,
+                            {
+                              "kind": "variable",
+                              "offset": {
+                                "start": 12,
+                                "end": 13
+                              },
+                              "line": 3,
+                              "column": 6,
+                              "value": "a"
+                            },
+                            null,
+                            {
+                              "kind": "operator",
+                              "offset": {
+                                "start": 13,
+                                "end": 14
+                              },
+                              "line": 3,
+                              "column": 7,
+                              "value": "="
+                            },
+                            null
+                          ]
+                        },
+                        {
+                          "kind": "variable",
+                          "offset": {
+                            "start": 14,
+                            "end": 15
+                          },
+                          "line": 3,
+                          "column": 8,
+                          "value": "b"
+                        }
+                      ],
+                      {
+                        "kind": "whitespace",
+                        "offset": {
+                          "start": 15,
+                          "end": 16
+                        },
+                        "line": 3,
+                        "column": 9,
+                        "value": " "
+                      },
+                      {
+                        "kind": "keyword",
+                        "offset": {
+                          "start": 16,
+                          "end": 20
+                        },
+                        "line": 3,
+                        "column": 10,
+                        "value": "then"
+                      },
+                      {
+                        "kind": "whitespace",
+                        "offset": {
+                          "start": 20,
+                          "end": 27
+                        },
+                        "line": 3,
+                        "column": 14,
+                        "value": "\\n      "
+                      }
+                    ],
+                    null,
+                    null,
+                    [
+                      {
+                        "kind": "keyword",
+                        "offset": {
+                          "start": 27,
+                          "end": 30
+                        },
+                        "line": 4,
+                        "column": 7,
+                        "value": "end"
+                      },
+                      {
+                        "kind": "whitespace",
+                        "offset": {
+                          "start": 30,
+                          "end": 31
+                        },
+                        "line": 4,
+                        "column": 10,
+                        "value": " "
+                      },
+                      {
+                        "kind": "keyword",
+                        "offset": {
+                          "start": 31,
+                          "end": 33
+                        },
+                        "line": 4,
+                        "column": 11,
+                        "value": "if"
+                      }
+                    ]
+                  ],
+                  {
+                    "kind": "whitespace",
+                    "offset": {
+                      "start": 33,
+                      "end": 35
+                    },
+                    "line": 4,
+                    "column": 13,
+                    "value": "\\n\\n"
+                  },
+                  null,
+                  null
+                ]
+              }
+            ]
+          },
+          [
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 35,
+                "end": 38
+              },
+              "line": 6,
+              "column": 1,
+              "value": "end"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 38,
+                "end": 39
+              },
+              "line": 6,
+              "column": 4,
+              "value": " "
+            },
+            {
+              "kind": "keyword",
+              "offset": {
+                "start": 39,
+                "end": 43
+              },
+              "line": 6,
+              "column": 5,
+              "value": "main"
+            },
+            {
+              "kind": "whitespace",
+              "offset": {
+                "start": 43,
+                "end": 45
+              },
+              "line": 6,
+              "column": 9,
+              "value": "\\n\\n"
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]
+`;

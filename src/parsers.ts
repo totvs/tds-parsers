@@ -1,10 +1,11 @@
 import path = require("path");
 
 const parser_4gl = require("./4gl.js");
+const parser_token_4gl = require("./4gl-token.js");
 
-export function parser(text: string, options: any): any {
+function process(parser: any, text: string, options: any): any {
   try {
-    return parser_4gl.parse(text, options);
+    return parser.parse(text, options);
   } catch (error) {
     if (error.location) {
       const file = path.basename(options.filepath);
@@ -18,4 +19,12 @@ export function parser(text: string, options: any): any {
 
     throw error;
   }
+}
+
+export function parser(text: string, options: any): any {
+  return process(parser_4gl, text, options);
+}
+
+export function parser_token(text: string, options: any): any {
+  return process(parser_token_4gl, text, options);
 }
