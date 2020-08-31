@@ -89,14 +89,7 @@ end main
                         },
                         "line": 2,
                         "column": 11,
-                        "value": {
-                          "type": "string",
-                          "value": [
-                            "\\"",
-                            "hello ",
-                            "\\""
-                          ]
-                        }
+                        "value": "\\"hello \\""
                       }
                     ]
                   ],
@@ -284,17 +277,13 @@ end main
                           "value": "("
                         },
                         {
-                          "kind": "number",
                           "offset": {
                             "start": 26,
                             "end": 28
                           },
                           "line": 3,
                           "column": 20,
-                          "value": {
-                            "type": "integer",
-                            "value": 50
-                          }
+                          "value": 50
                         },
                         {
                           "kind": "bracket",
@@ -394,14 +383,7 @@ end main
                       },
                       "line": 4,
                       "column": 10,
-                      "value": {
-                        "type": "string",
-                        "value": [
-                          "\\"",
-                          "digite seu nome : ",
-                          "\\""
-                        ]
-                      }
+                      "value": "\\"digite seu nome : \\""
                     },
                     {
                       "kind": "whitespace",
@@ -511,14 +493,7 @@ end main
                               },
                               "line": 6,
                               "column": 24,
-                              "value": {
-                                "type": "string",
-                                "value": [
-                                  "\\"",
-                                  "hello",
-                                  "\\""
-                                ]
-                              }
+                              "value": "\\"hello\\""
                             }
                           ],
                           [
@@ -542,14 +517,7 @@ end main
                               },
                               "line": 6,
                               "column": 38,
-                              "value": {
-                                "type": "string",
-                                "value": [
-                                  "\\"",
-                                  "info",
-                                  "\\""
-                                ]
-                              }
+                              "value": "\\"info\\""
                             }
                           ]
                         ]
@@ -697,11 +665,7 @@ end main
       },
       "line": 2,
       "column": 11,
-      "value": [
-        "\\"",
-        "hello ",
-        "\\""
-      ]
+      "value": "\\"hello \\""
     },
     {
       "kind": "whitespace",
@@ -932,11 +896,7 @@ end main
       },
       "line": 4,
       "column": 10,
-      "value": [
-        "\\"",
-        "digite seu nome : ",
-        "\\""
-      ]
+      "value": "\\"digite seu nome : \\""
     },
     {
       "kind": "whitespace",
@@ -1038,11 +998,7 @@ end main
       },
       "line": 6,
       "column": 24,
-      "value": [
-        "\\"",
-        "hello",
-        "\\""
-      ]
+      "value": "\\"hello\\""
     },
     {
       "kind": "operator",
@@ -1093,11 +1049,7 @@ end main
       },
       "line": 6,
       "column": 38,
-      "value": [
-        "\\"",
-        "info",
-        "\\""
-      ]
+      "value": "\\"info\\""
     },
     {
       "kind": "operator",

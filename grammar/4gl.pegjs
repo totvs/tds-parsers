@@ -1,200 +1,4 @@
 {
-  const keywordList = [
-    "AFTER",
-    "ALL",
-    "AND",
-    "ANY",
-    "ASC",
-    "ASCII",
-    "ASCENDING",
-    "AT",
-    "ATTRIBUTE",
-    "ATTRIBUTES",
-    "AUTONEXT",
-    "AVG",
-    "BEFORE",
-    "BEGIN",
-    "BETWEEN",
-    "BORDER",
-    "BOTTOM",
-    "BY",
-    "CASE",
-    "CLEAR",
-    "CLIPPED",
-    "CLOSE",
-    "COLUMN",
-    "COLUMNS",
-    "COMMAND",
-    "COMMENTS",
-    "COMMIT",
-    "CONSTRAINT",
-    "CONSTRUCT",
-    "CONTINUE",
-    "COUNT",
-    "CREATE",
-    "CURRENT",
-    "CURSOR",
-    "DATABASE",
-    "DECLARE",
-    "DEFAULTS",
-    "DEFER",
-    "DELETE",
-    "DELIMITERS",
-    "DELIMITER",
-    "DESC",
-    "DESCENDING",
-    "DIRTY",
-    "DISTINCT",
-    "DOWNSHIFT",
-    "DROP",
-    "ELSE",
-    "ERROR",
-    "EVERY",
-    "EXCLUSIVE",
-    "EXECUTE",
-    "EXIT",
-    "EXISTS",
-    "EXTEND",
-    "EXTERNAL",
-    "FALSE",
-    "FETCH",
-    "FIELD",
-    "FILE",
-    "FINISH",
-    "FIRST",
-    "FLUSH",
-    "FOR",
-    "FOREACH",
-    "FORM",
-    "FORMAT",
-    "FREE",
-    "FROM",
-    "GROUP",
-    "HAVING",
-    "HEADER",
-    "HELP",
-    "HIDE",
-    "HOLD",
-    "IF",
-    "IN",
-    "INCLUDE",
-    "INDEX",
-    "INITIALIZE",
-    "INPUT",
-    "INSERT",
-    "INSTRUCTIONS",
-    "INTERRUPT",
-    "INTERVAL",
-    "INTO",
-    "IS",
-    "ISOLATION",
-    "KEY",
-    "LABEL",
-    "LAST",
-    "LEFT",
-    "LENGTH",
-    "LINE",
-    "LINES",
-    "LOAD",
-    "LOCK",
-    "LOG",
-    "MAIN",
-    "MARGIN",
-    "MATCHES",
-    "MAX",
-    "MDY",
-    "MENU",
-    "MESSAGE",
-    "MIN",
-    "MOD",
-    "MODE",
-    "NAME",
-    "NEED",
-    "NEXT",
-    "NO",
-    "NOENTRY",
-    "NOT",
-    "NOTFOUND",
-    "NULL",
-    "ON",
-    "OPEN",
-    "OPTION",
-    "OPTIONS",
-    "OR",
-    "ORDER",
-    "OTHERWISE",
-    "OUTER",
-    "OUTPUT",
-    "PAGE",
-    "PAGENO",
-    "PIPE",
-    "PREPARE",
-    "PREVIOUS",
-    "PRIMARY",
-    "PRINT",
-    "PROGRAM",
-    "PROMPT",
-    "PUT",
-    "QUIT",
-    "READ",
-    "REPORT",
-    "RETURN",
-    "REVERSE",
-    "RIGTH",
-    "ROLLBACK",
-    "ROW",
-    "ROWS",
-    "RUN",
-    "SCREEN",
-    "SCROLL",
-    "SELECT",
-    "SET",
-    "SHARE",
-    "SHOW",
-    "SKIP",
-    "SLEEP",
-    "SPACE",
-    "SPACES",
-    "SQL",
-    "START",
-    "STEP",
-    "STOP",
-    "SUM",
-    "TABLE",
-    "TABLES",
-    "TEMP",
-    "THEN",
-    "TIME",
-    "TODAY",
-    "TOP",
-    "TRAILER",
-    "TRUE",
-    "TYPE",
-    "UNCONSTRAINED",
-    "UNION",
-    "UNIQUE",
-    "UNITS",
-    "UNLOAD",
-    "UNLOCK",
-    "UNLOAD",
-    "UPDATE",
-    "UPSHIFT",
-    "USING",
-    "VALUES",
-    "WAIT",
-    "WAITING",
-    "WEEKDAY",
-    "WHEN",
-    "WHENEVER",
-    "WHERE",
-    "WHILE",
-    "WINDOW",
-    "WITH",
-    "WITHOUT",
-    "WORDWRAP",
-    "WORK",
-  ];
-
   const TokenKind = {
     keyword: "keyword",
     whitespace: "whitespace",
@@ -215,12 +19,6 @@
     block: "block",
     list: "list",
     unknown: "unknown",
-  };
-
-  const ConstType = {
-    integer: "integer",
-    string: "string",
-    float: "float"
   };
 
   var program = { kind: "program", value: [], offset: undefined };
@@ -315,16 +113,14 @@
     return createNode(TokenKind.bracket, value);
   }
 
-  function createNodeNumber(dataType, value) {
-    const info = { type: dataType, value: value };
+  function createNodeNumber(value) {
 
-    return createNode(TokenKind.number, info);
+    return createNode(TokenKind.number, value);
   }
 
   function createNodeString(value) {
-    const info = { type: ConstType.string, value: value };
 
-    return createNode(TokenKind.string, info);
+    return createNode(TokenKind.string, value);
   }
 
   function createNodeList(list) {
@@ -423,7 +219,7 @@ exp_list
 
 expression
   = string_exp
-  / integer_exp
+  / number_exp
   / variable
 
 argumentList
@@ -501,7 +297,7 @@ numberType
   / $SMALLINT
   / ((DECIMAL / DEC / NUMERIC / MONEY) (O_PARENTHESIS scale C_PARENTHESIS)?)
   / (
-    (DOUBLE SPACE PRECISION / FLOAT) (O_PARENTHESIS integer_exp C_PARENTHESIS)?
+    (DOUBLE SPACE PRECISION / FLOAT) (O_PARENTHESIS number_exp C_PARENTHESIS)?
   )
   / REAL
   / SMALLFLOAT
@@ -512,9 +308,9 @@ timeType
   / $INTERVAL
 
 characterType
-  = ((CHARACTER / CHAR) (O_PARENTHESIS integer_exp C_PARENTHESIS)?)
-  / (NCHAR (O_PARENTHESIS integer_exp C_PARENTHESIS)?)
-  / ((VARCHAR / NVARCHAR) (O_PARENTHESIS integer_exp C_PARENTHESIS?))
+  = ((CHARACTER / CHAR) (O_PARENTHESIS number_exp C_PARENTHESIS)?)
+  / (NCHAR (O_PARENTHESIS number_exp C_PARENTHESIS)?)
+  / ((VARCHAR / NVARCHAR) (O_PARENTHESIS number_exp C_PARENTHESIS?))
 
 largeDataType
   = $BYTE
@@ -537,7 +333,14 @@ structuredDataType
   / (DYNAMIC SPACE ARRAY)
   / recordDataType
 
-sizeArray = integer_exp (COMMA integer_exp)*
+sizeArray = l:sizeList? { return l ? createNodeList(l) : []; }
+
+sizeList
+  = l:size_list+ p:number_exp+ { return l.concat(p); }
+  / p:size_list+ { return p; }
+  / p:number_exp { return [p]; }
+
+size_list = v:number_exp COMMA SPACE? { return v; }
 
 recordDataType
   = (RECORD SPACE LIKE tableQualifier columnQualifier)
@@ -554,7 +357,7 @@ datetimeQualifierWord
   / SECOND
   / FRACTION (O_PARENTHESIS scale C_PARENTHESIS)?
 
-scale = integer_exp (COMMA integer_exp)?
+scale = number_exp (COMMA number_exp)?
 
 member
   = LIKE tableQualifier columnQualifier
@@ -577,9 +380,9 @@ tableQualifier
 
 columnQualifier = ID DOT (ID / ASTERISK)
 
-integer_exp
-  = t:$([-+]? DIGIT+) {
-      return createNodeNumber(ConstType.integer, parseInt(t, 10));
+number_exp
+  = t:$([-+]? DIGIT+ (DOT DIGIT+)?)   {
+      return createNodeNumber(parseFloat(t, 10));
     }
 
 string_exp
@@ -587,9 +390,9 @@ string_exp
       return createNodeString(s);
     }
 
-double_quoted_string = (D_QUOTE $double_quoted_char* D_QUOTE)
+double_quoted_string = $(D_QUOTE double_quoted_char* D_QUOTE)
 
-single_quoted_string = (S_QUOTE $single_quoted_char* S_QUOTE)
+single_quoted_string = $(S_QUOTE single_quoted_char* S_QUOTE)
 
 double_quoted_char
   = ESCAPED

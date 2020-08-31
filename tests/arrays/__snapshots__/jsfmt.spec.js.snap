@@ -130,22 +130,26 @@ end function
                         "value": "["
                       },
                       null,
-                      [
-                        {
-                          "kind": "number",
-                          "offset": {
-                            "start": 29,
-                            "end": 30
-                          },
-                          "line": 2,
-                          "column": 25,
-                          "value": {
-                            "type": "integer",
+                      {
+                        "kind": "list",
+                        "offset": {
+                          "start": 29,
+                          "end": 30
+                        },
+                        "line": 2,
+                        "column": 25,
+                        "value": [
+                          {
+                            "offset": {
+                              "start": 29,
+                              "end": 30
+                            },
+                            "line": 2,
+                            "column": 25,
                             "value": 5
                           }
-                        },
-                        []
-                      ],
+                        ]
+                      },
                       null,
                       {
                         "kind": "bracket",
@@ -399,22 +403,26 @@ end function
                         "value": "["
                       },
                       null,
-                      [
-                        {
-                          "kind": "number",
-                          "offset": {
-                            "start": 88,
-                            "end": 89
-                          },
-                          "line": 7,
-                          "column": 20,
-                          "value": {
-                            "type": "integer",
+                      {
+                        "kind": "list",
+                        "offset": {
+                          "start": 88,
+                          "end": 89
+                        },
+                        "line": 7,
+                        "column": 20,
+                        "value": [
+                          {
+                            "offset": {
+                              "start": 88,
+                              "end": 89
+                            },
+                            "line": 7,
+                            "column": 20,
                             "value": 1
                           }
-                        },
-                        []
-                      ],
+                        ]
+                      },
                       null,
                       {
                         "kind": "bracket",
@@ -547,48 +555,35 @@ end function
                         "value": "["
                       },
                       null,
-                      [
-                        {
-                          "kind": "number",
-                          "offset": {
-                            "start": 123,
-                            "end": 124
-                          },
-                          "line": 8,
-                          "column": 20,
-                          "value": {
-                            "type": "integer",
-                            "value": 1
-                          }
+                      {
+                        "kind": "list",
+                        "offset": {
+                          "start": 123,
+                          "end": 126
                         },
-                        [
-                          [
-                            {
-                              "kind": "operator",
-                              "offset": {
-                                "start": 124,
-                                "end": 125
-                              },
-                              "line": 8,
-                              "column": 21,
-                              "value": ","
+                        "line": 8,
+                        "column": 20,
+                        "value": [
+                          {
+                            "offset": {
+                              "start": 123,
+                              "end": 124
                             },
-                            {
-                              "kind": "number",
-                              "offset": {
-                                "start": 125,
-                                "end": 126
-                              },
-                              "line": 8,
-                              "column": 22,
-                              "value": {
-                                "type": "integer",
-                                "value": 2
-                              }
-                            }
-                          ]
+                            "line": 8,
+                            "column": 20,
+                            "value": 1
+                          },
+                          {
+                            "offset": {
+                              "start": 125,
+                              "end": 126
+                            },
+                            "line": 8,
+                            "column": 22,
+                            "value": 2
+                          }
                         ]
-                      ],
+                      },
                       null,
                       {
                         "kind": "bracket",
@@ -653,17 +648,13 @@ end function
                             "value": "("
                           },
                           {
-                            "kind": "number",
                             "offset": {
                               "start": 136,
                               "end": 138
                             },
                             "line": 8,
                             "column": 33,
-                            "value": {
-                              "type": "integer",
-                              "value": 30
-                            }
+                            "value": 30
                           },
                           {
                             "kind": "bracket",

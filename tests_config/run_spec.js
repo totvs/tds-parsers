@@ -24,7 +24,7 @@ function run_spec(dirname, options) {
           mergeDefaultOptions(options || {}),
           {
             filepath: filepath,
-            parser: parsePrefix,
+            parser: parsePrefix + "-source",
           }
         );
 

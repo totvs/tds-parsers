@@ -6,13 +6,12 @@ const LANGUAGES = [
   {
     extensions: [".4gl"],
     name: "4GL",
-    parsers: ["4gl", "4gl-token"],
-    vscodeLanguageIds: ["4gl"],
+    parsers: ["4gl-source", "4gl-token"],
   },
 ];
 
 const PARSERS = {
-  "4gl": {
+  "4gl-source": {
     parse: (text, options) => {
       return call_parser.parser(text, options);
     },
@@ -29,21 +28,13 @@ export function parser(content: string, options: IParserOptions): any[] {
 
   options = normalize(options);
 
-  if (options.vscodeLanguageId !== "") {
-    parserList = LANGUAGES.filter((language) => {
-      return language.vscodeLanguageIds.includes(options.vscodeLanguageId);
-    }).map((lang) => {
-      return lang.parsers;
+  parserList = LANGUAGES.filter((language) => {
+    return language.parsers.includes(options.parser);
+  }).map((lang) => {
+    return lang.parsers.filter((parser) => {
+      return parser == options.parser;
     });
-  } else if (options.parser !== "") {
-    parserList = LANGUAGES.filter((language) => {
-      return language.parsers.includes(options.parser);
-    }).map((lang) => {
-      return lang.parsers.filter((parser) => {
-        return parser == options.parser;
-      });
-    });
-  }
+  });
 
   if (!parserList || parserList.length == 0) {
     throw new Error(ERRORS.E002);

@@ -396,9 +396,9 @@ string_exp
       return createNodeString(s);
     }
 
-double_quoted_string = (D_QUOTE $double_quoted_char* D_QUOTE)
+double_quoted_string = $(D_QUOTE double_quoted_char* D_QUOTE)
 
-single_quoted_string = (S_QUOTE $single_quoted_char* S_QUOTE)
+single_quoted_string = $(S_QUOTE single_quoted_char* S_QUOTE)
 
 double_quoted_char
   = ESCAPED
