@@ -228,7 +228,7 @@
     if (node) {
       program.value.push(node);
     }
-    
+
     return program;
   }
 
@@ -239,11 +239,17 @@
         start: _location.start.offset,
         end: _location.end.offset,
       };
-      
-      let obj = { kind: kind, offset: offset, line: _location.start.line, column: _location.start.column,value: value };
-      
+
+      let obj = {
+        kind: kind,
+        offset: offset,
+        line: _location.start.line,
+        column: _location.start.column,
+        value: value,
+      };
+
       return obj;
-    } 
+    }
 
     return value;
   }
@@ -253,52 +259,42 @@
   }
 
   function createNodeSpace(value) {
-
     return createNode(TokenKind.whitespace, value);
   }
 
   function createNodeComment(open, comment, close) {
-
     return createNode(TokenKind.comment, [open, comment, close]);
   }
 
   function createNodeModular(value) {
-
     return createNode(TokenKind.modular, value);
   }
 
   function createNodeSession(session) {
-
     return createNode(TokenKind.session, session);
   }
 
   function createNodeGlobal(value) {
-
     return createNode(TokenKind.globals, value);
   }
 
   function createNodeVar(value) {
-
     return createNode(TokenKind.variable, value);
   }
 
   function createNodeBuiltInVar(value) {
-
     return createNode(TokenKind.builtInVar, value);
   }
 
   function createNodeMain(value) {
-
     return createNode(TokenKind.main, value);
   }
 
   function createNodeFunction(value) {
-
     return createNode(TokenKind.function, value);
   }
 
   function createNodeBlock(value) {
-
     return createNode(TokenKind.block, value);
   }
 
@@ -331,19 +327,15 @@
   }
 
   function createNodeList(list) {
-
     return createNode(TokenKind.list, list);
   }
 
-
   function createNodeIdentifier(id, dataType) {
-
     return createNode(TokenKind.identifier, [id, dataType]);
   }
-
 }
 
-start = l:line* { return program }
+start = l:line* { return program; }
 
 line
   = l:session { return addNode(l); }
@@ -351,8 +343,8 @@ line
   / l:SPACE { return addNode(l); }
 
 session
-  = s:modular  { return s; }
-  / s:globals  { return s; }
+  = s:modular { return s; }
+  / s:globals { return s; }
   / s:function { return s; }
 
 comment
@@ -363,18 +355,28 @@ comment
 modular = d:define+ { return createNodeModular(d); }
 
 globals
-  = g:((GLOBALS SPACE) 
-        (block?) 
-      (END SPACE GLOBALS SPACE)) { return createNodeGlobal(g); }
+  = g:((GLOBALS SPACE) block? (END SPACE GLOBALS SPACE)) {
+      return createNodeGlobal(g);
+    }
   / g:(GLOBALS SPACE string_exp comment? SPACE) { return createNodeGlobal(g); }
 
 function
-  = f:((MAIN SPACE) 
-        (block?) 
-      (END SPACE MAIN SPACE)) { return createNodeMain(f); }
-  / f:((FUNCTION SPACE ID SPACE? O_PARENTHESIS SPACE? parameterList SPACE? C_PARENTHESIS)
-         (block?)
-       (END SPACE FUNCTION SPACE)) { return createNodeFunction(f); }
+  = f:((MAIN SPACE) block? (END SPACE MAIN SPACE)) { return createNodeMain(f); }
+  / f:(
+    (
+        FUNCTION
+          SPACE
+          ID
+          SPACE?
+          O_PARENTHESIS
+          SPACE?
+          parameterList
+          SPACE?
+          C_PARENTHESIS
+      )
+      block?
+      (END SPACE FUNCTION SPACE)
+  ) { return createNodeFunction(f); }
 
 block = b:blockCommand { return createNodeBlock(b); }
 
@@ -384,26 +386,19 @@ blockCommand
   / c:commands { return [c]; }
 
 commands
-  = c:(SPACE) { return c; }
+  = c:SPACE { return c; }
   / c:(SPACE? comment) { return c; }
   / c:(SPACE? command SPACE? comment? NL?) { return createNodeCommand(c); }
 
 command = c:(define / display / call / let / prompt) { return c; }
 
-define = DEFINE SPACE ID SPACE dataType 
+define = DEFINE SPACE ID SPACE dataType
 
 display = DISPLAY SPACE expressions
 
-call
-  = CALL
-    SPACE
-    ID
-    SPACE?
-    argumentList
-    returning?
+call = CALL SPACE ID SPACE? argumentList returning?
 
-returning
-    = SPACE RETURNING SPACE receivingVariables
+returning = SPACE RETURNING SPACE receivingVariables
 
 let = LET SPACE receivingVariables SPACE? EQUAL SPACE? expressions
 
@@ -415,7 +410,9 @@ expressions
   / e:expression { return [e]; }
 
 exp_list
-  = e:(SPACE? e:expression SPACE? o:OPERATOR SPACE?) { return createNodeExpression(e); }
+  = e:(SPACE? e:expression SPACE? o:OPERATOR SPACE?) {
+      return createNodeExpression(e);
+    }
 
 expression
   = string_exp
@@ -423,7 +420,9 @@ expression
   / variable
 
 argumentList
-  = o:O_PARENTHESIS SPACE? a:arguments? SPACE? c:C_PARENTHESIS { return [o, a?createNodeList(a):[] , c]; }
+  = o:O_PARENTHESIS SPACE? a:arguments? SPACE? c:C_PARENTHESIS {
+      return [o, a ? createNodeList(a) : [], c];
+    }
 
 arguments
   = l:arg_list+ p:arg_value+ { return l.concat(p); }
@@ -434,8 +433,7 @@ arg_value = SPACE? e:expressions SPACE? { return e; }
 
 arg_list = SPACE? e:expressions SPACE? COMMA SPACE? { return e; }
 
-parameterList
-  = l:parmList? { return l?createNodeList(l):[]; }
+parameterList = l:parmList? { return l ? createNodeList(l) : []; }
 
 parmList
   = l:param_list+ p:param_id+ { return l.concat(p); }
@@ -461,40 +459,45 @@ variable
   / v:builtInVariables { return createNodeBuiltInVar(v); }
 
 builtInVariables
-  = "arg_val"i 
-  / "arr_count"i 
-  / "arr_curr"i 
-  / "errorlog"i 
-  / "fgl_keyval"i 
-  / "fgl_lastkey"i 
-  / "infield"i 
-  / "int_flag"i 
-  / "quit_flag"i 
-  / "num_args"i 
-  / "scr_line"i 
-  / "set_count"i 
-  / "showhelp"i 
-  / "sqlca"i 
-  / "sqlcode"i 
-  / "sqlerrd"i 
-  / "startlog"i 
+  = "arg_val"i
+  / "arr_count"i
+  / "arr_curr"i
+  / "errorlog"i
+  / "fgl_keyval"i
+  / "fgl_lastkey"i
+  / "infield"i
+  / "int_flag"i
+  / "quit_flag"i
+  / "num_args"i
+  / "scr_line"i
+  / "set_count"i
+  / "showhelp"i
+  / "sqlca"i
+  / "sqlcode"i
+  / "sqlerrd"i
+  / "startlog"i
 
 dataType
-  = simpleDataType     
-  / structuredDataType 
-  / largeDataType      
+  = simpleDataType
+  / structuredDataType
+  / largeDataType
 
 simpleDataType
-  = numberType    
-  / timeType      
-  / characterType 
+  = numberType
+  / timeType
+  / characterType
 
 numberType
-  = (BIGINT / INTEGER / INT)
+  = BIGINT
+  / INTEGER
+  / INT
   / $SMALLINT
   / ((DECIMAL / DEC / NUMERIC / MONEY) (O_PARENTHESIS scale C_PARENTHESIS)?)
-  / ((DOUBLE SPACE PRECISION / FLOAT) (O_PARENTHESIS integer_exp C_PARENTHESIS)?)
-  / (REAL / SMALLFLOAT)
+  / (
+    (DOUBLE SPACE PRECISION / FLOAT) (O_PARENTHESIS integer_exp C_PARENTHESIS)?
+  )
+  / REAL
+  / SMALLFLOAT
 
 timeType
   = (DATETIME SPACE datetimeQualifier)
@@ -512,11 +515,16 @@ largeDataType
 
 structuredDataType
   = (
-    ARRAY SPACE?
-      O_BRACKET SPACE?
-      sizeArray SPACE?
-      C_BRACKET SPACE
-      OF SPACE
+    ARRAY
+      SPACE?
+      O_BRACKET
+      SPACE?
+      sizeArray
+      SPACE?
+      C_BRACKET
+      SPACE
+      OF
+      SPACE
       (simpleDataType / recordDataType / largeDataType)
   )
   / (DYNAMIC SPACE ARRAY)
@@ -543,7 +551,7 @@ scale = integer_exp (COMMA integer_exp)?
 
 member
   = LIKE tableQualifier columnQualifier
-  / l:identifierList { return createNodeList(l)}
+  / l:identifierList { return createNodeList(l); }
 
 identifierList
   = l:identifier_list+ i:identifier+ { return l.concat(i); }
@@ -563,10 +571,14 @@ tableQualifier
 columnQualifier = ID DOT (ID / ASTERISK)
 
 integer_exp
-  = t:$([-+]? DIGIT+) { return createNodeNumber(ConstType.integer, parseInt(t, 10)) }
+  = t:$([-+]? DIGIT+) {
+      return createNodeNumber(ConstType.integer, parseInt(t, 10));
+    }
 
 string_exp
-  = s:(double_quoted_string / single_quoted_string) { return createNodeString(s); }
+  = s:(double_quoted_string / single_quoted_string) {
+      return createNodeString(s);
+    }
 
 double_quoted_string = (D_QUOTE $double_quoted_char* D_QUOTE)
 
@@ -644,13 +656,13 @@ DEC = k:"dec"i { return createNodeKeyword(k); }
 
 DECIMAL = k:"decimal"i { return createNodeKeyword(k); }
 
-DOUBLE = k:("double"i) { return createNodeKeyword(k); }
+DOUBLE = k:"double"i { return createNodeKeyword(k); }
 
-PRECISION = k:("precision"i) { return createNodeKeyword(k); }
+PRECISION = k:"precision"i { return createNodeKeyword(k); }
 
-DYNAMIC = k:("dynamic"i) { return createNodeKeyword(k); }
+DYNAMIC = k:"dynamic"i { return createNodeKeyword(k); }
 
-ARRAY = k:("array"i) { return createNodeKeyword(k); }
+ARRAY = k:"array"i { return createNodeKeyword(k); }
 
 FLOAT = k:"float"i { return createNodeKeyword(k); }
 
