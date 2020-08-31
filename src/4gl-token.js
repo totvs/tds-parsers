@@ -192,7 +192,7 @@ function peg$parse(input, options) {
       peg$c48 = /^[\-+]/,
       peg$c49 = peg$classExpectation(["-", "+"], false, false),
       peg$c50 = function(t) {
-            return createNodeNumber(ConstType.integer, parseInt(t, 10));
+            return createNodeNumber(parseFloat(t, 10));
           },
       peg$c51 = function(s) {
             return createNodeString(s);
@@ -884,7 +884,7 @@ function peg$parse(input, options) {
     var s0, s1;
 
     s0 = peg$currPos;
-    s1 = peg$parsetokens();
+    s1 = peg$parsecomment();
     if (s1 !== peg$FAILED) {
       peg$savedPos = s0;
       s1 = peg$c1(s1);
@@ -892,7 +892,7 @@ function peg$parse(input, options) {
     s0 = s1;
     if (s0 === peg$FAILED) {
       s0 = peg$currPos;
-      s1 = peg$parsecomment();
+      s1 = peg$parsetokens();
       if (s1 !== peg$FAILED) {
         peg$savedPos = s0;
         s1 = peg$c1(s1);
@@ -1689,9 +1689,18 @@ function peg$parse(input, options) {
                                                                                                                                                                                                                                                                                                                                                                                                                                                           if (s0 === peg$FAILED) {
                                                                                                                                                                                                                                                                                                                                                                                                                                                             s0 = peg$parseYEAR();
                                                                                                                                                                                                                                                                                                                                                                                                                                                             if (s0 === peg$FAILED) {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                              s0 = peg$parseID();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                              s0 = peg$parsestring_exp();
                                                                                                                                                                                                                                                                                                                                                                                                                                                               if (s0 === peg$FAILED) {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                s0 = peg$parseOPERATOR();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                s0 = peg$parsenumber_exp();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                if (s0 === peg$FAILED) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                  s0 = peg$parsevariable();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                  if (s0 === peg$FAILED) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                    s0 = peg$parseID();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                    if (s0 === peg$FAILED) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                      s0 = peg$parseOPERATOR();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                  }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
                                                                                                                                                                                                                                                                                                                                                                                                                                                               }
                                                                                                                                                                                                                                                                                                                                                                                                                                                             }
                                                                                                                                                                                                                                                                                                                                                                                                                                                           }
@@ -2275,176 +2284,8 @@ function peg$parse(input, options) {
     return s0;
   }
 
-  function peg$parsetableQualifier() {
-    var s0, s1, s2, s3, s4, s5, s6;
-
-    s0 = peg$currPos;
-    s1 = peg$currPos;
-    s2 = peg$parseID();
-    if (s2 !== peg$FAILED) {
-      s3 = peg$currPos;
-      s4 = peg$parseAT();
-      if (s4 !== peg$FAILED) {
-        s5 = peg$parseID();
-        if (s5 !== peg$FAILED) {
-          s4 = [s4, s5];
-          s3 = s4;
-        } else {
-          peg$currPos = s3;
-          s3 = peg$FAILED;
-        }
-      } else {
-        peg$currPos = s3;
-        s3 = peg$FAILED;
-      }
-      if (s3 === peg$FAILED) {
-        s3 = null;
-      }
-      if (s3 !== peg$FAILED) {
-        s4 = peg$parseCOLON();
-        if (s4 !== peg$FAILED) {
-          s2 = [s2, s3, s4];
-          s1 = s2;
-        } else {
-          peg$currPos = s1;
-          s1 = peg$FAILED;
-        }
-      } else {
-        peg$currPos = s1;
-        s1 = peg$FAILED;
-      }
-    } else {
-      peg$currPos = s1;
-      s1 = peg$FAILED;
-    }
-    if (s1 === peg$FAILED) {
-      s1 = null;
-    }
-    if (s1 !== peg$FAILED) {
-      s2 = peg$currPos;
-      s3 = peg$parseID();
-      if (s3 !== peg$FAILED) {
-        s4 = peg$parseDOT();
-        if (s4 !== peg$FAILED) {
-          s3 = [s3, s4];
-          s2 = s3;
-        } else {
-          peg$currPos = s2;
-          s2 = peg$FAILED;
-        }
-      } else {
-        peg$currPos = s2;
-        s2 = peg$FAILED;
-      }
-      if (s2 === peg$FAILED) {
-        s2 = peg$currPos;
-        s3 = peg$parseD_QUOTE();
-        if (s3 !== peg$FAILED) {
-          s4 = peg$parseID();
-          if (s4 !== peg$FAILED) {
-            s5 = peg$parseDOT();
-            if (s5 !== peg$FAILED) {
-              s6 = peg$parseD_QUOTE();
-              if (s6 !== peg$FAILED) {
-                s3 = [s3, s4, s5, s6];
-                s2 = s3;
-              } else {
-                peg$currPos = s2;
-                s2 = peg$FAILED;
-              }
-            } else {
-              peg$currPos = s2;
-              s2 = peg$FAILED;
-            }
-          } else {
-            peg$currPos = s2;
-            s2 = peg$FAILED;
-          }
-        } else {
-          peg$currPos = s2;
-          s2 = peg$FAILED;
-        }
-        if (s2 === peg$FAILED) {
-          s2 = peg$currPos;
-          s3 = peg$parseS_QUOTE();
-          if (s3 !== peg$FAILED) {
-            s4 = peg$parseID();
-            if (s4 !== peg$FAILED) {
-              s5 = peg$parseDOT();
-              if (s5 !== peg$FAILED) {
-                s6 = peg$parseS_QUOTE();
-                if (s6 !== peg$FAILED) {
-                  s3 = [s3, s4, s5, s6];
-                  s2 = s3;
-                } else {
-                  peg$currPos = s2;
-                  s2 = peg$FAILED;
-                }
-              } else {
-                peg$currPos = s2;
-                s2 = peg$FAILED;
-              }
-            } else {
-              peg$currPos = s2;
-              s2 = peg$FAILED;
-            }
-          } else {
-            peg$currPos = s2;
-            s2 = peg$FAILED;
-          }
-        }
-      }
-      if (s2 !== peg$FAILED) {
-        s1 = [s1, s2];
-        s0 = s1;
-      } else {
-        peg$currPos = s0;
-        s0 = peg$FAILED;
-      }
-    } else {
-      peg$currPos = s0;
-      s0 = peg$FAILED;
-    }
-    if (s0 === peg$FAILED) {
-      s0 = null;
-    }
-
-    return s0;
-  }
-
-  function peg$parsecolumnQualifier() {
-    var s0, s1, s2, s3;
-
-    s0 = peg$currPos;
-    s1 = peg$parseID();
-    if (s1 !== peg$FAILED) {
-      s2 = peg$parseDOT();
-      if (s2 !== peg$FAILED) {
-        s3 = peg$parseID();
-        if (s3 === peg$FAILED) {
-          s3 = peg$parseASTERISK();
-        }
-        if (s3 !== peg$FAILED) {
-          s1 = [s1, s2, s3];
-          s0 = s1;
-        } else {
-          peg$currPos = s0;
-          s0 = peg$FAILED;
-        }
-      } else {
-        peg$currPos = s0;
-        s0 = peg$FAILED;
-      }
-    } else {
-      peg$currPos = s0;
-      s0 = peg$FAILED;
-    }
-
-    return s0;
-  }
-
-  function peg$parseinteger_exp() {
-    var s0, s1, s2, s3, s4, s5;
+  function peg$parsenumber_exp() {
+    var s0, s1, s2, s3, s4, s5, s6, s7, s8;
 
     s0 = peg$currPos;
     s1 = peg$currPos;
@@ -2471,8 +2312,40 @@ function peg$parse(input, options) {
         s4 = peg$FAILED;
       }
       if (s4 !== peg$FAILED) {
-        s3 = [s3, s4];
-        s2 = s3;
+        s5 = peg$currPos;
+        s6 = peg$parseDOT();
+        if (s6 !== peg$FAILED) {
+          s7 = [];
+          s8 = peg$parseDIGIT();
+          if (s8 !== peg$FAILED) {
+            while (s8 !== peg$FAILED) {
+              s7.push(s8);
+              s8 = peg$parseDIGIT();
+            }
+          } else {
+            s7 = peg$FAILED;
+          }
+          if (s7 !== peg$FAILED) {
+            s6 = [s6, s7];
+            s5 = s6;
+          } else {
+            peg$currPos = s5;
+            s5 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s5;
+          s5 = peg$FAILED;
+        }
+        if (s5 === peg$FAILED) {
+          s5 = null;
+        }
+        if (s5 !== peg$FAILED) {
+          s3 = [s3, s4, s5];
+          s2 = s3;
+        } else {
+          peg$currPos = s2;
+          s2 = peg$FAILED;
+        }
       } else {
         peg$currPos = s2;
         s2 = peg$FAILED;
@@ -7853,7 +7726,7 @@ function peg$parse(input, options) {
         ast.push(node);
       }
 
-      return program;
+      return ast;
     }
 
     function createNode(kind, value) {
@@ -7910,16 +7783,14 @@ function peg$parse(input, options) {
       return createNode(TokenKind.bracket, value);
     }
 
-    function createNodeNumber(dataType, value) {
-      const info = { type: dataType, value: value };
+    function createNodeNumber(value) {
 
-      return createNode(TokenKind.number, info);
+      return createNode(TokenKind.number, value);
     }
 
     function createNodeString(value) {
-      const info = { type: ConstType.string, value: value };
 
-      return createNode(TokenKind.string, info);
+      return createNode(TokenKind.string, value);
     }
 
     function createNodeIdentifier(id, dataType) {

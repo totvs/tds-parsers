@@ -17,22 +17,52 @@ function run_spec(dirname, options) {
       filename !== "jsfmt.spec.js"
     ) {
       const source = read(filepath).replace(/\r\n/g, "\n");
-      const mergedOptions = Object.assign(mergeDefaultOptions(options || {}), {
-        filepath: filepath,
-        parser: path.extname(filename).substr(1),
+      const parsePrefix = path.extname(filename).substr(1);
+
+      describe(parsePrefix + ": Sintax", () => {
+        const mergedOptions = Object.assign(
+          mergeDefaultOptions(options || {}),
+          {
+            filepath: filepath,
+            parser: parsePrefix,
+          }
+        );
+
+        test(filename, () => {
+          const output = parser(source, mergedOptions);
+
+          expect(
+            raw(
+              source +
+                "~".repeat(PRINT_WIDTH) +
+                "\n" +
+                JSON.stringify(output, undefined, 2)
+            )
+          ).toMatchSnapshot();
+        });
       });
 
-      test(filename, () => {
-        const output = parser(source, mergedOptions);
+      describe(parsePrefix + ": Token", () => {
+        const mergedOptions = Object.assign(
+          mergeDefaultOptions(options || {}),
+          {
+            filepath: filepath,
+            parser: parsePrefix + "-token",
+          }
+        );
 
-        expect(
-          raw(
-            source +
-              "~".repeat(PRINT_WIDTH) +
-              "\n" +
-              JSON.stringify(output, undefined, 2)
-          )
-        ).toMatchSnapshot();
+        test(filename, () => {
+          const output = parser(source, mergedOptions);
+
+          expect(
+            raw(
+              source +
+                "~".repeat(PRINT_WIDTH) +
+                "\n" +
+                JSON.stringify(output, undefined, 2)
+            )
+          ).toMatchSnapshot();
+        });
       });
     }
   });

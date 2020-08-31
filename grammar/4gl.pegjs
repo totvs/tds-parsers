@@ -220,6 +220,7 @@
   const ConstType = {
     integer: "integer",
     string: "string",
+    float: "float"
   };
 
   var program = { kind: "program", value: [], offset: undefined };

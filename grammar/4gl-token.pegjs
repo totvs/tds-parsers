@@ -19,7 +19,7 @@
       ast.push(node);
     }
 
-    return program;
+    return ast;
   }
 
   function createNode(kind, value) {
@@ -76,16 +76,14 @@
     return createNode(TokenKind.bracket, value);
   }
 
-  function createNodeNumber(dataType, value) {
-    const info = { type: dataType, value: value };
+  function createNodeNumber(value) {
 
-    return createNode(TokenKind.number, info);
+    return createNode(TokenKind.number, value);
   }
 
   function createNodeString(value) {
-    const info = { type: ConstType.string, value: value };
 
-    return createNode(TokenKind.string, info);
+    return createNode(TokenKind.string, value);
   }
 
   function createNodeIdentifier(id, dataType) {
@@ -96,8 +94,8 @@
 start = l:line* { return ast; }
 
 line
-  = l:tokens { return addNode(l); }
-  / l:comment { return addNode(l); }
+  = l:comment { return addNode(l); }
+  / l:tokens { return addNode(l); }
   / l:WS_SPACE { return addNode(l); }
 
 comment
@@ -327,13 +325,11 @@ tokens
   / WORK
   / WS_SPACE
   / YEAR
+  / string_exp
+  / number_exp
+  / variable
   / ID
   / OPERATOR
-  // / tableQualifier
-  // / columnQualifier
-  // / string_exp
-  // / integer_exp
-  // / variable
 
 variable
   = v:(ID DOT ID) { return createNodeVar(v); }
@@ -390,17 +386,9 @@ characterType
   / VARCHAR
   / NVARCHAR
 
-tableQualifier
-  = s:(
-    (ID (AT ID)? COLON)?
-      o:(ID DOT / D_QUOTE ID DOT D_QUOTE / S_QUOTE ID DOT S_QUOTE)
-  )?
-
-columnQualifier = ID DOT (ID / ASTERISK)
-
-integer_exp
-  = t:$([-+]? DIGIT+) {
-      return createNodeNumber(ConstType.integer, parseInt(t, 10));
+number_exp
+  = t:$([-+]? DIGIT+ (DOT DIGIT+)?)   {
+      return createNodeNumber(parseFloat(t, 10));
     }
 
 string_exp
