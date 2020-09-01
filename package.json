@@ -57,6 +57,7 @@
     "release": "standard-version",
     "tag": "git push --follow-tags",
     "publish": "npm publish",
+    "pack": "npm pack",
     "---MISC---": "",
     "contributors:check": "all-contributors check",
     "contributors:generate": "all-contributors generate"
@@ -74,9 +75,6 @@
     "npm-run-all": "^4.1.5",
     "pegjs": "^0.10.0",
     "standard-version": "^9.0.0"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   },
   "config": {
     "commitizen": {
