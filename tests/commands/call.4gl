@@ -1,4 +1,4 @@
-main 
+main
 
   call fgl_winmessage()
 
@@ -12,7 +12,7 @@ main
 
 end main
 
-function f1() 
+function f1()
 
   call fgl_winmessage() returning var1
 
@@ -22,17 +22,16 @@ call fgl_winmessage() returning var1,var2,var3
 
 end function
 
-function f2() 
+function f2()
 
   call fgl_winmessage() returning var1[ind1]
 
 end function
 
-function f3() 
+function f3()
 
   call fgl_winmessage() returning rec1.var1
 
   call fgl_winmessage() returning rec1.*
 
 end function
-

@@ -13,7 +13,7 @@ const LANGUAGES = [
 const PARSERS = {
   "4gl-source": {
     parse: (text, options) => {
-      return call_parser.parser(text, options);
+      return call_parser.parser_program(text, options);
     },
   },
   "4gl-token": {

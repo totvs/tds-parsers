@@ -1,7 +1,6 @@
 import path = require("path");
 
 const parser_4gl = require("./4gl.js");
-const parser_token_4gl = require("./4gl-token.js");
 
 function process(parser: any, text: string, options: any): any {
   try {
@@ -21,10 +20,13 @@ function process(parser: any, text: string, options: any): any {
   }
 }
 
-export function parser(text: string, options: any): any {
-  return process(parser_4gl, text, options);
+export function parser_program(text: string, options: any): any {
+  return process(parser_4gl, text, { ...options, startRule: "start_program" });
 }
 
 export function parser_token(text: string, options: any): any {
-  return process(parser_token_4gl, text, options);
+  return process(parser_4gl, text, {
+    ...options,
+    startRule: "start_token",
+  });
 }
