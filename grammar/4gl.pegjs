@@ -109,6 +109,10 @@
     return createNode(TokenKind.main, value);
   }
 
+  function createNodeModular(value) {
+    return createNode(TokenKind.modular, value);
+  }
+
   function createNodeFunction(value) {
     return createNode(TokenKind.function, value);
   }
