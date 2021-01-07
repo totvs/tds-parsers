@@ -19,28 +19,28 @@ function run_spec(dirname, options) {
       const source = read(filepath).replace(/\r\n/g, "\n");
       const parsePrefix = path.extname(filename).substr(1);
 
-      describe(parsePrefix + ": Sintax", () => {
-        const mergedOptions = Object.assign(
-          mergeDefaultOptions(options || {}),
-          {
-            filepath: filepath,
-            parser: parsePrefix + "-source",
-          }
-        );
+      // describe(parsePrefix + ": Sintax", () => {
+      //   const mergedOptions = Object.assign(
+      //     mergeDefaultOptions(options || {}),
+      //     {
+      //       filepath: filepath,
+      //       parser: parsePrefix + "-source",
+      //     }
+      //   );
 
-        test(filename, () => {
-          const output = parser(source, mergedOptions);
+      //   test(filename, () => {
+      //     const output = parser(source, mergedOptions);
 
-          expect(
-            raw(
-              source +
-                "~".repeat(PRINT_WIDTH) +
-                "\n" +
-                JSON.stringify(output, undefined, 2)
-            )
-          ).toMatchSnapshot();
-        });
-      });
+      //     expect(
+      //       raw(
+      //         source +
+      //           "~".repeat(PRINT_WIDTH) +
+      //           "\n" +
+      //           JSON.stringify(output, 2, 2)
+      //       )
+      //     ).toMatchSnapshot();
+      //   });
+      // });
 
       describe(parsePrefix + ": Token", () => {
         const mergedOptions = Object.assign(
@@ -59,7 +59,7 @@ function run_spec(dirname, options) {
               source +
                 "~".repeat(PRINT_WIDTH) +
                 "\n" +
-                JSON.stringify(output, undefined, 2)
+                JSON.stringify(output, 2, 2)
             )
           ).toMatchSnapshot();
         });

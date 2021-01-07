@@ -1,421 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`4gl: Sintax hello1.4gl 1`] = `
-main 
-  display "hello "
-end main
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-[
-  {
-    "kind": "program",
-    "offset": {
-      "start": 0,
-      "end": 34
-    },
-    "line": 1,
-    "column": 1,
-    "value": [
-      {
-        "kind": "main",
-        "offset": {
-          "start": 0,
-          "end": 34
-        },
-        "line": 1,
-        "column": 1,
-        "value": [
-          [
-            {
-              "kind": "keyword",
-              "offset": {
-                "start": 0,
-                "end": 4
-              },
-              "line": 1,
-              "column": 1,
-              "value": "main"
-            },
-            {
-              "kind": "whitespace",
-              "offset": {
-                "start": 4,
-                "end": 8
-              },
-              "line": 1,
-              "column": 5,
-              "value": " \\n  "
-            }
-          ],
-          {
-            "kind": "block",
-            "offset": {
-              "start": 8,
-              "end": 25
-            },
-            "line": 2,
-            "column": 3,
-            "value": [
-              {
-                "kind": "command",
-                "offset": {
-                  "start": 8,
-                  "end": 25
-                },
-                "line": 2,
-                "column": 3,
-                "value": [
-                  null,
-                  [
-                    {
-                      "kind": "keyword",
-                      "offset": {
-                        "start": 8,
-                        "end": 15
-                      },
-                      "line": 2,
-                      "column": 3,
-                      "value": "display"
-                    },
-                    {
-                      "kind": "whitespace",
-                      "offset": {
-                        "start": 15,
-                        "end": 16
-                      },
-                      "line": 2,
-                      "column": 10,
-                      "value": " "
-                    },
-                    [
-                      {
-                        "kind": "string",
-                        "offset": {
-                          "start": 16,
-                          "end": 24
-                        },
-                        "line": 2,
-                        "column": 11,
-                        "value": "\\"hello \\""
-                      }
-                    ]
-                  ],
-                  {
-                    "kind": "whitespace",
-                    "offset": {
-                      "start": 24,
-                      "end": 25
-                    },
-                    "line": 2,
-                    "column": 19,
-                    "value": "\\n"
-                  },
-                  null,
-                  null
-                ]
-              }
-            ]
-          },
-          [
-            {
-              "kind": "keyword",
-              "offset": {
-                "start": 25,
-                "end": 28
-              },
-              "line": 3,
-              "column": 1,
-              "value": "end"
-            },
-            {
-              "kind": "whitespace",
-              "offset": {
-                "start": 28,
-                "end": 29
-              },
-              "line": 3,
-              "column": 4,
-              "value": " "
-            },
-            {
-              "kind": "keyword",
-              "offset": {
-                "start": 29,
-                "end": 33
-              },
-              "line": 3,
-              "column": 5,
-              "value": "main"
-            },
-            {
-              "kind": "whitespace",
-              "offset": {
-                "start": 33,
-                "end": 34
-              },
-              "line": 3,
-              "column": 9,
-              "value": "\\n"
-            }
-          ]
-        ]
-      }
-    ]
-  }
-]
-`;
-
-exports[`4gl: Sintax hello2.4gl 1`] = `
-main
-
---  define nome char(50) # abc
---  prompt "digite seu nome : " for nome
-
---  call fgl_winmessage( "hello",nome, "info")
-
-end main
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-[
-  {
-    "kind": "program",
-    "offset": {
-      "start": 0,
-      "end": 136
-    },
-    "line": 1,
-    "column": 1,
-    "value": [
-      {
-        "kind": "main",
-        "offset": {
-          "start": 0,
-          "end": 136
-        },
-        "line": 1,
-        "column": 1,
-        "value": [
-          [
-            {
-              "kind": "keyword",
-              "offset": {
-                "start": 0,
-                "end": 4
-              },
-              "line": 1,
-              "column": 1,
-              "value": "main"
-            },
-            {
-              "kind": "whitespace",
-              "offset": {
-                "start": 4,
-                "end": 6
-              },
-              "line": 1,
-              "column": 5,
-              "value": "\\n\\n"
-            }
-          ],
-          {
-            "kind": "block",
-            "offset": {
-              "start": 6,
-              "end": 127
-            },
-            "line": 3,
-            "column": 1,
-            "value": [
-              [
-                null,
-                {
-                  "kind": "comment",
-                  "offset": {
-                    "start": 6,
-                    "end": 37
-                  },
-                  "line": 3,
-                  "column": 1,
-                  "value": [
-                    {
-                      "kind": "operator",
-                      "offset": {
-                        "start": 6,
-                        "end": 7
-                      },
-                      "line": 3,
-                      "column": 1,
-                      "value": "-"
-                    },
-                    "  define nome char(50) # abc",
-                    {
-                      "kind": "whitespace",
-                      "offset": {
-                        "start": 36,
-                        "end": 37
-                      },
-                      "line": 3,
-                      "column": 31,
-                      "value": "\\n"
-                    }
-                  ]
-                }
-              ],
-              [
-                null,
-                {
-                  "kind": "comment",
-                  "offset": {
-                    "start": 37,
-                    "end": 78
-                  },
-                  "line": 4,
-                  "column": 1,
-                  "value": [
-                    {
-                      "kind": "operator",
-                      "offset": {
-                        "start": 37,
-                        "end": 38
-                      },
-                      "line": 4,
-                      "column": 1,
-                      "value": "-"
-                    },
-                    "  prompt \\"digite seu nome : \\" for nome",
-                    {
-                      "kind": "whitespace",
-                      "offset": {
-                        "start": 77,
-                        "end": 78
-                      },
-                      "line": 4,
-                      "column": 41,
-                      "value": "\\n"
-                    }
-                  ]
-                }
-              ],
-              {
-                "kind": "whitespace",
-                "offset": {
-                  "start": 78,
-                  "end": 79
-                },
-                "line": 5,
-                "column": 1,
-                "value": "\\n"
-              },
-              [
-                null,
-                {
-                  "kind": "comment",
-                  "offset": {
-                    "start": 79,
-                    "end": 126
-                  },
-                  "line": 6,
-                  "column": 1,
-                  "value": [
-                    {
-                      "kind": "operator",
-                      "offset": {
-                        "start": 79,
-                        "end": 80
-                      },
-                      "line": 6,
-                      "column": 1,
-                      "value": "-"
-                    },
-                    "  call fgl_winmessage( \\"hello\\",nome, \\"info\\")",
-                    {
-                      "kind": "whitespace",
-                      "offset": {
-                        "start": 125,
-                        "end": 126
-                      },
-                      "line": 6,
-                      "column": 47,
-                      "value": "\\n"
-                    }
-                  ]
-                }
-              ],
-              {
-                "kind": "whitespace",
-                "offset": {
-                  "start": 126,
-                  "end": 127
-                },
-                "line": 7,
-                "column": 1,
-                "value": "\\n"
-              }
-            ]
-          },
-          [
-            {
-              "kind": "keyword",
-              "offset": {
-                "start": 127,
-                "end": 130
-              },
-              "line": 8,
-              "column": 1,
-              "value": "end"
-            },
-            {
-              "kind": "whitespace",
-              "offset": {
-                "start": 130,
-                "end": 131
-              },
-              "line": 8,
-              "column": 4,
-              "value": " "
-            },
-            {
-              "kind": "keyword",
-              "offset": {
-                "start": 131,
-                "end": 135
-              },
-              "line": 8,
-              "column": 5,
-              "value": "main"
-            },
-            {
-              "kind": "whitespace",
-              "offset": {
-                "start": 135,
-                "end": 136
-              },
-              "line": 8,
-              "column": 9,
-              "value": "\\n"
-            }
-          ]
-        ]
-      }
-    ]
-  }
-]
-`;
-
-exports[`4gl: Sintax hello3.4gl 1`] = `
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-[
-  {
-    "kind": "program",
-    "offset": {
-      "start": 0,
-      "end": 0
-    },
-    "line": 1,
-    "column": 1,
-    "value": []
-  }
-]
-`;
-
 exports[`4gl: Token hello1.4gl 1`] = `
 main 
   display "hello "
@@ -427,41 +11,63 @@ end main
       "kind": "keyword",
       "offset": {
         "start": 0,
-        "end": 4
+        "end": 5
       },
       "line": 1,
       "column": 1,
-      "value": "main"
+      "value": "main",
+      "whitespace": {
+        "kind": "whitespace",
+        "offset": {
+          "start": 4,
+          "end": 5
+        },
+        "line": 1,
+        "column": 5,
+        "value": " "
+      }
     },
+    [
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 5,
+          "end": 6
+        },
+        "line": 1,
+        "column": 6,
+        "value": "\\n"
+      }
+    ],
     {
       "kind": "whitespace",
       "offset": {
-        "start": 4,
+        "start": 6,
         "end": 8
       },
-      "line": 1,
-      "column": 5,
-      "value": " \\n  "
+      "line": 2,
+      "column": 1,
+      "value": "  "
     },
     {
       "kind": "keyword",
       "offset": {
         "start": 8,
-        "end": 15
-      },
-      "line": 2,
-      "column": 3,
-      "value": "display"
-    },
-    {
-      "kind": "whitespace",
-      "offset": {
-        "start": 15,
         "end": 16
       },
       "line": 2,
-      "column": 10,
-      "value": " "
+      "column": 3,
+      "value": "display",
+      "whitespace": {
+        "kind": "whitespace",
+        "offset": {
+          "start": 15,
+          "end": 16
+        },
+        "line": 2,
+        "column": 10,
+        "value": " "
+      }
     },
     {
       "kind": "string",
@@ -473,55 +79,59 @@ end main
       "column": 11,
       "value": "\\"hello \\""
     },
-    {
-      "kind": "whitespace",
-      "offset": {
-        "start": 24,
-        "end": 25
-      },
-      "line": 2,
-      "column": 19,
-      "value": "\\n"
-    },
+    [
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 24,
+          "end": 25
+        },
+        "line": 2,
+        "column": 19,
+        "value": "\\n"
+      }
+    ],
     {
       "kind": "keyword",
       "offset": {
         "start": 25,
-        "end": 28
-      },
-      "line": 3,
-      "column": 1,
-      "value": "end"
-    },
-    {
-      "kind": "whitespace",
-      "offset": {
-        "start": 28,
         "end": 29
       },
       "line": 3,
-      "column": 4,
-      "value": " "
+      "column": 1,
+      "value": "end",
+      "whitespace": {
+        "kind": "whitespace",
+        "offset": {
+          "start": 28,
+          "end": 29
+        },
+        "line": 3,
+        "column": 4,
+        "value": " "
+      }
     },
     {
       "kind": "keyword",
       "offset": {
         "start": 29,
-        "end": 33
-      },
-      "line": 3,
-      "column": 5,
-      "value": "main"
-    },
-    {
-      "kind": "whitespace",
-      "offset": {
-        "start": 33,
         "end": 34
       },
       "line": 3,
-      "column": 9,
-      "value": "\\n"
+      "column": 5,
+      "value": "main",
+      "whitespace": [
+        {
+          "kind": "whitespace",
+          "offset": {
+            "start": 33,
+            "end": 34
+          },
+          "line": 3,
+          "column": 9,
+          "value": "\\n"
+        }
+      ]
     }
   ]
 ]
@@ -543,177 +153,350 @@ end main
       "kind": "keyword",
       "offset": {
         "start": 0,
-        "end": 4
-      },
-      "line": 1,
-      "column": 1,
-      "value": "main"
-    },
-    {
-      "kind": "whitespace",
-      "offset": {
-        "start": 4,
         "end": 6
       },
       "line": 1,
-      "column": 5,
-      "value": "\\n\\n"
+      "column": 1,
+      "value": "main",
+      "whitespace": [
+        {
+          "kind": "whitespace",
+          "offset": {
+            "start": 4,
+            "end": 5
+          },
+          "line": 1,
+          "column": 5,
+          "value": "\\n"
+        },
+        {
+          "kind": "whitespace",
+          "offset": {
+            "start": 5,
+            "end": 6
+          },
+          "line": 2,
+          "column": 1,
+          "value": "\\n"
+        }
+      ]
     },
     {
-      "kind": "comment",
+      "kind": "whitespace",
       "offset": {
-        "start": 6,
-        "end": 37
+        "start": 8,
+        "end": 10
       },
       "line": 3,
-      "column": 1,
-      "value": [
-        {
-          "kind": "operator",
-          "offset": {
-            "start": 6,
-            "end": 7
-          },
-          "line": 3,
-          "column": 1,
-          "value": "-"
-        },
-        "  define nome char(50) # abc",
-        {
-          "kind": "whitespace",
-          "offset": {
-            "start": 36,
-            "end": 37
-          },
-          "line": 3,
-          "column": 31,
-          "value": "\\n"
-        }
-      ]
-    },
-    {
-      "kind": "comment",
-      "offset": {
-        "start": 37,
-        "end": 78
-      },
-      "line": 4,
-      "column": 1,
-      "value": [
-        {
-          "kind": "operator",
-          "offset": {
-            "start": 37,
-            "end": 38
-          },
-          "line": 4,
-          "column": 1,
-          "value": "-"
-        },
-        "  prompt \\"digite seu nome : \\" for nome",
-        {
-          "kind": "whitespace",
-          "offset": {
-            "start": 77,
-            "end": 78
-          },
-          "line": 4,
-          "column": 41,
-          "value": "\\n"
-        }
-      ]
-    },
-    {
-      "kind": "whitespace",
-      "offset": {
-        "start": 78,
-        "end": 79
-      },
-      "line": 5,
-      "column": 1,
-      "value": "\\n"
-    },
-    {
-      "kind": "comment",
-      "offset": {
-        "start": 79,
-        "end": 126
-      },
-      "line": 6,
-      "column": 1,
-      "value": [
-        {
-          "kind": "operator",
-          "offset": {
-            "start": 79,
-            "end": 80
-          },
-          "line": 6,
-          "column": 1,
-          "value": "-"
-        },
-        "  call fgl_winmessage( \\"hello\\",nome, \\"info\\")",
-        {
-          "kind": "whitespace",
-          "offset": {
-            "start": 125,
-            "end": 126
-          },
-          "line": 6,
-          "column": 47,
-          "value": "\\n"
-        }
-      ]
-    },
-    {
-      "kind": "whitespace",
-      "offset": {
-        "start": 126,
-        "end": 127
-      },
-      "line": 7,
-      "column": 1,
-      "value": "\\n"
+      "column": 3,
+      "value": "  "
     },
     {
       "kind": "keyword",
       "offset": {
-        "start": 127,
-        "end": 130
+        "start": 10,
+        "end": 17
       },
-      "line": 8,
-      "column": 1,
-      "value": "end"
+      "line": 3,
+      "column": 5,
+      "value": "define",
+      "whitespace": {
+        "kind": "whitespace",
+        "offset": {
+          "start": 16,
+          "end": 17
+        },
+        "line": 3,
+        "column": 11,
+        "value": " "
+      }
+    },
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 17,
+        "end": 19
+      },
+      "line": 3,
+      "column": 12,
+      "value": "no",
+      "whitespace": null
     },
     {
       "kind": "whitespace",
       "offset": {
-        "start": 130,
-        "end": 131
+        "start": 21,
+        "end": 22
       },
-      "line": 8,
-      "column": 4,
+      "line": 3,
+      "column": 16,
+      "value": " "
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 30,
+        "end": 31
+      },
+      "line": 3,
+      "column": 25,
+      "value": " "
+    },
+    {
+      "kind": "comment",
+      "offset": {
+        "start": 31,
+        "end": 37
+      },
+      "line": 3,
+      "column": 26,
+      "value": "# abc\\n"
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 39,
+        "end": 41
+      },
+      "line": 4,
+      "column": 3,
+      "value": "  "
+    },
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 41,
+        "end": 48
+      },
+      "line": 4,
+      "column": 5,
+      "value": "prompt",
+      "whitespace": {
+        "kind": "whitespace",
+        "offset": {
+          "start": 47,
+          "end": 48
+        },
+        "line": 4,
+        "column": 11,
+        "value": " "
+      }
+    },
+    {
+      "kind": "string",
+      "offset": {
+        "start": 48,
+        "end": 68
+      },
+      "line": 4,
+      "column": 12,
+      "value": "\\"digite seu nome : \\""
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 68,
+        "end": 69
+      },
+      "line": 4,
+      "column": 32,
       "value": " "
     },
     {
       "kind": "keyword",
       "offset": {
-        "start": 131,
-        "end": 135
+        "start": 69,
+        "end": 73
       },
-      "line": 8,
+      "line": 4,
+      "column": 33,
+      "value": "for",
+      "whitespace": {
+        "kind": "whitespace",
+        "offset": {
+          "start": 72,
+          "end": 73
+        },
+        "line": 4,
+        "column": 36,
+        "value": " "
+      }
+    },
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 73,
+        "end": 75
+      },
+      "line": 4,
+      "column": 37,
+      "value": "no",
+      "whitespace": null
+    },
+    [
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 77,
+          "end": 78
+        },
+        "line": 4,
+        "column": 41,
+        "value": "\\n"
+      },
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 78,
+          "end": 79
+        },
+        "line": 5,
+        "column": 1,
+        "value": "\\n"
+      }
+    ],
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 81,
+        "end": 83
+      },
+      "line": 6,
+      "column": 3,
+      "value": "  "
+    },
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 83,
+        "end": 88
+      },
+      "line": 6,
       "column": 5,
-      "value": "main"
+      "value": "call",
+      "whitespace": {
+        "kind": "whitespace",
+        "offset": {
+          "start": 87,
+          "end": 88
+        },
+        "line": 6,
+        "column": 9,
+        "value": " "
+      }
     },
     {
       "kind": "whitespace",
       "offset": {
-        "start": 135,
+        "start": 103,
+        "end": 104
+      },
+      "line": 6,
+      "column": 25,
+      "value": " "
+    },
+    {
+      "kind": "string",
+      "offset": {
+        "start": 104,
+        "end": 111
+      },
+      "line": 6,
+      "column": 26,
+      "value": "\\"hello\\""
+    },
+    {
+      "kind": "operator",
+      "offset": {
+        "start": 111,
+        "end": 112
+      },
+      "line": 6,
+      "column": 33,
+      "value": ","
+    },
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 112,
+        "end": 114
+      },
+      "line": 6,
+      "column": 34,
+      "value": "no",
+      "whitespace": null
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 117,
+        "end": 118
+      },
+      "line": 6,
+      "column": 39,
+      "value": " "
+    },
+    {
+      "kind": "string",
+      "offset": {
+        "start": 118,
+        "end": 124
+      },
+      "line": 6,
+      "column": 40,
+      "value": "\\"info\\""
+    },
+    {
+      "kind": "operator",
+      "offset": {
+        "start": 124,
+        "end": 127
+      },
+      "line": 6,
+      "column": 46,
+      "value": ")\\n\\n"
+    },
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 127,
+        "end": 131
+      },
+      "line": 8,
+      "column": 1,
+      "value": "end",
+      "whitespace": {
+        "kind": "whitespace",
+        "offset": {
+          "start": 130,
+          "end": 131
+        },
+        "line": 8,
+        "column": 4,
+        "value": " "
+      }
+    },
+    {
+      "kind": "keyword",
+      "offset": {
+        "start": 131,
         "end": 136
       },
       "line": 8,
-      "column": 9,
-      "value": "\\n"
+      "column": 5,
+      "value": "main",
+      "whitespace": [
+        {
+          "kind": "whitespace",
+          "offset": {
+            "start": 135,
+            "end": 136
+          },
+          "line": 8,
+          "column": 9,
+          "value": "\\n"
+        }
+      ]
     }
   ]
 ]

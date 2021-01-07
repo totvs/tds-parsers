@@ -1,0 +1,885 @@
+// Gramática eleborada com base na documentação disponibilizada em
+// https://www.oninit.com/manual/informix/english/docs/4gl/7609.pdf
+// e possue uma cópia na pasta docs
+
+{
+  const TokenKind = {
+    block: "block",
+    bracket: "bracket",
+    builtInVar: "builtInVar",
+    close_operator: "close_operator",
+    statment: "statment",
+    comment: "comment",
+    constant: "constant",
+    double_operator: "double_operator",
+    expression: "expression",
+    function: "function",
+    globals: "globals",
+    identifier: "identifier",
+    keyword: "keyword",
+    list: "list",
+    main: "main",
+    modular: "modular",
+    number: "number",
+    open_operator: "open_operator",
+    operator: "operator",
+    program: "program",
+    string: "string",
+    unknown: "unknown",
+    variable: "variable",
+    whitespace: "whitespace",
+    builtinVariables: "builtinVariables",
+    notSpecified: "notSpecified"
+  };
+
+
+  function createMergedNode(value) {
+    let result;
+
+    if (Array.isArray(value) && (value.length == 2)){
+      const offset = {
+        start: value[0].offset.start,
+        end: value[1].offset.end,
+      };
+
+        result = {
+          kind: TokenKind.double_operator,
+          offset: offset,
+          line: value[0].line,
+          column: value[0].column,
+          value: value[0].value + value[1].value,
+        };
+    } else {
+      result = value;
+    }
+
+    return result
+  }
+
+  function createNode(kind, value) {
+    if (value) {
+      const _location = location();
+      const offset = {
+        start: _location.start.offset,
+        end: _location.end.offset,
+      };
+
+      let obj = {
+        kind: kind,
+        offset: offset,
+        line: _location.start.line,
+        column: _location.start.column,
+        value: value,
+      };
+
+      return obj;
+    }
+
+    return value;
+  }
+
+  function createNodeKeyword(value) {
+    return createNode(TokenKind.keyword, value);
+  }
+
+  function createNodeSpace(value) {
+    return createNode(TokenKind.whitespace, value);
+  }
+
+  function createNodeComment(comment) {
+    return createNode(TokenKind.comment, comment);
+  }
+
+  function createNodeVar(value) {
+    return createNode(TokenKind.variable, value);
+  }
+
+  function createNodeId(value) {
+    return createNode(TokenKind.identifier, value);
+  }
+
+  function createNodeBuiltInVar(value) {
+    return createNode(TokenKind.builtInVar, value);
+  }
+
+  function createNodeGlobals(value) {
+    return createNode(TokenKind.globals, value);
+  }
+
+  function createNodeMain(value) {
+    return createNode(TokenKind.main, value);
+  }
+
+  function createNodeModular(value) {
+    return createNode(TokenKind.modular, value);
+  }
+
+  function createNodeFunction(value) {
+    return createNode(TokenKind.function, value);
+  }
+
+  function createNodeBlock(value) {
+    return createNode(TokenKind.block, value);
+  }
+
+  function createNodeCommand(value) {
+    return createNode(TokenKind.statment, value);
+  }
+
+  function createNodeExpression(value) {
+    return createNode(TokenKind.expression, value);
+  }
+
+
+  function createNodebuiltinVariables(value) {
+    return createNode(TokenKind.builtinVariables, value);
+  }
+
+function createNodeOperator(value) {
+    return createNode(TokenKind.operator, value);
+  }
+
+  function createNodeOpenOperator(value) {
+    return createNode(TokenKind.open_operator, value);
+  }
+
+  function createNodeCloseOperator(value) {
+    return createNode(TokenKind.close_operator, value);
+  }
+
+  function createNodeNumber(value) {
+    return createNode(TokenKind.number, value);
+  }
+
+  function createNodeConstant(value) {
+    return createNode(TokenKind.constant, value);
+  }
+
+  function createNodeString(value) {
+    return createNode(TokenKind.string, value);
+  }
+
+  function createNodeList(list) {
+    return createNode(TokenKind.list, list);
+  }
+
+  function createNodeIdentifier(id, dataType) {
+    return createNode(TokenKind.identifier, [id, dataType]);
+  }
+}
+
+start_program = l:line_program* { return createNode(TokenKind.program, ast); }
+
+start_token = l:line_token* { return ast; }
+
+line_program
+  = l:session { return addNode(l); }
+  / l:comment { return addNode(l); }
+  / l:__ { return addNode(l); }
+
+line_token
+  = t:comment { return addNode(t); }
+  / t:tokens { return addNode(t); }
+  / t:__ { return addNode(t); }
+  / o:$(!__ .)+ { return createNode(TokenKind.notSpecified, o); }
+
+session
+  = s:modular { return s; }
+  / s:globals { return s; }
+  / s:function { return s; }
+
+comment
+  = singleCommentLine 
+  / c:$('{' (!C_BRACES .)* '}') { return createNodeComment(c); }
+
+singleCommentLine
+  = c:$('#' (!NL .)* NL) { return createNodeComment(c); }
+  / c:$('-' '-' '#' (!NL .)* NL) { return createNodeComment(c); }
+
+modular 
+   = d:define+ { return createNodeModular(d); }
+   / d:database { return createNodeModular(d); }
+
+
+report //<<
+  = r:((REPORT __ ID __? O_PARENTHESIS __? argumentList __? C_PARENTHESIS)
+      define?
+      //outputSection?
+      //orderBySection?
+      //formatSection
+      (END __ REPORT __)
+  ) { return createNodeReport(r); }
+
+block = b:statments { return createNodeBlock(b); }
+
+statments
+  = l:statment+ c:statments { return l.concat(c); }
+  / l:statment+ { return l; }
+  / c:statment { return [c]; }
+
+statment
+  = __
+  / comment
+  / definitionStatements
+  / flowStatements
+  / compilerDirectives
+  / storageStatements
+  / screenStatements
+  // / reportStatements
+  // / sqlDDStatements
+  // / sqlDMStatements
+  // / sqlCursorStatements
+  // / sqlOptimizationStatements
+  // / sqlAccessStatements
+  // / sqlIntegrityStatements
+  // / sqlDynamicStatements
+
+// ///////////////////////////////////////////////
+// 4GL Definition and Declaration Statements
+// ///////////////////////////////////////////////
+definitionStatements
+  = define
+  / function
+  / report
+
+// ///////////////////////////////////////////////
+// 4GL Program Flow Control Statements
+// ///////////////////////////////////////////////
+
+// ///////////////////////////////////////////////
+// 4GL Report Execution Statements
+// ///////////////////////////////////////////////
+/*
+reportStatements
+  = need
+  / print
+  / pause
+  / skip
+*/
+
+// ///////////////////////////////////////////////
+// SQL Data Definition Statements
+// ///////////////////////////////////////////////
+/*
+sqlDDStatements
+  = alterIndex
+  / createTable
+  / dropTable
+  / alterTable
+  / createView
+  / dropView
+  / closeDatabase
+  / database
+  / renameColumn
+  / createDatabase
+  / dropDatabase
+  / renameTable
+  / createIndex
+  / dropIndex
+  / createSynonym
+  / dropSynonym
+*/
+
+// ///////////////////////////////////////////////
+// SQL Data Manipulation Statements
+// ///////////////////////////////////////////////
+/*
+sqlDMStatements
+  = insert
+  / load
+  / unload
+  / delete
+  / select
+  / update
+*/
+
+// ///////////////////////////////////////////////
+// SQL Cursor Manipulation Statements
+// ///////////////////////////////////////////////
+/*
+sqlCursorStatements
+  = close
+  / fetch
+  / open
+  / declare
+  / flush
+  / put
+*/
+
+// ///////////////////////////////////////////////
+// SQL Query Optimization Information Statements
+// ///////////////////////////////////////////////
+/*
+sqlOptimizationStatements
+  = setExplain
+  / setOptimization
+  / updateStatistics
+*/
+
+// ///////////////////////////////////////////////
+// SQL Data Access Statements
+// ///////////////////////////////////////////////
+/*
+sqlAccessStatements
+  = grant
+  / revoke
+  / setLockMode
+  / lockTable
+  / setIsolation
+  / unlockTable
+*/
+
+// ///////////////////////////////////////////////
+// SQL Data Integrity Statements
+// ///////////////////////////////////////////////
+/*
+sqlIntegrityStatements
+  = beginWork
+  / dropAudit
+  / rollforwardDatabase
+  / checkTable
+  / recoverTable
+  / setConstraints
+  / commitWork
+  / repairTable
+  / setLog
+  / createAudit
+  / rollbackWork
+  / startDatabase
+*/
+
+// ///////////////////////////////////////////////
+// SQL Dynamic Management Statements
+// ///////////////////////////////////////////////
+/*
+sqlDynamicStatements
+  = execute
+  / prepare
+  / free
+*/
+
+// ///////////////////////////////////////////////
+// Data types
+// ///////////////////////////////////////////////
+
+dataType
+  = LIKE tableQualifier? table DOT column
+
+glDataType
+  = glSimpleDataType
+    / arrayDataType
+    / recordDataType
+    / TEXT
+    / BYTE
+
+glSimpleDataType
+  = (INTEGER / INT)
+  / SMALLINT
+  / (DECIMAL / DEC / NUMERIC) (O_PARENTHESIS precision (COMMA scale)? C_PARENTHESIS)?
+  / MONEY (O_PARENTHESIS precision (COMMA scale)? C_PARENTHESIS)?
+  / (FLOAT / DOUBLE PRECISION) (O_PARENTHESIS precision C_PARENTHESIS)?
+  / SMALL FLOAT / REAL
+  / DATE
+  / DATETIME datetimeQualifier
+  / INTERVAL intervalQualifier
+  / (CHARACTER / CHAR) (O_PARENTHESIS size C_PARENTHESIS)?
+  / VARCHAR (O_PARENTHESIS maximumSize (COMMA reservedSize)? C_PARENTHESIS)?
+
+size  
+  = number
+
+maximumSize  
+  = number
+
+reservedSize  
+  = number
+
+arrayDataType
+  = ARRAY O_BRACKET sizeList C_BRACKET OF ( glSimpleDataType/ recordDataType / BYTE / TEXT)
+
+recordDataType
+  = RECORD (
+    (memberList dataType)+ END RECORD)
+    / (LIKE tableQualifier? table DOT ASTERISK)
+
+precision
+  = number
+
+datetimeQualifier
+  =  (YEAR / MONTH / DAY / HOUR / MINUTE / SECOND / FRACTION)
+    TO (YEAR / MONTH / DAY / HOUR / MINUTE / SECOND / FRACTION)
+
+intervalQualifier
+  = (DAY / HOUR / MINUTE / SECOND / FRACTION) (O_PARENTHESIS precision C_PARENTHESIS)?
+  TO (DAY / HOUR / MINUTE / SECOND / FRACTION (O_PARENTHESIS scale C_PARENTHESIS)?)
+  / (YEAR / MONTH) (O_PARENTHESIS precision C_PARENTHESIS)? TO (YEAR / MONTH)
+
+// dataTypes
+//   / BYTE
+//   / CHAR
+//   / CHARACTER
+//   / DATE
+//   / DATETIME
+//   / DOUBLE PRECISION
+//   / FLOAT
+//   / INTERVAL
+//   / MONEY
+//   / NUMERIC
+//   / REAL
+//   / RECORD
+//   / SERIAL
+//   / SMALL
+//   / FLOAT
+//   / TEXT
+//  / VARCHAR
+
+window
+  =  ID
+
+form 
+  = ID
+
+table
+  = ID
+
+column
+  = ID
+
+// ///////////////////////////////////////////////
+// Statments
+// ///////////////////////////////////////////////
+
+
+
+
+
+database
+  = DATABASE databaseName EXCLUSIVE?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+label
+  = COLON ID 
+
+
+
+
+
+
+
+  
+
+
+
+
+
+// ///////////////////////////////////////////////
+
+
+onKey
+  = ON KEY O_PARENTHESIS keyList C_PARENTHESIS
+
+
+style
+  = BOLD
+  / DIM
+  / INVISIBLE
+  / NORMAL
+
+styleList
+
+style_list
+  = a:(style2 COMMA __?) { return a; }
+
+style2
+  = REVERSE
+  / BLINK
+  / UNDERLINE
+
+styleList3
+  = l:style_list3+ p:style3+ { return l.concat(p); }
+  / p:style_list3+ { return p; }
+  / p:style3 { return [p]; }
+
+style_list3
+  = a:(style3 COMMA __?) { return a; }
+
+style3
+  = REVERSE
+  / BORDER
+  / (
+      COMMENT
+      / FORM
+      / MENU
+      / MESSAGE
+      / PROMPT
+    ) LINE (FIRST / LAST) ( PLUS / MINUS)? number
+
+
+// ///////////////////////////////////////////////
+// ///////////////////////////////////////////////
+// ///////////////////////////////////////////////
+glExpression
+  = timeExpression
+  / characterExpression
+  / numberExpression
+  / integerExpression
+  / booleanExpression
+  / O_PARENTHESIS glExpression C_PARENTHESIS
+//
+timeExpression
+  = intervalValue
+  / datetimeValue
+  / datValue
+
+dateValue
+  = 
+
+// ///////////////////////////////////////////////
+argumentList
+  = l:arg_list+ p:ID+ { return l.concat(p); }
+  / p:arg_list+ { return p; }
+  / p:ID { return [p]; }
+
+arg_list
+  = a:(ID COMMA __?) { return a; }
+//
+expressionList
+  = l:exp_list+ p:expression+ { return l.concat(p); }
+  / p:exp_list+ { return p; }
+  / p:expression { return [p]; }
+
+exp_list
+  = a:(expression COMMA __?) { return a; }
+//
+//
+fieldList
+  = l:field_list+ p:field+ { return l.concat(p); }
+  / p:field_list+ { return p; }
+  / p:field { return [p]; }
+
+field_list
+  = a:(field COMMA __?) { return a; }
+
+field 
+  = ID
+  / (
+    tableReference
+    / screenRecord
+    / screenArray (O_BRACKET expression C_BRACKET)?
+    / FORMONLY
+  )  DOT (
+    ID
+    / ASTERISK
+    / thruNotation
+  )
+
+thruNotation
+  = first (THROUGH / THRU) record DOT last
+//
+forList
+  = l:for_list+ p:for_expr+ { return l.concat(p); }
+  / p:for_list+ { return p; }
+  / p:for_expr { return [p]; }
+
+for_list 
+  = a:(for_expr COMMA __?) { return a; }
+
+for_expr
+  = expression __ TO __ expression __? (STEP expression)?
+  / expressionList
+//
+
+//
+parameterList
+  = l:parm_list+ p:expression+ { return l.concat(p); }
+  / p:parm_list+ { return p; }
+  / p:expression { return [p]; }
+
+parm_list 
+  = a:(expression COMMA __?) { return a; }
+//
+sizeList
+  = l:index_list+ p:index_element+ { return l.concat(p); }
+  / p:index_list+ { return p; }
+  / p:index_element { return [p]; }
+
+index_list 
+  = a:(index_element COMMA) { return a; }
+
+index_element
+  = int_expr
+//
+variableList
+  = l:var_list+ p:var_element+ { return l.concat(p); }
+  / p:var_list+ { return p; }
+  / p:var_element { return [p]; }
+
+var_list 
+  = a:(var_element COMMA) { return a; }
+
+var_element
+  = variable
+  / record
+  (
+    DOT ASTERISK
+    / DOT thruNotation
+    / array O_BRACKET sizeList C_BRACKET
+  )
+//
+leftOffset
+  = number
+  
+fieldClause = X
+
+variable = X
+
+databaseName = X
+//
+
+//
+memberList
+  = l:member_list+ p:member_element+ { return l.concat(p); }
+  / p:member_list+ { return p; }
+  / p:member_element { return [p]; }
+
+member_list 
+  = a:(member_element COMMA) { return a; }
+//
+displayValueList
+  = l:display_list+ p:display_element+ { return l.concat(p); }
+  / p:display_list+ { return p; }
+  / p:display_element { return [p]; }
+
+display_list 
+  = a:(display_element COMMA) { return a; }
+
+display_element
+  = value ( CLIPPED / USING string)?
+  / ASCII number
+//
+strVar
+  = variable
+  / string
+
+//
+
+//
+columnQualifier
+  = l:col_list+ p:col_element+ { return l.concat(p); }
+  / p:col_list+ { return p; }
+  / p:col_element { return [p]; }
+
+col_list 
+  = a:(col_element COMMA) { return a; }
+
+col_element
+  = tableQualifier? table DOT column
+//
+//
+tableQualifier
+  = database (AT server)? COLON ( owner DOT / D_QUOTE oweer DOT D_QUOTE) 
+
+// ///////////////////////////////////////////////
+// Operators
+// ///////////////////////////////////////////////
+EXPONENTIATION
+  = o:$("*" "*") { return createNodeOperator(o); }
+
+MODULUS
+  = o:"mod"i { return createNodeOperator(o); }
+
+MULTIPLICATION  
+  = o:"*" { return createNodeOperator(o); }
+
+DIVISION
+  = o:"/" { return createNodeOperator(o); }
+
+ADDITION 
+  = o:"+" { return createNodeOperator(o); }
+
+SUBTRACTION
+  = o:"-" { return createNodeOperator(o); }
+
+AND 
+  = o:"and"i { return createNodeOperator(o); }
+
+OR 
+  = o:"and"i { return createNodeOperator(o); }
+
+NOT 
+  = o:"and"i { return createNodeOperator(o); }
+
+LESS 
+  = o:"<" { return createNodeOperator(o); }
+
+LESS_EQUAL 
+  = o:"<=" { return createNodeOperator(o); }
+
+EQUAL 
+  = o:("=" / "==") { return createNodeOperator(o); }
+
+NOT_EQUAL 
+  = o:("!=" / "<>") { return createNodeOperator(o); }
+
+GREATER_EQUAL 
+  = o:">=" { return createNodeOperator(o); }
+
+GREATER 
+  = o:">" { return createNodeOperator(o); }
+
+// ///////////////////////////////////////////////
+// Global Constants 
+// ///////////////////////////////////////////////
+
+// ///////////////////////////////////////////////
+// Builtin variables
+// ///////////////////////////////////////////////
+builtinVariables
+  = v:("arg_val"i
+  / "arr_count"i
+  / "arr_curr"i
+  / "avg"i
+  / "count"i
+  / "downshift"i
+  / "err_get"i
+  / "err_print"i
+  / "err_quit"i
+  / "errorlog"i
+  / "fgl_drawbox"i
+  / "fgl_getenv"i
+  / "fgl_keyval"i
+  / "fgl_lastkey"i
+  / "length"i
+  / "max"i
+  / "min"i
+  / "num_args"i
+  / "percent"i
+  / "scr_line"i
+  / "set_count"i
+  / "sqlexit"i
+  / "startlog"i
+  / "upshift"i) { return createNodebuiltinVariables(v); }
+
+// ///////////////////////////////////////////////
+
+operators
+  = "ascii"i number
+  / string "clipped"i
+  / "current"i qualifier?
+  / "date"i 
+  / "date"i O_PARENTHESIS date_exp C_PARENTHESIS
+  / "day"i O_PARENTHESIS date_exp C_PARENTHESIS
+  / "extend"i O_PARENTHESIS time_value C_PARENTHESIS
+  / "extend"i O_PARENTHESIS time_value COMMA qualifier C_PARENTHESIS
+  / "field_touched"i O_PARENTHESIS fieldList C_PARENTHESIS
+  / "get_fldbuf"i O_PARENTHESIS fieldList C_PARENTHESIS
+  / expression $("is"i "not"i "null"i)
+  / expression $("is"i "null"i)
+  / "infield"i O_PARENTHESIS field C_PARENTHESIS
+  / "length"i O_PARENTHESIS char_expr C_PARENTHESIS
+  / "lineno"i
+  / "mdy"i O_PARENTHESIS int_expr COMMA int_expr COMMA int_expr C_PARENTHESIS
+  / "month"i O_PARENTHESIS date_exp C_PARENTHESIS
+  / "ord"i O_PARENTHESIS string_expr C_PARENTHESIS
+  / "pageno"i
+  / int_expr "space"i
+  / int_expr "spaces"i
+  / "time"i
+  / "today"i
+  / int_expr "units"i time_keyword
+  / expression "using"i format_string
+  / "weekday"i O_PARENTHESIS date_expression C_PARENTHESIS
+  / char_expr "wordwrap"i
+  / "year"i O_PARENTHESIS date_expression C_PARENTHESIS
+
+PERCENT = o:"%" { return createNodeOperator(o); }
+
+PIPE = o:"|" { return createNodeOperator(o); }
+
+QUESTION = o:"?" { return createNodeOperator(o); }
+
+SHARP = o:"#" { return createNodeOperator(o); }
+
+COMMA = o:"," { return createNodeOperator(o); }
+
+DOT = o:"." { return createNodeOperator(o); }
+
+AGRAVE = o:"^" { return createNodeOperator(o); }
+
+AT_SIGN = o:"@" { return createNodeOperator(o); }
+
+BACKSLASH = o:"\\" { return createNodeOperator(o); }
+
+COLON = o:":" { return createNodeOperator(o); }
+
+C_BRACES = o:"}" { return createNodeCloseOperator(o); }
+
+C_BRACKET = o:"\]" { return createNodeCloseOperator(o); }
+
+C_PARENTHESIS = o:"\)" { return createNodeCloseOperator(o); }
+
+D_QUOTE = o:"\"" { return createNodeOperator(o); }
+
+EAMP = o:"&" { return createNodeOperator(o); }
+
+EXCLAMATION = o:"!" { return createNodeOperator(o); }
+
+O_BRACES = o:"{" { return createNodeOpenOperator(o); }
+
+O_BRACKET = o:"\[" { return createNodeOpenOperator(o); }
+
+O_PARENTHESIS = o:"\(" { return createNodeOpenOperator(o); }
+
+
+//S_QUOTE = o:"'" { return createNodeOperator(o); }
+
+//TILDE = o:"~" { return createNodeOperator(o); }
+
+key 
+  = ACCEPT
+    / HELP
+    / NEXT
+    / RETURN
+    / ENTER
+    / DELETE
+    / INSERT
+    / NEXTPAGE
+    / RIGHT
+    / DOWN
+    / INTERRUPT
+    / PREVIOUS
+    / TAB
+    / ESC
+    / ESCAPE
+    / LEFT
+    / PREVPAGE
+    / UP
+    / $('F' [1-64])
+    / CONTROL char //(except A, D, H, I, J, L, M, R,or X)
+
+columnQualifier 
+  = ID DOT ID 
+  / ID DOT ASTERISK
+
+scale 
+  = number (COMMA number)?
+
+datetime
+  =  d:(UNITS __ datetimeQualifier) {
+      return createNodeConstant(d);
+    }
+
+
+

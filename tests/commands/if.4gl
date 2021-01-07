@@ -1,7 +1,7 @@
 main 
 
   if a=b then
-      end if
+  end if
 
 end main
 

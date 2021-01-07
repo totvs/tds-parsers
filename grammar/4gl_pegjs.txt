@@ -1,0 +1,1410 @@
+// Gramática eleborada com base na documentação disponibilizada em
+// https://www.oninit.com/manual/informix/english/docs/4gl/7609.pdf
+// e na pasta "docs" encontra-se uma cópia
+
+{
+const TokenKind = {
+  program: "program",
+  main: "main",
+  statment: "statment",
+  keyword: "keyword",
+  whitespace: "whitespace",
+  comment: "comment",
+  operator: "operator",
+  string: "string",
+  number: "number",
+  constant: "constant",
+  id: "id",
+
+// block: "block",
+// bracket: "bracket",
+// builtInVar: "builtInVar",
+// close_operator: "close_operator",
+// statment: "statment",
+// double_operator: "double_operator",
+// expression: "expression",
+// function: "function",
+// globals: "globals",
+// identifier: "identifier",
+// list: "list",
+// main: "main",
+// modular: "modular",
+// number: "number",
+// open_operator: "open_operator",
+// unknown: "unknown",
+// variable: "variable",
+// builtinVariables: "builtinVariables",
+// notSpecified: "notSpecified"
+};
+
+var ast = [];
+
+function addNode(node) {
+  if (node) {
+    ast.push(node);
+  }
+
+  return ast;
+}
+
+function createNode(kind, value) {
+  if (value) {
+    const _location = location();
+    const offset = {
+      start: _location.start.offset,
+      end: _location.end.offset,
+    };
+
+    let obj = {
+      kind: kind,
+      offset: offset,
+      line: _location.start.line,
+      column: _location.start.column,
+      value: value,
+    };
+
+    return obj;
+  }
+
+  return value;
+}
+
+function createNodeProgram(value) {
+  return createNode(TokenKind.program, value);
+}
+
+function createNodeMain(value) {
+  return createNode(TokenKind.main, value);
+}
+
+function createNodeFunction(value) {
+  return createNode(TokenKind.function, value);
+}
+
+function createNodeWSpace(value) {
+  return createNode(TokenKind.whitespace, value);
+}
+
+function createNodeStatment(value) {
+  return createNode(TokenKind.statment, value);
+}
+
+function createNodeComment(value) {
+  return createNode(TokenKind.comment, value);
+}
+
+function createNodeKeyword(value) {
+  return createNode(TokenKind.keyword, value);
+}
+
+function createNodeOperator(value) {
+  return createNode(TokenKind.operator, value);
+}
+
+function createNodeId(value) {
+  return createNode(TokenKind.id, value);
+}
+
+function createNodeConstant(value) {
+  return createNode(TokenKind.constant, value);
+}
+
+function createNodeString(value) {
+  return createNode(TokenKind.string, value);
+}
+
+function createNodeNumber(value) {
+  return createNode(TokenKind.number, value);
+}
+
+}
+
+// /////////////////////////////////////////////// 
+// Terminals
+// /////////////////////////////////////////////// 
+
+//PIPE = k:"pipe"i { return createNodeKeyword(k); }
+
+constant
+  = FALSE
+ / INT_FLAG
+ / NOT_FOUND
+ / NULL
+ / SQL_CODE
+ / STATUS
+ / TRUE
+ / QUIT_FLAG
+ / SQL_CA_RECORD
+ / SQL_ERR_M
+ / SQL_ERR_P
+ / SQL_ERR_D
+ / SQL_AWARN
+
+string
+  = s:$(double_quoted_string/ single_quoted_string) {
+      return createNodeString(s);
+    }
+
+double_quoted_string = $(D_QUOTE double_quoted_char* D_QUOTE)
+
+single_quoted_string = $(S_QUOTE single_quoted_char* S_QUOTE)
+
+double_quoted_char
+  = ESCAPED
+ / !D_QUOTE c:. { return c; }
+
+single_quoted_char
+  = ESCAPED
+ / !S_QUOTE c:. { return c; }
+
+number
+  = n:$([-+]? DIGIT+ (DOT DIGIT+)?) {
+      return createNodeNumber(parseFloat(n, 10));
+    }
+
+DIGIT = [0-9]
+
+S_QUOTE = o:"'" { return createNodeOperator(o); }
+
+TILDE = o:"~" { return createNodeOperator(o); }
+
+ESCAPED
+  = o:"\\\"" { return '"'; }
+ / "\\'" { return "'"; }
+ / "\\\\" { return "\\"; }
+ / "\\b" { return "\b"; }
+ / "\\t" { return "\t"; }
+ / "\\n" { return "\n"; }
+ / "\\f" { return "\f"; }
+ / "\\r" { return "\r"; }
+
+WS
+  = s:$[ \t\n\r]+ { return createNodeWSpace(s); }
+ / s:NL+
+
+NL = s:("\n" / "\r" / "\r\n") { return createNodeWSpace(s); }
+
+NLS
+  = NL
+ / WS
+
+// /////////////////////////////////////////////// 
+// Tokens
+// /////////////////////////////////////////////// 
+tokens
+  = BLACK 
+ / BLUE 
+ / CYAN 
+ / GREEN 
+ / MAGENTA 
+ / RED 
+ / WHITE 
+ / YELLOW
+ / BYTE
+ / TEXT
+ / AFTER
+ / ALL
+ / AND
+ / ANY
+ / ARRAY
+ / ASC
+ / ACCEPT
+ / ASCENDING
+ / ASCII
+ / AT
+ / ATTRIBUTE
+ / ATTRIBUTES
+ / AUTONEXT
+ / AVG
+ / BEFORE
+ / BEGIN
+ / BETWEEN
+ / BORDER
+ / BOTTOM
+ / BY
+ / CALL
+ / CASE
+ / CLEAR
+ / CLIPPED
+ / CLOSE
+ / COLUMN
+ / COLUMNS
+ / COMMA
+ / COMMAND
+ / COMMENT
+ / COMMENTS
+ / COMMIT
+ / CONSTRAINT
+ / CONSTRUCT
+ / CONTINUE
+ / COUNT
+ / CREATE
+ / CURRENT
+ / CURSOR
+ / DATABASE
+ / DAY
+ / DECLARE
+ / DEFAULTS
+ / DEFER
+ / DEFINE
+ / DELETE
+ / DELIMITER
+ / DELIMITERS
+ / DESC
+ / DESCENDING
+ / DIRTY
+ / DISPLAY
+ / DISTINCT
+ / DOWNSHIFT
+ / DOT
+ / DROP
+ / DYNAMIC
+ / ELSE
+ / END
+ / ERROR
+ / EVERY
+ / EXCLUSIVE
+ / EXECUTE
+ / EXISTS
+ / EXIT
+ / EXTEND
+ / EXTERNAL
+ / FALSE
+ / FETCH
+ / FIELD
+ / FILE
+ / FINISH
+ / FIRST
+ / FLUSH
+ / FOR
+ / FOR
+ / FOREACH
+ / FORM
+ / FORMAT
+ / FRACTION
+ / FREE
+ / FROM
+ / FUNCTION
+ / GROUP
+ / GLOBALS
+ / HAVING
+ / HEADER
+ / HELP
+ / HIDE
+ / HOLD
+ / HOUR
+ / IF
+ / IN
+ / INCLUDE
+ / INDEX
+ / INITIALIZE
+ / INPUT
+ / INSERT
+ / INSTRUCTIONS
+ / INTERRUPT
+ / INTERVAL
+ / INTO
+ / IS
+ / ISOLATION
+ / KEY
+ / LABEL
+ / LAST
+ / LEFT
+ / LENGTH
+ / LET
+ / LIKE
+ / LINE
+ / LINES
+ / LOAD
+ / LOCK
+ / LOG
+ / MAIN
+ / MARGIN
+ / MATCHES
+ / MAX
+ / MDY
+ / MENU
+ / MESSAGE
+ / MIN
+ / MINUTE
+ / MOD
+ / MODE
+ / MONTH
+ / NAME
+ / NEED
+ / NEXT
+ / NO
+ / NOENTRY
+ / NOT
+ / NOTFOUND
+ / NULL
+ / ON
+ / OPEN
+ / OPTION
+ / OPTIONS
+ / OR
+ / ORDER
+ / OTHERWISE
+ / OUTER
+ / OUTPUT
+ / PAGE
+ / PAGENO
+ / PIPE
+ / PREPARE
+ / PREVIOUS
+ / PRIMARY
+ / PRINT
+ / PROGRAM
+ / PROMPT
+ / PROMPT
+ / PUT
+ / QUIT
+ / READ
+ / RECORD
+ / REPORT
+ / RETURN
+ / RETURNING
+ / REVERSE
+ / RIGTH
+ / ROLLBACK
+ / ROW
+ / ROWS
+ / RUN
+ / SCREEN
+ / SCROLL
+ / SECOND
+ / SELECT
+ / SET
+ / SHARE
+ / SHOW
+ / SKIP
+ / SLEEP
+ / SPACE
+ / SPACES
+ / SQL
+ / START
+ / STEP
+ / STOP
+ / SUM
+ / TABLE
+ / TABLES
+ / TEMP
+ / THEN
+ / THEN
+ / TIME
+ / TO
+ / TODAY
+ / TOP
+ / TRAILER
+ / TRUE
+ / TYPE
+ / UNCONSTRAINED
+ / UNION
+ / UNIQUE
+ / UNITS
+ / UNLOAD
+ / UNLOAD
+ / UNLOCK
+ / UPDATE
+ / UPSHIFT
+ / USING
+ / VALUES
+ / WAIT
+ / WAITING
+ / WEEKDAY
+ / WHEN
+ / WHENEVER
+ / WHERE
+ / WHILE
+ / WINDOW
+ / WITH
+ / WITHOUT
+ / WORDWRAP
+ / WORK
+ / YEAR
+ / C_BRACES
+ / C_BRACKET
+ / C_PARENTHESIS
+ / O_BRACES
+ / O_BRACKET
+ / O_PARENTHESIS
+ / string
+ / number
+ / constant
+  /// datetime
+  /// operator
+
+// /////////////////////////////////////////////// 
+// Data types
+// /////////////////////////////////////////////// 
+attributeClause
+  = ATTRIBUTE O_PARENTHESIS 
+      (
+        color
+       / intensityList?
+      )
+    C_PARENTHESIS   
+
+bindingClause
+  = programArray (WITHOUT DEFAULTS)? FROM screenArray DOT ASTERISK
+
+openWindowAttributeClause
+  = ATTRIBUTE O_PARENTHESIS color? intensityList? C_PARENTHESIS   
+
+color
+  = BLACK 
+ / BLUE 
+ / CYAN 
+ / GREEN 
+ / MAGENTA 
+ / RED 
+ / WHITE 
+ / YELLOW
+
+intensityList
+  = l:intensity_list+ p:intensity+ { return l.concat(p); }
+ / p:intensity_list+ { return p; }
+ / p:intensity { return [p]; }
+
+intensity_list
+  = e:(intensity COMMA) { return a; }
+
+intensity
+  = BOLD
+ / DIM
+ / INVISIBLE
+ / NORMAL
+ / REVERSE 
+ / BLINK 
+ / UNDERLINE
+
+glExpression
+  = timeExpression
+  / characterExpression
+  / numberExpression
+  / integerExpression
+  / booleanExpression
+  / O_PARENTHESIS glExpression C_PARENTHESIS
+
+dataTypeDeclaration
+  = LIKE tableQualifier? table DOT column
+
+glDataType
+  = glSimpleDataType
+   / arrayDataType
+   / recordDataType
+   / TEXT
+   / BYTE
+
+glSimpleDataType
+  = (INTEGER/ INT)
+ / SMALLINT
+ / (DECIMAL/ DEC/ NUMERIC) (O_PARENTHESIS precision (COMMA scale)? C_PARENTHESIS)?
+ / MONEY (O_PARENTHESIS precision (COMMA scale)? C_PARENTHESIS)?
+ / (FLOAT/ DOUBLE PRECISION) (O_PARENTHESIS precision C_PARENTHESIS)?
+ / SMALL FLOAT/ REAL
+ / DATE
+ / DATETIME datetimeQualifier
+ / INTERVAL intervalQualifier
+ / (CHARACTER/ CHAR) (O_PARENTHESIS size C_PARENTHESIS)?
+ / VARCHAR (O_PARENTHESIS maximumSize (COMMA reservedSize)? C_PARENTHESIS)?
+
+arrayDataType
+  = ARRAY O_BRACKET sizeList C_BRACKET OF 
+    (glSimpleDataType/ recordDataType/ BYTE/ TEXT) 
+
+sizeList
+  = l:size_list+ p:size+ { return l.concat(p); }
+ / p:size_list+ { return p; }
+ / p:size { return [p]; }
+
+size_list
+  = e:(size COMMA) { return a; }
+
+size 
+  = INTEGER
+
+recordDataType
+  = RECORD
+    (
+      (memberList dataTypeDeclaration)+ END RECORD
+     / LIKE tableQualifier? table DOT ASTERISK
+    )
+
+namedValue
+  = (record DOT)* variable
+ / array O_BRACKET integerExpressionList
+
+integerExpressionList
+  = l:integer_expression_list+ p:integer_expression+ { return l.concat(p); }
+ / p:integer_expression_list+ { return p; }
+ / p:integer_expression { return [p]; }
+
+integer_expression_list
+  = e:(size COMMA) { return a; }
+
+integer_expression
+  = integerExpression
+
+memberList
+  = l:member_list+ p:member+ { return l.concat(p); }
+ / p:member_list+ { return p; }
+ / p:member { return [p]; }
+
+member_list
+  = e:(member COMMA) { return a; }
+
+member
+  = ID
+
+functionCall
+  = functionName O_PARENTHESIS glExpressionList C_PARENTHESIS
+
+glExpressionList
+  = l:gl_expression_list+ p:gl_expression+ { return l.concat(p); }
+ / p:gl_expression_list+ { return p; }
+ / p:gl_expression { return [p]; }
+
+gl_expression_list
+  = e:(gl_expression COMMA) { return a; }
+
+gl_expression
+  = glExpression
+
+booleanExpression
+  = NOT? (
+      booleanComparation
+   / functionCall
+   / TRUE
+   / FALSE
+  )/ (AND/ OR) booleanExpression
+
+booleanComparation
+  = stringComparation
+  / setMembershipTest
+  / nullTest
+  / relationalComparation
+
+relationalComparation
+  =  l:glExpression (
+    EQUAL
+  / LESS
+  / GREATER
+  / LESS EQUAL
+  / GREATER EQUAL
+  / LESS GREATER
+  / EXCLAMATION EQUAL)
+  
+
+stringComparation
+  = characterExpression NOT? (MATCHES/ LIKE) criterion (ESCAPE D_QUOTE char D_QUOTE)
+
+criterion
+  = $(D_QUOTE (!D_QUOTE .)+ D_QUOTE)
+
+nullTest
+  = blobVariable IS (NOT)? NULL
+  //= (glExpression/ blobVariable) IS (NOT)? NULL
+  
+setMembershipTest
+  =  (NOT)? IN O_PARENTHESIS glExpression C_PARENTHESIS
+//  = glExpression (NOT)? IN O_PARENTHESIS glExpression C_PARENTHESIS
+
+integerExpression
+  = (
+    (PLUS / MINUS)?
+    (
+      literalInteger
+     / functionCall
+     / namedValue
+     / booleanExpression
+    )
+    (PLUS / MINUS / ASTERISK / SLASH / MOD / ASTERISK ASTERISK)?
+  )+
+ / (dateValue MINUS dateValue)
+
+literalInteger
+  =  (PLUS/ MINUS) DIGIT+ 
+
+numberExpression
+  = (
+    (PLUS/ MINUS)
+    (
+      literalNumber
+     / functionCall
+     / namedValue
+     / booleanExpression
+    ) (
+      PLUS
+     / MINUS
+     / ASTERISK
+     / SLASH
+     / MOD integerExpression
+     / ASTERISK ASTERISK integerExpression
+    )?
+  )+
+
+literalNumber
+  = (PLUS/ MINUS) 
+  (
+    DIGIT+ DOT
+   / DOT DIGIT+
+  ) (
+    ('e'i) (PLUS/ MINUS)? DIGIT+
+  )?
+
+characterExpression
+  = (
+    string
+   / functionCall
+   / namedValue
+  ) (
+    O_BRACKET integerExpression (COMMA integerExpression)? C_BRACKET
+  )?
+  CLIPPED? (USING D_QUOTE formatString D_QUOTE)?
+
+timeExpression
+  = intervalValue 
+ / datetimeValue
+ / dateValue
+
+dateValue
+  = (
+    D_QUOTE numericDate D_QUOTE
+   / functionCall 
+   / namedValue
+   / TODAY
+    )
+    (USING D_QUOTE formatString D_QUOTE)?
+
+datetimeValue
+  = (
+    D_QUOTE numericDateTime D_QUOTE
+   / datetimeLiteral
+   / functionCall 
+   / namedValue
+   / CURRENT (datetimeQualifier)?
+   / EXTEND O_PARENTHESIS 
+      (
+        (datetimeValue/ dateValue )
+        (COMMA datetimeQualifier)?        
+      ) C_PARENTHESIS
+    )
+  
+intervalValue
+  = (PLUS/ MINUS) 
+    (
+      (D_QUOTE numericDate D_QUOTE)
+    / intervalLiteral
+    / functionCall
+    / namedValue
+//    / integerExpression UNITS keyword
+    )
+
+numericDate
+  = mo (separator dd separator)? ( yy / yyyy)
+
+mo = [1] [012] / [0-9]?[0-9]
+
+dd = [0-9]?[0-9]
+
+yy = [0-9][0-9]
+
+yyyy = [0-9][0-9][0-9][0-9]
+
+separator = SLASH 
+
+datetimeQualifier
+  = (YEAR / MONTH / DAY / HOUR / MINUTE / SECOND / FRACTION)
+    TO (YEAR / MONTH / DAY / HOUR / MINUTE / SECOND / FRACTION O_PARENTHESIS scale C_PARENTHESIS)
+
+datetimeLiteral
+  = DATETIME O_PARENTHESIS numericDateTime C_PARENTHESIS datetimeQualifier
+
+numericDateTime
+  = yyyy (MINUS mo (MINUS dd ( hh (COLON mm (COLON ss (DOT ffff)?)?)?)?)?)
+
+hh = [12][0-9]
+
+mm = [0-5][0-9]
+
+ss = [0-5][0-9]
+
+ffff = [0-9][0-9][0-9][0-9]
+
+intervalQualifier
+  = (
+    ((DAY / HOUR / MINUTE / SECOND) (O_PARENTHESIS precision C_PARENTHESIS)? / FRACTION)
+    TO (DAY / HOUR / MINUTE / SECOND / FRACTION (O_PARENTHESIS scale C_PARENTHESIS)?)
+  ) / (
+    (YEAR / MONTH) (O_PARENTHESIS precision C_PARENTHESIS)? TO (YEAR / MONTH)
+  )
+
+intervalLiteral
+  = INTERVAL O_PARENTHESIS numericTimeInterval C_PARENTHESIS intervalQualifier
+
+numericTimeInterval
+  = dd ( hh (COLON mm (COLON ss (DOT ffff)?)?)?)
+  / yyyy MINUS mo
+
+fieldClause
+  = (( tableReference / screenRecord / screenArray (O_BRACKET line C_BRACKET)? / FORMONLY)?
+  DOT (field / ASTERISK/ thruNotation)) (COMMA fieldClause)*
+
+tableQualifier
+  = database (AT_SIGN server) COLON (owner DOT / D_QUOTE owner DOT D_QUOTE)
+
+thruNotation
+  = first ( THROUGH / THRU) same.last
+
+// --------------------------------------------------------------
+formatString = string
+
+table = ID
+
+column = ID 
+
+precision = INTEGER
+
+scale = INTEGER
+
+maximumSize = INTEGER
+
+reservedSize = INTEGER
+
+record = ID
+
+variable = ID
+
+array = ID
+
+char = [a-zA-Z]
+
+blobVariable = ID
+
+tableReference = ID
+
+screenRecord = ID
+
+screenArray = ID
+
+programArray = ID
+
+field = ID
+
+database = ID
+
+server = ID
+
+owner = ID
+
+first = ID
+
+same = ID
+
+last = ID
+
+line = INTEGER
+
+lines = INTEGER
+
+functionName = ID
+
+preparedStatment = ID
+
+labelName = COLON ID
+
+preparedStatmentName = ID
+
+cursorName = ID
+
+window = ID
+
+form = ID
+
+topLine = integer_expression
+
+leftOffset = integer_expression
+
+height = integer_expression
+
+width = integer_expression
+
+filename = string
+
+response = variable
+
+optionName = ID
+
+// //////////////////////////////////////////////////////
+// Start
+// //////////////////////////////////////////////////////
+start_program 
+  = l:statments* { return createNodeProgram(ast); }
+
+start_token 
+  = l:line_token* { return ast; }
+
+line_token
+  = t:comment { return addNode(t); }
+  / t:tokens { return addNode(t); }
+  / t:WS { return addNode(t); }
+  / o:$(!WS .)+ { return createNode(TokenKind.notSpecified, o); }
+
+statments
+  = l:statment+ c:statments { return l.concat(c); }
+  / l:statment+ { return l; }
+  / c:statment { return [c]; }
+
+statment
+  = s:(
+    WS
+  / comment
+  / definitionDeclarationStatements
+  / flowStatements
+  / compilerDirectives
+  / storageStatements
+  / screenStatements
+  // / reportStatements
+
+  ) { return createNodeStatment(s)}
+
+sqlDynamicManagementStatements
+    = execute
+    / prepare
+    / free
+
+definitionDeclarationStatements
+  = define
+  / main
+  / function
+  // / report //<< revisar >>
+
+comment
+  = singleCommentLine 
+  / c:$('{' (!C_BRACES .)* '}') { return createNodeComment(c); }
+
+singleCommentLine
+  = c:$('#' (!NL .)* NL) { return createNodeComment(c); }
+  / c:$('-' '-' '#' (!NL .)* NL) { return createNodeComment(c); }
+
+screenStatements
+  = clear
+  / displayForm
+  / openWindow
+  / closeForm
+  / error
+  / options
+  / closeWindow
+  / input
+  / prompt
+  / construct
+  / inputArray
+  / scroll
+  / currentWindow
+  / menu
+  / sleep
+  / display
+  / message
+  / displayArray
+  / openForm
+
+// reportStatements << revisar >>
+//   = need
+//   / print
+//   / pause
+//   / skip
+
+flowStatements
+  = call 
+  / finishReport
+  / outputToReport
+  / case
+  / for
+  / return
+  / continue
+  / foreach
+  / run
+  / database
+  / goto
+  / startReport
+  / if
+  / while
+  / exit
+  / label
+
+compilerDirectives 
+  = database
+  / globals
+  / defer
+  / whenever
+
+storageStatements
+  = initialize
+  / locate
+  / let
+  / validate
+
+// //////////////////////////////////////////////////////
+// Statments
+// //////////////////////////////////////////////////////
+execute
+  = EXECUTE preparedStatment (USING namedValue)?
+
+prepare 
+  = PREPARE preparedStatmentName FROM (string / namedValue)
+
+free
+  = FREE ( namedValue / preparedStatmentName / cursorName)
+
+define
+   = DEFINE variableList glDataType
+
+variableList
+  = l:variable_list+ p:variable+ { return l.concat(p); }
+ / p:variable_list+ { return p; }
+ / p:variable { return [p]; }
+
+variable_list
+  = e:(variable COMMA) { return a; }
+
+main
+  = f:((MAIN ) 
+      define*
+      database?
+      (
+        statments?
+        / EXIT  PROGRAM
+        / defer
+      ) 
+      (END MAIN )) { return createNodeMain(f); }
+
+function
+  = f:((FUNCTION  functionName ? O_PARENTHESIS ? argumentList ? C_PARENTHESIS)
+      define*
+      (
+        statments?
+        / return
+      ) 
+      (END FUNCTION )
+  ) { return createNodeFunction(f); }
+
+argumentList
+  = l:argument_list+ p:ID+ { return l.concat(p); }
+ / p:argument_list+ { return p; }
+ / p:ID { return [p]; }
+
+argument_list
+  = e:(ID COMMA) { return a; }
+
+clear
+  = CLEAR (
+    FORM
+    / WINDOW ( window / SCREEN)
+    / fieldList
+  )
+
+fieldList
+  = l:field_list+ p:fieldClause+ { return l.concat(p); }
+  / p:field_list+ { return p; }
+  / p:fieldClause { return [p]; }
+
+field_list
+  = a:(fieldClause COMMA ?) { return a; }
+
+displayForm
+  = DISPLAY FORM form attributeClause?
+
+openWindow
+  = OPEN WINDOW window AT topLine COMMA leftOffset WITH
+  (
+    height ROWS COMMA width COLUMNS
+    / FORM ( filename / variable)
+  ) openWindowAttributeClause
+
+closeForm
+  = CLOSE form
+
+closeWindow
+  = CLOSE window
+
+continue
+  = CONTINUE
+
+error
+  = ERROR strVarList attributeClause?
+
+strVarList
+  = l:strVar_list+ p:strVar+ { return l.concat(p); }
+  / p:strVar_list+ { return p; }
+  / p:strVar { return [p]; }
+
+strVar_list 
+  = a:(strVar COMMA) { return a; }
+
+strVar
+  = variable
+  / string
+
+options
+  = OPTIONS optionsList
+
+optionsList
+  = l:option_list+ p:option+ { return l.concat(p); }
+  / p:option_list+ { return p; }
+  / p:option { return [p]; }
+
+option_list
+  = a:(option COMMA) { return a; }
+
+option 
+  = ( 
+    (COMMENT / ERROR / FORM / MENU / MESSAGE / PROMPT) LINE (FIRST / LAST) ( PLUS / MINUS)? number
+  )
+  / (
+    (ACCEPT / DELETE / INSERT / NEXT / PREVIOUS ) KEY key
+  )
+  / HELP FILE string
+  / DISPLAY ATTRIBUTE attributeClause
+  / INPUT ATTRIBUTE attributeClause
+  / INPUT NO? WRAP
+  / FIELD ORDER ( UNCONSTRAINED / CONSTRAINT)
+  / SQL INTERRUPT (ON / OFF)
+
+input
+  = INPUT bindingClause attributeClause? (HELP number)? 
+      inputFormManagementBlock? END INPUT
+
+keyList
+  = l:key_list+ p:key+ { return l.concat(p); }
+  / p:key_list+ { return p; }
+  / p:key { return [p]; }
+
+key_list
+  = a:(key COMMA) { return a; }
+  
+key
+  = (CONTROL MINUS [a-zA-Z])
+    / $("f"i literalInteger) 
+
+inputFormManagementBlock
+ = (
+   ( BEFORE / AFTER) ( 
+    FIELD fieldClause / INPUT 
+    )
+    / KEY keyList 
+  ) (
+    statment
+    / NEXT FIELD (field / NEXT / PREVIOUS) 
+    / (EXIT / CONTINUE) INPUT
+  )+
+
+inputArrayManagementBlock
+ = (
+   ( BEFORE / AFTER) ( 
+    FIELD fieldClause / INPUT / DELETE / INSERT / ROW  
+    )
+    / KEY keyList 
+  ) (
+    statment
+    / NEXT FIELD (field / NEXT / PREVIOUS) 
+    / (EXIT / CONTINUE) INPUT
+  )+
+
+prompt
+  = PROMPT strVarList attributeClause? FOR CHAR? 
+    response (HELP number)? attributeClause? 
+    (ON KEY O_PARENTHESIS keyList C_PARENTHESIS statment)*
+  END PROMPT 
+
+construct 
+  = CONSTRUCT constructVariableClause attributeClause? (HELP number)? 
+  ( constructFormManagementBlock+ END CONSTRUCT)?
+
+constructVariableClause 
+  = (variableList ON columnList FROM fieldClause)
+    / (BY NAME variable ON columnList)
+
+columnList
+  = l:col_list+ p:col_element+ { return l.concat(p); }
+  / p:col_list+ { return p; }
+  / p:col_element { return [p]; }
+
+col_list 
+  = a:(col_element COMMA) { return a; }
+
+col_element
+  = ID
+  
+constructFormManagementBlock
+  = (
+    BEFORE CONSTRUCT
+    / AFTER CONSTRUCT
+    / (BEFORE / AFTER) FIELD fieldList
+    / (ON KEY O_PARENTHESIS keyList C_PARENTHESIS statment)
+  )
+  (
+    statment
+    / NEXT FIELD (NEXT / PREVIOUS) 
+    / (CONTINUE / EXIT) CONSTRUCT
+  )+
+
+inputArray
+  = INPUT ARRAY bindingClause attributeClause? (HELP number)? 
+    inputFormManagementBlock?
+
+scroll
+  = SCROLL fieldClause (DOWN / UP) (BY lines)?
+
+currentWindow 
+  = CURRENT WINDOW IS (window / SCREEN)
+
+menu
+  = MENU ( string / variable) menuControlBlock+ END MENU
+
+menuControlBlock
+  = (
+    BEFORE MENU
+    / commandBlock
+  )
+  (
+    statment
+    / NEXT OPTION optionName
+    / (SHOW / HIDE) OPTION ( ALL / optionNameList) 
+    / (CONTINUE / EXIT) CONSTRUCT
+  )+
+
+optionNameList
+  = l:optionName_list+ p:optionName+ { return l.concat(p); }
+  / p:optionName_list+ { return p; }
+  / p:optionName { return [p]; }
+
+optionName_list
+  = a:(optionName COMMA) { return a; }
+
+commandBlock
+  = COMMAND (KEY keyList)?  optionName (optionDescription)? (HELP number)?
+
+optionDescription
+  = string;
+
+sleep
+  = SLEEP number
+
+display 
+  =  DISPLAY (
+      (displayValueList / COLUMN leftOffset)+
+    / displayValueList AT line COMMA leftOffset attributeClause?
+    / displayValueList TO fieldClause+ line COMMA leftOffset attributeClause?
+    / BY NAME variableList  attributeClause
+  )
+
+displayValueList
+  = strVar_list
+//   l:displayValue_list+ p:displayValue+ { return l.concat(p); }
+//   / p:displayValue_list+ { return p; }
+//   / p:displayValue { return [p]; }
+
+// displayValue_list
+//   = a:(displayValue COMMA) { return a; }
+
+//displayValue
+//  = 
+displayArray 
+  = DISPLAY ARRAY recordArray TO screenArray DOT ASTERISK attributeClause?
+    (ON KEY O_PARENTHESIS keyList C_PARENTHESIS (statment / EXIT DISPLAY))*
+
+recordArray = ID
+
+message 
+  =  MESSAGE strVarList attributeClause?
+
+openForm
+  = OPEN FORM form FROM filename
+
+call
+  = CALL  functionName ? O_PARENTHESIS glExpressionList? C_PARENTHESIS
+    ( RETURNING receivingVariableList)?
+
+receivingVariableList
+  = l:receivingVariable_list+ p:variable+ { return l.concat(p); }
+ / p:receivingVariable_list+ { return p; }
+ / p:variable { return [p]; }
+
+receivingVariable_list
+  = e:(variable COMMA) { return a; }
+
+reportName = ID
+
+finishReport
+   = FINISH  REPORT  reportName
+
+outputToReport
+   = OUTPUT  TO  REPORT reportName O_PARENTHESIS glExpressionList C_PARENTHESIS
+
+case
+  = CASE (
+      O_PARENTHESIS glExpression C_PARENTHESIS whenList
+      / whenBooleanList
+      )
+      (OTHERWISE (statments / EXIT  CASE))?
+  END CASE
+
+whenList
+  = l:when_list+ p:when+ { return l.concat(p); }
+  / p:when_list+ { return p; }
+  / p:when { return [p]; }
+
+when_list 
+  = a:(when &when) { return a; }
+
+when
+  = WHEN glExpression (statments / EXIT  CASE)
+
+whenBooleanList
+  = l:whenB_list+ p:whenB+ { return l.concat(p); }
+  / p:whenB_list+ { return p; }
+  / p:whenB { return [p]; }
+
+whenB_list 
+  = a:(whenB &whenB) { return a; }
+
+whenB
+  = WHEN booleanExpression (statments / EXIT  CASE)
+
+counter = ID
+start = integerExpression
+finish = integerExpression
+increment = integerExpression
+
+leftExpression = glExpression
+rightExpression = glExpression
+incrementExpression = glExpression
+
+for
+  = FOR variable IN O_PARENTHESIS 
+    (
+      leftExpression TO rightExpression 
+      (COMMA leftExpression TO rightExpression)*
+    ) 
+    C_PARENTHESIS
+    (STEP incrementExpression (COMMA glExpression)*)
+      statments?
+    END FOR
+
+cursor = ID
+
+foreach
+  = FOREACH  cursor  (INTO  variableList)?  
+      ( statments / CONTINUE  FOREACH / EXIT  FOREACH)
+    END FOREACH
+
+return
+  = RETURN (
+      glExpressionList
+      / O_PARENTHESIS glExpressionList C_PARENTHESIS
+  )? 
+
+run
+  = RUN  ( string / variable) (
+      RETURNING  variable
+      / WITHOUT  WAITING
+    )?
+
+goto
+  = GOTO labelName
+
+label
+  = labelName COLON
+
+startReport
+  = START REPORT (
+    TO (
+      string
+      // / PRINTER << revisar >>
+      / PIPE ( string / variable)
+    )
+  )?
+
+if
+  = (IF booleanExpression  THEN )
+      statments?
+      elifList?
+      else?
+    (END IF)
+
+elifList
+  = l:elif_list+ p:elif+ { return l.concat(p); }
+  / p:elif_list+ { return p; }
+  / p:elif { return [p]; }
+
+elif_list
+  = a:(elif &ELIF) { return a; }
+
+elif
+  = ELIF booleanExpression THEN statments 
+
+else
+  = ELSE statments?
+
+while
+  = WHILE booleanExpression
+      statments?
+    END WHILE
+
+exit
+  = EXIT PROGRAM ( 
+      integer_expression
+      / O_PARENTHESIS integer_expression C_PARENTHESIS
+    )?
+
+globals
+  = g:(GLOBALS define* END GLOBALS) { return createNodeGlobals(g); }
+  / g:(GLOBALS string comment?) { return createNodeGlobals(g); }
+
+defer
+  = DEFER (INTERRUPT / QUIT)
+
+whenever
+  = WHENEVER 
+  (
+    NOT FOUND
+    / SQLERROR
+    / ANY? ERROR
+    / WARNING
+    / SQLWARNING
+  )
+  (
+    CONTINUE
+    / (GOTO / GO TO) labelName
+    / STOP
+    / CALL functionName
+  )
+
+initialize
+  = INITIALIZE variableList 
+  (
+    LIKE columnList
+    / TO NULL
+  )
+
+locate
+  = LOCATE variableList IN 
+  (
+    MEMORY
+    / FILE ( filename / variable)?
+  )
+
+destination = receivingVariableList
+source = receivingVariableList
+
+let
+  = LET 
+    ( 
+      receivingVariableList EQUAL ( glExpressionList / NULL )
+      / destination DOT ASTERISK EQUAL source DOT ASTERISK
+    )
+
+validate
+  = VALIDATE variableList LIKE columnList
+

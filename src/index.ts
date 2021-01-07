@@ -6,16 +6,16 @@ const LANGUAGES = [
   {
     extensions: [".4gl"],
     name: "4GL",
-    parsers: ["4gl-source", "4gl-token"],
+    parsers: ["4gl-token"],
   },
 ];
 
 const PARSERS = {
-  "4gl-source": {
-    parse: (text, options) => {
-      return call_parser.parser_program(text, options);
-    },
-  },
+  // "4gl-source": {
+  //   parse: (text, options) => {
+  //     return call_parser.parser_program(text, options);
+  //   },
+  // },
   "4gl-token": {
     parse: (text, options) => {
       return call_parser.parser_token(text, options);

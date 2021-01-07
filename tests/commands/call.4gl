@@ -5,6 +5,7 @@ main
   call fgl_winmessage("p1")
 
 
+  call log0030_mensagem("existe(m) ...", "exclamation");
 
 
   call fgl_winmessage("p1","p2", "p3")
