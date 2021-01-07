@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/totvs/tds-parsers/compare/v0.0.2...v0.0.4) (2021-01-07)
+
+
+### Bug Fixes
+
+* correção de loca de publicação ([9c0a5f8](https://github.com/totvs/tds-parsers/commit/9c0a5f826437e6875cd2823898c46917bc66f079))
+
 ### 0.0.2 (2020-08-31)
 
 
