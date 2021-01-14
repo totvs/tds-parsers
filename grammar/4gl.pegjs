@@ -6,17 +6,21 @@
 const TokenKind = {
   program: "program",
   main: "main",
+  beginBlock: "beginBlock",
+  endBlock: "endBlock",
   statment: "statment",
   keyword: "keyword",
   whitespace: "whitespace",
   comment: "comment",
-  operator: "operator",
   string: "string",
   number: "number",
   constant: "constant",
-  id: "id",
+  identifier: "identifier",
   builtInVar: "builtInVar",
   globals: "globals",
+  operator: "operator",
+  openOperator: "openOperator",
+  closeOperator: "closeOperator",
 
 // block: "block",
 // bracket: "bracket",
@@ -45,7 +49,7 @@ function addNode(node) {
 }
 
 function createNode(kind, value, ws) {
-  if (value) {
+  //if (value) {
     const _location = location();
     const offset = {
       start: _location.start.offset,
@@ -57,14 +61,13 @@ function createNode(kind, value, ws) {
       offset: offset,
       line: _location.start.line,
       column: _location.start.column,
-      value: value,
-      whitespace: ws
+      value: value
     }
 
-    return obj;
-  }
+    return ws?[ obj, ws]:obj;
+  //}
 
-  return value;
+  //return value;
 }
 
 function createNodeProgram(value) {
@@ -99,12 +102,28 @@ function createNodeKeyword(value, ws) {
   return createNode(TokenKind.keyword, value, ws);
 }
 
+function createNodeBeginBlock(value, ws) {
+  return createNode(TokenKind.beginBlock, value, ws); 
+}
+
+function createNodeEndBlock(value, ws) {
+  return createNode(TokenKind.endBlock, value, ws);
+}
+
 function createNodeOperator(value, ws) {
   return createNode(TokenKind.operator, value, ws);
 }
 
+function createNodeOpenOperator(value, ws) {
+  return createNode(TokenKind.openOperator, value, ws);
+}
+
+function createNodeCloseOperator(value, ws) {
+  return createNode(TokenKind.closeOperator, value, ws);
+}
+
 function createNodeId(value) {
-  return createNode(TokenKind.id, value);
+  return createNode(TokenKind.identifier, value);
 }
 
 function createNodeConstant(value) {
@@ -163,9 +182,9 @@ ESCAPED
 
 WS
   = s:$[ \t;]+ { return createNodeWSpace(s)}
- / s:_NL+
+ / s:_NL
 
-_NL = s:$("\n" / "\r" / "\r\n") { return createNodeWSpace(s)}
+_NL = s:$("\n" / "\r" / "\r\n")+ { return createNodeWSpace(s)}
 
 NLS
   = _NL / WS
@@ -173,7 +192,7 @@ NLS
 // /////////////////////////////////////////////// 
 // Tokens
 // /////////////////////////////////////////////// 
-tokens
+keywords
   = BLACK 
  / BLUE 
  / CYAN 
@@ -404,17 +423,24 @@ tokens
  / WORDWRAP
  / WORK
  / YEAR
- / C_BRACES
- / C_BRACKET
- / C_PARENTHESIS
- / O_BRACES
- / O_BRACKET
- / O_PARENTHESIS
- / string
- / number
- /// constant
-  /// datetime
-  /// operator
+ 
+operators
+  = C_BRACES
+  / C_BRACKET
+  / C_PARENTHESIS
+  / O_BRACES
+  / O_BRACKET
+  / O_PARENTHESIS
+  / COMMA
+  / ASTERISK
+  / EQUAL
+  / LESS
+  / GREATER
+  / EXCLAMATION
+  / PLUS
+  / MINUS
+  / COLON
+  / SLASH
 
 // /////////////////////////////////////////////// 
 // Data types
@@ -537,7 +563,7 @@ member_list
   = e:(member WS? COMMA) { return e}
 
 member
-  = ID
+  = ID 
 
 functionCall
   = functionName O_PARENTHESIS glExpressionList C_PARENTHESIS
@@ -826,7 +852,11 @@ start_token
 
 line_token
   = t:comment { return addNode(t)}
-  / t:tokens { return addNode(t)}
+  / t:keywords { return addNode(t)}
+  / t:operators { return addNode(t)}
+  / t:string { return addNode(t)}
+  / t:number { return addNode(t)}
+  / t:ID { return addNode(t)}
   / t:WS { return addNode(t)}
   / o:$(!WS .)+ { return createNode(TokenKind.notSpecified, o)}
 
@@ -941,7 +971,7 @@ defineType
   = namedValue WS? ( glDataType / dataTypeDeclaration)
 
 variableList
-  = namedValue (WS? COMMA namedValue WS?)
+  = n1:namedValue n2:(WS? COMMA namedValue WS?) { return [ n1, ...n2]}
 
 main
   = f:(MAIN 
@@ -1371,16 +1401,13 @@ destination = receivingVariableList
 source = receivingVariableList
 
 let
-  = LET 
-    (
-      receivingVariableList EQUAL (glExpressionList / NULL)
-      / destination DOT ASTERISK EQUAL source DOT ASTERISK
-   )
+  = LET receivingVariableList EQUAL (glExpressionList / NULL)
+  / LET destination DOT ASTERISK EQUAL source DOT ASTERISK
 
 validate
   = VALIDATE variableList LIKE columnList
 
-ID = (!tokens $([a-zA-Z_] [a-zA-Z_0-9]*))
+ID = id:($([a-zA-Z_] [a-zA-Z_0-9]*)) { return createNodeId(id); };
 
 MO=('0'..'1')? DIGIT;
 DD=('0'..'3')? DIGIT;
@@ -1405,12 +1432,12 @@ SQL_AWARN=v:$("sqlawarn"i WS?) { return createNodeBuiltInVar(v) }
 TRUE=c:$("true"i WS?) { return createNodeConstant(c) }
 FALSE=c:$("false"i WS?) { return createNodeConstant(c) }
 
-O_BRACES=o:$("{" WS?) { return createNodeOperator(o) }
-C_BRACES=o:$("}" WS?) { return createNodeOperator(o) }
-O_BRACKET=o:$("[" WS?) { return createNodeOperator(o) }
-C_BRACKET=o:$("]" WS?) { return createNodeOperator(o) }
-O_PARENTHESIS=o:$("(" WS?) { return createNodeOperator(o) }
-C_PARENTHESIS=o:$(")" WS?) { return createNodeOperator(o) }
+O_BRACES=o:$("{" WS?) { return createNodeOpenOperator(o) }
+C_BRACES=o:$("}" WS?) { return createNodeCloseOperator(o) }
+O_BRACKET=o:$("[" WS?) { return createNodeOpenOperator(o) }
+C_BRACKET=o:$("]" WS?) { return createNodeCloseOperator(o) }
+O_PARENTHESIS=o:$("(" WS?) { return createNodeOpenOperator(o) }
+C_PARENTHESIS=o:$(")" WS?) { return createNodeCloseOperator(o) }
 COMMA=o:$("," WS?) { return createNodeOperator(o) }
 ASTERISK=o:$("*" WS?) { return createNodeOperator(o) }
 EQUAL=o:$("="  WS?) { return createNodeOperator(o) }
@@ -1422,273 +1449,273 @@ MINUS=o:$("-" WS?) { return createNodeOperator(o) }
 COLON=o:$(":" WS?) { return createNodeOperator(o) }
 SLASH=o:$("/" WS?) { return createNodeOperator(o) }
 
-ACCEPT=k:"accept"i w:WS? { return createNodeKeyword(k,w) }
-AFTER=k:"after"i w:WS? { return createNodeKeyword(k,w) }
-ALL=k:"all"i w:WS? { return createNodeKeyword(k,w) }
-AND=k:"and"i w:WS? { return createNodeKeyword(k,w) }
-ANY=k:"any"i w:WS? { return createNodeKeyword(k,w) }
-ARRAY=k:"array"i w:WS? { return createNodeKeyword(k,w) }
-ASC=k:"asc"i w:WS? { return createNodeKeyword(k,w) }
-ASCENDING=k:"ascending"i w:WS? { return createNodeKeyword(k,w) }
-ASCII=k:"ascii"i w:WS? { return createNodeKeyword(k,w) }
-AT=k:"year"i w:WS? { return createNodeKeyword(k,w) }
-ATTRIBUTE=k:"attribute"i w:WS? { return createNodeKeyword(k,w) }
-ATTRIBUTES=k:"attributes"i w:WS? { return createNodeKeyword(k,w) }
-AUTONEXT=k:"autonext"i w:WS? { return createNodeKeyword(k,w) }
-AVG=k:"avg"i w:WS? { return createNodeKeyword(k,w) }
-BEFORE=k:"before"i w:WS? { return createNodeKeyword(k,w) }
-BEGIN=k:"begin"i w:WS? { return createNodeKeyword(k,w) }
-BETWEEN=k:"between"i w:WS? { return createNodeKeyword(k,w) }
-BIGINT=k:"bigint"i w:WS? { return createNodeKeyword(k,w) }
-BLACK=k:"black"i w:WS? { return createNodeKeyword(k,w) }
-BLINK=k:"blink"i w:WS? { return createNodeKeyword(k,w) }
-BLUE=k:"blue"i w:WS? { return createNodeKeyword(k,w) }
-BOLD=k:"bold"i w:WS? { return createNodeKeyword(k,w) }
-BORDER=k:"border"i w:WS? { return createNodeKeyword(k,w) }
-BOTTOM=k:"bottom"i w:WS? { return createNodeKeyword(k,w) }
-BY=k:"by"i w:WS? { return createNodeKeyword(k,w) }
-BYTE=k:"byte"i w:WS? { return createNodeKeyword(k,w) }
-CALL=k:"call"i w:WS? { return createNodeKeyword(k,w) }
-CASE=k:"case"i w:WS? { return createNodeKeyword(k,w) }
-CHAR=k:"char"i w:WS? { return createNodeKeyword(k,w) }
-CHARACTER=k:"character"i w:WS? { return createNodeKeyword(k,w) }
-CLEAR=k:"clear"i w:WS? { return createNodeKeyword(k,w) }
-CLIPPED=k:"clipped"i w:WS? { return createNodeKeyword(k,w) }
-CLOSE=k:"close"i w:WS? { return createNodeKeyword(k,w) }
-COLUMN=k:"column"i w:WS? { return createNodeKeyword(k,w) }
-COLUMNS=k:"columns"i w:WS? { return createNodeKeyword(k,w) }
-COMMAND=k:"command"i w:WS? { return createNodeKeyword(k,w) }
-COMMENT=k:"comment"i w:WS? { return createNodeKeyword(k,w) }
-COMMENTS=k:"comments"i w:WS? { return createNodeKeyword(k,w) }
-COMMIT=k:"commit"i w:WS? { return createNodeKeyword(k,w) }
-CONSTRAINT=k:"constraint"i w:WS? { return createNodeKeyword(k,w) }
-CONSTRUCT=k:"construct"i w:WS? { return createNodeKeyword(k,w) }
-CONTINUE=k:"continue"i w:WS? { return createNodeKeyword(k,w) }
-CONTROL=k:"control"i w:WS? { return createNodeKeyword(k,w) }
-COUNT=k:"count"i w:WS? { return createNodeKeyword(k,w) }
-CREATE=k:"create"i w:WS? { return createNodeKeyword(k,w) }
-CURRENT=k:"current"i w:WS? { return createNodeKeyword(k,w) }
-CURSOR=k:"cursor"i w:WS? { return createNodeKeyword(k,w) }
-CYAN=k:"cyan"i w:WS? { return createNodeKeyword(k,w) }
-DATABASE=k:"database"i w:WS? { return createNodeKeyword(k,w) }
-DATE=k:"date"i w:WS? { return createNodeKeyword(k,w) }
-DATETIME=k:"datetime"i w:WS? { return createNodeKeyword(k,w) }
-DAY=k:"day"i w:WS? { return createNodeKeyword(k,w) }
-DEC=k:"dec"i w:WS? { return createNodeKeyword(k,w) }
-DECIMAL=k:"decimal"i w:WS? { return createNodeKeyword(k,w) }
-DECLARE=k:"declare"i w:WS? { return createNodeKeyword(k,w) }
-DEFAULTS=k:"defaults"i w:WS? { return createNodeKeyword(k,w) }
-DEFER=k:"defer"i w:WS? { return createNodeKeyword(k,w) }
-DEFINE=k:"define"i w:WS? { return createNodeKeyword(k,w) }
-DELETE=k:"delete"i w:WS? { return createNodeKeyword(k,w) }
-DELIMITER=k:"delimiter"i w:WS? { return createNodeKeyword(k,w) }
-DELIMITERS=k:"delimiters"i w:WS? { return createNodeKeyword(k,w) }
-DESC=k:"desc"i w:WS? { return createNodeKeyword(k,w) }
-DESCENDING=k:"descending"i w:WS? { return createNodeKeyword(k,w) }
-DIM=k:"dim"i w:WS? { return createNodeKeyword(k,w) }
-DIRTY=k:"dirty"i w:WS? { return createNodeKeyword(k,w) }
-DISPLAY=k:"display"i w:WS? { return createNodeKeyword(k,w) }
-DISTINCT=k:"distinct"i w:WS? { return createNodeKeyword(k,w) }
-DOUBLE=k:"double"i w:WS? { return createNodeKeyword(k,w) }
-DOWN=k:"down"i w:WS? { return createNodeKeyword(k,w) }
-DOWNSHIFT=k:"downshift"i w:WS? { return createNodeKeyword(k,w) }
-DROP=k:"drop"i w:WS? { return createNodeKeyword(k,w) }
-DYNAMIC=k:"dynamic"i w:WS? { return createNodeKeyword(k,w) }
-ELIF=k:"elif"i w:WS? { return createNodeKeyword(k,w) }
-ELSE=k:"else"i w:WS? { return createNodeKeyword(k,w) }
-END=k:"end"i w:WS? { return createNodeKeyword(k,w) }
-ERROR=k:"error"i w:WS? { return createNodeKeyword(k,w) }
-ESCAPE=k:"escape"i w:WS? { return createNodeKeyword(k,w) }
-EVERY=k:"every"i w:WS? { return createNodeKeyword(k,w) }
-EXCLUSIVE=k:"exclusive"i w:WS? { return createNodeKeyword(k,w) }
-EXECUTE=k:"execute"i w:WS? { return createNodeKeyword(k,w) }
-EXISTS=k:"exists"i w:WS? { return createNodeKeyword(k,w) }
-EXIT=k:"exit"i w:WS? { return createNodeKeyword(k,w) }
-EXTEND=k:"extend"i w:WS? { return createNodeKeyword(k,w) }
-EXTERNAL=k:"external"i w:WS? { return createNodeKeyword(k,w) }
-FETCH=k:"fetch"i w:WS? { return createNodeKeyword(k,w) }
-FIELD=k:"field"i w:WS? { return createNodeKeyword(k,w) }
-FILE=k:"file"i w:WS? { return createNodeKeyword(k,w) }
-FINISH=k:"finish"i w:WS? { return createNodeKeyword(k,w) }
-FIRST=k:"first"i w:WS? { return createNodeKeyword(k,w) }
-FLOAT=k:"float"i w:WS? { return createNodeKeyword(k,w) }
-FLUSH=k:"flush"i w:WS? { return createNodeKeyword(k,w) }
-FOR=k:"for"i w:WS? { return createNodeKeyword(k,w) }
-FOREACH=k:"foreach"i w:WS? { return createNodeKeyword(k,w) }
-FORM=k:"form"i w:WS? { return createNodeKeyword(k,w) }
-FORMAT=k:"format"i w:WS? { return createNodeKeyword(k,w) }
-FORMONLY=k:"formonly"i w:WS? { return createNodeKeyword(k,w) }
-FOUND=k:"found"i w:WS? { return createNodeKeyword(k,w) }
-FRACTION=k:"fraction"i w:WS? { return createNodeKeyword(k,w) }
-FREE=k:"free"i w:WS? { return createNodeKeyword(k,w) }
-FROM=k:"from"i w:WS? { return createNodeKeyword(k,w) }
-FUNCTION=k:"function"i w:WS? { return createNodeKeyword(k,w) }
-GLOBALS=k:"globals"i w:WS? { return createNodeKeyword(k,w) }
-GO=k:"go"i w:WS? { return createNodeKeyword(k,w) }
-GOTO=k:"goto"i w:WS? { return createNodeKeyword(k,w) }
-GREEN=k:"green"i w:WS? { return createNodeKeyword(k,w) }
-GROUP=k:"group"i w:WS? { return createNodeKeyword(k,w) }
-HAVING=k:"having"i w:WS? { return createNodeKeyword(k,w) }
-HEADER=k:"header"i w:WS? { return createNodeKeyword(k,w) }
-HELP=k:"help"i w:WS? { return createNodeKeyword(k,w) }
-HIDE=k:"hide"i w:WS? { return createNodeKeyword(k,w) }
-HOLD=k:"hold"i w:WS? { return createNodeKeyword(k,w) }
-HOUR=k:"hour"i w:WS? { return createNodeKeyword(k,w) }
-IF=k:"if"i w:WS? { return createNodeKeyword(k,w) }
-IN=k:"in"i w:WS? { return createNodeKeyword(k,w) }
-INCLUDE=k:"include"i w:WS? { return createNodeKeyword(k,w) }
-INDEX=k:"index"i w:WS? { return createNodeKeyword(k,w) }
-INITIALIZE=k:"initialize"i w:WS? { return createNodeKeyword(k,w) }
-INPUT=k:"input"i w:WS? { return createNodeKeyword(k,w) }
-INSERT=k:"insert"i w:WS? { return createNodeKeyword(k,w) }
-INSTRUCTIONS=k:"instructions"i w:WS? { return createNodeKeyword(k,w) }
-INT=k:"int"i w:WS? { return createNodeKeyword(k,w) }
-INTEGER=k:"integer"i w:WS? { return createNodeKeyword(k,w) }
-INTERRUPT=k:"interrupt"i w:WS? { return createNodeKeyword(k,w) }
-INTERVAL=k:"interval"i w:WS? { return createNodeKeyword(k,w) }
-INTO=k:"into"i w:WS? { return createNodeKeyword(k,w) }
-INVISIBLE=k:"invisible"i w:WS? { return createNodeKeyword(k,w) }
-IS=k:"is"i w:WS? { return createNodeKeyword(k,w) }
-ISOLATION=k:"isolation"i w:WS? { return createNodeKeyword(k,w) }
-KEY=k:"key"i w:WS? { return createNodeKeyword(k,w) }
-LABEL=k:"label"i w:WS? { return createNodeKeyword(k,w) }
-LAST=k:"last"i w:WS? { return createNodeKeyword(k,w) }
-LEFT=k:"left"i w:WS? { return createNodeKeyword(k,w) }
-LENGTH=k:"length"i w:WS? { return createNodeKeyword(k,w) }
-LET=k:"let"i w:WS? { return createNodeKeyword(k,w) }
-LIKE=k:"like"i w:WS? { return createNodeKeyword(k,w) }
-LINE=k:"line"i w:WS? { return createNodeKeyword(k,w) }
-LINES=k:"lines"i w:WS? { return createNodeKeyword(k,w) }
-LOAD=k:"load"i w:WS? { return createNodeKeyword(k,w) }
-LOCATE=k:"locate"i w:WS? { return createNodeKeyword(k,w) }
-LOCK=k:"lock"i w:WS? { return createNodeKeyword(k,w) }
-LOG=k:"log"i w:WS? { return createNodeKeyword(k,w) }
-MAGENTA=k:"magenta"i w:WS? { return createNodeKeyword(k,w) }
-MAIN=k:"main"i w:WS? { return createNodeKeyword(k,w) }
-MARGIN=k:"margin"i w:WS? { return createNodeKeyword(k,w) }
-MATCHES=k:"matches"i w:WS? { return createNodeKeyword(k,w) }
-MAX=k:"max"i w:WS? { return createNodeKeyword(k,w) }
-MDY=k:"mdy"i w:WS? { return createNodeKeyword(k,w) }
-MEMORY=k:"memory"i w:WS? { return createNodeKeyword(k,w) }
-MENU=k:"menu"i w:WS? { return createNodeKeyword(k,w) }
-MESSAGE=k:"message"i w:WS? { return createNodeKeyword(k,w) }
-MIN=k:"min"i w:WS? { return createNodeKeyword(k,w) }
-MINUTE=k:"minute"i w:WS? { return createNodeKeyword(k,w) }
-MOD=k:"mod"i w:WS? { return createNodeKeyword(k,w) }
-MODE=k:"mode"i w:WS? { return createNodeKeyword(k,w) }
-MONEY=k:"money"i w:WS? { return createNodeKeyword(k,w) }
-MONTH=k:"month"i w:WS? { return createNodeKeyword(k,w) }
-NAME=k:"name"i w:WS? { return createNodeKeyword(k,w) }
-NCHAR=k:"nchar"i w:WS? { return createNodeKeyword(k,w) }
-NEED=k:"need"i w:WS? { return createNodeKeyword(k,w) }
-NEXT=k:"next"i w:WS? { return createNodeKeyword(k,w) }
-NO=k:"no"i w:WS? { return createNodeKeyword(k,w) }
-NOENTRY=k:"noentry"i w:WS? { return createNodeKeyword(k,w) }
-NORMAL=k:"normal"i w:WS? { return createNodeKeyword(k,w) }
-NOT=k:"not"i w:WS? { return createNodeKeyword(k,w) }
-NOTFOUND=k:"notfound"i w:WS? { return createNodeKeyword(k,w) }
-NULL=k:"null"i w:WS? { return createNodeKeyword(k,w) }
-NUMERIC=k:"numeric"i w:WS? { return createNodeKeyword(k,w) }
-NVARCHAR=k:"nvarchar"i w:WS? { return createNodeKeyword(k,w) }
-OF=k:"of"i w:WS? { return createNodeKeyword(k,w) }
-OFF=k:"off"i w:WS? { return createNodeKeyword(k,w) }
-ON=k:"on"i w:WS? { return createNodeKeyword(k,w) }
-OPEN=k:"open"i w:WS? { return createNodeKeyword(k,w) }
-OPTION=k:"option"i w:WS? { return createNodeKeyword(k,w) }
-OPTIONS=k:"options"i w:WS? { return createNodeKeyword(k,w) }
-OR=k:"or"i w:WS? { return createNodeKeyword(k,w) }
-ORDER=k:"order"i w:WS? { return createNodeKeyword(k,w) }
-OTHERWISE=k:"otherwise"i w:WS? { return createNodeKeyword(k,w) }
-OUTER=k:"outer"i w:WS? { return createNodeKeyword(k,w) }
-OUTPUT=k:"output"i w:WS? { return createNodeKeyword(k,w) }
-PAGE=k:"page"i w:WS? { return createNodeKeyword(k,w) }
-PAGENO=k:"pageno"i w:WS? { return createNodeKeyword(k,w) }
-PIPE=k:"pipe"i w:WS? { return createNodeKeyword(k,w) }
-PRECISION=k:"precision"i w:WS? { return createNodeKeyword(k,w) }
-PREPARE=k:"prepare"i w:WS? { return createNodeKeyword(k,w) }
-PREVIOUS=k:"previous"i w:WS? { return createNodeKeyword(k,w) }
-PRIMARY=k:"primary"i w:WS? { return createNodeKeyword(k,w) }
-PRINT=k:"print"i w:WS? { return createNodeKeyword(k,w) }
-PROGRAM=k:"program"i w:WS? { return createNodeKeyword(k,w) }
-PROMPT=k:"prompt"i w:WS? { return createNodeKeyword(k,w) }
-PUT=k:"put"i w:WS? { return createNodeKeyword(k,w) }
-QUIT=k:"quit"i w:WS? { return createNodeKeyword(k,w) }
-READ=k:"read"i w:WS? { return createNodeKeyword(k,w) }
-REAL=k:"real"i w:WS? { return createNodeKeyword(k,w) }
-RECORD=k:"record"i w:WS? { return createNodeKeyword(k,w) }
-RED=k:"red"i w:WS? { return createNodeKeyword(k,w) }
-REPORT=k:"report"i w:WS? { return createNodeKeyword(k,w) }
-RETURN=k:"return"i w:WS? { return createNodeKeyword(k,w) }
-RETURNING=k:"returning"i w:WS? { return createNodeKeyword(k,w) }
-REVERSE=k:"reverse"i w:WS? { return createNodeKeyword(k,w) }
-RIGTH=k:"rigth"i w:WS? { return createNodeKeyword(k,w) }
-ROLLBACK=k:"rollback"i w:WS? { return createNodeKeyword(k,w) }
-ROW=k:"row"i w:WS? { return createNodeKeyword(k,w) }
-ROWS=k:"rows"i w:WS? { return createNodeKeyword(k,w) }
-RUN=k:"run"i w:WS? { return createNodeKeyword(k,w) }
-SCREEN=k:"screen"i w:WS? { return createNodeKeyword(k,w) }
-SCROLL=k:"scroll"i w:WS? { return createNodeKeyword(k,w) }
-SECOND=k:"second"i w:WS? { return createNodeKeyword(k,w) }
-SELECT=k:"select"i w:WS? { return createNodeKeyword(k,w) }
-SET=k:"set"i w:WS? { return createNodeKeyword(k,w) }
-SHARE=k:"share"i w:WS? { return createNodeKeyword(k,w) }
-SHOW=k:"show"i w:WS? { return createNodeKeyword(k,w) }
-SKIP=k:"skip"i w:WS? { return createNodeKeyword(k,w) }
-SLEEP=k:"sleep"i w:WS? { return createNodeKeyword(k,w) }
-SMALL=k:"small"i w:WS? { return createNodeKeyword(k,w) }
-SMALLFLOAT=k:"smallfloat"i w:WS? { return createNodeKeyword(k,w) }
-SMALLINT=k:"smallint"i w:WS? { return createNodeKeyword(k,w) }
-SPACE=k:"space"i w:WS? { return createNodeKeyword(k,w) }
-SPACES=k:"spaces"i w:WS? { return createNodeKeyword(k,w) }
-SQL=k:"sql"i w:WS? { return createNodeKeyword(k,w) }
-SQLERROR=k:"sqlerror"i w:WS? { return createNodeKeyword(k,w) }
-SQLWARNING=k:"sqlwarning"i w:WS? { return createNodeKeyword(k,w) }
-START=k:"start"i w:WS? { return createNodeKeyword(k,w) }
-STEP=k:"step"i w:WS? { return createNodeKeyword(k,w) }
-STOP=k:"stop"i w:WS? { return createNodeKeyword(k,w) }
-STRING=k:"string"i w:WS? { return createNodeKeyword(k,w) }
-SUM=k:"sum"i w:WS? { return createNodeKeyword(k,w) }
-TABLE=k:"table"i w:WS? { return createNodeKeyword(k,w) }
-TABLES=k:"tables"i w:WS? { return createNodeKeyword(k,w) }
-TEMP=k:"temp"i w:WS? { return createNodeKeyword(k,w) }
-TEXT=k:"text"i w:WS? { return createNodeKeyword(k,w) }
-THEN=k:"then"i w:WS? { return createNodeKeyword(k,w) }
-THROUGH=k:"through"i w:WS? { return createNodeKeyword(k,w) }
-THRU=k:"thru"i w:WS? { return createNodeKeyword(k,w) }
-TIME=k:"time"i w:WS? { return createNodeKeyword(k,w) }
-TO=k:"to"i w:WS? { return createNodeKeyword(k,w) }
-TODAY=k:"today"i w:WS? { return createNodeKeyword(k,w) }
-TOP=k:"top"i w:WS? { return createNodeKeyword(k,w) }
-TRAILER=k:"trailer"i w:WS? { return createNodeKeyword(k,w) }
-TYPE=k:"type"i w:WS? { return createNodeKeyword(k,w) }
-UNCONSTRAINED=k:"unconstrained"i w:WS? { return createNodeKeyword(k,w) }
-UNDERLINE=k:"underline"i w:WS? { return createNodeKeyword(k,w) }
-UNION=k:"union"i w:WS? { return createNodeKeyword(k,w) }
-UNIQUE=k:"unique"i w:WS? { return createNodeKeyword(k,w) }
-UNITS=k:"units"i w:WS? { return createNodeKeyword(k,w) }
-UNLOAD=k:"unload"i w:WS? { return createNodeKeyword(k,w) }
-UNLOCK=k:"unlock"i w:WS? { return createNodeKeyword(k,w) }
-UP=k:"up"i w:WS? { return createNodeKeyword(k,w) }
-UPDATE=k:"update"i w:WS? { return createNodeKeyword(k,w) }
-UPSHIFT=k:"upshift"i w:WS? { return createNodeKeyword(k,w) }
-USING=k:"using"i w:WS? { return createNodeKeyword(k,w) }
-VALIDATE=k:"validate"i w:WS? { return createNodeKeyword(k,w) }
-VALUES=k:"values"i w:WS? { return createNodeKeyword(k,w) }
-VARCHAR=k:"varchar"i w:WS? { return createNodeKeyword(k,w) }
-WAIT=k:"wait"i w:WS? { return createNodeKeyword(k,w) }
-WAITING=k:"waiting"i w:WS? { return createNodeKeyword(k,w) }
-WARNING=k:"warning"i w:WS? { return createNodeKeyword(k,w) }
-WEEKDAY=k:"weekday"i w:WS? { return createNodeKeyword(k,w) }
-WHEN=k:"when"i w:WS? { return createNodeKeyword(k,w) }
-WHENEVER=k:"whenever"i w:WS? { return createNodeKeyword(k,w) }
-WHERE=k:"where"i w:WS? { return createNodeKeyword(k,w) }
-WHILE=k:"while"i w:WS? { return createNodeKeyword(k,w) }
-WHITE=k:"white"i w:WS? { return createNodeKeyword(k,w) }
-WINDOW=k:"window"i w:WS? { return createNodeKeyword(k,w) }
-WITH=k:"with"i w:WS? { return createNodeKeyword(k,w) }
-WITHOUT=k:"without"i w:WS? { return createNodeKeyword(k,w) }
-WORDWRAP=k:"wordwrap"i w:WS? { return createNodeKeyword(k,w) }
-WORK=k:"work"i w:WS? { return createNodeKeyword(k,w) }
-WRAP=k:"wrap"i w:WS? { return createNodeKeyword(k,w) }
-YEAR=k:"year"i w:WS? { return createNodeKeyword(k,w) }
-YELLOW=k:"yellow"i w:WS? { return createNodeKeyword(k,w) }
+ACCEPT=k:"accept"i w:WS { return createNodeKeyword(k,w) }
+AFTER=k:"after"i w:WS { return createNodeKeyword(k,w) }
+ALL=k:"all"i w:WS { return createNodeKeyword(k,w) }
+AND=k:"and"i w:WS { return createNodeKeyword(k,w) }
+ANY=k:"any"i w:WS { return createNodeKeyword(k,w) }
+ARRAY=k:"array"i w:WS { return createNodeKeyword(k,w) }
+ASC=k:"asc"i w:WS { return createNodeKeyword(k,w) }
+ASCENDING=k:"ascending"i w:WS { return createNodeKeyword(k,w) }
+ASCII=k:"ascii"i w:WS { return createNodeKeyword(k,w) }
+AT=k:"year"i w:WS { return createNodeKeyword(k,w) }
+ATTRIBUTE=k:"attribute"i w:WS { return createNodeKeyword(k,w) }
+ATTRIBUTES=k:"attributes"i w:WS { return createNodeKeyword(k,w) }
+AUTONEXT=k:"autonext"i w:WS { return createNodeKeyword(k,w) }
+AVG=k:"avg"i w:WS { return createNodeKeyword(k,w) }
+BEFORE=k:"before"i w:WS { return createNodeKeyword(k,w) }
+BEGIN=k:"begin"i w:WS? { return createNodeBeginBlock(k,w) }
+BETWEEN=k:"between"i w:WS { return createNodeKeyword(k,w) }
+BIGINT=k:"bigint"i w:WS { return createNodeKeyword(k,w) }
+BLACK=k:"black"i w:WS { return createNodeKeyword(k,w) }
+BLINK=k:"blink"i w:WS { return createNodeKeyword(k,w) }
+BLUE=k:"blue"i w:WS { return createNodeKeyword(k,w) }
+BOLD=k:"bold"i w:WS { return createNodeKeyword(k,w) }
+BORDER=k:"border"i w:WS { return createNodeKeyword(k,w) }
+BOTTOM=k:"bottom"i w:WS { return createNodeKeyword(k,w) }
+BY=k:"by"i w:WS { return createNodeKeyword(k,w) }
+BYTE=k:"byte"i w:WS { return createNodeKeyword(k,w) }
+CALL=k:"call"i w:WS { return createNodeKeyword(k,w) }
+CASE=k:"case"i w:WS? { return createNodeBeginBlock(k,w) }
+CHAR=k:"char"i w:WS { return createNodeKeyword(k,w) }
+CHARACTER=k:"character"i w:WS { return createNodeKeyword(k,w) }
+CLEAR=k:"clear"i w:WS { return createNodeKeyword(k,w) }
+CLIPPED=k:"clipped"i w:WS { return createNodeKeyword(k,w) }
+CLOSE=k:"close"i w:WS { return createNodeKeyword(k,w) }
+COLUMN=k:"column"i w:WS { return createNodeKeyword(k,w) }
+COLUMNS=k:"columns"i w:WS { return createNodeKeyword(k,w) }
+COMMAND=k:"command"i w:WS { return createNodeKeyword(k,w) }
+COMMENT=k:"comment"i w:WS { return createNodeKeyword(k,w) }
+COMMENTS=k:"comments"i w:WS { return createNodeKeyword(k,w) }
+COMMIT=k:"commit"i w:WS { return createNodeKeyword(k,w) }
+CONSTRAINT=k:"constraint"i w:WS { return createNodeKeyword(k,w) }
+CONSTRUCT=k:"construct"i w:WS { return createNodeKeyword(k,w) }
+CONTINUE=k:"continue"i w:WS { return createNodeKeyword(k,w) }
+CONTROL=k:"control"i w:WS { return createNodeKeyword(k,w) }
+COUNT=k:"count"i w:WS { return createNodeKeyword(k,w) }
+CREATE=k:"create"i w:WS { return createNodeKeyword(k,w) }
+CURRENT=k:"current"i w:WS { return createNodeKeyword(k,w) }
+CURSOR=k:"cursor"i w:WS { return createNodeKeyword(k,w) }
+CYAN=k:"cyan"i w:WS { return createNodeKeyword(k,w) }
+DATABASE=k:"database"i w:WS { return createNodeKeyword(k,w) }
+DATE=k:"date"i w:WS { return createNodeKeyword(k,w) }
+DATETIME=k:"datetime"i w:WS { return createNodeKeyword(k,w) }
+DAY=k:"day"i w:WS { return createNodeKeyword(k,w) }
+DEC=k:"dec"i w:WS { return createNodeKeyword(k,w) }
+DECIMAL=k:"decimal"i w:WS { return createNodeKeyword(k,w) }
+DECLARE=k:"declare"i w:WS { return createNodeKeyword(k,w) }
+DEFAULTS=k:"defaults"i w:WS { return createNodeKeyword(k,w) }
+DEFER=k:"defer"i w:WS { return createNodeKeyword(k,w) }
+DEFINE=k:"define"i w:WS { return createNodeKeyword(k,w) }
+DELETE=k:"delete"i w:WS { return createNodeKeyword(k,w) }
+DELIMITER=k:"delimiter"i w:WS { return createNodeKeyword(k,w) }
+DELIMITERS=k:"delimiters"i w:WS { return createNodeKeyword(k,w) }
+DESC=k:"desc"i w:WS { return createNodeKeyword(k,w) }
+DESCENDING=k:"descending"i w:WS { return createNodeKeyword(k,w) }
+DIM=k:"dim"i w:WS { return createNodeKeyword(k,w) }
+DIRTY=k:"dirty"i w:WS { return createNodeKeyword(k,w) }
+DISPLAY=k:"display"i w:WS { return createNodeKeyword(k,w) }
+DISTINCT=k:"distinct"i w:WS { return createNodeKeyword(k,w) }
+DOUBLE=k:"double"i w:WS { return createNodeKeyword(k,w) }
+DOWN=k:"down"i w:WS { return createNodeKeyword(k,w) }
+DOWNSHIFT=k:"downshift"i w:WS { return createNodeKeyword(k,w) }
+DROP=k:"drop"i w:WS { return createNodeKeyword(k,w) }
+DYNAMIC=k:"dynamic"i w:WS { return createNodeKeyword(k,w) }
+ELIF=k:"elif"i w:WS { return createNodeKeyword(k,w) }
+ELSE=k:"else"i w:WS { return createNodeKeyword(k,w) }
+END=k:"end"i w:WS? { return createNodeEndBlock(k,w) }
+ERROR=k:"error"i w:WS { return createNodeKeyword(k,w) }
+ESCAPE=k:"escape"i w:WS { return createNodeKeyword(k,w) }
+EVERY=k:"every"i w:WS { return createNodeKeyword(k,w) }
+EXCLUSIVE=k:"exclusive"i w:WS { return createNodeKeyword(k,w) }
+EXECUTE=k:"execute"i w:WS { return createNodeKeyword(k,w) }
+EXISTS=k:"exists"i w:WS { return createNodeKeyword(k,w) }
+EXIT=k:"exit"i w:WS { return createNodeKeyword(k,w) }
+EXTEND=k:"extend"i w:WS { return createNodeKeyword(k,w) }
+EXTERNAL=k:"external"i w:WS { return createNodeKeyword(k,w) }
+FETCH=k:"fetch"i w:WS { return createNodeKeyword(k,w) }
+FIELD=k:"field"i w:WS { return createNodeKeyword(k,w) }
+FILE=k:"file"i w:WS { return createNodeKeyword(k,w) }
+FINISH=k:"finish"i w:WS? { return createNodeEndBlock(k,w) }
+FIRST=k:"first"i w:WS { return createNodeKeyword(k,w) }
+FLOAT=k:"float"i w:WS { return createNodeKeyword(k,w) }
+FLUSH=k:"flush"i w:WS { return createNodeKeyword(k,w) }
+FOR=k:"for"i w:WS? { return createNodeBeginBlock(k,w) }
+FOREACH=k:"foreach"i w:WS? { return createNodeBeginBlock(k,w) }
+FORM=k:"form"i w:WS { return createNodeKeyword(k,w) }
+FORMAT=k:"format"i w:WS { return createNodeKeyword(k,w) }
+FORMONLY=k:"formonly"i w:WS { return createNodeKeyword(k,w) }
+FOUND=k:"found"i w:WS { return createNodeKeyword(k,w) }
+FRACTION=k:"fraction"i w:WS { return createNodeKeyword(k,w) }
+FREE=k:"free"i w:WS { return createNodeKeyword(k,w) }
+FROM=k:"from"i w:WS { return createNodeKeyword(k,w) }
+FUNCTION=k:"function"i w:WS? { return createNodeBeginBlock(k,w) }
+GLOBALS=k:"globals"i w:WS { return createNodeKeyword(k,w) }
+GO=k:"go"i w:WS { return createNodeKeyword(k,w) }
+GOTO=k:"goto"i w:WS { return createNodeKeyword(k,w) }
+GREEN=k:"green"i w:WS { return createNodeKeyword(k,w) }
+GROUP=k:"group"i w:WS { return createNodeKeyword(k,w) }
+HAVING=k:"having"i w:WS { return createNodeKeyword(k,w) }
+HEADER=k:"header"i w:WS { return createNodeKeyword(k,w) }
+HELP=k:"help"i w:WS { return createNodeKeyword(k,w) }
+HIDE=k:"hide"i w:WS { return createNodeKeyword(k,w) }
+HOLD=k:"hold"i w:WS { return createNodeKeyword(k,w) }
+HOUR=k:"hour"i w:WS { return createNodeKeyword(k,w) }
+IF=k:"if"i w:WS { return createNodeKeyword(k,w) }
+IN=k:"in"i w:WS { return createNodeKeyword(k,w) }
+INCLUDE=k:"include"i w:WS { return createNodeKeyword(k,w) }
+INDEX=k:"index"i w:WS { return createNodeKeyword(k,w) }
+INITIALIZE=k:"initialize"i w:WS { return createNodeKeyword(k,w) }
+INPUT=k:"input"i w:WS { return createNodeKeyword(k,w) }
+INSERT=k:"insert"i w:WS { return createNodeKeyword(k,w) }
+INSTRUCTIONS=k:"instructions"i w:WS { return createNodeKeyword(k,w) }
+INT=k:"int"i w:WS { return createNodeKeyword(k,w) }
+INTEGER=k:"integer"i w:WS { return createNodeKeyword(k,w) }
+INTERRUPT=k:"interrupt"i w:WS { return createNodeKeyword(k,w) }
+INTERVAL=k:"interval"i w:WS { return createNodeKeyword(k,w) }
+INTO=k:"into"i w:WS { return createNodeKeyword(k,w) }
+INVISIBLE=k:"invisible"i w:WS { return createNodeKeyword(k,w) }
+IS=k:"is"i w:WS { return createNodeKeyword(k,w) }
+ISOLATION=k:"isolation"i w:WS { return createNodeKeyword(k,w) }
+KEY=k:"key"i w:WS { return createNodeKeyword(k,w) }
+LABEL=k:"label"i w:WS { return createNodeKeyword(k,w) }
+LAST=k:"last"i w:WS { return createNodeKeyword(k,w) }
+LEFT=k:"left"i w:WS { return createNodeKeyword(k,w) }
+LENGTH=k:"length"i w:WS { return createNodeKeyword(k,w) }
+LET=k:"let"i w:WS { return createNodeKeyword(k,w) }
+LIKE=k:"like"i w:WS { return createNodeKeyword(k,w) }
+LINE=k:"line"i w:WS { return createNodeKeyword(k,w) }
+LINES=k:"lines"i w:WS { return createNodeKeyword(k,w) }
+LOAD=k:"load"i w:WS { return createNodeKeyword(k,w) }
+LOCATE=k:"locate"i w:WS { return createNodeKeyword(k,w) }
+LOCK=k:"lock"i w:WS { return createNodeKeyword(k,w) }
+LOG=k:"log"i w:WS { return createNodeKeyword(k,w) }
+MAGENTA=k:"magenta"i w:WS { return createNodeKeyword(k,w) }
+MAIN=k:"main"i w:WS? { return createNodeBeginBlock(k,w) }
+MARGIN=k:"margin"i w:WS { return createNodeKeyword(k,w) }
+MATCHES=k:"matches"i w:WS { return createNodeKeyword(k,w) }
+MAX=k:"max"i w:WS { return createNodeKeyword(k,w) }
+MDY=k:"mdy"i w:WS { return createNodeKeyword(k,w) }
+MEMORY=k:"memory"i w:WS { return createNodeKeyword(k,w) }
+MENU=k:"menu"i w:WS { return createNodeKeyword(k,w) }
+MESSAGE=k:"message"i w:WS { return createNodeKeyword(k,w) }
+MIN=k:"min"i w:WS { return createNodeKeyword(k,w) }
+MINUTE=k:"minute"i w:WS { return createNodeKeyword(k,w) }
+MOD=k:"mod"i w:WS { return createNodeKeyword(k,w) }
+MODE=k:"mode"i w:WS { return createNodeKeyword(k,w) }
+MONEY=k:"money"i w:WS { return createNodeKeyword(k,w) }
+MONTH=k:"month"i w:WS { return createNodeKeyword(k,w) }
+NAME=k:"name"i w:WS { return createNodeKeyword(k,w) }
+NCHAR=k:"nchar"i w:WS { return createNodeKeyword(k,w) }
+NEED=k:"need"i w:WS { return createNodeKeyword(k,w) }
+NEXT=k:"next"i w:WS { return createNodeKeyword(k,w) }
+NO=k:"no"i w:WS { return createNodeKeyword(k,w) }
+NOENTRY=k:"noentry"i w:WS { return createNodeKeyword(k,w) }
+NORMAL=k:"normal"i w:WS { return createNodeKeyword(k,w) }
+NOT=k:"not"i w:WS { return createNodeKeyword(k,w) }
+NOTFOUND=k:"notfound"i w:WS { return createNodeKeyword(k,w) }
+NULL=k:"null"i w:WS { return createNodeKeyword(k,w) }
+NUMERIC=k:"numeric"i w:WS { return createNodeKeyword(k,w) }
+NVARCHAR=k:"nvarchar"i w:WS { return createNodeKeyword(k,w) }
+OF=k:"of"i w:WS { return createNodeKeyword(k,w) }
+OFF=k:"off"i w:WS { return createNodeKeyword(k,w) }
+ON=k:"on"i w:WS { return createNodeKeyword(k,w) }
+OPEN=k:"open"i w:WS { return createNodeKeyword(k,w) }
+OPTION=k:"option"i w:WS { return createNodeKeyword(k,w) }
+OPTIONS=k:"options"i w:WS { return createNodeKeyword(k,w) }
+OR=k:"or"i w:WS { return createNodeKeyword(k,w) }
+ORDER=k:"order"i w:WS { return createNodeKeyword(k,w) }
+OTHERWISE=k:"otherwise"i w:WS { return createNodeKeyword(k,w) }
+OUTER=k:"outer"i w:WS { return createNodeKeyword(k,w) }
+OUTPUT=k:"output"i w:WS { return createNodeKeyword(k,w) }
+PAGE=k:"page"i w:WS { return createNodeKeyword(k,w) }
+PAGENO=k:"pageno"i w:WS { return createNodeKeyword(k,w) }
+PIPE=k:"pipe"i w:WS { return createNodeKeyword(k,w) }
+PRECISION=k:"precision"i w:WS { return createNodeKeyword(k,w) }
+PREPARE=k:"prepare"i w:WS { return createNodeKeyword(k,w) }
+PREVIOUS=k:"previous"i w:WS { return createNodeKeyword(k,w) }
+PRIMARY=k:"primary"i w:WS { return createNodeKeyword(k,w) }
+PRINT=k:"print"i w:WS { return createNodeKeyword(k,w) }
+PROGRAM=k:"program"i w:WS { return createNodeKeyword(k,w) }
+PROMPT=k:"prompt"i w:WS { return createNodeKeyword(k,w) }
+PUT=k:"put"i w:WS { return createNodeKeyword(k,w) }
+QUIT=k:"quit"i w:WS { return createNodeKeyword(k,w) }
+READ=k:"read"i w:WS { return createNodeKeyword(k,w) }
+REAL=k:"real"i w:WS { return createNodeKeyword(k,w) }
+RECORD=k:"record"i w:WS { return createNodeKeyword(k,w) }
+RED=k:"red"i w:WS { return createNodeKeyword(k,w) }
+REPORT=k:"report"i w:WS { return createNodeKeyword(k,w) }
+RETURN=k:"return"i w:WS { return createNodeKeyword(k,w) }
+RETURNING=k:"returning"i w:WS { return createNodeKeyword(k,w) }
+REVERSE=k:"reverse"i w:WS { return createNodeKeyword(k,w) }
+RIGTH=k:"rigth"i w:WS { return createNodeKeyword(k,w) }
+ROLLBACK=k:"rollback"i w:WS { return createNodeKeyword(k,w) }
+ROW=k:"row"i w:WS { return createNodeKeyword(k,w) }
+ROWS=k:"rows"i w:WS { return createNodeKeyword(k,w) }
+RUN=k:"run"i w:WS { return createNodeKeyword(k,w) }
+SCREEN=k:"screen"i w:WS { return createNodeKeyword(k,w) }
+SCROLL=k:"scroll"i w:WS { return createNodeKeyword(k,w) }
+SECOND=k:"second"i w:WS { return createNodeKeyword(k,w) }
+SELECT=k:"select"i w:WS { return createNodeKeyword(k,w) }
+SET=k:"set"i w:WS { return createNodeKeyword(k,w) }
+SHARE=k:"share"i w:WS { return createNodeKeyword(k,w) }
+SHOW=k:"show"i w:WS { return createNodeKeyword(k,w) }
+SKIP=k:"skip"i w:WS { return createNodeKeyword(k,w) }
+SLEEP=k:"sleep"i w:WS { return createNodeKeyword(k,w) }
+SMALL=k:"small"i w:WS { return createNodeKeyword(k,w) }
+SMALLFLOAT=k:"smallfloat"i w:WS { return createNodeKeyword(k,w) }
+SMALLINT=k:"smallint"i w:WS { return createNodeKeyword(k,w) }
+SPACE=k:"space"i w:WS { return createNodeKeyword(k,w) }
+SPACES=k:"spaces"i w:WS { return createNodeKeyword(k,w) }
+SQL=k:"sql"i w:WS { return createNodeKeyword(k,w) }
+SQLERROR=k:"sqlerror"i w:WS { return createNodeKeyword(k,w) }
+SQLWARNING=k:"sqlwarning"i w:WS { return createNodeKeyword(k,w) }
+START=k:"start"i w:WS { return createNodeKeyword(k,w) }
+STEP=k:"step"i w:WS { return createNodeKeyword(k,w) }
+STOP=k:"stop"i w:WS { return createNodeKeyword(k,w) }
+STRING=k:"string"i w:WS { return createNodeKeyword(k,w) }
+SUM=k:"sum"i w:WS { return createNodeKeyword(k,w) }
+TABLE=k:"table"i w:WS { return createNodeKeyword(k,w) }
+TABLES=k:"tables"i w:WS { return createNodeKeyword(k,w) }
+TEMP=k:"temp"i w:WS { return createNodeKeyword(k,w) }
+TEXT=k:"text"i w:WS { return createNodeKeyword(k,w) }
+THEN=k:"then"i w:WS { return createNodeKeyword(k,w) }
+THROUGH=k:"through"i w:WS { return createNodeKeyword(k,w) }
+THRU=k:"thru"i w:WS { return createNodeKeyword(k,w) }
+TIME=k:"time"i w:WS { return createNodeKeyword(k,w) }
+TO=k:"to"i w:WS { return createNodeKeyword(k,w) }
+TODAY=k:"today"i w:WS { return createNodeKeyword(k,w) }
+TOP=k:"top"i w:WS { return createNodeKeyword(k,w) }
+TRAILER=k:"trailer"i w:WS { return createNodeKeyword(k,w) }
+TYPE=k:"type"i w:WS { return createNodeKeyword(k,w) }
+UNCONSTRAINED=k:"unconstrained"i w:WS { return createNodeKeyword(k,w) }
+UNDERLINE=k:"underline"i w:WS { return createNodeKeyword(k,w) }
+UNION=k:"union"i w:WS { return createNodeKeyword(k,w) }
+UNIQUE=k:"unique"i w:WS { return createNodeKeyword(k,w) }
+UNITS=k:"units"i w:WS { return createNodeKeyword(k,w) }
+UNLOAD=k:"unload"i w:WS { return createNodeKeyword(k,w) }
+UNLOCK=k:"unlock"i w:WS { return createNodeKeyword(k,w) }
+UP=k:"up"i w:WS { return createNodeKeyword(k,w) }
+UPDATE=k:"update"i w:WS { return createNodeKeyword(k,w) }
+UPSHIFT=k:"upshift"i w:WS { return createNodeKeyword(k,w) }
+USING=k:"using"i w:WS { return createNodeKeyword(k,w) }
+VALIDATE=k:"validate"i w:WS { return createNodeKeyword(k,w) }
+VALUES=k:"values"i w:WS { return createNodeKeyword(k,w) }
+VARCHAR=k:"varchar"i w:WS { return createNodeKeyword(k,w) }
+WAIT=k:"wait"i w:WS { return createNodeKeyword(k,w) }
+WAITING=k:"waiting"i w:WS { return createNodeKeyword(k,w) }
+WARNING=k:"warning"i w:WS { return createNodeKeyword(k,w) }
+WEEKDAY=k:"weekday"i w:WS { return createNodeKeyword(k,w) }
+WHEN=k:"when"i w:WS { return createNodeKeyword(k,w) }
+WHENEVER=k:"whenever"i w:WS { return createNodeKeyword(k,w) }
+WHERE=k:"where"i w:WS { return createNodeKeyword(k,w) }
+WHILE=k:"while"i w:WS { return createNodeKeyword(k,w) }
+WHITE=k:"white"i w:WS { return createNodeKeyword(k,w) }
+WINDOW=k:"window"i w:WS { return createNodeKeyword(k,w) }
+WITH=k:"with"i w:WS { return createNodeKeyword(k,w) }
+WITHOUT=k:"without"i w:WS { return createNodeKeyword(k,w) }
+WORDWRAP=k:"wordwrap"i w:WS { return createNodeKeyword(k,w) }
+WORK=k:"work"i w:WS { return createNodeKeyword(k,w) }
+WRAP=k:"wrap"i w:WS { return createNodeKeyword(k,w) }
+YEAR=k:"year"i w:WS { return createNodeKeyword(k,w) }
+YELLOW=k:"yellow"i w:WS { return createNodeKeyword(k,w) }

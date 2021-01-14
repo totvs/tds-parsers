@@ -24,28 +24,28 @@ end function
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 [
   [
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 0,
-        "end": 5
+    [
+      {
+        "kind": "beginBlock",
+        "offset": {
+          "start": 0,
+          "end": 5
+        },
+        "line": 1,
+        "column": 1,
+        "value": "main"
       },
-      "line": 1,
-      "column": 1,
-      "value": "main",
-      "whitespace": [
-        {
-          "kind": "whitespace",
-          "offset": {
-            "start": 4,
-            "end": 5
-          },
-          "line": 1,
-          "column": 5,
-          "value": "\\n"
-        }
-      ]
-    },
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 4,
+          "end": 5
+        },
+        "line": 1,
+        "column": 5,
+        "value": "\\n"
+      }
+    ],
     {
       "kind": "whitespace",
       "offset": {
@@ -56,16 +56,18 @@ end function
       "column": 1,
       "value": "    "
     },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 9,
-        "end": 16
+    [
+      {
+        "kind": "keyword",
+        "offset": {
+          "start": 9,
+          "end": 16
+        },
+        "line": 2,
+        "column": 5,
+        "value": "define"
       },
-      "line": 2,
-      "column": 5,
-      "value": "define",
-      "whitespace": {
+      {
         "kind": "whitespace",
         "offset": {
           "start": 15,
@@ -75,6 +77,16 @@ end function
         "column": 11,
         "value": " "
       }
+    ],
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 16,
+        "end": 21
+      },
+      "line": 2,
+      "column": 12,
+      "value": "lista"
     },
     {
       "kind": "whitespace",
@@ -94,11 +106,10 @@ end function
       },
       "line": 2,
       "column": 18,
-      "value": "array",
-      "whitespace": null
+      "value": "array"
     },
     {
-      "kind": "operator",
+      "kind": "openOperator",
       "offset": {
         "start": 27,
         "end": 28
@@ -118,7 +129,7 @@ end function
       "value": 5
     },
     {
-      "kind": "operator",
+      "kind": "closeOperator",
       "offset": {
         "start": 29,
         "end": 31
@@ -126,6 +137,16 @@ end function
       "line": 2,
       "column": 25,
       "value": "] "
+    },
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 31,
+        "end": 33
+      },
+      "line": 2,
+      "column": 27,
+      "value": "of"
     },
     {
       "kind": "whitespace",
@@ -145,31 +166,40 @@ end function
       },
       "line": 2,
       "column": 30,
-      "value": "in",
-      "whitespace": null
+      "value": "in"
+    },
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 36,
+        "end": 41
+      },
+      "line": 2,
+      "column": 32,
+      "value": "teger"
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 41,
+        "end": 42
+      },
+      "line": 2,
+      "column": 37,
+      "value": "\\n"
     },
     [
       {
-        "kind": "whitespace",
+        "kind": "endBlock",
         "offset": {
-          "start": 41,
-          "end": 42
+          "start": 42,
+          "end": 46
         },
-        "line": 2,
-        "column": 37,
-        "value": "\\n"
-      }
-    ],
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 42,
-        "end": 46
+        "line": 3,
+        "column": 1,
+        "value": "end"
       },
-      "line": 3,
-      "column": 1,
-      "value": "end",
-      "whitespace": {
+      {
         "kind": "whitespace",
         "offset": {
           "start": 45,
@@ -179,59 +209,41 @@ end function
         "column": 4,
         "value": " "
       }
-    },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 46,
-        "end": 53
-      },
-      "line": 3,
-      "column": 5,
-      "value": "main",
-      "whitespace": [
-        {
-          "kind": "whitespace",
-          "offset": {
-            "start": 50,
-            "end": 51
-          },
-          "line": 3,
-          "column": 9,
-          "value": "\\n"
+    ],
+    [
+      {
+        "kind": "beginBlock",
+        "offset": {
+          "start": 46,
+          "end": 53
         },
-        {
-          "kind": "whitespace",
-          "offset": {
-            "start": 51,
-            "end": 52
-          },
-          "line": 4,
-          "column": 1,
-          "value": "\\n"
-        },
-        {
-          "kind": "whitespace",
-          "offset": {
-            "start": 52,
-            "end": 53
-          },
-          "line": 5,
-          "column": 1,
-          "value": "\\n"
-        }
-      ]
-    },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 53,
-        "end": 62
+        "line": 3,
+        "column": 5,
+        "value": "main"
       },
-      "line": 6,
-      "column": 1,
-      "value": "function",
-      "whitespace": {
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 50,
+          "end": 53
+        },
+        "line": 3,
+        "column": 9,
+        "value": "\\n\\n\\n"
+      }
+    ],
+    [
+      {
+        "kind": "beginBlock",
+        "offset": {
+          "start": 53,
+          "end": 62
+        },
+        "line": 6,
+        "column": 1,
+        "value": "function"
+      },
+      {
         "kind": "whitespace",
         "offset": {
           "start": 61,
@@ -241,19 +253,37 @@ end function
         "column": 9,
         "value": " "
       }
-    },
-    [
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 66,
-          "end": 67
-        },
-        "line": 6,
-        "column": 14,
-        "value": "\\n"
-      }
     ],
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 62,
+        "end": 64
+      },
+      "line": 6,
+      "column": 10,
+      "value": "f1"
+    },
+    {
+      "kind": "openOperator",
+      "offset": {
+        "start": 64,
+        "end": 65
+      },
+      "line": 6,
+      "column": 12,
+      "value": "("
+    },
+    {
+      "kind": "closeOperator",
+      "offset": {
+        "start": 65,
+        "end": 67
+      },
+      "line": 6,
+      "column": 13,
+      "value": ")\\n"
+    },
     {
       "kind": "whitespace",
       "offset": {
@@ -264,16 +294,18 @@ end function
       "column": 1,
       "value": "\\t"
     },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 68,
-        "end": 75
+    [
+      {
+        "kind": "keyword",
+        "offset": {
+          "start": 68,
+          "end": 75
+        },
+        "line": 7,
+        "column": 2,
+        "value": "define"
       },
-      "line": 7,
-      "column": 2,
-      "value": "define",
-      "whitespace": {
+      {
         "kind": "whitespace",
         "offset": {
           "start": 74,
@@ -283,6 +315,16 @@ end function
         "column": 8,
         "value": " "
       }
+    ],
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 75,
+        "end": 79
+      },
+      "line": 7,
+      "column": 9,
+      "value": "var1"
     },
     {
       "kind": "whitespace",
@@ -302,11 +344,10 @@ end function
       },
       "line": 7,
       "column": 14,
-      "value": "array",
-      "whitespace": null
+      "value": "array"
     },
     {
-      "kind": "operator",
+      "kind": "openOperator",
       "offset": {
         "start": 85,
         "end": 86
@@ -326,7 +367,7 @@ end function
       "value": 1
     },
     {
-      "kind": "operator",
+      "kind": "closeOperator",
       "offset": {
         "start": 87,
         "end": 89
@@ -334,6 +375,16 @@ end function
       "line": 7,
       "column": 21,
       "value": "] "
+    },
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 89,
+        "end": 91
+      },
+      "line": 7,
+      "column": 23,
+      "value": "of"
     },
     {
       "kind": "whitespace",
@@ -353,21 +404,28 @@ end function
       },
       "line": 7,
       "column": 26,
-      "value": "in",
-      "whitespace": null
+      "value": "in"
     },
-    [
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 99,
-          "end": 100
-        },
-        "line": 7,
-        "column": 33,
-        "value": "\\n"
-      }
-    ],
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 94,
+        "end": 99
+      },
+      "line": 7,
+      "column": 28,
+      "value": "teger"
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 99,
+        "end": 100
+      },
+      "line": 7,
+      "column": 33,
+      "value": "\\n"
+    },
     {
       "kind": "whitespace",
       "offset": {
@@ -378,16 +436,18 @@ end function
       "column": 1,
       "value": "\\t"
     },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 101,
-        "end": 108
+    [
+      {
+        "kind": "keyword",
+        "offset": {
+          "start": 101,
+          "end": 108
+        },
+        "line": 8,
+        "column": 2,
+        "value": "define"
       },
-      "line": 8,
-      "column": 2,
-      "value": "define",
-      "whitespace": {
+      {
         "kind": "whitespace",
         "offset": {
           "start": 107,
@@ -397,6 +457,16 @@ end function
         "column": 8,
         "value": " "
       }
+    ],
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 108,
+        "end": 112
+      },
+      "line": 8,
+      "column": 9,
+      "value": "var1"
     },
     {
       "kind": "whitespace",
@@ -416,11 +486,10 @@ end function
       },
       "line": 8,
       "column": 14,
-      "value": "array",
-      "whitespace": null
+      "value": "array"
     },
     {
-      "kind": "operator",
+      "kind": "openOperator",
       "offset": {
         "start": 118,
         "end": 119
@@ -460,7 +529,7 @@ end function
       "value": 2
     },
     {
-      "kind": "operator",
+      "kind": "closeOperator",
       "offset": {
         "start": 122,
         "end": 124
@@ -468,6 +537,16 @@ end function
       "line": 8,
       "column": 23,
       "value": "] "
+    },
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 124,
+        "end": 126
+      },
+      "line": 8,
+      "column": 25,
+      "value": "of"
     },
     {
       "kind": "whitespace",
@@ -479,38 +558,58 @@ end function
       "column": 27,
       "value": " "
     },
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 127,
+        "end": 131
+      },
+      "line": 8,
+      "column": 28,
+      "value": "char"
+    },
+    {
+      "kind": "openOperator",
+      "offset": {
+        "start": 131,
+        "end": 132
+      },
+      "line": 8,
+      "column": 32,
+      "value": "("
+    },
+    {
+      "kind": "number",
+      "offset": {
+        "start": 132,
+        "end": 134
+      },
+      "line": 8,
+      "column": 33,
+      "value": 30
+    },
+    {
+      "kind": "closeOperator",
+      "offset": {
+        "start": 134,
+        "end": 137
+      },
+      "line": 8,
+      "column": 35,
+      "value": ")\\n\\n"
+    },
     [
       {
-        "kind": "whitespace",
+        "kind": "endBlock",
         "offset": {
-          "start": 135,
-          "end": 136
+          "start": 137,
+          "end": 141
         },
-        "line": 8,
-        "column": 36,
-        "value": "\\n"
+        "line": 10,
+        "column": 1,
+        "value": "end"
       },
       {
-        "kind": "whitespace",
-        "offset": {
-          "start": 136,
-          "end": 137
-        },
-        "line": 9,
-        "column": 1,
-        "value": "\\n"
-      }
-    ],
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 137,
-        "end": 141
-      },
-      "line": 10,
-      "column": 1,
-      "value": "end",
-      "whitespace": {
         "kind": "whitespace",
         "offset": {
           "start": 140,
@@ -520,49 +619,41 @@ end function
         "column": 4,
         "value": " "
       }
-    },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 141,
-        "end": 151
-      },
-      "line": 10,
-      "column": 5,
-      "value": "function",
-      "whitespace": [
-        {
-          "kind": "whitespace",
-          "offset": {
-            "start": 149,
-            "end": 150
-          },
-          "line": 10,
-          "column": 13,
-          "value": "\\n"
+    ],
+    [
+      {
+        "kind": "beginBlock",
+        "offset": {
+          "start": 141,
+          "end": 151
         },
-        {
-          "kind": "whitespace",
-          "offset": {
-            "start": 150,
-            "end": 151
-          },
-          "line": 11,
-          "column": 1,
-          "value": "\\n"
-        }
-      ]
-    },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 151,
-        "end": 160
+        "line": 10,
+        "column": 5,
+        "value": "function"
       },
-      "line": 12,
-      "column": 1,
-      "value": "function",
-      "whitespace": {
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 149,
+          "end": 151
+        },
+        "line": 10,
+        "column": 13,
+        "value": "\\n\\n"
+      }
+    ],
+    [
+      {
+        "kind": "beginBlock",
+        "offset": {
+          "start": 151,
+          "end": 160
+        },
+        "line": 12,
+        "column": 1,
+        "value": "function"
+      },
+      {
         "kind": "whitespace",
         "offset": {
           "start": 159,
@@ -572,29 +663,37 @@ end function
         "column": 9,
         "value": " "
       }
-    },
-    [
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 164,
-          "end": 165
-        },
-        "line": 12,
-        "column": 14,
-        "value": "\\n"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 165,
-          "end": 166
-        },
-        "line": 13,
-        "column": 1,
-        "value": "\\n"
-      }
     ],
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 160,
+        "end": 162
+      },
+      "line": 12,
+      "column": 10,
+      "value": "f2"
+    },
+    {
+      "kind": "openOperator",
+      "offset": {
+        "start": 162,
+        "end": 163
+      },
+      "line": 12,
+      "column": 12,
+      "value": "("
+    },
+    {
+      "kind": "closeOperator",
+      "offset": {
+        "start": 163,
+        "end": 166
+      },
+      "line": 12,
+      "column": 13,
+      "value": ")\\n\\n"
+    },
     {
       "kind": "whitespace",
       "offset": {
@@ -605,16 +704,18 @@ end function
       "column": 1,
       "value": "\\t"
     },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 167,
-        "end": 171
+    [
+      {
+        "kind": "keyword",
+        "offset": {
+          "start": 167,
+          "end": 171
+        },
+        "line": 14,
+        "column": 2,
+        "value": "let"
       },
-      "line": 14,
-      "column": 2,
-      "value": "let",
-      "whitespace": {
+      {
         "kind": "whitespace",
         "offset": {
           "start": 170,
@@ -624,6 +725,57 @@ end function
         "column": 5,
         "value": " "
       }
+    ],
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 171,
+        "end": 179
+      },
+      "line": 14,
+      "column": 6,
+      "value": "ma_array"
+    },
+    {
+      "kind": "openOperator",
+      "offset": {
+        "start": 179,
+        "end": 180
+      },
+      "line": 14,
+      "column": 14,
+      "value": "["
+    },
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 180,
+        "end": 185
+      },
+      "line": 14,
+      "column": 15,
+      "value": "l_ind"
+    },
+    {
+      "kind": "closeOperator",
+      "offset": {
+        "start": 185,
+        "end": 186
+      },
+      "line": 14,
+      "column": 20,
+      "value": "]"
+    },
+    ".",
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 187,
+        "end": 195
+      },
+      "line": 14,
+      "column": 22,
+      "value": "f2_check"
     },
     {
       "kind": "whitespace",
@@ -636,37 +788,37 @@ end function
       "value": "      "
     },
     {
-      "kind": "whitespace",
+      "kind": "operator",
       "offset": {
-        "start": 202,
+        "start": 201,
         "end": 203
       },
       "line": 14,
-      "column": 37,
-      "value": " "
+      "column": 36,
+      "value": "= "
     },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 203,
-        "end": 208
+    [
+      {
+        "kind": "keyword",
+        "offset": {
+          "start": 203,
+          "end": 208
+        },
+        "line": 14,
+        "column": 38,
+        "value": "null"
       },
-      "line": 14,
-      "column": 38,
-      "value": "null",
-      "whitespace": [
-        {
-          "kind": "whitespace",
-          "offset": {
-            "start": 207,
-            "end": 208
-          },
-          "line": 14,
-          "column": 42,
-          "value": "\\n"
-        }
-      ]
-    },
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 207,
+          "end": 208
+        },
+        "line": 14,
+        "column": 42,
+        "value": "\\n"
+      }
+    ],
     {
       "kind": "whitespace",
       "offset": {
@@ -677,16 +829,18 @@ end function
       "column": 1,
       "value": "\\t"
     },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 209,
-        "end": 213
+    [
+      {
+        "kind": "keyword",
+        "offset": {
+          "start": 209,
+          "end": 213
+        },
+        "line": 15,
+        "column": 2,
+        "value": "let"
       },
-      "line": 15,
-      "column": 2,
-      "value": "let",
-      "whitespace": {
+      {
         "kind": "whitespace",
         "offset": {
           "start": 212,
@@ -696,6 +850,57 @@ end function
         "column": 5,
         "value": " "
       }
+    ],
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 213,
+        "end": 221
+      },
+      "line": 15,
+      "column": 6,
+      "value": "ma_array"
+    },
+    {
+      "kind": "openOperator",
+      "offset": {
+        "start": 221,
+        "end": 222
+      },
+      "line": 15,
+      "column": 14,
+      "value": "["
+    },
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 222,
+        "end": 227
+      },
+      "line": 15,
+      "column": 15,
+      "value": "l_ind"
+    },
+    {
+      "kind": "closeOperator",
+      "offset": {
+        "start": 227,
+        "end": 228
+      },
+      "line": 15,
+      "column": 20,
+      "value": "]"
+    },
+    ".",
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 229,
+        "end": 239
+      },
+      "line": 15,
+      "column": 22,
+      "value": "f2_integer"
     },
     {
       "kind": "whitespace",
@@ -708,37 +913,37 @@ end function
       "value": "    "
     },
     {
-      "kind": "whitespace",
+      "kind": "operator",
       "offset": {
-        "start": 244,
+        "start": 243,
         "end": 245
       },
       "line": 15,
-      "column": 37,
-      "value": " "
+      "column": 36,
+      "value": "= "
     },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 245,
-        "end": 250
+    [
+      {
+        "kind": "keyword",
+        "offset": {
+          "start": 245,
+          "end": 250
+        },
+        "line": 15,
+        "column": 38,
+        "value": "null"
       },
-      "line": 15,
-      "column": 38,
-      "value": "null",
-      "whitespace": [
-        {
-          "kind": "whitespace",
-          "offset": {
-            "start": 249,
-            "end": 250
-          },
-          "line": 15,
-          "column": 42,
-          "value": "\\n"
-        }
-      ]
-    },
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 249,
+          "end": 250
+        },
+        "line": 15,
+        "column": 42,
+        "value": "\\n"
+      }
+    ],
     {
       "kind": "whitespace",
       "offset": {
@@ -749,16 +954,18 @@ end function
       "column": 1,
       "value": "\\t"
     },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 251,
-        "end": 255
+    [
+      {
+        "kind": "keyword",
+        "offset": {
+          "start": 251,
+          "end": 255
+        },
+        "line": 16,
+        "column": 2,
+        "value": "let"
       },
-      "line": 16,
-      "column": 2,
-      "value": "let",
-      "whitespace": {
+      {
         "kind": "whitespace",
         "offset": {
           "start": 254,
@@ -768,6 +975,57 @@ end function
         "column": 5,
         "value": " "
       }
+    ],
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 255,
+        "end": 263
+      },
+      "line": 16,
+      "column": 6,
+      "value": "ma_array"
+    },
+    {
+      "kind": "openOperator",
+      "offset": {
+        "start": 263,
+        "end": 264
+      },
+      "line": 16,
+      "column": 14,
+      "value": "["
+    },
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 264,
+        "end": 269
+      },
+      "line": 16,
+      "column": 15,
+      "value": "l_ind"
+    },
+    {
+      "kind": "closeOperator",
+      "offset": {
+        "start": 269,
+        "end": 270
+      },
+      "line": 16,
+      "column": 20,
+      "value": "]"
+    },
+    ".",
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 271,
+        "end": 278
+      },
+      "line": 16,
+      "column": 22,
+      "value": "f2_date"
     },
     {
       "kind": "whitespace",
@@ -780,14 +1038,14 @@ end function
       "value": "       "
     },
     {
-      "kind": "whitespace",
+      "kind": "operator",
       "offset": {
-        "start": 286,
+        "start": 285,
         "end": 287
       },
       "line": 16,
-      "column": 37,
-      "value": " "
+      "column": 36,
+      "value": "= "
     },
     {
       "kind": "keyword",
@@ -797,19 +1055,20 @@ end function
       },
       "line": 16,
       "column": 38,
-      "value": "to",
-      "whitespace": null
+      "value": "to"
     },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 289,
-        "end": 293
+    [
+      {
+        "kind": "keyword",
+        "offset": {
+          "start": 289,
+          "end": 293
+        },
+        "line": 16,
+        "column": 40,
+        "value": "day"
       },
-      "line": 16,
-      "column": 40,
-      "value": "day",
-      "whitespace": {
+      {
         "kind": "whitespace",
         "offset": {
           "start": 292,
@@ -819,16 +1078,26 @@ end function
         "column": 43,
         "value": " "
       }
-    },
+    ],
     {
-      "kind": "whitespace",
+      "kind": "operator",
       "offset": {
-        "start": 294,
+        "start": 293,
         "end": 295
       },
       "line": 16,
-      "column": 45,
-      "value": " "
+      "column": 44,
+      "value": "+ "
+    },
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 295,
+        "end": 300
+      },
+      "line": 16,
+      "column": 46,
+      "value": "l_ind"
     },
     {
       "kind": "whitespace",
@@ -840,16 +1109,18 @@ end function
       "column": 51,
       "value": " "
     },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 301,
-        "end": 307
+    [
+      {
+        "kind": "keyword",
+        "offset": {
+          "start": 301,
+          "end": 307
+        },
+        "line": 16,
+        "column": 52,
+        "value": "units"
       },
-      "line": 16,
-      "column": 52,
-      "value": "units",
-      "whitespace": {
+      {
         "kind": "whitespace",
         "offset": {
           "start": 306,
@@ -859,29 +1130,29 @@ end function
         "column": 57,
         "value": " "
       }
-    },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 307,
-        "end": 311
+    ],
+    [
+      {
+        "kind": "keyword",
+        "offset": {
+          "start": 307,
+          "end": 311
+        },
+        "line": 16,
+        "column": 58,
+        "value": "day"
       },
-      "line": 16,
-      "column": 58,
-      "value": "day",
-      "whitespace": [
-        {
-          "kind": "whitespace",
-          "offset": {
-            "start": 310,
-            "end": 311
-          },
-          "line": 16,
-          "column": 61,
-          "value": "\\n"
-        }
-      ]
-    },
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 310,
+          "end": 311
+        },
+        "line": 16,
+        "column": 61,
+        "value": "\\n"
+      }
+    ],
     {
       "kind": "whitespace",
       "offset": {
@@ -892,16 +1163,18 @@ end function
       "column": 1,
       "value": "\\t"
     },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 312,
-        "end": 316
+    [
+      {
+        "kind": "keyword",
+        "offset": {
+          "start": 312,
+          "end": 316
+        },
+        "line": 17,
+        "column": 2,
+        "value": "let"
       },
-      "line": 17,
-      "column": 2,
-      "value": "let",
-      "whitespace": {
+      {
         "kind": "whitespace",
         "offset": {
           "start": 315,
@@ -911,6 +1184,57 @@ end function
         "column": 5,
         "value": " "
       }
+    ],
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 316,
+        "end": 324
+      },
+      "line": 17,
+      "column": 6,
+      "value": "ma_array"
+    },
+    {
+      "kind": "openOperator",
+      "offset": {
+        "start": 324,
+        "end": 325
+      },
+      "line": 17,
+      "column": 14,
+      "value": "["
+    },
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 325,
+        "end": 330
+      },
+      "line": 17,
+      "column": 15,
+      "value": "l_ind"
+    },
+    {
+      "kind": "closeOperator",
+      "offset": {
+        "start": 330,
+        "end": 331
+      },
+      "line": 17,
+      "column": 20,
+      "value": "]"
+    },
+    ".",
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 332,
+        "end": 339
+      },
+      "line": 17,
+      "column": 22,
+      "value": "f2_char"
     },
     {
       "kind": "whitespace",
@@ -923,14 +1247,14 @@ end function
       "value": "       "
     },
     {
-      "kind": "whitespace",
+      "kind": "operator",
       "offset": {
-        "start": 347,
+        "start": 346,
         "end": 348
       },
       "line": 17,
-      "column": 37,
-      "value": " "
+      "column": 36,
+      "value": "= "
     },
     {
       "kind": "string",
@@ -942,18 +1266,16 @@ end function
       "column": 38,
       "value": "\\"texto\\""
     },
-    [
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 362,
-          "end": 363
-        },
-        "line": 17,
-        "column": 52,
-        "value": "\\n"
-      }
-    ],
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 362,
+        "end": 363
+      },
+      "line": 17,
+      "column": 52,
+      "value": "\\n"
+    },
     {
       "kind": "whitespace",
       "offset": {
@@ -964,16 +1286,18 @@ end function
       "column": 1,
       "value": "\\t"
     },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 364,
-        "end": 368
+    [
+      {
+        "kind": "keyword",
+        "offset": {
+          "start": 364,
+          "end": 368
+        },
+        "line": 18,
+        "column": 2,
+        "value": "let"
       },
-      "line": 18,
-      "column": 2,
-      "value": "let",
-      "whitespace": {
+      {
         "kind": "whitespace",
         "offset": {
           "start": 367,
@@ -983,6 +1307,57 @@ end function
         "column": 5,
         "value": " "
       }
+    ],
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 368,
+        "end": 376
+      },
+      "line": 18,
+      "column": 6,
+      "value": "ma_array"
+    },
+    {
+      "kind": "openOperator",
+      "offset": {
+        "start": 376,
+        "end": 377
+      },
+      "line": 18,
+      "column": 14,
+      "value": "["
+    },
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 377,
+        "end": 382
+      },
+      "line": 18,
+      "column": 15,
+      "value": "l_ind"
+    },
+    {
+      "kind": "closeOperator",
+      "offset": {
+        "start": 382,
+        "end": 383
+      },
+      "line": 18,
+      "column": 20,
+      "value": "]"
+    },
+    ".",
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 384,
+        "end": 391
+      },
+      "line": 18,
+      "column": 22,
+      "value": "f2_date"
     },
     {
       "kind": "whitespace",
@@ -995,14 +1370,14 @@ end function
       "value": "       "
     },
     {
-      "kind": "whitespace",
+      "kind": "operator",
       "offset": {
-        "start": 399,
+        "start": 398,
         "end": 400
       },
       "line": 18,
-      "column": 37,
-      "value": " "
+      "column": 36,
+      "value": "= "
     },
     {
       "kind": "keyword",
@@ -1012,19 +1387,20 @@ end function
       },
       "line": 18,
       "column": 38,
-      "value": "to",
-      "whitespace": null
+      "value": "to"
     },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 402,
-        "end": 406
+    [
+      {
+        "kind": "keyword",
+        "offset": {
+          "start": 402,
+          "end": 406
+        },
+        "line": 18,
+        "column": 40,
+        "value": "day"
       },
-      "line": 18,
-      "column": 40,
-      "value": "day",
-      "whitespace": {
+      {
         "kind": "whitespace",
         "offset": {
           "start": 405,
@@ -1034,16 +1410,16 @@ end function
         "column": 43,
         "value": " "
       }
-    },
+    ],
     {
-      "kind": "whitespace",
+      "kind": "operator",
       "offset": {
-        "start": 407,
+        "start": 406,
         "end": 408
       },
       "line": 18,
-      "column": 45,
-      "value": " "
+      "column": 44,
+      "value": "+ "
     },
     {
       "kind": "number",
@@ -1065,16 +1441,18 @@ end function
       "column": 47,
       "value": " "
     },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 410,
-        "end": 416
+    [
+      {
+        "kind": "keyword",
+        "offset": {
+          "start": 410,
+          "end": 416
+        },
+        "line": 18,
+        "column": 48,
+        "value": "units"
       },
-      "line": 18,
-      "column": 48,
-      "value": "units",
-      "whitespace": {
+      {
         "kind": "whitespace",
         "offset": {
           "start": 415,
@@ -1084,49 +1462,41 @@ end function
         "column": 53,
         "value": " "
       }
-    },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 416,
-        "end": 421
-      },
-      "line": 18,
-      "column": 54,
-      "value": "day",
-      "whitespace": [
-        {
-          "kind": "whitespace",
-          "offset": {
-            "start": 419,
-            "end": 420
-          },
-          "line": 18,
-          "column": 57,
-          "value": "\\n"
+    ],
+    [
+      {
+        "kind": "keyword",
+        "offset": {
+          "start": 416,
+          "end": 421
         },
-        {
-          "kind": "whitespace",
-          "offset": {
-            "start": 420,
-            "end": 421
-          },
-          "line": 19,
-          "column": 1,
-          "value": "\\n"
-        }
-      ]
-    },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 421,
-        "end": 425
+        "line": 18,
+        "column": 54,
+        "value": "day"
       },
-      "line": 20,
-      "column": 1,
-      "value": "end",
-      "whitespace": {
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 419,
+          "end": 421
+        },
+        "line": 18,
+        "column": 57,
+        "value": "\\n\\n"
+      }
+    ],
+    [
+      {
+        "kind": "endBlock",
+        "offset": {
+          "start": 421,
+          "end": 425
+        },
+        "line": 20,
+        "column": 1,
+        "value": "end"
+      },
+      {
         "kind": "whitespace",
         "offset": {
           "start": 424,
@@ -1136,29 +1506,29 @@ end function
         "column": 4,
         "value": " "
       }
-    },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 425,
-        "end": 434
+    ],
+    [
+      {
+        "kind": "beginBlock",
+        "offset": {
+          "start": 425,
+          "end": 434
+        },
+        "line": 20,
+        "column": 5,
+        "value": "function"
       },
-      "line": 20,
-      "column": 5,
-      "value": "function",
-      "whitespace": [
-        {
-          "kind": "whitespace",
-          "offset": {
-            "start": 433,
-            "end": 434
-          },
-          "line": 20,
-          "column": 13,
-          "value": "\\n"
-        }
-      ]
-    }
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 433,
+          "end": 434
+        },
+        "line": 20,
+        "column": 13,
+        "value": "\\n"
+      }
+    ]
   ]
 ]
 `;
@@ -1171,28 +1541,28 @@ end main
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 [
   [
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 0,
-        "end": 5
+    [
+      {
+        "kind": "beginBlock",
+        "offset": {
+          "start": 0,
+          "end": 5
+        },
+        "line": 1,
+        "column": 1,
+        "value": "main"
       },
-      "line": 1,
-      "column": 1,
-      "value": "main",
-      "whitespace": [
-        {
-          "kind": "whitespace",
-          "offset": {
-            "start": 4,
-            "end": 5
-          },
-          "line": 1,
-          "column": 5,
-          "value": "\\n"
-        }
-      ]
-    },
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 4,
+          "end": 5
+        },
+        "line": 1,
+        "column": 5,
+        "value": "\\n"
+      }
+    ],
     {
       "kind": "whitespace",
       "offset": {
@@ -1203,16 +1573,18 @@ end main
       "column": 1,
       "value": "    "
     },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 9,
-        "end": 16
+    [
+      {
+        "kind": "keyword",
+        "offset": {
+          "start": 9,
+          "end": 16
+        },
+        "line": 2,
+        "column": 5,
+        "value": "define"
       },
-      "line": 2,
-      "column": 5,
-      "value": "define",
-      "whitespace": {
+      {
         "kind": "whitespace",
         "offset": {
           "start": 15,
@@ -1222,6 +1594,16 @@ end main
         "column": 11,
         "value": " "
       }
+    ],
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 16,
+        "end": 21
+      },
+      "line": 2,
+      "column": 12,
+      "value": "lista"
     },
     {
       "kind": "whitespace",
@@ -1241,11 +1623,10 @@ end main
       },
       "line": 2,
       "column": 18,
-      "value": "array",
-      "whitespace": null
+      "value": "array"
     },
     {
-      "kind": "operator",
+      "kind": "openOperator",
       "offset": {
         "start": 27,
         "end": 28
@@ -1265,7 +1646,7 @@ end main
       "value": 5
     },
     {
-      "kind": "operator",
+      "kind": "closeOperator",
       "offset": {
         "start": 29,
         "end": 31
@@ -1273,6 +1654,16 @@ end main
       "line": 2,
       "column": 25,
       "value": "] "
+    },
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 31,
+        "end": 33
+      },
+      "line": 2,
+      "column": 27,
+      "value": "of"
     },
     {
       "kind": "whitespace",
@@ -1292,21 +1683,28 @@ end main
       },
       "line": 2,
       "column": 30,
-      "value": "in",
-      "whitespace": null
+      "value": "in"
     },
-    [
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 41,
-          "end": 42
-        },
-        "line": 2,
-        "column": 37,
-        "value": "\\n"
-      }
-    ],
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 36,
+        "end": 41
+      },
+      "line": 2,
+      "column": 32,
+      "value": "teger"
+    },
+    {
+      "kind": "whitespace",
+      "offset": {
+        "start": 41,
+        "end": 42
+      },
+      "line": 2,
+      "column": 37,
+      "value": "\\n"
+    },
     {
       "kind": "whitespace",
       "offset": {
@@ -1317,16 +1715,18 @@ end main
       "column": 1,
       "value": "\\t"
     },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 43,
-        "end": 48
+    [
+      {
+        "kind": "keyword",
+        "offset": {
+          "start": 43,
+          "end": 48
+        },
+        "line": 3,
+        "column": 2,
+        "value": "call"
       },
-      "line": 3,
-      "column": 2,
-      "value": "call",
-      "whitespace": {
+      {
         "kind": "whitespace",
         "offset": {
           "start": 47,
@@ -1336,7 +1736,7 @@ end main
         "column": 6,
         "value": " "
       }
-    },
+    ],
     {
       "kind": "keyword",
       "offset": {
@@ -1345,31 +1745,80 @@ end main
       },
       "line": 3,
       "column": 7,
-      "value": "array",
-      "whitespace": null
+      "value": "array"
+    },
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 53,
+        "end": 60
+      },
+      "line": 3,
+      "column": 12,
+      "value": "additem"
+    },
+    {
+      "kind": "openOperator",
+      "offset": {
+        "start": 60,
+        "end": 61
+      },
+      "line": 3,
+      "column": 19,
+      "value": "("
+    },
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 61,
+        "end": 68
+      },
+      "line": 3,
+      "column": 20,
+      "value": "p_array"
+    },
+    {
+      "kind": "operator",
+      "offset": {
+        "start": 68,
+        "end": 69
+      },
+      "line": 3,
+      "column": 27,
+      "value": ","
+    },
+    {
+      "kind": "identifier",
+      "offset": {
+        "start": 69,
+        "end": 79
+      },
+      "line": 3,
+      "column": 28,
+      "value": "l_linesadd"
+    },
+    {
+      "kind": "closeOperator",
+      "offset": {
+        "start": 79,
+        "end": 81
+      },
+      "line": 3,
+      "column": 38,
+      "value": ")\\n"
     },
     [
       {
-        "kind": "whitespace",
+        "kind": "endBlock",
         "offset": {
-          "start": 80,
-          "end": 81
+          "start": 81,
+          "end": 85
         },
-        "line": 3,
-        "column": 39,
-        "value": "\\n"
-      }
-    ],
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 81,
-        "end": 85
+        "line": 4,
+        "column": 1,
+        "value": "end"
       },
-      "line": 4,
-      "column": 1,
-      "value": "end",
-      "whitespace": {
+      {
         "kind": "whitespace",
         "offset": {
           "start": 84,
@@ -1379,29 +1828,29 @@ end main
         "column": 4,
         "value": " "
       }
-    },
-    {
-      "kind": "keyword",
-      "offset": {
-        "start": 85,
-        "end": 90
+    ],
+    [
+      {
+        "kind": "beginBlock",
+        "offset": {
+          "start": 85,
+          "end": 90
+        },
+        "line": 4,
+        "column": 5,
+        "value": "main"
       },
-      "line": 4,
-      "column": 5,
-      "value": "main",
-      "whitespace": [
-        {
-          "kind": "whitespace",
-          "offset": {
-            "start": 89,
-            "end": 90
-          },
-          "line": 4,
-          "column": 9,
-          "value": "\\n"
-        }
-      ]
-    }
+      {
+        "kind": "whitespace",
+        "offset": {
+          "start": 89,
+          "end": 90
+        },
+        "line": 4,
+        "column": 9,
+        "value": "\\n"
+      }
+    ]
   ]
 ]
 `;

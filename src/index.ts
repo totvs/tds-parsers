@@ -37,9 +37,9 @@ export function parser(content: string, options: IParserOptions): any[] {
   });
 
   if (!parserList || parserList.length == 0) {
-    throw new Error(ERRORS.E002);
+    throw new Error(`${ERRORS.E002} [${options.parser}]`);
   } else if (parserList.length > 1) {
-    throw new Error(ERRORS.E003);
+    throw new Error(`${ERRORS.E003} [${options.parser}]`);
   }
 
   const result = [];
