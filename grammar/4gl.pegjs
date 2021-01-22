@@ -3,44 +3,11 @@
 // e na pasta "docs" encontra-se uma cópia
 
 {
-const TokenKind = {
-  program: "program",
-  main: "main",
-  beginBlock: "beginBlock",
-  endBlock: "endBlock",
-  statment: "statment",
-  keyword: "keyword",
-  whitespace: "whitespace",
-  comment: "comment",
-  string: "string",
-  number: "number",
-  constant: "constant",
-  identifier: "identifier",
-  builtInVar: "builtInVar",
-  globals: "globals",
-  operator: "operator",
-  openOperator: "openOperator",
-  closeOperator: "closeOperator",
 
-// block: "block",
-// bracket: "bracket",
-// close_operator: "close_operator",
-// statment: "statment",
-// double_operator: "double_operator",
-// expression: "expression",
-// function: "function",
-// identifier: "identifier",
-// list: "list",
-// modular: "modular",
-// number: "number",
-// unknown: "unknown",
-// variable: "variable",
-// notSpecified: "notSpecified"
-}
+let endBlockToken: boolean = false;
+let ast:any[] = [];
 
-var ast = [];
-
-function addNode(node) {
+function addNode(node: IAstNode): any {
   if (node) {
     ast.push(node);
   }
@@ -48,8 +15,7 @@ function addNode(node) {
   return ast;
 }
 
-function createNode(kind, value, ws) {
-  //if (value) {
+function createNode(kind: TokenKind, value:string, ws?:string): IAstNode {
     const _location = location();
     const offset = {
       start: _location.start.offset,
@@ -64,81 +30,86 @@ function createNode(kind, value, ws) {
       value: value
     }
 
-    return ws?[ obj, ws]:obj;
-  //}
-
-  //return value;
+    //return ws?[ obj, ws]:obj;
+    return obj;
 }
 
-function createNodeProgram(value) {
+function createNodeProgram(value: any): IAstNode {
   return createNode(TokenKind.program, value);
 }
 
-function createNodeGlobals(value) {
+function createNodeGlobals(value: string): IAstNode {
   return createNode(TokenKind.globals, value);
 }
 
-function createNodeMain(value) {
+function createNodeMain(value: string): IAstNode {
   return createNode(TokenKind.main, value);
 }
 
-function createNodeFunction(value) {
+function createNodeFunction(value: string): IAstNode {
   return createNode(TokenKind.function, value);
 }
 
-function createNodeWSpace(value) {
+function createNodeWSpace(value: string): IAstNode {
   return createNode(TokenKind.whitespace, value);
 }
 
-function createNodeStatment(value) {
+function createNodeStatment(value: string): IAstNode {
   return createNode(TokenKind.statment, value);
 }
 
-function createNodeComment(value) {
+function createNodeComment(value: string): IAstNode {
   return createNode(TokenKind.comment, value);
 }
 
-function createNodeKeyword(value, ws) {
+function createNodeKeyword(value, ws): IAstNode {
   return createNode(TokenKind.keyword, value, ws);
 }
 
-function createNodeBeginBlock(value, ws) {
-  return createNode(TokenKind.beginBlock, value, ws); 
+function createNodeBeginBlock(value, ws): IAstNode | any[] {
+  if (endBlockToken) {
+    endBlockToken = false;
+    return createNodeKeyword(value, ws); 
+  }
+  
+  return [ createNodeKeyword(value, ws), createNode(TokenKind.beginBlock, "") ]; 
 }
 
-function createNodeEndBlock(value, ws) {
-  return createNode(TokenKind.endBlock, value, ws);
+function createNodeEndBlock(value, ws): IAstNode | any[] {
+  endBlockToken = true;
+  
+  return [ createNode(TokenKind.endBlock, ""), createNodeKeyword(value, ws) ];
 }
 
-function createNodeOperator(value, ws) {
-  return createNode(TokenKind.operator, value, ws);
+function createNodeOperator(value: string): IAstNode {
+  return createNode(TokenKind.operator, value);
 }
 
-function createNodeOpenOperator(value, ws) {
-  return createNode(TokenKind.openOperator, value, ws);
+function createNodeOpenOperator(value: string): IAstNode {
+  return createNode(TokenKind.openOperator, value);
 }
 
-function createNodeCloseOperator(value, ws) {
-  return createNode(TokenKind.closeOperator, value, ws);
+function createNodeCloseOperator(value: string): IAstNode {
+  return createNode(TokenKind.closeOperator, value);
 }
 
-function createNodeId(value) {
+function createNodeId(value: string): IAstNode {
   return createNode(TokenKind.identifier, value);
 }
 
-function createNodeConstant(value) {
+function createNodeConstant(value: string): IAstNode {
   return createNode(TokenKind.constant, value);
 }
 
-function createNodeString(value) {
+function createNodeString(value: string): IAstNode {
   return createNode(TokenKind.string, value);
 }
 
-function createNodeNumber(value) {
+function createNodeNumber(value: string): IAstNode {
   return createNode(TokenKind.number, value);
 }
 
-function createNodeBuiltInVar(value) {
+function createNodeBuiltInVar(value: string): IAstNode {
   return createNode(TokenKind.builtInVar, value);
 }
 
@@ -163,7 +134,7 @@ single_quoted_string = $(S_QUOTE (!S_QUOTE .)* S_QUOTE)
 
 number
   = n:$([-+]? DIGIT+ (DOT DIGIT+)?) {
-      return createNodeNumber(parseFloat(n, 10));
+      return createNodeNumber(n);
     }
 
 DIGIT = [0-9]
@@ -220,6 +191,7 @@ keywords
  / BEFORE
  / BEGIN
  / BETWEEN
+ / BIGINT
  / BORDER
  / BOTTOM
  / BY

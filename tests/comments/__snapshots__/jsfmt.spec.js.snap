@@ -26,7 +26,7 @@ exports[`4gl: Token comment.4gl 1`] = `
 [
   [
     {
-      "kind": "comment",
+      "kind": 7,
       "offset": {
         "start": 0,
         "end": 10
@@ -36,7 +36,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "# linha 1\\n"
     },
     {
-      "kind": "comment",
+      "kind": 7,
       "offset": {
         "start": 10,
         "end": 20
@@ -46,7 +46,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "# linha 2\\n"
     },
     {
-      "kind": "comment",
+      "kind": 7,
       "offset": {
         "start": 20,
         "end": 31
@@ -56,7 +56,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "# linha 3\\n\\n"
     },
     {
-      "kind": "operator",
+      "kind": 14,
       "offset": {
         "start": 31,
         "end": 32
@@ -66,7 +66,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "-"
     },
     {
-      "kind": "operator",
+      "kind": 14,
       "offset": {
         "start": 32,
         "end": 33
@@ -76,7 +76,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "-"
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 33,
         "end": 38
@@ -86,7 +86,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "linha"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 38,
         "end": 39
@@ -96,7 +96,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": " "
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 39,
         "end": 40
@@ -106,7 +106,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "A"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 40,
         "end": 41
@@ -116,7 +116,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "\\n"
     },
     {
-      "kind": "operator",
+      "kind": 14,
       "offset": {
         "start": 41,
         "end": 42
@@ -126,7 +126,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "-"
     },
     {
-      "kind": "operator",
+      "kind": 14,
       "offset": {
         "start": 42,
         "end": 43
@@ -136,7 +136,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "-"
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 43,
         "end": 48
@@ -146,7 +146,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "linha"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 48,
         "end": 49
@@ -156,7 +156,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": " "
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 49,
         "end": 50
@@ -166,7 +166,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "B"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 50,
         "end": 52
@@ -176,7 +176,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "\\n\\n"
     },
     {
-      "kind": "operator",
+      "kind": 14,
       "offset": {
         "start": 52,
         "end": 53
@@ -186,7 +186,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "-"
     },
     {
-      "kind": "operator",
+      "kind": 14,
       "offset": {
         "start": 53,
         "end": 54
@@ -196,7 +196,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "-"
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 54,
         "end": 59
@@ -206,7 +206,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "linha"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 59,
         "end": 60
@@ -216,7 +216,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": " "
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 60,
         "end": 62
@@ -226,7 +226,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "A1"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 62,
         "end": 64
@@ -236,7 +236,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "\\n\\n"
     },
     {
-      "kind": "operator",
+      "kind": 14,
       "offset": {
         "start": 64,
         "end": 65
@@ -246,7 +246,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "-"
     },
     {
-      "kind": "operator",
+      "kind": 14,
       "offset": {
         "start": 65,
         "end": 66
@@ -256,7 +256,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "-"
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 66,
         "end": 71
@@ -266,7 +266,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "linha"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 71,
         "end": 72
@@ -276,7 +276,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": " "
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 72,
         "end": 74
@@ -286,7 +286,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "B2"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 74,
         "end": 75
@@ -296,7 +296,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "\\n"
     },
     {
-      "kind": "operator",
+      "kind": 14,
       "offset": {
         "start": 75,
         "end": 76
@@ -306,7 +306,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "-"
     },
     {
-      "kind": "operator",
+      "kind": 14,
       "offset": {
         "start": 76,
         "end": 77
@@ -316,7 +316,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "-"
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 77,
         "end": 82
@@ -326,7 +326,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "linha"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 82,
         "end": 83
@@ -336,7 +336,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": " "
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 83,
         "end": 85
@@ -346,7 +346,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "B3"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 85,
         "end": 87
@@ -356,7 +356,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "\\n\\n"
     },
     {
-      "kind": "comment",
+      "kind": 7,
       "offset": {
         "start": 87,
         "end": 121
@@ -366,7 +366,7 @@ exports[`4gl: Token comment.4gl 1`] = `
       "value": "{ bloco comentado de uma linha }\\n\\n"
     },
     {
-      "kind": "comment",
+      "kind": 7,
       "offset": {
         "start": 121,
         "end": 183

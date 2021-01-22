@@ -1,0 +1,6 @@
+{
+    "tspegjs": {
+        "customHeader": "import { IAstNode, TokenKind } from \"./interface\";\n\n/*\n---------------------------v---------------------------------------------------\n   //////  ////    //////  |  TOTVS Developer Studio Parsers\n    //    //  //  //       |  (c) TOTVS S.A.\n   //    //  //  //////    |  TOTVS Technology\n  //    //  //      //     |\n //    ////    //////      |  https://github.com/totvs/tds-parsers\n --------------------------^---------------------------------------------------\n*/\n\n\n",
+        "returnTypes": "IAstNode | []"
+    }
+}

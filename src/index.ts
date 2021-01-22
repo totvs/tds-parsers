@@ -1,6 +1,7 @@
 import { IParserOptions, normalize } from "./config";
 import { ERRORS } from "./errors";
 import * as call_parser from "./parsers";
+export {  } from "./interfaces";
 
 const LANGUAGES = [
   {

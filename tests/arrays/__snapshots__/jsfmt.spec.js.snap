@@ -26,7 +26,7 @@ end function
   [
     [
       {
-        "kind": "beginBlock",
+        "kind": 5,
         "offset": {
           "start": 0,
           "end": 5
@@ -36,18 +36,18 @@ end function
         "value": "main"
       },
       {
-        "kind": "whitespace",
+        "kind": 2,
         "offset": {
-          "start": 4,
+          "start": 0,
           "end": 5
         },
         "line": 1,
-        "column": 5,
-        "value": "\\n"
+        "column": 1,
+        "value": ""
       }
     ],
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 5,
         "end": 9
@@ -56,30 +56,18 @@ end function
       "column": 1,
       "value": "    "
     },
-    [
-      {
-        "kind": "keyword",
-        "offset": {
-          "start": 9,
-          "end": 16
-        },
-        "line": 2,
-        "column": 5,
-        "value": "define"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 15,
-          "end": 16
-        },
-        "line": 2,
-        "column": 11,
-        "value": " "
-      }
-    ],
     {
-      "kind": "identifier",
+      "kind": 5,
+      "offset": {
+        "start": 9,
+        "end": 16
+      },
+      "line": 2,
+      "column": 5,
+      "value": "define"
+    },
+    {
+      "kind": 11,
       "offset": {
         "start": 16,
         "end": 21
@@ -89,7 +77,7 @@ end function
       "value": "lista"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 21,
         "end": 22
@@ -99,7 +87,7 @@ end function
       "value": " "
     },
     {
-      "kind": "keyword",
+      "kind": 11,
       "offset": {
         "start": 22,
         "end": 27
@@ -109,7 +97,7 @@ end function
       "value": "array"
     },
     {
-      "kind": "openOperator",
+      "kind": 15,
       "offset": {
         "start": 27,
         "end": 28
@@ -119,17 +107,17 @@ end function
       "value": "["
     },
     {
-      "kind": "number",
+      "kind": 9,
       "offset": {
         "start": 28,
         "end": 29
       },
       "line": 2,
       "column": 24,
-      "value": 5
+      "value": "5"
     },
     {
-      "kind": "closeOperator",
+      "kind": 16,
       "offset": {
         "start": 29,
         "end": 31
@@ -139,7 +127,7 @@ end function
       "value": "] "
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 31,
         "end": 33
@@ -149,7 +137,7 @@ end function
       "value": "of"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 33,
         "end": 34
@@ -159,27 +147,17 @@ end function
       "value": " "
     },
     {
-      "kind": "keyword",
+      "kind": 11,
       "offset": {
         "start": 34,
-        "end": 36
-      },
-      "line": 2,
-      "column": 30,
-      "value": "in"
-    },
-    {
-      "kind": "identifier",
-      "offset": {
-        "start": 36,
         "end": 41
       },
       "line": 2,
-      "column": 32,
-      "value": "teger"
+      "column": 30,
+      "value": "integer"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 41,
         "end": 42
@@ -190,7 +168,17 @@ end function
     },
     [
       {
-        "kind": "endBlock",
+        "kind": 3,
+        "offset": {
+          "start": 42,
+          "end": 46
+        },
+        "line": 3,
+        "column": 1,
+        "value": ""
+      },
+      {
+        "kind": 5,
         "offset": {
           "start": 42,
           "end": 46
@@ -198,43 +186,21 @@ end function
         "line": 3,
         "column": 1,
         "value": "end"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 45,
-          "end": 46
-        },
-        "line": 3,
-        "column": 4,
-        "value": " "
       }
     ],
-    [
-      {
-        "kind": "beginBlock",
-        "offset": {
-          "start": 46,
-          "end": 53
-        },
-        "line": 3,
-        "column": 5,
-        "value": "main"
+    {
+      "kind": 5,
+      "offset": {
+        "start": 46,
+        "end": 53
       },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 50,
-          "end": 53
-        },
-        "line": 3,
-        "column": 9,
-        "value": "\\n\\n\\n"
-      }
-    ],
+      "line": 3,
+      "column": 5,
+      "value": "main"
+    },
     [
       {
-        "kind": "beginBlock",
+        "kind": 5,
         "offset": {
           "start": 53,
           "end": 62
@@ -244,18 +210,18 @@ end function
         "value": "function"
       },
       {
-        "kind": "whitespace",
+        "kind": 2,
         "offset": {
-          "start": 61,
+          "start": 53,
           "end": 62
         },
         "line": 6,
-        "column": 9,
-        "value": " "
+        "column": 1,
+        "value": ""
       }
     ],
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 62,
         "end": 64
@@ -265,7 +231,7 @@ end function
       "value": "f1"
     },
     {
-      "kind": "openOperator",
+      "kind": 15,
       "offset": {
         "start": 64,
         "end": 65
@@ -275,7 +241,7 @@ end function
       "value": "("
     },
     {
-      "kind": "closeOperator",
+      "kind": 16,
       "offset": {
         "start": 65,
         "end": 67
@@ -285,7 +251,7 @@ end function
       "value": ")\\n"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 67,
         "end": 68
@@ -294,30 +260,18 @@ end function
       "column": 1,
       "value": "\\t"
     },
-    [
-      {
-        "kind": "keyword",
-        "offset": {
-          "start": 68,
-          "end": 75
-        },
-        "line": 7,
-        "column": 2,
-        "value": "define"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 74,
-          "end": 75
-        },
-        "line": 7,
-        "column": 8,
-        "value": " "
-      }
-    ],
     {
-      "kind": "identifier",
+      "kind": 5,
+      "offset": {
+        "start": 68,
+        "end": 75
+      },
+      "line": 7,
+      "column": 2,
+      "value": "define"
+    },
+    {
+      "kind": 11,
       "offset": {
         "start": 75,
         "end": 79
@@ -327,7 +281,7 @@ end function
       "value": "var1"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 79,
         "end": 80
@@ -337,7 +291,7 @@ end function
       "value": " "
     },
     {
-      "kind": "keyword",
+      "kind": 11,
       "offset": {
         "start": 80,
         "end": 85
@@ -347,7 +301,7 @@ end function
       "value": "array"
     },
     {
-      "kind": "openOperator",
+      "kind": 15,
       "offset": {
         "start": 85,
         "end": 86
@@ -357,17 +311,17 @@ end function
       "value": "["
     },
     {
-      "kind": "number",
+      "kind": 9,
       "offset": {
         "start": 86,
         "end": 87
       },
       "line": 7,
       "column": 20,
-      "value": 1
+      "value": "1"
     },
     {
-      "kind": "closeOperator",
+      "kind": 16,
       "offset": {
         "start": 87,
         "end": 89
@@ -377,7 +331,7 @@ end function
       "value": "] "
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 89,
         "end": 91
@@ -387,7 +341,7 @@ end function
       "value": "of"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 91,
         "end": 92
@@ -397,27 +351,17 @@ end function
       "value": " "
     },
     {
-      "kind": "keyword",
+      "kind": 11,
       "offset": {
         "start": 92,
-        "end": 94
-      },
-      "line": 7,
-      "column": 26,
-      "value": "in"
-    },
-    {
-      "kind": "identifier",
-      "offset": {
-        "start": 94,
         "end": 99
       },
       "line": 7,
-      "column": 28,
-      "value": "teger"
+      "column": 26,
+      "value": "integer"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 99,
         "end": 100
@@ -427,7 +371,7 @@ end function
       "value": "\\n"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 100,
         "end": 101
@@ -436,30 +380,18 @@ end function
       "column": 1,
       "value": "\\t"
     },
-    [
-      {
-        "kind": "keyword",
-        "offset": {
-          "start": 101,
-          "end": 108
-        },
-        "line": 8,
-        "column": 2,
-        "value": "define"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 107,
-          "end": 108
-        },
-        "line": 8,
-        "column": 8,
-        "value": " "
-      }
-    ],
     {
-      "kind": "identifier",
+      "kind": 5,
+      "offset": {
+        "start": 101,
+        "end": 108
+      },
+      "line": 8,
+      "column": 2,
+      "value": "define"
+    },
+    {
+      "kind": 11,
       "offset": {
         "start": 108,
         "end": 112
@@ -469,7 +401,7 @@ end function
       "value": "var1"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 112,
         "end": 113
@@ -479,7 +411,7 @@ end function
       "value": " "
     },
     {
-      "kind": "keyword",
+      "kind": 11,
       "offset": {
         "start": 113,
         "end": 118
@@ -489,7 +421,7 @@ end function
       "value": "array"
     },
     {
-      "kind": "openOperator",
+      "kind": 15,
       "offset": {
         "start": 118,
         "end": 119
@@ -499,17 +431,17 @@ end function
       "value": "["
     },
     {
-      "kind": "number",
+      "kind": 9,
       "offset": {
         "start": 119,
         "end": 120
       },
       "line": 8,
       "column": 20,
-      "value": 1
+      "value": "1"
     },
     {
-      "kind": "operator",
+      "kind": 14,
       "offset": {
         "start": 120,
         "end": 121
@@ -519,17 +451,17 @@ end function
       "value": ","
     },
     {
-      "kind": "number",
+      "kind": 9,
       "offset": {
         "start": 121,
         "end": 122
       },
       "line": 8,
       "column": 22,
-      "value": 2
+      "value": "2"
     },
     {
-      "kind": "closeOperator",
+      "kind": 16,
       "offset": {
         "start": 122,
         "end": 124
@@ -539,7 +471,7 @@ end function
       "value": "] "
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 124,
         "end": 126
@@ -549,7 +481,7 @@ end function
       "value": "of"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 126,
         "end": 127
@@ -559,7 +491,7 @@ end function
       "value": " "
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 127,
         "end": 131
@@ -569,7 +501,7 @@ end function
       "value": "char"
     },
     {
-      "kind": "openOperator",
+      "kind": 15,
       "offset": {
         "start": 131,
         "end": 132
@@ -579,17 +511,17 @@ end function
       "value": "("
     },
     {
-      "kind": "number",
+      "kind": 9,
       "offset": {
         "start": 132,
         "end": 134
       },
       "line": 8,
       "column": 33,
-      "value": 30
+      "value": "30"
     },
     {
-      "kind": "closeOperator",
+      "kind": 16,
       "offset": {
         "start": 134,
         "end": 137
@@ -600,7 +532,17 @@ end function
     },
     [
       {
-        "kind": "endBlock",
+        "kind": 3,
+        "offset": {
+          "start": 137,
+          "end": 141
+        },
+        "line": 10,
+        "column": 1,
+        "value": ""
+      },
+      {
+        "kind": 5,
         "offset": {
           "start": 137,
           "end": 141
@@ -608,43 +550,21 @@ end function
         "line": 10,
         "column": 1,
         "value": "end"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 140,
-          "end": 141
-        },
-        "line": 10,
-        "column": 4,
-        "value": " "
       }
     ],
-    [
-      {
-        "kind": "beginBlock",
-        "offset": {
-          "start": 141,
-          "end": 151
-        },
-        "line": 10,
-        "column": 5,
-        "value": "function"
+    {
+      "kind": 5,
+      "offset": {
+        "start": 141,
+        "end": 151
       },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 149,
-          "end": 151
-        },
-        "line": 10,
-        "column": 13,
-        "value": "\\n\\n"
-      }
-    ],
+      "line": 10,
+      "column": 5,
+      "value": "function"
+    },
     [
       {
-        "kind": "beginBlock",
+        "kind": 5,
         "offset": {
           "start": 151,
           "end": 160
@@ -654,18 +574,18 @@ end function
         "value": "function"
       },
       {
-        "kind": "whitespace",
+        "kind": 2,
         "offset": {
-          "start": 159,
+          "start": 151,
           "end": 160
         },
         "line": 12,
-        "column": 9,
-        "value": " "
+        "column": 1,
+        "value": ""
       }
     ],
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 160,
         "end": 162
@@ -675,7 +595,7 @@ end function
       "value": "f2"
     },
     {
-      "kind": "openOperator",
+      "kind": 15,
       "offset": {
         "start": 162,
         "end": 163
@@ -685,7 +605,7 @@ end function
       "value": "("
     },
     {
-      "kind": "closeOperator",
+      "kind": 16,
       "offset": {
         "start": 163,
         "end": 166
@@ -695,7 +615,7 @@ end function
       "value": ")\\n\\n"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 166,
         "end": 167
@@ -704,30 +624,18 @@ end function
       "column": 1,
       "value": "\\t"
     },
-    [
-      {
-        "kind": "keyword",
-        "offset": {
-          "start": 167,
-          "end": 171
-        },
-        "line": 14,
-        "column": 2,
-        "value": "let"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 170,
-          "end": 171
-        },
-        "line": 14,
-        "column": 5,
-        "value": " "
-      }
-    ],
     {
-      "kind": "identifier",
+      "kind": 5,
+      "offset": {
+        "start": 167,
+        "end": 171
+      },
+      "line": 14,
+      "column": 2,
+      "value": "let"
+    },
+    {
+      "kind": 11,
       "offset": {
         "start": 171,
         "end": 179
@@ -737,7 +645,7 @@ end function
       "value": "ma_array"
     },
     {
-      "kind": "openOperator",
+      "kind": 15,
       "offset": {
         "start": 179,
         "end": 180
@@ -747,7 +655,7 @@ end function
       "value": "["
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 180,
         "end": 185
@@ -757,7 +665,7 @@ end function
       "value": "l_ind"
     },
     {
-      "kind": "closeOperator",
+      "kind": 16,
       "offset": {
         "start": 185,
         "end": 186
@@ -768,7 +676,7 @@ end function
     },
     ".",
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 187,
         "end": 195
@@ -778,7 +686,7 @@ end function
       "value": "f2_check"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 195,
         "end": 201
@@ -788,7 +696,7 @@ end function
       "value": "      "
     },
     {
-      "kind": "operator",
+      "kind": 14,
       "offset": {
         "start": 201,
         "end": 203
@@ -797,30 +705,18 @@ end function
       "column": 36,
       "value": "= "
     },
-    [
-      {
-        "kind": "keyword",
-        "offset": {
-          "start": 203,
-          "end": 208
-        },
-        "line": 14,
-        "column": 38,
-        "value": "null"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 207,
-          "end": 208
-        },
-        "line": 14,
-        "column": 42,
-        "value": "\\n"
-      }
-    ],
     {
-      "kind": "whitespace",
+      "kind": 5,
+      "offset": {
+        "start": 203,
+        "end": 208
+      },
+      "line": 14,
+      "column": 38,
+      "value": "null"
+    },
+    {
+      "kind": 6,
       "offset": {
         "start": 208,
         "end": 209
@@ -829,30 +725,18 @@ end function
       "column": 1,
       "value": "\\t"
     },
-    [
-      {
-        "kind": "keyword",
-        "offset": {
-          "start": 209,
-          "end": 213
-        },
-        "line": 15,
-        "column": 2,
-        "value": "let"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 212,
-          "end": 213
-        },
-        "line": 15,
-        "column": 5,
-        "value": " "
-      }
-    ],
     {
-      "kind": "identifier",
+      "kind": 5,
+      "offset": {
+        "start": 209,
+        "end": 213
+      },
+      "line": 15,
+      "column": 2,
+      "value": "let"
+    },
+    {
+      "kind": 11,
       "offset": {
         "start": 213,
         "end": 221
@@ -862,7 +746,7 @@ end function
       "value": "ma_array"
     },
     {
-      "kind": "openOperator",
+      "kind": 15,
       "offset": {
         "start": 221,
         "end": 222
@@ -872,7 +756,7 @@ end function
       "value": "["
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 222,
         "end": 227
@@ -882,7 +766,7 @@ end function
       "value": "l_ind"
     },
     {
-      "kind": "closeOperator",
+      "kind": 16,
       "offset": {
         "start": 227,
         "end": 228
@@ -893,7 +777,7 @@ end function
     },
     ".",
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 229,
         "end": 239
@@ -903,7 +787,7 @@ end function
       "value": "f2_integer"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 239,
         "end": 243
@@ -913,7 +797,7 @@ end function
       "value": "    "
     },
     {
-      "kind": "operator",
+      "kind": 14,
       "offset": {
         "start": 243,
         "end": 245
@@ -922,30 +806,18 @@ end function
       "column": 36,
       "value": "= "
     },
-    [
-      {
-        "kind": "keyword",
-        "offset": {
-          "start": 245,
-          "end": 250
-        },
-        "line": 15,
-        "column": 38,
-        "value": "null"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 249,
-          "end": 250
-        },
-        "line": 15,
-        "column": 42,
-        "value": "\\n"
-      }
-    ],
     {
-      "kind": "whitespace",
+      "kind": 5,
+      "offset": {
+        "start": 245,
+        "end": 250
+      },
+      "line": 15,
+      "column": 38,
+      "value": "null"
+    },
+    {
+      "kind": 6,
       "offset": {
         "start": 250,
         "end": 251
@@ -954,30 +826,18 @@ end function
       "column": 1,
       "value": "\\t"
     },
-    [
-      {
-        "kind": "keyword",
-        "offset": {
-          "start": 251,
-          "end": 255
-        },
-        "line": 16,
-        "column": 2,
-        "value": "let"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 254,
-          "end": 255
-        },
-        "line": 16,
-        "column": 5,
-        "value": " "
-      }
-    ],
     {
-      "kind": "identifier",
+      "kind": 5,
+      "offset": {
+        "start": 251,
+        "end": 255
+      },
+      "line": 16,
+      "column": 2,
+      "value": "let"
+    },
+    {
+      "kind": 11,
       "offset": {
         "start": 255,
         "end": 263
@@ -987,7 +847,7 @@ end function
       "value": "ma_array"
     },
     {
-      "kind": "openOperator",
+      "kind": 15,
       "offset": {
         "start": 263,
         "end": 264
@@ -997,7 +857,7 @@ end function
       "value": "["
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 264,
         "end": 269
@@ -1007,7 +867,7 @@ end function
       "value": "l_ind"
     },
     {
-      "kind": "closeOperator",
+      "kind": 16,
       "offset": {
         "start": 269,
         "end": 270
@@ -1018,7 +878,7 @@ end function
     },
     ".",
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 271,
         "end": 278
@@ -1028,7 +888,7 @@ end function
       "value": "f2_date"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 278,
         "end": 285
@@ -1038,7 +898,7 @@ end function
       "value": "       "
     },
     {
-      "kind": "operator",
+      "kind": 14,
       "offset": {
         "start": 285,
         "end": 287
@@ -1048,39 +908,17 @@ end function
       "value": "= "
     },
     {
-      "kind": "keyword",
+      "kind": 5,
       "offset": {
         "start": 287,
-        "end": 289
+        "end": 293
       },
       "line": 16,
       "column": 38,
-      "value": "to"
+      "value": "today"
     },
-    [
-      {
-        "kind": "keyword",
-        "offset": {
-          "start": 289,
-          "end": 293
-        },
-        "line": 16,
-        "column": 40,
-        "value": "day"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 292,
-          "end": 293
-        },
-        "line": 16,
-        "column": 43,
-        "value": " "
-      }
-    ],
     {
-      "kind": "operator",
+      "kind": 14,
       "offset": {
         "start": 293,
         "end": 295
@@ -1090,7 +928,7 @@ end function
       "value": "+ "
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 295,
         "end": 300
@@ -1100,7 +938,7 @@ end function
       "value": "l_ind"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 300,
         "end": 301
@@ -1109,52 +947,28 @@ end function
       "column": 51,
       "value": " "
     },
-    [
-      {
-        "kind": "keyword",
-        "offset": {
-          "start": 301,
-          "end": 307
-        },
-        "line": 16,
-        "column": 52,
-        "value": "units"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 306,
-          "end": 307
-        },
-        "line": 16,
-        "column": 57,
-        "value": " "
-      }
-    ],
-    [
-      {
-        "kind": "keyword",
-        "offset": {
-          "start": 307,
-          "end": 311
-        },
-        "line": 16,
-        "column": 58,
-        "value": "day"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 310,
-          "end": 311
-        },
-        "line": 16,
-        "column": 61,
-        "value": "\\n"
-      }
-    ],
     {
-      "kind": "whitespace",
+      "kind": 5,
+      "offset": {
+        "start": 301,
+        "end": 307
+      },
+      "line": 16,
+      "column": 52,
+      "value": "units"
+    },
+    {
+      "kind": 5,
+      "offset": {
+        "start": 307,
+        "end": 311
+      },
+      "line": 16,
+      "column": 58,
+      "value": "day"
+    },
+    {
+      "kind": 6,
       "offset": {
         "start": 311,
         "end": 312
@@ -1163,30 +977,18 @@ end function
       "column": 1,
       "value": "\\t"
     },
-    [
-      {
-        "kind": "keyword",
-        "offset": {
-          "start": 312,
-          "end": 316
-        },
-        "line": 17,
-        "column": 2,
-        "value": "let"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 315,
-          "end": 316
-        },
-        "line": 17,
-        "column": 5,
-        "value": " "
-      }
-    ],
     {
-      "kind": "identifier",
+      "kind": 5,
+      "offset": {
+        "start": 312,
+        "end": 316
+      },
+      "line": 17,
+      "column": 2,
+      "value": "let"
+    },
+    {
+      "kind": 11,
       "offset": {
         "start": 316,
         "end": 324
@@ -1196,7 +998,7 @@ end function
       "value": "ma_array"
     },
     {
-      "kind": "openOperator",
+      "kind": 15,
       "offset": {
         "start": 324,
         "end": 325
@@ -1206,7 +1008,7 @@ end function
       "value": "["
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 325,
         "end": 330
@@ -1216,7 +1018,7 @@ end function
       "value": "l_ind"
     },
     {
-      "kind": "closeOperator",
+      "kind": 16,
       "offset": {
         "start": 330,
         "end": 331
@@ -1227,7 +1029,7 @@ end function
     },
     ".",
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 332,
         "end": 339
@@ -1237,7 +1039,7 @@ end function
       "value": "f2_char"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 339,
         "end": 346
@@ -1247,7 +1049,7 @@ end function
       "value": "       "
     },
     {
-      "kind": "operator",
+      "kind": 14,
       "offset": {
         "start": 346,
         "end": 348
@@ -1257,7 +1059,7 @@ end function
       "value": "= "
     },
     {
-      "kind": "string",
+      "kind": 8,
       "offset": {
         "start": 348,
         "end": 355
@@ -1267,7 +1069,7 @@ end function
       "value": "\\"texto\\""
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 362,
         "end": 363
@@ -1277,7 +1079,7 @@ end function
       "value": "\\n"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 363,
         "end": 364
@@ -1286,30 +1088,18 @@ end function
       "column": 1,
       "value": "\\t"
     },
-    [
-      {
-        "kind": "keyword",
-        "offset": {
-          "start": 364,
-          "end": 368
-        },
-        "line": 18,
-        "column": 2,
-        "value": "let"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 367,
-          "end": 368
-        },
-        "line": 18,
-        "column": 5,
-        "value": " "
-      }
-    ],
     {
-      "kind": "identifier",
+      "kind": 5,
+      "offset": {
+        "start": 364,
+        "end": 368
+      },
+      "line": 18,
+      "column": 2,
+      "value": "let"
+    },
+    {
+      "kind": 11,
       "offset": {
         "start": 368,
         "end": 376
@@ -1319,7 +1109,7 @@ end function
       "value": "ma_array"
     },
     {
-      "kind": "openOperator",
+      "kind": 15,
       "offset": {
         "start": 376,
         "end": 377
@@ -1329,7 +1119,7 @@ end function
       "value": "["
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 377,
         "end": 382
@@ -1339,7 +1129,7 @@ end function
       "value": "l_ind"
     },
     {
-      "kind": "closeOperator",
+      "kind": 16,
       "offset": {
         "start": 382,
         "end": 383
@@ -1350,7 +1140,7 @@ end function
     },
     ".",
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 384,
         "end": 391
@@ -1360,7 +1150,7 @@ end function
       "value": "f2_date"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 391,
         "end": 398
@@ -1370,7 +1160,7 @@ end function
       "value": "       "
     },
     {
-      "kind": "operator",
+      "kind": 14,
       "offset": {
         "start": 398,
         "end": 400
@@ -1380,39 +1170,17 @@ end function
       "value": "= "
     },
     {
-      "kind": "keyword",
+      "kind": 5,
       "offset": {
         "start": 400,
-        "end": 402
+        "end": 406
       },
       "line": 18,
       "column": 38,
-      "value": "to"
+      "value": "today"
     },
-    [
-      {
-        "kind": "keyword",
-        "offset": {
-          "start": 402,
-          "end": 406
-        },
-        "line": 18,
-        "column": 40,
-        "value": "day"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 405,
-          "end": 406
-        },
-        "line": 18,
-        "column": 43,
-        "value": " "
-      }
-    ],
     {
-      "kind": "operator",
+      "kind": 14,
       "offset": {
         "start": 406,
         "end": 408
@@ -1422,17 +1190,17 @@ end function
       "value": "+ "
     },
     {
-      "kind": "number",
+      "kind": 9,
       "offset": {
         "start": 408,
         "end": 409
       },
       "line": 18,
       "column": 46,
-      "value": 3
+      "value": "3"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 409,
         "end": 410
@@ -1441,53 +1209,39 @@ end function
       "column": 47,
       "value": " "
     },
+    {
+      "kind": 5,
+      "offset": {
+        "start": 410,
+        "end": 416
+      },
+      "line": 18,
+      "column": 48,
+      "value": "units"
+    },
+    {
+      "kind": 5,
+      "offset": {
+        "start": 416,
+        "end": 421
+      },
+      "line": 18,
+      "column": 54,
+      "value": "day"
+    },
     [
       {
-        "kind": "keyword",
+        "kind": 3,
         "offset": {
-          "start": 410,
-          "end": 416
+          "start": 421,
+          "end": 425
         },
-        "line": 18,
-        "column": 48,
-        "value": "units"
+        "line": 20,
+        "column": 1,
+        "value": ""
       },
       {
-        "kind": "whitespace",
-        "offset": {
-          "start": 415,
-          "end": 416
-        },
-        "line": 18,
-        "column": 53,
-        "value": " "
-      }
-    ],
-    [
-      {
-        "kind": "keyword",
-        "offset": {
-          "start": 416,
-          "end": 421
-        },
-        "line": 18,
-        "column": 54,
-        "value": "day"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 419,
-          "end": 421
-        },
-        "line": 18,
-        "column": 57,
-        "value": "\\n\\n"
-      }
-    ],
-    [
-      {
-        "kind": "endBlock",
+        "kind": 5,
         "offset": {
           "start": 421,
           "end": 425
@@ -1495,40 +1249,18 @@ end function
         "line": 20,
         "column": 1,
         "value": "end"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 424,
-          "end": 425
-        },
-        "line": 20,
-        "column": 4,
-        "value": " "
       }
     ],
-    [
-      {
-        "kind": "beginBlock",
-        "offset": {
-          "start": 425,
-          "end": 434
-        },
-        "line": 20,
-        "column": 5,
-        "value": "function"
+    {
+      "kind": 5,
+      "offset": {
+        "start": 425,
+        "end": 434
       },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 433,
-          "end": 434
-        },
-        "line": 20,
-        "column": 13,
-        "value": "\\n"
-      }
-    ]
+      "line": 20,
+      "column": 5,
+      "value": "function"
+    }
   ]
 ]
 `;
@@ -1543,7 +1275,7 @@ end main
   [
     [
       {
-        "kind": "beginBlock",
+        "kind": 5,
         "offset": {
           "start": 0,
           "end": 5
@@ -1553,18 +1285,18 @@ end main
         "value": "main"
       },
       {
-        "kind": "whitespace",
+        "kind": 2,
         "offset": {
-          "start": 4,
+          "start": 0,
           "end": 5
         },
         "line": 1,
-        "column": 5,
-        "value": "\\n"
+        "column": 1,
+        "value": ""
       }
     ],
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 5,
         "end": 9
@@ -1573,30 +1305,18 @@ end main
       "column": 1,
       "value": "    "
     },
-    [
-      {
-        "kind": "keyword",
-        "offset": {
-          "start": 9,
-          "end": 16
-        },
-        "line": 2,
-        "column": 5,
-        "value": "define"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 15,
-          "end": 16
-        },
-        "line": 2,
-        "column": 11,
-        "value": " "
-      }
-    ],
     {
-      "kind": "identifier",
+      "kind": 5,
+      "offset": {
+        "start": 9,
+        "end": 16
+      },
+      "line": 2,
+      "column": 5,
+      "value": "define"
+    },
+    {
+      "kind": 11,
       "offset": {
         "start": 16,
         "end": 21
@@ -1606,7 +1326,7 @@ end main
       "value": "lista"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 21,
         "end": 22
@@ -1616,7 +1336,7 @@ end main
       "value": " "
     },
     {
-      "kind": "keyword",
+      "kind": 11,
       "offset": {
         "start": 22,
         "end": 27
@@ -1626,7 +1346,7 @@ end main
       "value": "array"
     },
     {
-      "kind": "openOperator",
+      "kind": 15,
       "offset": {
         "start": 27,
         "end": 28
@@ -1636,17 +1356,17 @@ end main
       "value": "["
     },
     {
-      "kind": "number",
+      "kind": 9,
       "offset": {
         "start": 28,
         "end": 29
       },
       "line": 2,
       "column": 24,
-      "value": 5
+      "value": "5"
     },
     {
-      "kind": "closeOperator",
+      "kind": 16,
       "offset": {
         "start": 29,
         "end": 31
@@ -1656,7 +1376,7 @@ end main
       "value": "] "
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 31,
         "end": 33
@@ -1666,7 +1386,7 @@ end main
       "value": "of"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 33,
         "end": 34
@@ -1676,27 +1396,17 @@ end main
       "value": " "
     },
     {
-      "kind": "keyword",
+      "kind": 11,
       "offset": {
         "start": 34,
-        "end": 36
-      },
-      "line": 2,
-      "column": 30,
-      "value": "in"
-    },
-    {
-      "kind": "identifier",
-      "offset": {
-        "start": 36,
         "end": 41
       },
       "line": 2,
-      "column": 32,
-      "value": "teger"
+      "column": 30,
+      "value": "integer"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 41,
         "end": 42
@@ -1706,7 +1416,7 @@ end main
       "value": "\\n"
     },
     {
-      "kind": "whitespace",
+      "kind": 6,
       "offset": {
         "start": 42,
         "end": 43
@@ -1715,50 +1425,28 @@ end main
       "column": 1,
       "value": "\\t"
     },
-    [
-      {
-        "kind": "keyword",
-        "offset": {
-          "start": 43,
-          "end": 48
-        },
-        "line": 3,
-        "column": 2,
-        "value": "call"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 47,
-          "end": 48
-        },
-        "line": 3,
-        "column": 6,
-        "value": " "
-      }
-    ],
     {
-      "kind": "keyword",
+      "kind": 5,
       "offset": {
-        "start": 48,
-        "end": 53
+        "start": 43,
+        "end": 48
       },
       "line": 3,
-      "column": 7,
-      "value": "array"
+      "column": 2,
+      "value": "call"
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
-        "start": 53,
+        "start": 48,
         "end": 60
       },
       "line": 3,
-      "column": 12,
-      "value": "additem"
+      "column": 7,
+      "value": "arrayadditem"
     },
     {
-      "kind": "openOperator",
+      "kind": 15,
       "offset": {
         "start": 60,
         "end": 61
@@ -1768,7 +1456,7 @@ end main
       "value": "("
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 61,
         "end": 68
@@ -1778,7 +1466,7 @@ end main
       "value": "p_array"
     },
     {
-      "kind": "operator",
+      "kind": 14,
       "offset": {
         "start": 68,
         "end": 69
@@ -1788,7 +1476,7 @@ end main
       "value": ","
     },
     {
-      "kind": "identifier",
+      "kind": 11,
       "offset": {
         "start": 69,
         "end": 79
@@ -1798,7 +1486,7 @@ end main
       "value": "l_linesadd"
     },
     {
-      "kind": "closeOperator",
+      "kind": 16,
       "offset": {
         "start": 79,
         "end": 81
@@ -1809,7 +1497,17 @@ end main
     },
     [
       {
-        "kind": "endBlock",
+        "kind": 3,
+        "offset": {
+          "start": 81,
+          "end": 85
+        },
+        "line": 4,
+        "column": 1,
+        "value": ""
+      },
+      {
+        "kind": 5,
         "offset": {
           "start": 81,
           "end": 85
@@ -1817,40 +1515,18 @@ end main
         "line": 4,
         "column": 1,
         "value": "end"
-      },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 84,
-          "end": 85
-        },
-        "line": 4,
-        "column": 4,
-        "value": " "
       }
     ],
-    [
-      {
-        "kind": "beginBlock",
-        "offset": {
-          "start": 85,
-          "end": 90
-        },
-        "line": 4,
-        "column": 5,
-        "value": "main"
+    {
+      "kind": 5,
+      "offset": {
+        "start": 85,
+        "end": 90
       },
-      {
-        "kind": "whitespace",
-        "offset": {
-          "start": 89,
-          "end": 90
-        },
-        "line": 4,
-        "column": 9,
-        "value": "\\n"
-      }
-    ]
+      "line": 4,
+      "column": 5,
+      "value": "main"
+    }
   ]
 ]
 `;

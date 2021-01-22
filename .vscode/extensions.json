@@ -1,7 +1,6 @@
 {
   "recommendations": [
     "mike-lischke.vscode-antlr4",
-    "tamuratak.vscode-pegjs",
     "sirtobi.pegjs-language"
   ]
 }
