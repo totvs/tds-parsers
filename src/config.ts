@@ -24,7 +24,7 @@ export function normalize(options: IParserOptions): IParserOptions {
   }
 
   if (opts.filepath !== "" && opts.parser == "") {
-    opts.parser = path.extname(opts.filepath);
+    opts.parser = path.extname(opts.filepath as string);
   }
 
   return opts;

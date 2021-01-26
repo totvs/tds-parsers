@@ -25,12 +25,12 @@ const PARSERS = {
 };
 
 export function parser(content: string, options: IParserOptions): any[] {
-  let parserList: any[] = undefined;
+  let parserList: any[] = [];
 
   options = normalize(options);
 
   parserList = LANGUAGES.filter((language) => {
-    return language.parsers.includes(options.parser);
+    return language.parsers.includes(options.parser as string);
   }).map((lang) => {
     return lang.parsers.filter((parser) => {
       return parser == options.parser;
@@ -43,7 +43,7 @@ export function parser(content: string, options: IParserOptions): any[] {
     throw new Error(`${ERRORS.E003} [${options.parser}]`);
   }
 
-  const result = [];
+  const result: any[] = [];
 
   parserList.forEach((parser) => {
     result.push(PARSERS[parser].parse(content, options));

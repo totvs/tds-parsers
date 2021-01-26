@@ -201,7 +201,7 @@ function peg$parse(input: string, options?: IParseOptions) {
   const peg$c15 = function(o: any): any { return createNodeOperator(o)};
   const peg$c16 = "\\\"";
   const peg$c17 = peg$literalExpectation("\\\"", false);
-  const peg$c18 = function(o: any): any { return '"'};
+  const peg$c18 = function(): any { return '"'};
   const peg$c19 = "\\'";
   const peg$c20 = peg$literalExpectation("\\'", false);
   const peg$c21 = function(): any { return "'"};
@@ -248,8 +248,8 @@ function peg$parse(input: string, options?: IParseOptions) {
   const peg$c62 = peg$classExpectation([["0", "5"]], false, false);
   const peg$c63 = /^[a-zA-Z]/;
   const peg$c64 = peg$classExpectation([["a", "z"], ["A", "Z"]], false, false);
-  const peg$c65 = function(l: any): any { return createNodeProgram(ast)};
-  const peg$c66 = function(l: any): any { return ast};
+  const peg$c65 = function(l: any): any { return createNodeProgram(l)};
+  const peg$c66 = function(): any { return ast};
   const peg$c67 = function(t: any): any { return addNode(t)};
   const peg$c68 = function(o: any): any { return createNode(TokenKind.notSpecified, o)};
   const peg$c69 = function(l: any, s: any): any { return l.concat(s)};
@@ -1426,7 +1426,7 @@ function peg$parse(input: string, options?: IParseOptions) {
     }
     if (s1 !== peg$FAILED) {
       peg$savedPos = s0;
-      s1 = peg$c18(s1);
+      s1 = peg$c18();
     }
     s0 = s1;
     if (s0 === peg$FAILED) {
@@ -6630,7 +6630,7 @@ function peg$parse(input: string, options?: IParseOptions) {
     }
     if (s1 !== peg$FAILED) {
       peg$savedPos = s0;
-      s1 = peg$c66(s1);
+      s1 = peg$c66();
     }
     s0 = s1;
 

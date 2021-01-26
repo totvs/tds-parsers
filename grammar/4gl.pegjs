@@ -142,7 +142,7 @@ DIGIT = [0-9]
 TILDE = o:"~" WS { return createNodeOperator(o)}
 
 ESCAPED
-  = o:"\\\"" { return '"'}
+  = "\\\"" { return '"'}
  / "\\'" { return "'"}
  / "\\\\" { return "\\"}
  / "\\b" { return "\b"}
@@ -817,10 +817,10 @@ optionName = ID
 // Start
 // //////////////////////////////////////////////////////
 start_program 
-  = l:statments* { return createNodeProgram(ast)}
+  = l:statments* { return createNodeProgram(l)}
 
 start_token 
-  = l:line_token* { return ast}
+  = line_token* { return ast}
 
 line_token
   = t:comment { return addNode(t)}
