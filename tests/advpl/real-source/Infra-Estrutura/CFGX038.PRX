@@ -1,0 +1,713 @@
+#IFDEF WINDOWS
+	#Include "Fivewin.ch"
+#ENDIF
+#INCLUDE "CFGX038.CH"
+/*/
+ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+±±³Fun‡…o    ³ CFGX038  ³ Autor ³ Cristiane Maeda       ³ Data ³ 29/07/96 ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Descri‡…o ³ Manutencao dos arquivos de Liga‡oes do Forprint            ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³ Uso      ³ FORPRINT                                                   ³±±
+±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+/*/
+Function CFGX038
+	Local cArqInd,nIndex,cAlias:=Alias(),nOldOrder := IndexOrd(),nOldRec := Recno()
+	Local cFilter
+
+	//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+	//³ Define Variaveis                                             ³
+	//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+	#IFNDEF WINDOWS
+		Local cSavScr:= SaveScreen(3,0,24,79),cSavCor := SetColor("bg+/b,,,")
+		ScreenDraw("SMT050",3,0,0,0)
+		SetColor("b/w,,,")
+		@ 3, 1 Say OemToAnsi(STR0001) //"Liga‡oes"
+	#ELSE
+		PRIVATE cCadastro := OemtoAnsi("Arquivo de Liga‡oes FPW")
+	#ENDIF
+
+	PRIVATE aRotina := { { OemToAnsi(STR0002),"AxPesqui"  , 0 , 1},; // "Pesquisar"
+	{ OemToAnsi(STR0003),"C038Manut" , 0 , 2},; // "Visualizar"
+	{ OemToAnsi(STR0004),"C038Manut" , 0 , 3},; // "Incluir"
+	{ OemToAnsi(STR0005),"C038Manut" , 0 , 4},; // "Alterar"
+	{ OemToAnsi(STR0006),"C038Manut" , 0 , 5} } // "Excluir"
+
+	DbSelectArea("SX2")
+	cFilter := DbFilter()
+	Set Filter To
+
+	OpenSx9()
+	dbSetOrder(1)
+	dbGotop()
+	mBrowse( 6, 1,22,75,"SX9", , , ,'SX9->X9_USO=="S"')
+
+	//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+	//³ Restaura dados                                           ³
+	//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+	dbSelectArea("SX2")
+	dbFilter()
+	dbSelectArea("SX9")
+	dbCloseArea()
+
+	#IFNDEF WINDOWS
+		RestScreen(3,0,24,79,cSavScr)
+		SetColor(cSavCor)
+	#ENDIF
+	dbSelectArea(cAlias)
+	dbSetOrder(nOldOrder)
+	DbGoto(nOldRec)
+
+
+	Return
+	/*/
+	ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡…o    ³C038Inclui³ Autor ³ Cristiane Maeda       ³ Data ³ 29/07/96 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡…o ³ Programa de inclusao de FPWS                               ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³ Uso      ³ FORPRINT                                                   ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Function C038Manut(cAlias,nReg,nOpcx)
+	Local nUsado := 0,nOpca := 0,nOldRec:=Recno(),nOldOrder := Indexord()
+	Local GetList := {}
+	LOCAL aCRA:=  { OemToAnsi(STR0007),OemToAnsi(STR0008),OemToAnsi(STR0009) } // "Confirma" ### "Redigita" ### "Abandona"
+	LOCAL oDlg,oGet,nCnt := 0,cLinhaok,cTudoOk,lDeleta,uCpoMacro
+
+	Private cDominio:= Space(3)
+
+	cLinhaOk := IIF(nOpcx==3 .or. nOpcx == 4,"C038LINOK","")
+	cTudoOk  := IIF(nOpcx==3 .or. nOpcx == 4,"C038TudOK","")
+	cFieldOk := IIF(nOpcx==3 .or. nOpcx == 4,"C038FieldOk()","")
+	lDeleta  := IIF(nOpcx==3 .or. nOpcx == 4,.T.,Nil)
+	PRIVATE aHeader[0]
+	Select Sx2
+	Seek cAlias
+
+	Select Sx3
+	Seek cAlias
+	While !EOF() .And. X3_ARQUIVO == cAlias
+		If X3USO(x3_usado) .and. cNivel >= X3_NIVEL .And. !("X9_DOM" $ x3_campo) .and. X3_CAMPO != "X9_SEQUENC" .and. !("X9_USO" $ X3_CAMPO)
+			nUsado++
+			AADD(aHeader,{ TRIM(X3TITULO()), X3_CAMPO, X3_PICTURE,;
+				X3_TAMANHO, X3_DECIMAL, X3_VALID,;
+				X3_USADO, X3_TIPO, X3_ARQUIVO } )
+		ENDIF
+		Skip
+	EndDo
+
+
+	//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+	//³ Obtem o tamanho do aCols e monta-o logo em seguida           ³
+	//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+	If nOpcx != 3
+		cDominio := SX9->X9_DOM
+		If cDominio =="XXX"
+			Help(" ",1,"SX9PROT")
+			Return .T.
+		Endif
+		dbSelectArea( cAlias )
+		Seek cDominio
+		If !Found()
+			Help(" ",1,"A000FI")
+			Return .T.
+		Endif
+		nCnt := 0
+		While !EOF() .And. X9_DOM == cDominio
+			nCnt++
+			Skip
+		EndDo
+		If nOpcx != 2 .and. nOpcx != 5
+			PRIVATE aCOLS[nCnt][nUsado+1]
+		Else
+			PRIVATE aCOLS[nCnt][nUsado]
+		Endif
+	Else
+		PRIVATE  aCOLS[1][nUsado+1]
+	Endif
+
+	Select Sx3
+	dbGotop()
+	Seek cAlias
+	nUsado:=0
+	If nOpcx == 3
+		While !EOF() .And. (x3_arquivo == cAlias)
+			IF X3USO(x3_usado) .And. cNivel >= X3_NIVEL .And. X3_CAMPO != "X9_DOM" .and. (X3_CAMPO != "X9_SEQUENC") .and. !("X9_USO" $ X3_CAMPO)
+				nUsado++
+				*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+				*³ Monta Array de 1 elemento ³
+				*³ vazio. Se inclus†o.       ³
+				*ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+				IF x3_tipo == "C"
+					aCOLS[1][nUsado] := SPACE(x3_tamanho)
+				ELSEIF x3_tipo == "N"
+					aCOLS[1][nUsado] := 0
+				ELSEIF x3_tipo == "D"
+					aCOLS[1][nUsado] := dDataBase
+				ELSEIF nOpcx != 2 .or. nOpcx != 5
+					aCOLS[1][nUsado] := .F.
+				ENDIF
+			ENDIF
+			dbSkip()
+		EndDo
+		aCols[1][nUsado+1] := .F.
+	Else
+		nCnt := 0
+		DbSelectArea(cAlias)
+		DbSeek (cDominio)
+		While cDominio == x9_dom
+			nCnt++
+			nUsado := 0
+			SX3->(dbSeek(cAlias))
+			While !EOF() .And. (Sx3->x3_arquivo == cAlias)
+				IF X3USO(Sx3->x3_usado) .And. cNivel >= SX3->X3_NIVEL .And. SX3->X3_CAMPO != "X9_DOM" .and. (SX3->X3_CAMPO != "X9_SEQUENC") .and. !("X9_USO" $ SX3->X3_CAMPO)
+					nUsado++
+					uCpoMacro := cAlias+SX3->X3_CAMPO
+					aCOLS[nCnt][nUsado] := &uCpoMacro
+				endif
+				Sx3->(dbSkip())
+			Enddo
+			If nOpcx == 3 .or. nOpcx == 4
+				aCols[nCnt][nUsado+1] := (SX9->X9_USO == "N")
+			endif
+			dbSkip()
+		Enddo
+	Endif
+	*//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+	*//³ Monta as HotAreas e define arrays da tela                    ³
+	*//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+	#IFNDEF WINDOWS
+		PRIVATE cSavScrVT,cSavScrVP,cSavScrHT,cSavScrHP,;
+			CurLen,nPosAtu:=0,nPosAnt:=9999,nColAnt:=9999
+
+		cSavScr := SaveScreen(3,0,24,79)
+		bHotArea := {|| HotAreas(10, 4,17,75,nUsado)}
+		ScreenDraw("CFG160",6,3,-2,1)
+		EVAL(bHotArea)
+		While .T.
+			Continua := .F.
+			//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+			//³ Aceita o cabecalho                                   ³
+			//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+			SetColor("n/bg,bg+/n,,,n/bg")
+			SetCursor(1)
+
+			@8,23 GET cDominio Picture "@!" Valid ValSx2(cDominio) .and. !AchaSX9(cDominio) When nOpcx == 3
+			READ
+			If LastKey() = 27
+				Exit
+			EndIf
+
+			//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+			//³ Aceita o corpo                                       ³
+			//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+			SetColor("n/w,w+/b,,,r/w")
+
+			GetDados(10,5,15,72,nOpcx,clinhaOk,cTudoOk,"",lDeleta,,,.F.,200,cFieldOk)
+
+			IF continua;LOOP;Endif
+
+				If Len(aCols) > 0
+					SetCursor(1)
+					nOpcA:=menuh(aCRA,19,10,"b/bg,w+/n,r/bg","CRA","",1)
+					IF nOpcA == 2
+						LOOP
+					ELSEIF nOpcA == 1 .and. (nOpcx == 3 .or. nOpcx == 4)
+						C038Grava()
+					ELSEIF nOpca == 1 .and. nOpcx == 5
+						C038Deleta()
+					ENDIF
+				Endif
+				Exit
+			EndDo
+			RestScreen(3,0,24,79,cSavScr)
+		#ELSE
+			DEFINE MSDIALOG oDlg TITLE cCadastro From 9,0 To 28,80
+
+			@ 1.4, .8 Say   OemToAnsi(STR0010)  //"&Arquivo:"
+			@ 1.4,  5 MSGET cDominio Picture "@!"  Valid ValSx2(cDominio) .and. !AchaSX9(cDominio) When nOpcx == 3
+
+			oGet := MSGetDados():New(34,5,128,315,nOpcx,cLinhaOk,cTudoOk,"",ldeleta,,,.F.,200,cFieldOk)
+
+			ACTIVATE MSDIALOG oDlg ON INIT EnchoiceBar(oDlg,{||nOpca:=1,if(oGet:TudoOk(),oDlg:End(),nOpca := 0)},{||oDlg:End()})
+			IF nOpcA == 1 .and. (nOpcx == 3 .or. nOpcx == 4)
+				C038Grava()
+			ELSEIF nOpca == 1 .and. nOpcx == 5
+				C038Deleta()
+			ENDIF
+		#ENDIF
+		//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+		//³ Restaura a integridade da janela                             ³
+		//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+		#IFNDEF WINDOWS
+			dbSelectArea( cAlias )
+			dbSetOrder(nOldOrder)
+			dbGoto(nOldRec)
+		#ENDIF
+
+	Static Function c038Grava(cArquivo)
+		Local nSeq ,nPosIdent,nPoscDom,i,n,lOk
+
+		nPoscDom   := Ascan(aHeader,{|x| "X9_CDOM" $ x[2]})
+		nPosIdent  := Ascan(aHeader,{|x| "X9_IDENT" $ x[2]})
+
+		DbSelectArea("SX9")
+		Begin Transaction
+
+			For i := 1 To Len(aCols)
+				lOk := .t.
+				For n:= 1 to Len(aCols[i])
+					IF !(ValType(aCols[i,Len(aCols[i])]) == "L" .and. n == Len(aCols[i]))
+						IF EMpty(aCols[i,n])
+							lOk := .f.
+							Exit
+						Endif
+					Endif
+				Next
+				If lOk
+					DbSeek(cDominio+aCols[i,nPosIdent]+aCols[i,nPoscDom])
+					If !Found() .and.  !(aCols[i][Len(aCols[i])])
+						nSeq := InitSeqSx9()     // Inclui novo reg,com nova sequencia
+						RecLock("SX9",.T.)
+						Replace X9_SEQUENC With nSeq
+					Else
+						RecLock("SX9",.F.)	     // Altera o registro existente
+					Endif
+					If !(aCols[i][Len(aCols[i])])      // Se Nao esta deletado
+						Replace X9_DOM     With CDominio
+						Replace X9_IDENT   With StrZero(i,2,0)
+						Replace X9_CDOM    With aCols[i,2]
+						Replace X9_EXPDOM  With aCols[i,3]
+						Replace X9_EXPCDOM With aCols[i,4]
+						Replace X9_LIGDOM  With aCols[i,5]
+						replace X9_LIGCDOM	With aCols[i,6]
+						Replace X9_USO     With "S"
+					Elseif Found()          // Se Deletou um ja existente, marca como nao usado
+						Replace X9_USO     With "N"
+					Endif
+				Endif
+			Next i
+
+		End Transaction
+
+		Return
+
+
+	Static Function c038Deleta()
+		Local nPosIdent,nPosCdom, i
+
+		nPosIdent := Ascan(aHeader,{|x| "X9_CDOM" $ x[2]})
+		nPosCdom  := Ascan(aHeader,{|x| "X9_IDENT" $ x[2]})
+		DbSelectArea("SX9")
+		Begin Transaction
+			For i := 1 To Len(aCols)
+				DbSeek(cDominio+aCols[i,nPosIdent]+aCols[i,nPosCdom])
+				RecLock("SX9",.F.)
+				Replace X9_USO   With "N"
+			Next i
+		End Transaction
+		Return
+
+	Function C038LinOk()
+		Local i,lEmpty:= .F.,nPosHeader := 0,lret := .t.
+		Local nPosIdent
+
+		nPosIdent := Ascan(aHeader,{|x| "X9_IDENT" $ x[2]})
+		nPosHeader := Ascan(aHeader,{|x| "X9_EXPDOM" $ x[2] })
+		nPosCDOM := Ascan(aHeader,{|x| "X9_CDOM" $ x[2] })
+
+		If aCols[n][Len(aCols[n])]   && caso tenha sido deletado
+			Return .T.
+		Endif
+
+		For i:= 1 to Len(aCols[n])-1
+			IF Empty(aCols[n,i])
+				lRet := .f.
+				HELP(" ",1,"SX9OBRG")
+				Exit
+			Endif
+		Next
+
+		IF lRet
+			For i:= 1 To Len(aCols)
+				If !Empty(aCols[i,nPosCDom])
+					If !(n == I)
+						If aCols[n,nPosCDom]	== aCols[i,nPosCDom]
+							If Upper(mTrim(aCols[n,nPosHeader])) == Upper(mTrim(aCols[i,nPosHeader]))
+								Help("",1,"DUPCDOM")
+								lret :=  .F.
+							Endif
+						Endif
+					endif
+				Endif
+			Next i
+		Endif
+		IF lRet
+			lret := CHk038Invert(aCols[n,nPosCDom])
+		Endif
+		return lRet
+
+	Function C038TudOk()
+		Return .T.
+
+	Static Function InitSeqSx9(nInd)
+		Local xSeq,nOrder := IndexOrd(),cAlias:= Alias()
+
+		dbSelectarea("SX9")
+		DbSetOrder(2)
+		DbGoBottom()
+		If eof()
+			DbSkip(-1)
+		Endif
+		xSeq := Val(X9_SEQUENC)
+		xSeq := IIF(xSeq < 8000,xSeq+8000,xSeq+1)
+		xSeq := Strzero(xSeq,4)
+
+		dbSelectarea(cAlias)
+		dbSetOrder(nOrder)
+		Return xSeq
+
+	Function OpenSx9()
+		Local cArquivo,cIndex,SixChave1,lCdxAxs := .F.,cIndex2
+		#IFDEF CDX
+			lCdxAxs := .T.
+		#ELSE
+			#IFDEF CDXAXS
+				lCdxAxs := .T.
+			#ENDIF
+		#ENDIF
+		*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+		*³ Ligacoes                  ³
+		*ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+		cArquivo := "SX9"+cEmpAnt+"0"
+		cIndex   := "SX9"+cEmpAnt+"01"
+
+		IF !FILE(TRIM(cArquivo)+GetDBExtension())
+			Final(cArquivo+OemToAnsi(STR0011)) // " n†o encontrado"
+		Endif
+
+		dbUseArea( .T. ,__LocalDriver, cArquivo,"SX9",.F., .F. )
+		IF !Used()
+			Final(OemToAnsi(STR0012)) // "SX9 exclusivo"
+		Endif
+		IF lCdxAxs
+			IF !FILE(TRIM(cArquivo)+RetIndExt())
+				#IFDEF CDXAXS
+					dbClosearea()
+					dbUseArea( .T. ,__LocalDriver, cArquivo,"SX9", .F., .F. )
+				#ENDIF
+				@18,30 SAY OemToAnsi(STR0013)+cIndex+OemToAnsi(STR0014) // "Criando Indice " ### " ... Aguarde..."
+				SixChave := "X9_SEQUENC"
+				INDEX ON &SixChave TAG &cIndex
+				Commit
+				cIndex2  := "SX9"+cEmpAnt+"02"
+				Go Top
+				@18,30 SAY OemToAnsi(STR0013)+cIndex2+OemToAnsi(STR0014) // "Criando Indice " ### " ... Aguarde..."
+				SixChave := "X9_DOM+X9_IDENT+X9_CDOM"
+				INDEX ON &SixChave TAG &cIndex2
+				Commit
+				#IFDEF CDXAXS
+					dbClosearea()
+					dbUseArea( .T. ,__LocalDriver, cArquivo,"SX9", .F., .F. )
+					dbSetIndex( cArquivo )
+				#ENDIF
+			ELSE
+				dbSetIndex( cArquivo )
+			ENDIF
+		ELSE
+			SixChave := "X9_SEQUENC"
+			dbCreateIndex( cIndex, SixChave, {|| &SixChave}, if( .F., .T., NIL ) )
+			Commit
+
+			cIndex2  := "SX9"+cEmpAnt+"02"
+			Go Top
+			SixChave := "X9_DOM+X9_IDENT+X9_CDOM"
+			dbCreateIndex( cIndex2, SixChave, {|| &SixChave}, if( .F., .T., NIL ) )
+			Commit
+
+			dbClearind()
+			dbSetIndex(cIndex2)
+			dbSetIndex(cIndex)
+
+
+		ENDIF
+		Go Top
+		Return
+
+
+	Static Function Chk038Invert(cCntDominio)
+		Local cAlias := Alias(),nRecno:= Recno(),lret := .T.
+		Local nSx9Ord,nSx9Rec, nPosCHDom,nPosChCDOM
+		nPosCHDom  := Ascan(aHeader,{|x| "X9_EXPDOM" $ x[2]})
+		nPosCHCDom  := Ascan(aHeader,{|x| "X9_EXPCDOM" $ x[2]})
+
+		DbSelectarea("SX9")
+		nSx9Ord := IndexOrd()
+		nSx9rec := Recno()
+		DbSetOrder(1)
+		DbSeek(cCntDominio,.t.)  // se existe ja ligacao entre os 2 Arq
+		While !Eof() .and. SX9->X9_DOM == cCntDominio
+			IF SX9->X9_CDOM == cDominio .and. mtrim(aCols[n,nPosCHDOM]) == mTrim(SX9->X9_EXPCDOM) .and.mtrim(aCols[n,nPosCHCDOM]) == mTrim(SX9->X9_EXPDOM)
+				HELP(" ",1,"X9DUPLIC")
+				lRet := .f.
+				Exit
+			Endif
+			SX9->(DbSkip())
+		Enddo
+
+		DbSetOrder(nSx9Ord)
+		dbGoTo(nSx9Rec)
+
+		DbSelectArea(cAlias)
+		dbGoto(nRecno)
+
+		Return lRet
+
+	Function c038FieldOk()
+		Local cAlias := Alias(),nOrder := IndexOrd(),nrec := recno()
+		Local lRet :=.T.,cCntDom,nPosIdent,nPosCDom
+
+
+		nPosIdent := Ascan(aHeader,{|x| "X9_IDENT" $ x[2]})
+		nPosCDom := Ascan(aHeader,{|x| "X9_CDOM" $ x[2]})
+
+		If aCols[n,nPosCdom] == "XXX"
+			Help("",1,"INVLDLIG")
+			Return .F.
+		Endif
+
+		IF ReadVar() == "M->X9_CDOM"
+			cCntDom := &(ReadVar())
+		Else
+			cCntDom := aCols[n,nPosCDom]
+		Endif
+
+		DbSelectarea("SX9")
+		DbSetOrder(1)
+		DbGotop()
+		DbSeek(cDominio+aCols[n,nPosIdent]+cCntDom)
+		If Found()
+			If Val(x9_Sequenc) < 8000
+				Help("",1,"FPWSIGA")
+				lret := .F.
+			endif
+		Endif
+		Return lret
+
+	Function RetIdent()
+		Local xIdent ,nPosIdent,nPosLin
+		nPosIdent := Ascan(aHeader,{|x| "X9_IDENT" $ X[2]})
+
+		If Len(aCols) == 1
+			xIdent := "01"
+		Else
+			xIdent := aCols[Len(aCols)-1,nPosIdent]
+			xIdent := StrZero(Val(xIdent)+1,2,0)
+		Endif
+		Return xIdent
+
+
+
+	Function ValidExp(cExp,lDom)
+		Local bBlock:=ErrorBlock(),nPoscDom
+		Local bErro := errorBlock( { |e| Erro(e) } )
+
+		Local aFpwFunc := ;
+			{"Ano","ASCII","BOOL_TEXTO","CEILING","Char","Data_Hoje",;
+			"Data_texto","DDMMAAA_DATA","Dia_da_semana","Dia_do_ano","Dia_do_mes",;
+			"Floor","HHHMMSS_TEMPO","HHHMMSS_HORA","Hora","Hora_texto","Hora_Atual",;
+			"Insert","Invalido","LCase","Length","Locate","Mes",;
+			"Minuto","Num_Texto","Quartil","Replace","Segundo","Semana",;
+			"Substring","Texto_Num","UpCase"}
+
+		nposcDom := Ascan(aHeader,{|x| "X9_CDOM" $ x[2]})
+		cArq := If(lDom,cDominio,aCols[n,nPoscDom])
+
+		Private lErro := .F.
+
+		IF Empty(cExp)
+			lret := .F.
+		ENDIF
+
+		BEGIN SEQUENCE
+			If Select(cArq) == 0
+				Chkfile(cArq)
+			Endif
+			dbSelectarea(cArq)
+			cForm := &cExp
+			dbCloseArea()
+		END SEQUENCE
+		ErrorBlock(bBlock)
+		lret := If(lErro,.F.,.t.)
+		Return lret
+
+	Static Function Erro(e)
+		IF e:gencode > 0
+			lErro := .T.
+			Tone(3000,1)
+			HELP(" ",1,"EXFORMUL")
+			BREAK
+		ENDIF
+
+	Function Valsx2(cArq)
+		Local cAlias := Alias(),nOrder:=IndexOrd()
+		Local lRet := .T.
+
+		IF cArq == Nil
+			cArq := &(ReadVar())
+		Endif
+
+		DbSelectarea("SX2")
+		DbSeek(cArq)
+		If !Found()
+			lRet := .F.
+		Endif
+		dbSelectArea(calias)
+		dbSetOrder(nOrder)
+		Return lret
+
+
+		//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+		//³ Funcoes do FORPRINT adaptadas para verificar sintaxe         ³
+		//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+	Function Ano(dData)
+		Return YEAR(dData)
+
+		/*
+		ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+		±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+		±±ÉÍÍÍÍÍÍÍÍÍÍÑÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÑÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÑÍÍÍÍÍÍÍÍÍÍÍÍÍ»±±
+		±±ºPrograma  ³MsAscII   ºAutor  ³Microsiga           º Data ³  22/06/06   º±±
+		±±ÌÍÍÍÍÍÍÍÍÍÍØÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÏÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÏÍÍÍÍÍÍÍÍÍÍÍÍÍ¹±±
+		±±ºDesc.     ³Funcao de compatibilizacao com o comando ASC (clipper)      º±±
+		±±ÌÍÍÍÍÍÍÍÍÍÍØÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹±±
+		±±ºUso       ³Somente ADVPL                                               º±±
+		±±ÌÍÍÍÍÍÍÍÍÍÍØÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÑÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹±±
+		±±ºAnalista  ³ Data/Bops/Ver ³Manutencao Efetuada                         º±±
+		±±ÌÍÍÍÍÍÍÍÍÍÍØÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÏÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹±±
+		±±ºMarcelo K.³26/06/06³8.11  ³-Bops 101068: Alteracao do nome da funcao deº±±
+		±±º          ³        ³      ³ASCII para MsAscII.                         º±±
+		±±º          ³        ³      ³solicitado pela Tecnologia para             º±±
+		±±º          ³        ³      ³compatibilizar o Kernel do Protheus         º±±
+		±±ÈÍÍÍÍÍÍÍÍÍÍÏÍÍÍÍÍÍÍÍÏÍÍÍÍÍÍÏÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼±±
+		±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+		ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+		*/
+	Function MsAscII(cChar)
+		Return ASC(Substr(cChar,1,1))
+
+	Function BOOL_TEXTO(cExpr)
+		If &cExpr
+			Return "Verdadeiro"
+		Else
+			Return "Falso"
+		Endif
+
+	Function Char(nChar)
+		Return Chr(nChar)
+
+	Function Data_Hoje()
+		Return MsDate()
+
+	Function Data_texto(dData)
+		Return DTOC(dData)
+
+	Function DDMMAAA_DATA(cData)
+		Return Ctod("  /  /  ")
+
+	Function Dia_da_semana(dData)
+		Return Dow(dDate)
+
+	Function Dia_do_ano(dDate)
+		Return 1
+
+	Function Dia_do_mes(dDate)
+		Return DAY(dDate)
+
+	Function Floor(nNum)
+		Return Round(nNum,0)
+
+	Function HHHMMSS_TEMPO(cHora)
+		Return Time()
+
+	Function HHHMMSS_HORA(cHora)
+		REturn Time()
+
+	Function Hora(hHora)
+		Return 1
+
+	Function Hora_texto(hHora)
+		Return Time()
+
+	Function Hora_Atual()
+		Return Time()
+
+	Function Insert(cText,nDelNum,nPosIni,cText2)
+		Return Stuff(cText,nPosini,nDelNum,cText2)
+
+		//Function Invalido()
+		//REturn
+
+	Function LCase(cText)
+		Return Lower(cText)
+
+	Function Length(ctext)
+		Return Len(lTrim(cText))
+
+	Function Locate(cSearch,cTarget,nPosIni)
+		Local nCount:= 0,nPos
+		While nCount < nPosIni
+			nPos:= At(cSearch,cTarget)
+			cTarget := Substr(cTarget,nPos+1)
+			nCount += nPos
+		Enddo
+		Return nCount
+
+	Function Minuto()
+		Return 1
+
+	Function Num_Texto(nNum)
+		Return Str(nNum)
+
+	Function Quartil(dDate)
+		REturn 1
+
+	Function Replace(cString,cSearch,creplace)
+		return Strtran(cString,cSearch,cReplace)
+
+	Function Segundo(hHora)
+		return 1
+
+	Function Semana(dDate)
+		Return 1
+
+	Function Substring(cText,nPos1,nPos2)
+		Return Substr(cText,nPos1,nPos2)
+
+	Function Texto_Num(cTexto)
+		Return Val(cTexto)
+
+	Function UpCase(cTexto)
+		Return Upper(cTexto)
+
+
+	Static FUnction AchaSX9(cDominio)
+		SX9->(dbSetOrder(1))
+		Return (SX9->(dbSeek(cDominio)))
+
+
+
+
+

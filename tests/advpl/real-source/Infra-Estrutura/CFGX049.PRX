@@ -1,0 +1,358 @@
+#include "cfgx049.ch"
+#include "Protheus.ch"
+
+/*/
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+±±³Fun‡…o    ³ CFGX049  ³ Autor ³ Eduardo Riera         ³ Data ³ 14.04.98 ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Descri‡…o ³ Configurador de Arq de Comunicacao Bancaria Modelo 2       ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Sintaxe   ³ CFGX049()                                                  ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Parametros³                                                            ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³ Uso      ³ MATCONF                                                    ³±±
+±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+/*/
+
+Function CFGX049(void)
+
+	// ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+	// ³ Define Variaveis                                            ³
+	// ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+	LOCAL oDlg
+	LOCAL cUsado      := ""
+	LOCAL lContinua   := .T.
+	LOCAL cSavMenuh   := ""
+	LOCAL nOpcA       := 0
+	LOCAL cLayOut     := ""
+	LOCAL nCntFor1    := 0
+	LOCAL nCntFor2    := 0
+	LOCAL nHandle     := 0
+	LOCAL cBuffer     := ""
+	Local cCadastro   := STR0001 // "CONFIGURACAO CNAB MOD.2"
+
+	Private aDetalhe  := {}
+	Private aLayOut   := {}
+	PRIVATE aCols     := {}
+	PRIVATE aHeader   := {}
+	PRIVATE aRotina := { { "",""  , 0 , 3 } }
+	PRIVATE CurLen,nPosAtu:=0,nPosAnt:=9999,nColAnt:=9999
+	PRIVATE cSavScrVT,cSavScrVP,cSavScrHT,cSavScrHP,oGet
+
+	// ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+	// ³ Recupera a Integridade dos dados                            ³
+	// ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+	// ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+	// ³MV_PAR01 : Carteira       ? Receber/Pagar³
+	// ³MV_PAR02 : Tipo           ? Envio/Retorno³
+	// ³MV_PAR03 : Nome do Arquivo?              ³
+	// ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+	Pergunte("CFG049",.T.)
+	cLayOut   := AllTrim(MV_PAR03)+".2"+If(MV_PAR01==1,"R","P")+If(MV_PAR02==1,"E","R")
+	cCadastro += "[ "+If(MV_PAR01==1,STR0002,STR0003)+" ] " //"RECEBER"###"PAGAR"
+
+	dbSelectArea("SX3")
+	dbSetOrder(2)
+	dbSeek("E2_NUM")
+	cUsado := SX3->X3_USADO
+	dbSetOrder(1)
+	aadd(aHeader,{OemToAnsi(STR0004),"X049IDENT1","9!!" ,03,0,".T.",cUsado,"C",""," " })	//"Identifica‡ao"
+	aadd(aHeader,{OemToAnsi(STR0005),"X049DESCR1","@!"    ,30,0,".T.",cUsado,"C",""," " })	//"Descricao"
+	If ( MV_PAR02 == 1 )
+		aadd(aHeader,{OemToAnsi(STR0006),"X049MODELO","@!S20" ,255,0,".T.",cUsado,"C",""," " })//"Modelo"
+	Else
+		aadd(aHeader,{OemToAnsi(STR0006),"X049MODEL1","@!S20" ,255,0,".T.",cUsado,"C",""," " })//"Modelo"
+	EndIf
+	If ( File(cLayOut) )
+		nHandle := FOpen(cLayOut,0)
+		While ( lContinua )
+			cBuffer := FreadStr(nHandle,502)
+			If ( !Empty(cBuffer) )
+				If ( SubStr(cBuffer,1,1)=="1" )
+					aadd(aLayOut,{	SubStr(cBuffer,02,03),;
+						SubStr(cBuffer,05,30),;
+						SubStr(cBuffer,35,255),;
+						.F.})
+				Else
+					aadd(aDetalhe,{SubStr(cBuffer,02,03),;
+						SubStr(cBuffer,05,15),;
+						SubStr(cBuffer,20,03),;
+						SubStr(cBuffer,23,03),;
+						SubStr(cBuffer,26,01),;
+						SubStr(cBuffer,27,255),;
+						.F.})
+				EndIf
+			Else
+				lContinua := .F.
+			EndIf
+		EndDo
+		FClose(nHandle)
+	EndIf
+	If ( Empty(aLayOut) )
+		aadd(aLayOut,{ "0H ",PADR(STR0007,30),Space(255),.F. })	//"Header de Arquivo"
+		aadd(aLayOut,{ "0D ",PADR(STR0008,30),Space(255),.F. })	//"Linha Detalhe"
+		aadd(aLayOut,{ "0T ",PADR(STR0009,30),Space(255),.F. })	//"Trailler de Arquivo"
+	EndIf
+	lContinua := .T.
+	aCols := aClone(aLayOut)
+	SetKey(VK_F4,{|a,b,c| x049F4(a,b,c) })
+	DEFINE MSDIALOG oDlg TITLE cCadastro FROM 9,0 TO 28,80 OF oMainWnd
+	oGet := MSGetDados():New(31,1,142,315,1,"x049LinOk","x049TudOk","",.T.)
+	ACTIVATE MSDIALOG oDlg CENTERED ON INIT EnchoiceBar(oDlg,{|| nOpcA:=2,oDlg:End()},{||nOpcA:=0,oDlg:End()})
+	SetKey(VK_F4,Nil)
+	aSort(aCols,,,{|x,y|x[1] <= y[1] })
+	If ( nOpcA == 2 )
+		aLayOut := Aclone(aCols)
+		nHandle := FCreate(cLayOut,0)
+		For nCntFor1 := 1 To Len(aLayOut)
+			If (!aLayOut[nCntFor1,Len(aLayOut[nCntfor1])])
+				cBuffer := "1"
+				For nCntFor2 := 1 To Len(aLayOut[nCntFor1])-1
+					cBuffer += aLayOut[nCntFor1,nCntFor2]
+				Next nCntFor2
+				cBuffer := PadR(cBuffer,500)
+				cBuffer += Chr(13)+Chr(10)
+				FWrite(nHandle,cBuffer,Len(cBuffer))
+			EndIf
+		Next nCntFor1
+		For nCntFor1 := 1 To Len(aDetalhe)
+			If (!aDetalhe[nCntFor1,Len(aDetalhe[nCntFor1])])
+				cBuffer := "2"
+				For nCntFor2 := 1 To Len(aDetalhe[nCntFor1])-1
+					cBuffer += aDetalhe[nCntFor1,nCntFor2]
+				Next nCntFor2
+				cBuffer := PadR(cBuffer,500)
+				cBuffer += Chr(13)+Chr(10)
+				FWrite(nHandle,cBuffer,Len(cBuffer))
+			EndIf
+		Next nCntFor1
+		FClose(nHandle)
+	EndIf
+	Return(Nil)
+
+
+	/*/
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡…o    ³x049F4    ³ Autor ³ Eduardo Riera         ³ Data ³ 15.04.98 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡…o ³ Detalhamento do Lay-Out                                    ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Sintaxe   ³ x049F4()                                                   ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Parametros³                                                            ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³ Uso      ³ CFGX049                                                    ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	/*/
+Function x049F4()
+
+	Local aSavaCols   := aClone(aCols)
+	Local aSavaHeader := aClone(aHeader)
+	Local cSavCurLen  := CurLen
+	Local nSavnPosAtu := nPosAtu
+	Local nSavnPosAnt := nPosAnt
+	Local nSavnColAnt := nColAnt
+	Local aSavScr     := { cSavScrVT,cSavScrVP,cSavScrHT,cSavScrHP }
+	Local nSavN       := N
+	Local lContinua   := .T.
+	Local nCntFor1    := 0
+	Local nCntFor2    := 0
+	Local cIdent      := aSavAcols[n,1]
+	Local cSavMenuH   := ""
+	Local nOpcA       := 0
+	Local aTemp       := {}
+	Local cUsado      := ""
+	Local bSetKey
+
+	bSetKey := SetKey(VK_F4)
+	SetKey(VK_F4,Nil)
+
+	PRIVATE CurLen,nPosAtu:=0,nPosAnt:=9999,nColAnt:=9999
+	PRIVATE cSavScrVT,cSavScrVP,cSavScrHT,cSavScrHP
+
+	cCadastro := STR0010+; //"LAY-OUT CNAB A "
+	If(MV_PAR01==1,STR0002,STR0003)+STR0011+;//"RECEBER"###"PAGAR"###" DE "
+		If(MV_PAR02==1,STR0012,STR0013)+;	//"REMESSA"###"RETORNO"
+			" - "+cIdent+" ("+aSavAcols[n,2]+")"
+			aHeader := {}
+			aCols   := {}
+
+			dbSelectArea("SX3")
+			dbSetOrder(2)
+			dbSeek("E2_NUM")
+			cUsado := SX3->X3_USADO
+			dbSetOrder(1)
+			aadd(aHeader,{OemToAnsi(STR0014),"X049IDENT ","9!!",03,0,".F.",cUsado,"C",""," " })	//"Ident."
+			aadd(aHeader,{OemToAnsi(STR0015),"X049DESCRI","@!" ,15,0,".T.",cUsado,"C",""," " })	//"Descricao"
+			aadd(aHeader,{OemToAnsi(STR0016),"X049POSINI","999",03,0,".T.",cUsado,"C",""," " })	//"Inicio"
+			aadd(aHeader,{OemToAnsi(STR0017),"X049POSFIM","999",03,0,".T.",cUsado,"C",""," " })	//"Fim"
+			aadd(aHeader,{OemToAnsi(STR0018),"X049DECIMA","9"  ,01,0,".T.",cUsado,"C",""," " })	//"Dec"
+			If ( MV_PAR02 == 1 )
+				aadd(aHeader,{OemToAnsi(STR0019),"X049CONTEU","@!S30",255,0,".T.",cUsado,"C",""," " })	//"Conteudo"
+			Else
+				aadd(aHeader,{OemToAnsi(STR0019),"X049CONTE1","@!S30",255,0,".T.",cUsado,"C",""," " })	//"Conteudo"
+			EndIf
+			For nCntFor1 := 1 To Len(aDetalhe)
+				If ( cIdent == aDetalhe[nCntFor1,1] )
+					aadd(aCols,aDetalhe[nCntFor1])
+				EndIf
+			Next nCntFor1
+
+			If ( Empty(acols) )
+				aadd(aCols,{cIdent,Space(15),"000","000","0",Space(255),.F.})
+			Endif
+
+			DEFINE MSDIALOG oDlg TITLE cCadastro FROM 9,0 TO 28,80 OF oMainWnd
+			oGet := MSGetDados():New(31,1,142,315,1,"x049LinOkF4","x049TudOkF4","X049IDENT",.T.)
+			ACTIVATE MSDIALOG oDlg CENTERED ON INIT EnchoiceBar(oDlg,{|| nOpcA:=2,If(x049TudOkF4(),oDlg:End(),nOpcA:=0)},{||nOpcA:=0,oDlg:End()})
+			aSort(aCols,,,{|x,y| x[3] <= y[3] })
+			If ( nOpcA == 2 )
+				aTemp := aClone(aDetalhe)
+				aDetalhe := {}
+				For nCntFor1 := 1 To Len(aTemp)
+					If (aTemp[nCntFor1,1]!=cIdent)
+						aadd(aDetalhe,aTemp[nCntFor1])
+					EndIf
+				Next
+				For nCntFor1 := 1 To Len(aCols)
+					aadd(aDetalhe,aCols[nCntFor1])
+				Next
+			Endif
+
+			aCols   := aClone(aSavAcols)
+			aHeader := aClone(aSavaHeader)
+			N       := nSavN
+			CurLen  := cSavCurLen
+			nPosAtu := nSavnPosAtu
+			nPosAnt := nSavnPosAnt
+			nColAnt := nSavnColAnt
+			cSavScrVt := aSavScr[1]
+			cSavScrVp := aSavScr[2]
+			cSavScrHt := aSavScr[3]
+			cSavScrHp := aSavScr[4]
+
+			SetKey(VK_F4,bSetKey)
+			Return(Nil)
+
+			/*/
+			±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+			±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+			±±³Fun‡…o    ³x049TudOkF³ Autor ³ Eduardo Riera         ³ Data ³ 15.04.98 ³±±
+			±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+			±±³Descri‡…o ³ Validacao da Getdados do F4                                ³±±
+			±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+			±±³Sintaxe   ³ x049F4TudOkF4                                              ³±±
+			±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+			±±³Parametros³                                                            ³±±
+			±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+			±±³ Uso      ³ CFGX049                                                    ³±±
+			±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+			±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+			/*/
+		Function x049TudokF4()
+
+			Return(.t.)
+
+			/*/
+			±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+			±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+			±±³Fun‡…o    ³x049LinOkF³ Autor ³ Eduardo Riera         ³ Data ³ 15.04.98 ³±±
+			±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+			±±³Descri‡…o ³ Validacao da Getdados do F4                                ³±±
+			±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+			±±³Sintaxe   ³ x049F4LinOkF4                                              ³±±
+			±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+			±±³Parametros³                                                            ³±±
+			±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+			±±³ Uso      ³ CFGX049                                                    ³±±
+			±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+			±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+			/*/
+		Function x049LinOkF4()
+
+			Local lRetorno := .T.
+			If ( !aCols[n,Len(aCols[n])] )
+				If (Empty(aCols[n,2]).Or.Val(aCols[n,3])==0.Or.Val(aCols[n,4])==0.Or.;
+						Val(aCols[n,4])<Val(aCols[n,3]))
+					Help(" ",1,"X049LIOKF4")
+					lRetorno := .F.
+				EndIf
+			EndIf
+			aCols[n,3] := StrZero(Val(aCols[n,3]),3)
+			aCols[n,4] := StrZero(Val(aCols[n,4]),3)
+			aCols[n,5] := StrZero(Val(aCols[n,5]),1)
+			oGet:Refresh()
+			Return(lRetorno)
+
+			/*/
+			±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+			±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+			±±³Fun‡…o    ³x049LinOk ³ Autor ³ Eduardo Riera         ³ Data ³ 14.04.98 ³±±
+			±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+			±±³Descri‡…o ³ Valida‡ao da GetDados                                      ³±±
+			±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+			±±³Sintaxe   ³ x049LinOk()                                                ³±±
+			±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+			±±³Parametros³                                                            ³±±
+			±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+			±±³ Uso      ³ CFGX049                                                    ³±±
+			±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+			±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+			/*/
+
+		Function x049LinOk(oGet)
+
+			Local lRetorno:= .T.
+			If ( !aCols[n,Len(aCols[n])] )
+				If (Empty(aCols[n,1]) 		.Or. ;
+						Empty(aCols[n,2]))
+					Help(" ",1,"X049LINOK")
+					lRetorno := .F.
+				EndIf
+				If (!SubStr(aCols[n,1],2,1) $ "HDT" .Or.;
+						!If(SubStr(aCols[n,1],2,1)$"HT",SubStr(aCols[n,1],3,1)==" ",.T.) )
+					Help(" ",1,"X049LINOK")
+					lRetorno := .F.
+				EndIf
+			EndIf
+			oGet:Refresh()
+			Return(lRetorno)
+
+			/*/
+			±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+			±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+			±±³Fun‡…o    ³x049TudOk ³ Autor ³ Eduardo Riera         ³ Data ³ 14.04.98 ³±±
+			±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+			±±³Descri‡…o ³ Valida‡ao da GetDados                                      ³±±
+			±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+			±±³Sintaxe   ³ x049TudOk()                                                ³±±
+			±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+			±±³Parametros³                                                            ³±±
+			±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+			±±³ Uso      ³ CFGX049                                                    ³±±
+			±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+			±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+			/*/
+
+		Function x049TudOk(oGet)
+
+			Local lRetorno:= .T.
+			Local nCntFor := 0
+			Local cIdent  := ""
+			aSort(aCols,,,{|x,y|x[1] <= y[1] })
+			For nCntFor := 1 To Len(aCols)
+				If ( !aCols[nCntFor,Len(aCols[nCntFor])] )
+					If ( cIdent == aCols[nCntfor,1] )
+						Help(" ",1,"X049TUDOK")
+						lRetorno := .F.
+					EndIf
+					cIdent := aCols[nCntfor,1]
+				EndIf
+			Next nCntFor
+			oGet:Refresh()
+			Return(lRetorno)

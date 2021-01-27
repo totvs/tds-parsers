@@ -1,0 +1,10 @@
+HP Laser Jet 4
+[080C]CHR(27)+"&l0O"+chr(27)+"&l2A"+chr(27)+"&l7C"+chr(27)+"&l128P"+chr(27)+"(12U"+chr(27)+"(s0p20h0s0b4099T"
+[080E]CHR(27)+"&l0O"+chr(27)+"&l2A"+chr(27)+"&l7C"+chr(27)+"&l128P"+chr(27)+"(12U"+chr(27)+"(s0p12h0s0b4099T"
+[132C]CHR(27)+"&l0O"+chr(27)+"&l2A"+chr(27)+"&l7C"+chr(27)+"&l128P"+chr(27)+"(12U"+chr(27)+"(s0p20h0s0b4099T"
+[132E]CHR(27)+"&l1O"+chr(27)+"&l2A"+chr(27)+"&l5C"+chr(27)+"&l96P"+chr(27)+"(12U"+chr(27)+"(s0p13h0s0b4099T"
+[220C]CHR(27)+"&l1O"+chr(27)+"&l2A"+chr(27)+"&l5C"+chr(27)+"&l96P"+chr(27)+"(12U"+chr(27)+"(s0p21h0s0b4099T"
+[220E]CHR(27)+"&l1O"+chr(27)+"&l2A"+chr(27)+"&l5C"+chr(27)+"&l96P"+chr(27)+"(12U"+chr(27)+"(s0p21h0s0b4099T"
+
+
+

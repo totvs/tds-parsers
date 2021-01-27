@@ -16,50 +16,30 @@ function run_spec(dirname, options) {
       !filename.endsWith(".log") &&
       filename !== "jsfmt.spec.js"
     ) {
-      const source = read(filepath).replace(/\r\n/g, "\n");
+      const source = fs.readFileSync(filepath, "utf8").replace(/\r\n/g, "\n");
       const parsePrefix = path.extname(filename).substr(1);
-
-      // describe(parsePrefix + ": Sintax", () => {
-      //   const mergedOptions = Object.assign(
-      //     mergeDefaultOptions(options || {}),
-      //     {
-      //       filepath: filepath,
-      //       parser: parsePrefix + "-source",
-      //     }
-      //   );
-
-      //   test(filename, () => {
-      //     const output = parser(source, mergedOptions);
-
-      //     expect(
-      //       raw(
-      //         source +
-      //           "~".repeat(PRINT_WIDTH) +
-      //           "\n" +
-      //           JSON.stringify(output, 2, 2)
-      //       )
-      //     ).toMatchSnapshot();
-      //   });
-      // });
 
       describe(parsePrefix + ": Token", () => {
         const mergedOptions = Object.assign(
           mergeDefaultOptions(options || {}),
           {
-            filepath: filepath,
-            parser: parsePrefix + "-token",
+            filepath: filepath
           }
         );
 
         test(filename, () => {
           const output = parser(source, mergedOptions);
+          if (output && output.error) {
+            console.error(output.error);
+            throw new Error(output.error);
+          }
 
           expect(
             raw(
               source +
-                "~".repeat(PRINT_WIDTH) +
-                "\n" +
-                JSON.stringify(output, 2, 2)
+              "~".repeat(PRINT_WIDTH) +
+              "\n" +
+              output.ast.serialize()
             )
           ).toMatchSnapshot();
         });
@@ -70,10 +50,6 @@ function run_spec(dirname, options) {
 
 global.run_spec = run_spec;
 
-function read(filename) {
-  return fs.readFileSync(filename, "utf8");
-}
-
 function mergeDefaultOptions(parserConfig) {
   return Object.assign(
     {
@@ -82,6 +58,7 @@ function mergeDefaultOptions(parserConfig) {
     parserConfig
   );
 }
+
 
 /**
  * Wraps a string in a marker object that is used by `./raw-serializer.js` to

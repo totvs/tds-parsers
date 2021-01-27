@@ -1,0 +1,1164 @@
+#IFDEF WINDOWS
+	#Include "FIVEWIN.Ch"
+	#Include "TcBrowse.Ch"
+#ELSE
+	#include "siga.ch"
+	#include "inkey.ch"
+	#include "fileio.ch"
+	#include "setcurs.ch"
+	#define HorSep		"ÄÂÄ"
+	#define VerSep		" ³ "
+#ENDIF
+#INCLUDE "cfgx048.ch"
+STATIC oBrw
+
+/*/
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+±±³Fun‡…o    ³ CFGX048  ³ Autor ³ Pilar S. Albaladejo   ³ Data ³ 17.02.97 ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Descri‡…o ³ Configura‡„o do Arquivo InterCompany                       ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Sintaxe   ³ CFGX048()                                                  ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³ Uso      ³ SigaCfg                                                    ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³         ATUALIZACOES SOFRIDAS DESDE A CONSTRU€AO INICIAL.             ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Programador ³ Data   ³ BOPS ³  Motivo da Alteracao                     ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Julio       ³02.02.99³MELHOR³ Alteracao do Tamanho da Conta contabil de³±±
+±±³            ³        ³      ³15 para 20 Caracteres.                    ³±±
+±±³            ³        ³      ³                                          ³±±
+±±ÀÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+/*/
+FUNCTION CFGX048()
+
+	#IFNDEF WINDOWS
+		LOCAL cSavCur1,cSavRow1,cSavCol1,cSavCor1,cSavScr1,cSavScr2,bExec,cFile:=" "
+	#ELSE
+		Local oDlg
+		Local aBrowse := {{OemToAnsi(STR0001),"EMP1"},; // "Empresa1"
+		{OemToAnsi(STR0002)	,"FIL1"},; // "Filial1"
+		{OemToAnsi(STR0003)	,"CONTA1"},; // "Conta1"
+		{OemToAnsi(STR0004)	,"EMP2"},; // "Empresa2"
+		{OemToAnsi(STR0005)	,"FIL2"},; // "Filial2"
+		{OemToAnsi(STR0006)	,"CONTA2"}} // "Conta2"
+		Local oCol, nAlias, ni, nOpca := 0
+	#ENDIF
+
+	Local aCampos := {{"EMP1" 	,"C", 2,0},;
+		{"FIL1" 		,"C", 2,0},;
+		{"CONTA1"	,"C",20,0},;
+		{"CUSTO1"	,"C", 9,0},;
+		{"MOEDA1"	,"C", 5,0},;
+		{"CRITER1"	,"C", 4,0},;
+		{"EMP2"   	,"C", 2,0},;
+		{"FIL2" 		,"C", 2,0},;
+		{"CONTA2"	,"C",20,0},;
+		{"CUSTO2"	,"C", 9,0},;
+		{"MOEDA2"	,"C", 5,0},;
+		{"CRITER2"	,"C", 4,0}}
+
+	Local cCad, cCad1, cCad2
+
+	If ( Select ( "cCad" ) <> 0 )
+		dbSelectArea ( "cCad" )
+		dbCloseArea ()
+	End
+	cCad:=CriaTrab(aCampos)
+	dbUseArea( .T.,, cCad, "cCad", NIL, .F. )
+
+	//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+	//³ "Importa" o arquivo TXT com a tabela do I.R.       ³
+	//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+	dbSelectArea( "cCad" )
+	If File( "INTERCP.CFG" )
+		APPEND FROM INTERCP.CFG SDF
+		dbGoTop()
+	EndIf
+
+	cCad1	:= CriaTrab(Nil,.F.)
+	IndRegua ( "cCad",cCad1,"EMP1+FIL1+CONTA1+CUSTO1",,,OemToAnsi(STR0007))  //"Selecionando Registros..."
+	dbClearIndex()
+
+	cCad2	:= CriaTrab(Nil,.F.)
+	IndRegua ( "cCad",cCad2,"EMP2+FIL2+CONTA2+CUSTO2",,,OemToAnsi(STR0007))  //"Selecionando Registros..."
+	dbClearIndex()
+
+	dbSelectArea("cCad")
+	dbSetIndex(cCad1+OrdBagExt())
+	dbSetIndex(cCad2+OrdBagExt())
+
+	dbSetOrder(1)
+
+	#IFNDEF WINDOWS
+		cSavScr1 := SaveScreen(3,0,24,79)
+		cSavCur1 := SetCursor(0)
+		cSavRow1 := ROW()
+		cSavCol1 := COL()
+		cSavCor1 := SetColor("BG+/B,,,")
+
+		ScreenDraw("SMT050", 3, 0, 0, 0)
+		SetColor("b/w,,,")
+		@3,  1 Say OemToAnsi(STR0007) //"Cadastro Intercompany"
+		@3, 24 Say OemToAnsi(STR0008) color "n/w" // "Enter-Editar"
+		@3, 38 Say OemToAnsi(STR0009) color "n/w" //"Ins-Inserir"
+		@3, 51 Say OemToAnsi(STR0010) color "n/w" // "Del-Deletar"
+		cf048Bro("cCad","Cf048skip",06,01,21,75)
+		cf048grarq(cCad,cCad1,cCad2)
+	#ELSE
+		nAlias := Select("cCad")
+		DEFINE MSDIALOG oDlg FROM  09,0 TO 28,80 TITLE OemToAnsi(STR0007) OF oMainWnd // "Cadastro InterCompany"
+		@ 1.4, 02 BUTTON OemToAnsi(STR0011)			SIZE 40,11 FONT oDlg:oFont ACTION cf048Pes(cCad) 	OF oDlg 	//"Pesquisar"
+		@ 1.4, 13 BUTTON OemToAnsi(STR0012) 		SIZE 40,11 FONT oDlg:oFont ACTION cf048Ins(cCad) 	OF oDlg  //"Incluir"
+		@ 1.4, 24 BUTTON OemToAnsi(STR0013) 		SIZE 40,11 FONT oDlg:oFont ACTION cf048alt(cCad) 	OF oDlg  // "Alterar"
+		@ 1.4, 35 BUTTON OemToAnsi(STR0014) 		SIZE 40,11 FONT oDlg:oFont ACTION cf048Del(cCad) 	OF oDlg 	//"Excluir"
+		@ 34,5 COLUMN BROWSE oBrw SIZE 310,100 PIXEL OF oDlg
+		For ni := 1 to Len(aBrowse)
+			IF aCampos[ni][2] != "N"
+				DEFINE COLUMN oCol DATA FieldWBlock(aBrowse[ni][2],nalias) HEADER OemToAnsi(aBrowse[ni][1]) SIZE CalcFieldSize(aCampos[ni][2],aCampos[ni][3],aCampos[ni][4],"",OemToAnsi(aBrowse[ni][1]))
+			Else
+				DEFINE COLUMN oCol DATA FieldWBlock(aBrowse[ni][2],nalias) HEADER OemToAnsi(aBrowse[ni][1]) SIZE CalcFieldSize(aCampos[ni][2],aCampos[ni][3],aCampos[ni][4],"@E 999,999,999.99",OemToAnsi(aBrowse[ni][1])) RIGHT
+			Endif
+			oBrw:ADDCOLUMN(oCol)
+		Next ni
+		ACTIVATE MSDIALOG oDlg ON INIT EnchoiceBar(oDlg,{||nopca:=1,oDlg:End()},{||oDlg:End()})
+		cf048grarq(cCad,cCad1,cCad2)
+	#ENDIF
+
+	#IFNDEF WINDOWS
+		RestScreen(3,0,24,79,cSavScr1)
+		SetCursor(cSavCur1)
+		DevPos(cSavRow1,cSavCol1)
+		SetColor(cSavCor1)
+	#ENDIF
+
+	Return
+
+
+	/*/
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡…o    ³CF048Bro  ³ Autor ³ Pilar S. Albaladejo   ³ Data ³ 12.02.97 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡…o ³ Tbrowse                                                    ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³ Uso      ³                                                            ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+STATIC Function CF048Bro(cCad,cFuncao,nT,nL,nB,nR)
+	*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+	*³Definicao de Variaveis                                                ³
+	*ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+	LOCAL oChoices                        // Objeto TBrowse
+	LOCAL oColumn                         // Objeto TColumn
+	LOCAL nMult := 0
+	LOCAL nPosMou:=0
+	LOCAL nPosAtu:=0,nPosAnt:=0
+	LOCAL nArea :=0,nKey:=0
+	LOCAL x:=0,wx:=0,wy:=0
+	LOCAL nRowPos,cSavCur,cSavScr4,cSavCur4,cSavCur41,cSavCur5
+	Local aColuna, nNum
+	PRIVATE nPosBco := 1
+	*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+	*³Salva a integridade dos dados                                         ³
+	*ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+	cSavCur := SetCursor( 0 )
+	HotAreCF47()
+	cSavScr4 := SaveScreen(2,0,4,79)
+
+	*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+	*³Monta o objeto TBROWSE                                                ³
+	*ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+	dbSelectarea("cCad")
+	dbGotop()
+
+	oChoices := TBrowseDB( nT, nL, nB, nR )
+	// Separadores assumidos
+	oChoices:headSep := HorSep
+	oChoices:colSep  := VerSep
+
+	// Expecto de Cores
+	oChoices:colorSpec := SetColor()
+
+	// Inicializa o tamanho do salto na janela
+	oChoices:skipBlock := { |x| CF048Skip(x) }
+
+	// Monta a tabela de cores
+	SetColor("b/bg,w+/b,,,r/bg")
+	oChoices:ColorSpec := SETCOLOR()+",n/bg"
+
+	aColuna := {"EMPRESA1","FILIAL1","CONTA1","C.CUSTO1","MOEDA1","CRITERIO1",;
+		"EMPRESA2","FILIAL2","CONTA2","C.CUSTO2","MOEDA2","CRITERIO2"}
+
+	For nNum := 1 to Len(aColuna)
+		oColumn :=  TBColumnNew(aColuna[nNum],fieldBlock(fieldname(nNum),select()))
+		oChoices:addColumn(oColumn)
+	Next
+
+	cSavCur5:= SaveScreen( 14,77,22,77)
+	nMult   := (9/LastRec())
+
+	DispBegin()
+	@ 14,77 Say CHR(22) color "N/W"
+	cSavCur51:=SaveScreen( 14,77,14,77)
+	DispEnd()
+
+	WHILE nKey != K_ESC
+
+		nKey := 0
+
+		mouseoff
+
+		//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+		//³Loop de estabilizacao                                         ³
+		//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+		WHILE !oChoices:Stabilize()
+		ENDDO
+
+		//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+		//³Monta o cursor Vertical                                       ³
+		//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+		nPosAtu :=IIF(INT(nPosBco*nMult)>9,9,INT(nPosBco*nMult))
+
+		IF nPosAtu != nPosAnt
+			nPosAnt:=nPosAtu
+			MouseOff
+			RestScreen(14,77,22,77,cSavCur5)
+			nPosAtu:=IIF(nPosAtu<=0,1,nPosAtu)
+			RestScreen( nPosAtu+13,77,nPosAtu+13,77,cSavCur51)
+			MouseOn
+		ENDIF
+
+		//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+		//³Monta o cursor do mouse, se houver um instalado               ³
+		//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+		MouseOn;MouseOn
+
+		//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+		//³ Processa teclas e movimento do mouse                         ³
+		//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+		oCor:=SetColor("bg+/b,,,")
+		WHILE .T.
+
+			nKey := INKEY()
+
+			//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+			//³ Teste de atingiu o topo ou botton                   ³
+			//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+			IF oChoices:hitTop
+				TONE(4000,1)
+				oChoices:hitTop := !oChoices:hitTop
+			ELSEIF oChoices:hitBottom
+				TONE(4000,1)
+				oChoices:hitBottom := !oChoices:hitBottom
+			ENDIF
+
+			//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+			//³ Se pressionou alguma tecla                          ³
+			//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+			IF nKey != 0
+				EXIT
+			ENDIF
+
+			//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+			//³ Se pressionou botoes do mouse                       ³
+			//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+			IF Have_a_Mouse
+				wx=MS_SCALE_X()
+				wy=MS_SCALE_Y()
+				nArea=BUTTON_HOT(wx,wy)
+				m_but := MS_PRESS()
+				IF M_but == 12
+					nKEY :=27
+					EXIT
+				ELSEIF M_but == 1
+					IF nArea == 2       // Rodape do Term Vertical
+						nKey := 24
+						EXIT
+					ELSEIF nArea == 1   // Topo do Term Vertical
+						nKey := 5
+						EXIT
+					ENDIF
+
+				ELSEIF M_but == 2
+					IF nArea == 1
+						nKey := 13
+						EXIT
+					EndIF
+					IF nArea > 10
+						EXIT
+					ENDIF
+				ENDIF
+			ENDIF
+		EndDo
+		//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+		//³Processa as teclas de reposicionamento do Browse              ³
+		//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+		MouseOff
+
+		IF oChoices:Stable
+
+			DO CASE
+
+			CASE ( nKey == K_DOWN )
+				oChoices:down()
+
+			CASE ( nKey == K_UP )
+				oChoices:up()
+
+			CASE ( nKey == K_PGDN )
+				oChoices:pageDown()
+
+			CASE ( nKey == K_PGUP )
+				oChoices:pageUp()
+
+			CASE ( nKey == K_CTRL_PGUP )
+				nPosBco:=1
+				oChoices:GoTop()
+
+			CASE ( nKey == K_CTRL_PGDN )
+				nPosBco:=LastRec()
+				oChoices:GoBottom()
+
+			CASE ( nKey == K_RIGHT )
+				oChoices:right()
+
+			CASE ( nKey == K_LEFT )
+				oChoices:left()
+
+			CASE ( nKey == 28)
+				DrawHelp(6,13,"BROWSE",OemToAnsi(STR0015),"N") // "Atualizando"
+				LOOP
+
+			CASE (nKey == K_INS)
+				CF048Ins(cCad)
+				oChoices:RefreshAll()
+				LOOP
+
+			CASE (nKey == K_ENTER)
+				CF048Alt(cCad)
+				oChoices:RefreshAll()
+				LOOP
+
+			CASE (nKey == K_DEL)
+				CF048Del(cCad)
+				Skip-1
+				oChoices:RefreshAll()
+				LOOP
+
+			CASE ( nKey == -1)
+				Util5()
+				LOOP
+
+			CASE ( nKey == -4)
+				Shell()
+				LOOP
+
+			CASE ( nKey == -8)
+				Utils()
+				LOOP
+
+			ENDCASE
+
+		ENDIF
+
+	EndDO
+	RestScreen(21, 3,21,74,cSavCur4)
+	RestScreen( 14,77,22,77,cSavCur5)
+	SetCursor(cSavCur)
+	Return .t.
+
+	/*/
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡…o    ³CF048Skip ³ Autor ³ Pilar S. Albaladejo   ³ Data ³ 12.02.97 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡…o ³ Funcao de controle para o Tbrowse                          ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³ Uso      ³                                                            ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+STATIC Function CF048Skip(nPula)
+	LOCAL nCnt := 0
+
+	If nPula > 0
+		While nCnt < nPula
+			nPosBco++
+			Skip 1
+			If Eof()
+				nPosBco--
+				Skip -1
+				Exit
+			EndIf
+			nCnt++
+		EndDo
+	Else
+		While nCnt > nPula
+			nPosBco--
+			Skip -1
+			If Bof()
+				nPosBco++
+				Exit
+			Endif
+			nCnt--
+		EndDo
+	EndIf
+
+	Return nCnt
+
+	/*/
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡…o    ³HotAreCF47³ Autor ³ Pilar S. Albaladejo   ³ Data ³ 12.02.97 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡…o ³ Hot Area do mouse para o Tbrowse                           ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³ Uso      ³                                                            ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+STATIC Function HotAreCF47()
+
+	Button_clr()
+	Button_Add(77*8,13*8,77*8,13*8)	             // Seta Superior
+	Button_Add(77*8,23*8,77*8,23*8)	             // Seta Inferior
+
+	Return .t.
+
+
+	/*/
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡…o    ³CF048Ins  ³ Autor ³ Pilar S. Albaladejo   ³ Data ³ 12.02.97 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡…o ³ Inclusao de novos registros no arq de configuracao         ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³ Uso      ³                                                            ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Static Function Cf048Ins(cAlias)
+
+	Local cEmp1,cFil1,cConta1,cCusto1,cMoeda1,cCriter1
+	Local cEmp2,cFil2,cConta2,cCusto2,cMoeda2,cCriter2
+	Local aCRA := 	{ OemToAnsi(STR0016),OemToAnsi(STR0017),OemToAnsi(STR0018) } // "Confirma" ### "Redigita" ### "Abandona"
+	Local nOpca
+	Local nSizeFil := 2
+
+	#IFDEF WINDOWS
+		Local oDlg
+	#ELSE
+		Local cTela := SaveScreen(03,00,24,78)
+		Local cLinha
+	#ENDIF
+
+	Private aTELA[0][0],aGETS[0],aHeader[0],Continua:=.F.,nUsado:=0
+
+	cMoeda1	:= "SSSSS"
+	cCriter1	:= "DDDD"
+
+	cMoeda2	:= "SSSSS"
+	cCriter2	:= "DDDD"
+
+	#IFNDEF WINDOWS
+		ScreenDraw("SCT290",8,3,-2,1)
+	#ENDIF
+
+	//-- Atualiza o conteúdo da filial
+	If FindFunction("FWSizeFilial")
+		nSizeFil := FWSizeFilial()
+	EndIf
+
+
+	While .T.
+		cEmp1 	:= Space(2)
+		cFil1 	:= Space(nSizeFil)
+		cConta1 	:= Space(20)
+		cCusto1 	:= Space(9)
+
+		cEmp2 	:= Space(2)
+		cFil2 	:= Space(nSizeFil)
+		cConta2 	:= Space(20)
+		cCusto2 	:= Space(9)
+
+		#IFNDEF WINDOWS
+
+			SetColor("n/bg,bg+/n,,,n/bg")
+			SetCursor(1)
+			@10, 16 Get cEmp1 	Valid CF048Emp(cEmp1)
+			@11, 16 Get cFil1
+			@12, 16 Get cConta1	Valid Lastkey() == K_UP .Or. !Empty(cConta1)
+			@13, 16 Get cCusto1	Valid Lastkey() == K_UP .Or.;
+				(CF048Lado(cEmp1,cFil1,cConta1,cCusto1,cEmp2,;
+				cFil2,cConta2,cCusto2) .And. ;
+				CF048Valid(cEmp1,cFil1,cConta1,cCusto1,3))
+			@14, 16 Get cMoeda1	Picture "@!" Valid Lastkey() == K_UP .Or. ;
+				CF048Moeda(cMoeda1)
+			@15, 16 Get cCriter1 Picture "@!" Valid Lastkey() == K_UP .Or. ;
+				CF048Crit(cCriter1)
+			@10, 48 Get cEmp2		Valid CF048Emp(cEmp2)
+			@11, 48 Get cFil2
+			@12, 48 Get cConta2	Valid Lastkey() == K_UP .Or. !Empty(cConta2)
+			@13, 48 Get cCusto2	Valid Lastkey() == K_UP .Or.;
+				(CF048Lado(cEmp1,cFil1,cConta1,cCusto1,cEmp2,;
+				cFil2,cConta2,cCusto2) .And. ;
+				CF048Valid(cEmp2,cFil2,cConta2,cCusto2,3))
+			@14, 48 Get cMoeda2	Picture "@!" Valid Lastkey() == K_UP .Or. ;
+				CF048Moeda(cMoeda2)
+			@15, 48 Get cCriter2	Picture "@!" Valid Lastkey() == K_UP .Or. ;
+				CF048Crit(cCriter2)
+
+			Read
+
+			SetCursor(0)
+
+			If LastKey() = K_ESC
+				Exit
+			EndIf
+			cLinha := Savescreen(17,01,17,79)
+			nOpcA:=menuh(aCRA,17,08,"b/bg,w+/n,r/bg","CRA","",1)
+			RestScreen(17,01,17,79,cLinha)
+		#ELSE
+			nOpca:=0
+			DEFINE MSDIALOG oDlg FROM  21, 24 TO 212,544 TITLE OemToANSI(STR0007) PIXEL // "Cadastro Intercompany"
+			@ 6, 02 TO 88, 110 OF oDlg  PIXEL
+			@ 6, 115 TO 88, 225 OF oDlg  PIXEL
+			@ 16, 08 SAY OemToAnsi(STR0001) SIZE 29, 39 OF oDlg PIXEL // "Empresa1"
+			@ 26, 08 SAY OemToAnsi(STR0002) SIZE 29, 25 OF oDlg PIXEL // "Filial1"
+			@ 38, 08 SAY OemToAnsi(STR0003) SIZE 29, 25 OF oDlg PIXEL // "Conta1"
+			@ 50, 08 SAY OemToAnsi(STR0019) SIZE 29, 29 OF oDlg PIXEL // "C. Custo1"
+			@ 62, 08 SAY OemToAnsi(STR0020) SIZE 29, 26 OF oDlg PIXEL // "Moedas1"
+			@ 75, 08 SAY OemToAnsi(STR0021) SIZE 29, 10 OF oDlg PIXEL // "Crit Conv1"
+			@ 15, 120 SAY OemToAnsi(STR0004) SIZE 29, 29 OF oDlg PIXEL // "Empresa2"
+			@ 25, 120 SAY OemToAnsi(STR0005) SIZE 29, 25 OF oDlg PIXEL // "Filial2"
+			@ 37, 120 SAY OemToAnsi(STR0006) SIZE 29, 25 OF oDlg PIXEL // "Conta2"
+			@ 49, 120 SAY OemToAnsi(STR0022) SIZE 29, 29 OF oDlg PIXEL // "C. Custo2"
+			@ 61, 120 SAY OemToAnsi(STR0023) SIZE 29, 26 OF oDlg PIXEL // "Moedas2"
+			@ 74, 120 SAY OemToAnsi(STR0024) SIZE 29, 10 OF oDlg PIXEL // "Crit Conv2"
+			@ 13, 42 MSGET cEmp1 Valid CF048Emp(cEmp1) ;
+				SIZE 14, 10 OF oDlg PIXEL
+			@ 25, 42 MSGET cFil1 SIZE 14, 10 OF oDlg PIXEL
+			@ 38, 42 MSGET cConta1 Valid !Empty(cConta1);
+				SIZE 65, 10 OF oDlg PIXEL
+			@ 50, 42 MSGET cCusto1 Valid ;
+				(CF048Lado(cEmp1,cFil1,cConta1,cCusto1,cEmp2,;
+				cFil2,cConta2,cCusto2) .And. ;
+				CF048Valid(cEmp1,cFil1,cConta1,cCusto1,3)) ;
+				SIZE 32, 10 OF oDlg PIXEL
+			@ 62, 42 MSGET cMoeda1 Picture "@!" Valid Cf048Moeda(cMoeda1);
+				SIZE 21, 10 OF oDlg PIXEL
+			@ 74, 42 MSGET cCriter1 Picture "@!" Valid Cf048Crit(cCriter1) ;
+				SIZE 21, 10 OF oDlg PIXEL
+			@ 12, 151 MSGET cEmp2 Valid CF048Emp(cEmp2);
+				SIZE 14, 10 OF oDlg PIXEL
+			@ 24, 151 MSGET cFil2 SIZE 14, 10 OF oDlg PIXEL
+			@ 37, 151 MSGET cConta2 Valid !Empty(cConta2);
+				SIZE 65, 10 OF oDlg PIXEL
+			@ 49, 151 MSGET cCusto2 Valid;
+				(CF048Lado(cEmp1,cFil1,cConta1,cCusto1,cEmp2,;
+				cFil2,cConta2,cCusto2) .And. ;
+				CF048Valid(cEmp2,cFil2,cConta2,cCusto2,3));
+				SIZE 32, 10 OF oDlg PIXEL
+			@ 61, 151 MSGET cMoeda2 Picture "@!" Valid CF048Moeda(cMoeda1) ;
+				SIZE 21, 10 OF oDlg PIXEL
+			@ 73, 151 MSGET cCriter2 Picture "@!" Valid CF048Crit(cCriter1);
+				SIZE 21, 10 OF oDlg PIXEL
+
+			DEFINE SBUTTON FROM 8.5, 230 TYPE 1 ACTION (nOpca := 1,;
+				Iif(CF048Ok(cEmp1,cConta1,cEmp2,cConta2),;
+				oDlg:End(),nOpca:=0)) ENABLE OF oDlg
+			DEFINE SBUTTON FROM 21.5, 230 TYPE 2 ACTION (oDlg:End(),nOpca:=0);
+				ENABLE OF oDlg
+			ACTIVATE MSDIALOG oDlg CENTERED
+		#ENDIF
+
+		If nOpca == 1
+			#IFNDEF WINDOWS
+				RestScreen(17,01,17,79,cLinha)
+			#ENDIF
+			dbSetOrder(1)
+			CF048Grava(3,cEmp1,cFil1,cConta1,cCusto1,cMoeda1,cCriter1,;
+				cEmp2,cFil2,cConta2,cCusto2,cMoeda2,cCriter2)
+			#IFDEF WINDOWS
+				oBrw:Refresh(.t.)
+			#ENDIF
+		ElseIF nOpcA == 3 .Or. nOpca == 0
+			#IFNDEF WINDOWS
+				RestScreen(17,01,17,79,cLinha)
+			#ENDIF
+			Exit
+		Endif
+	EndDo
+
+	#IFNDEF WINDOWS
+		SetCursor(0)
+		dbSelectAREA(cAlias)
+	#ENDIF
+
+	#IFNDEF WINDOWS
+		RestScreen(03,00,24,78,cTela)
+	#ENDIF
+
+	Return
+
+	/*/
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡…o    ³CF048Alt  ³ Autor ³ Pilar S. Albaladejo   ³ Data ³ 12.02.97 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡…o ³ Alterar dados do arquivo de configuracao                   ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³ Uso      ³                                                            ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Function CF048Alt(cAlias)
+
+	Local cEmp1,cFil1,cConta1,cCusto1,cMoeda1,cCriter1
+	Local cEmp2,cFil2,cConta2,cCusto2,cMoeda2,cCriter2
+	Local aCRA := 	{ OemToAnsi(STR0016),OemToAnsi(STR0017),OemToAnsi(STR0018) } // "Confirma" ### "Redigita" ### "Abandona"
+	Local nOpca:=0
+
+	#IFDEF WINDOWS
+		Local oDlg
+	#ELSE
+		Local cTela := SaveScreen(03,00,24,78)
+	#ENDIF
+
+	//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+	//³ Verifica se existem dados no arquivo					  ³
+	//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+	If EOF()
+		Help(" ",1,"ARQVAZIO")
+		Return .T.
+	EndIf
+	Private aTELA[0][0],aGETS[0],aHeader[0],Continua:=.F.,nUsado:=0
+
+	cEmp1 	:= EMP1
+	cFil1 	:= FIL1
+	cConta1 	:= CONTA1
+	cCusto1 	:= CUSTO1
+	cMoeda1	:= MOEDA1
+	cCriter1	:= CRITER1
+
+	cEmp2 	:= EMP2
+	cFil2 	:= FIL2
+	cConta2 	:= CONTA2
+	cCusto2 	:= CUSTO2
+	cMoeda2	:= MOEDA2
+	cCriter2	:= CRITER2
+
+	#IFNDEF WINDOWS
+		ScreenDraw("SCT290",8,3,-2,1)
+		SetColor("n/bg,bg+/n,,,n/bg")
+		SetCursor(1)
+
+		@10, 16 Get cEmp1 	Valid CF048Emp(cEmp1)
+		@11, 16 Get cFil1
+		@12, 16 Get cConta1	Valid Lastkey() == K_UP .Or. !Empty(cConta1)
+		@13, 16 Get cCusto1	Valid Lastkey() == K_UP .Or.;
+			(CF048Lado(cEmp1,cFil1,cConta1,cCusto1,cEmp2,;
+			cFil2,cConta2,cCusto2) .And. ;
+			CF048Valid(cEmp1,cFil1,cConta1,cCusto1,4))
+		@14, 16 Get cMoeda1	Picture "@!" Valid Lastkey() == K_UP .Or. ;
+			CF048Moeda(cMoeda1)
+		@15, 16 Get cCriter1 Picture "@!" Valid Lastkey() == K_UP .Or. ;
+			CF048Crit(cCriter1)
+		@10, 48 Get cEmp2		Valid CF048Emp(cEmp2)
+		@11, 48 Get cFil2
+		@12, 48 Get cConta2	Valid Lastkey() == K_UP .Or. !Empty(cConta2)
+		@13, 48 Get cCusto2	Valid Lastkey() == K_UP .Or.;
+			(CF048Lado(cEmp1,cFil1,cConta1,cCusto1,cEmp2,;
+			cFil2,cConta2,cCusto2) .And. ;
+			CF048Valid(cEmp2,cFil2,cConta2,cCusto2,4))
+		@14, 48 Get cMoeda2	Picture "@!" Valid Lastkey() == K_UP .Or. ;
+			CF048Moeda(cMoeda2)
+		@15, 48 Get cCriter2	Picture "@!" Valid Lastkey() == K_UP .Or. ;
+			CF048Crit(cCriter2)
+		Read
+
+		SetCursor(0)
+		If LastKey() != K_ESC
+			nOpcA:=menuh(aCRA,17,08,"b/bg,w+/n,r/bg","CRA","",1)
+		End
+	#ELSE
+		nOpca:=0
+		DEFINE MSDIALOG oDlg FROM  21, 24 TO 212,544 TITLE OemToAnsi(STR0007) PIXEL // "Cadastro Intercompany"
+		@ 6, 02 TO 88, 110 OF oDlg  PIXEL
+		@ 6, 115 TO 88, 225 OF oDlg  PIXEL
+		@ 16, 08 SAY OemToAnsi(STR0001) SIZE 29, 39 OF oDlg PIXEL //"Empresa1"
+		@ 26, 08 SAY OemToAnsi(STR0002) SIZE 29, 25 OF oDlg PIXEL //"Filial1"
+		@ 38, 08 SAY OemToAnsi(STR0003) SIZE 29, 25 OF oDlg PIXEL // "Conta1"
+		@ 50, 08 SAY OemToAnsi(STR0019) SIZE 29, 29 OF oDlg PIXEL // "C. Custo1"
+		@ 62, 08 SAY OemToAnsi(STR0020) SIZE 29, 26 OF oDlg PIXEL // "Moedas1"
+		@ 75, 08 SAY OemToAnsi(STR0021) SIZE 29, 10 OF oDlg PIXEL // "Crit Conv1"
+		@ 15, 120 SAY OemToAnsi(STR0004) SIZE 29, 29 OF oDlg PIXEL // "Empresa2"
+		@ 25, 120 SAY OemToAnsi(STR0005) SIZE 29, 25 OF oDlg PIXEL // "Filial2"
+		@ 37, 120 SAY OemToAnsi(STR0006) SIZE 29, 25 OF oDlg PIXEL // "Conta2"
+		@ 49, 120 SAY OemToAnsi(STR0022) SIZE 29, 29 OF oDlg PIXEL // "C. Custo2"
+		@ 61, 120 SAY OemToAnsi(STR0023) SIZE 29, 26 OF oDlg PIXEL // "Moedas2"
+		@ 74, 120 SAY OemToAnsi(STR0024)SIZE 29, 10 OF oDlg PIXEL // "Crit Conv2"
+		@ 13, 42 MSGET cEmp1 Valid CF048Emp(cEmp1) ;
+			SIZE 14, 10 OF oDlg PIXEL
+		@ 25, 42 MSGET cFil1 SIZE 14, 10 OF oDlg PIXEL
+		@ 38, 42 MSGET cConta1 Valid !Empty(cConta1);
+			SIZE 65, 10 OF oDlg PIXEL
+		@ 50, 42 MSGET cCusto1 Valid ;
+			(CF048Lado(cEmp1,cFil1,cConta1,cCusto1,cEmp2,;
+			cFil2,cConta2,cCusto2) .And. ;
+			CF048Valid(cEmp1,cFil1,cConta1,cCusto1,4)) ;
+			SIZE 32, 10 OF oDlg PIXEL
+		@ 62, 42 MSGET cMoeda1 Picture "@!" Valid Cf048Moeda(cMoeda1);
+			SIZE 21, 10 OF oDlg PIXEL
+		@ 74, 42 MSGET cCriter1 Picture "@!" Valid Cf048Crit(cCriter1) ;
+			SIZE 21, 10 OF oDlg PIXEL
+		@ 12, 151 MSGET cEmp2 Valid CF048Emp(cEmp2);
+			SIZE 14, 10 OF oDlg PIXEL
+		@ 24, 151 MSGET cFil2 SIZE 14, 10 OF oDlg PIXEL
+		@ 37, 151 MSGET cConta2 Valid !Empty(cConta2);
+			SIZE 65, 10 OF oDlg PIXEL
+		@ 49, 151 MSGET cCusto2 Valid;
+			(CF048Lado(cEmp1,cFil1,cConta1,cCusto1,cEmp2,;
+			cFil2,cConta2,cCusto2) .And. ;
+			CF048Valid(cEmp2,cFil2,cConta2,cCusto2,4));
+			SIZE 32, 10 OF oDlg PIXEL
+		@ 61, 151 MSGET cMoeda2 Picture "@!" Valid CF048Moeda(cMoeda1) ;
+			SIZE 21, 10 OF oDlg PIXEL
+		@ 73, 151 MSGET cCriter2 Picture "@!" Valid CF048Crit(cCriter1);
+			SIZE 21, 10 OF oDlg PIXEL
+		DEFINE SBUTTON FROM 8.5, 230 TYPE 1 ACTION (nOpca := 1,;
+			Iif(CF048Ok(cEmp1,cConta1,cEmp2,cConta2),;
+			oDlg:End(),nOpca:=0)) ENABLE OF oDlg
+		DEFINE SBUTTON FROM 21.5, 230 TYPE 2 ACTION (oDlg:End(),nOpca:=0);
+			ENABLE OF oDlg
+		ACTIVATE MSDIALOG oDlg CENTERED
+	#ENDIF
+
+	If nOpca == 1
+		CF048Grava(4,cEmp1,cFil1,cConta1,cCusto1,cMoeda1,cCriter1,;
+			cEmp2,cFil2,cConta2,cCusto2,cMoeda2,cCriter2)
+		#IFDEF WINDOWS
+			oBrw:Refresh(.t.)
+		#ENDIF
+	Endif
+
+	#IFNDEF WINDOWS
+		SetCursor(0)
+		RestScreen(03,00,24,78,cTela)
+		dbSelectArea(cAlias)
+	#ENDIF
+
+	Return
+
+	/*/
+	ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡…o    ³ CF048Del ³ Autor ³ Pilar S. Albaladejo   ³ Data ³ 07.12.92 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡…o ³ Programa de exclusao intercompany                          ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Sintaxe   ³ CF048Del(ExpC1)                                            ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Function CF048Del(cAlias)
+
+	Local cEmp1,cFil1,cConta1,cCusto1,cMoeda1,cCriter1
+	Local cEmp2,cFil2,cConta2,cCusto2,cMoeda2,cCriter2
+	Local aCA := 	{ OemToAnsi(STR0016),OemToAnsi(STR0018) } // "Confirma" ### "Abandona"
+	Local nOpca
+
+	#IFDEF WINDOWS
+		Local oDlg
+	#ELSE
+		Local cTela := SaveScreen(3,0,24,79)
+	#ENDIF
+	//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+	//³ Verifica se existem dados no arquivo					  ³
+	//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+	If EOF()
+		Help(" ",1,"ARQVAZIO")
+		Return .T.
+	EndIf
+	cEmp1 	:= EMP1
+	cFil1 	:= FIL1
+	cConta1 := CONTA1
+	cCusto1 := CUSTO1
+	cMoeda1	:= MOEDA1
+	cCriter1	:= CRITER1
+	cEmp2 	:= EMP2
+	cFil2 	:= FIL2
+	cConta2 	:= CONTA2
+	cCusto2 	:= CUSTO2
+	cMoeda2	:= MOEDA2
+	cCriter2	:= CRITER2
+
+	#IFNDEF WINDOWS
+		ScreenDraw("SCT290",8,3,-2,1)
+		SetColor("n/bg,bg+/n,,,n/bg")
+		SetCursor(1)
+		@10, 16 Say cEmp1
+		@11, 16 Say cFil1
+		@12, 16 Say cConta1
+		@13, 16 Say cCusto1
+		@14, 16 Say cMoeda1
+		@15, 16 Say cCriter1
+		@10, 48 Say cEmp2
+		@11, 48 Say cFil2
+		@12, 48 Say cConta2
+		@13, 48 Say cCusto2
+		@14, 48 Say cMoeda2
+		@15, 48 Say cCriter2
+		SetCursor(0)
+		nOpcA:=menuh(aCA,17,08,"b/bg,w+/n,r/bg","CA","",1)
+	#ELSE
+		nOpca := 0
+		DEFINE MSDIALOG oDlg FROM  21, 24 TO 212,544 TITLE OemToAnsi(STR0007) PIXEL // "Cadastro Intercompany"
+		@ 6, 02 TO 88, 110 OF oDlg  PIXEL
+		@ 6, 115 TO 88, 225 OF oDlg  PIXEL
+		@ 16, 08 SAY OemToAnsi(STR0001) SIZE 29, 39 OF oDlg PIXEL // "Empresa1"
+		@ 26, 08 SAY OemToAnsi(STR0002) SIZE 29, 25 OF oDlg PIXEL // "Filial1"
+		@ 38, 08 SAY OemToAnsi(STR0003) SIZE 29, 25 OF oDlg PIXEL // "Conta1"
+		@ 50, 08 SAY OemToAnsi(STR0019) SIZE 29, 29 OF oDlg PIXEL // "C. Custo1"
+		@ 62, 08 SAY OemToAnsi(STR0020) SIZE 29, 26 OF oDlg PIXEL // "Moedas1"
+		@ 75, 08 SAY OemToAnsi(STR0021) SIZE 29, 10 OF oDlg PIXEL // "Crit Conv1"
+		@ 15, 120 SAY OemToAnsi(STR0004) SIZE 29, 29 OF oDlg PIXEL // "Empresa2"
+		@ 25, 120 SAY OemToAnsi(STR0005) SIZE 29, 25 OF oDlg PIXEL // "Filial2"
+		@ 37, 120 SAY OemToAnsi(STR0006) SIZE 29, 25 OF oDlg PIXEL // "Conta2"
+		@ 49, 120 SAY OemToAnsi(STR0022) SIZE 29, 29 OF oDlg PIXEL // "C. Custo2"
+		@ 61, 120 SAY OemToAnsi(STR0023) SIZE 29, 26 OF oDlg PIXEL // "Moedas2"
+		@ 74, 120 SAY OemToAnsi(STR0024) SIZE 29, 10 OF oDlg PIXEL // "Crit Conv2"
+
+		@ 13, 42 SAY cEmp1 SIZE 14, 10 OF oDlg PIXEL
+		@ 25, 42 SAY cFil1 SIZE 14, 10 OF oDlg PIXEL
+		@ 38, 42 SAY cConta1	SIZE 65, 10 OF oDlg PIXEL
+		@ 50, 42 SAY cCusto1 SIZE 32, 10 OF oDlg PIXEL
+		@ 62, 42 SAY cMoeda1 SIZE 21, 10 OF oDlg PIXEL
+		@ 74, 42 SAY cCriter1 SIZE 21, 10 OF oDlg PIXEL
+		@ 12, 151 SAY cEmp2 SIZE 14, 10 OF oDlg PIXEL
+		@ 24, 151 SAY cFil2 SIZE 14, 10 OF oDlg PIXEL
+		@ 37, 151 SAY cConta2 SIZE 65, 10 OF oDlg PIXEL
+		@ 49, 151 SAY cCusto2 SIZE 32, 10 OF oDlg PIXEL
+		@ 61, 151 SAY cMoeda2 SIZE 21, 10 OF oDlg PIXEL
+		@ 73, 151 SAY cCriter2 SIZE 21, 10 OF oDlg PIXEL
+
+		DEFINE SBUTTON FROM 8.5, 230 TYPE 1 ACTION (nOpca := 1,oDlg:End()) ENABLE OF oDlg
+		DEFINE SBUTTON FROM 21.5, 230 TYPE 2 ACTION oDlg:End() ENABLE OF oDlg
+		ACTIVATE MSDIALOG oDlg CENTERED
+		lRefresh := .T.
+	#ENDIF
+
+	If nOpca == 1
+		RecLock("cCad",.F.,.T.)
+		dbDelete()
+		MsUnlock()
+		#IFDEF WINDOWS
+			oBrw:Refresh(.t.)
+		#ENDIF
+	EndIf
+
+	#IFNDEF WINDOWS
+		SetCursor(0)
+		RestScreen(3,0,24,79,cTela)
+		dbSelectArea(cAlias)
+	#ENDIF
+
+	Return
+
+	/*/
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡…o    ³CF048Valid³ Autor ³ Pilar S. Albaladejo   ³ Data ³ 12.02.97 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡…o ³ Valida chave                                               ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³ Uso      ³ CF048Valid                                                 ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Static Function CF048Valid(cEmp,cFil,cConta,cCusto,nOpcx)
+
+	dbSelectArea("cCad")
+	nRec := Recno()
+	dbSetOrder(1)
+	If dbSeek(cEmp+cFil+cConta+cCusto)
+		dbSetOrder(2)
+		If dbSeek(cEmp+cFil+cConta+cCusto)
+			If nOpcx == 3 .Or. (nOpcx==4 .And. nRec != Recno())
+				Help(" ",1,"CF047REG")
+				dbGoto(nRec)
+				Return .f.
+			EndIf
+		EndIf
+	EndIf
+	dbGoto(nRec)
+	Return .T.
+
+	/*/
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡…o    ³CF048Moeda³ Autor ³ Pilar S. Albaladejo   ³ Data ³ 12.02.97 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡…o ³ Verifica se campo moeda foi preenchido corretamente        ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³ Uso      ³ CF048Moeda                                                 ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Static Function CF048Moeda(cMoeda)
+
+	Local nCont
+
+	For nCont := 1 To Len(cMoeda)
+		If !(Substr(cMoeda,nCont,1) $ "SN " )
+			Help(" ",1,"CF047MOEDA")
+			Return .f.
+		EndIf
+	Next nCont
+
+	Return .T.
+
+	/*/
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡…o    ³CF048Crit ³ Autor ³ Pilar S. Albaladejo   ³ Data ³ 12.02.97 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡…o ³ Verifica se criterio de conversao esta correto             ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³ Uso      ³ CF048Grava                                                 ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Static Function CF048Crit(cCriter)
+
+	Local nCont
+
+	For nCont := 1 To Len(cCriter)
+		If !(Substr(cCriter,nCont,1) $ "DMUVI " )
+			Help(" ",1,"CF047CRIT")
+			Return .f.
+		EndIf
+	Next nCont
+
+	Return .T.
+
+	/*/
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡…o    ³CF048Lado ³ Autor ³ Pilar S. Albaladejo   ³ Data ³ 12.02.97 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡…o ³ Verifica se dados nao foram repetidos em ambos os lados    ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³ Uso      ³ CF048Lado                                                  ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Static Function CF048Lado(cEmp1,cFil1,cConta1,cCusto1,cEmp2,cFil2,cConta2,cCusto2)
+
+	If cEmp1 == cEmp2 .And. cFil1 == cFil2 .And. cConta1 == cConta2 .And. ;
+			cCusto1 == cCusto2
+		Help(" ",1,"CF047LADO")
+		Return .f.
+	EndIf
+
+	Return .T.
+
+	/*/
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡…o    ³CF048Grava³ Autor ³ Pilar S. Albaladejo   ³ Data ³ 12.02.97 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡…o ³ Grava as informacoes do Intercompany                       ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³ Uso      ³ CF048Grava                                                 ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Function CF048Grava(	nOpcx, cEmp1,cFil1,cConta1,cCusto1,cMoeda1,cCriter1,;
+		cEmp2,cFil2,cConta2,cCusto2,cMoeda2,cCriter2)
+
+	If nOpcx == 3
+		RecLock("cCad",.T.)
+	Else
+		RecLock("cCad",.F.)
+	EndIf
+
+	Replace FIL1		With cFil1
+	Replace EMP1		With cEmp1
+	Replace CONTA1		With cConta1
+	Replace CUSTO1		With cCusto1
+	Replace MOEDA1		With cMoeda1
+	Replace CRITER1	With cCriter1
+	Replace FIL2		With cFil2
+	Replace EMP2		With cEmp2
+	Replace CONTA2		With cConta2
+	Replace CUSTO2		With cCusto2
+	Replace MOEDA2		With cMoeda2
+	Replace CRITER2	With cCriter2
+	MsUnlock()
+
+	Return
+
+	/*/
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡…o    ³CF048Emp  ³ Autor ³ Pilar S. Albaladejo   ³ Data ³ 12.02.97 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡…o ³ Valida empresa digitada                                    ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³ Uso      ³ CF048EMP                                                   ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Static Function CF048Emp(cEmp)
+
+	If Empty(cEmp)
+		Help(" ",1,"CF047EMP")
+		Return .F.
+	EndIf
+
+	Return .T.
+
+	/*/
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡…o    ³CF048GrArq³ Autor ³ Pilar S. Albaladejo   ³ Data ³ 12.02.97 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡…o ³ Grava arquivo Texto e apaga os temporarios                 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³ Uso      ³                                                            ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Static Function Cf048GrArq(cCad,cCad1,cCad2)
+
+	dbSelectArea("cCad")
+	Copy to INTERCP.CFG SDF
+
+	dbSelectArea("cCad")
+	DbCloseArea()
+	If File(cCad+GetDBExtension())
+		FErase(cCad+GetDBExtension())
+	EndIf
+	If File(cCad1+OrdBagExt())
+		FERASE(cCad1+OrdBagExt())
+	Endif
+	If File(cCad2+OrdBagExt())
+		FERASE(cCad2+OrdBagExt())
+	EndIF
+
+	Return
+
+	/*/
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡…o    ³cf048OK   ³ Autor ³ Pilar S. Albaladejo   ³ Data ³ 12.02.97 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡…o ³ Verifica se tudo foi digitado                              ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³ Uso      ³ cf048OK                                                    ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Static Function Cf048Ok(cEmp1,cConta1,cEmp2,cConta2)
+
+	If Empty(cEmp1) .Or. Empty(cConta1) .Or. ;
+			Empty(cEmp2) .Or. Empty(cConta2)
+		Help(" ",1,"CF047VAZIO")
+		Return .F.
+	EndIf
+
+	Return .T.
+
+
+
+	/*/
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡…o    ³cf048Pes  ³ Autor ³ Pilar S. Albaladejo   ³ Data ³ 12.02.97 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡…o ³ Pesquisa item                                              ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³ Uso      ³ cf048Pes                                                   ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Static Function Cf048Pes(cCad)
+
+	Local cCampo := Space(25)
+	//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+	//³ Verifica se existem dados no arquivo					  ³
+	//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+	If EOF()
+		Help(" ",1,"ARQVAZIO")
+		Return .T.
+	EndIf
+	#IFDEF WINDOWS
+		DEFINE MSDIALOG oDlg FROM  69,90 TO 160,421 TITLE OemToAnsi(STR0011) PIXEL // "Pesquisar  - Emp1+Fil1+Conta1+CCusto1"
+
+		@ 0, 2 TO 22, 160 OF oDlg  PIXEL
+		@ 7, 38 MSGET cCampo Picture "@!" SIZE 94, 10 OF oDlg PIXEL
+		@ 8, 9 SAY OemToAnsi(STR0025)  SIZE 24, 7 OF oDlg PIXEL //"Pesquisa"
+		DEFINE SBUTTON FROM 29, 101 TYPE 1 ENABLE ACTION (nOpca:=1,Cf048Acha(cCampo,cCad),;
+			oDLg:End(),nOpca:=0) OF oDlg
+		DEFINE SBUTTON FROM 29, 131 TYPE 2 ENABLE ACTION (oDlg:End()) OF oDlg
+
+		ACTIVATE MSDIALOG oDlg
+
+	#ENDIF
+	Return
+
+	/*/
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡„o    ³Cf048Acha ³ Autor ³ Pilar S Albaladejo	³ Data ³12.03.97  ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡„o ³ Funcao que realiza a pesquisa - WINDOWS	                  ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³ Uso      ³ Generico 	                                          ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Static Function Cf048Acha(cCampo,cCad)
+
+	Local nOrder := IndexOrd()
+	Local nReg 	 := Recno()
+
+	dbSelectArea("cCad")
+	dbSetOrder(1)
+	If !dbSeek(cCampo)
+		dbSetOrder(2)
+		If !dbSeek(cCampo)
+			dbGoto(nReg)
+		EndIf
+	EndIF
+	dbSetOrder(nOrder)
+	#IFDEF WINDOWS
+		oBrw:Refresh(.t.)
+	#ENDIF
+	Return
+

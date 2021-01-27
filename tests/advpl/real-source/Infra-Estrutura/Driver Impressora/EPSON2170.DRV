@@ -1,0 +1,8 @@
+Epson FX2170 e LX300
+[080C]CHR(15) + CHR( 27 ) + CHR( 67 ) + CHR( 66 )
+[080E]CHR(18) + CHR( 27 ) + CHR( 67 ) + CHR( 66 )
+[132C]CHR(15) + CHR( 27 ) + CHR( 67 ) + CHR( 66 )
+[132E]CHR(18) + CHR( 27 ) + CHR( 67 ) + CHR( 66 )
+[220C]CHR(15) + CHR( 27 ) + CHR( 67 ) + CHR( 66 )
+[220E]CHR(15) + CHR( 27 ) + CHR( 67 ) + CHR( 66 )
+

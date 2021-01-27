@@ -1,40 +1,45 @@
+import { parser_token_4gl } from "./4gl";
 import { IParserOptions, normalize } from "./config";
 import { ERRORS } from "./errors";
-import * as call_parser from "./parsers";
-export {  } from "./interfaces";
+import ASTY = require("asty");
+import { parser_token_advpl } from "./advpl";
 
 const LANGUAGES = [
   {
-    extensions: [".4gl"],
-    name: "4GL",
-    parsers: ["4gl-token"],
+    name: "4gl-token",
+    extensions: [
+      ".4gl", 
+      ".per"
+    ],
+    parser: (text: string, options: any) => {
+      return parser_token_4gl(text, options);
+    },
+  },
+  {
+    name: "advpL-token",
+    parser: (text: string, options: any) => {
+      return parser_token_advpl(text, options);
+    },
+    extensions: [
+      ".prw",
+      ".prx",
+      ".aph",
+      ".ppx",
+      ".ppp",
+      ".tlpp",
+      ".ch"
+    ],
   },
 ];
 
-const PARSERS = {
-  // "4gl-source": {
-  //   parse: (text, options) => {
-  //     return call_parser.parser_program(text, options);
-  //   },
-  // },
-  "4gl-token": {
-    parse: (text, options) => {
-      return call_parser.parser_token(text, options);
-    },
-  },
-};
-
-export function parser(content: string, options: IParserOptions): any[] {
+export function parser(content: string, options: IParserOptions): ASTY.ASTYNode {
   let parserList: any[] = [];
 
   options = normalize(options);
 
   parserList = LANGUAGES.filter((language) => {
-    return language.parsers.includes(options.parser as string);
-  }).map((lang) => {
-    return lang.parsers.filter((parser) => {
-      return parser == options.parser;
-    });
+    return language.name == (options.parser as string)
+    || language.extensions.includes(options.fileext as string);
   });
 
   if (!parserList || parserList.length == 0) {
@@ -43,11 +48,5 @@ export function parser(content: string, options: IParserOptions): any[] {
     throw new Error(`${ERRORS.E003} [${options.parser}]`);
   }
 
-  const result: any[] = [];
-
-  parserList.forEach((parser) => {
-    result.push(PARSERS[parser].parse(content, options));
-  });
-
-  return result;
+  return parserList[0].parser(content, options);
 }

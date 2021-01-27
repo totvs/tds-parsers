@@ -24,8 +24,6 @@
         "resolveJsonModule": true,
     },
     "exclude": [
-        "node_modules/",
-        "../out/",
-        "test/",
+        "node_modules/"
     ]
 }

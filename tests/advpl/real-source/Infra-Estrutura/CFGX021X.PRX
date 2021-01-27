@@ -1,0 +1,251 @@
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Finaliza o programa											 ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+Function Finaliza(lAbriu,aDbfs)
+	Local nI
+	//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+	//³ Recupera a Integridade dos dados							 ³
+	//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+	If nModulo == 12 .OR. nModulo == 97 .OR. nModulo == 72   //SIGALOJA  // SIGAESP //SIGAPHOTO
+		If lAbriu
+			//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+			//³ Fecha todos os arquivos e os abre novamente    ³
+			//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+			For nI:=1 to Len(aDbfs)
+				While !ChkFile(aDbfs[nI],.F.)
+					Help("",1,"ERROABRIN")
+				EndDo
+			Next nI
+		EndIf
+	EndIf
+	Return
+
+Function DrvName(cDriver)
+	Local cStr
+
+	IF "DEFAULT" $ cDriver
+		Return "Default Windows"
+	ENdif
+
+	if !File(cDriver)
+		Help(" ",1,"NODRIVER")
+		Return Space(16)
+	endif
+
+	cStr := MemoRead(cDriver)
+	cStr := MemoLine(cStr,254,1)
+	cStr := Substr(cStr,1,16)
+	cStr := PADR(cStr,16)
+
+	Return cStr
+
+	/*/
+	ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡„o	 ³LOJA150      ³ Autor ³ Fernando          ³ Data ³ 19.12.96  ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡„o ³Executa a rotina de senhas no SIGALOJA					  ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Parametros³ Sem Argumentos 											  ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³ Uso		 ³ SIGALOJA 	  ³ Fun‡„o Relacionada ³ Entrada Dados (Todos)³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Function LOJA150()
+
+	CFGx021()
+
+	Return
+
+	/*/
+	ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡„o	 ³ ExclTab	³ Autor ³ Elaine Beraldo	    ³ Data ³ 26.07.94 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡„o ³ Exclui um Usuario em SX5 - Tabela 23						  ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Sintaxe	 ³ ExclTab(usuario)											  ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Parametros³ Nome do Usuario											  ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³ Uso		 ³ Sigaloja 	  ³ Fun‡„o Relacionada ³ Movimento do Caixa   ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Function ExclTab( cNome )
+	Local cChave := ""
+
+	Begin Transaction
+
+		dbSelectArea( "SX5" )
+		dbSeek(cFilial+"23")
+
+		While !Eof() .And. X5_TABELA == "23"
+			IF Trim(X5_DESCRI) == Trim(Upper(cNome))
+				Reclock( "SX5",.f.,.t. )
+				cChave=X5_CHAVE
+				dbDelete()
+				msUnlock()
+				FkCommit()
+				Exit
+			EndIF
+			dbSkip()
+		EndDo
+
+		If !Empty( cChave )
+			dbSelectArea( "SLF" )
+			dbSetOrder( 1 )
+			If (dbSeek(cFilial+SubStr(cChave,1,3)))
+				Reclock( "SLF",.f.,.t. )
+				dbDelete()
+				msUnlock()
+				FkCommit()
+			Endif
+			dbSelectArea( "SM0" )
+		EndIf
+
+		If !Empty( cChave )
+			dbSelectArea( "SA6" )
+			dbSetOrder( 1 )
+			If (dbSeek(cFilial+SubStr(cChave,1,3)))
+				Reclock( "SA6",.f.,.t. )
+				dbDelete()
+				MsUnlock()
+				FkCommit()
+			Endif
+		EndIf
+
+	End Transaction
+
+	Return .T.
+
+	/*/
+	ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡…o	 ³ FechaArq ³ Autor ³ Fernando Godoy        ³ Data ³ 20/12/96 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡…o ³ Fecha arquivos utilizados								  ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Sintaxe e ³ FechaArq(Alias)											  ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Function FechaArq(cAlias)
+	If Select(cAlias) != 0
+		dbSelectArea(cAlias)
+		dbCloseArea()
+	Endif
+
+Function ExcluiAlc(cSenhaAnt,cNomeAnt)
+	Local nHdlAlca,aAlcada :={},cBuffer,nLidos,nTamAlca,nx
+
+	nHdlAlca := FOPEN(cArqAlca,64)
+	//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+	//³ Le o arquivo desde o inicio e joga num array Temporario para ³
+	//³ depois fazer a gravacao. 									 ³
+	//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+	nTamAlca := FSEEK(nHdlAlca,0,2)
+	nLidos := 0
+	FSEEK(nHdlAlca,0,0)
+	While nLidos <= nTamAlca
+		cBuffer := Space(82)
+		FREAD(nHdlAlca,@cBuffer,82)
+		if Substr(cBuffer,2,36) != EnCript(cSenhaAnt,0)+EnCript(cNomeAnt,0)
+			AADD(aAlcada,cBuffer)
+		endif
+		nLidos += 82
+	End
+	FCLOSE(nHdlAlca)
+
+	//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+	//³ Recria o arquivo SIGAMAT.ALC 								 ³
+	//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+	nHdlAlca:=MSFCREATE(cArqAlca,0)
+	FSEEK(nHdlAlca,0,2)
+	//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+	//³ Regrava o arquivo SIGAMAT.ALC com alteracao 				 ³
+	//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+	If Len(aAlcada) > 0
+		For nx := 1 To Len(aAlcada)
+			If !Empty(aAlcada[nX])
+				FWRITE(nHdlAlca,aAlcada[nX],82)
+			EndIf
+		Next nx
+	EndIf
+	FCLOSE(nHdlAlca)
+	Return .T.
+
+	/*/
+	ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+	±±³Fun‡„o	 ³LJ010TEF	³ Autor ³ Fernando/Sergio       ³ Data ³ 19.08.97 ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Descri‡„o ³ Pergunta se o novo usu rio utiliza TEF.					  ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³Parametros³ Nao Tem													  ³±±
+	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+	±±³ Uso		 ³ Sigaloja       ³ Fun‡„o Relacionada ³                      ³±±
+	±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Function LJ010TEF()
+
+	Local lTef := .F.
+	Local nChave := 0
+	Local cChave
+
+	lUsaTEF := lTef
+
+	dbSelectArea( "SX5" )
+	dbSeek(xFilial("SX5") + "23" + "zzzzzz",.T.)
+	dbSkip(-1)
+	If X5_TABELA == "23"
+		nChave=Val(SubStr(X5_CHAVE,2,2))
+	EndIf
+	cChave="C"+Strzero(nChave+1,2)
+	Return
+
+Function GravaTab(cNome,cModImp,cModGav,cModCmc7,cUsaTef,cChave)
+
+	Begin Transaction
+
+		Reclock( "SX5", .T. )
+		Replace X5_FILIAL with cFilial
+		Replace X5_TABELA with "23"
+		Replace X5_CHAVE	 with cChave
+		Replace X5_DESCRI  With Upper(cNome)
+		Replace X5_DESCENG With Upper(cNome)
+		Replace X5_DESCSPA With Upper(cNome)
+
+		MsUnlock( )
+
+		DbSelectArea("SA6")
+
+		If !dbSeek(xFilial("SA6")+cChave+".    "+".         ")
+			Reclock( "SA6", .T. )
+			Replace A6_FILIAL  with cFilial
+			Replace A6_COD 	 with cChave
+			Replace A6_NOME	 with Upper(cNome)
+			Replace A6_NREDUZ  with Upper(cNome)
+			Replace A6_AGENCIA with "."
+			Replace A6_NUMCON  with "."
+			Replace A6_DATAFCH With dDatabase
+			Replace A6_HORAFCH With Substr(Time(),1,5)
+			msUnlock()
+		EndIf
+
+	End Transaction
+
+	dbSelectArea( "SM0" )
+
+	Return .T.
