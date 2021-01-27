@@ -5,7 +5,7 @@ import ASTY = require("asty");
 import PEG = require("pegjs")
 import PEGUtil = require("pegjs-util")
 
-const grammarFile: string = path.join(".", "src", "advpl", "advpl.pegjs");
+const grammarFile: string = path.join(".", "grammar", "advpl.pegjs");
 const options: PEG.ParserBuildOptions =  {
     allowedStartRules: [ "start"],
     trace: false
