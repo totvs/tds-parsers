@@ -1,5 +1,5 @@
 {
-  "name": "@totvs/tds-parsers",
+  "name": "tds-parsers",
   "displayName": "TOTVS Developer Studio: Analisador Sintático",
   "description": "Extensão para análise sintática das linguagens proprietárias TOTVS.",
   "version": "0.0.8",
@@ -41,10 +41,6 @@
     "build": "tsc -p ./src",
     "watch": "tsc -p ./src --watch",
     "prebuild": "npm run clean",
-    "---PARSER---": "",
-    "pegjs": "npm-run-all genparser:*",
-    "genparser:4gl": "pegjs --allowed-start-rules start_token -o ./src/4gl/_4gl.js ./src/4gl/4gl.pegjs",
-    "genparser:advpl": "pegjs --allowed-start-rules start -o ./src/advpl/_advpl.js ./src/advpl/advpl.pegjs",
     "---TEST---": "",
     "test": "jest",
     "test:snapshot": "npm run test -- --updateSnapshot",

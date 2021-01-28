@@ -1,8 +1,7 @@
-import { parser_token_4gl } from "./4gl";
 import { IParserOptions, normalize } from "./config";
 import { ERRORS } from "./errors";
 import ASTY = require("asty");
-import { parser_token_advpl } from "./advpl";
+import { parser_token_4gl, parser_token_advpl } from "./parser";
 
 const LANGUAGES = [
   {
