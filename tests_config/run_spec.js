@@ -39,7 +39,7 @@ function run_spec(dirname, options) {
               source +
               "~".repeat(PRINT_WIDTH) +
               "\n" +
-              output.ast.serialize()
+              JSON.stringify(output.ast,2,1)
             )
           ).toMatchSnapshot();
         });

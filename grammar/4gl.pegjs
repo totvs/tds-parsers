@@ -5,23 +5,26 @@
 {
 
 //const unroll = options.util.makeUnroll(location, options);
-const ast    = options.util.makeAST   (location, options);
+const ast = options.util.makeAST(location, options);
 
 }
 
-start
+start_program
 	= t:token*
-	{ return ast("program").set("value", t) }
+  { return ast("program", t) }
 
 token 
-  = comment
-  / NLS? keywords NLS
+  = blocks 
+  / keywords 
+  / comment
   / operators 
+  / builtInVar
   / string
   / number
-  / (!keywords ID)
-  / NLS
-  / o:(!WS .)+ { return ast("notSpecified").set("value", o) }
+  / builtInVar
+  / ID
+  / WS/_NL
+  / o:(!WS .)+ { return ast("notSpecified", o) }
 
 D_QUOTE = '\"';
 S_QUOTE = '\'';
@@ -29,7 +32,7 @@ DOT = '\.';
 
 string
   = s:$(double_quoted_string / single_quoted_string) {
-      return ast("string").set("value", s);
+      return ast("string", s);
     }
 
 double_quoted_string = $(D_QUOTE (!D_QUOTE .)* D_QUOTE)
@@ -38,7 +41,7 @@ single_quoted_string = $(S_QUOTE (!S_QUOTE .)* S_QUOTE)
 
 number
   = n:$([-+]? DIGIT+ (DOT DIGIT+)?) {
-      return ast("number").set("value", n); 
+      return ast("number", n); 
     }
 
 DIGIT = [0-9]
@@ -54,15 +57,26 @@ ESCAPED
  / "\\r" { return "\r"}
 
 WS
-  = s:$[ \t;]+ { return ast("whiteSpace").set("value", s) }
+  = s:$[ \t;]+ { return ast("whiteSpace", s) }
 
-_NL = s:$("\n" / "\r" / "\r\n")+ { return ast("newLine").set("value", s) }
+_NL = s:$("\n" / "\r" / "\r\n")+ { return ast("newLine", s) }
 
 NLS
   = _NL / WS
 
+blocks
+  = k:(
+    MAIN
+    / FUNCTION
+  ) { return ast("keyword", k).set("block", "begin" ) }
+    / k0:END w:WS k1:(MAIN / FUNCTION)  { return [ 
+      ast("keyword", k0), 
+      ast(w), 
+      ast("keyword", k1).set("block", "end"), 
+    ] }
+
 keywords
-  = (
+  = k:(
     BLACK 
     / BLUE 
     / CYAN 
@@ -132,7 +146,6 @@ keywords
     / DROP
     / DYNAMIC
     / ELSE
-    / END
     / ERROR
     / EVERY
     / EXCLUSIVE
@@ -156,7 +169,6 @@ keywords
     / FRACTION
     / FREE
     / FROM
-    / FUNCTION
     / GROUP
     / GLOBALS
     / HAVING
@@ -190,7 +202,6 @@ keywords
     / LOAD
     / LOCK
     / LOG
-    / MAIN
     / MARGIN
     / MATCHES
     / MAX
@@ -294,356 +305,352 @@ keywords
     / WORDWRAP
     / WORK
     / YEAR
-  )
+  ) w:(WS/_NL)
+   { return [ ast("keyword", k), ast(w) ] }
  
 operators
-  = C_BRACES
-  / C_BRACKET
-  / C_PARENTHESIS
-  / O_BRACES
-  / O_BRACKET
-  / O_PARENTHESIS
-  / COMMA
-  / ASTERISK
-  / EQUAL
-  / LESS
-  / GREATER
-  / EXCLAMATION
-  / PLUS
-  / MINUS
-  / COLON
-  / SLASH
+  = o:(
+    C_BRACES
+    / C_BRACKET
+    / C_PARENTHESIS
+    / O_BRACES
+    / O_BRACKET
+    / O_PARENTHESIS
+    / COMMA
+    / ASTERISK
+    / EQUAL
+    / LESS
+    / GREATER
+    / EXCLAMATION
+    / PLUS
+    / MINUS
+    / COLON
+    / SLASH
+  ) { return ast("operator", o) }
 
-numericDate
-  = mo (separator dd separator)? (yy / yyyy)
-
-mo = [1] [012] / [0-9]?[0-9]
-
-dd = [0-9]?[0-9]
-
-yy = [0-9][0-9]
-
-yyyy = [0-9][0-9][0-9][0-9]
-
-separator = SLASH 
+builtInVar
+  = v:(
+    INT_FLAG
+    / NOT_FOUND 
+    / SQL_CODE 
+    / STATUS 
+    / QUIT_FLAG 
+    / SQL_CA_RECORD 
+    / SQL_ERR_M 
+    / SQL_ERR_P 
+    / SQL_ERR_D 
+    / SQL_AWARN 
+  ) { return ast("builtInVar", v) }
 
 comment
   = singleCommentLine 
-  / c:$(O_BRACES (!C_BRACES .)* C_BRACES) { return ast("comment").set("value", c) }
+  / c:$(O_BRACES (!C_BRACES .)* C_BRACES) { return ast("comment", c) }
 
 singleCommentLine
-  = c:$('#' (!_NL .)* _NL) { return ast("comment").set("value", c) }
-  / c:$('-' '-' '#' (!_NL .)* _NL) { return ast("comment").set("value", s) }
+  = c:$('#' (!_NL .)* _NL) { return ast("comment", c) }
+  / c:$('-' '-' '#' (!_NL .)* _NL) { return ast("comment", c) }
 
-ID = id:$([a-zA-Z_] [a-zA-Z_0-9]*) { return ast("identifier").set("value", id) }
+ID = id:$([a-zA-Z_] [a-zA-Z_0-9]*) { return ast("identifier", id) }
 
-MO=('0'..'1')? DIGIT;
-DD=('0'..'3')? DIGIT;
-YYYY=DIGIT{4}
-HH=('0'..'2')? DIGIT;
-MM=('0'..'5')? DIGIT;
-SS=('0'..'5')? DIGIT;
-FFFF=DIGIT{4}
+AT_SIGN = "@";
+INT_FLAG = "int_flag"i
+NOT_FOUND = "notfound"i 
+SQL_CODE = "sqlcode"i 
+STATUS = "status"i 
+QUIT_FLAG = "quit_flag"i 
+SQL_CA_RECORD = "sqlcarecord"i 
+SQL_ERR_M = "sqlerrm"i 
+SQL_ERR_P = "sqlerrp"i 
+SQL_ERR_D = "sqlerrd"i 
+SQL_AWARN = "sqlawarn"i 
 
-AT_SIGN="@";
-INT_FLAG=v:"int_flag"i{ return ast("builtInVar").set("value", c) }
-NOT_FOUND=v:"notfound"i { return ast("builtInVar").set("value", c) }
-SQL_CODE=v:"sqlcode"i { return ast("builtInVar").set("value", c) }
-STATUS=v:"status"i { return ast("builtInVar").set("value", c) }
-QUIT_FLAG=v:"quit_flag"i { return ast("builtInVar").set("value", c) }
-SQL_CA_RECORD=v:"sqlcarecord"i { return ast("builtInVar").set("value", c) }
-SQL_ERR_M=v:"sqlerrm"i { return ast("builtInVar").set("value", c) }
-SQL_ERR_P=v:"sqlerrp"i { return ast("builtInVar").set("value", c) }
-SQL_ERR_D=v:"sqlerrd"i { return ast("builtInVar").set("value", c) }
-SQL_AWARN=v:"sqlawarn"i { return ast("builtInVar").set("value", c) }
+TRUE=c:"true"i { return ast("constante", c) }
+FALSE=c:"false"i { return ast("constante", c) }
 
-TRUE=c:"true"i { return ast("constante").set("value", c) }
-FALSE=c:"false"i { return ast("constante").set("value", c) }
+O_BRACES=o:"{" 
+C_BRACES=o:"}" 
+O_BRACKET=o:"[" 
+C_BRACKET=o:"]" 
+O_PARENTHESIS=o:"(" 
+C_PARENTHESIS=o:")" 
+COMMA=o:"," 
+ASTERISK=o:"*" 
+EQUAL=o:"="  
+LESS=o:"<" 
+GREATER=o:">" 
+EXCLAMATION=o:"!" 
+PLUS=o:"+" 
+MINUS=o:"-" 
+COLON=o:":" 
+SLASH=o:"/" 
 
-O_BRACES=o:"{" { return ast("operator").set("value", o) }
-C_BRACES=o:"}" { return ast("operator").set("value", o) }
-O_BRACKET=o:"[" { return ast("operator").set("value", o) }
-C_BRACKET=o:"]" { return ast("operator").set("value", o) }
-O_PARENTHESIS=o:"(" { return ast("operator").set("value", o) }
-C_PARENTHESIS=o:")" { return ast("operator").set("value", o) }
-COMMA=o:"," { return ast("operator").set("value", o) }
-ASTERISK=o:"*" { return ast("operator").set("value", o) }
-EQUAL=o:"="  { return ast("operator").set("value", o) }
-LESS=o:"<" { return ast("operator").set("value", o) }
-GREATER=o:">" { return ast("operator").set("value", o) }
-EXCLAMATION=o:"!" { return ast("operator").set("value", o) }
-PLUS=o:"+" { return ast("operator").set("value", o) }
-MINUS=o:"-" { return ast("operator").set("value", o) }
-COLON=o:":" { return ast("operator").set("value", o) }
-SLASH=o:"/" { return ast("operator").set("value", o) }
-
-ACCEPT=k:"accept"i  { return ast("keyword").set("value", k) }
-AFTER=k:"after"i  { return ast("keyword").set("value", k) }
-ALL=k:"all"i  { return ast("keyword").set("value", k) }
-AND=k:"and"i  { return ast("keyword").set("value", k) }
-ANY=k:"any"i  { return ast("keyword").set("value", k) }
-ARRAY=k:"array"i  { return ast("keyword").set("value", k) }
-ASC=k:"asc"i  { return ast("keyword").set("value", k) }
-ASCENDING=k:"ascending"i  { return ast("keyword").set("value", k) }
-ASCII=k:"ascii"i  { return ast("keyword").set("value", k) }
-AT=k:"year"i  { return ast("keyword").set("value", k) }
-ATTRIBUTE=k:"attribute"i  { return ast("keyword").set("value", k) }
-ATTRIBUTES=k:"attributes"i  { return ast("keyword").set("value", k) }
-AUTONEXT=k:"autonext"i  { return ast("keyword").set("value", k) }
-AVG=k:"avg"i  { return ast("keyword").set("value", k) }
-BEFORE=k:"before"i  { return ast("keyword").set("value", k) }
-BEGIN=k:"begin"i ? { return  ast("keyword").set("value", k) }
-BETWEEN=k:"between"i  { return ast("keyword").set("value", k) }
-BIGINT=k:"bigint"i  { return ast("keyword").set("value", k) }
-BLACK=k:"black"i  { return ast("keyword").set("value", k) }
-BLINK=k:"blink"i  { return ast("keyword").set("value", k) }
-BLUE=k:"blue"i  { return ast("keyword").set("value", k) }
-BOLD=k:"bold"i  { return ast("keyword").set("value", k) }
-BORDER=k:"border"i  { return ast("keyword").set("value", k) }
-BOTTOM=k:"bottom"i  { return ast("keyword").set("value", k) }
-BY=k:"by"i  { return ast("keyword").set("value", k) }
-BYTE=k:"byte"i  { return ast("keyword").set("value", k) }
-CALL=k:"call"i  { return ast("keyword").set("value", k) }
-CASE=k:"case"i ? { return  ast("keyword").set("value", k) }
-CHAR=k:"char"i  { return ast("keyword").set("value", k) }
-CHARACTER=k:"character"i  { return ast("keyword").set("value", k) }
-CLEAR=k:"clear"i  { return ast("keyword").set("value", k) }
-CLIPPED=k:"clipped"i  { return ast("keyword").set("value", k) }
-CLOSE=k:"close"i  { return ast("keyword").set("value", k) }
-COLUMN=k:"column"i  { return ast("keyword").set("value", k) }
-COLUMNS=k:"columns"i  { return ast("keyword").set("value", k) }
-COMMAND=k:"command"i  { return ast("keyword").set("value", k) }
-COMMENT=k:"comment"i  { return ast("keyword").set("value", k) }
-COMMENTS=k:"comments"i  { return ast("keyword").set("value", k) }
-COMMIT=k:"commit"i  { return ast("keyword").set("value", k) }
-CONSTRAINT=k:"constraint"i  { return ast("keyword").set("value", k) }
-CONSTRUCT=k:"construct"i  { return ast("keyword").set("value", k) }
-CONTINUE=k:"continue"i  { return ast("keyword").set("value", k) }
-CONTROL=k:"control"i  { return ast("keyword").set("value", k) }
-COUNT=k:"count"i  { return ast("keyword").set("value", k) }
-CREATE=k:"create"i  { return ast("keyword").set("value", k) }
-CURRENT=k:"current"i  { return ast("keyword").set("value", k) }
-CURSOR=k:"cursor"i  { return ast("keyword").set("value", k) }
-CYAN=k:"cyan"i  { return ast("keyword").set("value", k) }
-DATABASE=k:"database"i  { return ast("keyword").set("value", k) }
-DATE=k:"date"i  { return ast("keyword").set("value", k) }
-DATETIME=k:"datetime"i  { return ast("keyword").set("value", k) }
-DAY=k:"day"i  { return ast("keyword").set("value", k) }
-DEC=k:"dec"i  { return ast("keyword").set("value", k) }
-DECIMAL=k:"decimal"i  { return ast("keyword").set("value", k) }
-DECLARE=k:"declare"i  { return ast("keyword").set("value", k) }
-DEFAULTS=k:"defaults"i  { return ast("keyword").set("value", k) }
-DEFER=k:"defer"i  { return ast("keyword").set("value", k) }
-DEFINE=k:"define"i  { return ast("keyword").set("value", k) }
-DELETE=k:"delete"i  { return ast("keyword").set("value", k) }
-DELIMITER=k:"delimiter"i  { return ast("keyword").set("value", k) }
-DELIMITERS=k:"delimiters"i  { return ast("keyword").set("value", k) }
-DESC=k:"desc"i  { return ast("keyword").set("value", k) }
-DESCENDING=k:"descending"i  { return ast("keyword").set("value", k) }
-DIM=k:"dim"i  { return ast("keyword").set("value", k) }
-DIRTY=k:"dirty"i  { return ast("keyword").set("value", k) }
-DISPLAY=k:"display"i  { return ast("keyword").set("value", k) }
-DISTINCT=k:"distinct"i  { return ast("keyword").set("value", k) }
-DOUBLE=k:"double"i  { return ast("keyword").set("value", k) }
-DOWN=k:"down"i  { return ast("keyword").set("value", k) }
-DOWNSHIFT=k:"downshift"i  { return ast("keyword").set("value", k) }
-DROP=k:"drop"i  { return ast("keyword").set("value", k) }
-DYNAMIC=k:"dynamic"i  { return ast("keyword").set("value", k) }
-ELIF=k:"elif"i  { return ast("keyword").set("value", k) }
-ELSE=k:"else"i  { return ast("keyword").set("value", k) }
-END=k:"end"i ? { return  ast("keyword").set("value", k) }
-ERROR=k:"error"i  { return ast("keyword").set("value", k) }
-ESCAPE=k:"escape"i  { return ast("keyword").set("value", k) }
-EVERY=k:"every"i  { return ast("keyword").set("value", k) }
-EXCLUSIVE=k:"exclusive"i  { return ast("keyword").set("value", k) }
-EXECUTE=k:"execute"i  { return ast("keyword").set("value", k) }
-EXISTS=k:"exists"i  { return ast("keyword").set("value", k) }
-EXIT=k:"exit"i  { return ast("keyword").set("value", k) }
-EXTEND=k:"extend"i  { return ast("keyword").set("value", k) }
-EXTERNAL=k:"external"i  { return ast("keyword").set("value", k) }
-FETCH=k:"fetch"i  { return ast("keyword").set("value", k) }
-FIELD=k:"field"i  { return ast("keyword").set("value", k) }
-FILE=k:"file"i  { return ast("keyword").set("value", k) }
-FINISH=k:"finish"i ? { return  ast("keyword").set("value", k) }
-FIRST=k:"first"i  { return ast("keyword").set("value", k) }
-FLOAT=k:"float"i  { return ast("keyword").set("value", k) }
-FLUSH=k:"flush"i  { return ast("keyword").set("value", k) }
-FOR=k:"for"i ? { return  ast("keyword").set("value", k) }
-FOREACH=k:"foreach"i ? { return  ast("keyword").set("value", k) }
-FORM=k:"form"i  { return ast("keyword").set("value", k) }
-FORMAT=k:"format"i  { return ast("keyword").set("value", k) }
-FORMONLY=k:"formonly"i  { return ast("keyword").set("value", k) }
-FOUND=k:"found"i  { return ast("keyword").set("value", k) }
-FRACTION=k:"fraction"i  { return ast("keyword").set("value", k) }
-FREE=k:"free"i  { return ast("keyword").set("value", k) }
-FROM=k:"from"i  { return ast("keyword").set("value", k) }
-FUNCTION=k:"function"i ? { return  ast("keyword").set("value", k) }
-GLOBALS=k:"globals"i  { return ast("keyword").set("value", k) }
-GO=k:"go"i  { return ast("keyword").set("value", k) }
-GOTO=k:"goto"i  { return ast("keyword").set("value", k) }
-GREEN=k:"green"i  { return ast("keyword").set("value", k) }
-GROUP=k:"group"i  { return ast("keyword").set("value", k) }
-HAVING=k:"having"i  { return ast("keyword").set("value", k) }
-HEADER=k:"header"i  { return ast("keyword").set("value", k) }
-HELP=k:"help"i  { return ast("keyword").set("value", k) }
-HIDE=k:"hide"i  { return ast("keyword").set("value", k) }
-HOLD=k:"hold"i  { return ast("keyword").set("value", k) }
-HOUR=k:"hour"i  { return ast("keyword").set("value", k) }
-IF=k:"if"i  { return ast("keyword").set("value", k) }
-IN=k:"in"i  { return ast("keyword").set("value", k) }
-INCLUDE=k:"include"i  { return ast("keyword").set("value", k) }
-INDEX=k:"index"i  { return ast("keyword").set("value", k) }
-INITIALIZE=k:"initialize"i  { return ast("keyword").set("value", k) }
-INPUT=k:"input"i  { return ast("keyword").set("value", k) }
-INSERT=k:"insert"i  { return ast("keyword").set("value", k) }
-INSTRUCTIONS=k:"instructions"i  { return ast("keyword").set("value", k) }
-INT=k:"int"i  { return ast("keyword").set("value", k) }
-INTEGER=k:"integer"i  { return ast("keyword").set("value", k) }
-INTERRUPT=k:"interrupt"i  { return ast("keyword").set("value", k) }
-INTERVAL=k:"interval"i  { return ast("keyword").set("value", k) }
-INTO=k:"into"i  { return ast("keyword").set("value", k) }
-INVISIBLE=k:"invisible"i  { return ast("keyword").set("value", k) }
-IS=k:"is"i  { return ast("keyword").set("value", k) }
-ISOLATION=k:"isolation"i  { return ast("keyword").set("value", k) }
-KEY=k:"key"i  { return ast("keyword").set("value", k) }
-LABEL=k:"label"i  { return ast("keyword").set("value", k) }
-LAST=k:"last"i  { return ast("keyword").set("value", k) }
-LEFT=k:"left"i  { return ast("keyword").set("value", k) }
-LENGTH=k:"length"i  { return ast("keyword").set("value", k) }
-LET=k:"let"i  { return ast("keyword").set("value", k) }
-LIKE=k:"like"i  { return ast("keyword").set("value", k) }
-LINE=k:"line"i  { return ast("keyword").set("value", k) }
-LINES=k:"lines"i  { return ast("keyword").set("value", k) }
-LOAD=k:"load"i  { return ast("keyword").set("value", k) }
-LOCATE=k:"locate"i  { return ast("keyword").set("value", k) }
-LOCK=k:"lock"i  { return ast("keyword").set("value", k) }
-LOG=k:"log"i  { return ast("keyword").set("value", k) }
-MAGENTA=k:"magenta"i  { return ast("keyword").set("value", k) }
-MAIN=k:"main"i ? { return  ast("keyword").set("value", k) }
-MARGIN=k:"margin"i  { return ast("keyword").set("value", k) }
-MATCHES=k:"matches"i  { return ast("keyword").set("value", k) }
-MAX=k:"max"i  { return ast("keyword").set("value", k) }
-MDY=k:"mdy"i  { return ast("keyword").set("value", k) }
-MEMORY=k:"memory"i  { return ast("keyword").set("value", k) }
-MENU=k:"menu"i  { return ast("keyword").set("value", k) }
-MESSAGE=k:"message"i  { return ast("keyword").set("value", k) }
-MIN=k:"min"i  { return ast("keyword").set("value", k) }
-MINUTE=k:"minute"i  { return ast("keyword").set("value", k) }
-MOD=k:"mod"i  { return ast("keyword").set("value", k) }
-MODE=k:"mode"i  { return ast("keyword").set("value", k) }
-MONEY=k:"money"i  { return ast("keyword").set("value", k) }
-MONTH=k:"month"i  { return ast("keyword").set("value", k) }
-NAME=k:"name"i  { return ast("keyword").set("value", k) }
-NCHAR=k:"nchar"i  { return ast("keyword").set("value", k) }
-NEED=k:"need"i  { return ast("keyword").set("value", k) }
-NEXT=k:"next"i  { return ast("keyword").set("value", k) }
-NO=k:"no"i  { return ast("keyword").set("value", k) }
-NOENTRY=k:"noentry"i  { return ast("keyword").set("value", k) }
-NORMAL=k:"normal"i  { return ast("keyword").set("value", k) }
-NOT=k:"not"i  { return ast("keyword").set("value", k) }
-NOTFOUND=k:"notfound"i  { return ast("keyword").set("value", k) }
-NULL=k:"null"i  { return ast("keyword").set("value", k) }
-NUMERIC=k:"numeric"i  { return ast("keyword").set("value", k) }
-NVARCHAR=k:"nvarchar"i  { return ast("keyword").set("value", k) }
-OF=k:"of"i  { return ast("keyword").set("value", k) }
-OFF=k:"off"i  { return ast("keyword").set("value", k) }
-ON=k:"on"i  { return ast("keyword").set("value", k) }
-OPEN=k:"open"i  { return ast("keyword").set("value", k) }
-OPTION=k:"option"i  { return ast("keyword").set("value", k) }
-OPTIONS=k:"options"i  { return ast("keyword").set("value", k) }
-OR=k:"or"i  { return ast("keyword").set("value", k) }
-ORDER=k:"order"i  { return ast("keyword").set("value", k) }
-OTHERWISE=k:"otherwise"i  { return ast("keyword").set("value", k) }
-OUTER=k:"outer"i  { return ast("keyword").set("value", k) }
-OUTPUT=k:"output"i  { return ast("keyword").set("value", k) }
-PAGE=k:"page"i  { return ast("keyword").set("value", k) }
-PAGENO=k:"pageno"i  { return ast("keyword").set("value", k) }
-PIPE=k:"pipe"i  { return ast("keyword").set("value", k) }
-PRECISION=k:"precision"i  { return ast("keyword").set("value", k) }
-PREPARE=k:"prepare"i  { return ast("keyword").set("value", k) }
-PREVIOUS=k:"previous"i  { return ast("keyword").set("value", k) }
-PRIMARY=k:"primary"i  { return ast("keyword").set("value", k) }
-PRINT=k:"print"i  { return ast("keyword").set("value", k) }
-PROGRAM=k:"program"i  { return ast("keyword").set("value", k) }
-PROMPT=k:"prompt"i  { return ast("keyword").set("value", k) }
-PUT=k:"put"i  { return ast("keyword").set("value", k) }
-QUIT=k:"quit"i  { return ast("keyword").set("value", k) }
-READ=k:"read"i  { return ast("keyword").set("value", k) }
-REAL=k:"real"i  { return ast("keyword").set("value", k) }
-RECORD=k:"record"i  { return ast("keyword").set("value", k) }
-RED=k:"red"i  { return ast("keyword").set("value", k) }
-REPORT=k:"report"i  { return ast("keyword").set("value", k) }
-RETURN=k:"return"i  { return ast("keyword").set("value", k) }
-RETURNING=k:"returning"i  { return ast("keyword").set("value", k) }
-REVERSE=k:"reverse"i  { return ast("keyword").set("value", k) }
-RIGTH=k:"rigth"i  { return ast("keyword").set("value", k) }
-ROLLBACK=k:"rollback"i  { return ast("keyword").set("value", k) }
-ROW=k:"row"i  { return ast("keyword").set("value", k) }
-ROWS=k:"rows"i  { return ast("keyword").set("value", k) }
-RUN=k:"run"i  { return ast("keyword").set("value", k) }
-SCREEN=k:"screen"i  { return ast("keyword").set("value", k) }
-SCROLL=k:"scroll"i  { return ast("keyword").set("value", k) }
-SECOND=k:"second"i  { return ast("keyword").set("value", k) }
-SELECT=k:"select"i  { return ast("keyword").set("value", k) }
-SET=k:"set"i  { return ast("keyword").set("value", k) }
-SHARE=k:"share"i  { return ast("keyword").set("value", k) }
-SHOW=k:"show"i  { return ast("keyword").set("value", k) }
-SKIP=k:"skip"i  { return ast("keyword").set("value", k) }
-SLEEP=k:"sleep"i  { return ast("keyword").set("value", k) }
-SMALL=k:"small"i  { return ast("keyword").set("value", k) }
-SMALLFLOAT=k:"smallfloat"i  { return ast("keyword").set("value", k) }
-SMALLINT=k:"smallint"i  { return ast("keyword").set("value", k) }
-SPACE=k:"space"i  { return ast("keyword").set("value", k) }
-SPACES=k:"spaces"i  { return ast("keyword").set("value", k) }
-SQL=k:"sql"i  { return ast("keyword").set("value", k) }
-SQLERROR=k:"sqlerror"i  { return ast("keyword").set("value", k) }
-SQLWARNING=k:"sqlwarning"i  { return ast("keyword").set("value", k) }
-START=k:"start"i  { return ast("keyword").set("value", k) }
-STEP=k:"step"i  { return ast("keyword").set("value", k) }
-STOP=k:"stop"i  { return ast("keyword").set("value", k) }
-STRING=k:"string"i  { return ast("keyword").set("value", k) }
-SUM=k:"sum"i  { return ast("keyword").set("value", k) }
-TABLE=k:"table"i  { return ast("keyword").set("value", k) }
-TABLES=k:"tables"i  { return ast("keyword").set("value", k) }
-TEMP=k:"temp"i  { return ast("keyword").set("value", k) }
-TEXT=k:"text"i  { return ast("keyword").set("value", k) }
-THEN=k:"then"i  { return ast("keyword").set("value", k) }
-THROUGH=k:"through"i  { return ast("keyword").set("value", k) }
-THRU=k:"thru"i  { return ast("keyword").set("value", k) }
-TIME=k:"time"i  { return ast("keyword").set("value", k) }
-TO=k:"to"i  { return ast("keyword").set("value", k) }
-TODAY=k:"today"i  { return ast("keyword").set("value", k) }
-TOP=k:"top"i  { return ast("keyword").set("value", k) }
-TRAILER=k:"trailer"i  { return ast("keyword").set("value", k) }
-TYPE=k:"type"i  { return ast("keyword").set("value", k) }
-UNCONSTRAINED=k:"unconstrained"i  { return ast("keyword").set("value", k) }
-UNDERLINE=k:"underline"i  { return ast("keyword").set("value", k) }
-UNION=k:"union"i  { return ast("keyword").set("value", k) }
-UNIQUE=k:"unique"i  { return ast("keyword").set("value", k) }
-UNITS=k:"units"i  { return ast("keyword").set("value", k) }
-UNLOAD=k:"unload"i  { return ast("keyword").set("value", k) }
-UNLOCK=k:"unlock"i  { return ast("keyword").set("value", k) }
-UP=k:"up"i  { return ast("keyword").set("value", k) }
-UPDATE=k:"update"i  { return ast("keyword").set("value", k) }
-UPSHIFT=k:"upshift"i  { return ast("keyword").set("value", k) }
-USING=k:"using"i  { return ast("keyword").set("value", k) }
-VALIDATE=k:"validate"i  { return ast("keyword").set("value", k) }
-VALUES=k:"values"i  { return ast("keyword").set("value", k) }
-VARCHAR=k:"varchar"i  { return ast("keyword").set("value", k) }
-WAIT=k:"wait"i  { return ast("keyword").set("value", k) }
-WAITING=k:"waiting"i  { return ast("keyword").set("value", k) }
-WARNING=k:"warning"i  { return ast("keyword").set("value", k) }
-WEEKDAY=k:"weekday"i  { return ast("keyword").set("value", k) }
-WHEN=k:"when"i  { return ast("keyword").set("value", k) }
-WHENEVER=k:"whenever"i  { return ast("keyword").set("value", k) }
-WHERE=k:"where"i  { return ast("keyword").set("value", k) }
-WHILE=k:"while"i  { return ast("keyword").set("value", k) }
-WHITE=k:"white"i  { return ast("keyword").set("value", k) }
-WINDOW=k:"window"i  { return ast("keyword").set("value", k) }
-WITH=k:"with"i  { return ast("keyword").set("value", k) }
-WITHOUT=k:"without"i  { return ast("keyword").set("value", k) }
-WORDWRAP=k:"wordwrap"i  { return ast("keyword").set("value", k) }
-WORK=k:"work"i  { return ast("keyword").set("value", k) }
-WRAP=k:"wrap"i  { return ast("keyword").set("value", k) }
-YEAR=k:"year"i  { return ast("keyword").set("value", k) }
-YELLOW=k:"yellow"i  { return ast("keyword").set("value", k) }
+ACCEPT = "accept"i  
+AFTER = "after"i  
+ALL = "all"i  
+AND = "and"i  
+ANY = "any"i  
+ARRAY = "array"i  
+ASC = "asc"i  
+ASCENDING = "ascending"i  
+ASCII = "ascii"i  
+AT = "year"i  
+ATTRIBUTE = "attribute"i  
+ATTRIBUTES = "attributes"i  
+AUTONEXT = "autonext"i  
+AVG = "avg"i  
+BEFORE = "before"i  
+BEGIN = "begin"i
+BETWEEN = "between"i  
+BIGINT = "bigint"i  
+BLACK = "black"i  
+BLINK = "blink"i  
+BLUE = "blue"i  
+BOLD = "bold"i  
+BORDER = "border"i  
+BOTTOM = "bottom"i  
+BY = "by"i  
+BYTE = "byte"i  
+CALL = "call"i  
+CASE = "case"i
+CHAR = "char"i  
+CHARACTER = "character"i  
+CLEAR = "clear"i  
+CLIPPED = "clipped"i  
+CLOSE = "close"i  
+COLUMN = "column"i  
+COLUMNS = "columns"i  
+COMMAND = "command"i  
+COMMENT = "comment"i  
+COMMENTS = "comments"i  
+COMMIT = "commit"i  
+CONSTRAINT = "constraint"i  
+CONSTRUCT = "construct"i  
+CONTINUE = "continue"i  
+CONTROL = "control"i  
+COUNT = "count"i  
+CREATE = "create"i  
+CURRENT = "current"i  
+CURSOR = "cursor"i  
+CYAN = "cyan"i  
+DATABASE = "database"i  
+DATE = "date"i  
+DATETIME = "datetime"i  
+DAY = "day"i  
+DEC = "dec"i  
+DECIMAL = "decimal"i  
+DECLARE = "declare"i  
+DEFAULTS = "defaults"i  
+DEFER = "defer"i  
+DEFINE = "define"i  
+DELETE = "delete"i  
+DELIMITER = "delimiter"i  
+DELIMITERS = "delimiters"i  
+DESC = "desc"i  
+DESCENDING = "descending"i  
+DIM = "dim"i  
+DIRTY = "dirty"i  
+DISPLAY = "display"i  
+DISTINCT = "distinct"i  
+DOUBLE = "double"i  
+DOWN = "down"i  
+DOWNSHIFT = "downshift"i  
+DROP = "drop"i  
+DYNAMIC = "dynamic"i  
+ELIF = "elif"i  
+ELSE = "else"i  
+END = "end"i
+ERROR = "error"i  
+ESCAPE = "escape"i  
+EVERY = "every"i  
+EXCLUSIVE = "exclusive"i  
+EXECUTE = "execute"i  
+EXISTS = "exists"i  
+EXIT = "exit"i  
+EXTEND = "extend"i  
+EXTERNAL = "external"i  
+FETCH = "fetch"i  
+FIELD = "field"i  
+FILE = "file"i  
+FINISH = "finish"i
+FIRST = "first"i  
+FLOAT = "float"i  
+FLUSH = "flush"i  
+FOR = "for"i 
+FOREACH = "foreach"i
+FORM = "form"i  
+FORMAT = "format"i  
+FORMONLY = "formonly"i  
+FOUND = "found"i  
+FRACTION = "fraction"i  
+FREE = "free"i  
+FROM = "from"i  
+FUNCTION = "function"i
+GLOBALS = "globals"i  
+GO = "go"i  
+GOTO = "goto"i  
+GREEN = "green"i  
+GROUP = "group"i  
+HAVING = "having"i  
+HEADER = "header"i  
+HELP = "help"i  
+HIDE = "hide"i  
+HOLD = "hold"i  
+HOUR = "hour"i  
+IF = "if"i  
+IN = "in"i  
+INCLUDE = "include"i  
+INDEX = "index"i  
+INITIALIZE = "initialize"i  
+INPUT = "input"i  
+INSERT = "insert"i  
+INSTRUCTIONS = "instructions"i  
+INT = "int"i  
+INTEGER = "integer"i  
+INTERRUPT = "interrupt"i  
+INTERVAL = "interval"i  
+INTO = "into"i  
+INVISIBLE = "invisible"i  
+IS = "is"i  
+ISOLATION = "isolation"i  
+KEY = "key"i  
+LABEL = "label"i  
+LAST = "last"i  
+LEFT = "left"i  
+LENGTH = "length"i  
+LET = "let"i  
+LIKE = "like"i  
+LINE = "line"i  
+LINES = "lines"i  
+LOAD = "load"i  
+LOCATE = "locate"i  
+LOCK = "lock"i  
+LOG = "log"i  
+MAGENTA = "magenta"i  
+MAIN = "main"i
+MARGIN = "margin"i  
+MATCHES = "matches"i  
+MAX = "max"i  
+MDY = "mdy"i  
+MEMORY = "memory"i  
+MENU = "menu"i  
+MESSAGE = "message"i  
+MIN = "min"i  
+MINUTE = "minute"i  
+MOD = "mod"i  
+MODE = "mode"i  
+MONEY = "money"i  
+MONTH = "month"i  
+NAME = "name"i  
+NCHAR = "nchar"i  
+NEED = "need"i  
+NEXT = "next"i  
+NO = "no"i  
+NOENTRY = "noentry"i  
+NORMAL = "normal"i  
+NOT = "not"i  
+NOTFOUND = "notfound"i  
+NULL = "null"i  
+NUMERIC = "numeric"i  
+NVARCHAR = "nvarchar"i  
+OF = "of"i  
+OFF = "off"i  
+ON = "on"i  
+OPEN = "open"i  
+OPTION = "option"i  
+OPTIONS = "options"i  
+OR = "or"i  
+ORDER = "order"i  
+OTHERWISE = "otherwise"i  
+OUTER = "outer"i  
+OUTPUT = "output"i  
+PAGE = "page"i  
+PAGENO = "pageno"i  
+PIPE = "pipe"i  
+PRECISION = "precision"i  
+PREPARE = "prepare"i  
+PREVIOUS = "previous"i  
+PRIMARY = "primary"i  
+PRINT = "print"i  
+PROGRAM = "program"i  
+PROMPT = "prompt"i  
+PUT = "put"i  
+QUIT = "quit"i  
+READ = "read"i  
+REAL = "real"i  
+RECORD = "record"i  
+RED = "red"i  
+REPORT = "report"i  
+RETURN = "return"i  
+RETURNING = "returning"i  
+REVERSE = "reverse"i  
+RIGTH = "rigth"i  
+ROLLBACK = "rollback"i  
+ROW = "row"i  
+ROWS = "rows"i  
+RUN = "run"i  
+SCREEN = "screen"i  
+SCROLL = "scroll"i  
+SECOND = "second"i  
+SELECT = "select"i  
+SET = "set"i  
+SHARE = "share"i  
+SHOW = "show"i  
+SKIP = "skip"i  
+SLEEP = "sleep"i  
+SMALL = "small"i  
+SMALLFLOAT = "smallfloat"i  
+SMALLINT = "smallint"i  
+SPACE = "space"i  
+SPACES = "spaces"i  
+SQL = "sql"i  
+SQLERROR = "sqlerror"i  
+SQLWARNING = "sqlwarning"i  
+START = "start"i  
+STEP = "step"i  
+STOP = "stop"i  
+STRING = "string"i  
+SUM = "sum"i  
+TABLE = "table"i  
+TABLES = "tables"i  
+TEMP = "temp"i  
+TEXT = "text"i  
+THEN = "then"i  
+THROUGH = "through"i  
+THRU = "thru"i  
+TIME = "time"i  
+TO = "to"i  
+TODAY = "today"i  
+TOP = "top"i  
+TRAILER = "trailer"i  
+TYPE = "type"i  
+UNCONSTRAINED = "unconstrained"i  
+UNDERLINE = "underline"i  
+UNION = "union"i  
+UNIQUE = "unique"i  
+UNITS = "units"i  
+UNLOAD = "unload"i  
+UNLOCK = "unlock"i  
+UP = "up"i  
+UPDATE = "update"i  
+UPSHIFT = "upshift"i  
+USING = "using"i  
+VALIDATE = "validate"i  
+VALUES = "values"i  
+VARCHAR = "varchar"i  
+WAIT = "wait"i  
+WAITING = "waiting"i  
+WARNING = "warning"i  
+WEEKDAY = "weekday"i  
+WHEN = "when"i  
+WHENEVER = "whenever"i  
+WHERE = "where"i  
+WHILE = "while"i  
+WHITE = "white"i  
+WINDOW = "window"i  
+WITH = "with"i  
+WITHOUT = "without"i  
+WORDWRAP = "wordwrap"i  
+WORK = "work"i  
+WRAP = "wrap"i  
+YEAR = "year"i  
+YELLOW = "yellow"i  

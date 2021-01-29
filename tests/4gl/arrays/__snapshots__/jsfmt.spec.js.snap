@@ -22,7 +22,2790 @@ function f2()
 
 end function
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-{"ASTy":{"T":"program","L":{"L":1,"C":1,"O":0},"A":{"value":[{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":1,"C":1,"O":0},"A":{"value":[[null,"m"],[null,"a"],[null,"i"],[null,"n"],[null,"\\n"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":2,"C":1,"O":5},"A":{"value":"    "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":2,"C":5,"O":9},"A":{"value":[[null,"d"],[null,"e"],[null,"f"],[null,"i"],[null,"n"],[null,"e"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":2,"C":11,"O":15},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":2,"C":12,"O":16},"A":{"value":[[null,"l"],[null,"i"],[null,"s"],[null,"t"],[null,"a"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":2,"C":17,"O":21},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":2,"C":18,"O":22},"A":{"value":[[null,"a"],[null,"r"],[null,"r"],[null,"a"],[null,"y"],[null,"["],[null,"5"],[null,"]"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":2,"C":26,"O":30},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":2,"C":27,"O":31},"A":{"value":[[null,"o"],[null,"f"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":2,"C":29,"O":33},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":2,"C":30,"O":34},"A":{"value":[[null,"i"],[null,"n"],[null,"t"],[null,"e"],[null,"g"],[null,"e"],[null,"r"],[null,"\\n"],[null,"e"],[null,"n"],[null,"d"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":3,"C":4,"O":45},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":3,"C":5,"O":46},"A":{"value":[[null,"m"],[null,"a"],[null,"i"],[null,"n"],[null,"\\n"],[null,"\\n"],[null,"\\n"],[null,"f"],[null,"u"],[null,"n"],[null,"c"],[null,"t"],[null,"i"],[null,"o"],[null,"n"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":6,"C":9,"O":61},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":6,"C":10,"O":62},"A":{"value":[[null,"f"],[null,"1"],[null,"("],[null,")"],[null,"\\n"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":7,"C":1,"O":67},"A":{"value":"\\t"},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":7,"C":2,"O":68},"A":{"value":[[null,"d"],[null,"e"],[null,"f"],[null,"i"],[null,"n"],[null,"e"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":7,"C":8,"O":74},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":7,"C":9,"O":75},"A":{"value":[[null,"v"],[null,"a"],[null,"r"],[null,"1"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":7,"C":13,"O":79},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":7,"C":14,"O":80},"A":{"value":[[null,"a"],[null,"r"],[null,"r"],[null,"a"],[null,"y"],[null,"["],[null,"1"],[null,"]"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":7,"C":22,"O":88},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":7,"C":23,"O":89},"A":{"value":[[null,"o"],[null,"f"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":7,"C":25,"O":91},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":7,"C":26,"O":92},"A":{"value":[[null,"i"],[null,"n"],[null,"t"],[null,"e"],[null,"g"],[null,"e"],[null,"r"],[null,"\\n"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":8,"C":1,"O":100},"A":{"value":"\\t"},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":8,"C":2,"O":101},"A":{"value":[[null,"d"],[null,"e"],[null,"f"],[null,"i"],[null,"n"],[null,"e"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":8,"C":8,"O":107},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":8,"C":9,"O":108},"A":{"value":[[null,"v"],[null,"a"],[null,"r"],[null,"1"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":8,"C":13,"O":112},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":8,"C":14,"O":113},"A":{"value":[[null,"a"],[null,"r"],[null,"r"],[null,"a"],[null,"y"],[null,"["],[null,"1"],[null,","],[null,"2"],[null,"]"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":8,"C":24,"O":123},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":8,"C":25,"O":124},"A":{"value":[[null,"o"],[null,"f"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":8,"C":27,"O":126},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":8,"C":28,"O":127},"A":{"value":[[null,"c"],[null,"h"],[null,"a"],[null,"r"],[null,"("],[null,"3"],[null,"0"],[null,")"],[null,"\\n"],[null,"\\n"],[null,"e"],[null,"n"],[null,"d"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":10,"C":4,"O":140},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":10,"C":5,"O":141},"A":{"value":[[null,"f"],[null,"u"],[null,"n"],[null,"c"],[null,"t"],[null,"i"],[null,"o"],[null,"n"],[null,"\\n"],[null,"\\n"],[null,"f"],[null,"u"],[null,"n"],[null,"c"],[null,"t"],[null,"i"],[null,"o"],[null,"n"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":12,"C":9,"O":159},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":12,"C":10,"O":160},"A":{"value":[[null,"f"],[null,"2"],[null,"("],[null,")"],[null,"\\n"],[null,"\\n"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":14,"C":1,"O":166},"A":{"value":"\\t"},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":14,"C":2,"O":167},"A":{"value":[[null,"l"],[null,"e"],[null,"t"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":14,"C":5,"O":170},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":14,"C":6,"O":171},"A":{"value":[[null,"m"],[null,"a"],[null,"_"],[null,"a"],[null,"r"],[null,"r"],[null,"a"],[null,"y"],[null,"["],[null,"l"],[null,"_"],[null,"i"],[null,"n"],[null,"d"],[null,"]"],[null,"."],[null,"f"],[null,"2"],[null,"_"],[null,"c"],[null,"h"],[null,"e"],[null,"c"],[null,"k"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":14,"C":30,"O":195},"A":{"value":"      "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"operator","L":{"L":14,"C":36,"O":201},"A":{"value":"="},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":14,"C":37,"O":202},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":14,"C":38,"O":203},"A":{"value":[[null,"n"],[null,"u"],[null,"l"],[null,"l"],[null,"\\n"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":15,"C":1,"O":208},"A":{"value":"\\t"},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":15,"C":2,"O":209},"A":{"value":[[null,"l"],[null,"e"],[null,"t"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":15,"C":5,"O":212},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":15,"C":6,"O":213},"A":{"value":[[null,"m"],[null,"a"],[null,"_"],[null,"a"],[null,"r"],[null,"r"],[null,"a"],[null,"y"],[null,"["],[null,"l"],[null,"_"],[null,"i"],[null,"n"],[null,"d"],[null,"]"],[null,"."],[null,"f"],[null,"2"],[null,"_"],[null,"i"],[null,"n"],[null,"t"],[null,"e"],[null,"g"],[null,"e"],[null,"r"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":15,"C":32,"O":239},"A":{"value":"    "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"operator","L":{"L":15,"C":36,"O":243},"A":{"value":"="},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":15,"C":37,"O":244},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":15,"C":38,"O":245},"A":{"value":[[null,"n"],[null,"u"],[null,"l"],[null,"l"],[null,"\\n"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":16,"C":1,"O":250},"A":{"value":"\\t"},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":16,"C":2,"O":251},"A":{"value":[[null,"l"],[null,"e"],[null,"t"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":16,"C":5,"O":254},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":16,"C":6,"O":255},"A":{"value":[[null,"m"],[null,"a"],[null,"_"],[null,"a"],[null,"r"],[null,"r"],[null,"a"],[null,"y"],[null,"["],[null,"l"],[null,"_"],[null,"i"],[null,"n"],[null,"d"],[null,"]"],[null,"."],[null,"f"],[null,"2"],[null,"_"],[null,"d"],[null,"a"],[null,"t"],[null,"e"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":16,"C":29,"O":278},"A":{"value":"       "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"operator","L":{"L":16,"C":36,"O":285},"A":{"value":"="},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":16,"C":37,"O":286},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":16,"C":38,"O":287},"A":{"value":[[null,"t"],[null,"o"],[null,"d"],[null,"a"],[null,"y"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":16,"C":43,"O":292},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"operator","L":{"L":16,"C":44,"O":293},"A":{"value":"+"},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":16,"C":45,"O":294},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":16,"C":46,"O":295},"A":{"value":[[null,"l"],[null,"_"],[null,"i"],[null,"n"],[null,"d"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":16,"C":51,"O":300},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":16,"C":52,"O":301},"A":{"value":[[null,"u"],[null,"n"],[null,"i"],[null,"t"],[null,"s"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":16,"C":57,"O":306},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":16,"C":58,"O":307},"A":{"value":[[null,"d"],[null,"a"],[null,"y"],[null,"\\n"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":17,"C":1,"O":311},"A":{"value":"\\t"},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":17,"C":2,"O":312},"A":{"value":[[null,"l"],[null,"e"],[null,"t"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":17,"C":5,"O":315},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":17,"C":6,"O":316},"A":{"value":[[null,"m"],[null,"a"],[null,"_"],[null,"a"],[null,"r"],[null,"r"],[null,"a"],[null,"y"],[null,"["],[null,"l"],[null,"_"],[null,"i"],[null,"n"],[null,"d"],[null,"]"],[null,"."],[null,"f"],[null,"2"],[null,"_"],[null,"c"],[null,"h"],[null,"a"],[null,"r"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":17,"C":29,"O":339},"A":{"value":"       "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"operator","L":{"L":17,"C":36,"O":346},"A":{"value":"="},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":17,"C":37,"O":347},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"string","L":{"L":17,"C":38,"O":348},"A":{"value":"\\"texto\\""},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":17,"C":45,"O":355},"A":{"value":[[null,"|"],[null,"|"],[null,"l"],[null,"_"],[null,"i"],[null,"n"],[null,"d"],[null,"\\n"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":18,"C":1,"O":363},"A":{"value":"\\t"},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":18,"C":2,"O":364},"A":{"value":[[null,"l"],[null,"e"],[null,"t"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":18,"C":5,"O":367},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":18,"C":6,"O":368},"A":{"value":[[null,"m"],[null,"a"],[null,"_"],[null,"a"],[null,"r"],[null,"r"],[null,"a"],[null,"y"],[null,"["],[null,"l"],[null,"_"],[null,"i"],[null,"n"],[null,"d"],[null,"]"],[null,"."],[null,"f"],[null,"2"],[null,"_"],[null,"d"],[null,"a"],[null,"t"],[null,"e"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":18,"C":29,"O":391},"A":{"value":"       "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"operator","L":{"L":18,"C":36,"O":398},"A":{"value":"="},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":18,"C":37,"O":399},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":18,"C":38,"O":400},"A":{"value":[[null,"t"],[null,"o"],[null,"d"],[null,"a"],[null,"y"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":18,"C":43,"O":405},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"operator","L":{"L":18,"C":44,"O":406},"A":{"value":"+"},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":18,"C":45,"O":407},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"number","L":{"L":18,"C":46,"O":408},"A":{"value":"3"},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":18,"C":47,"O":409},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":18,"C":48,"O":410},"A":{"value":[[null,"u"],[null,"n"],[null,"i"],[null,"t"],[null,"s"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":18,"C":53,"O":415},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":18,"C":54,"O":416},"A":{"value":[[null,"d"],[null,"a"],[null,"y"],[null,"\\n"],[null,"\\n"],[null,"e"],[null,"n"],[null,"d"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":20,"C":4,"O":424},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":20,"C":5,"O":425},"A":{"value":[[null,"f"],[null,"u"],[null,"n"],[null,"c"],[null,"t"],[null,"i"],[null,"o"],[null,"n"],[null,"\\n"]]},"C":[],"P":null}]}}}
+{
+ "ctx": {},
+ "ASTy": true,
+ "T": "program",
+ "L": {
+  "L": 1,
+  "C": 1,
+  "O": 0
+ },
+ "A": {
+  "value": [
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "keyword",
+    "L": {
+     "L": 1,
+     "C": 1,
+     "O": 0
+    },
+    "A": {
+     "value": "main",
+     "block": "begin"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "newLine",
+    "L": {
+     "L": 1,
+     "C": 5,
+     "O": 4
+    },
+    "A": {
+     "value": "\\n"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 2,
+     "C": 1,
+     "O": 5
+    },
+    "A": {
+     "value": "    "
+    },
+    "C": [],
+    "P": null
+   },
+   [
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 2,
+      "C": 5,
+      "O": 9
+     },
+     "A": {
+      "value": "define"
+     },
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": {
+      "ctx": {},
+      "ASTy": true,
+      "T": "whiteSpace",
+      "L": {
+       "L": 2,
+       "C": 11,
+       "O": 15
+      },
+      "A": {
+       "value": " "
+      },
+      "C": [],
+      "P": null
+     },
+     "L": {
+      "L": 2,
+      "C": 5,
+      "O": 9
+     },
+     "A": {},
+     "C": [],
+     "P": null
+    }
+   ],
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 2,
+     "C": 12,
+     "O": 16
+    },
+    "A": {
+     "value": "lista"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 2,
+     "C": 17,
+     "O": 21
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 2,
+     "C": 18,
+     "O": 22
+    },
+    "A": {
+     "value": "array"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 2,
+     "C": 23,
+     "O": 27
+    },
+    "A": {
+     "value": "["
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "number",
+    "L": {
+     "L": 2,
+     "C": 24,
+     "O": 28
+    },
+    "A": {
+     "value": "5"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 2,
+     "C": 25,
+     "O": 29
+    },
+    "A": {
+     "value": "]"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 2,
+     "C": 26,
+     "O": 30
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 2,
+     "C": 27,
+     "O": 31
+    },
+    "A": {
+     "value": "of"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 2,
+     "C": 29,
+     "O": 33
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 2,
+     "C": 30,
+     "O": 34
+    },
+    "A": {
+     "value": "integer"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "newLine",
+    "L": {
+     "L": 2,
+     "C": 37,
+     "O": 41
+    },
+    "A": {
+     "value": "\\n"
+    },
+    "C": [],
+    "P": null
+   },
+   [
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 3,
+      "C": 1,
+      "O": 42
+     },
+     "A": {
+      "value": "end"
+     },
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": {
+      "ctx": {},
+      "ASTy": true,
+      "T": "whiteSpace",
+      "L": {
+       "L": 3,
+       "C": 4,
+       "O": 45
+      },
+      "A": {
+       "value": " "
+      },
+      "C": [],
+      "P": null
+     },
+     "L": {
+      "L": 3,
+      "C": 1,
+      "O": 42
+     },
+     "A": {},
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 3,
+      "C": 1,
+      "O": 42
+     },
+     "A": {
+      "value": "main",
+      "block": "end"
+     },
+     "C": [],
+     "P": null
+    }
+   ],
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "newLine",
+    "L": {
+     "L": 3,
+     "C": 9,
+     "O": 50
+    },
+    "A": {
+     "value": "\\n\\n\\n"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "keyword",
+    "L": {
+     "L": 6,
+     "C": 1,
+     "O": 53
+    },
+    "A": {
+     "value": "function",
+     "block": "begin"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 6,
+     "C": 9,
+     "O": 61
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 6,
+     "C": 10,
+     "O": 62
+    },
+    "A": {
+     "value": "f1"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 6,
+     "C": 12,
+     "O": 64
+    },
+    "A": {
+     "value": "("
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 6,
+     "C": 13,
+     "O": 65
+    },
+    "A": {
+     "value": ")"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "newLine",
+    "L": {
+     "L": 6,
+     "C": 14,
+     "O": 66
+    },
+    "A": {
+     "value": "\\n"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 7,
+     "C": 1,
+     "O": 67
+    },
+    "A": {
+     "value": "\\t"
+    },
+    "C": [],
+    "P": null
+   },
+   [
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 7,
+      "C": 2,
+      "O": 68
+     },
+     "A": {
+      "value": "define"
+     },
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": {
+      "ctx": {},
+      "ASTy": true,
+      "T": "whiteSpace",
+      "L": {
+       "L": 7,
+       "C": 8,
+       "O": 74
+      },
+      "A": {
+       "value": " "
+      },
+      "C": [],
+      "P": null
+     },
+     "L": {
+      "L": 7,
+      "C": 2,
+      "O": 68
+     },
+     "A": {},
+     "C": [],
+     "P": null
+    }
+   ],
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 7,
+     "C": 9,
+     "O": 75
+    },
+    "A": {
+     "value": "var1"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 7,
+     "C": 13,
+     "O": 79
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 7,
+     "C": 14,
+     "O": 80
+    },
+    "A": {
+     "value": "array"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 7,
+     "C": 19,
+     "O": 85
+    },
+    "A": {
+     "value": "["
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "number",
+    "L": {
+     "L": 7,
+     "C": 20,
+     "O": 86
+    },
+    "A": {
+     "value": "1"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 7,
+     "C": 21,
+     "O": 87
+    },
+    "A": {
+     "value": "]"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 7,
+     "C": 22,
+     "O": 88
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 7,
+     "C": 23,
+     "O": 89
+    },
+    "A": {
+     "value": "of"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 7,
+     "C": 25,
+     "O": 91
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 7,
+     "C": 26,
+     "O": 92
+    },
+    "A": {
+     "value": "integer"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "newLine",
+    "L": {
+     "L": 7,
+     "C": 33,
+     "O": 99
+    },
+    "A": {
+     "value": "\\n"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 8,
+     "C": 1,
+     "O": 100
+    },
+    "A": {
+     "value": "\\t"
+    },
+    "C": [],
+    "P": null
+   },
+   [
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 8,
+      "C": 2,
+      "O": 101
+     },
+     "A": {
+      "value": "define"
+     },
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": {
+      "ctx": {},
+      "ASTy": true,
+      "T": "whiteSpace",
+      "L": {
+       "L": 8,
+       "C": 8,
+       "O": 107
+      },
+      "A": {
+       "value": " "
+      },
+      "C": [],
+      "P": null
+     },
+     "L": {
+      "L": 8,
+      "C": 2,
+      "O": 101
+     },
+     "A": {},
+     "C": [],
+     "P": null
+    }
+   ],
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 8,
+     "C": 9,
+     "O": 108
+    },
+    "A": {
+     "value": "var1"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 8,
+     "C": 13,
+     "O": 112
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 8,
+     "C": 14,
+     "O": 113
+    },
+    "A": {
+     "value": "array"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 8,
+     "C": 19,
+     "O": 118
+    },
+    "A": {
+     "value": "["
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "number",
+    "L": {
+     "L": 8,
+     "C": 20,
+     "O": 119
+    },
+    "A": {
+     "value": "1"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 8,
+     "C": 21,
+     "O": 120
+    },
+    "A": {
+     "value": ","
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "number",
+    "L": {
+     "L": 8,
+     "C": 22,
+     "O": 121
+    },
+    "A": {
+     "value": "2"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 8,
+     "C": 23,
+     "O": 122
+    },
+    "A": {
+     "value": "]"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 8,
+     "C": 24,
+     "O": 123
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 8,
+     "C": 25,
+     "O": 124
+    },
+    "A": {
+     "value": "of"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 8,
+     "C": 27,
+     "O": 126
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 8,
+     "C": 28,
+     "O": 127
+    },
+    "A": {
+     "value": "char"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 8,
+     "C": 32,
+     "O": 131
+    },
+    "A": {
+     "value": "("
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "number",
+    "L": {
+     "L": 8,
+     "C": 33,
+     "O": 132
+    },
+    "A": {
+     "value": "30"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 8,
+     "C": 35,
+     "O": 134
+    },
+    "A": {
+     "value": ")"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "newLine",
+    "L": {
+     "L": 8,
+     "C": 36,
+     "O": 135
+    },
+    "A": {
+     "value": "\\n\\n"
+    },
+    "C": [],
+    "P": null
+   },
+   [
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 10,
+      "C": 1,
+      "O": 137
+     },
+     "A": {
+      "value": "end"
+     },
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": {
+      "ctx": {},
+      "ASTy": true,
+      "T": "whiteSpace",
+      "L": {
+       "L": 10,
+       "C": 4,
+       "O": 140
+      },
+      "A": {
+       "value": " "
+      },
+      "C": [],
+      "P": null
+     },
+     "L": {
+      "L": 10,
+      "C": 1,
+      "O": 137
+     },
+     "A": {},
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 10,
+      "C": 1,
+      "O": 137
+     },
+     "A": {
+      "value": "function",
+      "block": "end"
+     },
+     "C": [],
+     "P": null
+    }
+   ],
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "newLine",
+    "L": {
+     "L": 10,
+     "C": 13,
+     "O": 149
+    },
+    "A": {
+     "value": "\\n\\n"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "keyword",
+    "L": {
+     "L": 12,
+     "C": 1,
+     "O": 151
+    },
+    "A": {
+     "value": "function",
+     "block": "begin"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 12,
+     "C": 9,
+     "O": 159
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 12,
+     "C": 10,
+     "O": 160
+    },
+    "A": {
+     "value": "f2"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 12,
+     "C": 12,
+     "O": 162
+    },
+    "A": {
+     "value": "("
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 12,
+     "C": 13,
+     "O": 163
+    },
+    "A": {
+     "value": ")"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "newLine",
+    "L": {
+     "L": 12,
+     "C": 14,
+     "O": 164
+    },
+    "A": {
+     "value": "\\n\\n"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 14,
+     "C": 1,
+     "O": 166
+    },
+    "A": {
+     "value": "\\t"
+    },
+    "C": [],
+    "P": null
+   },
+   [
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 14,
+      "C": 2,
+      "O": 167
+     },
+     "A": {
+      "value": "let"
+     },
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": {
+      "ctx": {},
+      "ASTy": true,
+      "T": "whiteSpace",
+      "L": {
+       "L": 14,
+       "C": 5,
+       "O": 170
+      },
+      "A": {
+       "value": " "
+      },
+      "C": [],
+      "P": null
+     },
+     "L": {
+      "L": 14,
+      "C": 2,
+      "O": 167
+     },
+     "A": {},
+     "C": [],
+     "P": null
+    }
+   ],
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 14,
+     "C": 6,
+     "O": 171
+    },
+    "A": {
+     "value": "ma_array"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 14,
+     "C": 14,
+     "O": 179
+    },
+    "A": {
+     "value": "["
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 14,
+     "C": 15,
+     "O": 180
+    },
+    "A": {
+     "value": "l_ind"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 14,
+     "C": 20,
+     "O": 185
+    },
+    "A": {
+     "value": "]"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "notSpecified",
+    "L": {
+     "L": 14,
+     "C": 21,
+     "O": 186
+    },
+    "A": {
+     "value": [
+      [
+       null,
+       "."
+      ],
+      [
+       null,
+       "f"
+      ],
+      [
+       null,
+       "2"
+      ],
+      [
+       null,
+       "_"
+      ],
+      [
+       null,
+       "c"
+      ],
+      [
+       null,
+       "h"
+      ],
+      [
+       null,
+       "e"
+      ],
+      [
+       null,
+       "c"
+      ],
+      [
+       null,
+       "k"
+      ]
+     ]
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 14,
+     "C": 30,
+     "O": 195
+    },
+    "A": {
+     "value": "      "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 14,
+     "C": 36,
+     "O": 201
+    },
+    "A": {
+     "value": "="
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 14,
+     "C": 37,
+     "O": 202
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   [
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 14,
+      "C": 38,
+      "O": 203
+     },
+     "A": {
+      "value": "null"
+     },
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": {
+      "ctx": {},
+      "ASTy": true,
+      "T": "newLine",
+      "L": {
+       "L": 14,
+       "C": 42,
+       "O": 207
+      },
+      "A": {
+       "value": "\\n"
+      },
+      "C": [],
+      "P": null
+     },
+     "L": {
+      "L": 14,
+      "C": 38,
+      "O": 203
+     },
+     "A": {},
+     "C": [],
+     "P": null
+    }
+   ],
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 15,
+     "C": 1,
+     "O": 208
+    },
+    "A": {
+     "value": "\\t"
+    },
+    "C": [],
+    "P": null
+   },
+   [
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 15,
+      "C": 2,
+      "O": 209
+     },
+     "A": {
+      "value": "let"
+     },
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": {
+      "ctx": {},
+      "ASTy": true,
+      "T": "whiteSpace",
+      "L": {
+       "L": 15,
+       "C": 5,
+       "O": 212
+      },
+      "A": {
+       "value": " "
+      },
+      "C": [],
+      "P": null
+     },
+     "L": {
+      "L": 15,
+      "C": 2,
+      "O": 209
+     },
+     "A": {},
+     "C": [],
+     "P": null
+    }
+   ],
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 15,
+     "C": 6,
+     "O": 213
+    },
+    "A": {
+     "value": "ma_array"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 15,
+     "C": 14,
+     "O": 221
+    },
+    "A": {
+     "value": "["
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 15,
+     "C": 15,
+     "O": 222
+    },
+    "A": {
+     "value": "l_ind"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 15,
+     "C": 20,
+     "O": 227
+    },
+    "A": {
+     "value": "]"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "notSpecified",
+    "L": {
+     "L": 15,
+     "C": 21,
+     "O": 228
+    },
+    "A": {
+     "value": [
+      [
+       null,
+       "."
+      ],
+      [
+       null,
+       "f"
+      ],
+      [
+       null,
+       "2"
+      ],
+      [
+       null,
+       "_"
+      ],
+      [
+       null,
+       "i"
+      ],
+      [
+       null,
+       "n"
+      ],
+      [
+       null,
+       "t"
+      ],
+      [
+       null,
+       "e"
+      ],
+      [
+       null,
+       "g"
+      ],
+      [
+       null,
+       "e"
+      ],
+      [
+       null,
+       "r"
+      ]
+     ]
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 15,
+     "C": 32,
+     "O": 239
+    },
+    "A": {
+     "value": "    "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 15,
+     "C": 36,
+     "O": 243
+    },
+    "A": {
+     "value": "="
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 15,
+     "C": 37,
+     "O": 244
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   [
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 15,
+      "C": 38,
+      "O": 245
+     },
+     "A": {
+      "value": "null"
+     },
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": {
+      "ctx": {},
+      "ASTy": true,
+      "T": "newLine",
+      "L": {
+       "L": 15,
+       "C": 42,
+       "O": 249
+      },
+      "A": {
+       "value": "\\n"
+      },
+      "C": [],
+      "P": null
+     },
+     "L": {
+      "L": 15,
+      "C": 38,
+      "O": 245
+     },
+     "A": {},
+     "C": [],
+     "P": null
+    }
+   ],
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 16,
+     "C": 1,
+     "O": 250
+    },
+    "A": {
+     "value": "\\t"
+    },
+    "C": [],
+    "P": null
+   },
+   [
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 16,
+      "C": 2,
+      "O": 251
+     },
+     "A": {
+      "value": "let"
+     },
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": {
+      "ctx": {},
+      "ASTy": true,
+      "T": "whiteSpace",
+      "L": {
+       "L": 16,
+       "C": 5,
+       "O": 254
+      },
+      "A": {
+       "value": " "
+      },
+      "C": [],
+      "P": null
+     },
+     "L": {
+      "L": 16,
+      "C": 2,
+      "O": 251
+     },
+     "A": {},
+     "C": [],
+     "P": null
+    }
+   ],
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 16,
+     "C": 6,
+     "O": 255
+    },
+    "A": {
+     "value": "ma_array"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 16,
+     "C": 14,
+     "O": 263
+    },
+    "A": {
+     "value": "["
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 16,
+     "C": 15,
+     "O": 264
+    },
+    "A": {
+     "value": "l_ind"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 16,
+     "C": 20,
+     "O": 269
+    },
+    "A": {
+     "value": "]"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "notSpecified",
+    "L": {
+     "L": 16,
+     "C": 21,
+     "O": 270
+    },
+    "A": {
+     "value": [
+      [
+       null,
+       "."
+      ],
+      [
+       null,
+       "f"
+      ],
+      [
+       null,
+       "2"
+      ],
+      [
+       null,
+       "_"
+      ],
+      [
+       null,
+       "d"
+      ],
+      [
+       null,
+       "a"
+      ],
+      [
+       null,
+       "t"
+      ],
+      [
+       null,
+       "e"
+      ]
+     ]
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 16,
+     "C": 29,
+     "O": 278
+    },
+    "A": {
+     "value": "       "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 16,
+     "C": 36,
+     "O": 285
+    },
+    "A": {
+     "value": "="
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 16,
+     "C": 37,
+     "O": 286
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 16,
+     "C": 38,
+     "O": 287
+    },
+    "A": {
+     "value": "today"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 16,
+     "C": 43,
+     "O": 292
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 16,
+     "C": 44,
+     "O": 293
+    },
+    "A": {
+     "value": "+"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 16,
+     "C": 45,
+     "O": 294
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 16,
+     "C": 46,
+     "O": 295
+    },
+    "A": {
+     "value": "l_ind"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 16,
+     "C": 51,
+     "O": 300
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   [
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 16,
+      "C": 52,
+      "O": 301
+     },
+     "A": {
+      "value": "units"
+     },
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": {
+      "ctx": {},
+      "ASTy": true,
+      "T": "whiteSpace",
+      "L": {
+       "L": 16,
+       "C": 57,
+       "O": 306
+      },
+      "A": {
+       "value": " "
+      },
+      "C": [],
+      "P": null
+     },
+     "L": {
+      "L": 16,
+      "C": 52,
+      "O": 301
+     },
+     "A": {},
+     "C": [],
+     "P": null
+    }
+   ],
+   [
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 16,
+      "C": 58,
+      "O": 307
+     },
+     "A": {
+      "value": "day"
+     },
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": {
+      "ctx": {},
+      "ASTy": true,
+      "T": "newLine",
+      "L": {
+       "L": 16,
+       "C": 61,
+       "O": 310
+      },
+      "A": {
+       "value": "\\n"
+      },
+      "C": [],
+      "P": null
+     },
+     "L": {
+      "L": 16,
+      "C": 58,
+      "O": 307
+     },
+     "A": {},
+     "C": [],
+     "P": null
+    }
+   ],
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 17,
+     "C": 1,
+     "O": 311
+    },
+    "A": {
+     "value": "\\t"
+    },
+    "C": [],
+    "P": null
+   },
+   [
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 17,
+      "C": 2,
+      "O": 312
+     },
+     "A": {
+      "value": "let"
+     },
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": {
+      "ctx": {},
+      "ASTy": true,
+      "T": "whiteSpace",
+      "L": {
+       "L": 17,
+       "C": 5,
+       "O": 315
+      },
+      "A": {
+       "value": " "
+      },
+      "C": [],
+      "P": null
+     },
+     "L": {
+      "L": 17,
+      "C": 2,
+      "O": 312
+     },
+     "A": {},
+     "C": [],
+     "P": null
+    }
+   ],
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 17,
+     "C": 6,
+     "O": 316
+    },
+    "A": {
+     "value": "ma_array"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 17,
+     "C": 14,
+     "O": 324
+    },
+    "A": {
+     "value": "["
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 17,
+     "C": 15,
+     "O": 325
+    },
+    "A": {
+     "value": "l_ind"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 17,
+     "C": 20,
+     "O": 330
+    },
+    "A": {
+     "value": "]"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "notSpecified",
+    "L": {
+     "L": 17,
+     "C": 21,
+     "O": 331
+    },
+    "A": {
+     "value": [
+      [
+       null,
+       "."
+      ],
+      [
+       null,
+       "f"
+      ],
+      [
+       null,
+       "2"
+      ],
+      [
+       null,
+       "_"
+      ],
+      [
+       null,
+       "c"
+      ],
+      [
+       null,
+       "h"
+      ],
+      [
+       null,
+       "a"
+      ],
+      [
+       null,
+       "r"
+      ]
+     ]
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 17,
+     "C": 29,
+     "O": 339
+    },
+    "A": {
+     "value": "       "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 17,
+     "C": 36,
+     "O": 346
+    },
+    "A": {
+     "value": "="
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 17,
+     "C": 37,
+     "O": 347
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "string",
+    "L": {
+     "L": 17,
+     "C": 38,
+     "O": 348
+    },
+    "A": {
+     "value": "\\"texto\\""
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "notSpecified",
+    "L": {
+     "L": 17,
+     "C": 45,
+     "O": 355
+    },
+    "A": {
+     "value": [
+      [
+       null,
+       "|"
+      ],
+      [
+       null,
+       "|"
+      ],
+      [
+       null,
+       "l"
+      ],
+      [
+       null,
+       "_"
+      ],
+      [
+       null,
+       "i"
+      ],
+      [
+       null,
+       "n"
+      ],
+      [
+       null,
+       "d"
+      ],
+      [
+       null,
+       "\\n"
+      ]
+     ]
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 18,
+     "C": 1,
+     "O": 363
+    },
+    "A": {
+     "value": "\\t"
+    },
+    "C": [],
+    "P": null
+   },
+   [
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 18,
+      "C": 2,
+      "O": 364
+     },
+     "A": {
+      "value": "let"
+     },
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": {
+      "ctx": {},
+      "ASTy": true,
+      "T": "whiteSpace",
+      "L": {
+       "L": 18,
+       "C": 5,
+       "O": 367
+      },
+      "A": {
+       "value": " "
+      },
+      "C": [],
+      "P": null
+     },
+     "L": {
+      "L": 18,
+      "C": 2,
+      "O": 364
+     },
+     "A": {},
+     "C": [],
+     "P": null
+    }
+   ],
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 18,
+     "C": 6,
+     "O": 368
+    },
+    "A": {
+     "value": "ma_array"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 18,
+     "C": 14,
+     "O": 376
+    },
+    "A": {
+     "value": "["
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 18,
+     "C": 15,
+     "O": 377
+    },
+    "A": {
+     "value": "l_ind"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 18,
+     "C": 20,
+     "O": 382
+    },
+    "A": {
+     "value": "]"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "notSpecified",
+    "L": {
+     "L": 18,
+     "C": 21,
+     "O": 383
+    },
+    "A": {
+     "value": [
+      [
+       null,
+       "."
+      ],
+      [
+       null,
+       "f"
+      ],
+      [
+       null,
+       "2"
+      ],
+      [
+       null,
+       "_"
+      ],
+      [
+       null,
+       "d"
+      ],
+      [
+       null,
+       "a"
+      ],
+      [
+       null,
+       "t"
+      ],
+      [
+       null,
+       "e"
+      ]
+     ]
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 18,
+     "C": 29,
+     "O": 391
+    },
+    "A": {
+     "value": "       "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 18,
+     "C": 36,
+     "O": 398
+    },
+    "A": {
+     "value": "="
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 18,
+     "C": 37,
+     "O": 399
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 18,
+     "C": 38,
+     "O": 400
+    },
+    "A": {
+     "value": "today"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 18,
+     "C": 43,
+     "O": 405
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 18,
+     "C": 44,
+     "O": 406
+    },
+    "A": {
+     "value": "+"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 18,
+     "C": 45,
+     "O": 407
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "number",
+    "L": {
+     "L": 18,
+     "C": 46,
+     "O": 408
+    },
+    "A": {
+     "value": "3"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 18,
+     "C": 47,
+     "O": 409
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   [
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 18,
+      "C": 48,
+      "O": 410
+     },
+     "A": {
+      "value": "units"
+     },
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": {
+      "ctx": {},
+      "ASTy": true,
+      "T": "whiteSpace",
+      "L": {
+       "L": 18,
+       "C": 53,
+       "O": 415
+      },
+      "A": {
+       "value": " "
+      },
+      "C": [],
+      "P": null
+     },
+     "L": {
+      "L": 18,
+      "C": 48,
+      "O": 410
+     },
+     "A": {},
+     "C": [],
+     "P": null
+    }
+   ],
+   [
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 18,
+      "C": 54,
+      "O": 416
+     },
+     "A": {
+      "value": "day"
+     },
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": {
+      "ctx": {},
+      "ASTy": true,
+      "T": "newLine",
+      "L": {
+       "L": 18,
+       "C": 57,
+       "O": 419
+      },
+      "A": {
+       "value": "\\n\\n"
+      },
+      "C": [],
+      "P": null
+     },
+     "L": {
+      "L": 18,
+      "C": 54,
+      "O": 416
+     },
+     "A": {},
+     "C": [],
+     "P": null
+    }
+   ],
+   [
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 20,
+      "C": 1,
+      "O": 421
+     },
+     "A": {
+      "value": "end"
+     },
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": {
+      "ctx": {},
+      "ASTy": true,
+      "T": "whiteSpace",
+      "L": {
+       "L": 20,
+       "C": 4,
+       "O": 424
+      },
+      "A": {
+       "value": " "
+      },
+      "C": [],
+      "P": null
+     },
+     "L": {
+      "L": 20,
+      "C": 1,
+      "O": 421
+     },
+     "A": {},
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 20,
+      "C": 1,
+      "O": 421
+     },
+     "A": {
+      "value": "function",
+      "block": "end"
+     },
+     "C": [],
+     "P": null
+    }
+   ],
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "newLine",
+    "L": {
+     "L": 20,
+     "C": 13,
+     "O": 433
+    },
+    "A": {
+     "value": "\\n"
+    },
+    "C": [],
+    "P": null
+   }
+  ]
+ },
+ "C": [],
+ "P": null
+}
 `;
 
 exports[`4gl: Token array2.4gl 1`] = `
@@ -31,5 +2814,514 @@ main
 	call arrayadditem(p_array,l_linesadd)
 end main
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-{"ASTy":{"T":"program","L":{"L":1,"C":1,"O":0},"A":{"value":[{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":1,"C":1,"O":0},"A":{"value":[[null,"m"],[null,"a"],[null,"i"],[null,"n"],[null,"\\n"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":2,"C":1,"O":5},"A":{"value":"    "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":2,"C":5,"O":9},"A":{"value":[[null,"d"],[null,"e"],[null,"f"],[null,"i"],[null,"n"],[null,"e"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":2,"C":11,"O":15},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":2,"C":12,"O":16},"A":{"value":[[null,"l"],[null,"i"],[null,"s"],[null,"t"],[null,"a"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":2,"C":17,"O":21},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":2,"C":18,"O":22},"A":{"value":[[null,"a"],[null,"r"],[null,"r"],[null,"a"],[null,"y"],[null,"["],[null,"5"],[null,"]"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":2,"C":26,"O":30},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":2,"C":27,"O":31},"A":{"value":[[null,"o"],[null,"f"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":2,"C":29,"O":33},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":2,"C":30,"O":34},"A":{"value":[[null,"i"],[null,"n"],[null,"t"],[null,"e"],[null,"g"],[null,"e"],[null,"r"],[null,"\\n"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":3,"C":1,"O":42},"A":{"value":"\\t"},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":3,"C":2,"O":43},"A":{"value":[[null,"c"],[null,"a"],[null,"l"],[null,"l"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":3,"C":6,"O":47},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":3,"C":7,"O":48},"A":{"value":[[null,"a"],[null,"r"],[null,"r"],[null,"a"],[null,"y"],[null,"a"],[null,"d"],[null,"d"],[null,"i"],[null,"t"],[null,"e"],[null,"m"],[null,"("],[null,"p"],[null,"_"],[null,"a"],[null,"r"],[null,"r"],[null,"a"],[null,"y"],[null,","],[null,"l"],[null,"_"],[null,"l"],[null,"i"],[null,"n"],[null,"e"],[null,"s"],[null,"a"],[null,"d"],[null,"d"],[null,")"],[null,"\\n"],[null,"e"],[null,"n"],[null,"d"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":4,"C":4,"O":84},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":4,"C":5,"O":85},"A":{"value":[[null,"m"],[null,"a"],[null,"i"],[null,"n"],[null,"\\n"]]},"C":[],"P":null}]}}}
+{
+ "ctx": {},
+ "ASTy": true,
+ "T": "program",
+ "L": {
+  "L": 1,
+  "C": 1,
+  "O": 0
+ },
+ "A": {
+  "value": [
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "keyword",
+    "L": {
+     "L": 1,
+     "C": 1,
+     "O": 0
+    },
+    "A": {
+     "value": "main",
+     "block": "begin"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "newLine",
+    "L": {
+     "L": 1,
+     "C": 5,
+     "O": 4
+    },
+    "A": {
+     "value": "\\n"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 2,
+     "C": 1,
+     "O": 5
+    },
+    "A": {
+     "value": "    "
+    },
+    "C": [],
+    "P": null
+   },
+   [
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 2,
+      "C": 5,
+      "O": 9
+     },
+     "A": {
+      "value": "define"
+     },
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": {
+      "ctx": {},
+      "ASTy": true,
+      "T": "whiteSpace",
+      "L": {
+       "L": 2,
+       "C": 11,
+       "O": 15
+      },
+      "A": {
+       "value": " "
+      },
+      "C": [],
+      "P": null
+     },
+     "L": {
+      "L": 2,
+      "C": 5,
+      "O": 9
+     },
+     "A": {},
+     "C": [],
+     "P": null
+    }
+   ],
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 2,
+     "C": 12,
+     "O": 16
+    },
+    "A": {
+     "value": "lista"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 2,
+     "C": 17,
+     "O": 21
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 2,
+     "C": 18,
+     "O": 22
+    },
+    "A": {
+     "value": "array"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 2,
+     "C": 23,
+     "O": 27
+    },
+    "A": {
+     "value": "["
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "number",
+    "L": {
+     "L": 2,
+     "C": 24,
+     "O": 28
+    },
+    "A": {
+     "value": "5"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 2,
+     "C": 25,
+     "O": 29
+    },
+    "A": {
+     "value": "]"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 2,
+     "C": 26,
+     "O": 30
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 2,
+     "C": 27,
+     "O": 31
+    },
+    "A": {
+     "value": "of"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 2,
+     "C": 29,
+     "O": 33
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 2,
+     "C": 30,
+     "O": 34
+    },
+    "A": {
+     "value": "integer"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "newLine",
+    "L": {
+     "L": 2,
+     "C": 37,
+     "O": 41
+    },
+    "A": {
+     "value": "\\n"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 3,
+     "C": 1,
+     "O": 42
+    },
+    "A": {
+     "value": "\\t"
+    },
+    "C": [],
+    "P": null
+   },
+   [
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 3,
+      "C": 2,
+      "O": 43
+     },
+     "A": {
+      "value": "call"
+     },
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": {
+      "ctx": {},
+      "ASTy": true,
+      "T": "whiteSpace",
+      "L": {
+       "L": 3,
+       "C": 6,
+       "O": 47
+      },
+      "A": {
+       "value": " "
+      },
+      "C": [],
+      "P": null
+     },
+     "L": {
+      "L": 3,
+      "C": 2,
+      "O": 43
+     },
+     "A": {},
+     "C": [],
+     "P": null
+    }
+   ],
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 3,
+     "C": 7,
+     "O": 48
+    },
+    "A": {
+     "value": "arrayadditem"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 3,
+     "C": 19,
+     "O": 60
+    },
+    "A": {
+     "value": "("
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 3,
+     "C": 20,
+     "O": 61
+    },
+    "A": {
+     "value": "p_array"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 3,
+     "C": 27,
+     "O": 68
+    },
+    "A": {
+     "value": ","
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 3,
+     "C": 28,
+     "O": 69
+    },
+    "A": {
+     "value": "l_linesadd"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 3,
+     "C": 38,
+     "O": 79
+    },
+    "A": {
+     "value": ")"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "newLine",
+    "L": {
+     "L": 3,
+     "C": 39,
+     "O": 80
+    },
+    "A": {
+     "value": "\\n"
+    },
+    "C": [],
+    "P": null
+   },
+   [
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 4,
+      "C": 1,
+      "O": 81
+     },
+     "A": {
+      "value": "end"
+     },
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": {
+      "ctx": {},
+      "ASTy": true,
+      "T": "whiteSpace",
+      "L": {
+       "L": 4,
+       "C": 4,
+       "O": 84
+      },
+      "A": {
+       "value": " "
+      },
+      "C": [],
+      "P": null
+     },
+     "L": {
+      "L": 4,
+      "C": 1,
+      "O": 81
+     },
+     "A": {},
+     "C": [],
+     "P": null
+    },
+    {
+     "ctx": {},
+     "ASTy": true,
+     "T": "keyword",
+     "L": {
+      "L": 4,
+      "C": 1,
+      "O": 81
+     },
+     "A": {
+      "value": "main",
+      "block": "end"
+     },
+     "C": [],
+     "P": null
+    }
+   ],
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "newLine",
+    "L": {
+     "L": 4,
+     "C": 9,
+     "O": 89
+    },
+    "A": {
+     "value": "\\n"
+    },
+    "C": [],
+    "P": null
+   }
+  ]
+ },
+ "C": [],
+ "P": null
+}
 `;

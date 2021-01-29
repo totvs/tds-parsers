@@ -40,11 +40,15 @@
     "clean": "rimraf lib && rimraf typings",
     "build": "tsc -p ./src",
     "watch": "tsc -p ./src --watch",
-    "prebuild": "npm run clean",
+    "prebuild": "npm run clean && npm run pegjs",
+    "---PARSER---": "",
+    "pegjs": "npm-run-all genparser:*",
+    "genparser:4gl": "pegjs --plugin ./node_modules/ts-pegjs --allowed-start-rules start_program -o src/4gl.ts grammar/4gl.pegjs",
+    "genparser:advpl": "pegjs --plugin ./node_modules/ts-pegjs --allowed-start-rules start_program -o src/advpl.ts grammar/advpl.pegjs",
     "---TEST---": "",
     "test": "jest",
     "test:snapshot": "npm run test -- --updateSnapshot",
-    "test:singlefile": "npm run test -- --testNamePattern hello1.prw",
+    "test:singlefile": "npm run test -- --testNamePattern hello2.4gl",
     "test:coverage": "npm run test -- --coverage",
     "test:onlyFailures": "npm run test --onlyFailures ",
     "pretest": "npm run build",
@@ -53,6 +57,7 @@
     "tag": "git push --follow-tags",
     "to_publish": "npm publish",
     "pack": "npm pack",
+    "prerelease": "npm run test",
     "---MISC---": "",
     "contributors:check": "all-contributors check",
     "contributors:generate": "all-contributors generate"
@@ -63,6 +68,7 @@
     "asty": "^1.8.14",
     "pegjs": "^0.10.0",
     "pegjs-util": "^1.4.21",
+    "ts-pegjs": "^0.3.0",
     "typescript": "^4.1.3"
   },
   "devDependencies": {

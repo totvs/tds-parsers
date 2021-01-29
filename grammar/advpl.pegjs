@@ -7,9 +7,9 @@ const ast    = options.util.makeAST   (location, options);
 
 }
 
-start
+start_program
 	= t:token* 
-	{ return ast("program").set("value", t) }
+	{ return ast("program", t) }
 
 token 
 	= comments
@@ -21,7 +21,7 @@ token
   / ID
   / WS
   / NL
-  / o:$(!WS .)+ { return ast("notSpecified").set("code", o) }
+  / o:$(!WS .)+ { return ast("notSpecified", o) }
 
 keywords
 	= k:(
@@ -92,19 +92,19 @@ keywords
     / "logical"i
     / "numeric"i
     / "object"i
-	) { return ast("keyword").set("value", k) }
+	) { return ast("keyword", k) }
 
 comments
 	= c:(
 		$('//' (!NL .)* NL)
 		/ $(('/*' (!('*/')) .)* ('*/'))
-	) { return ast("comment").set("value", c) }
+	) { return ast("comment", c) }
 
 string
 	= s:$(
     double_quoted_string 
     / single_quoted_string
-  ) { return ast("string").set("value", s) }
+  ) { return ast("string", s) }
 
 double_quoted_string 
 	= $(D_QUOTE (!D_QUOTE .)* D_QUOTE)
@@ -119,7 +119,7 @@ number
 		/ $('0' [xX] [0-9a-fA-F]+)
 		/ $('0' [oO] [0-7]+)
 		/ $('0' [bB] [01]+)
-	) { return ast("number").set("value", n) }
+	) { return ast("number", n) }
 
 objectVariable 
 	= o1:$((':' ':')? ID) o2:$(':' ID)* 
@@ -132,7 +132,7 @@ DIGIT = [0-9]
 
 ID = 
 	id:($([a-zA-Z_] [a-zA-Z_0-9]*)) 
-	{ return ast("identifier").set("value", id) }
+	{ return ast("identifier", id) }
 
 operators
 	= o: (
@@ -173,16 +173,16 @@ operators
   / "]"
   / "("
   / ")"
-	)  { ast("operator").set("value", o) }
+	)  { ast("operator", o) }
 
 separators
 	= s:[,;]
-	{ ast("separator").set("value", s) }
+	{ ast("separator", s) }
 
 WS
 	= ws:$([ \t])+ 
-	{ return ast("whiteSpace").set("value", ws) }
+	{ return ast("whiteSpace", ws) }
 
 NL
 	= nl:$("\n" / "\r" / "\r\n")+
-	{ return ast("newLine").set("value", nl) }
+	{ return ast("newLine", nl) }

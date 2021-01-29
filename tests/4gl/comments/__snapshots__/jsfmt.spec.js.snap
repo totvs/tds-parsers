@@ -23,5 +23,575 @@ exports[`4gl: Token comment.4gl 1`] = `
     linhas 
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-{"ASTy":{"T":"program","L":{"L":1,"C":1,"O":0},"A":{"value":[{"ctx":{},"ASTy":true,"T":"comment","L":{"L":1,"C":1,"O":0},"A":{"value":"# linha 1\\n"},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"comment","L":{"L":2,"C":1,"O":10},"A":{"value":"# linha 2\\n"},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"comment","L":{"L":3,"C":1,"O":20},"A":{"value":"# linha 3\\n\\n"},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"operator","L":{"L":5,"C":1,"O":31},"A":{"value":"-"},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"operator","L":{"L":5,"C":2,"O":32},"A":{"value":"-"},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":5,"C":3,"O":33},"A":{"value":[[null,"l"],[null,"i"],[null,"n"],[null,"h"],[null,"a"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":5,"C":8,"O":38},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":5,"C":9,"O":39},"A":{"value":[[null,"A"],[null,"\\n"],[null,"-"],[null,"-"],[null,"l"],[null,"i"],[null,"n"],[null,"h"],[null,"a"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":6,"C":8,"O":48},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":6,"C":9,"O":49},"A":{"value":[[null,"B"],[null,"\\n"],[null,"\\n"],[null,"-"],[null,"-"],[null,"l"],[null,"i"],[null,"n"],[null,"h"],[null,"a"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":8,"C":8,"O":59},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":8,"C":9,"O":60},"A":{"value":[[null,"A"],[null,"1"],[null,"\\n"],[null,"\\n"],[null,"-"],[null,"-"],[null,"l"],[null,"i"],[null,"n"],[null,"h"],[null,"a"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":10,"C":8,"O":71},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":10,"C":9,"O":72},"A":{"value":[[null,"B"],[null,"2"],[null,"\\n"],[null,"-"],[null,"-"],[null,"l"],[null,"i"],[null,"n"],[null,"h"],[null,"a"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":11,"C":8,"O":82},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":11,"C":9,"O":83},"A":{"value":[[null,"B"],[null,"3"],[null,"\\n"],[null,"\\n"],[null,"{"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":13,"C":2,"O":88},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":13,"C":3,"O":89},"A":{"value":[[null,"b"],[null,"l"],[null,"o"],[null,"c"],[null,"o"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":13,"C":8,"O":94},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":13,"C":9,"O":95},"A":{"value":[[null,"c"],[null,"o"],[null,"m"],[null,"e"],[null,"n"],[null,"t"],[null,"a"],[null,"d"],[null,"o"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":13,"C":18,"O":104},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":13,"C":19,"O":105},"A":{"value":[[null,"d"],[null,"e"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":13,"C":21,"O":107},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":13,"C":22,"O":108},"A":{"value":[[null,"u"],[null,"m"],[null,"a"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":13,"C":25,"O":111},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"notSpecified","L":{"L":13,"C":26,"O":112},"A":{"value":[[null,"l"],[null,"i"],[null,"n"],[null,"h"],[null,"a"]]},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"whiteSpace","L":{"L":13,"C":31,"O":117},"A":{"value":" "},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"operator","L":{"L":13,"C":32,"O":118},"A":{"value":"}"},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"newLine","L":{"L":13,"C":33,"O":119},"A":{"value":"\\n\\n"},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"comment","L":{"L":15,"C":1,"O":121},"A":{"value":"{ \\n    bloco \\n    comentado \\n    de \\n    varias\\n    linhas \\n}"},"C":[],"P":null},{"ctx":{},"ASTy":true,"T":"newLine","L":{"L":21,"C":2,"O":182},"A":{"value":"\\n"},"C":[],"P":null}]}}}
+{
+ "ctx": {},
+ "ASTy": true,
+ "T": "program",
+ "L": {
+  "L": 1,
+  "C": 1,
+  "O": 0
+ },
+ "A": {
+  "value": [
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "comment",
+    "L": {
+     "L": 1,
+     "C": 1,
+     "O": 0
+    },
+    "A": {
+     "value": "# linha 1\\n"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "comment",
+    "L": {
+     "L": 2,
+     "C": 1,
+     "O": 10
+    },
+    "A": {
+     "value": "# linha 2\\n"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "comment",
+    "L": {
+     "L": 3,
+     "C": 1,
+     "O": 20
+    },
+    "A": {
+     "value": "# linha 3\\n\\n"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 5,
+     "C": 1,
+     "O": 31
+    },
+    "A": {
+     "value": "-"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 5,
+     "C": 2,
+     "O": 32
+    },
+    "A": {
+     "value": "-"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 5,
+     "C": 3,
+     "O": 33
+    },
+    "A": {
+     "value": "linha"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 5,
+     "C": 8,
+     "O": 38
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 5,
+     "C": 9,
+     "O": 39
+    },
+    "A": {
+     "value": "A"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "newLine",
+    "L": {
+     "L": 5,
+     "C": 10,
+     "O": 40
+    },
+    "A": {
+     "value": "\\n"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 6,
+     "C": 1,
+     "O": 41
+    },
+    "A": {
+     "value": "-"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 6,
+     "C": 2,
+     "O": 42
+    },
+    "A": {
+     "value": "-"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 6,
+     "C": 3,
+     "O": 43
+    },
+    "A": {
+     "value": "linha"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 6,
+     "C": 8,
+     "O": 48
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 6,
+     "C": 9,
+     "O": 49
+    },
+    "A": {
+     "value": "B"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "newLine",
+    "L": {
+     "L": 6,
+     "C": 10,
+     "O": 50
+    },
+    "A": {
+     "value": "\\n\\n"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 8,
+     "C": 1,
+     "O": 52
+    },
+    "A": {
+     "value": "-"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 8,
+     "C": 2,
+     "O": 53
+    },
+    "A": {
+     "value": "-"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 8,
+     "C": 3,
+     "O": 54
+    },
+    "A": {
+     "value": "linha"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 8,
+     "C": 8,
+     "O": 59
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 8,
+     "C": 9,
+     "O": 60
+    },
+    "A": {
+     "value": "A1"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "newLine",
+    "L": {
+     "L": 8,
+     "C": 11,
+     "O": 62
+    },
+    "A": {
+     "value": "\\n\\n"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 10,
+     "C": 1,
+     "O": 64
+    },
+    "A": {
+     "value": "-"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 10,
+     "C": 2,
+     "O": 65
+    },
+    "A": {
+     "value": "-"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 10,
+     "C": 3,
+     "O": 66
+    },
+    "A": {
+     "value": "linha"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 10,
+     "C": 8,
+     "O": 71
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 10,
+     "C": 9,
+     "O": 72
+    },
+    "A": {
+     "value": "B2"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "newLine",
+    "L": {
+     "L": 10,
+     "C": 11,
+     "O": 74
+    },
+    "A": {
+     "value": "\\n"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 11,
+     "C": 1,
+     "O": 75
+    },
+    "A": {
+     "value": "-"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "operator",
+    "L": {
+     "L": 11,
+     "C": 2,
+     "O": 76
+    },
+    "A": {
+     "value": "-"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 11,
+     "C": 3,
+     "O": 77
+    },
+    "A": {
+     "value": "linha"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "whiteSpace",
+    "L": {
+     "L": 11,
+     "C": 8,
+     "O": 82
+    },
+    "A": {
+     "value": " "
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "identifier",
+    "L": {
+     "L": 11,
+     "C": 9,
+     "O": 83
+    },
+    "A": {
+     "value": "B3"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "newLine",
+    "L": {
+     "L": 11,
+     "C": 11,
+     "O": 85
+    },
+    "A": {
+     "value": "\\n\\n"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "comment",
+    "L": {
+     "L": 13,
+     "C": 1,
+     "O": 87
+    },
+    "A": {
+     "value": "{ bloco comentado de uma linha }"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "newLine",
+    "L": {
+     "L": 13,
+     "C": 33,
+     "O": 119
+    },
+    "A": {
+     "value": "\\n\\n"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "comment",
+    "L": {
+     "L": 15,
+     "C": 1,
+     "O": 121
+    },
+    "A": {
+     "value": "{ \\n    bloco \\n    comentado \\n    de \\n    varias\\n    linhas \\n}"
+    },
+    "C": [],
+    "P": null
+   },
+   {
+    "ctx": {},
+    "ASTy": true,
+    "T": "newLine",
+    "L": {
+     "L": 21,
+     "C": 2,
+     "O": 182
+    },
+    "A": {
+     "value": "\\n"
+    },
+    "C": [],
+    "P": null
+   }
+  ]
+ },
+ "C": [],
+ "P": null
+}
 `;

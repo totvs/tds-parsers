@@ -11,13 +11,13 @@ const LANGUAGES = [
       ".per"
     ],
     parser: (text: string, options: any) => {
-      return parser_token_4gl(text, options);
+      return parser_token_4gl(text);
     },
   },
   {
     name: "advpL-token",
     parser: (text: string, options: any) => {
-      return parser_token_advpl(text, options);
+      return parser_token_advpl(text);
     },
     extensions: [
       ".prw",
