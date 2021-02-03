@@ -1,3 +1,4 @@
+
 "use strict";
 
 const PRINT_WIDTH = 80;
@@ -33,16 +34,17 @@ function run_spec(dirname, options) {
             console.error(output.error);
             throw new Error(output.error);
           }
-
+          const dump = output.ast.dump();
           expect(
             raw(
               source +
               "~".repeat(PRINT_WIDTH) +
               "\n" +
-              JSON.stringify(output.ast,2,1)
+              dump
             )
           ).toMatchSnapshot();
-        });
+        }
+        );
       });
     }
   });

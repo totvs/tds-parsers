@@ -1,10 +1,9 @@
-import ASTY = require("asty");
 import PEGUtil = require("pegjs-util")
 import { parse as parser_4gl } from "./4gl";
 import { parse as parser_advpl } from "./advpl";
+import { ASTNode, ASTUtil } from "./ast_node";
 
-function parser_token(parser: any, text: string): ASTY.ASTYNode {
-    const asty = new ASTY();
+function parser_token(parser: any, text: string): { ast: ASTNode, error?: any } {
     const result = PEGUtil.parse({ parse: parser }, text, {
         startRule: "start_program",
         makeAST: function (line: number, column: number, offset: number, _args: any[]) {
@@ -12,16 +11,14 @@ function parser_token(parser: any, text: string): ASTY.ASTYNode {
 
             args.push(_args[0]);
             if (_args.length > 1) {
-                // if (Array.isArray(_args[1])) {
-                //     args.push({});
-                //     const unroll = PEGUtil.makeUnroll(location, _args[1]);
-                //     args.push(unroll);
-                // } else {
-                    args.push({ value: _args[1] });
-//                }
+                args.push(_args[1]);
+            } else {
+                args.push("");
             }
 
-            return asty.create.apply(asty, args).pos(line, column, offset)
+            const node: ASTNode = ASTUtil.create(...args, { line, column, offset });
+
+            return node;
         }
     });
 

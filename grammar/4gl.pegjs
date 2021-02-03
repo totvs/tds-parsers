@@ -1,99 +1,54 @@
 // Gramática eleborada com base na documentação disponibilizada em
 // https://www.oninit.com/manual/informix/english/docs/4gl/7609.pdf
 // e na pasta "docs" há uma cópia
-
 {
 
-//const unroll = options.util.makeUnroll(location, options);
 const ast = options.util.makeAST(location, options);
 
 }
 
 start_program
-	= t:token*
-  { return ast("program", t) }
+	= p1:superToken? p2:superToken*  { return ast("program").add(p1, p2) }
 
-token 
-  = blocks 
-  / keywords 
+superToken
+  = mainBlock
+  / functionBlock
   / comment
-  / operators 
+  / WS_NL
+  // / tokens 
+  / o:$(!WS .)+ { return ast("notSpecified", o) }
+
+mainBlock
+  = b:MAIN &WS_NL
+      t:tokens*
+    e:(END WS_NL MAIN &WS_NL)
+    { return ast("block").add(b, t, e) }
+
+functionBlock
+  = b:(FUNCTION WS_NL ID)
+      t:tokens*
+    e:(END WS_NL FUNCTION &WS_NL)
+    { return ast("block").add(b, t, e) }
+
+tokens
+  = WS_NL
+  / comment
+  / keywords
   / builtInVar
+  / operators
   / string
   / number
-  / builtInVar
-  / ID
-  / WS/_NL
-  / o:(!WS .)+ { return ast("notSpecified", o) }
-
-D_QUOTE = '\"';
-S_QUOTE = '\'';
-DOT = '\.';
-
-string
-  = s:$(double_quoted_string / single_quoted_string) {
-      return ast("string", s);
-    }
-
-double_quoted_string = $(D_QUOTE (!D_QUOTE .)* D_QUOTE)
-
-single_quoted_string = $(S_QUOTE (!S_QUOTE .)* S_QUOTE)
-
-number
-  = n:$([-+]? DIGIT+ (DOT DIGIT+)?) {
-      return ast("number", n); 
-    }
-
-DIGIT = [0-9]
-
-ESCAPED
- = "\\\"" { return '"'}
- / "\\'" { return "'"}
- / "\\\\" { return "\\"}
- / "\\b" { return "\b"}
- / "\\t" { return "\t"}
- / "\\n" { return "\n"}
- / "\\f" { return "\f"}
- / "\\r" { return "\r"}
-
-WS
-  = s:$[ \t;]+ { return ast("whiteSpace", s) }
-
-_NL = s:$("\n" / "\r" / "\r\n")+ { return ast("newLine", s) }
-
-NLS
-  = _NL / WS
-
-blocks
-  = k:(
-    MAIN
-    / FUNCTION
-  ) { return ast("keyword", k).set("block", "begin" ) }
-    / k0:END w:WS k1:(MAIN / FUNCTION)  { return [ 
-      ast("keyword", k0), 
-      ast(w), 
-      ast("keyword", k1).set("block", "end"), 
-    ] }
+  / !END ID
 
 keywords
   = k:(
-    BLACK 
-    / BLUE 
-    / CYAN 
-    / GREEN 
-    / MAGENTA 
-    / RED 
-    / WHITE 
-    / YELLOW
-    / BYTE
-    / TEXT
+    ACCEPT
     / AFTER
     / ALL
     / AND
     / ANY
     / ARRAY
     / ASC
-    / ACCEPT
     / ASCENDING
     / ASCII
     / AT
@@ -105,17 +60,23 @@ keywords
     / BEGIN
     / BETWEEN
     / BIGINT
+    / BLACK
+    / BLINK
+    / BLUE
+    / BOLD
     / BORDER
     / BOTTOM
     / BY
+    / BYTE
     / CALL
     / CASE
+    / CHAR
+    / CHARACTER
     / CLEAR
     / CLIPPED
     / CLOSE
     / COLUMN
     / COLUMNS
-    / COMMA
     / COMMAND
     / COMMENT
     / COMMENTS
@@ -123,12 +84,18 @@ keywords
     / CONSTRAINT
     / CONSTRUCT
     / CONTINUE
+    / CONTROL
     / COUNT
     / CREATE
     / CURRENT
     / CURSOR
+    / CYAN
     / DATABASE
+    / DATE
+    / DATETIME
     / DAY
+    / DEC
+    / DECIMAL
     / DECLARE
     / DEFAULTS
     / DEFER
@@ -138,15 +105,19 @@ keywords
     / DELIMITERS
     / DESC
     / DESCENDING
+    / DIM
     / DIRTY
     / DISPLAY
     / DISTINCT
+    / DOUBLE
+    / DOWN
     / DOWNSHIFT
-    / DOT
     / DROP
     / DYNAMIC
+    / ELIF
     / ELSE
     / ERROR
+    / ESCAPE
     / EVERY
     / EXCLUSIVE
     / EXECUTE
@@ -154,23 +125,28 @@ keywords
     / EXIT
     / EXTEND
     / EXTERNAL
-    / FALSE
     / FETCH
     / FIELD
     / FILE
     / FINISH
     / FIRST
+    / FLOAT
     / FLUSH
-    / FOR
     / FOR
     / FOREACH
     / FORM
     / FORMAT
+    / FORMONLY
+    / FOUND
     / FRACTION
     / FREE
     / FROM
-    / GROUP
+    / FUNCTION
     / GLOBALS
+    / GO
+    / GOTO
+    / GREEN
+    / GROUP
     / HAVING
     / HEADER
     / HELP
@@ -184,10 +160,13 @@ keywords
     / INITIALIZE
     / INPUT
     / INSERT
-    / INSTRUCTIONS
+    / INSTRUCTIONS  
+    / INT
+    / INTEGER
     / INTERRUPT
     / INTERVAL
     / INTO
+    / INVISIBLE
     / IS
     / ISOLATION
     / KEY
@@ -200,27 +179,38 @@ keywords
     / LINE
     / LINES
     / LOAD
+    / LOCATE
     / LOCK
     / LOG
+    / MAGENTA
+    / MAIN
     / MARGIN
     / MATCHES
     / MAX
     / MDY
+    / MEMORY
     / MENU
     / MESSAGE
     / MIN
     / MINUTE
     / MOD
     / MODE
+    / MONEY
     / MONTH
     / NAME
+    / NCHAR
     / NEED
     / NEXT
     / NO
     / NOENTRY
+    / NORMAL
     / NOT
     / NOTFOUND
     / NULL
+    / NUMERIC
+    / NVARCHAR
+    / OF
+    / OFF
     / ON
     / OPEN
     / OPTION
@@ -233,17 +223,19 @@ keywords
     / PAGE
     / PAGENO
     / PIPE
+    / PRECISION
     / PREPARE
     / PREVIOUS
     / PRIMARY
     / PRINT
     / PROGRAM
     / PROMPT
-    / PROMPT
     / PUT
     / QUIT
     / READ
+    / REAL
     / RECORD
+    / RED
     / REPORT
     / RETURN
     / RETURNING
@@ -262,54 +254,67 @@ keywords
     / SHOW
     / SKIP
     / SLEEP
+    / SMALL
+    / SMALLFLOAT
+    / SMALLINT
     / SPACE
     / SPACES
     / SQL
+    / SQLERROR
+    / SQLWARNING
     / START
     / STEP
     / STOP
+    / STRING
     / SUM
     / TABLE
     / TABLES
     / TEMP
+    / TEXT
     / THEN
-    / THEN
+    / THROUGH
+    / THRU
     / TIME
     / TO
     / TODAY
     / TOP
     / TRAILER
-    / TRUE
     / TYPE
-    / UNCONSTRAINED
+    / UNCONSTRAINED  
+    / UNDERLINE
     / UNION
     / UNIQUE
     / UNITS
     / UNLOAD
-    / UNLOAD
     / UNLOCK
+    / UP
     / UPDATE
     / UPSHIFT
     / USING
+    / VALIDATE
     / VALUES
+    / VARCHAR
     / WAIT
     / WAITING
+    / WARNING
     / WEEKDAY
     / WHEN
     / WHENEVER
     / WHERE
     / WHILE
+    / WHITE
     / WINDOW
     / WITH
     / WITHOUT
     / WORDWRAP
     / WORK
+    / WRAP
     / YEAR
-  ) w:(WS/_NL)
-   { return [ ast("keyword", k), ast(w) ] }
- 
+    / YELLOW  
+  ) &(WS_NL/operators) { return k;}
+
 operators
-  = o:(
+  = (
     C_BRACES
     / C_BRACKET
     / C_PARENTHESIS
@@ -326,10 +331,11 @@ operators
     / MINUS
     / COLON
     / SLASH
-  ) { return ast("operator", o) }
+    / AT_SIGN
+  )
 
 builtInVar
-  = v:(
+  = (
     INT_FLAG
     / NOT_FOUND 
     / SQL_CODE 
@@ -340,317 +346,356 @@ builtInVar
     / SQL_ERR_P 
     / SQL_ERR_D 
     / SQL_AWARN 
-  ) { return ast("builtInVar", v) }
+  )
 
 comment
-  = singleCommentLine 
-  / c:$(O_BRACES (!C_BRACES .)* C_BRACES) { return ast("comment", c) }
+  = c:(POUND $(!NL .)* NL) { return ast("comment", c) }
+  / c:(MINUS MINUS POUND? $(!NL .)* NL) { return ast("comment", c) }
+  / c:(O_BRACES $(!C_BRACES .)* C_BRACES) { return ast("comment", c) }
+ 
+string
+  = s:$(double_quoted_string / single_quoted_string) {
+      return ast("string", s);
+    }
 
-singleCommentLine
-  = c:$('#' (!_NL .)* _NL) { return ast("comment", c) }
-  / c:$('-' '-' '#' (!_NL .)* _NL) { return ast("comment", c) }
+double_quoted_string = $(D_QUOTE (!D_QUOTE .)* D_QUOTE)
+
+single_quoted_string = $(S_QUOTE (!S_QUOTE .)* S_QUOTE)
+
+number
+  = n:$([-+]? DIGIT+ (DOT DIGIT+)?) {
+      return ast("number", n); 
+    }
+
+ESCAPED
+ = "\\\"" { return '"'}
+ / "\\'" { return "'"}
+ / "\\\\" { return "\\"}
+ / "\\b" { return "\b"}
+ / "\\t" { return "\t"}
+ / "\\n" { return "\n"}
+ / "\\f" { return "\f"}
+ / "\\r" { return "\r"}
+
+WS
+  = s:$[ \t]+ 
+  { return ast("whiteSpace", s.replace(/ /g, "\\b").replace(/\t/g, "\\t")) }
+
+NL 
+  = s:$("\n" / "\r" / "\r\n")+ 
+  { return ast("newLine", s.replace(/\n/g, "\\n").replace(/\r/g, "\\r")) }
+
+WS_NL
+  = w:(WS / NL)+ { return w }
+
+DIGIT = [0-9]
+
+D_QUOTE = '\"';
+S_QUOTE = '\'';
+DOT = '\.';
 
 ID = id:$([a-zA-Z_] [a-zA-Z_0-9]*) { return ast("identifier", id) }
 
-AT_SIGN = "@";
-INT_FLAG = "int_flag"i
-NOT_FOUND = "notfound"i 
-SQL_CODE = "sqlcode"i 
-STATUS = "status"i 
-QUIT_FLAG = "quit_flag"i 
-SQL_CA_RECORD = "sqlcarecord"i 
-SQL_ERR_M = "sqlerrm"i 
-SQL_ERR_P = "sqlerrp"i 
-SQL_ERR_D = "sqlerrd"i 
-SQL_AWARN = "sqlawarn"i 
+TRUE=c:"true"i { return ast("constant", c) }
+FALSE=c:"false"i { return ast("constant", c) }
 
-TRUE=c:"true"i { return ast("constante", c) }
-FALSE=c:"false"i { return ast("constante", c) }
+INT_FLAG = v:"int_flag"i { return ast("builtInVar", v) }
+NOT_FOUND = v:"notfound"i { return ast("builtInVar", v) } 
+SQL_CODE = v:"sqlcode"i { return ast("builtInVar", v) } 
+STATUS = v:"status"i { return ast("builtInVar", v) } 
+QUIT_FLAG = v:"quit_flag"i { return ast("builtInVar", v) } 
+SQL_CA_RECORD = v:"sqlcarecord"i { return ast("builtInVar", v) } 
+SQL_ERR_M = v:"sqlerrm"i { return ast("builtInVar", v) } 
+SQL_ERR_P = v:"sqlerrp"i { return ast("builtInVar", v) } 
+SQL_ERR_D = v:"sqlerrd"i { return ast("builtInVar", v) } 
+SQL_AWARN = v:"sqlawarn"i { return ast("builtInVar", v) } 
 
-O_BRACES=o:"{" 
-C_BRACES=o:"}" 
-O_BRACKET=o:"[" 
-C_BRACKET=o:"]" 
-O_PARENTHESIS=o:"(" 
-C_PARENTHESIS=o:")" 
-COMMA=o:"," 
-ASTERISK=o:"*" 
-EQUAL=o:"="  
-LESS=o:"<" 
-GREATER=o:">" 
-EXCLAMATION=o:"!" 
-PLUS=o:"+" 
-MINUS=o:"-" 
-COLON=o:":" 
-SLASH=o:"/" 
+POUND = o:"#" { return ast("operator", o) }
+AT_SIGN = o:"@" { return ast("operator", o) }
+O_BRACES=o:"{" { return ast("operator", o) }
+C_BRACES=o:"}" { return ast("operator", o) }
+O_BRACKET=o:"[" { return ast("operator", o) }
+C_BRACKET=o:"]" { return ast("operator", o) }
+O_PARENTHESIS=o:"(" { return ast("operator", o) }
+C_PARENTHESIS=o:")" { return ast("operator", o) }
+COMMA=o:"," { return ast("operator", o) }
+ASTERISK=o:"*" { return ast("operator", o) }
+EQUAL=o:"="  { return ast("operator", o) }
+LESS=o:"<" { return ast("operator", o) }
+GREATER=o:">" { return ast("operator", o) }
+EXCLAMATION=o:"!" { return ast("operator", o) }
+PLUS=o:"+" { return ast("operator", o) }
+MINUS=o:"-" { return ast("operator", o) }
+COLON=o:":" { return ast("operator", o) }
+SLASH=o:"/" { return ast("operator", o) }
 
-ACCEPT = "accept"i  
-AFTER = "after"i  
-ALL = "all"i  
-AND = "and"i  
-ANY = "any"i  
-ARRAY = "array"i  
-ASC = "asc"i  
-ASCENDING = "ascending"i  
-ASCII = "ascii"i  
-AT = "year"i  
-ATTRIBUTE = "attribute"i  
-ATTRIBUTES = "attributes"i  
-AUTONEXT = "autonext"i  
-AVG = "avg"i  
-BEFORE = "before"i  
-BEGIN = "begin"i
-BETWEEN = "between"i  
-BIGINT = "bigint"i  
-BLACK = "black"i  
-BLINK = "blink"i  
-BLUE = "blue"i  
-BOLD = "bold"i  
-BORDER = "border"i  
-BOTTOM = "bottom"i  
-BY = "by"i  
-BYTE = "byte"i  
-CALL = "call"i  
-CASE = "case"i
-CHAR = "char"i  
-CHARACTER = "character"i  
-CLEAR = "clear"i  
-CLIPPED = "clipped"i  
-CLOSE = "close"i  
-COLUMN = "column"i  
-COLUMNS = "columns"i  
-COMMAND = "command"i  
-COMMENT = "comment"i  
-COMMENTS = "comments"i  
-COMMIT = "commit"i  
-CONSTRAINT = "constraint"i  
-CONSTRUCT = "construct"i  
-CONTINUE = "continue"i  
-CONTROL = "control"i  
-COUNT = "count"i  
-CREATE = "create"i  
-CURRENT = "current"i  
-CURSOR = "cursor"i  
-CYAN = "cyan"i  
-DATABASE = "database"i  
-DATE = "date"i  
-DATETIME = "datetime"i  
-DAY = "day"i  
-DEC = "dec"i  
-DECIMAL = "decimal"i  
-DECLARE = "declare"i  
-DEFAULTS = "defaults"i  
-DEFER = "defer"i  
-DEFINE = "define"i  
-DELETE = "delete"i  
-DELIMITER = "delimiter"i  
-DELIMITERS = "delimiters"i  
-DESC = "desc"i  
-DESCENDING = "descending"i  
-DIM = "dim"i  
-DIRTY = "dirty"i  
-DISPLAY = "display"i  
-DISTINCT = "distinct"i  
-DOUBLE = "double"i  
-DOWN = "down"i  
-DOWNSHIFT = "downshift"i  
-DROP = "drop"i  
-DYNAMIC = "dynamic"i  
-ELIF = "elif"i  
-ELSE = "else"i  
-END = "end"i
-ERROR = "error"i  
-ESCAPE = "escape"i  
-EVERY = "every"i  
-EXCLUSIVE = "exclusive"i  
-EXECUTE = "execute"i  
-EXISTS = "exists"i  
-EXIT = "exit"i  
-EXTEND = "extend"i  
-EXTERNAL = "external"i  
-FETCH = "fetch"i  
-FIELD = "field"i  
-FILE = "file"i  
-FINISH = "finish"i
-FIRST = "first"i  
-FLOAT = "float"i  
-FLUSH = "flush"i  
-FOR = "for"i 
-FOREACH = "foreach"i
-FORM = "form"i  
-FORMAT = "format"i  
-FORMONLY = "formonly"i  
-FOUND = "found"i  
-FRACTION = "fraction"i  
-FREE = "free"i  
-FROM = "from"i  
-FUNCTION = "function"i
-GLOBALS = "globals"i  
-GO = "go"i  
-GOTO = "goto"i  
-GREEN = "green"i  
-GROUP = "group"i  
-HAVING = "having"i  
-HEADER = "header"i  
-HELP = "help"i  
-HIDE = "hide"i  
-HOLD = "hold"i  
-HOUR = "hour"i  
-IF = "if"i  
-IN = "in"i  
-INCLUDE = "include"i  
-INDEX = "index"i  
-INITIALIZE = "initialize"i  
-INPUT = "input"i  
-INSERT = "insert"i  
-INSTRUCTIONS = "instructions"i  
-INT = "int"i  
-INTEGER = "integer"i  
-INTERRUPT = "interrupt"i  
-INTERVAL = "interval"i  
-INTO = "into"i  
-INVISIBLE = "invisible"i  
-IS = "is"i  
-ISOLATION = "isolation"i  
-KEY = "key"i  
-LABEL = "label"i  
-LAST = "last"i  
-LEFT = "left"i  
-LENGTH = "length"i  
-LET = "let"i  
-LIKE = "like"i  
-LINE = "line"i  
-LINES = "lines"i  
-LOAD = "load"i  
-LOCATE = "locate"i  
-LOCK = "lock"i  
-LOG = "log"i  
-MAGENTA = "magenta"i  
-MAIN = "main"i
-MARGIN = "margin"i  
-MATCHES = "matches"i  
-MAX = "max"i  
-MDY = "mdy"i  
-MEMORY = "memory"i  
-MENU = "menu"i  
-MESSAGE = "message"i  
-MIN = "min"i  
-MINUTE = "minute"i  
-MOD = "mod"i  
-MODE = "mode"i  
-MONEY = "money"i  
-MONTH = "month"i  
-NAME = "name"i  
-NCHAR = "nchar"i  
-NEED = "need"i  
-NEXT = "next"i  
-NO = "no"i  
-NOENTRY = "noentry"i  
-NORMAL = "normal"i  
-NOT = "not"i  
-NOTFOUND = "notfound"i  
-NULL = "null"i  
-NUMERIC = "numeric"i  
-NVARCHAR = "nvarchar"i  
-OF = "of"i  
-OFF = "off"i  
-ON = "on"i  
-OPEN = "open"i  
-OPTION = "option"i  
-OPTIONS = "options"i  
-OR = "or"i  
-ORDER = "order"i  
-OTHERWISE = "otherwise"i  
-OUTER = "outer"i  
-OUTPUT = "output"i  
-PAGE = "page"i  
-PAGENO = "pageno"i  
-PIPE = "pipe"i  
-PRECISION = "precision"i  
-PREPARE = "prepare"i  
-PREVIOUS = "previous"i  
-PRIMARY = "primary"i  
-PRINT = "print"i  
-PROGRAM = "program"i  
-PROMPT = "prompt"i  
-PUT = "put"i  
-QUIT = "quit"i  
-READ = "read"i  
-REAL = "real"i  
-RECORD = "record"i  
-RED = "red"i  
-REPORT = "report"i  
-RETURN = "return"i  
-RETURNING = "returning"i  
-REVERSE = "reverse"i  
-RIGTH = "rigth"i  
-ROLLBACK = "rollback"i  
-ROW = "row"i  
-ROWS = "rows"i  
-RUN = "run"i  
-SCREEN = "screen"i  
-SCROLL = "scroll"i  
-SECOND = "second"i  
-SELECT = "select"i  
-SET = "set"i  
-SHARE = "share"i  
-SHOW = "show"i  
-SKIP = "skip"i  
-SLEEP = "sleep"i  
-SMALL = "small"i  
-SMALLFLOAT = "smallfloat"i  
-SMALLINT = "smallint"i  
-SPACE = "space"i  
-SPACES = "spaces"i  
-SQL = "sql"i  
-SQLERROR = "sqlerror"i  
-SQLWARNING = "sqlwarning"i  
-START = "start"i  
-STEP = "step"i  
-STOP = "stop"i  
-STRING = "string"i  
-SUM = "sum"i  
-TABLE = "table"i  
-TABLES = "tables"i  
-TEMP = "temp"i  
-TEXT = "text"i  
-THEN = "then"i  
-THROUGH = "through"i  
-THRU = "thru"i  
-TIME = "time"i  
-TO = "to"i  
-TODAY = "today"i  
-TOP = "top"i  
-TRAILER = "trailer"i  
-TYPE = "type"i  
-UNCONSTRAINED = "unconstrained"i  
-UNDERLINE = "underline"i  
-UNION = "union"i  
-UNIQUE = "unique"i  
-UNITS = "units"i  
-UNLOAD = "unload"i  
-UNLOCK = "unlock"i  
-UP = "up"i  
-UPDATE = "update"i  
-UPSHIFT = "upshift"i  
-USING = "using"i  
-VALIDATE = "validate"i  
-VALUES = "values"i  
-VARCHAR = "varchar"i  
-WAIT = "wait"i  
-WAITING = "waiting"i  
-WARNING = "warning"i  
-WEEKDAY = "weekday"i  
-WHEN = "when"i  
-WHENEVER = "whenever"i  
-WHERE = "where"i  
-WHILE = "while"i  
-WHITE = "white"i  
-WINDOW = "window"i  
-WITH = "with"i  
-WITHOUT = "without"i  
-WORDWRAP = "wordwrap"i  
-WORK = "work"i  
-WRAP = "wrap"i  
-YEAR = "year"i  
-YELLOW = "yellow"i  
+ACCEPT = k:"accept"i { return ast("keyword", k) }
+AFTER = k:"after"i  { return ast("keyword", k) }
+ALL = k:"all"i  { return ast("keyword", k) }
+AND = k:"and"i  { return ast("keyword", k) }
+ANY = k:"any"i  { return ast("keyword", k) }
+ARRAY = k:"array"i  { return ast("keyword", k) }
+ASC = k:"asc"i  { return ast("keyword", k) }
+ASCENDING = k:"ascending"i  { return ast("keyword", k) }
+ASCII = k:"ascii"i  { return ast("keyword", k) }
+AT = k:"year"i  { return ast("keyword", k) }
+ATTRIBUTE = k:"attribute"i  { return ast("keyword", k) }
+ATTRIBUTES = k:"attributes"i  { return ast("keyword", k) }
+AUTONEXT = k:"autonext"i  { return ast("keyword", k) }
+AVG = k:"avg"i  { return ast("keyword", k) }
+BEFORE = k:"before"i  { return ast("keyword", k) }
+BEGIN = k:"begin"i{ return ast("keyword", k) }
+BETWEEN = k:"between"i  { return ast("keyword", k) }
+BIGINT = k:"bigint"i  { return ast("keyword", k) }
+BLACK = k:"black"i  { return ast("keyword", k) }
+BLINK = k:"blink"i  { return ast("keyword", k) }
+BLUE = k:"blue"i  { return ast("keyword", k) }
+BOLD = k:"bold"i  { return ast("keyword", k) }
+BORDER = k:"border"i  { return ast("keyword", k) }
+BOTTOM = k:"bottom"i  { return ast("keyword", k) }
+BY = k:"by"i  { return ast("keyword", k) }
+BYTE = k:"byte"i  { return ast("keyword", k) }
+CALL = k:"call"i  { return ast("keyword", k) }
+CASE = k:"case"i{ return ast("keyword", k) }
+CHAR = k:"char"i  { return ast("keyword", k) }
+CHARACTER = k:"character"i  { return ast("keyword", k) }
+CLEAR = k:"clear"i  { return ast("keyword", k) }
+CLIPPED = k:"clipped"i  { return ast("keyword", k) }
+CLOSE = k:"close"i  { return ast("keyword", k) }
+COLUMN = k:"column"i  { return ast("keyword", k) }
+COLUMNS = k:"columns"i  { return ast("keyword", k) }
+COMMAND = k:"command"i  { return ast("keyword", k) }
+COMMENT = k:"comment"i  { return ast("keyword", k) }
+COMMENTS = k:"comments"i  { return ast("keyword", k) }
+COMMIT = k:"commit"i  { return ast("keyword", k) }
+CONSTRAINT = k:"constraint"i  { return ast("keyword", k) }
+CONSTRUCT = k:"construct"i  { return ast("keyword", k) }
+CONTINUE = k:"continue"i  { return ast("keyword", k) }
+CONTROL = k:"control"i  { return ast("keyword", k) }
+COUNT = k:"count"i  { return ast("keyword", k) }
+CREATE = k:"create"i  { return ast("keyword", k) }
+CURRENT = k:"current"i  { return ast("keyword", k) }
+CURSOR = k:"cursor"i  { return ast("keyword", k) }
+CYAN = k:"cyan"i  { return ast("keyword", k) }
+DATABASE = k:"database"i  { return ast("keyword", k) }
+DATE = k:"date"i  { return ast("keyword", k) }
+DATETIME = k:"datetime"i  { return ast("keyword", k) }
+DAY = k:"day"i  { return ast("keyword", k) }
+DEC = k:"dec"i  { return ast("keyword", k) }
+DECIMAL = k:"decimal"i  { return ast("keyword", k) }
+DECLARE = k:"declare"i  { return ast("keyword", k) }
+DEFAULTS = k:"defaults"i  { return ast("keyword", k) }
+DEFER = k:"defer"i  { return ast("keyword", k) }
+DEFINE = k:"define"i  { return ast("keyword", k) }
+DELETE = k:"delete"i  { return ast("keyword", k) }
+DELIMITER = k:"delimiter"i  { return ast("keyword", k) }
+DELIMITERS = k:"delimiters"i  { return ast("keyword", k) }
+DESC = k:"desc"i  { return ast("keyword", k) }
+DESCENDING = k:"descending"i  { return ast("keyword", k) }
+DIM = k:"dim"i  { return ast("keyword", k) }
+DIRTY = k:"dirty"i  { return ast("keyword", k) }
+DISPLAY = k:"display"i  { return ast("keyword", k) }
+DISTINCT = k:"distinct"i  { return ast("keyword", k) }
+DOUBLE = k:"double"i  { return ast("keyword", k) }
+DOWN = k:"down"i  { return ast("keyword", k) }
+DOWNSHIFT = k:"downshift"i  { return ast("keyword", k) }
+DROP = k:"drop"i  { return ast("keyword", k) }
+DYNAMIC = k:"dynamic"i  { return ast("keyword", k) }
+ELIF = k:"elif"i  { return ast("keyword", k) }
+ELSE = k:"else"i  { return ast("keyword", k) }
+END = k:"end"i{ return ast("keyword", k) }
+ERROR = k:"error"i  { return ast("keyword", k) }
+ESCAPE = k:"escape"i  { return ast("keyword", k) }
+EVERY = k:"every"i  { return ast("keyword", k) }
+EXCLUSIVE = k:"exclusive"i  { return ast("keyword", k) }
+EXECUTE = k:"execute"i  { return ast("keyword", k) }
+EXISTS = k:"exists"i  { return ast("keyword", k) }
+EXIT = k:"exit"i  { return ast("keyword", k) }
+EXTEND = k:"extend"i  { return ast("keyword", k) }
+EXTERNAL = k:"external"i  { return ast("keyword", k) }
+FETCH = k:"fetch"i  { return ast("keyword", k) }
+FIELD = k:"field"i  { return ast("keyword", k) }
+FILE = k:"file"i  { return ast("keyword", k) }
+FINISH = k:"finish"i{ return ast("keyword", k) }
+FIRST = k:"first"i  { return ast("keyword", k) }
+FLOAT = k:"float"i  { return ast("keyword", k) }
+FLUSH = k:"flush"i  { return ast("keyword", k) }
+FOR = k:"for"i { return ast("keyword", k) }
+FOREACH = k:"foreach"i{ return ast("keyword", k) }
+FORM = k:"form"i  { return ast("keyword", k) }
+FORMAT = k:"format"i  { return ast("keyword", k) }
+FORMONLY = k:"formonly"i  { return ast("keyword", k) }
+FOUND = k:"found"i  { return ast("keyword", k) }
+FRACTION = k:"fraction"i  { return ast("keyword", k) }
+FREE = k:"free"i  { return ast("keyword", k) }
+FROM = k:"from"i  { return ast("keyword", k) }
+FUNCTION = k:"function"i{ return ast("keyword", k) }
+GLOBALS = k:"globals"i  { return ast("keyword", k) }
+GO = k:"go"i  { return ast("keyword", k) }
+GOTO = k:"goto"i  { return ast("keyword", k) }
+GREEN = k:"green"i  { return ast("keyword", k) }
+GROUP = k:"group"i  { return ast("keyword", k) }
+HAVING = k:"having"i  { return ast("keyword", k) }
+HEADER = k:"header"i  { return ast("keyword", k) }
+HELP = k:"help"i  { return ast("keyword", k) }
+HIDE = k:"hide"i  { return ast("keyword", k) }
+HOLD = k:"hold"i  { return ast("keyword", k) }
+HOUR = k:"hour"i  { return ast("keyword", k) }
+IF = k:"if"i  { return ast("keyword", k) }
+IN = k:"in"i  { return ast("keyword", k) }
+INCLUDE = k:"include"i  { return ast("keyword", k) }
+INDEX = k:"index"i  { return ast("keyword", k) }
+INITIALIZE = k:"initialize"i  { return ast("keyword", k) }
+INPUT = k:"input"i  { return ast("keyword", k) }
+INSERT = k:"insert"i  { return ast("keyword", k) }
+INSTRUCTIONS = k:"instructions"i{ return ast("keyword", k) }  
+INT = k:"int"i  { return ast("keyword", k) }
+INTEGER = k:"integer"i  { return ast("keyword", k) }
+INTERRUPT = k:"interrupt"i  { return ast("keyword", k) }
+INTERVAL = k:"interval"i  { return ast("keyword", k) }
+INTO = k:"into"i  { return ast("keyword", k) }
+INVISIBLE = k:"invisible"i  { return ast("keyword", k) }
+IS = k:"is"i  { return ast("keyword", k) }
+ISOLATION = k:"isolation"i  { return ast("keyword", k) }
+KEY = k:"key"i  { return ast("keyword", k) }
+LABEL = k:"label"i  { return ast("keyword", k) }
+LAST = k:"last"i  { return ast("keyword", k) }
+LEFT = k:"left"i  { return ast("keyword", k) }
+LENGTH = k:"length"i  { return ast("keyword", k) }
+LET = k:"let"i  { return ast("keyword", k) }
+LIKE = k:"like"i  { return ast("keyword", k) }
+LINE = k:"line"i  { return ast("keyword", k) }
+LINES = k:"lines"i  { return ast("keyword", k) }
+LOAD = k:"load"i  { return ast("keyword", k) }
+LOCATE = k:"locate"i  { return ast("keyword", k) }
+LOCK = k:"lock"i  { return ast("keyword", k) }
+LOG = k:"log"i  { return ast("keyword", k) }
+MAGENTA = k:"magenta"i  { return ast("keyword", k) }
+MAIN = k:"main"i{ return ast("keyword", k) }
+MARGIN = k:"margin"i  { return ast("keyword", k) }
+MATCHES = k:"matches"i  { return ast("keyword", k) }
+MAX = k:"max"i  { return ast("keyword", k) }
+MDY = k:"mdy"i  { return ast("keyword", k) }
+MEMORY = k:"memory"i  { return ast("keyword", k) }
+MENU = k:"menu"i  { return ast("keyword", k) }
+MESSAGE = k:"message"i  { return ast("keyword", k) }
+MIN = k:"min"i  { return ast("keyword", k) }
+MINUTE = k:"minute"i  { return ast("keyword", k) }
+MOD = k:"mod"i  { return ast("keyword", k) }
+MODE = k:"mode"i  { return ast("keyword", k) }
+MONEY = k:"money"i  { return ast("keyword", k) }
+MONTH = k:"month"i  { return ast("keyword", k) }
+NAME = k:"name"i  { return ast("keyword", k) }
+NCHAR = k:"nchar"i  { return ast("keyword", k) }
+NEED = k:"need"i  { return ast("keyword", k) }
+NEXT = k:"next"i  { return ast("keyword", k) }
+NO = k:"no"i  { return ast("keyword", k) }
+NOENTRY = k:"noentry"i  { return ast("keyword", k) }
+NORMAL = k:"normal"i  { return ast("keyword", k) }
+NOT = k:"not"i  { return ast("keyword", k) }
+NOTFOUND = k:"notfound"i  { return ast("keyword", k) }
+NULL = k:"null"i  { return ast("keyword", k) }
+NUMERIC = k:"numeric"i  { return ast("keyword", k) }
+NVARCHAR = k:"nvarchar"i  { return ast("keyword", k) }
+OF = k:"of"i  { return ast("keyword", k) }
+OFF = k:"off"i  { return ast("keyword", k) }
+ON = k:"on"i  { return ast("keyword", k) }
+OPEN = k:"open"i  { return ast("keyword", k) }
+OPTION = k:"option"i  { return ast("keyword", k) }
+OPTIONS = k:"options"i  { return ast("keyword", k) }
+OR = k:"or"i  { return ast("keyword", k) }
+ORDER = k:"order"i  { return ast("keyword", k) }
+OTHERWISE = k:"otherwise"i  { return ast("keyword", k) }
+OUTER = k:"outer"i  { return ast("keyword", k) }
+OUTPUT = k:"output"i  { return ast("keyword", k) }
+PAGE = k:"page"i  { return ast("keyword", k) }
+PAGENO = k:"pageno"i  { return ast("keyword", k) }
+PIPE = k:"pipe"i  { return ast("keyword", k) }
+PRECISION = k:"precision"i  { return ast("keyword", k) }
+PREPARE = k:"prepare"i  { return ast("keyword", k) }
+PREVIOUS = k:"previous"i  { return ast("keyword", k) }
+PRIMARY = k:"primary"i  { return ast("keyword", k) }
+PRINT = k:"print"i  { return ast("keyword", k) }
+PROGRAM = k:"program"i  { return ast("keyword", k) }
+PROMPT = k:"prompt"i  { return ast("keyword", k) }
+PUT = k:"put"i  { return ast("keyword", k) }
+QUIT = k:"quit"i  { return ast("keyword", k) }
+READ = k:"read"i  { return ast("keyword", k) }
+REAL = k:"real"i  { return ast("keyword", k) }
+RECORD = k:"record"i  { return ast("keyword", k) }
+RED = k:"red"i  { return ast("keyword", k) }
+REPORT = k:"report"i  { return ast("keyword", k) }
+RETURN = k:"return"i  { return ast("keyword", k) }
+RETURNING = k:"returning"i  { return ast("keyword", k) }
+REVERSE = k:"reverse"i  { return ast("keyword", k) }
+RIGTH = k:"rigth"i  { return ast("keyword", k) }
+ROLLBACK = k:"rollback"i  { return ast("keyword", k) }
+ROW = k:"row"i  { return ast("keyword", k) }
+ROWS = k:"rows"i  { return ast("keyword", k) }
+RUN = k:"run"i  { return ast("keyword", k) }
+SCREEN = k:"screen"i  { return ast("keyword", k) }
+SCROLL = k:"scroll"i  { return ast("keyword", k) }
+SECOND = k:"second"i  { return ast("keyword", k) }
+SELECT = k:"select"i  { return ast("keyword", k) }
+SET = k:"set"i  { return ast("keyword", k) }
+SHARE = k:"share"i  { return ast("keyword", k) }
+SHOW = k:"show"i  { return ast("keyword", k) }
+SKIP = k:"skip"i  { return ast("keyword", k) }
+SLEEP = k:"sleep"i  { return ast("keyword", k) }
+SMALL = k:"small"i  { return ast("keyword", k) }
+SMALLFLOAT = k:"smallfloat"i  { return ast("keyword", k) }
+SMALLINT = k:"smallint"i  { return ast("keyword", k) }
+SPACE = k:"space"i  { return ast("keyword", k) }
+SPACES = k:"spaces"i  { return ast("keyword", k) }
+SQL = k:"sql"i  { return ast("keyword", k) }
+SQLERROR = k:"sqlerror"i  { return ast("keyword", k) }
+SQLWARNING = k:"sqlwarning"i  { return ast("keyword", k) }
+START = k:"start"i  { return ast("keyword", k) }
+STEP = k:"step"i  { return ast("keyword", k) }
+STOP = k:"stop"i  { return ast("keyword", k) }
+STRING = k:"string"i  { return ast("keyword", k) }
+SUM = k:"sum"i  { return ast("keyword", k) }
+TABLE = k:"table"i  { return ast("keyword", k) }
+TABLES = k:"tables"i  { return ast("keyword", k) }
+TEMP = k:"temp"i  { return ast("keyword", k) }
+TEXT = k:"text"i  { return ast("keyword", k) }
+THEN = k:"then"i  { return ast("keyword", k) }
+THROUGH = k:"through"i  { return ast("keyword", k) }
+THRU = k:"thru"i  { return ast("keyword", k) }
+TIME = k:"time"i  { return ast("keyword", k) }
+TO = k:"to"i  { return ast("keyword", k) }
+TODAY = k:"today"i  { return ast("keyword", k) }
+TOP = k:"top"i  { return ast("keyword", k) }
+TRAILER = k:"trailer"i  { return ast("keyword", k) }
+TYPE = k:"type"i  { return ast("keyword", k) }
+UNCONSTRAINED = k:"unconstrained"i { return ast("keyword", k) }  
+UNDERLINE = k:"underline"i  { return ast("keyword", k) }
+UNION = k:"union"i  { return ast("keyword", k) }
+UNIQUE = k:"unique"i  { return ast("keyword", k) }
+UNITS = k:"units"i  { return ast("keyword", k) }
+UNLOAD = k:"unload"i  { return ast("keyword", k) }
+UNLOCK = k:"unlock"i  { return ast("keyword", k) }
+UP = k:"up"i  { return ast("keyword", k) }
+UPDATE = k:"update"i  { return ast("keyword", k) }
+UPSHIFT = k:"upshift"i  { return ast("keyword", k) }
+USING = k:"using"i  { return ast("keyword", k) }
+VALIDATE = k:"validate"i  { return ast("keyword", k) }
+VALUES = k:"values"i  { return ast("keyword", k) }
+VARCHAR = k:"varchar"i  { return ast("keyword", k) }
+WAIT = k:"wait"i  { return ast("keyword", k) }
+WAITING = k:"waiting"i  { return ast("keyword", k) }
+WARNING = k:"warning"i  { return ast("keyword", k) }
+WEEKDAY = k:"weekday"i  { return ast("keyword", k) }
+WHEN = k:"when"i  { return ast("keyword", k) }
+WHENEVER = k:"whenever"i  { return ast("keyword", k) }
+WHERE = k:"where"i  { return ast("keyword", k) }
+WHILE = k:"while"i  { return ast("keyword", k) }
+WHITE = k:"white"i  { return ast("keyword", k) }
+WINDOW = k:"window"i  { return ast("keyword", k) }
+WITH = k:"with"i  { return ast("keyword", k) }
+WITHOUT = k:"without"i  { return ast("keyword", k) }
+WORDWRAP = k:"wordwrap"i  { return ast("keyword", k) }
+WORK = k:"work"i  { return ast("keyword", k) }
+WRAP = k:"wrap"i  { return ast("keyword", k) }
+YEAR = k:"year"i  { return ast("keyword", k) }
+YELLOW = k:"yellow"i  { return ast("keyword", k) }

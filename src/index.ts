@@ -1,6 +1,6 @@
+import { ASTNode } from "./ast_node";
 import { IParserOptions, normalize } from "./config";
 import { ERRORS } from "./errors";
-import ASTY = require("asty");
 import { parser_token_4gl, parser_token_advpl } from "./parser";
 
 const LANGUAGES = [
@@ -31,7 +31,7 @@ const LANGUAGES = [
   },
 ];
 
-export function parser(content: string, options: IParserOptions): ASTY.ASTYNode {
+export function parser(content: string, options: IParserOptions): ASTNode {
   let parserList: any[] = [];
 
   options = normalize(options);
