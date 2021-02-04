@@ -12,11 +12,27 @@ export function astDump(ast: ASTNode | ASTNode[], prefix: string = ""): string {
             output += astDump(element, prefix);
         });
     } else {
-        output += `${ast.type}: ${ast.source } [${ast.location.line}:${ast.location.column}]\n`;
+        if (typeof ast == 'string') {
+            output += ast;
+        } else if (Array.isArray(ast.source)) {
+            ast.source.forEach((element: ASTNode) => {
+                output += astDump(element, prefix);
+            });
+        } else {
+            const source = ast.source
+                .replace(/ /g, "\\b")
+                .replace(/\t/g, "\\t")
+                .replace(/\n/g, "\\n")
+                .replace(/\r/g, "\\r");
 
-        if (ast.children && ast.children.length > 0) {
-            output += astDump(ast.children, prefix + "| ");
-        };
+            const attributes: string = ast.attributes.length > 0? JSON.stringify(ast.attributes): "";
+
+            output += `${ast.type}: ${source} [${ast.location.line}:${ast.location.column}] {${attributes}\n`;
+
+            if (ast.children && ast.children.length > 0) {
+                output += astDump(ast.children, prefix + "| ");
+            };
+        }
     }
     return output;
 };

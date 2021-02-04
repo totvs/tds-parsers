@@ -23,24 +23,39 @@ exports[`4gl: Token comment.4gl 1`] = `
     linhas 
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1]
-| | comment: [object Object], linha 1,[object Object] [1:1]
-| | comment: [object Object], linha 2,[object Object] [2:1]
-| comment: [object Object], linha 3,[object Object] [3:1]
-| comment: [object Object],[object Object],,linha A,[object Object] [5:1]
-| comment: [object Object],[object Object],,linha B,[object Object] [6:1]
-| comment: [object Object],[object Object],,linha A1,[object Object] [8:1]
-| comment: [object Object],[object Object],,linha B2,[object Object] [10:1]
-| comment: [object Object],[object Object],,linha B3,[object Object] [11:1]
-| comment: [object Object], bloco comentado de uma linha ,[object Object] [13:1]
-| | newLine: \\n\\n [13:33]
-| comment: [object Object], 
+program:  [1:1] {
+| | | operator: # [1:1] {
+|  linha 1| newLine: \\n [1:10] {
+| | | operator: # [2:1] {
+|  linha 2| newLine: \\n [2:10] {
+| | operator: # [3:1] {
+|  linha 3| newLine: \\n\\n [3:10] {
+| | operator: - [5:1] {
+| operator: - [5:2] {
+| linha A| newLine: \\n [5:10] {
+| | operator: - [6:1] {
+| operator: - [6:2] {
+| linha B| newLine: \\n\\n [6:10] {
+| | operator: - [8:1] {
+| operator: - [8:2] {
+| linha A1| newLine: \\n\\n [8:11] {
+| | operator: - [10:1] {
+| operator: - [10:2] {
+| linha B2| newLine: \\n [10:11] {
+| | operator: - [11:1] {
+| operator: - [11:2] {
+| linha B3| newLine: \\n\\n [11:11] {
+| | operator: { [13:1] {
+|  bloco comentado de uma linha | operator: } [13:32] {
+| | newLine: \\n\\n [13:33] {
+| | operator: { [15:1] {
+|  
     bloco 
     comentado 
     de 
     varias
     linhas 
-,[object Object] [15:1]
-| | newLine: \\n [21:2]
+| operator: } [21:1] {
+| | newLine: \\n [21:2] {
 
 `;

@@ -10,53 +10,53 @@ main
 
 end main
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1]
-| | block:  [1:1]
-| | | | keyword: main [1:1]
-| | | | | | newLine: \\n\\n [1:5]
-| | whiteSpace: \\b\\b\\b\\b [3:1]
-| | keyword: let [3:5]
-| | | | whiteSpace: \\b [3:8]
-| | | | identifier: x [3:9]
-| | operator: , [3:10]
-| | | | identifier: X1 [3:11]
-| | | | whiteSpace: \\b [3:13]
-| | operator: = [3:14]
-| | | | whiteSpace: \\b [3:15]
-| | | | identifier: arg_val [3:16]
-| | | | newLine: \\n [3:23]
-| | whiteSpace: \\b\\b\\b\\b [4:1]
-| | keyword: let [4:5]
-| | | | whiteSpace: \\b [4:8]
-| | | | identifier: x [4:9]
-| | | | whiteSpace: \\b [4:10]
-| | operator: = [4:11]
-| | | | whiteSpace: \\b [4:12]
-| | | | identifier: arr_count [4:13]
-| | | | newLine: \\n [4:22]
-| | whiteSpace: \\b\\b\\b\\b [5:1]
-| | keyword: let [5:5]
-| | | | whiteSpace: \\b [5:8]
-| | | | identifier: x [5:9]
-| | | | whiteSpace: \\b [5:10]
-| | operator: = [5:11]
-| | | | whiteSpace: \\b [5:12]
-| | | | identifier: arr_cur [5:13]
-| | | | newLine: \\n [5:20]
-| | whiteSpace: \\b\\b\\b\\b [6:1]
-| | keyword: let [6:5]
-| | | | whiteSpace: \\b [6:8]
-| | | | identifier: x [6:9]
-| | | | whiteSpace: \\b [6:10]
-| | operator: = [6:11]
-| | | | whiteSpace: \\b [6:12]
-| | | | identifier: sqlca [6:13]
-| | | | newLine: \\n\\n [6:18]
-| | | | keyword: end [8:1]
-| | | | whiteSpace: \\b [8:4]
-| | keyword: main [8:5]
-| | | newLine: \\n [8:9]
-| whiteSpace: \\b [9:1]
+program:  [1:1] {
+| | block:  [1:1] {
+| | | | keyword: main [1:1] {
+| | | | | | newLine: \\n\\n [1:5] {
+| | whiteSpace: \\b\\b\\b\\b [3:1] {
+| | keyword: let [3:5] {
+| | | | whiteSpace: \\b [3:8] {
+| | | | identifier: x [3:9] {
+| | operator: , [3:10] {
+| | | | identifier: X1 [3:11] {
+| | | | whiteSpace: \\b [3:13] {
+| | operator: = [3:14] {
+| | | | whiteSpace: \\b [3:15] {
+| | | | identifier: arg_val [3:16] {
+| | | | newLine: \\n [3:23] {
+| | whiteSpace: \\b\\b\\b\\b [4:1] {
+| | keyword: let [4:5] {
+| | | | whiteSpace: \\b [4:8] {
+| | | | identifier: x [4:9] {
+| | | | whiteSpace: \\b [4:10] {
+| | operator: = [4:11] {
+| | | | whiteSpace: \\b [4:12] {
+| | | | identifier: arr_count [4:13] {
+| | | | newLine: \\n [4:22] {
+| | whiteSpace: \\b\\b\\b\\b [5:1] {
+| | keyword: let [5:5] {
+| | | | whiteSpace: \\b [5:8] {
+| | | | identifier: x [5:9] {
+| | | | whiteSpace: \\b [5:10] {
+| | operator: = [5:11] {
+| | | | whiteSpace: \\b [5:12] {
+| | | | identifier: arr_cur [5:13] {
+| | | | newLine: \\n [5:20] {
+| | whiteSpace: \\b\\b\\b\\b [6:1] {
+| | keyword: let [6:5] {
+| | | | whiteSpace: \\b [6:8] {
+| | | | identifier: x [6:9] {
+| | | | whiteSpace: \\b [6:10] {
+| | operator: = [6:11] {
+| | | | whiteSpace: \\b [6:12] {
+| | | | identifier: sqlca [6:13] {
+| | | | newLine: \\n\\n [6:18] {
+| | | | keyword: end [8:1] {
+| | | | whiteSpace: \\b [8:4] {
+| | keyword: main [8:5] {
+| | | newLine: \\n [8:9] {
+| whiteSpace: \\b [9:1] {
 
 `;
 
@@ -67,25 +67,25 @@ main
     
 end main
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1]
-| | block:  [1:1]
-| | | | keyword: main [1:1]
-| | | | | | newLine: \\n\\n [1:5]
-| | whiteSpace: \\b\\b\\b\\b [3:1]
-| | | | identifier: initialize [3:5]
-| | | | whiteSpace: \\b [3:15]
-| | | | identifier: x [3:16]
-| | | | whiteSpace: \\b [3:17]
-| | keyword: to [3:18]
-| | | | whiteSpace: \\b [3:20]
-| | keyword: null [3:21]
-| | | | newLine: \\n [3:25]
-| | whiteSpace: \\b\\b\\b\\b [4:1]
-| | newLine: \\n [4:5]
-| | | | keyword: end [5:1]
-| | | | whiteSpace: \\b [5:4]
-| | keyword: main [5:5]
-| | | newLine: \\n [5:9]
+program:  [1:1] {
+| | block:  [1:1] {
+| | | | keyword: main [1:1] {
+| | | | | | newLine: \\n\\n [1:5] {
+| | whiteSpace: \\b\\b\\b\\b [3:1] {
+| | | | identifier: initialize [3:5] {
+| | | | whiteSpace: \\b [3:15] {
+| | | | identifier: x [3:16] {
+| | | | whiteSpace: \\b [3:17] {
+| | keyword: to [3:18] {
+| | | | whiteSpace: \\b [3:20] {
+| | keyword: null [3:21] {
+| | | | newLine: \\n [3:25] {
+| | whiteSpace: \\b\\b\\b\\b [4:1] {
+| | newLine: \\n [4:5] {
+| | | | keyword: end [5:1] {
+| | | | whiteSpace: \\b [5:4] {
+| | keyword: main [5:5] {
+| | | newLine: \\n [5:9] {
 
 `;
 
@@ -97,54 +97,54 @@ main
 
 end main
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1]
-| | block:  [1:1]
-| | | | keyword: main [1:1]
-| | | | | | newLine: \\n\\n [1:5]
-| | whiteSpace: \\t [3:1]
-| | keyword: let [3:2]
-| | | | whiteSpace: \\b [3:5]
-| | | | identifier: a [3:6]
-| | | | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [3:7]
-| | operator: = [3:14]
-| | | | whiteSpace: \\b [3:15]
-| | | | identifier: today [3:16]
-| | | | whiteSpace: \\b [3:21]
-| | operator: + [3:22]
-| | | | whiteSpace: \\b [3:23]
-| | | | identifier: l_ind [3:24]
-| | | | whiteSpace: \\b [3:29]
-| | keyword: units [3:30]
-| | | | whiteSpace: \\b [3:35]
-| | keyword: day [3:36]
-| | | | newLine: \\n [3:39]
-| | whiteSpace: \\t [4:1]
-| | keyword: let [4:2]
-| | | | whiteSpace: \\b [4:5]
-| | | | identifier: b [4:6]
-| | | | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [4:7]
-| | operator: = [4:14]
-| | | | whiteSpace: \\b [4:15]
-| | | | identifier: today [4:16]
-| | | | whiteSpace: \\b [4:21]
-| | operator: + [4:22]
-| | | | whiteSpace: \\b [4:23]
-| | number: 3 [4:24]
-| | | | whiteSpace: \\b [4:25]
-| | keyword: units [4:26]
-| | | | whiteSpace: \\b [4:31]
-| | keyword: day [4:32]
-| | | | newLine: \\n\\n [4:35]
-| | | | keyword: end [6:1]
-| | | | whiteSpace: \\b [6:4]
-| | keyword: main [6:5]
-| | | newLine: \\n [6:9]
+program:  [1:1] {
+| | block:  [1:1] {
+| | | | keyword: main [1:1] {
+| | | | | | newLine: \\n\\n [1:5] {
+| | whiteSpace: \\t [3:1] {
+| | keyword: let [3:2] {
+| | | | whiteSpace: \\b [3:5] {
+| | | | identifier: a [3:6] {
+| | | | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [3:7] {
+| | operator: = [3:14] {
+| | | | whiteSpace: \\b [3:15] {
+| | | | identifier: today [3:16] {
+| | | | whiteSpace: \\b [3:21] {
+| | operator: + [3:22] {
+| | | | whiteSpace: \\b [3:23] {
+| | | | identifier: l_ind [3:24] {
+| | | | whiteSpace: \\b [3:29] {
+| | keyword: units [3:30] {
+| | | | whiteSpace: \\b [3:35] {
+| | keyword: day [3:36] {
+| | | | newLine: \\n [3:39] {
+| | whiteSpace: \\t [4:1] {
+| | keyword: let [4:2] {
+| | | | whiteSpace: \\b [4:5] {
+| | | | identifier: b [4:6] {
+| | | | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [4:7] {
+| | operator: = [4:14] {
+| | | | whiteSpace: \\b [4:15] {
+| | | | identifier: today [4:16] {
+| | | | whiteSpace: \\b [4:21] {
+| | operator: + [4:22] {
+| | | | whiteSpace: \\b [4:23] {
+| | number: 3 [4:24] {
+| | | | whiteSpace: \\b [4:25] {
+| | keyword: units [4:26] {
+| | | | whiteSpace: \\b [4:31] {
+| | keyword: day [4:32] {
+| | | | newLine: \\n\\n [4:35] {
+| | | | keyword: end [6:1] {
+| | | | whiteSpace: \\b [6:4] {
+| | keyword: main [6:5] {
+| | | newLine: \\n [6:9] {
 
 `;
 
 exports[`4gl: Token empty_file.4gl 1`] = `
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1]
+program:  [1:1] {
 | | 
 `;
 
@@ -152,12 +152,10 @@ exports[`4gl: Token empty_main.4gl 1`] = `
 main
 
 end main~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1]
-| | notSpecified: main
-
-end [1:1]
-| | | whiteSpace: \\b [3:4]
-| notSpecified: main [3:5]
+program:  [1:1] {
+| | notSpecified: main\\n\\nend [1:1] {
+| | | whiteSpace: \\b [3:4] {
+| notSpecified: main [3:5] {
 
 `;
 
@@ -172,31 +170,37 @@ main
 
 end main
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1]
-| | notSpecified: globals [1:1]
-| | | whiteSpace: \\b [1:8]
-| notSpecified: "abc.txt"
-
-globals
- [1:9]
-| | whiteSpace: \\b\\b [4:1]
-| notSpecified: DEFINE [4:3]
-| | whiteSpace: \\b [4:9]
-| notSpecified: NOME [4:10]
-| | whiteSpace: \\b [4:14]
-| notSpecified: CHAR(50) [4:15]
-| | whiteSpace: \\b [4:23]
-| comment: [object Object], abc,[object Object] [4:24]
-| notSpecified: end [5:1]
-| | whiteSpace: \\b [5:4]
-| notSpecified: globals
-
-main
-
-end [5:5]
-| | whiteSpace: \\b [9:4]
-| notSpecified: main
- [9:5]
+program:  [1:1] {
+| | | keyword: globals [1:1] {
+| | whiteSpace: \\b [1:8] {
+| string: "abc.txt" [1:9] {
+| | newLine: \\n\\n [1:18] {
+| | block:  [3:1] {
+| | | | keyword: globals [3:1] {
+| | | | | | newLine: \\n [3:8] {
+| | whiteSpace: \\b\\b [4:1] {
+| | keyword: DEFINE [4:3] {
+| | | | whiteSpace: \\b [4:9] {
+| | | | identifier: NOME [4:10] {
+| | | | whiteSpace: \\b [4:14] {
+| | keyword: CHAR [4:15] {
+| | operator: ( [4:19] {
+| | number: 50 [4:20] {
+| | operator: ) [4:22] {
+| | | | whiteSpace: \\b [4:23] {
+| | | | operator: # [4:24] {
+| |  abc| | newLine: \\n [4:29] {
+| | | | keyword: end [5:1] {
+| | | | whiteSpace: \\b [5:4] {
+| | keyword: globals [5:5] {
+| | newLine: \\n\\n [5:12] {
+| block:  [7:1] {
+| | | | keyword: main [7:1] {
+| | | | | | newLine: \\n\\n [7:5] {
+| | | | keyword: end [9:1] {
+| | | | whiteSpace: \\b [9:4] {
+| | keyword: main [9:5] {
+| | newLine: \\n [9:9] {
 
 `;
 
@@ -312,962 +316,962 @@ function f2()
     let x = -10000.001
 end function
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1]
-| | block:  [1:1]
-| | | | keyword: main [1:1]
-| | | | | | newLine: \\n\\n [1:5]
-| | whiteSpace: \\b\\b\\b\\b [3:1]
-| | keyword: let [3:5]
-| | | | whiteSpace: \\b [3:8]
-| | | | identifier: x [3:9]
-| | | | whiteSpace: \\b [3:10]
-| | operator: = [3:11]
-| | | | whiteSpace: \\b [3:12]
-| | number: 0 [3:13]
-| | | | newLine: \\n [3:14]
-| | whiteSpace: \\b\\b\\b\\b [4:1]
-| | keyword: let [4:5]
-| | | | whiteSpace: \\b [4:8]
-| | | | identifier: x [4:9]
-| | | | whiteSpace: \\b [4:10]
-| | operator: = [4:11]
-| | | | whiteSpace: \\b [4:12]
-| | number: 1 [4:13]
-| | | | newLine: \\n [4:14]
-| | whiteSpace: \\b\\b\\b\\b [5:1]
-| | keyword: let [5:5]
-| | | | whiteSpace: \\b [5:8]
-| | | | identifier: x [5:9]
-| | | | whiteSpace: \\b [5:10]
-| | operator: = [5:11]
-| | | | whiteSpace: \\b [5:12]
-| | number: 2 [5:13]
-| | | | newLine: \\n [5:14]
-| | whiteSpace: \\b\\b\\b\\b [6:1]
-| | keyword: let [6:5]
-| | | | whiteSpace: \\b [6:8]
-| | | | identifier: x [6:9]
-| | | | whiteSpace: \\b [6:10]
-| | operator: = [6:11]
-| | | | whiteSpace: \\b [6:12]
-| | number: 3 [6:13]
-| | | | newLine: \\n [6:14]
-| | whiteSpace: \\b\\b\\b\\b [7:1]
-| | keyword: let [7:5]
-| | | | whiteSpace: \\b [7:8]
-| | | | identifier: x [7:9]
-| | | | whiteSpace: \\b [7:10]
-| | operator: = [7:11]
-| | | | whiteSpace: \\b [7:12]
-| | number: 4 [7:13]
-| | | | newLine: \\n [7:14]
-| | whiteSpace: \\b\\b\\b\\b [8:1]
-| | keyword: let [8:5]
-| | | | whiteSpace: \\b [8:8]
-| | | | identifier: x [8:9]
-| | | | whiteSpace: \\b [8:10]
-| | operator: = [8:11]
-| | | | whiteSpace: \\b [8:12]
-| | number: 5 [8:13]
-| | | | newLine: \\n [8:14]
-| | whiteSpace: \\b\\b\\b\\b [9:1]
-| | keyword: let [9:5]
-| | | | whiteSpace: \\b [9:8]
-| | | | identifier: x [9:9]
-| | | | whiteSpace: \\b [9:10]
-| | operator: = [9:11]
-| | | | whiteSpace: \\b [9:12]
-| | number: 6 [9:13]
-| | | | newLine: \\n [9:14]
-| | whiteSpace: \\b\\b\\b\\b [10:1]
-| | keyword: let [10:5]
-| | | | whiteSpace: \\b [10:8]
-| | | | identifier: x [10:9]
-| | | | whiteSpace: \\b [10:10]
-| | operator: = [10:11]
-| | | | whiteSpace: \\b [10:12]
-| | number: 7 [10:13]
-| | | | newLine: \\n [10:14]
-| | whiteSpace: \\b\\b\\b\\b [11:1]
-| | keyword: let [11:5]
-| | | | whiteSpace: \\b [11:8]
-| | | | identifier: x [11:9]
-| | | | whiteSpace: \\b [11:10]
-| | operator: = [11:11]
-| | | | whiteSpace: \\b [11:12]
-| | number: 8 [11:13]
-| | | | newLine: \\n [11:14]
-| | whiteSpace: \\b\\b\\b\\b [12:1]
-| | keyword: let [12:5]
-| | | | whiteSpace: \\b [12:8]
-| | | | identifier: x [12:9]
-| | | | whiteSpace: \\b [12:10]
-| | operator: = [12:11]
-| | | | whiteSpace: \\b [12:12]
-| | number: 9 [12:13]
-| | | | newLine: \\n [12:14]
-| | whiteSpace: \\b\\b\\b\\b [13:1]
-| | keyword: let [13:5]
-| | | | whiteSpace: \\b [13:8]
-| | | | identifier: x [13:9]
-| | | | whiteSpace: \\b [13:10]
-| | operator: = [13:11]
-| | | | whiteSpace: \\b [13:12]
-| | number: 10 [13:13]
-| | | | newLine: \\n [13:15]
-| | whiteSpace: \\b\\b\\b\\b [14:1]
-| | keyword: let [14:5]
-| | | | whiteSpace: \\b [14:8]
-| | | | identifier: x [14:9]
-| | | | whiteSpace: \\b [14:10]
-| | operator: = [14:11]
-| | | | whiteSpace: \\b [14:12]
-| | number: 11 [14:13]
-| | | | newLine: \\n [14:15]
-| | whiteSpace: \\b\\b\\b\\b [15:1]
-| | keyword: let [15:5]
-| | | | whiteSpace: \\b [15:8]
-| | | | identifier: x [15:9]
-| | | | whiteSpace: \\b [15:10]
-| | operator: = [15:11]
-| | | | whiteSpace: \\b [15:12]
-| | number: 12 [15:13]
-| | | | newLine: \\n [15:15]
-| | whiteSpace: \\b\\b\\b\\b [16:1]
-| | keyword: let [16:5]
-| | | | whiteSpace: \\b [16:8]
-| | | | identifier: x [16:9]
-| | | | whiteSpace: \\b [16:10]
-| | operator: = [16:11]
-| | | | whiteSpace: \\b [16:12]
-| | number: 13 [16:13]
-| | | | newLine: \\n [16:15]
-| | whiteSpace: \\b\\b\\b\\b [17:1]
-| | keyword: let [17:5]
-| | | | whiteSpace: \\b [17:8]
-| | | | identifier: x [17:9]
-| | | | whiteSpace: \\b [17:10]
-| | operator: = [17:11]
-| | | | whiteSpace: \\b [17:12]
-| | number: 14 [17:13]
-| | | | newLine: \\n [17:15]
-| | whiteSpace: \\b\\b\\b\\b [18:1]
-| | keyword: let [18:5]
-| | | | whiteSpace: \\b [18:8]
-| | | | identifier: x [18:9]
-| | | | whiteSpace: \\b [18:10]
-| | operator: = [18:11]
-| | | | whiteSpace: \\b [18:12]
-| | number: 15 [18:13]
-| | | | newLine: \\n [18:15]
-| | whiteSpace: \\b\\b\\b\\b [19:1]
-| | keyword: let [19:5]
-| | | | whiteSpace: \\b [19:8]
-| | | | identifier: x [19:9]
-| | | | whiteSpace: \\b [19:10]
-| | operator: = [19:11]
-| | | | whiteSpace: \\b [19:12]
-| | number: 16 [19:13]
-| | | | newLine: \\n [19:15]
-| | whiteSpace: \\b\\b\\b\\b [20:1]
-| | keyword: let [20:5]
-| | | | whiteSpace: \\b [20:8]
-| | | | identifier: x [20:9]
-| | | | whiteSpace: \\b [20:10]
-| | operator: = [20:11]
-| | | | whiteSpace: \\b [20:12]
-| | number: 17 [20:13]
-| | | | newLine: \\n [20:15]
-| | whiteSpace: \\b\\b\\b\\b [21:1]
-| | keyword: let [21:5]
-| | | | whiteSpace: \\b [21:8]
-| | | | identifier: x [21:9]
-| | | | whiteSpace: \\b [21:10]
-| | operator: = [21:11]
-| | | | whiteSpace: \\b [21:12]
-| | number: 18 [21:13]
-| | | | newLine: \\n [21:15]
-| | whiteSpace: \\b\\b\\b\\b [22:1]
-| | keyword: let [22:5]
-| | | | whiteSpace: \\b [22:8]
-| | | | identifier: x [22:9]
-| | | | whiteSpace: \\b [22:10]
-| | operator: = [22:11]
-| | | | whiteSpace: \\b [22:12]
-| | number: 19 [22:13]
-| | | | newLine: \\n [22:15]
-| | whiteSpace: \\b\\b\\b\\b [23:1]
-| | keyword: let [23:5]
-| | | | whiteSpace: \\b [23:8]
-| | | | identifier: x [23:9]
-| | | | whiteSpace: \\b [23:10]
-| | operator: = [23:11]
-| | | | whiteSpace: \\b [23:12]
-| | number: 20 [23:13]
-| | | | newLine: \\n [23:15]
-| | whiteSpace: \\b\\b\\b\\b [24:1]
-| | keyword: let [24:5]
-| | | | whiteSpace: \\b [24:8]
-| | | | identifier: x [24:9]
-| | | | whiteSpace: \\b [24:10]
-| | operator: = [24:11]
-| | | | whiteSpace: \\b [24:12]
-| | number: 30 [24:13]
-| | | | newLine: \\n [24:15]
-| | whiteSpace: \\b\\b\\b\\b [25:1]
-| | keyword: let [25:5]
-| | | | whiteSpace: \\b [25:8]
-| | | | identifier: x [25:9]
-| | | | whiteSpace: \\b [25:10]
-| | operator: = [25:11]
-| | | | whiteSpace: \\b [25:12]
-| | number: 40 [25:13]
-| | | | newLine: \\n [25:15]
-| | whiteSpace: \\b\\b\\b\\b [26:1]
-| | keyword: let [26:5]
-| | | | whiteSpace: \\b [26:8]
-| | | | identifier: x [26:9]
-| | | | whiteSpace: \\b [26:10]
-| | operator: = [26:11]
-| | | | whiteSpace: \\b [26:12]
-| | number: 50 [26:13]
-| | | | newLine: \\n [26:15]
-| | whiteSpace: \\b\\b\\b\\b [27:1]
-| | keyword: let [27:5]
-| | | | whiteSpace: \\b [27:8]
-| | | | identifier: x [27:9]
-| | | | whiteSpace: \\b [27:10]
-| | operator: = [27:11]
-| | | | whiteSpace: \\b [27:12]
-| | number: 60 [27:13]
-| | | | newLine: \\n [27:15]
-| | whiteSpace: \\b\\b\\b\\b [28:1]
-| | keyword: let [28:5]
-| | | | whiteSpace: \\b [28:8]
-| | | | identifier: x [28:9]
-| | | | whiteSpace: \\b [28:10]
-| | operator: = [28:11]
-| | | | whiteSpace: \\b [28:12]
-| | number: 70 [28:13]
-| | | | newLine: \\n [28:15]
-| | whiteSpace: \\b\\b\\b\\b [29:1]
-| | keyword: let [29:5]
-| | | | whiteSpace: \\b [29:8]
-| | | | identifier: x [29:9]
-| | | | whiteSpace: \\b [29:10]
-| | operator: = [29:11]
-| | | | whiteSpace: \\b [29:12]
-| | number: 80 [29:13]
-| | | | newLine: \\n [29:15]
-| | whiteSpace: \\b\\b\\b\\b [30:1]
-| | keyword: let [30:5]
-| | | | whiteSpace: \\b [30:8]
-| | | | identifier: x [30:9]
-| | | | whiteSpace: \\b [30:10]
-| | operator: = [30:11]
-| | | | whiteSpace: \\b [30:12]
-| | number: 90 [30:13]
-| | | | newLine: \\n [30:15]
-| | whiteSpace: \\b\\b\\b\\b [31:1]
-| | keyword: let [31:5]
-| | | | whiteSpace: \\b [31:8]
-| | | | identifier: x [31:9]
-| | | | whiteSpace: \\b [31:10]
-| | operator: = [31:11]
-| | | | whiteSpace: \\b [31:12]
-| | number: 100 [31:13]
-| | | | newLine: \\n [31:16]
-| | whiteSpace: \\b\\b\\b\\b [32:1]
-| | keyword: let [32:5]
-| | | | whiteSpace: \\b [32:8]
-| | | | identifier: x [32:9]
-| | | | whiteSpace: \\b [32:10]
-| | operator: = [32:11]
-| | | | whiteSpace: \\b [32:12]
-| | number: 1000 [32:13]
-| | | | newLine: \\n [32:17]
-| | whiteSpace: \\b\\b\\b\\b [33:1]
-| | keyword: let [33:5]
-| | | | whiteSpace: \\b [33:8]
-| | | | identifier: x [33:9]
-| | | | whiteSpace: \\b [33:10]
-| | operator: = [33:11]
-| | | | whiteSpace: \\b [33:12]
-| | number: 10000 [33:13]
-| | | | newLine: \\n [33:18]
-| | whiteSpace: \\b\\b\\b\\b [34:1]
-| | keyword: let [34:5]
-| | | | whiteSpace: \\b [34:8]
-| | | | identifier: x [34:9]
-| | | | whiteSpace: \\b [34:10]
-| | operator: = [34:11]
-| | | | whiteSpace: \\b [34:12]
-| | number: 100000 [34:13]
-| | | | newLine: \\n [34:19]
-| | whiteSpace: \\b\\b\\b\\b [35:1]
-| | keyword: let [35:5]
-| | | | whiteSpace: \\b [35:8]
-| | | | identifier: x [35:9]
-| | | | whiteSpace: \\b [35:10]
-| | operator: = [35:11]
-| | | | whiteSpace: \\b [35:12]
-| | number: 1000000 [35:13]
-| | | | newLine: \\n [35:20]
-| | whiteSpace: \\b\\b\\b\\b [36:1]
-| | newLine: \\n\\n [36:5]
-| | | | keyword: end [38:1]
-| | | | whiteSpace: \\b [38:4]
-| | keyword: main [38:5]
-| | | newLine: \\n\\n [38:9]
-| block:  [40:1]
-| | | | | | keyword: function [40:1]
-| | | | whiteSpace: \\b [40:9]
-| | identifier: f1 [40:10]
-| | | | operator: ( [40:12]
-| | operator: ) [40:13]
-| | | | newLine: \\n [40:14]
-| | whiteSpace: \\b\\b\\b\\b [41:1]
-| | keyword: let [41:5]
-| | | | whiteSpace: \\b [41:8]
-| | | | identifier: x [41:9]
-| | | | whiteSpace: \\b [41:10]
-| | operator: = [41:11]
-| | | | whiteSpace: \\b [41:12]
-| | number: 0.0 [41:13]
-| | | | newLine: \\n [41:16]
-| | whiteSpace: \\b\\b\\b\\b [42:1]
-| | keyword: let [42:5]
-| | | | whiteSpace: \\b [42:8]
-| | | | identifier: x [42:9]
-| | | | whiteSpace: \\b [42:10]
-| | operator: = [42:11]
-| | | | whiteSpace: \\b [42:12]
-| | number: 1.1 [42:13]
-| | | | newLine: \\n [42:16]
-| | whiteSpace: \\b\\b\\b\\b [43:1]
-| | keyword: let [43:5]
-| | | | whiteSpace: \\b [43:8]
-| | | | identifier: x [43:9]
-| | | | whiteSpace: \\b [43:10]
-| | operator: = [43:11]
-| | | | whiteSpace: \\b [43:12]
-| | number: 2.2 [43:13]
-| | | | newLine: \\n [43:16]
-| | whiteSpace: \\b\\b\\b\\b [44:1]
-| | keyword: let [44:5]
-| | | | whiteSpace: \\b [44:8]
-| | | | identifier: x [44:9]
-| | | | whiteSpace: \\b [44:10]
-| | operator: = [44:11]
-| | | | whiteSpace: \\b [44:12]
-| | number: 3.3 [44:13]
-| | | | newLine: \\n [44:16]
-| | whiteSpace: \\b\\b\\b\\b [45:1]
-| | keyword: let [45:5]
-| | | | whiteSpace: \\b [45:8]
-| | | | identifier: x [45:9]
-| | | | whiteSpace: \\b [45:10]
-| | operator: = [45:11]
-| | | | whiteSpace: \\b [45:12]
-| | number: 4.4 [45:13]
-| | | | newLine: \\n [45:16]
-| | whiteSpace: \\b\\b\\b\\b [46:1]
-| | keyword: let [46:5]
-| | | | whiteSpace: \\b [46:8]
-| | | | identifier: x [46:9]
-| | | | whiteSpace: \\b [46:10]
-| | operator: = [46:11]
-| | | | whiteSpace: \\b [46:12]
-| | number: 5.5 [46:13]
-| | | | newLine: \\n [46:16]
-| | whiteSpace: \\b\\b\\b\\b [47:1]
-| | keyword: let [47:5]
-| | | | whiteSpace: \\b [47:8]
-| | | | identifier: x [47:9]
-| | | | whiteSpace: \\b [47:10]
-| | operator: = [47:11]
-| | | | whiteSpace: \\b [47:12]
-| | number: 6.6 [47:13]
-| | | | newLine: \\n [47:16]
-| | whiteSpace: \\b\\b\\b\\b [48:1]
-| | keyword: let [48:5]
-| | | | whiteSpace: \\b [48:8]
-| | | | identifier: x [48:9]
-| | | | whiteSpace: \\b [48:10]
-| | operator: = [48:11]
-| | | | whiteSpace: \\b [48:12]
-| | number: 7.7 [48:13]
-| | | | newLine: \\n [48:16]
-| | whiteSpace: \\b\\b\\b\\b [49:1]
-| | keyword: let [49:5]
-| | | | whiteSpace: \\b [49:8]
-| | | | identifier: x [49:9]
-| | | | whiteSpace: \\b [49:10]
-| | operator: = [49:11]
-| | | | whiteSpace: \\b [49:12]
-| | number: 8.8 [49:13]
-| | | | newLine: \\n [49:16]
-| | whiteSpace: \\b\\b\\b\\b [50:1]
-| | keyword: let [50:5]
-| | | | whiteSpace: \\b [50:8]
-| | | | identifier: x [50:9]
-| | | | whiteSpace: \\b [50:10]
-| | operator: = [50:11]
-| | | | whiteSpace: \\b [50:12]
-| | number: 9.9 [50:13]
-| | | | newLine: \\n [50:16]
-| | whiteSpace: \\b\\b\\b\\b [51:1]
-| | keyword: let [51:5]
-| | | | whiteSpace: \\b [51:8]
-| | | | identifier: x [51:9]
-| | | | whiteSpace: \\b [51:10]
-| | operator: = [51:11]
-| | | | whiteSpace: \\b [51:12]
-| | number: 10.10 [51:13]
-| | | | newLine: \\n [51:18]
-| | whiteSpace: \\b\\b\\b\\b [52:1]
-| | keyword: let [52:5]
-| | | | whiteSpace: \\b [52:8]
-| | | | identifier: x [52:9]
-| | | | whiteSpace: \\b [52:10]
-| | operator: = [52:11]
-| | | | whiteSpace: \\b [52:12]
-| | number: 11.11 [52:13]
-| | | | newLine: \\n [52:18]
-| | whiteSpace: \\b\\b\\b\\b [53:1]
-| | keyword: let [53:5]
-| | | | whiteSpace: \\b [53:8]
-| | | | identifier: x [53:9]
-| | | | whiteSpace: \\b [53:10]
-| | operator: = [53:11]
-| | | | whiteSpace: \\b [53:12]
-| | number: 12.12 [53:13]
-| | | | newLine: \\n [53:18]
-| | whiteSpace: \\b\\b\\b\\b [54:1]
-| | keyword: let [54:5]
-| | | | whiteSpace: \\b [54:8]
-| | | | identifier: x [54:9]
-| | | | whiteSpace: \\b [54:10]
-| | operator: = [54:11]
-| | | | whiteSpace: \\b [54:12]
-| | number: 13.13 [54:13]
-| | | | newLine: \\n [54:18]
-| | whiteSpace: \\b\\b\\b\\b [55:1]
-| | keyword: let [55:5]
-| | | | whiteSpace: \\b [55:8]
-| | | | identifier: x [55:9]
-| | | | whiteSpace: \\b [55:10]
-| | operator: = [55:11]
-| | | | whiteSpace: \\b [55:12]
-| | number: 14.14 [55:13]
-| | | | newLine: \\n [55:18]
-| | whiteSpace: \\b\\b\\b\\b [56:1]
-| | keyword: let [56:5]
-| | | | whiteSpace: \\b [56:8]
-| | | | identifier: x [56:9]
-| | | | whiteSpace: \\b [56:10]
-| | operator: = [56:11]
-| | | | whiteSpace: \\b [56:12]
-| | number: 15.15 [56:13]
-| | | | newLine: \\n [56:18]
-| | whiteSpace: \\b\\b\\b\\b [57:1]
-| | keyword: let [57:5]
-| | | | whiteSpace: \\b [57:8]
-| | | | identifier: x [57:9]
-| | | | whiteSpace: \\b [57:10]
-| | operator: = [57:11]
-| | | | whiteSpace: \\b [57:12]
-| | number: 16.16 [57:13]
-| | | | newLine: \\n [57:18]
-| | whiteSpace: \\b\\b\\b\\b [58:1]
-| | keyword: let [58:5]
-| | | | whiteSpace: \\b [58:8]
-| | | | identifier: x [58:9]
-| | | | whiteSpace: \\b [58:10]
-| | operator: = [58:11]
-| | | | whiteSpace: \\b [58:12]
-| | number: 17.17 [58:13]
-| | | | newLine: \\n [58:18]
-| | whiteSpace: \\b\\b\\b\\b [59:1]
-| | keyword: let [59:5]
-| | | | whiteSpace: \\b [59:8]
-| | | | identifier: x [59:9]
-| | | | whiteSpace: \\b [59:10]
-| | operator: = [59:11]
-| | | | whiteSpace: \\b [59:12]
-| | number: 18.18 [59:13]
-| | | | newLine: \\n [59:18]
-| | whiteSpace: \\b\\b\\b\\b [60:1]
-| | keyword: let [60:5]
-| | | | whiteSpace: \\b [60:8]
-| | | | identifier: x [60:9]
-| | | | whiteSpace: \\b [60:10]
-| | operator: = [60:11]
-| | | | whiteSpace: \\b [60:12]
-| | number: 19.19 [60:13]
-| | | | newLine: \\n [60:18]
-| | whiteSpace: \\b\\b\\b\\b [61:1]
-| | keyword: let [61:5]
-| | | | whiteSpace: \\b [61:8]
-| | | | identifier: x [61:9]
-| | | | whiteSpace: \\b [61:10]
-| | operator: = [61:11]
-| | | | whiteSpace: \\b [61:12]
-| | number: 20.20 [61:13]
-| | | | newLine: \\n [61:18]
-| | whiteSpace: \\b\\b\\b\\b [62:1]
-| | keyword: let [62:5]
-| | | | whiteSpace: \\b [62:8]
-| | | | identifier: x [62:9]
-| | | | whiteSpace: \\b [62:10]
-| | operator: = [62:11]
-| | | | whiteSpace: \\b [62:12]
-| | number: 30.30 [62:13]
-| | | | newLine: \\n [62:18]
-| | whiteSpace: \\b\\b\\b\\b [63:1]
-| | keyword: let [63:5]
-| | | | whiteSpace: \\b [63:8]
-| | | | identifier: x [63:9]
-| | | | whiteSpace: \\b [63:10]
-| | operator: = [63:11]
-| | | | whiteSpace: \\b [63:12]
-| | number: 40.40 [63:13]
-| | | | newLine: \\n [63:18]
-| | whiteSpace: \\b\\b\\b\\b [64:1]
-| | keyword: let [64:5]
-| | | | whiteSpace: \\b [64:8]
-| | | | identifier: x [64:9]
-| | | | whiteSpace: \\b [64:10]
-| | operator: = [64:11]
-| | | | whiteSpace: \\b [64:12]
-| | number: 50.50 [64:13]
-| | | | newLine: \\n [64:18]
-| | whiteSpace: \\b\\b\\b\\b [65:1]
-| | keyword: let [65:5]
-| | | | whiteSpace: \\b [65:8]
-| | | | identifier: x [65:9]
-| | | | whiteSpace: \\b [65:10]
-| | operator: = [65:11]
-| | | | whiteSpace: \\b [65:12]
-| | number: 60.60 [65:13]
-| | | | newLine: \\n [65:18]
-| | whiteSpace: \\b\\b\\b\\b [66:1]
-| | keyword: let [66:5]
-| | | | whiteSpace: \\b [66:8]
-| | | | identifier: x [66:9]
-| | | | whiteSpace: \\b [66:10]
-| | operator: = [66:11]
-| | | | whiteSpace: \\b [66:12]
-| | number: 70.70 [66:13]
-| | | | newLine: \\n [66:18]
-| | whiteSpace: \\b\\b\\b\\b [67:1]
-| | keyword: let [67:5]
-| | | | whiteSpace: \\b [67:8]
-| | | | identifier: x [67:9]
-| | | | whiteSpace: \\b [67:10]
-| | operator: = [67:11]
-| | | | whiteSpace: \\b [67:12]
-| | number: 80.80 [67:13]
-| | | | newLine: \\n [67:18]
-| | whiteSpace: \\b\\b\\b\\b [68:1]
-| | keyword: let [68:5]
-| | | | whiteSpace: \\b [68:8]
-| | | | identifier: x [68:9]
-| | | | whiteSpace: \\b [68:10]
-| | operator: = [68:11]
-| | | | whiteSpace: \\b [68:12]
-| | number: 90.90 [68:13]
-| | | | newLine: \\n [68:18]
-| | whiteSpace: \\b\\b\\b\\b [69:1]
-| | keyword: let [69:5]
-| | | | whiteSpace: \\b [69:8]
-| | | | identifier: x [69:9]
-| | | | whiteSpace: \\b [69:10]
-| | operator: = [69:11]
-| | | | whiteSpace: \\b [69:12]
-| | number: 1.001 [69:13]
-| | | | newLine: \\n [69:18]
-| | whiteSpace: \\b\\b\\b\\b [70:1]
-| | keyword: let [70:5]
-| | | | whiteSpace: \\b [70:8]
-| | | | identifier: x [70:9]
-| | | | whiteSpace: \\b [70:10]
-| | operator: = [70:11]
-| | | | whiteSpace: \\b [70:12]
-| | number: 10.001 [70:13]
-| | | | newLine: \\n [70:19]
-| | whiteSpace: \\b\\b\\b\\b [71:1]
-| | keyword: let [71:5]
-| | | | whiteSpace: \\b [71:8]
-| | | | identifier: x [71:9]
-| | | | whiteSpace: \\b [71:10]
-| | operator: = [71:11]
-| | | | whiteSpace: \\b [71:12]
-| | number: 100.001 [71:13]
-| | | | newLine: \\n [71:20]
-| | whiteSpace: \\b\\b\\b\\b [72:1]
-| | keyword: let [72:5]
-| | | | whiteSpace: \\b [72:8]
-| | | | identifier: x [72:9]
-| | | | whiteSpace: \\b [72:10]
-| | operator: = [72:11]
-| | | | whiteSpace: \\b [72:12]
-| | number: 1000.001 [72:13]
-| | | | newLine: \\n [72:21]
-| | whiteSpace: \\b\\b\\b\\b [73:1]
-| | keyword: let [73:5]
-| | | | whiteSpace: \\b [73:8]
-| | | | identifier: x [73:9]
-| | | | whiteSpace: \\b [73:10]
-| | operator: = [73:11]
-| | | | whiteSpace: \\b [73:12]
-| | number: 10000.001 [73:13]
-| | | | newLine: \\n [73:22]
-| | | | keyword: end [74:1]
-| | | | whiteSpace: \\b [74:4]
-| | keyword: function [74:5]
-| | newLine: \\n\\n [74:13]
-| block:  [76:1]
-| | | | | | keyword: function [76:1]
-| | | | whiteSpace: \\b [76:9]
-| | identifier: f2 [76:10]
-| | | | operator: ( [76:12]
-| | operator: ) [76:13]
-| | | | newLine: \\n [76:14]
-| | whiteSpace: \\b\\b\\b\\b [77:1]
-| | keyword: let [77:5]
-| | | | whiteSpace: \\b [77:8]
-| | | | identifier: x [77:9]
-| | | | whiteSpace: \\b [77:10]
-| | operator: = [77:11]
-| | | | whiteSpace: \\b [77:12]
-| | operator: - [77:13]
-| | number: 0.0 [77:14]
-| | | | newLine: \\n [77:17]
-| | whiteSpace: \\b\\b\\b\\b [78:1]
-| | keyword: let [78:5]
-| | | | whiteSpace: \\b [78:8]
-| | | | identifier: x [78:9]
-| | | | whiteSpace: \\b [78:10]
-| | operator: = [78:11]
-| | | | whiteSpace: \\b [78:12]
-| | operator: - [78:13]
-| | number: 1.1 [78:14]
-| | | | newLine: \\n [78:17]
-| | whiteSpace: \\b\\b\\b\\b [79:1]
-| | keyword: let [79:5]
-| | | | whiteSpace: \\b [79:8]
-| | | | identifier: x [79:9]
-| | | | whiteSpace: \\b [79:10]
-| | operator: = [79:11]
-| | | | whiteSpace: \\b [79:12]
-| | operator: - [79:13]
-| | number: 2.2 [79:14]
-| | | | newLine: \\n [79:17]
-| | whiteSpace: \\b\\b\\b\\b [80:1]
-| | keyword: let [80:5]
-| | | | whiteSpace: \\b [80:8]
-| | | | identifier: x [80:9]
-| | | | whiteSpace: \\b [80:10]
-| | operator: = [80:11]
-| | | | whiteSpace: \\b [80:12]
-| | operator: - [80:13]
-| | number: 3.3 [80:14]
-| | | | newLine: \\n [80:17]
-| | whiteSpace: \\b\\b\\b\\b [81:1]
-| | keyword: let [81:5]
-| | | | whiteSpace: \\b [81:8]
-| | | | identifier: x [81:9]
-| | | | whiteSpace: \\b [81:10]
-| | operator: = [81:11]
-| | | | whiteSpace: \\b [81:12]
-| | operator: - [81:13]
-| | number: 4.4 [81:14]
-| | | | newLine: \\n [81:17]
-| | whiteSpace: \\b\\b\\b\\b [82:1]
-| | keyword: let [82:5]
-| | | | whiteSpace: \\b [82:8]
-| | | | identifier: x [82:9]
-| | | | whiteSpace: \\b [82:10]
-| | operator: = [82:11]
-| | | | whiteSpace: \\b [82:12]
-| | operator: - [82:13]
-| | number: 5.5 [82:14]
-| | | | newLine: \\n [82:17]
-| | whiteSpace: \\b\\b\\b\\b [83:1]
-| | keyword: let [83:5]
-| | | | whiteSpace: \\b [83:8]
-| | | | identifier: x [83:9]
-| | | | whiteSpace: \\b [83:10]
-| | operator: = [83:11]
-| | | | whiteSpace: \\b [83:12]
-| | operator: - [83:13]
-| | number: 6.6 [83:14]
-| | | | newLine: \\n [83:17]
-| | whiteSpace: \\b\\b\\b\\b [84:1]
-| | keyword: let [84:5]
-| | | | whiteSpace: \\b [84:8]
-| | | | identifier: x [84:9]
-| | | | whiteSpace: \\b [84:10]
-| | operator: = [84:11]
-| | | | whiteSpace: \\b [84:12]
-| | operator: - [84:13]
-| | number: 7.7 [84:14]
-| | | | newLine: \\n [84:17]
-| | whiteSpace: \\b\\b\\b\\b [85:1]
-| | keyword: let [85:5]
-| | | | whiteSpace: \\b [85:8]
-| | | | identifier: x [85:9]
-| | | | whiteSpace: \\b [85:10]
-| | operator: = [85:11]
-| | | | whiteSpace: \\b [85:12]
-| | operator: - [85:13]
-| | number: 8.8 [85:14]
-| | | | newLine: \\n [85:17]
-| | whiteSpace: \\b\\b\\b\\b [86:1]
-| | keyword: let [86:5]
-| | | | whiteSpace: \\b [86:8]
-| | | | identifier: x [86:9]
-| | | | whiteSpace: \\b [86:10]
-| | operator: = [86:11]
-| | | | whiteSpace: \\b [86:12]
-| | operator: - [86:13]
-| | number: 9.9 [86:14]
-| | | | newLine: \\n [86:17]
-| | whiteSpace: \\b\\b\\b\\b [87:1]
-| | keyword: let [87:5]
-| | | | whiteSpace: \\b [87:8]
-| | | | identifier: x [87:9]
-| | | | whiteSpace: \\b [87:10]
-| | operator: = [87:11]
-| | | | whiteSpace: \\b [87:12]
-| | operator: - [87:13]
-| | number: 10.10 [87:14]
-| | | | newLine: \\n [87:19]
-| | whiteSpace: \\b\\b\\b\\b [88:1]
-| | keyword: let [88:5]
-| | | | whiteSpace: \\b [88:8]
-| | | | identifier: x [88:9]
-| | | | whiteSpace: \\b [88:10]
-| | operator: = [88:11]
-| | | | whiteSpace: \\b [88:12]
-| | operator: - [88:13]
-| | number: 11.11 [88:14]
-| | | | newLine: \\n [88:19]
-| | whiteSpace: \\b\\b\\b\\b [89:1]
-| | keyword: let [89:5]
-| | | | whiteSpace: \\b [89:8]
-| | | | identifier: x [89:9]
-| | | | whiteSpace: \\b [89:10]
-| | operator: = [89:11]
-| | | | whiteSpace: \\b [89:12]
-| | operator: - [89:13]
-| | number: 12.12 [89:14]
-| | | | newLine: \\n [89:19]
-| | whiteSpace: \\b\\b\\b\\b [90:1]
-| | keyword: let [90:5]
-| | | | whiteSpace: \\b [90:8]
-| | | | identifier: x [90:9]
-| | | | whiteSpace: \\b [90:10]
-| | operator: = [90:11]
-| | | | whiteSpace: \\b [90:12]
-| | operator: - [90:13]
-| | number: 13.13 [90:14]
-| | | | newLine: \\n [90:19]
-| | whiteSpace: \\b\\b\\b\\b [91:1]
-| | keyword: let [91:5]
-| | | | whiteSpace: \\b [91:8]
-| | | | identifier: x [91:9]
-| | | | whiteSpace: \\b [91:10]
-| | operator: = [91:11]
-| | | | whiteSpace: \\b [91:12]
-| | operator: - [91:13]
-| | number: 14.14 [91:14]
-| | | | newLine: \\n [91:19]
-| | whiteSpace: \\b\\b\\b\\b [92:1]
-| | keyword: let [92:5]
-| | | | whiteSpace: \\b [92:8]
-| | | | identifier: x [92:9]
-| | | | whiteSpace: \\b [92:10]
-| | operator: = [92:11]
-| | | | whiteSpace: \\b [92:12]
-| | operator: - [92:13]
-| | number: 15.15 [92:14]
-| | | | newLine: \\n [92:19]
-| | whiteSpace: \\b\\b\\b\\b [93:1]
-| | keyword: let [93:5]
-| | | | whiteSpace: \\b [93:8]
-| | | | identifier: x [93:9]
-| | | | whiteSpace: \\b [93:10]
-| | operator: = [93:11]
-| | | | whiteSpace: \\b [93:12]
-| | operator: - [93:13]
-| | number: 16.16 [93:14]
-| | | | newLine: \\n [93:19]
-| | whiteSpace: \\b\\b\\b\\b [94:1]
-| | keyword: let [94:5]
-| | | | whiteSpace: \\b [94:8]
-| | | | identifier: x [94:9]
-| | | | whiteSpace: \\b [94:10]
-| | operator: = [94:11]
-| | | | whiteSpace: \\b [94:12]
-| | operator: - [94:13]
-| | number: 17.17 [94:14]
-| | | | newLine: \\n [94:19]
-| | whiteSpace: \\b\\b\\b\\b [95:1]
-| | keyword: let [95:5]
-| | | | whiteSpace: \\b [95:8]
-| | | | identifier: x [95:9]
-| | | | whiteSpace: \\b [95:10]
-| | operator: = [95:11]
-| | | | whiteSpace: \\b [95:12]
-| | operator: - [95:13]
-| | number: 18.18 [95:14]
-| | | | newLine: \\n [95:19]
-| | whiteSpace: \\b\\b\\b\\b [96:1]
-| | keyword: let [96:5]
-| | | | whiteSpace: \\b [96:8]
-| | | | identifier: x [96:9]
-| | | | whiteSpace: \\b [96:10]
-| | operator: = [96:11]
-| | | | whiteSpace: \\b [96:12]
-| | operator: - [96:13]
-| | number: 19.19 [96:14]
-| | | | newLine: \\n [96:19]
-| | whiteSpace: \\b\\b\\b\\b [97:1]
-| | keyword: let [97:5]
-| | | | whiteSpace: \\b [97:8]
-| | | | identifier: x [97:9]
-| | | | whiteSpace: \\b [97:10]
-| | operator: = [97:11]
-| | | | whiteSpace: \\b [97:12]
-| | operator: - [97:13]
-| | number: 20.20 [97:14]
-| | | | newLine: \\n [97:19]
-| | whiteSpace: \\b\\b\\b\\b [98:1]
-| | keyword: let [98:5]
-| | | | whiteSpace: \\b [98:8]
-| | | | identifier: x [98:9]
-| | | | whiteSpace: \\b [98:10]
-| | operator: = [98:11]
-| | | | whiteSpace: \\b [98:12]
-| | operator: - [98:13]
-| | number: 30.30 [98:14]
-| | | | newLine: \\n [98:19]
-| | whiteSpace: \\b\\b\\b\\b [99:1]
-| | keyword: let [99:5]
-| | | | whiteSpace: \\b [99:8]
-| | | | identifier: x [99:9]
-| | | | whiteSpace: \\b [99:10]
-| | operator: = [99:11]
-| | | | whiteSpace: \\b [99:12]
-| | operator: - [99:13]
-| | number: 40.40 [99:14]
-| | | | newLine: \\n [99:19]
-| | whiteSpace: \\b\\b\\b\\b [100:1]
-| | keyword: let [100:5]
-| | | | whiteSpace: \\b [100:8]
-| | | | identifier: x [100:9]
-| | | | whiteSpace: \\b [100:10]
-| | operator: = [100:11]
-| | | | whiteSpace: \\b [100:12]
-| | operator: - [100:13]
-| | number: 50.50 [100:14]
-| | | | newLine: \\n [100:19]
-| | whiteSpace: \\b\\b\\b\\b [101:1]
-| | keyword: let [101:5]
-| | | | whiteSpace: \\b [101:8]
-| | | | identifier: x [101:9]
-| | | | whiteSpace: \\b [101:10]
-| | operator: = [101:11]
-| | | | whiteSpace: \\b [101:12]
-| | operator: - [101:13]
-| | number: 60.60 [101:14]
-| | | | newLine: \\n [101:19]
-| | whiteSpace: \\b\\b\\b\\b [102:1]
-| | keyword: let [102:5]
-| | | | whiteSpace: \\b [102:8]
-| | | | identifier: x [102:9]
-| | | | whiteSpace: \\b [102:10]
-| | operator: = [102:11]
-| | | | whiteSpace: \\b [102:12]
-| | operator: - [102:13]
-| | number: 70.70 [102:14]
-| | | | newLine: \\n [102:19]
-| | whiteSpace: \\b\\b\\b\\b [103:1]
-| | keyword: let [103:5]
-| | | | whiteSpace: \\b [103:8]
-| | | | identifier: x [103:9]
-| | | | whiteSpace: \\b [103:10]
-| | operator: = [103:11]
-| | | | whiteSpace: \\b [103:12]
-| | operator: - [103:13]
-| | number: 80.80 [103:14]
-| | | | newLine: \\n [103:19]
-| | whiteSpace: \\b\\b\\b\\b [104:1]
-| | keyword: let [104:5]
-| | | | whiteSpace: \\b [104:8]
-| | | | identifier: x [104:9]
-| | | | whiteSpace: \\b [104:10]
-| | operator: = [104:11]
-| | | | whiteSpace: \\b [104:12]
-| | operator: - [104:13]
-| | number: 90.90 [104:14]
-| | | | newLine: \\n [104:19]
-| | whiteSpace: \\b\\b\\b\\b [105:1]
-| | keyword: let [105:5]
-| | | | whiteSpace: \\b [105:8]
-| | | | identifier: x [105:9]
-| | | | whiteSpace: \\b [105:10]
-| | operator: = [105:11]
-| | | | whiteSpace: \\b [105:12]
-| | operator: - [105:13]
-| | number: 1.001 [105:14]
-| | | | newLine: \\n [105:19]
-| | whiteSpace: \\b\\b\\b\\b [106:1]
-| | keyword: let [106:5]
-| | | | whiteSpace: \\b [106:8]
-| | | | identifier: x [106:9]
-| | | | whiteSpace: \\b [106:10]
-| | operator: = [106:11]
-| | | | whiteSpace: \\b [106:12]
-| | operator: - [106:13]
-| | number: 10.001 [106:14]
-| | | | newLine: \\n [106:20]
-| | whiteSpace: \\b\\b\\b\\b [107:1]
-| | keyword: let [107:5]
-| | | | whiteSpace: \\b [107:8]
-| | | | identifier: x [107:9]
-| | | | whiteSpace: \\b [107:10]
-| | operator: = [107:11]
-| | | | whiteSpace: \\b [107:12]
-| | operator: - [107:13]
-| | number: 100.001 [107:14]
-| | | | newLine: \\n [107:21]
-| | whiteSpace: \\b\\b\\b\\b [108:1]
-| | keyword: let [108:5]
-| | | | whiteSpace: \\b [108:8]
-| | | | identifier: x [108:9]
-| | | | whiteSpace: \\b [108:10]
-| | operator: = [108:11]
-| | | | whiteSpace: \\b [108:12]
-| | operator: - [108:13]
-| | number: 1000.001 [108:14]
-| | | | newLine: \\n [108:22]
-| | whiteSpace: \\b\\b\\b\\b [109:1]
-| | keyword: let [109:5]
-| | | | whiteSpace: \\b [109:8]
-| | | | identifier: x [109:9]
-| | | | whiteSpace: \\b [109:10]
-| | operator: = [109:11]
-| | | | whiteSpace: \\b [109:12]
-| | operator: - [109:13]
-| | number: 10000.001 [109:14]
-| | | | newLine: \\n [109:23]
-| | | | keyword: end [110:1]
-| | | | whiteSpace: \\b [110:4]
-| | keyword: function [110:5]
-| | newLine: \\n [110:13]
+program:  [1:1] {
+| | block:  [1:1] {
+| | | | keyword: main [1:1] {
+| | | | | | newLine: \\n\\n [1:5] {
+| | whiteSpace: \\b\\b\\b\\b [3:1] {
+| | keyword: let [3:5] {
+| | | | whiteSpace: \\b [3:8] {
+| | | | identifier: x [3:9] {
+| | | | whiteSpace: \\b [3:10] {
+| | operator: = [3:11] {
+| | | | whiteSpace: \\b [3:12] {
+| | number: 0 [3:13] {
+| | | | newLine: \\n [3:14] {
+| | whiteSpace: \\b\\b\\b\\b [4:1] {
+| | keyword: let [4:5] {
+| | | | whiteSpace: \\b [4:8] {
+| | | | identifier: x [4:9] {
+| | | | whiteSpace: \\b [4:10] {
+| | operator: = [4:11] {
+| | | | whiteSpace: \\b [4:12] {
+| | number: 1 [4:13] {
+| | | | newLine: \\n [4:14] {
+| | whiteSpace: \\b\\b\\b\\b [5:1] {
+| | keyword: let [5:5] {
+| | | | whiteSpace: \\b [5:8] {
+| | | | identifier: x [5:9] {
+| | | | whiteSpace: \\b [5:10] {
+| | operator: = [5:11] {
+| | | | whiteSpace: \\b [5:12] {
+| | number: 2 [5:13] {
+| | | | newLine: \\n [5:14] {
+| | whiteSpace: \\b\\b\\b\\b [6:1] {
+| | keyword: let [6:5] {
+| | | | whiteSpace: \\b [6:8] {
+| | | | identifier: x [6:9] {
+| | | | whiteSpace: \\b [6:10] {
+| | operator: = [6:11] {
+| | | | whiteSpace: \\b [6:12] {
+| | number: 3 [6:13] {
+| | | | newLine: \\n [6:14] {
+| | whiteSpace: \\b\\b\\b\\b [7:1] {
+| | keyword: let [7:5] {
+| | | | whiteSpace: \\b [7:8] {
+| | | | identifier: x [7:9] {
+| | | | whiteSpace: \\b [7:10] {
+| | operator: = [7:11] {
+| | | | whiteSpace: \\b [7:12] {
+| | number: 4 [7:13] {
+| | | | newLine: \\n [7:14] {
+| | whiteSpace: \\b\\b\\b\\b [8:1] {
+| | keyword: let [8:5] {
+| | | | whiteSpace: \\b [8:8] {
+| | | | identifier: x [8:9] {
+| | | | whiteSpace: \\b [8:10] {
+| | operator: = [8:11] {
+| | | | whiteSpace: \\b [8:12] {
+| | number: 5 [8:13] {
+| | | | newLine: \\n [8:14] {
+| | whiteSpace: \\b\\b\\b\\b [9:1] {
+| | keyword: let [9:5] {
+| | | | whiteSpace: \\b [9:8] {
+| | | | identifier: x [9:9] {
+| | | | whiteSpace: \\b [9:10] {
+| | operator: = [9:11] {
+| | | | whiteSpace: \\b [9:12] {
+| | number: 6 [9:13] {
+| | | | newLine: \\n [9:14] {
+| | whiteSpace: \\b\\b\\b\\b [10:1] {
+| | keyword: let [10:5] {
+| | | | whiteSpace: \\b [10:8] {
+| | | | identifier: x [10:9] {
+| | | | whiteSpace: \\b [10:10] {
+| | operator: = [10:11] {
+| | | | whiteSpace: \\b [10:12] {
+| | number: 7 [10:13] {
+| | | | newLine: \\n [10:14] {
+| | whiteSpace: \\b\\b\\b\\b [11:1] {
+| | keyword: let [11:5] {
+| | | | whiteSpace: \\b [11:8] {
+| | | | identifier: x [11:9] {
+| | | | whiteSpace: \\b [11:10] {
+| | operator: = [11:11] {
+| | | | whiteSpace: \\b [11:12] {
+| | number: 8 [11:13] {
+| | | | newLine: \\n [11:14] {
+| | whiteSpace: \\b\\b\\b\\b [12:1] {
+| | keyword: let [12:5] {
+| | | | whiteSpace: \\b [12:8] {
+| | | | identifier: x [12:9] {
+| | | | whiteSpace: \\b [12:10] {
+| | operator: = [12:11] {
+| | | | whiteSpace: \\b [12:12] {
+| | number: 9 [12:13] {
+| | | | newLine: \\n [12:14] {
+| | whiteSpace: \\b\\b\\b\\b [13:1] {
+| | keyword: let [13:5] {
+| | | | whiteSpace: \\b [13:8] {
+| | | | identifier: x [13:9] {
+| | | | whiteSpace: \\b [13:10] {
+| | operator: = [13:11] {
+| | | | whiteSpace: \\b [13:12] {
+| | number: 10 [13:13] {
+| | | | newLine: \\n [13:15] {
+| | whiteSpace: \\b\\b\\b\\b [14:1] {
+| | keyword: let [14:5] {
+| | | | whiteSpace: \\b [14:8] {
+| | | | identifier: x [14:9] {
+| | | | whiteSpace: \\b [14:10] {
+| | operator: = [14:11] {
+| | | | whiteSpace: \\b [14:12] {
+| | number: 11 [14:13] {
+| | | | newLine: \\n [14:15] {
+| | whiteSpace: \\b\\b\\b\\b [15:1] {
+| | keyword: let [15:5] {
+| | | | whiteSpace: \\b [15:8] {
+| | | | identifier: x [15:9] {
+| | | | whiteSpace: \\b [15:10] {
+| | operator: = [15:11] {
+| | | | whiteSpace: \\b [15:12] {
+| | number: 12 [15:13] {
+| | | | newLine: \\n [15:15] {
+| | whiteSpace: \\b\\b\\b\\b [16:1] {
+| | keyword: let [16:5] {
+| | | | whiteSpace: \\b [16:8] {
+| | | | identifier: x [16:9] {
+| | | | whiteSpace: \\b [16:10] {
+| | operator: = [16:11] {
+| | | | whiteSpace: \\b [16:12] {
+| | number: 13 [16:13] {
+| | | | newLine: \\n [16:15] {
+| | whiteSpace: \\b\\b\\b\\b [17:1] {
+| | keyword: let [17:5] {
+| | | | whiteSpace: \\b [17:8] {
+| | | | identifier: x [17:9] {
+| | | | whiteSpace: \\b [17:10] {
+| | operator: = [17:11] {
+| | | | whiteSpace: \\b [17:12] {
+| | number: 14 [17:13] {
+| | | | newLine: \\n [17:15] {
+| | whiteSpace: \\b\\b\\b\\b [18:1] {
+| | keyword: let [18:5] {
+| | | | whiteSpace: \\b [18:8] {
+| | | | identifier: x [18:9] {
+| | | | whiteSpace: \\b [18:10] {
+| | operator: = [18:11] {
+| | | | whiteSpace: \\b [18:12] {
+| | number: 15 [18:13] {
+| | | | newLine: \\n [18:15] {
+| | whiteSpace: \\b\\b\\b\\b [19:1] {
+| | keyword: let [19:5] {
+| | | | whiteSpace: \\b [19:8] {
+| | | | identifier: x [19:9] {
+| | | | whiteSpace: \\b [19:10] {
+| | operator: = [19:11] {
+| | | | whiteSpace: \\b [19:12] {
+| | number: 16 [19:13] {
+| | | | newLine: \\n [19:15] {
+| | whiteSpace: \\b\\b\\b\\b [20:1] {
+| | keyword: let [20:5] {
+| | | | whiteSpace: \\b [20:8] {
+| | | | identifier: x [20:9] {
+| | | | whiteSpace: \\b [20:10] {
+| | operator: = [20:11] {
+| | | | whiteSpace: \\b [20:12] {
+| | number: 17 [20:13] {
+| | | | newLine: \\n [20:15] {
+| | whiteSpace: \\b\\b\\b\\b [21:1] {
+| | keyword: let [21:5] {
+| | | | whiteSpace: \\b [21:8] {
+| | | | identifier: x [21:9] {
+| | | | whiteSpace: \\b [21:10] {
+| | operator: = [21:11] {
+| | | | whiteSpace: \\b [21:12] {
+| | number: 18 [21:13] {
+| | | | newLine: \\n [21:15] {
+| | whiteSpace: \\b\\b\\b\\b [22:1] {
+| | keyword: let [22:5] {
+| | | | whiteSpace: \\b [22:8] {
+| | | | identifier: x [22:9] {
+| | | | whiteSpace: \\b [22:10] {
+| | operator: = [22:11] {
+| | | | whiteSpace: \\b [22:12] {
+| | number: 19 [22:13] {
+| | | | newLine: \\n [22:15] {
+| | whiteSpace: \\b\\b\\b\\b [23:1] {
+| | keyword: let [23:5] {
+| | | | whiteSpace: \\b [23:8] {
+| | | | identifier: x [23:9] {
+| | | | whiteSpace: \\b [23:10] {
+| | operator: = [23:11] {
+| | | | whiteSpace: \\b [23:12] {
+| | number: 20 [23:13] {
+| | | | newLine: \\n [23:15] {
+| | whiteSpace: \\b\\b\\b\\b [24:1] {
+| | keyword: let [24:5] {
+| | | | whiteSpace: \\b [24:8] {
+| | | | identifier: x [24:9] {
+| | | | whiteSpace: \\b [24:10] {
+| | operator: = [24:11] {
+| | | | whiteSpace: \\b [24:12] {
+| | number: 30 [24:13] {
+| | | | newLine: \\n [24:15] {
+| | whiteSpace: \\b\\b\\b\\b [25:1] {
+| | keyword: let [25:5] {
+| | | | whiteSpace: \\b [25:8] {
+| | | | identifier: x [25:9] {
+| | | | whiteSpace: \\b [25:10] {
+| | operator: = [25:11] {
+| | | | whiteSpace: \\b [25:12] {
+| | number: 40 [25:13] {
+| | | | newLine: \\n [25:15] {
+| | whiteSpace: \\b\\b\\b\\b [26:1] {
+| | keyword: let [26:5] {
+| | | | whiteSpace: \\b [26:8] {
+| | | | identifier: x [26:9] {
+| | | | whiteSpace: \\b [26:10] {
+| | operator: = [26:11] {
+| | | | whiteSpace: \\b [26:12] {
+| | number: 50 [26:13] {
+| | | | newLine: \\n [26:15] {
+| | whiteSpace: \\b\\b\\b\\b [27:1] {
+| | keyword: let [27:5] {
+| | | | whiteSpace: \\b [27:8] {
+| | | | identifier: x [27:9] {
+| | | | whiteSpace: \\b [27:10] {
+| | operator: = [27:11] {
+| | | | whiteSpace: \\b [27:12] {
+| | number: 60 [27:13] {
+| | | | newLine: \\n [27:15] {
+| | whiteSpace: \\b\\b\\b\\b [28:1] {
+| | keyword: let [28:5] {
+| | | | whiteSpace: \\b [28:8] {
+| | | | identifier: x [28:9] {
+| | | | whiteSpace: \\b [28:10] {
+| | operator: = [28:11] {
+| | | | whiteSpace: \\b [28:12] {
+| | number: 70 [28:13] {
+| | | | newLine: \\n [28:15] {
+| | whiteSpace: \\b\\b\\b\\b [29:1] {
+| | keyword: let [29:5] {
+| | | | whiteSpace: \\b [29:8] {
+| | | | identifier: x [29:9] {
+| | | | whiteSpace: \\b [29:10] {
+| | operator: = [29:11] {
+| | | | whiteSpace: \\b [29:12] {
+| | number: 80 [29:13] {
+| | | | newLine: \\n [29:15] {
+| | whiteSpace: \\b\\b\\b\\b [30:1] {
+| | keyword: let [30:5] {
+| | | | whiteSpace: \\b [30:8] {
+| | | | identifier: x [30:9] {
+| | | | whiteSpace: \\b [30:10] {
+| | operator: = [30:11] {
+| | | | whiteSpace: \\b [30:12] {
+| | number: 90 [30:13] {
+| | | | newLine: \\n [30:15] {
+| | whiteSpace: \\b\\b\\b\\b [31:1] {
+| | keyword: let [31:5] {
+| | | | whiteSpace: \\b [31:8] {
+| | | | identifier: x [31:9] {
+| | | | whiteSpace: \\b [31:10] {
+| | operator: = [31:11] {
+| | | | whiteSpace: \\b [31:12] {
+| | number: 100 [31:13] {
+| | | | newLine: \\n [31:16] {
+| | whiteSpace: \\b\\b\\b\\b [32:1] {
+| | keyword: let [32:5] {
+| | | | whiteSpace: \\b [32:8] {
+| | | | identifier: x [32:9] {
+| | | | whiteSpace: \\b [32:10] {
+| | operator: = [32:11] {
+| | | | whiteSpace: \\b [32:12] {
+| | number: 1000 [32:13] {
+| | | | newLine: \\n [32:17] {
+| | whiteSpace: \\b\\b\\b\\b [33:1] {
+| | keyword: let [33:5] {
+| | | | whiteSpace: \\b [33:8] {
+| | | | identifier: x [33:9] {
+| | | | whiteSpace: \\b [33:10] {
+| | operator: = [33:11] {
+| | | | whiteSpace: \\b [33:12] {
+| | number: 10000 [33:13] {
+| | | | newLine: \\n [33:18] {
+| | whiteSpace: \\b\\b\\b\\b [34:1] {
+| | keyword: let [34:5] {
+| | | | whiteSpace: \\b [34:8] {
+| | | | identifier: x [34:9] {
+| | | | whiteSpace: \\b [34:10] {
+| | operator: = [34:11] {
+| | | | whiteSpace: \\b [34:12] {
+| | number: 100000 [34:13] {
+| | | | newLine: \\n [34:19] {
+| | whiteSpace: \\b\\b\\b\\b [35:1] {
+| | keyword: let [35:5] {
+| | | | whiteSpace: \\b [35:8] {
+| | | | identifier: x [35:9] {
+| | | | whiteSpace: \\b [35:10] {
+| | operator: = [35:11] {
+| | | | whiteSpace: \\b [35:12] {
+| | number: 1000000 [35:13] {
+| | | | newLine: \\n [35:20] {
+| | whiteSpace: \\b\\b\\b\\b [36:1] {
+| | newLine: \\n\\n [36:5] {
+| | | | keyword: end [38:1] {
+| | | | whiteSpace: \\b [38:4] {
+| | keyword: main [38:5] {
+| | | newLine: \\n\\n [38:9] {
+| block:  [40:1] {
+| | | | | | keyword: function [40:1] {
+| | | | whiteSpace: \\b [40:9] {
+| | identifier: f1 [40:10] {
+| | | | operator: ( [40:12] {
+| | operator: ) [40:13] {
+| | | | newLine: \\n [40:14] {
+| | whiteSpace: \\b\\b\\b\\b [41:1] {
+| | keyword: let [41:5] {
+| | | | whiteSpace: \\b [41:8] {
+| | | | identifier: x [41:9] {
+| | | | whiteSpace: \\b [41:10] {
+| | operator: = [41:11] {
+| | | | whiteSpace: \\b [41:12] {
+| | number: 0.0 [41:13] {
+| | | | newLine: \\n [41:16] {
+| | whiteSpace: \\b\\b\\b\\b [42:1] {
+| | keyword: let [42:5] {
+| | | | whiteSpace: \\b [42:8] {
+| | | | identifier: x [42:9] {
+| | | | whiteSpace: \\b [42:10] {
+| | operator: = [42:11] {
+| | | | whiteSpace: \\b [42:12] {
+| | number: 1.1 [42:13] {
+| | | | newLine: \\n [42:16] {
+| | whiteSpace: \\b\\b\\b\\b [43:1] {
+| | keyword: let [43:5] {
+| | | | whiteSpace: \\b [43:8] {
+| | | | identifier: x [43:9] {
+| | | | whiteSpace: \\b [43:10] {
+| | operator: = [43:11] {
+| | | | whiteSpace: \\b [43:12] {
+| | number: 2.2 [43:13] {
+| | | | newLine: \\n [43:16] {
+| | whiteSpace: \\b\\b\\b\\b [44:1] {
+| | keyword: let [44:5] {
+| | | | whiteSpace: \\b [44:8] {
+| | | | identifier: x [44:9] {
+| | | | whiteSpace: \\b [44:10] {
+| | operator: = [44:11] {
+| | | | whiteSpace: \\b [44:12] {
+| | number: 3.3 [44:13] {
+| | | | newLine: \\n [44:16] {
+| | whiteSpace: \\b\\b\\b\\b [45:1] {
+| | keyword: let [45:5] {
+| | | | whiteSpace: \\b [45:8] {
+| | | | identifier: x [45:9] {
+| | | | whiteSpace: \\b [45:10] {
+| | operator: = [45:11] {
+| | | | whiteSpace: \\b [45:12] {
+| | number: 4.4 [45:13] {
+| | | | newLine: \\n [45:16] {
+| | whiteSpace: \\b\\b\\b\\b [46:1] {
+| | keyword: let [46:5] {
+| | | | whiteSpace: \\b [46:8] {
+| | | | identifier: x [46:9] {
+| | | | whiteSpace: \\b [46:10] {
+| | operator: = [46:11] {
+| | | | whiteSpace: \\b [46:12] {
+| | number: 5.5 [46:13] {
+| | | | newLine: \\n [46:16] {
+| | whiteSpace: \\b\\b\\b\\b [47:1] {
+| | keyword: let [47:5] {
+| | | | whiteSpace: \\b [47:8] {
+| | | | identifier: x [47:9] {
+| | | | whiteSpace: \\b [47:10] {
+| | operator: = [47:11] {
+| | | | whiteSpace: \\b [47:12] {
+| | number: 6.6 [47:13] {
+| | | | newLine: \\n [47:16] {
+| | whiteSpace: \\b\\b\\b\\b [48:1] {
+| | keyword: let [48:5] {
+| | | | whiteSpace: \\b [48:8] {
+| | | | identifier: x [48:9] {
+| | | | whiteSpace: \\b [48:10] {
+| | operator: = [48:11] {
+| | | | whiteSpace: \\b [48:12] {
+| | number: 7.7 [48:13] {
+| | | | newLine: \\n [48:16] {
+| | whiteSpace: \\b\\b\\b\\b [49:1] {
+| | keyword: let [49:5] {
+| | | | whiteSpace: \\b [49:8] {
+| | | | identifier: x [49:9] {
+| | | | whiteSpace: \\b [49:10] {
+| | operator: = [49:11] {
+| | | | whiteSpace: \\b [49:12] {
+| | number: 8.8 [49:13] {
+| | | | newLine: \\n [49:16] {
+| | whiteSpace: \\b\\b\\b\\b [50:1] {
+| | keyword: let [50:5] {
+| | | | whiteSpace: \\b [50:8] {
+| | | | identifier: x [50:9] {
+| | | | whiteSpace: \\b [50:10] {
+| | operator: = [50:11] {
+| | | | whiteSpace: \\b [50:12] {
+| | number: 9.9 [50:13] {
+| | | | newLine: \\n [50:16] {
+| | whiteSpace: \\b\\b\\b\\b [51:1] {
+| | keyword: let [51:5] {
+| | | | whiteSpace: \\b [51:8] {
+| | | | identifier: x [51:9] {
+| | | | whiteSpace: \\b [51:10] {
+| | operator: = [51:11] {
+| | | | whiteSpace: \\b [51:12] {
+| | number: 10.10 [51:13] {
+| | | | newLine: \\n [51:18] {
+| | whiteSpace: \\b\\b\\b\\b [52:1] {
+| | keyword: let [52:5] {
+| | | | whiteSpace: \\b [52:8] {
+| | | | identifier: x [52:9] {
+| | | | whiteSpace: \\b [52:10] {
+| | operator: = [52:11] {
+| | | | whiteSpace: \\b [52:12] {
+| | number: 11.11 [52:13] {
+| | | | newLine: \\n [52:18] {
+| | whiteSpace: \\b\\b\\b\\b [53:1] {
+| | keyword: let [53:5] {
+| | | | whiteSpace: \\b [53:8] {
+| | | | identifier: x [53:9] {
+| | | | whiteSpace: \\b [53:10] {
+| | operator: = [53:11] {
+| | | | whiteSpace: \\b [53:12] {
+| | number: 12.12 [53:13] {
+| | | | newLine: \\n [53:18] {
+| | whiteSpace: \\b\\b\\b\\b [54:1] {
+| | keyword: let [54:5] {
+| | | | whiteSpace: \\b [54:8] {
+| | | | identifier: x [54:9] {
+| | | | whiteSpace: \\b [54:10] {
+| | operator: = [54:11] {
+| | | | whiteSpace: \\b [54:12] {
+| | number: 13.13 [54:13] {
+| | | | newLine: \\n [54:18] {
+| | whiteSpace: \\b\\b\\b\\b [55:1] {
+| | keyword: let [55:5] {
+| | | | whiteSpace: \\b [55:8] {
+| | | | identifier: x [55:9] {
+| | | | whiteSpace: \\b [55:10] {
+| | operator: = [55:11] {
+| | | | whiteSpace: \\b [55:12] {
+| | number: 14.14 [55:13] {
+| | | | newLine: \\n [55:18] {
+| | whiteSpace: \\b\\b\\b\\b [56:1] {
+| | keyword: let [56:5] {
+| | | | whiteSpace: \\b [56:8] {
+| | | | identifier: x [56:9] {
+| | | | whiteSpace: \\b [56:10] {
+| | operator: = [56:11] {
+| | | | whiteSpace: \\b [56:12] {
+| | number: 15.15 [56:13] {
+| | | | newLine: \\n [56:18] {
+| | whiteSpace: \\b\\b\\b\\b [57:1] {
+| | keyword: let [57:5] {
+| | | | whiteSpace: \\b [57:8] {
+| | | | identifier: x [57:9] {
+| | | | whiteSpace: \\b [57:10] {
+| | operator: = [57:11] {
+| | | | whiteSpace: \\b [57:12] {
+| | number: 16.16 [57:13] {
+| | | | newLine: \\n [57:18] {
+| | whiteSpace: \\b\\b\\b\\b [58:1] {
+| | keyword: let [58:5] {
+| | | | whiteSpace: \\b [58:8] {
+| | | | identifier: x [58:9] {
+| | | | whiteSpace: \\b [58:10] {
+| | operator: = [58:11] {
+| | | | whiteSpace: \\b [58:12] {
+| | number: 17.17 [58:13] {
+| | | | newLine: \\n [58:18] {
+| | whiteSpace: \\b\\b\\b\\b [59:1] {
+| | keyword: let [59:5] {
+| | | | whiteSpace: \\b [59:8] {
+| | | | identifier: x [59:9] {
+| | | | whiteSpace: \\b [59:10] {
+| | operator: = [59:11] {
+| | | | whiteSpace: \\b [59:12] {
+| | number: 18.18 [59:13] {
+| | | | newLine: \\n [59:18] {
+| | whiteSpace: \\b\\b\\b\\b [60:1] {
+| | keyword: let [60:5] {
+| | | | whiteSpace: \\b [60:8] {
+| | | | identifier: x [60:9] {
+| | | | whiteSpace: \\b [60:10] {
+| | operator: = [60:11] {
+| | | | whiteSpace: \\b [60:12] {
+| | number: 19.19 [60:13] {
+| | | | newLine: \\n [60:18] {
+| | whiteSpace: \\b\\b\\b\\b [61:1] {
+| | keyword: let [61:5] {
+| | | | whiteSpace: \\b [61:8] {
+| | | | identifier: x [61:9] {
+| | | | whiteSpace: \\b [61:10] {
+| | operator: = [61:11] {
+| | | | whiteSpace: \\b [61:12] {
+| | number: 20.20 [61:13] {
+| | | | newLine: \\n [61:18] {
+| | whiteSpace: \\b\\b\\b\\b [62:1] {
+| | keyword: let [62:5] {
+| | | | whiteSpace: \\b [62:8] {
+| | | | identifier: x [62:9] {
+| | | | whiteSpace: \\b [62:10] {
+| | operator: = [62:11] {
+| | | | whiteSpace: \\b [62:12] {
+| | number: 30.30 [62:13] {
+| | | | newLine: \\n [62:18] {
+| | whiteSpace: \\b\\b\\b\\b [63:1] {
+| | keyword: let [63:5] {
+| | | | whiteSpace: \\b [63:8] {
+| | | | identifier: x [63:9] {
+| | | | whiteSpace: \\b [63:10] {
+| | operator: = [63:11] {
+| | | | whiteSpace: \\b [63:12] {
+| | number: 40.40 [63:13] {
+| | | | newLine: \\n [63:18] {
+| | whiteSpace: \\b\\b\\b\\b [64:1] {
+| | keyword: let [64:5] {
+| | | | whiteSpace: \\b [64:8] {
+| | | | identifier: x [64:9] {
+| | | | whiteSpace: \\b [64:10] {
+| | operator: = [64:11] {
+| | | | whiteSpace: \\b [64:12] {
+| | number: 50.50 [64:13] {
+| | | | newLine: \\n [64:18] {
+| | whiteSpace: \\b\\b\\b\\b [65:1] {
+| | keyword: let [65:5] {
+| | | | whiteSpace: \\b [65:8] {
+| | | | identifier: x [65:9] {
+| | | | whiteSpace: \\b [65:10] {
+| | operator: = [65:11] {
+| | | | whiteSpace: \\b [65:12] {
+| | number: 60.60 [65:13] {
+| | | | newLine: \\n [65:18] {
+| | whiteSpace: \\b\\b\\b\\b [66:1] {
+| | keyword: let [66:5] {
+| | | | whiteSpace: \\b [66:8] {
+| | | | identifier: x [66:9] {
+| | | | whiteSpace: \\b [66:10] {
+| | operator: = [66:11] {
+| | | | whiteSpace: \\b [66:12] {
+| | number: 70.70 [66:13] {
+| | | | newLine: \\n [66:18] {
+| | whiteSpace: \\b\\b\\b\\b [67:1] {
+| | keyword: let [67:5] {
+| | | | whiteSpace: \\b [67:8] {
+| | | | identifier: x [67:9] {
+| | | | whiteSpace: \\b [67:10] {
+| | operator: = [67:11] {
+| | | | whiteSpace: \\b [67:12] {
+| | number: 80.80 [67:13] {
+| | | | newLine: \\n [67:18] {
+| | whiteSpace: \\b\\b\\b\\b [68:1] {
+| | keyword: let [68:5] {
+| | | | whiteSpace: \\b [68:8] {
+| | | | identifier: x [68:9] {
+| | | | whiteSpace: \\b [68:10] {
+| | operator: = [68:11] {
+| | | | whiteSpace: \\b [68:12] {
+| | number: 90.90 [68:13] {
+| | | | newLine: \\n [68:18] {
+| | whiteSpace: \\b\\b\\b\\b [69:1] {
+| | keyword: let [69:5] {
+| | | | whiteSpace: \\b [69:8] {
+| | | | identifier: x [69:9] {
+| | | | whiteSpace: \\b [69:10] {
+| | operator: = [69:11] {
+| | | | whiteSpace: \\b [69:12] {
+| | number: 1.001 [69:13] {
+| | | | newLine: \\n [69:18] {
+| | whiteSpace: \\b\\b\\b\\b [70:1] {
+| | keyword: let [70:5] {
+| | | | whiteSpace: \\b [70:8] {
+| | | | identifier: x [70:9] {
+| | | | whiteSpace: \\b [70:10] {
+| | operator: = [70:11] {
+| | | | whiteSpace: \\b [70:12] {
+| | number: 10.001 [70:13] {
+| | | | newLine: \\n [70:19] {
+| | whiteSpace: \\b\\b\\b\\b [71:1] {
+| | keyword: let [71:5] {
+| | | | whiteSpace: \\b [71:8] {
+| | | | identifier: x [71:9] {
+| | | | whiteSpace: \\b [71:10] {
+| | operator: = [71:11] {
+| | | | whiteSpace: \\b [71:12] {
+| | number: 100.001 [71:13] {
+| | | | newLine: \\n [71:20] {
+| | whiteSpace: \\b\\b\\b\\b [72:1] {
+| | keyword: let [72:5] {
+| | | | whiteSpace: \\b [72:8] {
+| | | | identifier: x [72:9] {
+| | | | whiteSpace: \\b [72:10] {
+| | operator: = [72:11] {
+| | | | whiteSpace: \\b [72:12] {
+| | number: 1000.001 [72:13] {
+| | | | newLine: \\n [72:21] {
+| | whiteSpace: \\b\\b\\b\\b [73:1] {
+| | keyword: let [73:5] {
+| | | | whiteSpace: \\b [73:8] {
+| | | | identifier: x [73:9] {
+| | | | whiteSpace: \\b [73:10] {
+| | operator: = [73:11] {
+| | | | whiteSpace: \\b [73:12] {
+| | number: 10000.001 [73:13] {
+| | | | newLine: \\n [73:22] {
+| | | | keyword: end [74:1] {
+| | | | whiteSpace: \\b [74:4] {
+| | keyword: function [74:5] {
+| | newLine: \\n\\n [74:13] {
+| block:  [76:1] {
+| | | | | | keyword: function [76:1] {
+| | | | whiteSpace: \\b [76:9] {
+| | identifier: f2 [76:10] {
+| | | | operator: ( [76:12] {
+| | operator: ) [76:13] {
+| | | | newLine: \\n [76:14] {
+| | whiteSpace: \\b\\b\\b\\b [77:1] {
+| | keyword: let [77:5] {
+| | | | whiteSpace: \\b [77:8] {
+| | | | identifier: x [77:9] {
+| | | | whiteSpace: \\b [77:10] {
+| | operator: = [77:11] {
+| | | | whiteSpace: \\b [77:12] {
+| | operator: - [77:13] {
+| | number: 0.0 [77:14] {
+| | | | newLine: \\n [77:17] {
+| | whiteSpace: \\b\\b\\b\\b [78:1] {
+| | keyword: let [78:5] {
+| | | | whiteSpace: \\b [78:8] {
+| | | | identifier: x [78:9] {
+| | | | whiteSpace: \\b [78:10] {
+| | operator: = [78:11] {
+| | | | whiteSpace: \\b [78:12] {
+| | operator: - [78:13] {
+| | number: 1.1 [78:14] {
+| | | | newLine: \\n [78:17] {
+| | whiteSpace: \\b\\b\\b\\b [79:1] {
+| | keyword: let [79:5] {
+| | | | whiteSpace: \\b [79:8] {
+| | | | identifier: x [79:9] {
+| | | | whiteSpace: \\b [79:10] {
+| | operator: = [79:11] {
+| | | | whiteSpace: \\b [79:12] {
+| | operator: - [79:13] {
+| | number: 2.2 [79:14] {
+| | | | newLine: \\n [79:17] {
+| | whiteSpace: \\b\\b\\b\\b [80:1] {
+| | keyword: let [80:5] {
+| | | | whiteSpace: \\b [80:8] {
+| | | | identifier: x [80:9] {
+| | | | whiteSpace: \\b [80:10] {
+| | operator: = [80:11] {
+| | | | whiteSpace: \\b [80:12] {
+| | operator: - [80:13] {
+| | number: 3.3 [80:14] {
+| | | | newLine: \\n [80:17] {
+| | whiteSpace: \\b\\b\\b\\b [81:1] {
+| | keyword: let [81:5] {
+| | | | whiteSpace: \\b [81:8] {
+| | | | identifier: x [81:9] {
+| | | | whiteSpace: \\b [81:10] {
+| | operator: = [81:11] {
+| | | | whiteSpace: \\b [81:12] {
+| | operator: - [81:13] {
+| | number: 4.4 [81:14] {
+| | | | newLine: \\n [81:17] {
+| | whiteSpace: \\b\\b\\b\\b [82:1] {
+| | keyword: let [82:5] {
+| | | | whiteSpace: \\b [82:8] {
+| | | | identifier: x [82:9] {
+| | | | whiteSpace: \\b [82:10] {
+| | operator: = [82:11] {
+| | | | whiteSpace: \\b [82:12] {
+| | operator: - [82:13] {
+| | number: 5.5 [82:14] {
+| | | | newLine: \\n [82:17] {
+| | whiteSpace: \\b\\b\\b\\b [83:1] {
+| | keyword: let [83:5] {
+| | | | whiteSpace: \\b [83:8] {
+| | | | identifier: x [83:9] {
+| | | | whiteSpace: \\b [83:10] {
+| | operator: = [83:11] {
+| | | | whiteSpace: \\b [83:12] {
+| | operator: - [83:13] {
+| | number: 6.6 [83:14] {
+| | | | newLine: \\n [83:17] {
+| | whiteSpace: \\b\\b\\b\\b [84:1] {
+| | keyword: let [84:5] {
+| | | | whiteSpace: \\b [84:8] {
+| | | | identifier: x [84:9] {
+| | | | whiteSpace: \\b [84:10] {
+| | operator: = [84:11] {
+| | | | whiteSpace: \\b [84:12] {
+| | operator: - [84:13] {
+| | number: 7.7 [84:14] {
+| | | | newLine: \\n [84:17] {
+| | whiteSpace: \\b\\b\\b\\b [85:1] {
+| | keyword: let [85:5] {
+| | | | whiteSpace: \\b [85:8] {
+| | | | identifier: x [85:9] {
+| | | | whiteSpace: \\b [85:10] {
+| | operator: = [85:11] {
+| | | | whiteSpace: \\b [85:12] {
+| | operator: - [85:13] {
+| | number: 8.8 [85:14] {
+| | | | newLine: \\n [85:17] {
+| | whiteSpace: \\b\\b\\b\\b [86:1] {
+| | keyword: let [86:5] {
+| | | | whiteSpace: \\b [86:8] {
+| | | | identifier: x [86:9] {
+| | | | whiteSpace: \\b [86:10] {
+| | operator: = [86:11] {
+| | | | whiteSpace: \\b [86:12] {
+| | operator: - [86:13] {
+| | number: 9.9 [86:14] {
+| | | | newLine: \\n [86:17] {
+| | whiteSpace: \\b\\b\\b\\b [87:1] {
+| | keyword: let [87:5] {
+| | | | whiteSpace: \\b [87:8] {
+| | | | identifier: x [87:9] {
+| | | | whiteSpace: \\b [87:10] {
+| | operator: = [87:11] {
+| | | | whiteSpace: \\b [87:12] {
+| | operator: - [87:13] {
+| | number: 10.10 [87:14] {
+| | | | newLine: \\n [87:19] {
+| | whiteSpace: \\b\\b\\b\\b [88:1] {
+| | keyword: let [88:5] {
+| | | | whiteSpace: \\b [88:8] {
+| | | | identifier: x [88:9] {
+| | | | whiteSpace: \\b [88:10] {
+| | operator: = [88:11] {
+| | | | whiteSpace: \\b [88:12] {
+| | operator: - [88:13] {
+| | number: 11.11 [88:14] {
+| | | | newLine: \\n [88:19] {
+| | whiteSpace: \\b\\b\\b\\b [89:1] {
+| | keyword: let [89:5] {
+| | | | whiteSpace: \\b [89:8] {
+| | | | identifier: x [89:9] {
+| | | | whiteSpace: \\b [89:10] {
+| | operator: = [89:11] {
+| | | | whiteSpace: \\b [89:12] {
+| | operator: - [89:13] {
+| | number: 12.12 [89:14] {
+| | | | newLine: \\n [89:19] {
+| | whiteSpace: \\b\\b\\b\\b [90:1] {
+| | keyword: let [90:5] {
+| | | | whiteSpace: \\b [90:8] {
+| | | | identifier: x [90:9] {
+| | | | whiteSpace: \\b [90:10] {
+| | operator: = [90:11] {
+| | | | whiteSpace: \\b [90:12] {
+| | operator: - [90:13] {
+| | number: 13.13 [90:14] {
+| | | | newLine: \\n [90:19] {
+| | whiteSpace: \\b\\b\\b\\b [91:1] {
+| | keyword: let [91:5] {
+| | | | whiteSpace: \\b [91:8] {
+| | | | identifier: x [91:9] {
+| | | | whiteSpace: \\b [91:10] {
+| | operator: = [91:11] {
+| | | | whiteSpace: \\b [91:12] {
+| | operator: - [91:13] {
+| | number: 14.14 [91:14] {
+| | | | newLine: \\n [91:19] {
+| | whiteSpace: \\b\\b\\b\\b [92:1] {
+| | keyword: let [92:5] {
+| | | | whiteSpace: \\b [92:8] {
+| | | | identifier: x [92:9] {
+| | | | whiteSpace: \\b [92:10] {
+| | operator: = [92:11] {
+| | | | whiteSpace: \\b [92:12] {
+| | operator: - [92:13] {
+| | number: 15.15 [92:14] {
+| | | | newLine: \\n [92:19] {
+| | whiteSpace: \\b\\b\\b\\b [93:1] {
+| | keyword: let [93:5] {
+| | | | whiteSpace: \\b [93:8] {
+| | | | identifier: x [93:9] {
+| | | | whiteSpace: \\b [93:10] {
+| | operator: = [93:11] {
+| | | | whiteSpace: \\b [93:12] {
+| | operator: - [93:13] {
+| | number: 16.16 [93:14] {
+| | | | newLine: \\n [93:19] {
+| | whiteSpace: \\b\\b\\b\\b [94:1] {
+| | keyword: let [94:5] {
+| | | | whiteSpace: \\b [94:8] {
+| | | | identifier: x [94:9] {
+| | | | whiteSpace: \\b [94:10] {
+| | operator: = [94:11] {
+| | | | whiteSpace: \\b [94:12] {
+| | operator: - [94:13] {
+| | number: 17.17 [94:14] {
+| | | | newLine: \\n [94:19] {
+| | whiteSpace: \\b\\b\\b\\b [95:1] {
+| | keyword: let [95:5] {
+| | | | whiteSpace: \\b [95:8] {
+| | | | identifier: x [95:9] {
+| | | | whiteSpace: \\b [95:10] {
+| | operator: = [95:11] {
+| | | | whiteSpace: \\b [95:12] {
+| | operator: - [95:13] {
+| | number: 18.18 [95:14] {
+| | | | newLine: \\n [95:19] {
+| | whiteSpace: \\b\\b\\b\\b [96:1] {
+| | keyword: let [96:5] {
+| | | | whiteSpace: \\b [96:8] {
+| | | | identifier: x [96:9] {
+| | | | whiteSpace: \\b [96:10] {
+| | operator: = [96:11] {
+| | | | whiteSpace: \\b [96:12] {
+| | operator: - [96:13] {
+| | number: 19.19 [96:14] {
+| | | | newLine: \\n [96:19] {
+| | whiteSpace: \\b\\b\\b\\b [97:1] {
+| | keyword: let [97:5] {
+| | | | whiteSpace: \\b [97:8] {
+| | | | identifier: x [97:9] {
+| | | | whiteSpace: \\b [97:10] {
+| | operator: = [97:11] {
+| | | | whiteSpace: \\b [97:12] {
+| | operator: - [97:13] {
+| | number: 20.20 [97:14] {
+| | | | newLine: \\n [97:19] {
+| | whiteSpace: \\b\\b\\b\\b [98:1] {
+| | keyword: let [98:5] {
+| | | | whiteSpace: \\b [98:8] {
+| | | | identifier: x [98:9] {
+| | | | whiteSpace: \\b [98:10] {
+| | operator: = [98:11] {
+| | | | whiteSpace: \\b [98:12] {
+| | operator: - [98:13] {
+| | number: 30.30 [98:14] {
+| | | | newLine: \\n [98:19] {
+| | whiteSpace: \\b\\b\\b\\b [99:1] {
+| | keyword: let [99:5] {
+| | | | whiteSpace: \\b [99:8] {
+| | | | identifier: x [99:9] {
+| | | | whiteSpace: \\b [99:10] {
+| | operator: = [99:11] {
+| | | | whiteSpace: \\b [99:12] {
+| | operator: - [99:13] {
+| | number: 40.40 [99:14] {
+| | | | newLine: \\n [99:19] {
+| | whiteSpace: \\b\\b\\b\\b [100:1] {
+| | keyword: let [100:5] {
+| | | | whiteSpace: \\b [100:8] {
+| | | | identifier: x [100:9] {
+| | | | whiteSpace: \\b [100:10] {
+| | operator: = [100:11] {
+| | | | whiteSpace: \\b [100:12] {
+| | operator: - [100:13] {
+| | number: 50.50 [100:14] {
+| | | | newLine: \\n [100:19] {
+| | whiteSpace: \\b\\b\\b\\b [101:1] {
+| | keyword: let [101:5] {
+| | | | whiteSpace: \\b [101:8] {
+| | | | identifier: x [101:9] {
+| | | | whiteSpace: \\b [101:10] {
+| | operator: = [101:11] {
+| | | | whiteSpace: \\b [101:12] {
+| | operator: - [101:13] {
+| | number: 60.60 [101:14] {
+| | | | newLine: \\n [101:19] {
+| | whiteSpace: \\b\\b\\b\\b [102:1] {
+| | keyword: let [102:5] {
+| | | | whiteSpace: \\b [102:8] {
+| | | | identifier: x [102:9] {
+| | | | whiteSpace: \\b [102:10] {
+| | operator: = [102:11] {
+| | | | whiteSpace: \\b [102:12] {
+| | operator: - [102:13] {
+| | number: 70.70 [102:14] {
+| | | | newLine: \\n [102:19] {
+| | whiteSpace: \\b\\b\\b\\b [103:1] {
+| | keyword: let [103:5] {
+| | | | whiteSpace: \\b [103:8] {
+| | | | identifier: x [103:9] {
+| | | | whiteSpace: \\b [103:10] {
+| | operator: = [103:11] {
+| | | | whiteSpace: \\b [103:12] {
+| | operator: - [103:13] {
+| | number: 80.80 [103:14] {
+| | | | newLine: \\n [103:19] {
+| | whiteSpace: \\b\\b\\b\\b [104:1] {
+| | keyword: let [104:5] {
+| | | | whiteSpace: \\b [104:8] {
+| | | | identifier: x [104:9] {
+| | | | whiteSpace: \\b [104:10] {
+| | operator: = [104:11] {
+| | | | whiteSpace: \\b [104:12] {
+| | operator: - [104:13] {
+| | number: 90.90 [104:14] {
+| | | | newLine: \\n [104:19] {
+| | whiteSpace: \\b\\b\\b\\b [105:1] {
+| | keyword: let [105:5] {
+| | | | whiteSpace: \\b [105:8] {
+| | | | identifier: x [105:9] {
+| | | | whiteSpace: \\b [105:10] {
+| | operator: = [105:11] {
+| | | | whiteSpace: \\b [105:12] {
+| | operator: - [105:13] {
+| | number: 1.001 [105:14] {
+| | | | newLine: \\n [105:19] {
+| | whiteSpace: \\b\\b\\b\\b [106:1] {
+| | keyword: let [106:5] {
+| | | | whiteSpace: \\b [106:8] {
+| | | | identifier: x [106:9] {
+| | | | whiteSpace: \\b [106:10] {
+| | operator: = [106:11] {
+| | | | whiteSpace: \\b [106:12] {
+| | operator: - [106:13] {
+| | number: 10.001 [106:14] {
+| | | | newLine: \\n [106:20] {
+| | whiteSpace: \\b\\b\\b\\b [107:1] {
+| | keyword: let [107:5] {
+| | | | whiteSpace: \\b [107:8] {
+| | | | identifier: x [107:9] {
+| | | | whiteSpace: \\b [107:10] {
+| | operator: = [107:11] {
+| | | | whiteSpace: \\b [107:12] {
+| | operator: - [107:13] {
+| | number: 100.001 [107:14] {
+| | | | newLine: \\n [107:21] {
+| | whiteSpace: \\b\\b\\b\\b [108:1] {
+| | keyword: let [108:5] {
+| | | | whiteSpace: \\b [108:8] {
+| | | | identifier: x [108:9] {
+| | | | whiteSpace: \\b [108:10] {
+| | operator: = [108:11] {
+| | | | whiteSpace: \\b [108:12] {
+| | operator: - [108:13] {
+| | number: 1000.001 [108:14] {
+| | | | newLine: \\n [108:22] {
+| | whiteSpace: \\b\\b\\b\\b [109:1] {
+| | keyword: let [109:5] {
+| | | | whiteSpace: \\b [109:8] {
+| | | | identifier: x [109:9] {
+| | | | whiteSpace: \\b [109:10] {
+| | operator: = [109:11] {
+| | | | whiteSpace: \\b [109:12] {
+| | operator: - [109:13] {
+| | number: 10000.001 [109:14] {
+| | | | newLine: \\n [109:23] {
+| | | | keyword: end [110:1] {
+| | | | whiteSpace: \\b [110:4] {
+| | keyword: function [110:5] {
+| | newLine: \\n [110:13] {
 
 `;
 
@@ -1290,124 +1294,124 @@ function f1()
     
 end function
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1]
-| | block:  [1:1]
-| | | | keyword: main [1:1]
-| | | | | | newLine: \\n\\n [1:5]
-| | whiteSpace: \\b\\b\\b\\b [3:1]
-| | keyword: let [3:5]
-| | | | whiteSpace: \\b [3:8]
-| | | | identifier: x [3:9]
-| | operator: , [3:10]
-| | | | whiteSpace: \\b [3:11]
-| | | | identifier: y [3:12]
-| | | | whiteSpace: \\b [3:13]
-| | operator: = [3:14]
-| | | | whiteSpace: \\b [3:15]
-| | string: '' [3:16]
-| | | | newLine: \\n [3:18]
-| | whiteSpace: \\b\\b\\b\\b [4:1]
-| | keyword: let [4:5]
-| | | | whiteSpace: \\b [4:8]
-| | | | identifier: x [4:9]
-| | operator: , [4:10]
-| | | | whiteSpace: \\b [4:11]
-| | | | identifier: y [4:12]
-| | | | whiteSpace: \\b [4:13]
-| | operator: = [4:14]
-| | | | whiteSpace: \\b [4:15]
-| | string: 'ABC,DEF' [4:16]
-| | | | newLine: \\n [4:25]
-| | whiteSpace: \\b\\b\\b\\b [5:1]
-| | keyword: let [5:5]
-| | | | whiteSpace: \\b [5:8]
-| | | | identifier: x [5:9]
-| | operator: , [5:10]
-| | | | whiteSpace: \\b [5:11]
-| | | | identifier: y [5:12]
-| | | | whiteSpace: \\b [5:13]
-| | operator: = [5:14]
-| | | | whiteSpace: \\b [5:15]
-| | string: '"' [5:16]
-| | | | newLine: \\n [5:19]
-| | whiteSpace: \\b\\b\\b\\b [6:1]
-| | keyword: let [6:5]
-| | | | whiteSpace: \\b [6:8]
-| | | | identifier: x [6:9]
-| | operator: , [6:10]
-| | | | whiteSpace: \\b [6:11]
-| | | | identifier: y [6:12]
-| | | | whiteSpace: \\b [6:13]
-| | operator: = [6:14]
-| | | | whiteSpace: \\b [6:15]
-| | string: 'ABC DEF' [6:16]
-| | | | newLine: \\n [6:25]
-| | whiteSpace: \\b\\b\\b\\b [7:1]
-| | newLine: \\n [7:5]
-| | | | keyword: end [8:1]
-| | | | whiteSpace: \\b [8:4]
-| | keyword: main [8:5]
-| | | newLine: \\n\\n [8:9]
-| block:  [10:1]
-| | | | | | keyword: function [10:1]
-| | | | whiteSpace: \\b [10:9]
-| | identifier: f1 [10:10]
-| | | | operator: ( [10:12]
-| | operator: ) [10:13]
-| | | | newLine: \\n\\n [10:14]
-| | whiteSpace: \\b\\b\\b\\b [12:1]
-| | keyword: let [12:5]
-| | | | whiteSpace: \\b [12:8]
-| | | | identifier: x [12:9]
-| | operator: , [12:10]
-| | | | whiteSpace: \\b [12:11]
-| | | | identifier: y [12:12]
-| | | | whiteSpace: \\b [12:13]
-| | operator: = [12:14]
-| | | | whiteSpace: \\b [12:15]
-| | string: "" [12:16]
-| | | | newLine: \\n [12:18]
-| | whiteSpace: \\b\\b\\b\\b [13:1]
-| | keyword: let [13:5]
-| | | | whiteSpace: \\b [13:8]
-| | | | identifier: x [13:9]
-| | operator: , [13:10]
-| | | | whiteSpace: \\b [13:11]
-| | | | identifier: y [13:12]
-| | | | whiteSpace: \\b [13:13]
-| | operator: = [13:14]
-| | | | whiteSpace: \\b [13:15]
-| | string: "ABC,DEF" [13:16]
-| | | | newLine: \\n [13:25]
-| | whiteSpace: \\b\\b\\b\\b [14:1]
-| | keyword: let [14:5]
-| | | | whiteSpace: \\b [14:8]
-| | | | identifier: x [14:9]
-| | operator: , [14:10]
-| | | | whiteSpace: \\b [14:11]
-| | | | identifier: y [14:12]
-| | | | whiteSpace: \\b [14:13]
-| | operator: = [14:14]
-| | | | whiteSpace: \\b [14:15]
-| | string: "'" [14:16]
-| | | | newLine: \\n [14:19]
-| | whiteSpace: \\b\\b\\b\\b [15:1]
-| | keyword: let [15:5]
-| | | | whiteSpace: \\b [15:8]
-| | | | identifier: x [15:9]
-| | operator: , [15:10]
-| | | | whiteSpace: \\b [15:11]
-| | | | identifier: y [15:12]
-| | | | whiteSpace: \\b [15:13]
-| | operator: = [15:14]
-| | | | whiteSpace: \\b [15:15]
-| | string: "ABC DEF" [15:16]
-| | | | newLine: \\n [15:25]
-| | whiteSpace: \\b\\b\\b\\b [16:1]
-| | newLine: \\n [16:5]
-| | | | keyword: end [17:1]
-| | | | whiteSpace: \\b [17:4]
-| | keyword: function [17:5]
-| | newLine: \\n [17:13]
+program:  [1:1] {
+| | block:  [1:1] {
+| | | | keyword: main [1:1] {
+| | | | | | newLine: \\n\\n [1:5] {
+| | whiteSpace: \\b\\b\\b\\b [3:1] {
+| | keyword: let [3:5] {
+| | | | whiteSpace: \\b [3:8] {
+| | | | identifier: x [3:9] {
+| | operator: , [3:10] {
+| | | | whiteSpace: \\b [3:11] {
+| | | | identifier: y [3:12] {
+| | | | whiteSpace: \\b [3:13] {
+| | operator: = [3:14] {
+| | | | whiteSpace: \\b [3:15] {
+| | string: '' [3:16] {
+| | | | newLine: \\n [3:18] {
+| | whiteSpace: \\b\\b\\b\\b [4:1] {
+| | keyword: let [4:5] {
+| | | | whiteSpace: \\b [4:8] {
+| | | | identifier: x [4:9] {
+| | operator: , [4:10] {
+| | | | whiteSpace: \\b [4:11] {
+| | | | identifier: y [4:12] {
+| | | | whiteSpace: \\b [4:13] {
+| | operator: = [4:14] {
+| | | | whiteSpace: \\b [4:15] {
+| | string: 'ABC,DEF' [4:16] {
+| | | | newLine: \\n [4:25] {
+| | whiteSpace: \\b\\b\\b\\b [5:1] {
+| | keyword: let [5:5] {
+| | | | whiteSpace: \\b [5:8] {
+| | | | identifier: x [5:9] {
+| | operator: , [5:10] {
+| | | | whiteSpace: \\b [5:11] {
+| | | | identifier: y [5:12] {
+| | | | whiteSpace: \\b [5:13] {
+| | operator: = [5:14] {
+| | | | whiteSpace: \\b [5:15] {
+| | string: '"' [5:16] {
+| | | | newLine: \\n [5:19] {
+| | whiteSpace: \\b\\b\\b\\b [6:1] {
+| | keyword: let [6:5] {
+| | | | whiteSpace: \\b [6:8] {
+| | | | identifier: x [6:9] {
+| | operator: , [6:10] {
+| | | | whiteSpace: \\b [6:11] {
+| | | | identifier: y [6:12] {
+| | | | whiteSpace: \\b [6:13] {
+| | operator: = [6:14] {
+| | | | whiteSpace: \\b [6:15] {
+| | string: 'ABC\\bDEF' [6:16] {
+| | | | newLine: \\n [6:25] {
+| | whiteSpace: \\b\\b\\b\\b [7:1] {
+| | newLine: \\n [7:5] {
+| | | | keyword: end [8:1] {
+| | | | whiteSpace: \\b [8:4] {
+| | keyword: main [8:5] {
+| | | newLine: \\n\\n [8:9] {
+| block:  [10:1] {
+| | | | | | keyword: function [10:1] {
+| | | | whiteSpace: \\b [10:9] {
+| | identifier: f1 [10:10] {
+| | | | operator: ( [10:12] {
+| | operator: ) [10:13] {
+| | | | newLine: \\n\\n [10:14] {
+| | whiteSpace: \\b\\b\\b\\b [12:1] {
+| | keyword: let [12:5] {
+| | | | whiteSpace: \\b [12:8] {
+| | | | identifier: x [12:9] {
+| | operator: , [12:10] {
+| | | | whiteSpace: \\b [12:11] {
+| | | | identifier: y [12:12] {
+| | | | whiteSpace: \\b [12:13] {
+| | operator: = [12:14] {
+| | | | whiteSpace: \\b [12:15] {
+| | string: "" [12:16] {
+| | | | newLine: \\n [12:18] {
+| | whiteSpace: \\b\\b\\b\\b [13:1] {
+| | keyword: let [13:5] {
+| | | | whiteSpace: \\b [13:8] {
+| | | | identifier: x [13:9] {
+| | operator: , [13:10] {
+| | | | whiteSpace: \\b [13:11] {
+| | | | identifier: y [13:12] {
+| | | | whiteSpace: \\b [13:13] {
+| | operator: = [13:14] {
+| | | | whiteSpace: \\b [13:15] {
+| | string: "ABC,DEF" [13:16] {
+| | | | newLine: \\n [13:25] {
+| | whiteSpace: \\b\\b\\b\\b [14:1] {
+| | keyword: let [14:5] {
+| | | | whiteSpace: \\b [14:8] {
+| | | | identifier: x [14:9] {
+| | operator: , [14:10] {
+| | | | whiteSpace: \\b [14:11] {
+| | | | identifier: y [14:12] {
+| | | | whiteSpace: \\b [14:13] {
+| | operator: = [14:14] {
+| | | | whiteSpace: \\b [14:15] {
+| | string: "'" [14:16] {
+| | | | newLine: \\n [14:19] {
+| | whiteSpace: \\b\\b\\b\\b [15:1] {
+| | keyword: let [15:5] {
+| | | | whiteSpace: \\b [15:8] {
+| | | | identifier: x [15:9] {
+| | operator: , [15:10] {
+| | | | whiteSpace: \\b [15:11] {
+| | | | identifier: y [15:12] {
+| | | | whiteSpace: \\b [15:13] {
+| | operator: = [15:14] {
+| | | | whiteSpace: \\b [15:15] {
+| | string: "ABC\\bDEF" [15:16] {
+| | | | newLine: \\n [15:25] {
+| | whiteSpace: \\b\\b\\b\\b [16:1] {
+| | newLine: \\n [16:5] {
+| | | | keyword: end [17:1] {
+| | | | whiteSpace: \\b [17:4] {
+| | keyword: function [17:5] {
+| | newLine: \\n [17:13] {
 
 `;

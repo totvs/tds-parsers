@@ -1,0 +1,3839 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`4gl: Token sup3761.4gl 1`] = `
+###PARSER-N�o remover esta linha(Framework Logix)###
+#-----------------------------------------------------------------------#
+# SISTEMA.: SUPRIMENTOS                                                 #
+# FUNCAO..: SUP3761                                                     #
+# OBJETIVO: DEFINICOES/INICIALIZACAO DE VARIAVEIS UTILIZADAS NO SUP3760 #
+# AUTOR...: TATIANE WIESE - IVAN PAULO RONCHI                           #
+# DATA....: 01/11/1996                                                  #
+#-----------------------------------------------------------------------#######
+
+DATABASE logix
+
+  GLOBALS
+ DEFINE p_cod_empresa       LIKE empresa.cod_empresa,
+         g_ies_obj_entrada   LIKE cod_fiscal_sup.ies_obj_entrada,
+         p_cod_empresa_dest  LIKE empresa.cod_empresa,
+         p_user              LIKE usuario.nom_usuario,
+         p_ies_fornec_ativo  LIKE fornecedor.ies_fornec_ativo,
+         p_ies_cod_operac    CHAR(01),
+         p_ies_tip_entrada   LIKE cod_fiscal_sup.ies_tip_entrada,
+         p_ies_cod_cgc       CHAR(01),
+         p_ies_cod_fornec    CHAR(01),
+         g_ies_grafico       SMALLINT,
+         p_ies_dat_fabr_ar   CHAR(01),
+         p_cod_secao_rec     LIKE ordem_sup.cod_secao_receb,
+         p_cod_operacao      LIKE estoque_operac.cod_operacao,
+         p_conta             SMALLINT,
+         p_tmp_transpor      LIKE fornecedor.tmp_transpor,
+         p_cod_tip_despesa   LIKE ordem_sup.cod_tip_despesa,
+         p_ies_entr_sem_ped  SMALLINT,
+         p_sup_cap           SMALLINT,
+         p_sup_mes           SMALLINT,
+         p_cod_grp_desp_nfr  DECIMAL(15,2),
+         p_ies_item_nfd_nfr  CHAR(1),
+         p_ies_entrada_maior CHAR(1),
+         p_ies_incl_cap      SMALLINT,
+         p_ies_imp_iss       CHAR(01),
+         p_tip_desp_cons_fat DECIMAL(4,0),
+         p_aguarda_fatura    CHAR(1),
+         p_cons_data         SMALLINT,
+         p_qtd_dias_emis_doc DECIMAL(5,0),
+         p_nom_reduz_cli     CHAR(10),
+         p_cgc_cpf1          CHAR(3),
+         p_cgc_cpf2          CHAR(3),
+         p_cgc_cpf3          CHAR(3),
+         p_cgc_cpf4          CHAR(4),
+         p_cgc_cpf5          CHAR(2),
+         p_ord_forn          SMALLINT,
+         p_tipo              CHAR(8),
+         p_quantos           SMALLINT,
+         p_aguard_5          SMALLINT,
+         p_num_ar376         LIKE aviso_rec.num_aviso_rec,
+         p_ind_sal           SMALLINT,
+         p_entrou            SMALLINT,
+         p_entrou_pedido     CHAR(01),
+         p_nfe_vendas        SMALLINT,
+         p_ies_oc            LIKE estoque_operac.ies_oc,
+         p_ar_os             SMALLINT,
+         p_ies_aguard_nfe    LIKE nf_sup.ies_nf_aguard_nfe,
+         p_argumento         LIKE aviso_rec.ies_contabil,
+         p_item_fornec       RECORD LIKE item_fornec.*,
+         p_item1             RECORD LIKE item.*,
+         p_clientes          RECORD LIKE clientes.*,
+         p_par_diverg_rec    RECORD LIKE par_diverg_rec.*,
+         p_ar_os_esp         RECORD LIKE ar_os_esp.*,
+         p_dif_aceite        LIKE ordem_sup.pre_unit_oc,
+         p_somatorio_dif     LIKE ordem_sup.pre_unit_oc,
+         p_cod_uni_feder_f   LIKE fornecedor.cod_uni_feder,
+         p_cod_unid_feder    LIKE cidades.cod_uni_feder,
+         p_cod_pais          LIKE uni_feder.cod_pais,
+         p_val_base          LIKE aviso_rec.val_base_c_frete_d,
+         p_aviso_rec_compl   RECORD
+                               cod_empresa          LIKE aviso_rec_compl.cod_empresa,
+                               num_aviso_rec        LIKE aviso_rec_compl.num_aviso_rec,
+                               cod_transpor         LIKE aviso_rec_compl.cod_transpor,
+                               den_transpor         LIKE aviso_rec_compl.den_transpor,
+                               num_placa_veic       LIKE aviso_rec_compl.num_placa_veic,
+                               num_di               LIKE aviso_rec_compl.num_di,
+                               ies_incl_import      LIKE aviso_rec_compl.ies_incl_import,
+                               num_lote_pat         LIKE aviso_rec_compl.num_lote_pat,
+                               cod_operacao         LIKE aviso_rec_compl.cod_operacao,
+                               cod_empresa_orig     LIKE aviso_rec_compl.cod_empresa_orig,
+                               cod_moeda_forn       LIKE aviso_rec_compl.cod_moeda_forn,
+                               num_embarque         LIKE aviso_rec_compl.num_embarque,
+                               ies_situacao         LIKE aviso_rec_compl.ies_situacao,
+                               nom_usuario          LIKE aviso_rec_compl.nom_usuario,
+                               dat_proces           LIKE aviso_rec_compl.dat_proces,
+                               hor_operac           LIKE aviso_rec_compl.hor_operac,
+                               cod_fiscal_compl     LIKE aviso_rec_compl.cod_fiscal_compl,
+                               filial               DECIMAL(10,0)
+                         END RECORD,
+         p_sequencia         LIKE aviso_rec.num_seq,
+         p_cod_fornec144     LIKE fornecedor.cod_fornecedor,
+         p_ind5              SMALLINT,
+         p_cod_pais_emp      LIKE uni_feder.cod_pais,
+         p_status            SMALLINT,
+         p_ies_obj_entrada_fisc LIKE cod_fiscal_sup.ies_obj_entrada,
+         p_cod_item_oc       LIKE item.cod_item,
+         p_num_nf            LIKE nf_sup.num_nf,
+         p_cancel            INTEGER,
+         p_ies_pagamento     LIKE cond_pgto_cap.ies_pagamento,
+         p_msg_qtd           CHAR(01),
+         p_ies_cons          SMALLINT,
+         p_cod_ret_iss       DECIMAL(03,0),
+         p_cod_ret_inss      DECIMAL(03,0),
+         p_cod_ret_inss_rur  DECIMAL(03,0),
+         p_count_estrut      SMALLINT,
+         p_val_cotacao       LIKE cotacao.val_cotacao,
+         p_ies_tip_frete     LIKE modo_embarque.ies_tip_frete,
+         p_sup449_cap        SMALLINT,
+         p_sup449_mes        SMALLINT,
+         p_pedidos           CHAR(4800),
+         p_pedidos_p1        CHAR(500),
+         p_pedidos_p2        CHAR(500),
+         p_pedidos_p3        CHAR(200),
+         p_pedidos_p4        CHAR(500),
+         p_pedidos_p5        CHAR(500),
+         p_pedidos_p6        CHAR(200),
+         p_pedidos_p7        CHAR(500),
+         p_pedidos_p8        CHAR(500),
+         p_pedidos_p9        CHAR(200),
+         p_pedidos_p10       CHAR(500),
+         p_pedidos_p11       CHAR(500),
+         p_pedidos_p12       CHAR(200),
+         p_inclu_item        CHAR(01),
+         p_val_tot_liq       DECIMAL(17,2),
+         p_val_tot_liq_ant   DECIMAL(17,2),
+         p_ordens            CHAR(7200),
+         p_ordens_p1         CHAR(500),
+         p_ordens_p2         CHAR(500),
+         p_ordens_p3         CHAR(500),
+         p_ordens_p4         CHAR(300),
+         p_ordens_p5         CHAR(500),
+         p_ordens_p6         CHAR(500),
+         p_ordens_p7         CHAR(500),
+         p_ordens_p8         CHAR(300),
+         p_ordens_p9         CHAR(500),
+         p_ordens_p10        CHAR(500),
+         p_ordens_p11        CHAR(500),
+         p_ordens_p12        CHAR(300),
+         p_ordens_p13        CHAR(500),
+         p_ordens_p14        CHAR(500),
+         p_ordens_p15        CHAR(500),
+         p_ordens_p16        CHAR(300),
+         p_prog_ordem        CHAR(2400),
+         p_prog_ordem1       CHAR(300),
+         p_prog_ordem2       CHAR(300),
+         p_prog_ordem3       CHAR(300),
+         p_prog_ordem4       CHAR(300),
+         p_prog_ordem5       CHAR(300),
+         p_prog_ordem6       CHAR(300),
+         p_prog_ordem7       CHAR(300),
+         p_prog_ordem8       CHAR(300),
+         p_qtd_entreg        CHAR(10400),
+         p_qtd_entreg1       CHAR(500),
+         p_qtd_entreg2       CHAR(500),
+         p_qtd_entreg3       CHAR(500),
+         p_qtd_entreg4       CHAR(500),
+         p_qtd_entreg5       CHAR(500),
+         p_qtd_entreg6       CHAR(100),
+         p_qtd_entreg7       CHAR(500),
+         p_qtd_entreg8       CHAR(500),
+         p_qtd_entreg9       CHAR(500),
+         p_qtd_entreg10      CHAR(500),
+         p_qtd_entreg11      CHAR(500),
+         p_qtd_entreg12      CHAR(100),
+         p_qtd_entreg13      CHAR(500),
+         p_qtd_entreg14      CHAR(500),
+         p_qtd_entreg15      CHAR(500),
+         p_qtd_entreg16      CHAR(500),
+         p_qtd_entreg17      CHAR(500),
+         p_qtd_entreg18      CHAR(100),
+         p_qtd_entreg19      CHAR(500),
+         p_qtd_entreg20      CHAR(500),
+         p_qtd_entreg21      CHAR(500),
+         p_qtd_entreg22      CHAR(500),
+         p_qtd_entreg23      CHAR(500),
+         p_qtd_entreg24      CHAR(100),
+         p_modifica_qtd      CHAR(01),
+         p_retorno_3760      SMALLINT,
+         p_houve_erro        SMALLINT,
+         g_cod_forn_sup3850  LIKE fornecedor.cod_fornecedor,
+         p_ies_interf_cre    CHAR(01),
+         p_entra_array       CHAR(01),
+         p_saldo_frete       LIKE frete_sup.val_frete,
+         p_saldo_icms        LIKE frete_sup.val_tot_icms_frt_d,
+         p_saldo_icms_c      LIKE frete_sup.val_tot_icms_frt_d,
+         p_saldo_frete_ant   LIKE frete_sup.val_frete,
+         p_saldo_icms_ant    LIKE frete_sup.val_tot_icms_frt_d,
+         p_entra_tot         CHAR(01),
+         p_pedido_sele       CHAR(4800),
+         p_pedido_sele1      CHAR(500),
+         p_pedido_sele2      CHAR(500),
+         p_pedido_sele3      CHAR(200),
+         p_pedido_sele4      CHAR(500),
+         p_pedido_sele5      CHAR(500),
+         p_pedido_sele6      CHAR(200),
+         p_pedido_sele7      CHAR(500),
+         p_pedido_sele8      CHAR(500),
+         p_pedido_sele9      CHAR(200),
+         p_pedido_sele10     CHAR(500),
+         p_pedido_sele11     CHAR(500),
+         p_pedido_sele12     CHAR(200),
+         p_ordem_sele        CHAR(7200),
+         p_ordem_sele1       CHAR(500),
+         p_ordem_sele2       CHAR(500),
+         p_ordem_sele3       CHAR(500),
+         p_ordem_sele4       CHAR(300),
+         p_ordem_sele5       CHAR(500),
+         p_ordem_sele6       CHAR(500),
+         p_ordem_sele7       CHAR(500),
+         p_ordem_sele8       CHAR(300),
+         p_ordem_sele9       CHAR(500),
+         p_ordem_sele10      CHAR(500),
+         p_ordem_sele11      CHAR(500),
+         p_ordem_sele12      CHAR(300),
+         p_ordem_sele13      CHAR(500),
+         p_ordem_sele14      CHAR(500),
+         p_ordem_sele15      CHAR(500),
+         p_ordem_sele16      CHAR(300),
+         p_declarad_sele     CHAR(240),
+         p_ies_reservou      CHAR(01),
+         p_ind3              SMALLINT,
+         p_ind9              SMALLINT,
+         p_num_prog_cham     SMALLINT,
+         p_tot_itens         SMALLINT,
+         p_cod_item_pop      LIKE item.cod_item,
+         p_num_conhec        LIKE frete_sup.num_conhec,
+         p_ser_conhec        LIKE nf_sup.ser_conhec,
+         p_ssr_conhec        LIKE nf_sup.ssr_conhec,
+         p_cod_transpor      LIKE nf_sup.cod_transpor,
+         p_fornec_incl_item  LIKE pedido_sup.cod_fornecedor,
+         p_tip_recebimento   CHAR(01),
+         p_ies_informou_ped  CHAR(01),
+         p_qtd_array         LIKE aviso_rec.qtd_declarad_nf,
+         p_val_array         LIKE aviso_rec.val_liquido_item,
+         p_ind_tela          SMALLINT,
+         p_nom_resp_aceite_er LIKE nf_sup.nom_resp_aceite_er,
+         p_diferenca_f       LIKE estoque_trans.cus_tot_movto_p,
+         p_diferenca_p       LIKE estoque_trans.cus_tot_movto_p,
+         p_frete_sup         RECORD LIKE  frete_sup.*,
+         p_frete_sup_compl   RECORD LIKE  frete_sup_compl.*,
+         p_plano_contas      RECORD LIKE  plano_contas.*,
+         p_des_pendencia     LIKE  frete_sup_erro.des_pendencia,
+         p_it_prg_entr       CHAR(297),
+         p_it_prg_entr_reser CHAR(500),
+         p_item_sup          RECORD LIKE item_sup.*,
+         p_item                 RECORD LIKE item.*,
+         p_par_estoque       RECORD LIKE par_estoque.*,
+         p_parametros         CHAR(01),
+         p_ind2              SMALLINT,
+         p_ies_contrib_ipi   CHAR(01),
+         p_soma_reserva2     LIKE aviso_rec.qtd_declarad_nf,
+         p_soma_reserva3     LIKE aviso_rec.qtd_declarad_nf,
+         p_val_soma_reserva2 LIKE aviso_rec.val_liquido_item,
+         p_val_soma_reserva3 LIKE aviso_rec.val_liquido_item,
+         p_prx_seq           LIKE aviso_rec.num_seq,
+         p_num_seq           SMALLINT,
+         p_cod_fiscal_forma  CHAR(04),
+         p_qtd_declarad_nf   LIKE aviso_rec.qtd_declarad_nf,
+         p_val_liquido_item  LIKE aviso_rec.val_liquido_item,
+         p_primeira_vez      SMALLINT,
+         comando3            CHAR(200),
+         p_conta_lanc        SMALLINT
+
+  DEFINE p_ies_achou_itsup   SMALLINT,
+         p_ies_nf_transf     SMALLINT,
+         gr_uni_feder        RECORD LIKE uni_feder.*,
+         p_ies_pc_ant_fornec CHAR(01),
+         p_cod_moeda_ped     LIKE pedido_sup.cod_moeda,
+         p_ies_indexacao     LIKE par_sup_pad.par_ies,
+         p_ies_item_cont_aut CHAR(01),
+         p_ies_item_insp_aut CHAR(01),
+         p_cod_seg_merc      DECIMAL(2,0),
+         p_cod_cla_uso       DECIMAL(2,0),
+         p_item_parametro    RECORD LIKE item_parametro.*,
+         p_ies_cont_insp_aut CHAR(01),
+         p_oper_trans_unid   LIKE estoque_operac.cod_operacao,
+         p_cod_emp_transf    LIKE empresa.cod_empresa,
+         p_ies_obt_inf_com   CHAR(01),
+         g_ies_nf_permuta    SMALLINT,
+         g_nat_oper_permuta  LIKE nat_operacao.cod_nat_oper,
+         g_operac_permuta    LIKE estoque_operac.cod_operacao,
+         g_cod_emp_permuta   LIKE empresa.cod_empresa,
+         p_cond_pgto_cap     RECORD LIKE cond_pgto_cap.*,
+         p_uni_feder         RECORD LIKE uni_feder.*
+
+  DEFINE p_array_ped_itens  ARRAY[999] OF RECORD
+                            num_oc           LIKE ordem_sup.num_oc,
+                            num_pedido       LIKE ordem_sup.num_pedido,
+                            num_prog_entrega LIKE prog_ordem_sup.num_prog_entrega,
+                            ies_item_estoq   LIKE ordem_sup.ies_item_estoq,
+                            cod_item         LIKE ordem_sup.cod_item,
+                            den_item         CHAR(50),
+                            cod_unid_med     LIKE ordem_sup.cod_unid_med,
+                            pct_ipi          LIKE ordem_sup.pct_ipi,
+                            pre_unit_oc      LIKE ordem_sup.pre_unit_oc,
+                            pct_aceite_dif   LIKE ordem_sup.pct_aceite_dif,
+                            ies_liquida_oc   LIKE ordem_sup.ies_liquida_oc,
+                            qtd_entregue     LIKE prog_ordem_sup.qtd_recebida
+                            END RECORD
+  DEFINE p_array_ped_aux    ARRAY[999] OF RECORD
+                            cod_fornecedor   LIKE pedido_sup.cod_fornecedor,
+                            qtd_entregue     LIKE prog_ordem_sup.qtd_recebida
+                            END RECORD
+  DEFINE g_num_aviso_rec     LIKE ar_x_nf_pend.num_aviso_rec,
+         g_cod_fornecedor    LIKE ar_x_nf_pend.cod_fornecedor,
+         g_num_nf            LIKE ar_x_nf_pend.num_nf,
+         g_ser_nf            LIKE ar_x_nf_pend.ser_nf,
+         g_ssr_nf            LIKE ar_x_nf_pend.ssr_nf,
+         g_cod_item          LIKE ar_x_nf_pend.cod_item,
+         g_num_seq           LIKE ar_x_nf_pend.num_seq
+
+  DEFINE p_cod_oper_ant   LIKE aviso_rec_compl.cod_operacao
+
+  DEFINE p_nfe_import          SMALLINT,
+         p_nfm_import          SMALLINT,
+         g_prim_rateio         SMALLINT,
+         g_proc_ini_os163407   DECIMAL(6,0),
+         p_processo_imp        RECORD LIKE processo_imp.*,
+         p_proc_item           RECORD LIKE proc_item.*,
+         g_val_desp_tot        DECIMAL(18,2),
+         g_icms_total_nf       CHAR(01),
+         g_dat_icms_tot_nf     DATE
+
+  DEFINE p_aviso_rec         RECORD LIKE aviso_rec.*,
+         p_nf_sup            RECORD LIKE nf_sup.*,
+         p_par_sup           RECORD LIKE par_sup.*,
+         p_par_sup_compl     RECORD LIKE par_sup_compl.*,
+         p_par_sup_compl_1   RECORD LIKE par_sup_compl_1.*,
+         p_ar_ped            RECORD LIKE ar_ped.*,
+         p_ar_diverg         RECORD LIKE ar_diverg.*,
+         p_prog_ordem_sup    RECORD LIKE prog_ordem_sup.*,
+         p_empresa           RECORD LIKE empresa.*,
+         p_ordem_sup         RECORD LIKE ordem_sup.*,
+         p_par_con           RECORD LIKE par_con.*,
+         p_ies_contab_aen    LIKE par_con.ies_contab_aen,
+         p_cod_fiscal_item   LIKE aviso_rec.cod_fiscal_item,
+         p_pre_unit_nf       LIKE aviso_rec.pre_unit_nf,
+         p_prim_digito       CHAR(01),
+         p_ult_digitos       CHAR(03),
+         p_cod_uni_feder     LIKE fornecedor.cod_uni_feder,
+         p_dest_aviso_rec    RECORD LIKE dest_aviso_rec.*,
+         p_fat_conver_unid   LIKE ordem_sup.fat_conver_unid,
+         p_fator_unid        LIKE fat_conver.fat_conver_unid,
+         p_num_conta_sal     LIKE plano_contas.num_conta,
+         p_fornecedor        RECORD LIKE fornecedor.*,
+         p_maior_data        DATE,
+         p_menor_data        DATE,
+         p_pedido_sup        RECORD LIKE pedido_sup.*,
+         p_ies_tem_inspecao  LIKE item.ies_tem_inspecao,
+         p_dados_tela        RECORD
+                                cod_empresa       LIKE aviso_rec.cod_empresa,
+                                cod_empresa_estab LIKE nf_sup.cod_empresa_estab,
+                                filial            DECIMAL(10),
+                                num_aviso_rec     LIKE aviso_rec.num_aviso_rec,
+                                cod_fornecedor    LIKE fornecedor.cod_fornecedor,
+                                num_nf            LIKE nf_sup.num_nf,
+                                ser_nf            LIKE nf_sup.ser_nf,
+                                ssr_nf            LIKE nf_sup.ssr_nf,
+                                ies_especie_nf    LIKE nf_sup.ies_especie_nf,
+                                ies_nf_aguard_nfe LIKE nf_sup.ies_nf_aguard_nfe,
+                                cod_emp_benef     LIKE empresa.cod_empresa,
+                                cod_operac_estoq  LIKE estoque_operac.cod_operacao,
+                                cod_operacao      CHAR(05),
+                                cod_fiscal_compl  INTEGER,
+                                dat_emis_nf       LIKE nf_sup.dat_emis_nf,
+                                dat_entrada_nf    LIKE nf_sup.dat_entrada_nf,
+                                cnd_pgto_nf       LIKE nf_sup.cnd_pgto_nf,
+                                cod_mod_embar     LIKE nf_sup.cod_mod_embar,
+                                ies_impostos      CHAR(01)
+                             END RECORD,
+         p_codigos      RECORD
+                          cod_operac_estoq  LIKE estoque_operac.cod_operacao,
+                          cod_operacao      CHAR(05),
+                          cod_fiscal_compl  INTEGER,
+                          cod_mod_embar     LIKE nf_sup.cod_mod_embar
+                        END RECORD,
+         p_dados_tela_f RECORD
+                    val_ipi_nf          DECIMAL(17,2),
+                    val_tot_icms_nf_d   DECIMAL(17,2),
+                    val_tot_nf_d        DECIMAL(17,2) ,
+                    ies_desc_acres      CHAR(01)
+             END RECORD,
+         p_dados_telar  RECORD
+                          cod_empresa       LIKE aviso_rec.cod_empresa,
+                          cod_empresa_estab LIKE nf_sup.cod_empresa_estab,
+                          filial            DECIMAL(10),
+                          num_aviso_rec     LIKE aviso_rec.num_aviso_rec,
+                          cod_fornecedor    LIKE fornecedor.cod_fornecedor,
+                          num_nf            LIKE nf_sup.num_nf,
+                          ser_nf            LIKE nf_sup.ser_nf,
+                          ssr_nf            LIKE nf_sup.ssr_nf,
+                          ies_especie_nf    LIKE nf_sup.ies_especie_nf,
+                          ies_nf_aguard_nfe LIKE nf_sup.ies_nf_aguard_nfe,
+                          cod_emp_benef     LIKE empresa.cod_empresa,
+                          cod_operac_estoq  LIKE estoque_operac.cod_operacao,
+                          cod_operacao      CHAR(05),
+                          cod_fiscal_compl  INTEGER,
+                          dat_emis_nf       LIKE nf_sup.dat_emis_nf,
+                          dat_entrada_nf    LIKE nf_sup.dat_entrada_nf,
+                          cnd_pgto_nf       LIKE nf_sup.cnd_pgto_nf,
+                          cod_mod_embar     LIKE nf_sup.cod_mod_embar,
+                          ies_impostos      CHAR(01)
+                       END RECORD,
+         p_dados_telar_f RECORD
+                    ipi              DECIMAL(17,2),
+                    icms             DECIMAL(17,2),
+                    tot_nf           DECIMAL(17,2)
+                     END RECORD,
+         p_formonly    RECORD
+                          raz_social         LIKE fornecedor.raz_social,
+                          des_cnd_pgto       LIKE cond_pgto_cap.des_cnd_pgto,
+                          tex_tip_frete      CHAR(15)
+                       END RECORD,
+         p_formonlyr   RECORD
+                          raz_social         LIKE fornecedor.raz_social,
+                          des_cnd_pgto       LIKE cond_pgto_cap.des_cnd_pgto,
+                          tex_tip_frete      CHAR(15)
+                       END RECORD,
+
+         p_funcao_menu       CHAR(30),
+         p_cod_item          LIKE item_sup.cod_item,
+         p_dif_aceita        DECIMAL(17,2),
+         p_val_dif_aceita    DECIMAL(17,2),
+         p_cont_aut_terc     SMALLINT
+
+   DEFINE p_array_compl ARRAY[999] OF
+         RECORD
+            ies_item_estoq      LIKE aviso_rec.ies_item_estoq       ,
+            ies_liberacao_insp  LIKE aviso_rec.ies_liberacao_insp   ,
+            ies_controle_lote   LIKE aviso_rec.ies_controle_lote    ,
+            cod_local_estoq     LIKE item.cod_local_estoq           ,
+            cod_cla_fisc        LIKE item.cod_cla_fisc              ,
+            num_pedido          LIKE pedido_sup.num_pedido          ,
+            num_oc              LIKE ordem_sup.num_oc               ,
+            num_prog_entrega    LIKE prog_ordem_sup.num_prog_entrega,
+            ies_diverg_preco    LIKE ar_diverg.ies_tip_diverg       ,
+            ies_bloqueada       CHAR(01)                            ,
+            qtd_declarad_nf     LIKE aviso_rec.qtd_declarad_nf      ,
+            ar_com_pc           CHAR(01)                            ,
+            move_estoque        CHAR(01)                            ,
+            cod_lin_prod        LIKE item.cod_lin_prod              ,
+            cod_lin_recei       LIKE item.cod_lin_recei             ,
+            cod_seg_merc        LIKE item.cod_seg_merc              ,
+            cod_cla_uso         LIKE item.cod_cla_uso               ,
+            qtd_reserva_prog    LIKE ar_ped.qtd_reservada           ,
+            alterou_val_liquido SMALLINT                            ,
+            pct_ipi_tabela      LIKE aviso_rec.pct_ipi_tabela       ,
+            pct_aceite_dif      LIKE ordem_sup.pct_aceite_dif       ,
+            tot_reserv_dif      LIKE ordem_sup.qtd_solic            ,
+            ies_liquida_oc      LIKE ordem_sup.ies_liquida_oc       ,
+            pre_unit_nf         LIKE aviso_rec.pre_unit_nf          ,
+            val_reserva_prog    LIKE aviso_rec.val_liquido_item     ,
+            ies_tip_item        LIKE item.ies_tip_item              ,
+            val_ii              LIKE proc_item.val_ii               ,
+            val_desp_imp        DECIMAL(15,2)
+         END RECORD
+
+      DEFINE p_array         ARRAY[999] OF RECORD
+                        seq                CHAR(03),
+                        cod_item           LIKE item.cod_item,
+                        qtd_declarad_nf    LIKE aviso_rec.qtd_declarad_nf,
+                        cod_unid_med_nf    LIKE aviso_rec.cod_unid_med_nf,
+                        pre_unit_nf        LIKE aviso_rec.pre_unit_nf,
+                        val_liquido_item   LIKE aviso_rec.val_liquido_item,
+                        den_item           CHAR(50),
+                        cod_cla_fisc_nf    LIKE aviso_rec.cod_cla_fisc_nf,
+                        pct_ipi            LIKE aviso_rec.pct_ipi_declarad
+                             END RECORD,
+         p_ind, p_ind1       SMALLINT
+
+   #----------------------------------#
+   # Modifica��o realizada para o WMS #
+   #----------------------------------#
+   DEFINE p_array_wms     ARRAY[999] OF RECORD
+                             seq                CHAR(03),
+                             cod_item           LIKE wms_item_complemento.item_deposit,
+                             qtd_declarad_nf    LIKE aviso_rec.qtd_declarad_nf,
+                             cod_unid_med_nf    LIKE aviso_rec.cod_unid_med_nf,
+                             pre_unit_nf        LIKE aviso_rec.pre_unit_nf,
+                             val_liquido_item   LIKE aviso_rec.val_liquido_item,
+                             den_item           CHAR(50),
+                             cod_cla_fisc_nf    LIKE aviso_rec.cod_cla_fisc_nf,
+                             pct_ipi            LIKE aviso_rec.pct_ipi_declarad
+                          END RECORD
+  #-----------------------------------#
+
+  DEFINE ga_nf_item_fiscal   ARRAY[999] OF RECORD
+                             val_base_ipi   LIKE nf_item_fiscal.val_base_ipi,
+                             val_ipi        LIKE nf_item_fiscal.val_ipi,
+                             val_base_icms  LIKE nf_item_fiscal.val_base_icm
+                             END RECORD
+
+  DEFINE p_array_it_prg_entr  ARRAY[999,50] OF
+         RECORD
+            num_prog_entrega   LIKE prog_ordem_sup.num_prog_entrega,
+            qtd_reservada      LIKE prog_ordem_sup.qtd_recebida    ,
+            qtd_solic          LIKE prog_ordem_sup.qtd_solic       ,
+            val_reservado      LIKE prog_ordem_sup_com.val_receb   ,
+            val_solic          LIKE prog_ordem_sup_com.val_solic
+         END RECORD
+
+  DEFINE p_nota  RECORD
+                    cod_empresa         LIKE nf_sup.cod_empresa,
+                    num_aviso_rec       LIKE nf_sup.num_aviso_rec,
+                    ies_nf_com_erro     LIKE nf_sup.ies_nf_com_erro,
+                    nom_resp_aceite_er  LIKE nf_sup.nom_resp_aceite_er,
+                    ies_incl_cap        LIKE nf_sup.ies_incl_cap,
+                    dat_entrada_nf      LIKE nf_sup.dat_entrada_nf,
+                    dat_emis_nf         LIKE nf_sup.dat_emis_nf,
+                    cod_fornecedor      LIKE nf_sup.cod_fornecedor,
+                    num_nf              LIKE nf_sup.num_nf,
+                    ser_nf              LIKE nf_sup.ser_nf,
+                    ssr_nf              LIKE nf_sup.ssr_nf,
+                    ies_especie_nf      LIKE nf_sup.ies_especie_nf,
+                    ies_nf_aguard_nfe   LIKE nf_sup.ies_nf_aguard_nfe
+                 END RECORD
+
+  DEFINE p_array_pedidos     ARRAY[999] OF RECORD
+                             num_pedido       LIKE pedido_sup.num_pedido,
+                             num_oc           LIKE ordem_sup.num_oc,
+                             num_prog_entrega LIKE ar_ped.num_prog_entrega,
+                             num_pc_forn      LIKE prog_ordem_sup.num_pedido_fornec
+                             END RECORD
+
+  DEFINE p_sub, p_ind8         SMALLINT,
+         p_cod_empresa_arg     LIKE empresa.cod_empresa,
+         p_num_aviso_rec_arg   LIKE aviso_rec.num_aviso_rec,
+         p_cons_arg            SMALLINT
+
+  DEFINE p_cod_ret_imp         LIKE nf_sup.cod_imp_renda,
+         p_ies_fis_jur         CHAR(01)
+  DEFINE p_cotacao_preco       RECORD LIKE cotacao_preco.*
+  DEFINE p_versao              CHAR(018)
+
+  DEFINE p_ies_imp_renda       CHAR(01)
+  DEFINE p_ies_imp_ret_inss    CHAR(01)
+  DEFINE p_perc_ret_inss       DECIMAL(5,3)
+  DEFINE p_base_calc_ret_inss  DECIMAL(17,2)
+  DEFINE p_ies_imp_inss_rur    CHAR(01)
+  DEFINE p_perc_ret_inss_rur   DECIMAL(5,3)
+  DEFINE p_base_calc_inss_rur  DECIMAL(17,2)
+  DEFINE p_motivo_isencao      CHAR(200)
+
+  DEFINE p_array_volta      ARRAY[999] OF
+   RECORD
+        cod_fornecedor     LIKE pedido_sup.cod_fornecedor,
+        num_pedido         LIKE pedido_sup.num_pedido,
+        num_oc             LIKE ordem_sup.num_oc,
+        num_prog_entrega   LIKE prog_ordem_sup.num_prog_entrega,
+        cod_item           LIKE ordem_sup.cod_item             ,
+        den_item           CHAR(32)                            ,
+        cod_unid_med       LIKE ordem_sup.cod_unid_med         ,
+        qtd_entregue       LIKE prog_ordem_sup.qtd_recebida,
+        num_ped_forn       LIKE prog_ordem_sup.num_pedido_fornec
+   END RECORD
+
+  DEFINE p_array_dev_trans     ARRAY[999] OF RECORD
+                        val_desc_item      LIKE aviso_rec.val_desc_item,
+                        ies_tip_incid_ipi  LIKE aviso_rec.ies_tip_incid_ipi,
+                        ies_incid_icms_ite LIKE aviso_rec.ies_incid_icms_ite,
+                        ies_bi_tributacao  CHAR(01)
+                             END RECORD
+  DEFINE p_array_imp        ARRAY[999] OF RECORD
+                            quantidade       LIKE aviso_rec.qtd_declarad_nf,
+                            val_ii_tot       LIKE proc_item.val_ii,
+                            val_ii           LIKE proc_item.val_ii,
+                            val_desp_imp_tot DECIMAL(15,2),
+                            val_desp_imp     DECIMAL(15,2),
+                            val_ipi_tot      LIKE proc_item.val_ipi,
+                            val_ipi          LIKE proc_item.val_ipi,
+                            val_icms_tot     LIKE proc_item.val_icms,
+                            val_icms         LIKE proc_item.val_icms,
+                            val_da_icms      DECIMAL(15,2),
+                            cod_cla_fisc     LIKE proc_item.cod_ncm
+                            END RECORD
+
+  DEFINE p_ar_proc_imp      RECORD LIKE aviso_rec_proc_imp.*
+  DEFINE g_ies_wis_instalado CHAR(01),
+         g_ies_tex_inst      CHAR(01)
+  DEFINE g_ies_wms_instalado CHAR(01)
+  DEFINE g_ies_transf_benef  SMALLINT,
+         g_ies_retorno_ind   SMALLINT,
+         g_ret_sem_ind       SMALLINT,
+         g_baixou_terceiro   SMALLINT,
+         g_passou_skip_lote  SMALLINT
+
+  DEFINE g_ies_tip_controle LIKE nat_operacao.ies_tip_controle,
+         g_pergunta         CHAR(01),
+         g_uf_trans_nfdr    LIKE par_sup_pad.par_ies,
+         g_ser_mark         SMALLINT
+
+ DEFINE ga_man_moviment    ARRAY[100] OF RECORD
+                                          serie            LIKE man_moviment_serie.serie,
+                                          item             LIKE man_moviment_serie.item,
+                                          num_docum        LIKE man_moviment_serie.num_docum,
+                                          tip_docum        LIKE man_moviment_serie.tip_docum,
+                                          status_ordem     LIKE man_moviment_serie.status_ordem,
+                                          loc_est_debitad  LIKE man_moviment_serie.loc_est_debitad,
+                                          programa         LIKE man_moviment_serie.programa
+                                        END RECORD
+
+ DEFINE g_ind_tela         SMALLINT,
+        g_item_branco      SMALLINT,
+        p_cod_emp_atual    LIKE empresa.cod_empresa,
+        g_ind_nfe          SMALLINT
+
+ DEFINE g_gerar_cred_impostos_nfm_import CHAR(01)
+
+ DEFINE p_array_compl1 ARRAY[999] OF
+         RECORD
+            cod_tip_despesa LIKE aviso_rec.cod_tip_despesa
+         END RECORD
+
+  DEFINE g_modifica_nf_transito SMALLINT,
+         g_nao_inclui           SMALLINT
+
+  DEFINE g_den_item             LIKE item.den_item
+
+###variaveis abaixo s�o utilizadas no sup3762, sup1561 e tamb�m no sup3760 (definido como variavel global)
+ DEFINE g_devol_nf_parcial        SMALLINT,
+        g_devol_consig_total      SMALLINT,
+        g_array_devolucao         SMALLINT,
+        g_devol_venda_total       SMALLINT,
+        g_itens_nf_devol_parcial  CHAR(01),
+        g_contagem_autom_devol    CHAR(01),
+        g_tipo_sgbd               CHAR(003),
+        g_ies_excl_end_zero       CHAR(01)
+ END GLOBALS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+program:  [1:1] {
+| | | operator: # [1:1] {
+| ##PARSER-N�o remover esta linha(Framework Logix)###| newLine: \\n [1:53] {
+| | | operator: # [2:1] {
+| -----------------------------------------------------------------------#| newLine: \\n [2:74] {
+| | operator: # [3:1] {
+|  SISTEMA.: SUPRIMENTOS                                                 #| newLine: \\n [3:74] {
+| | operator: # [4:1] {
+|  FUNCAO..: SUP3761                                                     #| newLine: \\n [4:74] {
+| | operator: # [5:1] {
+|  OBJETIVO: DEFINICOES/INICIALIZACAO DE VARIAVEIS UTILIZADAS NO SUP3760 #| newLine: \\n [5:74] {
+| | operator: # [6:1] {
+|  AUTOR...: TATIANE WIESE - IVAN PAULO RONCHI                           #| newLine: \\n [6:74] {
+| | operator: # [7:1] {
+|  DATA....: 01/11/1996                                                  #| newLine: \\n [7:74] {
+| | operator: # [8:1] {
+| -----------------------------------------------------------------------#######| newLine: \\n\\n [8:80] {
+| notSpecified: DATABASE [10:1] {
+| | whiteSpace: \\b [10:9] {
+| notSpecified: logix\\n\\n [10:10] {
+| | whiteSpace: \\b\\b [12:1] {
+| notSpecified: GLOBALS\\n [12:3] {
+| | whiteSpace: \\b [13:1] {
+| notSpecified: DEFINE [13:2] {
+| | whiteSpace: \\b [13:8] {
+| notSpecified: p_cod_empresa [13:9] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [13:22] {
+| notSpecified: LIKE [13:29] {
+| | whiteSpace: \\b [13:33] {
+| notSpecified: empresa.cod_empresa,\\n [13:34] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [14:1] {
+| notSpecified: g_ies_obj_entrada [14:10] {
+| | whiteSpace: \\b\\b\\b [14:27] {
+| notSpecified: LIKE [14:30] {
+| | whiteSpace: \\b [14:34] {
+| notSpecified: cod_fiscal_sup.ies_obj_entrada,\\n [14:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [15:1] {
+| notSpecified: p_cod_empresa_dest [15:10] {
+| | whiteSpace: \\b\\b [15:28] {
+| notSpecified: LIKE [15:30] {
+| | whiteSpace: \\b [15:34] {
+| notSpecified: empresa.cod_empresa,\\n [15:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [16:1] {
+| notSpecified: p_user [16:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [16:16] {
+| notSpecified: LIKE [16:30] {
+| | whiteSpace: \\b [16:34] {
+| notSpecified: usuario.nom_usuario,\\n [16:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [17:1] {
+| notSpecified: p_ies_fornec_ativo [17:10] {
+| | whiteSpace: \\b\\b [17:28] {
+| notSpecified: LIKE [17:30] {
+| | whiteSpace: \\b [17:34] {
+| notSpecified: fornecedor.ies_fornec_ativo,\\n [17:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [18:1] {
+| notSpecified: p_ies_cod_operac [18:10] {
+| | whiteSpace: \\b\\b\\b\\b [18:26] {
+| notSpecified: CHAR(01),\\n [18:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [19:1] {
+| notSpecified: p_ies_tip_entrada [19:10] {
+| | whiteSpace: \\b\\b\\b [19:27] {
+| notSpecified: LIKE [19:30] {
+| | whiteSpace: \\b [19:34] {
+| notSpecified: cod_fiscal_sup.ies_tip_entrada,\\n [19:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [20:1] {
+| notSpecified: p_ies_cod_cgc [20:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [20:23] {
+| notSpecified: CHAR(01),\\n [20:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [21:1] {
+| notSpecified: p_ies_cod_fornec [21:10] {
+| | whiteSpace: \\b\\b\\b\\b [21:26] {
+| notSpecified: CHAR(01),\\n [21:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [22:1] {
+| notSpecified: g_ies_grafico [22:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [22:23] {
+| notSpecified: SMALLINT,\\n [22:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [23:1] {
+| notSpecified: p_ies_dat_fabr_ar [23:10] {
+| | whiteSpace: \\b\\b\\b [23:27] {
+| notSpecified: CHAR(01),\\n [23:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [24:1] {
+| notSpecified: p_cod_secao_rec [24:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [24:25] {
+| notSpecified: LIKE [24:30] {
+| | whiteSpace: \\b [24:34] {
+| notSpecified: ordem_sup.cod_secao_receb,\\n [24:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [25:1] {
+| notSpecified: p_cod_operacao [25:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [25:24] {
+| notSpecified: LIKE [25:30] {
+| | whiteSpace: \\b [25:34] {
+| notSpecified: estoque_operac.cod_operacao,\\n [25:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [26:1] {
+| notSpecified: p_conta [26:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [26:17] {
+| notSpecified: SMALLINT,\\n [26:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [27:1] {
+| notSpecified: p_tmp_transpor [27:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [27:24] {
+| notSpecified: LIKE [27:30] {
+| | whiteSpace: \\b [27:34] {
+| notSpecified: fornecedor.tmp_transpor,\\n [27:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [28:1] {
+| notSpecified: p_cod_tip_despesa [28:10] {
+| | whiteSpace: \\b\\b\\b [28:27] {
+| notSpecified: LIKE [28:30] {
+| | whiteSpace: \\b [28:34] {
+| notSpecified: ordem_sup.cod_tip_despesa,\\n [28:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [29:1] {
+| notSpecified: p_ies_entr_sem_ped [29:10] {
+| | whiteSpace: \\b\\b [29:28] {
+| notSpecified: SMALLINT,\\n [29:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [30:1] {
+| notSpecified: p_sup_cap [30:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [30:19] {
+| notSpecified: SMALLINT,\\n [30:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [31:1] {
+| notSpecified: p_sup_mes [31:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [31:19] {
+| notSpecified: SMALLINT,\\n [31:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [32:1] {
+| notSpecified: p_cod_grp_desp_nfr [32:10] {
+| | whiteSpace: \\b\\b [32:28] {
+| notSpecified: DECIMAL(15,2),\\n [32:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [33:1] {
+| notSpecified: p_ies_item_nfd_nfr [33:10] {
+| | whiteSpace: \\b\\b [33:28] {
+| notSpecified: CHAR(1),\\n [33:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [34:1] {
+| notSpecified: p_ies_entrada_maior [34:10] {
+| | whiteSpace: \\b [34:29] {
+| notSpecified: CHAR(1),\\n [34:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [35:1] {
+| notSpecified: p_ies_incl_cap [35:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [35:24] {
+| notSpecified: SMALLINT,\\n [35:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [36:1] {
+| notSpecified: p_ies_imp_iss [36:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [36:23] {
+| notSpecified: CHAR(01),\\n [36:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [37:1] {
+| notSpecified: p_tip_desp_cons_fat [37:10] {
+| | whiteSpace: \\b [37:29] {
+| notSpecified: DECIMAL(4,0),\\n [37:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [38:1] {
+| notSpecified: p_aguarda_fatura [38:10] {
+| | whiteSpace: \\b\\b\\b\\b [38:26] {
+| notSpecified: CHAR(1),\\n [38:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [39:1] {
+| notSpecified: p_cons_data [39:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [39:21] {
+| notSpecified: SMALLINT,\\n [39:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [40:1] {
+| notSpecified: p_qtd_dias_emis_doc [40:10] {
+| | whiteSpace: \\b [40:29] {
+| notSpecified: DECIMAL(5,0),\\n [40:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [41:1] {
+| notSpecified: p_nom_reduz_cli [41:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [41:25] {
+| notSpecified: CHAR(10),\\n [41:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [42:1] {
+| notSpecified: p_cgc_cpf1 [42:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [42:20] {
+| notSpecified: CHAR(3),\\n [42:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [43:1] {
+| notSpecified: p_cgc_cpf2 [43:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [43:20] {
+| notSpecified: CHAR(3),\\n [43:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [44:1] {
+| notSpecified: p_cgc_cpf3 [44:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [44:20] {
+| notSpecified: CHAR(3),\\n [44:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [45:1] {
+| notSpecified: p_cgc_cpf4 [45:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [45:20] {
+| notSpecified: CHAR(4),\\n [45:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [46:1] {
+| notSpecified: p_cgc_cpf5 [46:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [46:20] {
+| notSpecified: CHAR(2),\\n [46:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [47:1] {
+| notSpecified: p_ord_forn [47:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [47:20] {
+| notSpecified: SMALLINT,\\n [47:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [48:1] {
+| notSpecified: p_tipo [48:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [48:16] {
+| notSpecified: CHAR(8),\\n [48:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [49:1] {
+| notSpecified: p_quantos [49:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [49:19] {
+| notSpecified: SMALLINT,\\n [49:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [50:1] {
+| notSpecified: p_aguard_5 [50:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [50:20] {
+| notSpecified: SMALLINT,\\n [50:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [51:1] {
+| notSpecified: p_num_ar376 [51:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [51:21] {
+| notSpecified: LIKE [51:30] {
+| | whiteSpace: \\b [51:34] {
+| notSpecified: aviso_rec.num_aviso_rec,\\n [51:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [52:1] {
+| notSpecified: p_ind_sal [52:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [52:19] {
+| notSpecified: SMALLINT,\\n [52:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [53:1] {
+| notSpecified: p_entrou [53:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [53:18] {
+| notSpecified: SMALLINT,\\n [53:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [54:1] {
+| notSpecified: p_entrou_pedido [54:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [54:25] {
+| notSpecified: CHAR(01),\\n [54:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [55:1] {
+| notSpecified: p_nfe_vendas [55:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [55:22] {
+| notSpecified: SMALLINT,\\n [55:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [56:1] {
+| notSpecified: p_ies_oc [56:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [56:18] {
+| notSpecified: LIKE [56:30] {
+| | whiteSpace: \\b [56:34] {
+| notSpecified: estoque_operac.ies_oc,\\n [56:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [57:1] {
+| notSpecified: p_ar_os [57:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [57:17] {
+| notSpecified: SMALLINT,\\n [57:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [58:1] {
+| notSpecified: p_ies_aguard_nfe [58:10] {
+| | whiteSpace: \\b\\b\\b\\b [58:26] {
+| notSpecified: LIKE [58:30] {
+| | whiteSpace: \\b [58:34] {
+| notSpecified: nf_sup.ies_nf_aguard_nfe,\\n [58:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [59:1] {
+| notSpecified: p_argumento [59:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [59:21] {
+| notSpecified: LIKE [59:30] {
+| | whiteSpace: \\b [59:34] {
+| notSpecified: aviso_rec.ies_contabil,\\n [59:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [60:1] {
+| notSpecified: p_item_fornec [60:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [60:23] {
+| notSpecified: RECORD [60:30] {
+| | whiteSpace: \\b [60:36] {
+| notSpecified: LIKE [60:37] {
+| | whiteSpace: \\b [60:41] {
+| notSpecified: item_fornec.*,\\n [60:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [61:1] {
+| notSpecified: p_item1 [61:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [61:17] {
+| notSpecified: RECORD [61:30] {
+| | whiteSpace: \\b [61:36] {
+| notSpecified: LIKE [61:37] {
+| | whiteSpace: \\b [61:41] {
+| notSpecified: item.*,\\n [61:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [62:1] {
+| notSpecified: p_clientes [62:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [62:20] {
+| notSpecified: RECORD [62:30] {
+| | whiteSpace: \\b [62:36] {
+| notSpecified: LIKE [62:37] {
+| | whiteSpace: \\b [62:41] {
+| notSpecified: clientes.*,\\n [62:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [63:1] {
+| notSpecified: p_par_diverg_rec [63:10] {
+| | whiteSpace: \\b\\b\\b\\b [63:26] {
+| notSpecified: RECORD [63:30] {
+| | whiteSpace: \\b [63:36] {
+| notSpecified: LIKE [63:37] {
+| | whiteSpace: \\b [63:41] {
+| notSpecified: par_diverg_rec.*,\\n [63:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [64:1] {
+| notSpecified: p_ar_os_esp [64:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [64:21] {
+| notSpecified: RECORD [64:30] {
+| | whiteSpace: \\b [64:36] {
+| notSpecified: LIKE [64:37] {
+| | whiteSpace: \\b [64:41] {
+| notSpecified: ar_os_esp.*,\\n [64:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [65:1] {
+| notSpecified: p_dif_aceite [65:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [65:22] {
+| notSpecified: LIKE [65:30] {
+| | whiteSpace: \\b [65:34] {
+| notSpecified: ordem_sup.pre_unit_oc,\\n [65:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [66:1] {
+| notSpecified: p_somatorio_dif [66:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [66:25] {
+| notSpecified: LIKE [66:30] {
+| | whiteSpace: \\b [66:34] {
+| notSpecified: ordem_sup.pre_unit_oc,\\n [66:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [67:1] {
+| notSpecified: p_cod_uni_feder_f [67:10] {
+| | whiteSpace: \\b\\b\\b [67:27] {
+| notSpecified: LIKE [67:30] {
+| | whiteSpace: \\b [67:34] {
+| notSpecified: fornecedor.cod_uni_feder,\\n [67:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [68:1] {
+| notSpecified: p_cod_unid_feder [68:10] {
+| | whiteSpace: \\b\\b\\b\\b [68:26] {
+| notSpecified: LIKE [68:30] {
+| | whiteSpace: \\b [68:34] {
+| notSpecified: cidades.cod_uni_feder,\\n [68:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [69:1] {
+| notSpecified: p_cod_pais [69:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [69:20] {
+| notSpecified: LIKE [69:30] {
+| | whiteSpace: \\b [69:34] {
+| notSpecified: uni_feder.cod_pais,\\n [69:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [70:1] {
+| notSpecified: p_val_base [70:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [70:20] {
+| notSpecified: LIKE [70:30] {
+| | whiteSpace: \\b [70:34] {
+| notSpecified: aviso_rec.val_base_c_frete_d,\\n [70:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [71:1] {
+| notSpecified: p_aviso_rec_compl [71:10] {
+| | whiteSpace: \\b\\b\\b [71:27] {
+| notSpecified: RECORD\\n [71:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [72:1] {
+| notSpecified: cod_empresa [72:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [72:43] {
+| notSpecified: LIKE [72:53] {
+| | whiteSpace: \\b [72:57] {
+| notSpecified: aviso_rec_compl.cod_empresa,\\n [72:58] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [73:1] {
+| notSpecified: num_aviso_rec [73:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [73:45] {
+| notSpecified: LIKE [73:53] {
+| | whiteSpace: \\b [73:57] {
+| notSpecified: aviso_rec_compl.num_aviso_rec,\\n [73:58] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [74:1] {
+| notSpecified: cod_transpor [74:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [74:44] {
+| notSpecified: LIKE [74:53] {
+| | whiteSpace: \\b [74:57] {
+| notSpecified: aviso_rec_compl.cod_transpor,\\n [74:58] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [75:1] {
+| notSpecified: den_transpor [75:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [75:44] {
+| notSpecified: LIKE [75:53] {
+| | whiteSpace: \\b [75:57] {
+| notSpecified: aviso_rec_compl.den_transpor,\\n [75:58] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [76:1] {
+| notSpecified: num_placa_veic [76:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [76:46] {
+| notSpecified: LIKE [76:53] {
+| | whiteSpace: \\b [76:57] {
+| notSpecified: aviso_rec_compl.num_placa_veic,\\n [76:58] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [77:1] {
+| notSpecified: num_di [77:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [77:38] {
+| notSpecified: LIKE [77:53] {
+| | whiteSpace: \\b [77:57] {
+| notSpecified: aviso_rec_compl.num_di,\\n [77:58] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [78:1] {
+| notSpecified: ies_incl_import [78:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [78:47] {
+| notSpecified: LIKE [78:53] {
+| | whiteSpace: \\b [78:57] {
+| notSpecified: aviso_rec_compl.ies_incl_import,\\n [78:58] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [79:1] {
+| notSpecified: num_lote_pat [79:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [79:44] {
+| notSpecified: LIKE [79:53] {
+| | whiteSpace: \\b [79:57] {
+| notSpecified: aviso_rec_compl.num_lote_pat,\\n [79:58] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [80:1] {
+| notSpecified: cod_operacao [80:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [80:44] {
+| notSpecified: LIKE [80:53] {
+| | whiteSpace: \\b [80:57] {
+| notSpecified: aviso_rec_compl.cod_operacao,\\n [80:58] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [81:1] {
+| notSpecified: cod_empresa_orig [81:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b [81:48] {
+| notSpecified: LIKE [81:53] {
+| | whiteSpace: \\b [81:57] {
+| notSpecified: aviso_rec_compl.cod_empresa_orig,\\n [81:58] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [82:1] {
+| notSpecified: cod_moeda_forn [82:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [82:46] {
+| notSpecified: LIKE [82:53] {
+| | whiteSpace: \\b [82:57] {
+| notSpecified: aviso_rec_compl.cod_moeda_forn,\\n [82:58] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [83:1] {
+| notSpecified: num_embarque [83:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [83:44] {
+| notSpecified: LIKE [83:53] {
+| | whiteSpace: \\b [83:57] {
+| notSpecified: aviso_rec_compl.num_embarque,\\n [83:58] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [84:1] {
+| notSpecified: ies_situacao [84:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [84:44] {
+| notSpecified: LIKE [84:53] {
+| | whiteSpace: \\b [84:57] {
+| notSpecified: aviso_rec_compl.ies_situacao,\\n [84:58] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [85:1] {
+| notSpecified: nom_usuario [85:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [85:43] {
+| notSpecified: LIKE [85:53] {
+| | whiteSpace: \\b [85:57] {
+| notSpecified: aviso_rec_compl.nom_usuario,\\n [85:58] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [86:1] {
+| notSpecified: dat_proces [86:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [86:42] {
+| notSpecified: LIKE [86:53] {
+| | whiteSpace: \\b [86:57] {
+| notSpecified: aviso_rec_compl.dat_proces,\\n [86:58] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [87:1] {
+| notSpecified: hor_operac [87:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [87:42] {
+| notSpecified: LIKE [87:53] {
+| | whiteSpace: \\b [87:57] {
+| notSpecified: aviso_rec_compl.hor_operac,\\n [87:58] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [88:1] {
+| notSpecified: cod_fiscal_compl [88:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b [88:48] {
+| notSpecified: LIKE [88:53] {
+| | whiteSpace: \\b [88:57] {
+| notSpecified: aviso_rec_compl.cod_fiscal_compl,\\n [88:58] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [89:1] {
+| notSpecified: filial [89:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [89:38] {
+| notSpecified: DECIMAL(10,0)\\n [89:53] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [90:1] {
+| notSpecified: END [90:26] {
+| | whiteSpace: \\b [90:29] {
+| notSpecified: RECORD,\\n [90:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [91:1] {
+| notSpecified: p_sequencia [91:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [91:21] {
+| notSpecified: LIKE [91:30] {
+| | whiteSpace: \\b [91:34] {
+| notSpecified: aviso_rec.num_seq,\\n [91:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [92:1] {
+| notSpecified: p_cod_fornec144 [92:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [92:25] {
+| notSpecified: LIKE [92:30] {
+| | whiteSpace: \\b [92:34] {
+| notSpecified: fornecedor.cod_fornecedor,\\n [92:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [93:1] {
+| notSpecified: p_ind5 [93:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [93:16] {
+| notSpecified: SMALLINT,\\n [93:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [94:1] {
+| notSpecified: p_cod_pais_emp [94:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [94:24] {
+| notSpecified: LIKE [94:30] {
+| | whiteSpace: \\b [94:34] {
+| notSpecified: uni_feder.cod_pais,\\n [94:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [95:1] {
+| notSpecified: p_status [95:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [95:18] {
+| notSpecified: SMALLINT,\\n [95:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [96:1] {
+| notSpecified: p_ies_obj_entrada_fisc [96:10] {
+| | whiteSpace: \\b [96:32] {
+| notSpecified: LIKE [96:33] {
+| | whiteSpace: \\b [96:37] {
+| notSpecified: cod_fiscal_sup.ies_obj_entrada,\\n [96:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [97:1] {
+| notSpecified: p_cod_item_oc [97:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [97:23] {
+| notSpecified: LIKE [97:30] {
+| | whiteSpace: \\b [97:34] {
+| notSpecified: item.cod_item,\\n [97:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [98:1] {
+| notSpecified: p_num_nf [98:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [98:18] {
+| notSpecified: LIKE [98:30] {
+| | whiteSpace: \\b [98:34] {
+| notSpecified: nf_sup.num_nf,\\n [98:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [99:1] {
+| notSpecified: p_cancel [99:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [99:18] {
+| notSpecified: INTEGER,\\n [99:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [100:1] {
+| notSpecified: p_ies_pagamento [100:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [100:25] {
+| notSpecified: LIKE [100:30] {
+| | whiteSpace: \\b [100:34] {
+| notSpecified: cond_pgto_cap.ies_pagamento,\\n [100:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [101:1] {
+| notSpecified: p_msg_qtd [101:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [101:19] {
+| notSpecified: CHAR(01),\\n [101:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [102:1] {
+| notSpecified: p_ies_cons [102:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [102:20] {
+| notSpecified: SMALLINT,\\n [102:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [103:1] {
+| notSpecified: p_cod_ret_iss [103:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [103:23] {
+| notSpecified: DECIMAL(03,0),\\n [103:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [104:1] {
+| notSpecified: p_cod_ret_inss [104:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [104:24] {
+| notSpecified: DECIMAL(03,0),\\n [104:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [105:1] {
+| notSpecified: p_cod_ret_inss_rur [105:10] {
+| | whiteSpace: \\b\\b [105:28] {
+| notSpecified: DECIMAL(03,0),\\n [105:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [106:1] {
+| notSpecified: p_count_estrut [106:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [106:24] {
+| notSpecified: SMALLINT,\\n [106:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [107:1] {
+| notSpecified: p_val_cotacao [107:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [107:23] {
+| notSpecified: LIKE [107:30] {
+| | whiteSpace: \\b [107:34] {
+| notSpecified: cotacao.val_cotacao,\\n [107:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [108:1] {
+| notSpecified: p_ies_tip_frete [108:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [108:25] {
+| notSpecified: LIKE [108:30] {
+| | whiteSpace: \\b [108:34] {
+| notSpecified: modo_embarque.ies_tip_frete,\\n [108:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [109:1] {
+| notSpecified: p_sup449_cap [109:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [109:22] {
+| notSpecified: SMALLINT,\\n [109:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [110:1] {
+| notSpecified: p_sup449_mes [110:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [110:22] {
+| notSpecified: SMALLINT,\\n [110:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [111:1] {
+| notSpecified: p_pedidos [111:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [111:19] {
+| notSpecified: CHAR(4800),\\n [111:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [112:1] {
+| notSpecified: p_pedidos_p1 [112:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [112:22] {
+| notSpecified: CHAR(500),\\n [112:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [113:1] {
+| notSpecified: p_pedidos_p2 [113:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [113:22] {
+| notSpecified: CHAR(500),\\n [113:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [114:1] {
+| notSpecified: p_pedidos_p3 [114:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [114:22] {
+| notSpecified: CHAR(200),\\n [114:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [115:1] {
+| notSpecified: p_pedidos_p4 [115:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [115:22] {
+| notSpecified: CHAR(500),\\n [115:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [116:1] {
+| notSpecified: p_pedidos_p5 [116:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [116:22] {
+| notSpecified: CHAR(500),\\n [116:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [117:1] {
+| notSpecified: p_pedidos_p6 [117:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [117:22] {
+| notSpecified: CHAR(200),\\n [117:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [118:1] {
+| notSpecified: p_pedidos_p7 [118:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [118:22] {
+| notSpecified: CHAR(500),\\n [118:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [119:1] {
+| notSpecified: p_pedidos_p8 [119:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [119:22] {
+| notSpecified: CHAR(500),\\n [119:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [120:1] {
+| notSpecified: p_pedidos_p9 [120:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [120:22] {
+| notSpecified: CHAR(200),\\n [120:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [121:1] {
+| notSpecified: p_pedidos_p10 [121:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [121:23] {
+| notSpecified: CHAR(500),\\n [121:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [122:1] {
+| notSpecified: p_pedidos_p11 [122:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [122:23] {
+| notSpecified: CHAR(500),\\n [122:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [123:1] {
+| notSpecified: p_pedidos_p12 [123:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [123:23] {
+| notSpecified: CHAR(200),\\n [123:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [124:1] {
+| notSpecified: p_inclu_item [124:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [124:22] {
+| notSpecified: CHAR(01),\\n [124:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [125:1] {
+| notSpecified: p_val_tot_liq [125:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [125:23] {
+| notSpecified: DECIMAL(17,2),\\n [125:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [126:1] {
+| notSpecified: p_val_tot_liq_ant [126:10] {
+| | whiteSpace: \\b\\b\\b [126:27] {
+| notSpecified: DECIMAL(17,2),\\n [126:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [127:1] {
+| notSpecified: p_ordens [127:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [127:18] {
+| notSpecified: CHAR(7200),\\n [127:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [128:1] {
+| notSpecified: p_ordens_p1 [128:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [128:21] {
+| notSpecified: CHAR(500),\\n [128:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [129:1] {
+| notSpecified: p_ordens_p2 [129:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [129:21] {
+| notSpecified: CHAR(500),\\n [129:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [130:1] {
+| notSpecified: p_ordens_p3 [130:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [130:21] {
+| notSpecified: CHAR(500),\\n [130:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [131:1] {
+| notSpecified: p_ordens_p4 [131:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [131:21] {
+| notSpecified: CHAR(300),\\n [131:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [132:1] {
+| notSpecified: p_ordens_p5 [132:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [132:21] {
+| notSpecified: CHAR(500),\\n [132:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [133:1] {
+| notSpecified: p_ordens_p6 [133:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [133:21] {
+| notSpecified: CHAR(500),\\n [133:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [134:1] {
+| notSpecified: p_ordens_p7 [134:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [134:21] {
+| notSpecified: CHAR(500),\\n [134:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [135:1] {
+| notSpecified: p_ordens_p8 [135:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [135:21] {
+| notSpecified: CHAR(300),\\n [135:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [136:1] {
+| notSpecified: p_ordens_p9 [136:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [136:21] {
+| notSpecified: CHAR(500),\\n [136:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [137:1] {
+| notSpecified: p_ordens_p10 [137:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [137:22] {
+| notSpecified: CHAR(500),\\n [137:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [138:1] {
+| notSpecified: p_ordens_p11 [138:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [138:22] {
+| notSpecified: CHAR(500),\\n [138:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [139:1] {
+| notSpecified: p_ordens_p12 [139:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [139:22] {
+| notSpecified: CHAR(300),\\n [139:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [140:1] {
+| notSpecified: p_ordens_p13 [140:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [140:22] {
+| notSpecified: CHAR(500),\\n [140:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [141:1] {
+| notSpecified: p_ordens_p14 [141:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [141:22] {
+| notSpecified: CHAR(500),\\n [141:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [142:1] {
+| notSpecified: p_ordens_p15 [142:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [142:22] {
+| notSpecified: CHAR(500),\\n [142:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [143:1] {
+| notSpecified: p_ordens_p16 [143:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [143:22] {
+| notSpecified: CHAR(300),\\n [143:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [144:1] {
+| notSpecified: p_prog_ordem [144:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [144:22] {
+| notSpecified: CHAR(2400),\\n [144:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [145:1] {
+| notSpecified: p_prog_ordem1 [145:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [145:23] {
+| notSpecified: CHAR(300),\\n [145:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [146:1] {
+| notSpecified: p_prog_ordem2 [146:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [146:23] {
+| notSpecified: CHAR(300),\\n [146:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [147:1] {
+| notSpecified: p_prog_ordem3 [147:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [147:23] {
+| notSpecified: CHAR(300),\\n [147:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [148:1] {
+| notSpecified: p_prog_ordem4 [148:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [148:23] {
+| notSpecified: CHAR(300),\\n [148:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [149:1] {
+| notSpecified: p_prog_ordem5 [149:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [149:23] {
+| notSpecified: CHAR(300),\\n [149:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [150:1] {
+| notSpecified: p_prog_ordem6 [150:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [150:23] {
+| notSpecified: CHAR(300),\\n [150:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [151:1] {
+| notSpecified: p_prog_ordem7 [151:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [151:23] {
+| notSpecified: CHAR(300),\\n [151:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [152:1] {
+| notSpecified: p_prog_ordem8 [152:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [152:23] {
+| notSpecified: CHAR(300),\\n [152:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [153:1] {
+| notSpecified: p_qtd_entreg [153:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [153:22] {
+| notSpecified: CHAR(10400),\\n [153:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [154:1] {
+| notSpecified: p_qtd_entreg1 [154:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [154:23] {
+| notSpecified: CHAR(500),\\n [154:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [155:1] {
+| notSpecified: p_qtd_entreg2 [155:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [155:23] {
+| notSpecified: CHAR(500),\\n [155:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [156:1] {
+| notSpecified: p_qtd_entreg3 [156:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [156:23] {
+| notSpecified: CHAR(500),\\n [156:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [157:1] {
+| notSpecified: p_qtd_entreg4 [157:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [157:23] {
+| notSpecified: CHAR(500),\\n [157:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [158:1] {
+| notSpecified: p_qtd_entreg5 [158:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [158:23] {
+| notSpecified: CHAR(500),\\n [158:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [159:1] {
+| notSpecified: p_qtd_entreg6 [159:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [159:23] {
+| notSpecified: CHAR(100),\\n [159:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [160:1] {
+| notSpecified: p_qtd_entreg7 [160:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [160:23] {
+| notSpecified: CHAR(500),\\n [160:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [161:1] {
+| notSpecified: p_qtd_entreg8 [161:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [161:23] {
+| notSpecified: CHAR(500),\\n [161:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [162:1] {
+| notSpecified: p_qtd_entreg9 [162:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [162:23] {
+| notSpecified: CHAR(500),\\n [162:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [163:1] {
+| notSpecified: p_qtd_entreg10 [163:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [163:24] {
+| notSpecified: CHAR(500),\\n [163:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [164:1] {
+| notSpecified: p_qtd_entreg11 [164:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [164:24] {
+| notSpecified: CHAR(500),\\n [164:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [165:1] {
+| notSpecified: p_qtd_entreg12 [165:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [165:24] {
+| notSpecified: CHAR(100),\\n [165:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [166:1] {
+| notSpecified: p_qtd_entreg13 [166:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [166:24] {
+| notSpecified: CHAR(500),\\n [166:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [167:1] {
+| notSpecified: p_qtd_entreg14 [167:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [167:24] {
+| notSpecified: CHAR(500),\\n [167:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [168:1] {
+| notSpecified: p_qtd_entreg15 [168:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [168:24] {
+| notSpecified: CHAR(500),\\n [168:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [169:1] {
+| notSpecified: p_qtd_entreg16 [169:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [169:24] {
+| notSpecified: CHAR(500),\\n [169:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [170:1] {
+| notSpecified: p_qtd_entreg17 [170:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [170:24] {
+| notSpecified: CHAR(500),\\n [170:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [171:1] {
+| notSpecified: p_qtd_entreg18 [171:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [171:24] {
+| notSpecified: CHAR(100),\\n [171:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [172:1] {
+| notSpecified: p_qtd_entreg19 [172:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [172:24] {
+| notSpecified: CHAR(500),\\n [172:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [173:1] {
+| notSpecified: p_qtd_entreg20 [173:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [173:24] {
+| notSpecified: CHAR(500),\\n [173:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [174:1] {
+| notSpecified: p_qtd_entreg21 [174:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [174:24] {
+| notSpecified: CHAR(500),\\n [174:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [175:1] {
+| notSpecified: p_qtd_entreg22 [175:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [175:24] {
+| notSpecified: CHAR(500),\\n [175:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [176:1] {
+| notSpecified: p_qtd_entreg23 [176:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [176:24] {
+| notSpecified: CHAR(500),\\n [176:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [177:1] {
+| notSpecified: p_qtd_entreg24 [177:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [177:24] {
+| notSpecified: CHAR(100),\\n [177:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [178:1] {
+| notSpecified: p_modifica_qtd [178:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [178:24] {
+| notSpecified: CHAR(01),\\n [178:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [179:1] {
+| notSpecified: p_retorno_3760 [179:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [179:24] {
+| notSpecified: SMALLINT,\\n [179:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [180:1] {
+| notSpecified: p_houve_erro [180:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [180:22] {
+| notSpecified: SMALLINT,\\n [180:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [181:1] {
+| notSpecified: g_cod_forn_sup3850 [181:10] {
+| | whiteSpace: \\b\\b [181:28] {
+| notSpecified: LIKE [181:30] {
+| | whiteSpace: \\b [181:34] {
+| notSpecified: fornecedor.cod_fornecedor,\\n [181:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [182:1] {
+| notSpecified: p_ies_interf_cre [182:10] {
+| | whiteSpace: \\b\\b\\b\\b [182:26] {
+| notSpecified: CHAR(01),\\n [182:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [183:1] {
+| notSpecified: p_entra_array [183:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [183:23] {
+| notSpecified: CHAR(01),\\n [183:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [184:1] {
+| notSpecified: p_saldo_frete [184:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [184:23] {
+| notSpecified: LIKE [184:30] {
+| | whiteSpace: \\b [184:34] {
+| notSpecified: frete_sup.val_frete,\\n [184:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [185:1] {
+| notSpecified: p_saldo_icms [185:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [185:22] {
+| notSpecified: LIKE [185:30] {
+| | whiteSpace: \\b [185:34] {
+| notSpecified: frete_sup.val_tot_icms_frt_d,\\n [185:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [186:1] {
+| notSpecified: p_saldo_icms_c [186:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [186:24] {
+| notSpecified: LIKE [186:30] {
+| | whiteSpace: \\b [186:34] {
+| notSpecified: frete_sup.val_tot_icms_frt_d,\\n [186:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [187:1] {
+| notSpecified: p_saldo_frete_ant [187:10] {
+| | whiteSpace: \\b\\b\\b [187:27] {
+| notSpecified: LIKE [187:30] {
+| | whiteSpace: \\b [187:34] {
+| notSpecified: frete_sup.val_frete,\\n [187:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [188:1] {
+| notSpecified: p_saldo_icms_ant [188:10] {
+| | whiteSpace: \\b\\b\\b\\b [188:26] {
+| notSpecified: LIKE [188:30] {
+| | whiteSpace: \\b [188:34] {
+| notSpecified: frete_sup.val_tot_icms_frt_d,\\n [188:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [189:1] {
+| notSpecified: p_entra_tot [189:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [189:21] {
+| notSpecified: CHAR(01),\\n [189:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [190:1] {
+| notSpecified: p_pedido_sele [190:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [190:23] {
+| notSpecified: CHAR(4800),\\n [190:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [191:1] {
+| notSpecified: p_pedido_sele1 [191:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [191:24] {
+| notSpecified: CHAR(500),\\n [191:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [192:1] {
+| notSpecified: p_pedido_sele2 [192:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [192:24] {
+| notSpecified: CHAR(500),\\n [192:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [193:1] {
+| notSpecified: p_pedido_sele3 [193:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [193:24] {
+| notSpecified: CHAR(200),\\n [193:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [194:1] {
+| notSpecified: p_pedido_sele4 [194:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [194:24] {
+| notSpecified: CHAR(500),\\n [194:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [195:1] {
+| notSpecified: p_pedido_sele5 [195:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [195:24] {
+| notSpecified: CHAR(500),\\n [195:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [196:1] {
+| notSpecified: p_pedido_sele6 [196:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [196:24] {
+| notSpecified: CHAR(200),\\n [196:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [197:1] {
+| notSpecified: p_pedido_sele7 [197:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [197:24] {
+| notSpecified: CHAR(500),\\n [197:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [198:1] {
+| notSpecified: p_pedido_sele8 [198:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [198:24] {
+| notSpecified: CHAR(500),\\n [198:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [199:1] {
+| notSpecified: p_pedido_sele9 [199:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [199:24] {
+| notSpecified: CHAR(200),\\n [199:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [200:1] {
+| notSpecified: p_pedido_sele10 [200:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [200:25] {
+| notSpecified: CHAR(500),\\n [200:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [201:1] {
+| notSpecified: p_pedido_sele11 [201:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [201:25] {
+| notSpecified: CHAR(500),\\n [201:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [202:1] {
+| notSpecified: p_pedido_sele12 [202:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [202:25] {
+| notSpecified: CHAR(200),\\n [202:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [203:1] {
+| notSpecified: p_ordem_sele [203:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [203:22] {
+| notSpecified: CHAR(7200),\\n [203:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [204:1] {
+| notSpecified: p_ordem_sele1 [204:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [204:23] {
+| notSpecified: CHAR(500),\\n [204:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [205:1] {
+| notSpecified: p_ordem_sele2 [205:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [205:23] {
+| notSpecified: CHAR(500),\\n [205:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [206:1] {
+| notSpecified: p_ordem_sele3 [206:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [206:23] {
+| notSpecified: CHAR(500),\\n [206:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [207:1] {
+| notSpecified: p_ordem_sele4 [207:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [207:23] {
+| notSpecified: CHAR(300),\\n [207:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [208:1] {
+| notSpecified: p_ordem_sele5 [208:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [208:23] {
+| notSpecified: CHAR(500),\\n [208:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [209:1] {
+| notSpecified: p_ordem_sele6 [209:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [209:23] {
+| notSpecified: CHAR(500),\\n [209:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [210:1] {
+| notSpecified: p_ordem_sele7 [210:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [210:23] {
+| notSpecified: CHAR(500),\\n [210:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [211:1] {
+| notSpecified: p_ordem_sele8 [211:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [211:23] {
+| notSpecified: CHAR(300),\\n [211:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [212:1] {
+| notSpecified: p_ordem_sele9 [212:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [212:23] {
+| notSpecified: CHAR(500),\\n [212:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [213:1] {
+| notSpecified: p_ordem_sele10 [213:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [213:24] {
+| notSpecified: CHAR(500),\\n [213:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [214:1] {
+| notSpecified: p_ordem_sele11 [214:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [214:24] {
+| notSpecified: CHAR(500),\\n [214:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [215:1] {
+| notSpecified: p_ordem_sele12 [215:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [215:24] {
+| notSpecified: CHAR(300),\\n [215:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [216:1] {
+| notSpecified: p_ordem_sele13 [216:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [216:24] {
+| notSpecified: CHAR(500),\\n [216:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [217:1] {
+| notSpecified: p_ordem_sele14 [217:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [217:24] {
+| notSpecified: CHAR(500),\\n [217:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [218:1] {
+| notSpecified: p_ordem_sele15 [218:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [218:24] {
+| notSpecified: CHAR(500),\\n [218:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [219:1] {
+| notSpecified: p_ordem_sele16 [219:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [219:24] {
+| notSpecified: CHAR(300),\\n [219:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [220:1] {
+| notSpecified: p_declarad_sele [220:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [220:25] {
+| notSpecified: CHAR(240),\\n [220:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [221:1] {
+| notSpecified: p_ies_reservou [221:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [221:24] {
+| notSpecified: CHAR(01),\\n [221:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [222:1] {
+| notSpecified: p_ind3 [222:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [222:16] {
+| notSpecified: SMALLINT,\\n [222:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [223:1] {
+| notSpecified: p_ind9 [223:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [223:16] {
+| notSpecified: SMALLINT,\\n [223:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [224:1] {
+| notSpecified: p_num_prog_cham [224:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [224:25] {
+| notSpecified: SMALLINT,\\n [224:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [225:1] {
+| notSpecified: p_tot_itens [225:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [225:21] {
+| notSpecified: SMALLINT,\\n [225:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [226:1] {
+| notSpecified: p_cod_item_pop [226:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [226:24] {
+| notSpecified: LIKE [226:30] {
+| | whiteSpace: \\b [226:34] {
+| notSpecified: item.cod_item,\\n [226:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [227:1] {
+| notSpecified: p_num_conhec [227:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [227:22] {
+| notSpecified: LIKE [227:30] {
+| | whiteSpace: \\b [227:34] {
+| notSpecified: frete_sup.num_conhec,\\n [227:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [228:1] {
+| notSpecified: p_ser_conhec [228:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [228:22] {
+| notSpecified: LIKE [228:30] {
+| | whiteSpace: \\b [228:34] {
+| notSpecified: nf_sup.ser_conhec,\\n [228:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [229:1] {
+| notSpecified: p_ssr_conhec [229:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [229:22] {
+| notSpecified: LIKE [229:30] {
+| | whiteSpace: \\b [229:34] {
+| notSpecified: nf_sup.ssr_conhec,\\n [229:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [230:1] {
+| notSpecified: p_cod_transpor [230:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [230:24] {
+| notSpecified: LIKE [230:30] {
+| | whiteSpace: \\b [230:34] {
+| notSpecified: nf_sup.cod_transpor,\\n [230:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [231:1] {
+| notSpecified: p_fornec_incl_item [231:10] {
+| | whiteSpace: \\b\\b [231:28] {
+| notSpecified: LIKE [231:30] {
+| | whiteSpace: \\b [231:34] {
+| notSpecified: pedido_sup.cod_fornecedor,\\n [231:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [232:1] {
+| notSpecified: p_tip_recebimento [232:10] {
+| | whiteSpace: \\b\\b\\b [232:27] {
+| notSpecified: CHAR(01),\\n [232:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [233:1] {
+| notSpecified: p_ies_informou_ped [233:10] {
+| | whiteSpace: \\b\\b [233:28] {
+| notSpecified: CHAR(01),\\n [233:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [234:1] {
+| notSpecified: p_qtd_array [234:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [234:21] {
+| notSpecified: LIKE [234:30] {
+| | whiteSpace: \\b [234:34] {
+| notSpecified: aviso_rec.qtd_declarad_nf,\\n [234:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [235:1] {
+| notSpecified: p_val_array [235:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [235:21] {
+| notSpecified: LIKE [235:30] {
+| | whiteSpace: \\b [235:34] {
+| notSpecified: aviso_rec.val_liquido_item,\\n [235:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [236:1] {
+| notSpecified: p_ind_tela [236:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [236:20] {
+| notSpecified: SMALLINT,\\n [236:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [237:1] {
+| notSpecified: p_nom_resp_aceite_er [237:10] {
+| | whiteSpace: \\b [237:30] {
+| notSpecified: LIKE [237:31] {
+| | whiteSpace: \\b [237:35] {
+| notSpecified: nf_sup.nom_resp_aceite_er,\\n [237:36] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [238:1] {
+| notSpecified: p_diferenca_f [238:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [238:23] {
+| notSpecified: LIKE [238:30] {
+| | whiteSpace: \\b [238:34] {
+| notSpecified: estoque_trans.cus_tot_movto_p,\\n [238:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [239:1] {
+| notSpecified: p_diferenca_p [239:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [239:23] {
+| notSpecified: LIKE [239:30] {
+| | whiteSpace: \\b [239:34] {
+| notSpecified: estoque_trans.cus_tot_movto_p,\\n [239:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [240:1] {
+| notSpecified: p_frete_sup [240:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [240:21] {
+| notSpecified: RECORD [240:30] {
+| | whiteSpace: \\b [240:36] {
+| notSpecified: LIKE [240:37] {
+| | whiteSpace: \\b\\b [240:41] {
+| notSpecified: frete_sup.*,\\n [240:43] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [241:1] {
+| notSpecified: p_frete_sup_compl [241:10] {
+| | whiteSpace: \\b\\b\\b [241:27] {
+| notSpecified: RECORD [241:30] {
+| | whiteSpace: \\b [241:36] {
+| notSpecified: LIKE [241:37] {
+| | whiteSpace: \\b\\b [241:41] {
+| notSpecified: frete_sup_compl.*,\\n [241:43] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [242:1] {
+| notSpecified: p_plano_contas [242:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [242:24] {
+| notSpecified: RECORD [242:30] {
+| | whiteSpace: \\b [242:36] {
+| notSpecified: LIKE [242:37] {
+| | whiteSpace: \\b\\b [242:41] {
+| notSpecified: plano_contas.*,\\n [242:43] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [243:1] {
+| notSpecified: p_des_pendencia [243:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [243:25] {
+| notSpecified: LIKE [243:30] {
+| | whiteSpace: \\b\\b [243:34] {
+| notSpecified: frete_sup_erro.des_pendencia,\\n [243:36] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [244:1] {
+| notSpecified: p_it_prg_entr [244:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [244:23] {
+| notSpecified: CHAR(297),\\n [244:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [245:1] {
+| notSpecified: p_it_prg_entr_reser [245:10] {
+| | whiteSpace: \\b [245:29] {
+| notSpecified: CHAR(500),\\n [245:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [246:1] {
+| notSpecified: p_item_sup [246:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [246:20] {
+| notSpecified: RECORD [246:30] {
+| | whiteSpace: \\b [246:36] {
+| notSpecified: LIKE [246:37] {
+| | whiteSpace: \\b [246:41] {
+| notSpecified: item_sup.*,\\n [246:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [247:1] {
+| notSpecified: p_item [247:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [247:16] {
+| notSpecified: RECORD [247:33] {
+| | whiteSpace: \\b [247:39] {
+| notSpecified: LIKE [247:40] {
+| | whiteSpace: \\b [247:44] {
+| notSpecified: item.*,\\n [247:45] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [248:1] {
+| notSpecified: p_par_estoque [248:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [248:23] {
+| notSpecified: RECORD [248:30] {
+| | whiteSpace: \\b [248:36] {
+| notSpecified: LIKE [248:37] {
+| | whiteSpace: \\b [248:41] {
+| notSpecified: par_estoque.*,\\n [248:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [249:1] {
+| notSpecified: p_parametros [249:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [249:22] {
+| notSpecified: CHAR(01),\\n [249:31] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [250:1] {
+| notSpecified: p_ind2 [250:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [250:16] {
+| notSpecified: SMALLINT,\\n [250:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [251:1] {
+| notSpecified: p_ies_contrib_ipi [251:10] {
+| | whiteSpace: \\b\\b\\b [251:27] {
+| notSpecified: CHAR(01),\\n [251:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [252:1] {
+| notSpecified: p_soma_reserva2 [252:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [252:25] {
+| notSpecified: LIKE [252:30] {
+| | whiteSpace: \\b [252:34] {
+| notSpecified: aviso_rec.qtd_declarad_nf,\\n [252:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [253:1] {
+| notSpecified: p_soma_reserva3 [253:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [253:25] {
+| notSpecified: LIKE [253:30] {
+| | whiteSpace: \\b [253:34] {
+| notSpecified: aviso_rec.qtd_declarad_nf,\\n [253:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [254:1] {
+| notSpecified: p_val_soma_reserva2 [254:10] {
+| | whiteSpace: \\b [254:29] {
+| notSpecified: LIKE [254:30] {
+| | whiteSpace: \\b [254:34] {
+| notSpecified: aviso_rec.val_liquido_item,\\n [254:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [255:1] {
+| notSpecified: p_val_soma_reserva3 [255:10] {
+| | whiteSpace: \\b [255:29] {
+| notSpecified: LIKE [255:30] {
+| | whiteSpace: \\b [255:34] {
+| notSpecified: aviso_rec.val_liquido_item,\\n [255:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [256:1] {
+| notSpecified: p_prx_seq [256:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [256:19] {
+| notSpecified: LIKE [256:30] {
+| | whiteSpace: \\b [256:34] {
+| notSpecified: aviso_rec.num_seq,\\n [256:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [257:1] {
+| notSpecified: p_num_seq [257:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [257:19] {
+| notSpecified: SMALLINT,\\n [257:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [258:1] {
+| notSpecified: p_cod_fiscal_forma [258:10] {
+| | whiteSpace: \\b\\b [258:28] {
+| notSpecified: CHAR(04),\\n [258:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [259:1] {
+| notSpecified: p_qtd_declarad_nf [259:10] {
+| | whiteSpace: \\b\\b\\b [259:27] {
+| notSpecified: LIKE [259:30] {
+| | whiteSpace: \\b [259:34] {
+| notSpecified: aviso_rec.qtd_declarad_nf,\\n [259:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [260:1] {
+| notSpecified: p_val_liquido_item [260:10] {
+| | whiteSpace: \\b\\b [260:28] {
+| notSpecified: LIKE [260:30] {
+| | whiteSpace: \\b [260:34] {
+| notSpecified: aviso_rec.val_liquido_item,\\n [260:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [261:1] {
+| notSpecified: p_primeira_vez [261:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [261:24] {
+| notSpecified: SMALLINT,\\n [261:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [262:1] {
+| notSpecified: comando3 [262:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [262:18] {
+| notSpecified: CHAR(200),\\n [262:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [263:1] {
+| notSpecified: p_conta_lanc [263:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [263:22] {
+| notSpecified: SMALLINT\\n\\n [263:30] {
+| | whiteSpace: \\b\\b [265:1] {
+| notSpecified: DEFINE [265:3] {
+| | whiteSpace: \\b [265:9] {
+| notSpecified: p_ies_achou_itsup [265:10] {
+| | whiteSpace: \\b\\b\\b [265:27] {
+| notSpecified: SMALLINT,\\n [265:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [266:1] {
+| notSpecified: p_ies_nf_transf [266:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [266:25] {
+| notSpecified: SMALLINT,\\n [266:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [267:1] {
+| notSpecified: gr_uni_feder [267:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [267:22] {
+| notSpecified: RECORD [267:30] {
+| | whiteSpace: \\b [267:36] {
+| notSpecified: LIKE [267:37] {
+| | whiteSpace: \\b [267:41] {
+| notSpecified: uni_feder.*,\\n [267:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [268:1] {
+| notSpecified: p_ies_pc_ant_fornec [268:10] {
+| | whiteSpace: \\b [268:29] {
+| notSpecified: CHAR(01),\\n [268:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [269:1] {
+| notSpecified: p_cod_moeda_ped [269:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [269:25] {
+| notSpecified: LIKE [269:30] {
+| | whiteSpace: \\b [269:34] {
+| notSpecified: pedido_sup.cod_moeda,\\n [269:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [270:1] {
+| notSpecified: p_ies_indexacao [270:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [270:25] {
+| notSpecified: LIKE [270:30] {
+| | whiteSpace: \\b [270:34] {
+| notSpecified: par_sup_pad.par_ies,\\n [270:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [271:1] {
+| notSpecified: p_ies_item_cont_aut [271:10] {
+| | whiteSpace: \\b [271:29] {
+| notSpecified: CHAR(01),\\n [271:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [272:1] {
+| notSpecified: p_ies_item_insp_aut [272:10] {
+| | whiteSpace: \\b [272:29] {
+| notSpecified: CHAR(01),\\n [272:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [273:1] {
+| notSpecified: p_cod_seg_merc [273:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [273:24] {
+| notSpecified: DECIMAL(2,0),\\n [273:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [274:1] {
+| notSpecified: p_cod_cla_uso [274:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [274:23] {
+| notSpecified: DECIMAL(2,0),\\n [274:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [275:1] {
+| notSpecified: p_item_parametro [275:10] {
+| | whiteSpace: \\b\\b\\b\\b [275:26] {
+| notSpecified: RECORD [275:30] {
+| | whiteSpace: \\b [275:36] {
+| notSpecified: LIKE [275:37] {
+| | whiteSpace: \\b [275:41] {
+| notSpecified: item_parametro.*,\\n [275:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [276:1] {
+| notSpecified: p_ies_cont_insp_aut [276:10] {
+| | whiteSpace: \\b [276:29] {
+| notSpecified: CHAR(01),\\n [276:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [277:1] {
+| notSpecified: p_oper_trans_unid [277:10] {
+| | whiteSpace: \\b\\b\\b [277:27] {
+| notSpecified: LIKE [277:30] {
+| | whiteSpace: \\b [277:34] {
+| notSpecified: estoque_operac.cod_operacao,\\n [277:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [278:1] {
+| notSpecified: p_cod_emp_transf [278:10] {
+| | whiteSpace: \\b\\b\\b\\b [278:26] {
+| notSpecified: LIKE [278:30] {
+| | whiteSpace: \\b [278:34] {
+| notSpecified: empresa.cod_empresa,\\n [278:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [279:1] {
+| notSpecified: p_ies_obt_inf_com [279:10] {
+| | whiteSpace: \\b\\b\\b [279:27] {
+| notSpecified: CHAR(01),\\n [279:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [280:1] {
+| notSpecified: g_ies_nf_permuta [280:10] {
+| | whiteSpace: \\b\\b\\b\\b [280:26] {
+| notSpecified: SMALLINT,\\n [280:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [281:1] {
+| notSpecified: g_nat_oper_permuta [281:10] {
+| | whiteSpace: \\b\\b [281:28] {
+| notSpecified: LIKE [281:30] {
+| | whiteSpace: \\b [281:34] {
+| notSpecified: nat_operacao.cod_nat_oper,\\n [281:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [282:1] {
+| notSpecified: g_operac_permuta [282:10] {
+| | whiteSpace: \\b\\b\\b\\b [282:26] {
+| notSpecified: LIKE [282:30] {
+| | whiteSpace: \\b [282:34] {
+| notSpecified: estoque_operac.cod_operacao,\\n [282:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [283:1] {
+| notSpecified: g_cod_emp_permuta [283:10] {
+| | whiteSpace: \\b\\b\\b [283:27] {
+| notSpecified: LIKE [283:30] {
+| | whiteSpace: \\b [283:34] {
+| notSpecified: empresa.cod_empresa,\\n [283:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [284:1] {
+| notSpecified: p_cond_pgto_cap [284:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [284:25] {
+| notSpecified: RECORD [284:30] {
+| | whiteSpace: \\b [284:36] {
+| notSpecified: LIKE [284:37] {
+| | whiteSpace: \\b [284:41] {
+| notSpecified: cond_pgto_cap.*,\\n [284:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [285:1] {
+| notSpecified: p_uni_feder [285:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [285:21] {
+| notSpecified: RECORD [285:30] {
+| | whiteSpace: \\b [285:36] {
+| notSpecified: LIKE [285:37] {
+| | whiteSpace: \\b [285:41] {
+| notSpecified: uni_feder.*\\n\\n [285:42] {
+| | whiteSpace: \\b\\b [287:1] {
+| notSpecified: DEFINE [287:3] {
+| | whiteSpace: \\b [287:9] {
+| notSpecified: p_array_ped_itens [287:10] {
+| | whiteSpace: \\b\\b [287:27] {
+| notSpecified: ARRAY[999] [287:29] {
+| | whiteSpace: \\b [287:39] {
+| notSpecified: OF [287:40] {
+| | whiteSpace: \\b [287:42] {
+| notSpecified: RECORD\\n [287:43] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [288:1] {
+| notSpecified: num_oc [288:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [288:35] {
+| notSpecified: LIKE [288:46] {
+| | whiteSpace: \\b [288:50] {
+| notSpecified: ordem_sup.num_oc,\\n [288:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [289:1] {
+| notSpecified: num_pedido [289:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [289:39] {
+| notSpecified: LIKE [289:46] {
+| | whiteSpace: \\b [289:50] {
+| notSpecified: ordem_sup.num_pedido,\\n [289:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [290:1] {
+| notSpecified: num_prog_entrega [290:29] {
+| | whiteSpace: \\b [290:45] {
+| notSpecified: LIKE [290:46] {
+| | whiteSpace: \\b [290:50] {
+| notSpecified: prog_ordem_sup.num_prog_entrega,\\n [290:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [291:1] {
+| notSpecified: ies_item_estoq [291:29] {
+| | whiteSpace: \\b\\b\\b [291:43] {
+| notSpecified: LIKE [291:46] {
+| | whiteSpace: \\b [291:50] {
+| notSpecified: ordem_sup.ies_item_estoq,\\n [291:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [292:1] {
+| notSpecified: cod_item [292:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [292:37] {
+| notSpecified: LIKE [292:46] {
+| | whiteSpace: \\b [292:50] {
+| notSpecified: ordem_sup.cod_item,\\n [292:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [293:1] {
+| notSpecified: den_item [293:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [293:37] {
+| notSpecified: CHAR(50),\\n [293:46] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [294:1] {
+| notSpecified: cod_unid_med [294:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b [294:41] {
+| notSpecified: LIKE [294:46] {
+| | whiteSpace: \\b [294:50] {
+| notSpecified: ordem_sup.cod_unid_med,\\n [294:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [295:1] {
+| notSpecified: pct_ipi [295:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [295:36] {
+| notSpecified: LIKE [295:46] {
+| | whiteSpace: \\b [295:50] {
+| notSpecified: ordem_sup.pct_ipi,\\n [295:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [296:1] {
+| notSpecified: pre_unit_oc [296:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [296:40] {
+| notSpecified: LIKE [296:46] {
+| | whiteSpace: \\b [296:50] {
+| notSpecified: ordem_sup.pre_unit_oc,\\n [296:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [297:1] {
+| notSpecified: pct_aceite_dif [297:29] {
+| | whiteSpace: \\b\\b\\b [297:43] {
+| notSpecified: LIKE [297:46] {
+| | whiteSpace: \\b [297:50] {
+| notSpecified: ordem_sup.pct_aceite_dif,\\n [297:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [298:1] {
+| notSpecified: ies_liquida_oc [298:29] {
+| | whiteSpace: \\b\\b\\b [298:43] {
+| notSpecified: LIKE [298:46] {
+| | whiteSpace: \\b [298:50] {
+| notSpecified: ordem_sup.ies_liquida_oc,\\n [298:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [299:1] {
+| notSpecified: qtd_entregue [299:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b [299:41] {
+| notSpecified: LIKE [299:46] {
+| | whiteSpace: \\b [299:50] {
+| notSpecified: prog_ordem_sup.qtd_recebida\\n [299:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [300:1] {
+| notSpecified: END [300:29] {
+| | whiteSpace: \\b [300:32] {
+| notSpecified: RECORD\\n [300:33] {
+| | whiteSpace: \\b\\b [301:1] {
+| notSpecified: DEFINE [301:3] {
+| | whiteSpace: \\b [301:9] {
+| notSpecified: p_array_ped_aux [301:10] {
+| | whiteSpace: \\b\\b\\b\\b [301:25] {
+| notSpecified: ARRAY[999] [301:29] {
+| | whiteSpace: \\b [301:39] {
+| notSpecified: OF [301:40] {
+| | whiteSpace: \\b [301:42] {
+| notSpecified: RECORD\\n [301:43] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [302:1] {
+| notSpecified: cod_fornecedor [302:29] {
+| | whiteSpace: \\b\\b\\b [302:43] {
+| notSpecified: LIKE [302:46] {
+| | whiteSpace: \\b [302:50] {
+| notSpecified: pedido_sup.cod_fornecedor,\\n [302:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [303:1] {
+| notSpecified: qtd_entregue [303:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b [303:41] {
+| notSpecified: LIKE [303:46] {
+| | whiteSpace: \\b [303:50] {
+| notSpecified: prog_ordem_sup.qtd_recebida\\n [303:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [304:1] {
+| notSpecified: END [304:29] {
+| | whiteSpace: \\b [304:32] {
+| notSpecified: RECORD\\n [304:33] {
+| | whiteSpace: \\b\\b [305:1] {
+| notSpecified: DEFINE [305:3] {
+| | whiteSpace: \\b [305:9] {
+| notSpecified: g_num_aviso_rec [305:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [305:25] {
+| notSpecified: LIKE [305:30] {
+| | whiteSpace: \\b [305:34] {
+| notSpecified: ar_x_nf_pend.num_aviso_rec,\\n [305:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [306:1] {
+| notSpecified: g_cod_fornecedor [306:10] {
+| | whiteSpace: \\b\\b\\b\\b [306:26] {
+| notSpecified: LIKE [306:30] {
+| | whiteSpace: \\b [306:34] {
+| notSpecified: ar_x_nf_pend.cod_fornecedor,\\n [306:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [307:1] {
+| notSpecified: g_num_nf [307:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [307:18] {
+| notSpecified: LIKE [307:30] {
+| | whiteSpace: \\b [307:34] {
+| notSpecified: ar_x_nf_pend.num_nf,\\n [307:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [308:1] {
+| notSpecified: g_ser_nf [308:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [308:18] {
+| notSpecified: LIKE [308:30] {
+| | whiteSpace: \\b [308:34] {
+| notSpecified: ar_x_nf_pend.ser_nf,\\n [308:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [309:1] {
+| notSpecified: g_ssr_nf [309:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [309:18] {
+| notSpecified: LIKE [309:30] {
+| | whiteSpace: \\b [309:34] {
+| notSpecified: ar_x_nf_pend.ssr_nf,\\n [309:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [310:1] {
+| notSpecified: g_cod_item [310:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [310:20] {
+| notSpecified: LIKE [310:30] {
+| | whiteSpace: \\b [310:34] {
+| notSpecified: ar_x_nf_pend.cod_item,\\n [310:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [311:1] {
+| notSpecified: g_num_seq [311:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [311:19] {
+| notSpecified: LIKE [311:30] {
+| | whiteSpace: \\b [311:34] {
+| notSpecified: ar_x_nf_pend.num_seq\\n\\n [311:35] {
+| | whiteSpace: \\b\\b [313:1] {
+| notSpecified: DEFINE [313:3] {
+| | whiteSpace: \\b [313:9] {
+| notSpecified: p_cod_oper_ant [313:10] {
+| | whiteSpace: \\b\\b\\b [313:24] {
+| notSpecified: LIKE [313:27] {
+| | whiteSpace: \\b [313:31] {
+| notSpecified: aviso_rec_compl.cod_operacao\\n\\n [313:32] {
+| | whiteSpace: \\b\\b [315:1] {
+| notSpecified: DEFINE [315:3] {
+| | whiteSpace: \\b [315:9] {
+| notSpecified: p_nfe_import [315:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [315:22] {
+| notSpecified: SMALLINT,\\n [315:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [316:1] {
+| notSpecified: p_nfm_import [316:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [316:22] {
+| notSpecified: SMALLINT,\\n [316:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [317:1] {
+| notSpecified: g_prim_rateio [317:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [317:23] {
+| notSpecified: SMALLINT,\\n [317:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [318:1] {
+| notSpecified: g_proc_ini_os163407 [318:10] {
+| | whiteSpace: \\b\\b\\b [318:29] {
+| notSpecified: DECIMAL(6,0),\\n [318:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [319:1] {
+| notSpecified: p_processo_imp [319:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [319:24] {
+| notSpecified: RECORD [319:32] {
+| | whiteSpace: \\b [319:38] {
+| notSpecified: LIKE [319:39] {
+| | whiteSpace: \\b [319:43] {
+| notSpecified: processo_imp.*,\\n [319:44] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [320:1] {
+| notSpecified: p_proc_item [320:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [320:21] {
+| notSpecified: RECORD [320:32] {
+| | whiteSpace: \\b [320:38] {
+| notSpecified: LIKE [320:39] {
+| | whiteSpace: \\b [320:43] {
+| notSpecified: proc_item.*,\\n [320:44] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [321:1] {
+| notSpecified: g_val_desp_tot [321:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [321:24] {
+| notSpecified: DECIMAL(18,2),\\n [321:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [322:1] {
+| notSpecified: g_icms_total_nf [322:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [322:25] {
+| notSpecified: CHAR(01),\\n [322:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [323:1] {
+| notSpecified: g_dat_icms_tot_nf [323:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [323:27] {
+| notSpecified: DATE\\n\\n [323:32] {
+| | whiteSpace: \\b\\b [325:1] {
+| notSpecified: DEFINE [325:3] {
+| | whiteSpace: \\b [325:9] {
+| notSpecified: p_aviso_rec [325:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [325:21] {
+| notSpecified: RECORD [325:30] {
+| | whiteSpace: \\b [325:36] {
+| notSpecified: LIKE [325:37] {
+| | whiteSpace: \\b [325:41] {
+| notSpecified: aviso_rec.*,\\n [325:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [326:1] {
+| notSpecified: p_nf_sup [326:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [326:18] {
+| notSpecified: RECORD [326:30] {
+| | whiteSpace: \\b [326:36] {
+| notSpecified: LIKE [326:37] {
+| | whiteSpace: \\b [326:41] {
+| notSpecified: nf_sup.*,\\n [326:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [327:1] {
+| notSpecified: p_par_sup [327:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [327:19] {
+| notSpecified: RECORD [327:30] {
+| | whiteSpace: \\b [327:36] {
+| notSpecified: LIKE [327:37] {
+| | whiteSpace: \\b [327:41] {
+| notSpecified: par_sup.*,\\n [327:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [328:1] {
+| notSpecified: p_par_sup_compl [328:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [328:25] {
+| notSpecified: RECORD [328:30] {
+| | whiteSpace: \\b [328:36] {
+| notSpecified: LIKE [328:37] {
+| | whiteSpace: \\b [328:41] {
+| notSpecified: par_sup_compl.*,\\n [328:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [329:1] {
+| notSpecified: p_par_sup_compl_1 [329:10] {
+| | whiteSpace: \\b\\b\\b [329:27] {
+| notSpecified: RECORD [329:30] {
+| | whiteSpace: \\b [329:36] {
+| notSpecified: LIKE [329:37] {
+| | whiteSpace: \\b [329:41] {
+| notSpecified: par_sup_compl_1.*,\\n [329:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [330:1] {
+| notSpecified: p_ar_ped [330:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [330:18] {
+| notSpecified: RECORD [330:30] {
+| | whiteSpace: \\b [330:36] {
+| notSpecified: LIKE [330:37] {
+| | whiteSpace: \\b [330:41] {
+| notSpecified: ar_ped.*,\\n [330:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [331:1] {
+| notSpecified: p_ar_diverg [331:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [331:21] {
+| notSpecified: RECORD [331:30] {
+| | whiteSpace: \\b [331:36] {
+| notSpecified: LIKE [331:37] {
+| | whiteSpace: \\b [331:41] {
+| notSpecified: ar_diverg.*,\\n [331:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [332:1] {
+| notSpecified: p_prog_ordem_sup [332:10] {
+| | whiteSpace: \\b\\b\\b\\b [332:26] {
+| notSpecified: RECORD [332:30] {
+| | whiteSpace: \\b [332:36] {
+| notSpecified: LIKE [332:37] {
+| | whiteSpace: \\b [332:41] {
+| notSpecified: prog_ordem_sup.*,\\n [332:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [333:1] {
+| notSpecified: p_empresa [333:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [333:19] {
+| notSpecified: RECORD [333:30] {
+| | whiteSpace: \\b [333:36] {
+| notSpecified: LIKE [333:37] {
+| | whiteSpace: \\b [333:41] {
+| notSpecified: empresa.*,\\n [333:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [334:1] {
+| notSpecified: p_ordem_sup [334:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [334:21] {
+| notSpecified: RECORD [334:30] {
+| | whiteSpace: \\b [334:36] {
+| notSpecified: LIKE [334:37] {
+| | whiteSpace: \\b [334:41] {
+| notSpecified: ordem_sup.*,\\n [334:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [335:1] {
+| notSpecified: p_par_con [335:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [335:19] {
+| notSpecified: RECORD [335:30] {
+| | whiteSpace: \\b [335:36] {
+| notSpecified: LIKE [335:37] {
+| | whiteSpace: \\b [335:41] {
+| notSpecified: par_con.*,\\n [335:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [336:1] {
+| notSpecified: p_ies_contab_aen [336:10] {
+| | whiteSpace: \\b\\b\\b\\b [336:26] {
+| notSpecified: LIKE [336:30] {
+| | whiteSpace: \\b [336:34] {
+| notSpecified: par_con.ies_contab_aen,\\n [336:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [337:1] {
+| notSpecified: p_cod_fiscal_item [337:10] {
+| | whiteSpace: \\b\\b\\b [337:27] {
+| notSpecified: LIKE [337:30] {
+| | whiteSpace: \\b [337:34] {
+| notSpecified: aviso_rec.cod_fiscal_item,\\n [337:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [338:1] {
+| notSpecified: p_pre_unit_nf [338:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [338:23] {
+| notSpecified: LIKE [338:30] {
+| | whiteSpace: \\b [338:34] {
+| notSpecified: aviso_rec.pre_unit_nf,\\n [338:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [339:1] {
+| notSpecified: p_prim_digito [339:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [339:23] {
+| notSpecified: CHAR(01),\\n [339:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [340:1] {
+| notSpecified: p_ult_digitos [340:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [340:23] {
+| notSpecified: CHAR(03),\\n [340:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [341:1] {
+| notSpecified: p_cod_uni_feder [341:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [341:25] {
+| notSpecified: LIKE [341:30] {
+| | whiteSpace: \\b [341:34] {
+| notSpecified: fornecedor.cod_uni_feder,\\n [341:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [342:1] {
+| notSpecified: p_dest_aviso_rec [342:10] {
+| | whiteSpace: \\b\\b\\b\\b [342:26] {
+| notSpecified: RECORD [342:30] {
+| | whiteSpace: \\b [342:36] {
+| notSpecified: LIKE [342:37] {
+| | whiteSpace: \\b [342:41] {
+| notSpecified: dest_aviso_rec.*,\\n [342:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [343:1] {
+| notSpecified: p_fat_conver_unid [343:10] {
+| | whiteSpace: \\b\\b\\b [343:27] {
+| notSpecified: LIKE [343:30] {
+| | whiteSpace: \\b [343:34] {
+| notSpecified: ordem_sup.fat_conver_unid,\\n [343:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [344:1] {
+| notSpecified: p_fator_unid [344:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [344:22] {
+| notSpecified: LIKE [344:30] {
+| | whiteSpace: \\b [344:34] {
+| notSpecified: fat_conver.fat_conver_unid,\\n [344:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [345:1] {
+| notSpecified: p_num_conta_sal [345:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [345:25] {
+| notSpecified: LIKE [345:30] {
+| | whiteSpace: \\b [345:34] {
+| notSpecified: plano_contas.num_conta,\\n [345:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [346:1] {
+| notSpecified: p_fornecedor [346:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [346:22] {
+| notSpecified: RECORD [346:30] {
+| | whiteSpace: \\b [346:36] {
+| notSpecified: LIKE [346:37] {
+| | whiteSpace: \\b [346:41] {
+| notSpecified: fornecedor.*,\\n [346:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [347:1] {
+| notSpecified: p_maior_data [347:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [347:22] {
+| notSpecified: DATE,\\n [347:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [348:1] {
+| notSpecified: p_menor_data [348:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [348:22] {
+| notSpecified: DATE,\\n [348:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [349:1] {
+| notSpecified: p_pedido_sup [349:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [349:22] {
+| notSpecified: RECORD [349:30] {
+| | whiteSpace: \\b [349:36] {
+| notSpecified: LIKE [349:37] {
+| | whiteSpace: \\b [349:41] {
+| notSpecified: pedido_sup.*,\\n [349:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [350:1] {
+| notSpecified: p_ies_tem_inspecao [350:10] {
+| | whiteSpace: \\b\\b [350:28] {
+| notSpecified: LIKE [350:30] {
+| | whiteSpace: \\b [350:34] {
+| notSpecified: item.ies_tem_inspecao,\\n [350:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [351:1] {
+| notSpecified: p_dados_tela [351:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [351:22] {
+| notSpecified: RECORD\\n [351:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [352:1] {
+| notSpecified: cod_empresa [352:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [352:44] {
+| notSpecified: LIKE [352:51] {
+| | whiteSpace: \\b [352:55] {
+| notSpecified: aviso_rec.cod_empresa,\\n [352:56] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [353:1] {
+| notSpecified: cod_empresa_estab [353:33] {
+| | whiteSpace: \\b [353:50] {
+| notSpecified: LIKE [353:51] {
+| | whiteSpace: \\b [353:55] {
+| notSpecified: nf_sup.cod_empresa_estab,\\n [353:56] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [354:1] {
+| notSpecified: filial [354:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [354:39] {
+| notSpecified: DECIMAL(10),\\n [354:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [355:1] {
+| notSpecified: num_aviso_rec [355:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b [355:46] {
+| notSpecified: LIKE [355:51] {
+| | whiteSpace: \\b [355:55] {
+| notSpecified: aviso_rec.num_aviso_rec,\\n [355:56] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [356:1] {
+| notSpecified: cod_fornecedor [356:33] {
+| | whiteSpace: \\b\\b\\b\\b [356:47] {
+| notSpecified: LIKE [356:51] {
+| | whiteSpace: \\b [356:55] {
+| notSpecified: fornecedor.cod_fornecedor,\\n [356:56] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [357:1] {
+| notSpecified: num_nf [357:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [357:39] {
+| notSpecified: LIKE [357:51] {
+| | whiteSpace: \\b [357:55] {
+| notSpecified: nf_sup.num_nf,\\n [357:56] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [358:1] {
+| notSpecified: ser_nf [358:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [358:39] {
+| notSpecified: LIKE [358:51] {
+| | whiteSpace: \\b [358:55] {
+| notSpecified: nf_sup.ser_nf,\\n [358:56] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [359:1] {
+| notSpecified: ssr_nf [359:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [359:39] {
+| notSpecified: LIKE [359:51] {
+| | whiteSpace: \\b [359:55] {
+| notSpecified: nf_sup.ssr_nf,\\n [359:56] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [360:1] {
+| notSpecified: ies_especie_nf [360:33] {
+| | whiteSpace: \\b\\b\\b\\b [360:47] {
+| notSpecified: LIKE [360:51] {
+| | whiteSpace: \\b [360:55] {
+| notSpecified: nf_sup.ies_especie_nf,\\n [360:56] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [361:1] {
+| notSpecified: ies_nf_aguard_nfe [361:33] {
+| | whiteSpace: \\b [361:50] {
+| notSpecified: LIKE [361:51] {
+| | whiteSpace: \\b [361:55] {
+| notSpecified: nf_sup.ies_nf_aguard_nfe,\\n [361:56] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [362:1] {
+| notSpecified: cod_emp_benef [362:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b [362:46] {
+| notSpecified: LIKE [362:51] {
+| | whiteSpace: \\b [362:55] {
+| notSpecified: empresa.cod_empresa,\\n [362:56] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [363:1] {
+| notSpecified: cod_operac_estoq [363:33] {
+| | whiteSpace: \\b\\b [363:49] {
+| notSpecified: LIKE [363:51] {
+| | whiteSpace: \\b [363:55] {
+| notSpecified: estoque_operac.cod_operacao,\\n [363:56] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [364:1] {
+| notSpecified: cod_operacao [364:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [364:45] {
+| notSpecified: CHAR(05),\\n [364:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [365:1] {
+| notSpecified: cod_fiscal_compl [365:33] {
+| | whiteSpace: \\b\\b [365:49] {
+| notSpecified: INTEGER,\\n [365:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [366:1] {
+| notSpecified: dat_emis_nf [366:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [366:44] {
+| notSpecified: LIKE [366:51] {
+| | whiteSpace: \\b [366:55] {
+| notSpecified: nf_sup.dat_emis_nf,\\n [366:56] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [367:1] {
+| notSpecified: dat_entrada_nf [367:33] {
+| | whiteSpace: \\b\\b\\b\\b [367:47] {
+| notSpecified: LIKE [367:51] {
+| | whiteSpace: \\b [367:55] {
+| notSpecified: nf_sup.dat_entrada_nf,\\n [367:56] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [368:1] {
+| notSpecified: cnd_pgto_nf [368:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [368:44] {
+| notSpecified: LIKE [368:51] {
+| | whiteSpace: \\b [368:55] {
+| notSpecified: nf_sup.cnd_pgto_nf,\\n [368:56] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [369:1] {
+| notSpecified: cod_mod_embar [369:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b [369:46] {
+| notSpecified: LIKE [369:51] {
+| | whiteSpace: \\b [369:55] {
+| notSpecified: nf_sup.cod_mod_embar,\\n [369:56] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [370:1] {
+| notSpecified: ies_impostos [370:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [370:45] {
+| notSpecified: CHAR(01)\\n [370:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [371:1] {
+| notSpecified: END [371:30] {
+| | whiteSpace: \\b [371:33] {
+| notSpecified: RECORD,\\n [371:34] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [372:1] {
+| notSpecified: p_codigos [372:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [372:19] {
+| notSpecified: RECORD\\n [372:25] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [373:1] {
+| notSpecified: cod_operac_estoq [373:27] {
+| | whiteSpace: \\b\\b [373:43] {
+| notSpecified: LIKE [373:45] {
+| | whiteSpace: \\b [373:49] {
+| notSpecified: estoque_operac.cod_operacao,\\n [373:50] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [374:1] {
+| notSpecified: cod_operacao [374:27] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [374:39] {
+| notSpecified: CHAR(05),\\n [374:45] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [375:1] {
+| notSpecified: cod_fiscal_compl [375:27] {
+| | whiteSpace: \\b\\b [375:43] {
+| notSpecified: INTEGER,\\n [375:45] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [376:1] {
+| notSpecified: cod_mod_embar [376:27] {
+| | whiteSpace: \\b\\b\\b\\b\\b [376:40] {
+| notSpecified: LIKE [376:45] {
+| | whiteSpace: \\b [376:49] {
+| notSpecified: nf_sup.cod_mod_embar\\n [376:50] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [377:1] {
+| notSpecified: END [377:25] {
+| | whiteSpace: \\b [377:28] {
+| notSpecified: RECORD,\\n [377:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [378:1] {
+| notSpecified: p_dados_tela_f [378:10] {
+| | whiteSpace: \\b [378:24] {
+| notSpecified: RECORD\\n [378:25] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [379:1] {
+| notSpecified: val_ipi_nf [379:21] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [379:31] {
+| notSpecified: DECIMAL(17,2),\\n [379:41] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [380:1] {
+| notSpecified: val_tot_icms_nf_d [380:21] {
+| | whiteSpace: \\b\\b\\b [380:38] {
+| notSpecified: DECIMAL(17,2),\\n [380:41] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [381:1] {
+| notSpecified: val_tot_nf_d [381:21] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [381:33] {
+| notSpecified: DECIMAL(17,2) [381:41] {
+| | whiteSpace: \\b [381:54] {
+| notSpecified: ,\\n [381:55] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [382:1] {
+| notSpecified: ies_desc_acres [382:21] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [382:35] {
+| notSpecified: CHAR(01)\\n [382:41] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [383:1] {
+| notSpecified: END [383:14] {
+| | whiteSpace: \\b [383:17] {
+| notSpecified: RECORD,\\n [383:18] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [384:1] {
+| notSpecified: p_dados_telar [384:10] {
+| | whiteSpace: \\b\\b [384:23] {
+| notSpecified: RECORD\\n [384:25] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [385:1] {
+| notSpecified: cod_empresa [385:27] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [385:38] {
+| notSpecified: LIKE [385:45] {
+| | whiteSpace: \\b [385:49] {
+| notSpecified: aviso_rec.cod_empresa,\\n [385:50] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [386:1] {
+| notSpecified: cod_empresa_estab [386:27] {
+| | whiteSpace: \\b [386:44] {
+| notSpecified: LIKE [386:45] {
+| | whiteSpace: \\b [386:49] {
+| notSpecified: nf_sup.cod_empresa_estab,\\n [386:50] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [387:1] {
+| notSpecified: filial [387:27] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [387:33] {
+| notSpecified: DECIMAL(10),\\n [387:45] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [388:1] {
+| notSpecified: num_aviso_rec [388:27] {
+| | whiteSpace: \\b\\b\\b\\b\\b [388:40] {
+| notSpecified: LIKE [388:45] {
+| | whiteSpace: \\b [388:49] {
+| notSpecified: aviso_rec.num_aviso_rec,\\n [388:50] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [389:1] {
+| notSpecified: cod_fornecedor [389:27] {
+| | whiteSpace: \\b\\b\\b\\b [389:41] {
+| notSpecified: LIKE [389:45] {
+| | whiteSpace: \\b [389:49] {
+| notSpecified: fornecedor.cod_fornecedor,\\n [389:50] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [390:1] {
+| notSpecified: num_nf [390:27] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [390:33] {
+| notSpecified: LIKE [390:45] {
+| | whiteSpace: \\b [390:49] {
+| notSpecified: nf_sup.num_nf,\\n [390:50] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [391:1] {
+| notSpecified: ser_nf [391:27] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [391:33] {
+| notSpecified: LIKE [391:45] {
+| | whiteSpace: \\b [391:49] {
+| notSpecified: nf_sup.ser_nf,\\n [391:50] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [392:1] {
+| notSpecified: ssr_nf [392:27] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [392:33] {
+| notSpecified: LIKE [392:45] {
+| | whiteSpace: \\b [392:49] {
+| notSpecified: nf_sup.ssr_nf,\\n [392:50] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [393:1] {
+| notSpecified: ies_especie_nf [393:27] {
+| | whiteSpace: \\b\\b\\b\\b [393:41] {
+| notSpecified: LIKE [393:45] {
+| | whiteSpace: \\b [393:49] {
+| notSpecified: nf_sup.ies_especie_nf,\\n [393:50] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [394:1] {
+| notSpecified: ies_nf_aguard_nfe [394:27] {
+| | whiteSpace: \\b [394:44] {
+| notSpecified: LIKE [394:45] {
+| | whiteSpace: \\b [394:49] {
+| notSpecified: nf_sup.ies_nf_aguard_nfe,\\n [394:50] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [395:1] {
+| notSpecified: cod_emp_benef [395:27] {
+| | whiteSpace: \\b\\b\\b\\b\\b [395:40] {
+| notSpecified: LIKE [395:45] {
+| | whiteSpace: \\b [395:49] {
+| notSpecified: empresa.cod_empresa,\\n [395:50] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [396:1] {
+| notSpecified: cod_operac_estoq [396:27] {
+| | whiteSpace: \\b\\b [396:43] {
+| notSpecified: LIKE [396:45] {
+| | whiteSpace: \\b [396:49] {
+| notSpecified: estoque_operac.cod_operacao,\\n [396:50] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [397:1] {
+| notSpecified: cod_operacao [397:27] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [397:39] {
+| notSpecified: CHAR(05),\\n [397:45] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [398:1] {
+| notSpecified: cod_fiscal_compl [398:27] {
+| | whiteSpace: \\b\\b [398:43] {
+| notSpecified: INTEGER,\\n [398:45] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [399:1] {
+| notSpecified: dat_emis_nf [399:27] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [399:38] {
+| notSpecified: LIKE [399:45] {
+| | whiteSpace: \\b [399:49] {
+| notSpecified: nf_sup.dat_emis_nf,\\n [399:50] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [400:1] {
+| notSpecified: dat_entrada_nf [400:27] {
+| | whiteSpace: \\b\\b\\b\\b [400:41] {
+| notSpecified: LIKE [400:45] {
+| | whiteSpace: \\b [400:49] {
+| notSpecified: nf_sup.dat_entrada_nf,\\n [400:50] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [401:1] {
+| notSpecified: cnd_pgto_nf [401:27] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [401:38] {
+| notSpecified: LIKE [401:45] {
+| | whiteSpace: \\b [401:49] {
+| notSpecified: nf_sup.cnd_pgto_nf,\\n [401:50] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [402:1] {
+| notSpecified: cod_mod_embar [402:27] {
+| | whiteSpace: \\b\\b\\b\\b\\b [402:40] {
+| notSpecified: LIKE [402:45] {
+| | whiteSpace: \\b [402:49] {
+| notSpecified: nf_sup.cod_mod_embar,\\n [402:50] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [403:1] {
+| notSpecified: ies_impostos [403:27] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [403:39] {
+| notSpecified: CHAR(01)\\n [403:45] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [404:1] {
+| notSpecified: END [404:24] {
+| | whiteSpace: \\b [404:27] {
+| notSpecified: RECORD,\\n [404:28] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [405:1] {
+| notSpecified: p_dados_telar_f [405:10] {
+| | whiteSpace: \\b [405:25] {
+| notSpecified: RECORD\\n [405:26] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [406:1] {
+| notSpecified: ipi [406:21] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [406:24] {
+| notSpecified: DECIMAL(17,2),\\n [406:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [407:1] {
+| notSpecified: icms [407:21] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [407:25] {
+| notSpecified: DECIMAL(17,2),\\n [407:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [408:1] {
+| notSpecified: tot_nf [408:21] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [408:27] {
+| notSpecified: DECIMAL(17,2)\\n [408:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [409:1] {
+| notSpecified: END [409:22] {
+| | whiteSpace: \\b [409:25] {
+| notSpecified: RECORD,\\n [409:26] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [410:1] {
+| notSpecified: p_formonly [410:10] {
+| | whiteSpace: \\b\\b\\b\\b [410:20] {
+| notSpecified: RECORD\\n [410:24] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [411:1] {
+| notSpecified: raz_social [411:27] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [411:37] {
+| notSpecified: LIKE [411:46] {
+| | whiteSpace: \\b [411:50] {
+| notSpecified: fornecedor.raz_social,\\n [411:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [412:1] {
+| notSpecified: des_cnd_pgto [412:27] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [412:39] {
+| notSpecified: LIKE [412:46] {
+| | whiteSpace: \\b [412:50] {
+| notSpecified: cond_pgto_cap.des_cnd_pgto,\\n [412:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [413:1] {
+| notSpecified: tex_tip_frete [413:27] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [413:40] {
+| notSpecified: CHAR(15)\\n [413:46] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [414:1] {
+| notSpecified: END [414:24] {
+| | whiteSpace: \\b [414:27] {
+| notSpecified: RECORD,\\n [414:28] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [415:1] {
+| notSpecified: p_formonlyr [415:10] {
+| | whiteSpace: \\b\\b\\b [415:21] {
+| notSpecified: RECORD\\n [415:24] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [416:1] {
+| notSpecified: raz_social [416:27] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [416:37] {
+| notSpecified: LIKE [416:46] {
+| | whiteSpace: \\b [416:50] {
+| notSpecified: fornecedor.raz_social,\\n [416:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [417:1] {
+| notSpecified: des_cnd_pgto [417:27] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [417:39] {
+| notSpecified: LIKE [417:46] {
+| | whiteSpace: \\b [417:50] {
+| notSpecified: cond_pgto_cap.des_cnd_pgto,\\n [417:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [418:1] {
+| notSpecified: tex_tip_frete [418:27] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [418:40] {
+| notSpecified: CHAR(15)\\n [418:46] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [419:1] {
+| notSpecified: END [419:24] {
+| | whiteSpace: \\b [419:27] {
+| notSpecified: RECORD,\\n\\n [419:28] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [421:1] {
+| notSpecified: p_funcao_menu [421:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [421:23] {
+| notSpecified: CHAR(30),\\n [421:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [422:1] {
+| notSpecified: p_cod_item [422:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [422:20] {
+| notSpecified: LIKE [422:30] {
+| | whiteSpace: \\b [422:34] {
+| notSpecified: item_sup.cod_item,\\n [422:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [423:1] {
+| notSpecified: p_dif_aceita [423:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [423:22] {
+| notSpecified: DECIMAL(17,2),\\n [423:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [424:1] {
+| notSpecified: p_val_dif_aceita [424:10] {
+| | whiteSpace: \\b\\b\\b\\b [424:26] {
+| notSpecified: DECIMAL(17,2),\\n [424:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [425:1] {
+| notSpecified: p_cont_aut_terc [425:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [425:25] {
+| notSpecified: SMALLINT\\n\\n [425:30] {
+| | whiteSpace: \\b\\b\\b [427:1] {
+| notSpecified: DEFINE [427:4] {
+| | whiteSpace: \\b [427:10] {
+| notSpecified: p_array_compl [427:11] {
+| | whiteSpace: \\b [427:24] {
+| notSpecified: ARRAY[999] [427:25] {
+| | whiteSpace: \\b [427:35] {
+| notSpecified: OF\\n [427:36] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [428:1] {
+| notSpecified: RECORD\\n [428:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [429:1] {
+| notSpecified: ies_item_estoq [429:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [429:27] {
+| notSpecified: LIKE [429:33] {
+| | whiteSpace: \\b [429:37] {
+| notSpecified: aviso_rec.ies_item_estoq [429:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [429:62] {
+| notSpecified: ,\\n [429:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [430:1] {
+| notSpecified: ies_liberacao_insp [430:13] {
+| | whiteSpace: \\b\\b [430:31] {
+| notSpecified: LIKE [430:33] {
+| | whiteSpace: \\b [430:37] {
+| notSpecified: aviso_rec.ies_liberacao_insp [430:38] {
+| | whiteSpace: \\b\\b\\b [430:66] {
+| notSpecified: ,\\n [430:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [431:1] {
+| notSpecified: ies_controle_lote [431:13] {
+| | whiteSpace: \\b\\b\\b [431:30] {
+| notSpecified: LIKE [431:33] {
+| | whiteSpace: \\b [431:37] {
+| notSpecified: aviso_rec.ies_controle_lote [431:38] {
+| | whiteSpace: \\b\\b\\b\\b [431:65] {
+| notSpecified: ,\\n [431:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [432:1] {
+| notSpecified: cod_local_estoq [432:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b [432:28] {
+| notSpecified: LIKE [432:33] {
+| | whiteSpace: \\b [432:37] {
+| notSpecified: item.cod_local_estoq [432:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [432:58] {
+| notSpecified: ,\\n [432:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [433:1] {
+| notSpecified: cod_cla_fisc [433:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [433:25] {
+| notSpecified: LIKE [433:33] {
+| | whiteSpace: \\b [433:37] {
+| notSpecified: item.cod_cla_fisc [433:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [433:55] {
+| notSpecified: ,\\n [433:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [434:1] {
+| notSpecified: num_pedido [434:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [434:23] {
+| notSpecified: LIKE [434:33] {
+| | whiteSpace: \\b [434:37] {
+| notSpecified: pedido_sup.num_pedido [434:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [434:59] {
+| notSpecified: ,\\n [434:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [435:1] {
+| notSpecified: num_oc [435:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [435:19] {
+| notSpecified: LIKE [435:33] {
+| | whiteSpace: \\b [435:37] {
+| notSpecified: ordem_sup.num_oc [435:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [435:54] {
+| notSpecified: ,\\n [435:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [436:1] {
+| notSpecified: num_prog_entrega [436:13] {
+| | whiteSpace: \\b\\b\\b\\b [436:29] {
+| notSpecified: LIKE [436:33] {
+| | whiteSpace: \\b [436:37] {
+| notSpecified: prog_ordem_sup.num_prog_entrega,\\n [436:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [437:1] {
+| notSpecified: ies_diverg_preco [437:13] {
+| | whiteSpace: \\b\\b\\b\\b [437:29] {
+| notSpecified: LIKE [437:33] {
+| | whiteSpace: \\b [437:37] {
+| notSpecified: ar_diverg.ies_tip_diverg [437:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [437:62] {
+| notSpecified: ,\\n [437:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [438:1] {
+| notSpecified: ies_bloqueada [438:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [438:26] {
+| notSpecified: CHAR(01) [438:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [438:41] {
+| notSpecified: ,\\n [438:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [439:1] {
+| notSpecified: qtd_declarad_nf [439:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b [439:28] {
+| notSpecified: LIKE [439:33] {
+| | whiteSpace: \\b [439:37] {
+| notSpecified: aviso_rec.qtd_declarad_nf [439:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [439:63] {
+| notSpecified: ,\\n [439:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [440:1] {
+| notSpecified: ar_com_pc [440:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [440:22] {
+| notSpecified: CHAR(01) [440:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [440:41] {
+| notSpecified: ,\\n [440:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [441:1] {
+| notSpecified: move_estoque [441:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [441:25] {
+| notSpecified: CHAR(01) [441:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [441:41] {
+| notSpecified: ,\\n [441:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [442:1] {
+| notSpecified: cod_lin_prod [442:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [442:25] {
+| notSpecified: LIKE [442:33] {
+| | whiteSpace: \\b [442:37] {
+| notSpecified: item.cod_lin_prod [442:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [442:55] {
+| notSpecified: ,\\n [442:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [443:1] {
+| notSpecified: cod_lin_recei [443:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [443:26] {
+| notSpecified: LIKE [443:33] {
+| | whiteSpace: \\b [443:37] {
+| notSpecified: item.cod_lin_recei [443:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [443:56] {
+| notSpecified: ,\\n [443:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [444:1] {
+| notSpecified: cod_seg_merc [444:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [444:25] {
+| notSpecified: LIKE [444:33] {
+| | whiteSpace: \\b [444:37] {
+| notSpecified: item.cod_seg_merc [444:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [444:55] {
+| notSpecified: ,\\n [444:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [445:1] {
+| notSpecified: cod_cla_uso [445:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [445:24] {
+| notSpecified: LIKE [445:33] {
+| | whiteSpace: \\b [445:37] {
+| notSpecified: item.cod_cla_uso [445:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [445:54] {
+| notSpecified: ,\\n [445:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [446:1] {
+| notSpecified: qtd_reserva_prog [446:13] {
+| | whiteSpace: \\b\\b\\b\\b [446:29] {
+| notSpecified: LIKE [446:33] {
+| | whiteSpace: \\b [446:37] {
+| notSpecified: ar_ped.qtd_reservada [446:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [446:58] {
+| notSpecified: ,\\n [446:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [447:1] {
+| notSpecified: alterou_val_liquido [447:13] {
+| | whiteSpace: \\b [447:32] {
+| notSpecified: SMALLINT [447:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [447:41] {
+| notSpecified: ,\\n [447:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [448:1] {
+| notSpecified: pct_ipi_tabela [448:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [448:27] {
+| notSpecified: LIKE [448:33] {
+| | whiteSpace: \\b [448:37] {
+| notSpecified: aviso_rec.pct_ipi_tabela [448:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [448:62] {
+| notSpecified: ,\\n [448:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [449:1] {
+| notSpecified: pct_aceite_dif [449:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [449:27] {
+| notSpecified: LIKE [449:33] {
+| | whiteSpace: \\b [449:37] {
+| notSpecified: ordem_sup.pct_aceite_dif [449:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [449:62] {
+| notSpecified: ,\\n [449:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [450:1] {
+| notSpecified: tot_reserv_dif [450:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [450:27] {
+| notSpecified: LIKE [450:33] {
+| | whiteSpace: \\b [450:37] {
+| notSpecified: ordem_sup.qtd_solic [450:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [450:57] {
+| notSpecified: ,\\n [450:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [451:1] {
+| notSpecified: ies_liquida_oc [451:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [451:27] {
+| notSpecified: LIKE [451:33] {
+| | whiteSpace: \\b [451:37] {
+| notSpecified: ordem_sup.ies_liquida_oc [451:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [451:62] {
+| notSpecified: ,\\n [451:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [452:1] {
+| notSpecified: pre_unit_nf [452:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [452:24] {
+| notSpecified: LIKE [452:33] {
+| | whiteSpace: \\b [452:37] {
+| notSpecified: aviso_rec.pre_unit_nf [452:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [452:59] {
+| notSpecified: ,\\n [452:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [453:1] {
+| notSpecified: val_reserva_prog [453:13] {
+| | whiteSpace: \\b\\b\\b\\b [453:29] {
+| notSpecified: LIKE [453:33] {
+| | whiteSpace: \\b [453:37] {
+| notSpecified: aviso_rec.val_liquido_item [453:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b [453:64] {
+| notSpecified: ,\\n [453:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [454:1] {
+| notSpecified: ies_tip_item [454:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [454:25] {
+| notSpecified: LIKE [454:33] {
+| | whiteSpace: \\b [454:37] {
+| notSpecified: item.ies_tip_item [454:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [454:55] {
+| notSpecified: ,\\n [454:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [455:1] {
+| notSpecified: val_ii [455:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [455:19] {
+| notSpecified: LIKE [455:33] {
+| | whiteSpace: \\b [455:37] {
+| notSpecified: proc_item.val_ii [455:38] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [455:54] {
+| notSpecified: ,\\n [455:69] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [456:1] {
+| notSpecified: val_desp_imp [456:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [456:25] {
+| notSpecified: DECIMAL(15,2)\\n [456:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [457:1] {
+| notSpecified: END [457:10] {
+| | whiteSpace: \\b [457:13] {
+| notSpecified: RECORD\\n\\n [457:14] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [459:1] {
+| notSpecified: DEFINE [459:7] {
+| | whiteSpace: \\b [459:13] {
+| notSpecified: p_array [459:14] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [459:21] {
+| notSpecified: ARRAY[999] [459:30] {
+| | whiteSpace: \\b [459:40] {
+| notSpecified: OF [459:41] {
+| | whiteSpace: \\b [459:43] {
+| notSpecified: RECORD\\n [459:44] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [460:1] {
+| notSpecified: seq [460:25] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [460:28] {
+| notSpecified: CHAR(03),\\n [460:44] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [461:1] {
+| notSpecified: cod_item [461:25] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [461:33] {
+| notSpecified: LIKE [461:44] {
+| | whiteSpace: \\b [461:48] {
+| notSpecified: item.cod_item,\\n [461:49] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [462:1] {
+| notSpecified: qtd_declarad_nf [462:25] {
+| | whiteSpace: \\b\\b\\b\\b [462:40] {
+| notSpecified: LIKE [462:44] {
+| | whiteSpace: \\b [462:48] {
+| notSpecified: aviso_rec.qtd_declarad_nf,\\n [462:49] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [463:1] {
+| notSpecified: cod_unid_med_nf [463:25] {
+| | whiteSpace: \\b\\b\\b\\b [463:40] {
+| notSpecified: LIKE [463:44] {
+| | whiteSpace: \\b [463:48] {
+| notSpecified: aviso_rec.cod_unid_med_nf,\\n [463:49] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [464:1] {
+| notSpecified: pre_unit_nf [464:25] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [464:36] {
+| notSpecified: LIKE [464:44] {
+| | whiteSpace: \\b [464:48] {
+| notSpecified: aviso_rec.pre_unit_nf,\\n [464:49] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [465:1] {
+| notSpecified: val_liquido_item [465:25] {
+| | whiteSpace: \\b\\b\\b [465:41] {
+| notSpecified: LIKE [465:44] {
+| | whiteSpace: \\b [465:48] {
+| notSpecified: aviso_rec.val_liquido_item,\\n [465:49] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [466:1] {
+| notSpecified: den_item [466:25] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [466:33] {
+| notSpecified: CHAR(50),\\n [466:44] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [467:1] {
+| notSpecified: cod_cla_fisc_nf [467:25] {
+| | whiteSpace: \\b\\b\\b\\b [467:40] {
+| notSpecified: LIKE [467:44] {
+| | whiteSpace: \\b [467:48] {
+| notSpecified: aviso_rec.cod_cla_fisc_nf,\\n [467:49] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [468:1] {
+| notSpecified: pct_ipi [468:25] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [468:32] {
+| notSpecified: LIKE [468:44] {
+| | whiteSpace: \\b [468:48] {
+| notSpecified: aviso_rec.pct_ipi_declarad\\n [468:49] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [469:1] {
+| notSpecified: END [469:30] {
+| | whiteSpace: \\b [469:33] {
+| notSpecified: RECORD,\\n [469:34] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [470:1] {
+| notSpecified: p_ind, [470:10] {
+| | whiteSpace: \\b [470:16] {
+| notSpecified: p_ind1 [470:17] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [470:23] {
+| notSpecified: SMALLINT\\n\\n [470:30] {
+| | whiteSpace: \\b\\b\\b [472:1] {
+| | operator: # [472:4] {
+| ----------------------------------#| newLine: \\n [472:40] {
+| | whiteSpace: \\b\\b\\b [473:1] {
+| | operator: # [473:4] {
+|  Modifica��o realizada para o WMS #| newLine: \\n [473:40] {
+| | whiteSpace: \\b\\b\\b [474:1] {
+| | operator: # [474:4] {
+| ----------------------------------#| newLine: \\n [474:40] {
+| | whiteSpace: \\b\\b\\b [475:1] {
+| notSpecified: DEFINE [475:4] {
+| | whiteSpace: \\b [475:10] {
+| notSpecified: p_array_wms [475:11] {
+| | whiteSpace: \\b\\b\\b\\b\\b [475:22] {
+| notSpecified: ARRAY[999] [475:27] {
+| | whiteSpace: \\b [475:37] {
+| notSpecified: OF [475:38] {
+| | whiteSpace: \\b [475:40] {
+| notSpecified: RECORD\\n [475:41] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [476:1] {
+| notSpecified: seq [476:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [476:33] {
+| notSpecified: CHAR(03),\\n [476:49] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [477:1] {
+| notSpecified: cod_item [477:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [477:38] {
+| notSpecified: LIKE [477:49] {
+| | whiteSpace: \\b [477:53] {
+| notSpecified: wms_item_complemento.item_deposit,\\n [477:54] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [478:1] {
+| notSpecified: qtd_declarad_nf [478:30] {
+| | whiteSpace: \\b\\b\\b\\b [478:45] {
+| notSpecified: LIKE [478:49] {
+| | whiteSpace: \\b [478:53] {
+| notSpecified: aviso_rec.qtd_declarad_nf,\\n [478:54] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [479:1] {
+| notSpecified: cod_unid_med_nf [479:30] {
+| | whiteSpace: \\b\\b\\b\\b [479:45] {
+| notSpecified: LIKE [479:49] {
+| | whiteSpace: \\b [479:53] {
+| notSpecified: aviso_rec.cod_unid_med_nf,\\n [479:54] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [480:1] {
+| notSpecified: pre_unit_nf [480:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [480:41] {
+| notSpecified: LIKE [480:49] {
+| | whiteSpace: \\b [480:53] {
+| notSpecified: aviso_rec.pre_unit_nf,\\n [480:54] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [481:1] {
+| notSpecified: val_liquido_item [481:30] {
+| | whiteSpace: \\b\\b\\b [481:46] {
+| notSpecified: LIKE [481:49] {
+| | whiteSpace: \\b [481:53] {
+| notSpecified: aviso_rec.val_liquido_item,\\n [481:54] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [482:1] {
+| notSpecified: den_item [482:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [482:38] {
+| notSpecified: CHAR(50),\\n [482:49] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [483:1] {
+| notSpecified: cod_cla_fisc_nf [483:30] {
+| | whiteSpace: \\b\\b\\b\\b [483:45] {
+| notSpecified: LIKE [483:49] {
+| | whiteSpace: \\b [483:53] {
+| notSpecified: aviso_rec.cod_cla_fisc_nf,\\n [483:54] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [484:1] {
+| notSpecified: pct_ipi [484:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [484:37] {
+| notSpecified: LIKE [484:49] {
+| | whiteSpace: \\b [484:53] {
+| notSpecified: aviso_rec.pct_ipi_declarad\\n [484:54] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [485:1] {
+| notSpecified: END [485:27] {
+| | whiteSpace: \\b [485:30] {
+| notSpecified: RECORD\\n [485:31] {
+| | whiteSpace: \\b\\b [486:1] {
+| | operator: # [486:3] {
+| -----------------------------------#| newLine: \\n\\n [486:40] {
+| | whiteSpace: \\b\\b [488:1] {
+| notSpecified: DEFINE [488:3] {
+| | whiteSpace: \\b [488:9] {
+| notSpecified: ga_nf_item_fiscal [488:10] {
+| | whiteSpace: \\b\\b\\b [488:27] {
+| notSpecified: ARRAY[999] [488:30] {
+| | whiteSpace: \\b [488:40] {
+| notSpecified: OF [488:41] {
+| | whiteSpace: \\b [488:43] {
+| notSpecified: RECORD\\n [488:44] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [489:1] {
+| notSpecified: val_base_ipi [489:30] {
+| | whiteSpace: \\b\\b\\b [489:42] {
+| notSpecified: LIKE [489:45] {
+| | whiteSpace: \\b [489:49] {
+| notSpecified: nf_item_fiscal.val_base_ipi,\\n [489:50] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [490:1] {
+| notSpecified: val_ipi [490:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [490:37] {
+| notSpecified: LIKE [490:45] {
+| | whiteSpace: \\b [490:49] {
+| notSpecified: nf_item_fiscal.val_ipi,\\n [490:50] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [491:1] {
+| notSpecified: val_base_icms [491:30] {
+| | whiteSpace: \\b\\b [491:43] {
+| notSpecified: LIKE [491:45] {
+| | whiteSpace: \\b [491:49] {
+| notSpecified: nf_item_fiscal.val_base_icm\\n [491:50] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [492:1] {
+| notSpecified: END [492:30] {
+| | whiteSpace: \\b [492:33] {
+| notSpecified: RECORD\\n\\n [492:34] {
+| | whiteSpace: \\b\\b [494:1] {
+| notSpecified: DEFINE [494:3] {
+| | whiteSpace: \\b [494:9] {
+| notSpecified: p_array_it_prg_entr [494:10] {
+| | whiteSpace: \\b\\b [494:29] {
+| notSpecified: ARRAY[999,50] [494:31] {
+| | whiteSpace: \\b [494:44] {
+| notSpecified: OF\\n [494:45] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [495:1] {
+| notSpecified: RECORD\\n [495:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [496:1] {
+| notSpecified: num_prog_entrega [496:13] {
+| | whiteSpace: \\b\\b\\b [496:29] {
+| notSpecified: LIKE [496:32] {
+| | whiteSpace: \\b [496:36] {
+| notSpecified: prog_ordem_sup.num_prog_entrega,\\n [496:37] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [497:1] {
+| notSpecified: qtd_reservada [497:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [497:26] {
+| notSpecified: LIKE [497:32] {
+| | whiteSpace: \\b [497:36] {
+| notSpecified: prog_ordem_sup.qtd_recebida [497:37] {
+| | whiteSpace: \\b\\b\\b\\b [497:64] {
+| notSpecified: ,\\n [497:68] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [498:1] {
+| notSpecified: qtd_solic [498:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [498:22] {
+| notSpecified: LIKE [498:32] {
+| | whiteSpace: \\b [498:36] {
+| notSpecified: prog_ordem_sup.qtd_solic [498:37] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [498:61] {
+| notSpecified: ,\\n [498:68] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [499:1] {
+| notSpecified: val_reservado [499:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [499:26] {
+| notSpecified: LIKE [499:32] {
+| | whiteSpace: \\b [499:36] {
+| notSpecified: prog_ordem_sup_com.val_receb [499:37] {
+| | whiteSpace: \\b\\b\\b [499:65] {
+| notSpecified: ,\\n [499:68] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [500:1] {
+| notSpecified: val_solic [500:13] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [500:22] {
+| notSpecified: LIKE [500:32] {
+| | whiteSpace: \\b [500:36] {
+| notSpecified: prog_ordem_sup_com.val_solic\\n [500:37] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [501:1] {
+| notSpecified: END [501:10] {
+| | whiteSpace: \\b [501:13] {
+| notSpecified: RECORD\\n\\n [501:14] {
+| | whiteSpace: \\b\\b [503:1] {
+| notSpecified: DEFINE [503:3] {
+| | whiteSpace: \\b [503:9] {
+| notSpecified: p_nota [503:10] {
+| | whiteSpace: \\b\\b [503:16] {
+| notSpecified: RECORD\\n [503:18] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [504:1] {
+| notSpecified: cod_empresa [504:21] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [504:32] {
+| notSpecified: LIKE [504:41] {
+| | whiteSpace: \\b [504:45] {
+| notSpecified: nf_sup.cod_empresa,\\n [504:46] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [505:1] {
+| notSpecified: num_aviso_rec [505:21] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [505:34] {
+| notSpecified: LIKE [505:41] {
+| | whiteSpace: \\b [505:45] {
+| notSpecified: nf_sup.num_aviso_rec,\\n [505:46] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [506:1] {
+| notSpecified: ies_nf_com_erro [506:21] {
+| | whiteSpace: \\b\\b\\b\\b\\b [506:36] {
+| notSpecified: LIKE [506:41] {
+| | whiteSpace: \\b [506:45] {
+| notSpecified: nf_sup.ies_nf_com_erro,\\n [506:46] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [507:1] {
+| notSpecified: nom_resp_aceite_er [507:21] {
+| | whiteSpace: \\b\\b [507:39] {
+| notSpecified: LIKE [507:41] {
+| | whiteSpace: \\b [507:45] {
+| notSpecified: nf_sup.nom_resp_aceite_er,\\n [507:46] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [508:1] {
+| notSpecified: ies_incl_cap [508:21] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [508:33] {
+| notSpecified: LIKE [508:41] {
+| | whiteSpace: \\b [508:45] {
+| notSpecified: nf_sup.ies_incl_cap,\\n [508:46] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [509:1] {
+| notSpecified: dat_entrada_nf [509:21] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [509:35] {
+| notSpecified: LIKE [509:41] {
+| | whiteSpace: \\b [509:45] {
+| notSpecified: nf_sup.dat_entrada_nf,\\n [509:46] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [510:1] {
+| notSpecified: dat_emis_nf [510:21] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [510:32] {
+| notSpecified: LIKE [510:41] {
+| | whiteSpace: \\b [510:45] {
+| notSpecified: nf_sup.dat_emis_nf,\\n [510:46] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [511:1] {
+| notSpecified: cod_fornecedor [511:21] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [511:35] {
+| notSpecified: LIKE [511:41] {
+| | whiteSpace: \\b [511:45] {
+| notSpecified: nf_sup.cod_fornecedor,\\n [511:46] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [512:1] {
+| notSpecified: num_nf [512:21] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [512:27] {
+| notSpecified: LIKE [512:41] {
+| | whiteSpace: \\b [512:45] {
+| notSpecified: nf_sup.num_nf,\\n [512:46] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [513:1] {
+| notSpecified: ser_nf [513:21] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [513:27] {
+| notSpecified: LIKE [513:41] {
+| | whiteSpace: \\b [513:45] {
+| notSpecified: nf_sup.ser_nf,\\n [513:46] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [514:1] {
+| notSpecified: ssr_nf [514:21] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [514:27] {
+| notSpecified: LIKE [514:41] {
+| | whiteSpace: \\b [514:45] {
+| notSpecified: nf_sup.ssr_nf,\\n [514:46] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [515:1] {
+| notSpecified: ies_especie_nf [515:21] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [515:35] {
+| notSpecified: LIKE [515:41] {
+| | whiteSpace: \\b [515:45] {
+| notSpecified: nf_sup.ies_especie_nf,\\n [515:46] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [516:1] {
+| notSpecified: ies_nf_aguard_nfe [516:21] {
+| | whiteSpace: \\b\\b\\b [516:38] {
+| notSpecified: LIKE [516:41] {
+| | whiteSpace: \\b [516:45] {
+| notSpecified: nf_sup.ies_nf_aguard_nfe\\n [516:46] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [517:1] {
+| notSpecified: END [517:18] {
+| | whiteSpace: \\b [517:21] {
+| notSpecified: RECORD\\n\\n [517:22] {
+| | whiteSpace: \\b\\b [519:1] {
+| notSpecified: DEFINE [519:3] {
+| | whiteSpace: \\b [519:9] {
+| notSpecified: p_array_pedidos [519:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [519:25] {
+| notSpecified: ARRAY[999] [519:30] {
+| | whiteSpace: \\b [519:40] {
+| notSpecified: OF [519:41] {
+| | whiteSpace: \\b [519:43] {
+| notSpecified: RECORD\\n [519:44] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [520:1] {
+| notSpecified: num_pedido [520:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [520:40] {
+| notSpecified: LIKE [520:47] {
+| | whiteSpace: \\b [520:51] {
+| notSpecified: pedido_sup.num_pedido,\\n [520:52] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [521:1] {
+| notSpecified: num_oc [521:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [521:36] {
+| notSpecified: LIKE [521:47] {
+| | whiteSpace: \\b [521:51] {
+| notSpecified: ordem_sup.num_oc,\\n [521:52] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [522:1] {
+| notSpecified: num_prog_entrega [522:30] {
+| | whiteSpace: \\b [522:46] {
+| notSpecified: LIKE [522:47] {
+| | whiteSpace: \\b [522:51] {
+| notSpecified: ar_ped.num_prog_entrega,\\n [522:52] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [523:1] {
+| notSpecified: num_pc_forn [523:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [523:41] {
+| notSpecified: LIKE [523:47] {
+| | whiteSpace: \\b [523:51] {
+| notSpecified: prog_ordem_sup.num_pedido_fornec\\n [523:52] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [524:1] {
+| notSpecified: END [524:30] {
+| | whiteSpace: \\b [524:33] {
+| notSpecified: RECORD\\n\\n [524:34] {
+| | whiteSpace: \\b\\b [526:1] {
+| notSpecified: DEFINE [526:3] {
+| | whiteSpace: \\b [526:9] {
+| notSpecified: p_sub, [526:10] {
+| | whiteSpace: \\b [526:16] {
+| notSpecified: p_ind8 [526:17] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [526:23] {
+| notSpecified: SMALLINT,\\n [526:32] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [527:1] {
+| notSpecified: p_cod_empresa_arg [527:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [527:27] {
+| notSpecified: LIKE [527:32] {
+| | whiteSpace: \\b [527:36] {
+| notSpecified: empresa.cod_empresa,\\n [527:37] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [528:1] {
+| notSpecified: p_num_aviso_rec_arg [528:10] {
+| | whiteSpace: \\b\\b\\b [528:29] {
+| notSpecified: LIKE [528:32] {
+| | whiteSpace: \\b [528:36] {
+| notSpecified: aviso_rec.num_aviso_rec,\\n [528:37] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [529:1] {
+| notSpecified: p_cons_arg [529:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [529:20] {
+| notSpecified: SMALLINT\\n\\n [529:32] {
+| | whiteSpace: \\b\\b [531:1] {
+| notSpecified: DEFINE [531:3] {
+| | whiteSpace: \\b [531:9] {
+| notSpecified: p_cod_ret_imp [531:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [531:23] {
+| notSpecified: LIKE [531:32] {
+| | whiteSpace: \\b [531:36] {
+| notSpecified: nf_sup.cod_imp_renda,\\n [531:37] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [532:1] {
+| notSpecified: p_ies_fis_jur [532:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [532:23] {
+| notSpecified: CHAR(01)\\n [532:32] {
+| | whiteSpace: \\b\\b [533:1] {
+| notSpecified: DEFINE [533:3] {
+| | whiteSpace: \\b [533:9] {
+| notSpecified: p_cotacao_preco [533:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [533:25] {
+| notSpecified: RECORD [533:32] {
+| | whiteSpace: \\b [533:38] {
+| notSpecified: LIKE [533:39] {
+| | whiteSpace: \\b [533:43] {
+| notSpecified: cotacao_preco.*\\n [533:44] {
+| | whiteSpace: \\b\\b [534:1] {
+| notSpecified: DEFINE [534:3] {
+| | whiteSpace: \\b [534:9] {
+| notSpecified: p_versao [534:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [534:18] {
+| notSpecified: CHAR(018)\\n\\n [534:32] {
+| | whiteSpace: \\b\\b [536:1] {
+| notSpecified: DEFINE [536:3] {
+| | whiteSpace: \\b [536:9] {
+| notSpecified: p_ies_imp_renda [536:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [536:25] {
+| notSpecified: CHAR(01)\\n [536:32] {
+| | whiteSpace: \\b\\b [537:1] {
+| notSpecified: DEFINE [537:3] {
+| | whiteSpace: \\b [537:9] {
+| notSpecified: p_ies_imp_ret_inss [537:10] {
+| | whiteSpace: \\b\\b\\b\\b [537:28] {
+| notSpecified: CHAR(01)\\n [537:32] {
+| | whiteSpace: \\b\\b [538:1] {
+| notSpecified: DEFINE [538:3] {
+| | whiteSpace: \\b [538:9] {
+| notSpecified: p_perc_ret_inss [538:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [538:25] {
+| notSpecified: DECIMAL(5,3)\\n [538:32] {
+| | whiteSpace: \\b\\b [539:1] {
+| notSpecified: DEFINE [539:3] {
+| | whiteSpace: \\b [539:9] {
+| notSpecified: p_base_calc_ret_inss [539:10] {
+| | whiteSpace: \\b\\b [539:30] {
+| notSpecified: DECIMAL(17,2)\\n [539:32] {
+| | whiteSpace: \\b\\b [540:1] {
+| notSpecified: DEFINE [540:3] {
+| | whiteSpace: \\b [540:9] {
+| notSpecified: p_ies_imp_inss_rur [540:10] {
+| | whiteSpace: \\b\\b\\b\\b [540:28] {
+| notSpecified: CHAR(01)\\n [540:32] {
+| | whiteSpace: \\b\\b [541:1] {
+| notSpecified: DEFINE [541:3] {
+| | whiteSpace: \\b [541:9] {
+| notSpecified: p_perc_ret_inss_rur [541:10] {
+| | whiteSpace: \\b\\b\\b [541:29] {
+| notSpecified: DECIMAL(5,3)\\n [541:32] {
+| | whiteSpace: \\b\\b [542:1] {
+| notSpecified: DEFINE [542:3] {
+| | whiteSpace: \\b [542:9] {
+| notSpecified: p_base_calc_inss_rur [542:10] {
+| | whiteSpace: \\b\\b [542:30] {
+| notSpecified: DECIMAL(17,2)\\n [542:32] {
+| | whiteSpace: \\b\\b [543:1] {
+| notSpecified: DEFINE [543:3] {
+| | whiteSpace: \\b [543:9] {
+| notSpecified: p_motivo_isencao [543:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [543:26] {
+| notSpecified: CHAR(200)\\n\\n [543:32] {
+| | whiteSpace: \\b\\b [545:1] {
+| notSpecified: DEFINE [545:3] {
+| | whiteSpace: \\b [545:9] {
+| notSpecified: p_array_volta [545:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [545:23] {
+| notSpecified: ARRAY[999] [545:29] {
+| | whiteSpace: \\b [545:39] {
+| notSpecified: OF\\n [545:40] {
+| | whiteSpace: \\b\\b\\b [546:1] {
+| notSpecified: RECORD\\n [546:4] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [547:1] {
+| notSpecified: cod_fornecedor [547:9] {
+| | whiteSpace: \\b\\b\\b\\b\\b [547:23] {
+| notSpecified: LIKE [547:28] {
+| | whiteSpace: \\b [547:32] {
+| notSpecified: pedido_sup.cod_fornecedor,\\n [547:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [548:1] {
+| notSpecified: num_pedido [548:9] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [548:19] {
+| notSpecified: LIKE [548:28] {
+| | whiteSpace: \\b [548:32] {
+| notSpecified: pedido_sup.num_pedido,\\n [548:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [549:1] {
+| notSpecified: num_oc [549:9] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [549:15] {
+| notSpecified: LIKE [549:28] {
+| | whiteSpace: \\b [549:32] {
+| notSpecified: ordem_sup.num_oc,\\n [549:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [550:1] {
+| notSpecified: num_prog_entrega [550:9] {
+| | whiteSpace: \\b\\b\\b [550:25] {
+| notSpecified: LIKE [550:28] {
+| | whiteSpace: \\b [550:32] {
+| notSpecified: prog_ordem_sup.num_prog_entrega,\\n [550:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [551:1] {
+| notSpecified: cod_item [551:9] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [551:17] {
+| notSpecified: LIKE [551:28] {
+| | whiteSpace: \\b [551:32] {
+| notSpecified: ordem_sup.cod_item [551:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [551:51] {
+| notSpecified: ,\\n [551:64] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [552:1] {
+| notSpecified: den_item [552:9] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [552:17] {
+| notSpecified: CHAR(32) [552:28] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [552:36] {
+| notSpecified: ,\\n [552:64] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [553:1] {
+| notSpecified: cod_unid_med [553:9] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [553:21] {
+| notSpecified: LIKE [553:28] {
+| | whiteSpace: \\b [553:32] {
+| notSpecified: ordem_sup.cod_unid_med [553:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [553:55] {
+| notSpecified: ,\\n [553:64] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [554:1] {
+| notSpecified: qtd_entregue [554:9] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [554:21] {
+| notSpecified: LIKE [554:28] {
+| | whiteSpace: \\b [554:32] {
+| notSpecified: prog_ordem_sup.qtd_recebida,\\n [554:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [555:1] {
+| notSpecified: num_ped_forn [555:9] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [555:21] {
+| notSpecified: LIKE [555:28] {
+| | whiteSpace: \\b [555:32] {
+| notSpecified: prog_ordem_sup.num_pedido_fornec\\n [555:33] {
+| | whiteSpace: \\b\\b\\b [556:1] {
+| notSpecified: END [556:4] {
+| | whiteSpace: \\b [556:7] {
+| notSpecified: RECORD\\n\\n [556:8] {
+| | whiteSpace: \\b\\b [558:1] {
+| notSpecified: DEFINE [558:3] {
+| | whiteSpace: \\b [558:9] {
+| notSpecified: p_array_dev_trans [558:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b [558:27] {
+| notSpecified: ARRAY[999] [558:32] {
+| | whiteSpace: \\b [558:42] {
+| notSpecified: OF [558:43] {
+| | whiteSpace: \\b [558:45] {
+| notSpecified: RECORD\\n [558:46] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [559:1] {
+| notSpecified: val_desc_item [559:25] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [559:38] {
+| notSpecified: LIKE [559:44] {
+| | whiteSpace: \\b [559:48] {
+| notSpecified: aviso_rec.val_desc_item,\\n [559:49] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [560:1] {
+| notSpecified: ies_tip_incid_ipi [560:25] {
+| | whiteSpace: \\b\\b [560:42] {
+| notSpecified: LIKE [560:44] {
+| | whiteSpace: \\b [560:48] {
+| notSpecified: aviso_rec.ies_tip_incid_ipi,\\n [560:49] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [561:1] {
+| notSpecified: ies_incid_icms_ite [561:25] {
+| | whiteSpace: \\b [561:43] {
+| notSpecified: LIKE [561:44] {
+| | whiteSpace: \\b [561:48] {
+| notSpecified: aviso_rec.ies_incid_icms_ite,\\n [561:49] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [562:1] {
+| notSpecified: ies_bi_tributacao [562:25] {
+| | whiteSpace: \\b\\b [562:42] {
+| notSpecified: CHAR(01)\\n [562:44] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [563:1] {
+| notSpecified: END [563:30] {
+| | whiteSpace: \\b [563:33] {
+| notSpecified: RECORD\\n [563:34] {
+| | whiteSpace: \\b\\b [564:1] {
+| notSpecified: DEFINE [564:3] {
+| | whiteSpace: \\b [564:9] {
+| notSpecified: p_array_imp [564:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [564:21] {
+| notSpecified: ARRAY[999] [564:29] {
+| | whiteSpace: \\b [564:39] {
+| notSpecified: OF [564:40] {
+| | whiteSpace: \\b [564:42] {
+| notSpecified: RECORD\\n [564:43] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [565:1] {
+| notSpecified: quantidade [565:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [565:39] {
+| notSpecified: LIKE [565:46] {
+| | whiteSpace: \\b [565:50] {
+| notSpecified: aviso_rec.qtd_declarad_nf,\\n [565:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [566:1] {
+| notSpecified: val_ii_tot [566:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [566:39] {
+| notSpecified: LIKE [566:46] {
+| | whiteSpace: \\b [566:50] {
+| notSpecified: proc_item.val_ii,\\n [566:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [567:1] {
+| notSpecified: val_ii [567:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [567:35] {
+| notSpecified: LIKE [567:46] {
+| | whiteSpace: \\b [567:50] {
+| notSpecified: proc_item.val_ii,\\n [567:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [568:1] {
+| notSpecified: val_desp_imp_tot [568:29] {
+| | whiteSpace: \\b [568:45] {
+| notSpecified: DECIMAL(15,2),\\n [568:46] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [569:1] {
+| notSpecified: val_desp_imp [569:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b [569:41] {
+| notSpecified: DECIMAL(15,2),\\n [569:46] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [570:1] {
+| notSpecified: val_ipi_tot [570:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [570:40] {
+| notSpecified: LIKE [570:46] {
+| | whiteSpace: \\b [570:50] {
+| notSpecified: proc_item.val_ipi,\\n [570:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [571:1] {
+| notSpecified: val_ipi [571:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [571:36] {
+| notSpecified: LIKE [571:46] {
+| | whiteSpace: \\b [571:50] {
+| notSpecified: proc_item.val_ipi,\\n [571:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [572:1] {
+| notSpecified: val_icms_tot [572:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b [572:41] {
+| notSpecified: LIKE [572:46] {
+| | whiteSpace: \\b [572:50] {
+| notSpecified: proc_item.val_icms,\\n [572:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [573:1] {
+| notSpecified: val_icms [573:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [573:37] {
+| notSpecified: LIKE [573:46] {
+| | whiteSpace: \\b [573:50] {
+| notSpecified: proc_item.val_icms,\\n [573:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [574:1] {
+| notSpecified: val_da_icms [574:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [574:40] {
+| notSpecified: DECIMAL(15,2),\\n [574:46] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [575:1] {
+| notSpecified: cod_cla_fisc [575:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b [575:41] {
+| notSpecified: LIKE [575:46] {
+| | whiteSpace: \\b [575:50] {
+| notSpecified: proc_item.cod_ncm\\n [575:51] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [576:1] {
+| notSpecified: END [576:29] {
+| | whiteSpace: \\b [576:32] {
+| notSpecified: RECORD\\n\\n [576:33] {
+| | whiteSpace: \\b\\b [578:1] {
+| notSpecified: DEFINE [578:3] {
+| | whiteSpace: \\b [578:9] {
+| notSpecified: p_ar_proc_imp [578:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [578:23] {
+| notSpecified: RECORD [578:29] {
+| | whiteSpace: \\b [578:35] {
+| notSpecified: LIKE [578:36] {
+| | whiteSpace: \\b [578:40] {
+| notSpecified: aviso_rec_proc_imp.*\\n [578:41] {
+| | whiteSpace: \\b\\b [579:1] {
+| notSpecified: DEFINE [579:3] {
+| | whiteSpace: \\b [579:9] {
+| notSpecified: g_ies_wis_instalado [579:10] {
+| | whiteSpace: \\b [579:29] {
+| notSpecified: CHAR(01),\\n [579:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [580:1] {
+| notSpecified: g_ies_tex_inst [580:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [580:24] {
+| notSpecified: CHAR(01)\\n [580:30] {
+| | whiteSpace: \\b\\b [581:1] {
+| notSpecified: DEFINE [581:3] {
+| | whiteSpace: \\b [581:9] {
+| notSpecified: g_ies_wms_instalado [581:10] {
+| | whiteSpace: \\b [581:29] {
+| notSpecified: CHAR(01)\\n [581:30] {
+| | whiteSpace: \\b\\b [582:1] {
+| notSpecified: DEFINE [582:3] {
+| | whiteSpace: \\b [582:9] {
+| notSpecified: g_ies_transf_benef [582:10] {
+| | whiteSpace: \\b\\b [582:28] {
+| notSpecified: SMALLINT,\\n [582:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [583:1] {
+| notSpecified: g_ies_retorno_ind [583:10] {
+| | whiteSpace: \\b\\b\\b [583:27] {
+| notSpecified: SMALLINT,\\n [583:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [584:1] {
+| notSpecified: g_ret_sem_ind [584:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [584:23] {
+| notSpecified: SMALLINT,\\n [584:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [585:1] {
+| notSpecified: g_baixou_terceiro [585:10] {
+| | whiteSpace: \\b\\b\\b [585:27] {
+| notSpecified: SMALLINT,\\n [585:30] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [586:1] {
+| notSpecified: g_passou_skip_lote [586:10] {
+| | whiteSpace: \\b\\b [586:28] {
+| notSpecified: SMALLINT\\n\\n [586:30] {
+| | whiteSpace: \\b\\b [588:1] {
+| notSpecified: DEFINE [588:3] {
+| | whiteSpace: \\b [588:9] {
+| notSpecified: g_ies_tip_controle [588:10] {
+| | whiteSpace: \\b [588:28] {
+| notSpecified: LIKE [588:29] {
+| | whiteSpace: \\b [588:33] {
+| notSpecified: nat_operacao.ies_tip_controle,\\n [588:34] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [589:1] {
+| notSpecified: g_pergunta [589:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [589:20] {
+| notSpecified: CHAR(01),\\n [589:29] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [590:1] {
+| notSpecified: g_uf_trans_nfdr [590:10] {
+| | whiteSpace: \\b\\b\\b\\b [590:25] {
+| notSpecified: LIKE [590:29] {
+| | whiteSpace: \\b [590:33] {
+| notSpecified: par_sup_pad.par_ies,\\n [590:34] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [591:1] {
+| notSpecified: g_ser_mark [591:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [591:20] {
+| notSpecified: SMALLINT\\n\\n [591:29] {
+| | whiteSpace: \\b [593:1] {
+| notSpecified: DEFINE [593:2] {
+| | whiteSpace: \\b [593:8] {
+| notSpecified: ga_man_moviment [593:9] {
+| | whiteSpace: \\b\\b\\b\\b [593:24] {
+| notSpecified: ARRAY[100] [593:28] {
+| | whiteSpace: \\b [593:38] {
+| notSpecified: OF [593:39] {
+| | whiteSpace: \\b [593:41] {
+| notSpecified: RECORD\\n [593:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [594:1] {
+| notSpecified: serie [594:43] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [594:48] {
+| notSpecified: LIKE [594:60] {
+| | whiteSpace: \\b [594:64] {
+| notSpecified: man_moviment_serie.serie,\\n [594:65] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [595:1] {
+| notSpecified: item [595:43] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [595:47] {
+| notSpecified: LIKE [595:60] {
+| | whiteSpace: \\b [595:64] {
+| notSpecified: man_moviment_serie.item,\\n [595:65] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [596:1] {
+| notSpecified: num_docum [596:43] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [596:52] {
+| notSpecified: LIKE [596:60] {
+| | whiteSpace: \\b [596:64] {
+| notSpecified: man_moviment_serie.num_docum,\\n [596:65] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [597:1] {
+| notSpecified: tip_docum [597:43] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [597:52] {
+| notSpecified: LIKE [597:60] {
+| | whiteSpace: \\b [597:64] {
+| notSpecified: man_moviment_serie.tip_docum,\\n [597:65] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [598:1] {
+| notSpecified: status_ordem [598:43] {
+| | whiteSpace: \\b\\b\\b\\b\\b [598:55] {
+| notSpecified: LIKE [598:60] {
+| | whiteSpace: \\b [598:64] {
+| notSpecified: man_moviment_serie.status_ordem,\\n [598:65] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [599:1] {
+| notSpecified: loc_est_debitad [599:43] {
+| | whiteSpace: \\b\\b [599:58] {
+| notSpecified: LIKE [599:60] {
+| | whiteSpace: \\b [599:64] {
+| notSpecified: man_moviment_serie.loc_est_debitad,\\n [599:65] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [600:1] {
+| notSpecified: programa [600:43] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [600:51] {
+| notSpecified: LIKE [600:60] {
+| | whiteSpace: \\b [600:64] {
+| notSpecified: man_moviment_serie.programa\\n [600:65] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [601:1] {
+| notSpecified: END [601:41] {
+| | whiteSpace: \\b [601:44] {
+| notSpecified: RECORD\\n\\n [601:45] {
+| | whiteSpace: \\b [603:1] {
+| notSpecified: DEFINE [603:2] {
+| | whiteSpace: \\b [603:8] {
+| notSpecified: g_ind_tela [603:9] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [603:19] {
+| notSpecified: SMALLINT,\\n [603:28] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [604:1] {
+| notSpecified: g_item_branco [604:9] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [604:22] {
+| notSpecified: SMALLINT,\\n [604:28] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [605:1] {
+| notSpecified: p_cod_emp_atual [605:9] {
+| | whiteSpace: \\b\\b\\b\\b [605:24] {
+| notSpecified: LIKE [605:28] {
+| | whiteSpace: \\b [605:32] {
+| notSpecified: empresa.cod_empresa,\\n [605:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [606:1] {
+| notSpecified: g_ind_nfe [606:9] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [606:18] {
+| notSpecified: SMALLINT\\n\\n [606:28] {
+| | whiteSpace: \\b [608:1] {
+| notSpecified: DEFINE [608:2] {
+| | whiteSpace: \\b [608:8] {
+| notSpecified: g_gerar_cred_impostos_nfm_import [608:9] {
+| | whiteSpace: \\b [608:41] {
+| notSpecified: CHAR(01)\\n\\n [608:42] {
+| | whiteSpace: \\b [610:1] {
+| notSpecified: DEFINE [610:2] {
+| | whiteSpace: \\b [610:8] {
+| notSpecified: p_array_compl1 [610:9] {
+| | whiteSpace: \\b [610:23] {
+| notSpecified: ARRAY[999] [610:24] {
+| | whiteSpace: \\b [610:34] {
+| notSpecified: OF\\n [610:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [611:1] {
+| notSpecified: RECORD\\n [611:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [612:1] {
+| notSpecified: cod_tip_despesa [612:13] {
+| | whiteSpace: \\b [612:28] {
+| notSpecified: LIKE [612:29] {
+| | whiteSpace: \\b [612:33] {
+| notSpecified: aviso_rec.cod_tip_despesa\\n [612:34] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [613:1] {
+| notSpecified: END [613:10] {
+| | whiteSpace: \\b [613:13] {
+| notSpecified: RECORD\\n\\n [613:14] {
+| | whiteSpace: \\b\\b [615:1] {
+| notSpecified: DEFINE [615:3] {
+| | whiteSpace: \\b [615:9] {
+| notSpecified: g_modifica_nf_transito [615:10] {
+| | whiteSpace: \\b [615:32] {
+| notSpecified: SMALLINT,\\n [615:33] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [616:1] {
+| notSpecified: g_nao_inclui [616:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [616:22] {
+| notSpecified: SMALLINT\\n\\n [616:33] {
+| | whiteSpace: \\b\\b [618:1] {
+| notSpecified: DEFINE [618:3] {
+| | whiteSpace: \\b [618:9] {
+| notSpecified: g_den_item [618:10] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [618:20] {
+| notSpecified: LIKE [618:33] {
+| | whiteSpace: \\b [618:37] {
+| notSpecified: item.den_item\\n\\n###variaveis [618:38] {
+| | whiteSpace: \\b [620:13] {
+| notSpecified: abaixo [620:14] {
+| | whiteSpace: \\b [620:20] {
+| notSpecified: s�o [620:21] {
+| | whiteSpace: \\b [620:24] {
+| notSpecified: utilizadas [620:25] {
+| | whiteSpace: \\b [620:35] {
+| notSpecified: no [620:36] {
+| | whiteSpace: \\b [620:38] {
+| notSpecified: sup3762, [620:39] {
+| | whiteSpace: \\b [620:47] {
+| notSpecified: sup1561 [620:48] {
+| | whiteSpace: \\b [620:55] {
+| notSpecified: e [620:56] {
+| | whiteSpace: \\b [620:57] {
+| notSpecified: tamb�m [620:58] {
+| | whiteSpace: \\b [620:64] {
+| notSpecified: no [620:65] {
+| | whiteSpace: \\b [620:67] {
+| notSpecified: sup3760 [620:68] {
+| | whiteSpace: \\b [620:75] {
+| notSpecified: (definido [620:76] {
+| | whiteSpace: \\b [620:85] {
+| notSpecified: como [620:86] {
+| | whiteSpace: \\b [620:90] {
+| notSpecified: variavel [620:91] {
+| | whiteSpace: \\b [620:99] {
+| notSpecified: global)\\n [620:100] {
+| | whiteSpace: \\b [621:1] {
+| notSpecified: DEFINE [621:2] {
+| | whiteSpace: \\b [621:8] {
+| notSpecified: g_devol_nf_parcial [621:9] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [621:27] {
+| notSpecified: SMALLINT,\\n [621:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [622:1] {
+| notSpecified: g_devol_consig_total [622:9] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b [622:29] {
+| notSpecified: SMALLINT,\\n [622:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [623:1] {
+| notSpecified: g_array_devolucao [623:9] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b [623:26] {
+| notSpecified: SMALLINT,\\n [623:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [624:1] {
+| notSpecified: g_devol_venda_total [624:9] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [624:28] {
+| notSpecified: SMALLINT,\\n [624:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [625:1] {
+| notSpecified: g_itens_nf_devol_parcial [625:9] {
+| | whiteSpace: \\b\\b [625:33] {
+| notSpecified: CHAR(01),\\n [625:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [626:1] {
+| notSpecified: g_contagem_autom_devol [626:9] {
+| | whiteSpace: \\b\\b\\b\\b [626:31] {
+| notSpecified: CHAR(01),\\n [626:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [627:1] {
+| notSpecified: g_tipo_sgbd [627:9] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [627:20] {
+| notSpecified: CHAR(003),\\n [627:35] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b [628:1] {
+| notSpecified: g_ies_excl_end_zero [628:9] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [628:28] {
+| notSpecified: CHAR(01)\\n [628:35] {
+| | whiteSpace: \\b [629:1] {
+| notSpecified: END [629:2] {
+| | whiteSpace: \\b [629:5] {
+| notSpecified: GLOBALS\\n [629:6] {
+
+`;

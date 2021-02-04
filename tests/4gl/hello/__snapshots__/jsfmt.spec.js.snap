@@ -5,20 +5,20 @@ main
   display "hello "
 end main
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1]
-| | block:  [1:1]
-| | | | keyword: main [1:1]
-| | | | | | whiteSpace: \\b [1:5]
-| | newLine: \\n [1:6]
-| | whiteSpace: \\b\\b [2:1]
-| | keyword: display [2:3]
-| | | | whiteSpace: \\b [2:10]
-| | string: "hello " [2:11]
-| | | | newLine: \\n [2:19]
-| | | | keyword: end [3:1]
-| | | | whiteSpace: \\b [3:4]
-| | keyword: main [3:5]
-| | | newLine: \\n [3:9]
+program:  [1:1] {
+| | block:  [1:1] {
+| | | | keyword: main [1:1] {
+| | | | | | whiteSpace: \\b [1:5] {
+| | newLine: \\n [1:6] {
+| | whiteSpace: \\b\\b [2:1] {
+| | keyword: display [2:3] {
+| | | | whiteSpace: \\b [2:10] {
+| | string: "hello\\b" [2:11] {
+| | | | newLine: \\n [2:19] {
+| | | | keyword: end [3:1] {
+| | | | whiteSpace: \\b [3:4] {
+| | keyword: main [3:5] {
+| | | newLine: \\n [3:9] {
 
 `;
 
@@ -32,16 +32,25 @@ main
 
 end main
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1]
-| | block:  [1:1]
-| | | | keyword: main [1:1]
-| | | | | | newLine: \\n\\n [1:5]
-| | comment: [object Object],[object Object],[object Object],  define nome char(50) # abc,[object Object] [3:1]
-| | comment: [object Object],[object Object],[object Object],  prompt "digite seu nome : " for nome,[object Object] [4:1]
-| | comment: [object Object],[object Object],[object Object],  call fgl_winmessage( "hello",nome, "info"),[object Object] [6:1]
-| | | | keyword: end [8:1]
-| | | | whiteSpace: \\b [8:4]
-| | keyword: main [8:5]
-| | | newLine: \\n [8:9]
+program:  [1:1] {
+| | block:  [1:1] {
+| | | | keyword: main [1:1] {
+| | | | | | newLine: \\n\\n [1:5] {
+| | | | operator: - [3:1] {
+| | operator: - [3:2] {
+| | operator: # [3:3] {
+| |   define nome char(50) # abc| | newLine: \\n [3:32] {
+| | | | operator: - [4:1] {
+| | operator: - [4:2] {
+| | operator: # [4:3] {
+| |   prompt "digite seu nome : " for nome| | newLine: \\n\\n [4:42] {
+| | | | operator: - [6:1] {
+| | operator: - [6:2] {
+| | operator: # [6:3] {
+| |   call fgl_winmessage( "hello",nome, "info")| | newLine: \\n\\n [6:48] {
+| | | | keyword: end [8:1] {
+| | | | whiteSpace: \\b [8:4] {
+| | keyword: main [8:5] {
+| | | newLine: \\n [8:9] {
 
 `;

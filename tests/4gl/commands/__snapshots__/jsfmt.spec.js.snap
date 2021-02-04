@@ -40,145 +40,115 @@ function f3()
 
 end function
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1]
-| | notSpecified: main
-
- [1:1]
-| | | whiteSpace: \\b\\b [3:1]
-| notSpecified: call [3:3]
-| | whiteSpace: \\b [3:7]
-| notSpecified: fgl_winmessage()
-
- [3:8]
-| | whiteSpace: \\b\\b [5:1]
-| notSpecified: call [5:3]
-| | whiteSpace: \\b [5:7]
-| notSpecified: fgl_winmessage("p1")
-
-
- [5:8]
-| | whiteSpace: \\b\\b [8:1]
-| notSpecified: call [8:3]
-| | whiteSpace: \\b [8:7]
-| notSpecified: log0030_mensagem("existe(m) [8:8]
-| | whiteSpace: \\b [8:35]
-| notSpecified: ...", [8:36]
-| | whiteSpace: \\b [8:41]
-| notSpecified: "exclamation");
-
-
- [8:42]
-| | whiteSpace: \\b\\b [11:1]
-| notSpecified: call [11:3]
-| | whiteSpace: \\b [11:7]
-| notSpecified: fgl_winmessage("p1","p2", [11:8]
-| | whiteSpace: \\b [11:33]
-| notSpecified: "p3")
- [11:34]
-| | whiteSpace: \\b\\b [12:1]
-| notSpecified: call [12:3]
-| | whiteSpace: \\b [12:7]
-| notSpecified: fgl_winmessage(1,2, [12:8]
-| | whiteSpace: \\b\\b\\b\\b [12:27]
-| notSpecified: 3)
-
-end [12:31]
-| | whiteSpace: \\b [14:4]
-| notSpecified: main
-
-function [14:5]
-| | whiteSpace: \\b [16:9]
-| notSpecified: f1()
-
- [16:10]
-| | whiteSpace: \\b\\b [18:1]
-| notSpecified: call [18:3]
-| | whiteSpace: \\b [18:7]
-| notSpecified: fgl_winmessage() [18:8]
-| | whiteSpace: \\b [18:24]
-| notSpecified: returning [18:25]
-| | whiteSpace: \\b [18:34]
-| notSpecified: var1
-
- [18:35]
-| | whiteSpace: \\b\\b [20:1]
-| notSpecified: call [20:3]
-| | whiteSpace: \\b [20:7]
-| notSpecified: fgl_winmessage() [20:8]
-| | whiteSpace: \\b [20:24]
-| notSpecified: returning [20:25]
-| | whiteSpace: \\b [20:34]
-| notSpecified: var1 [20:35]
-| | whiteSpace: \\b [20:39]
-| notSpecified: , [20:40]
-| | whiteSpace: \\b [20:41]
-| notSpecified: var2
-
-call [20:42]
-| | whiteSpace: \\b [22:5]
-| notSpecified: fgl_winmessage() [22:6]
-| | whiteSpace: \\b [22:22]
-| notSpecified: returning [22:23]
-| | whiteSpace: \\b [22:32]
-| notSpecified: var1,var2,var3
-
-end [22:33]
-| | whiteSpace: \\b [24:4]
-| block:  [24:5]
-| | | | | | keyword: function [24:5]
-| | | | newLine: \\n\\n [24:13]
-| | identifier: function [26:1]
-| | | | | | whiteSpace: \\b [26:9]
-| | | | identifier: f2 [26:10]
-| | operator: ( [26:12]
-| | operator: ) [26:13]
-| | | | newLine: \\n\\n [26:14]
-| | whiteSpace: \\b\\b [28:1]
-| | keyword: call [28:3]
-| | | | whiteSpace: \\b [28:7]
-| | | | identifier: fgl_winmessage [28:8]
-| | operator: ( [28:22]
-| | operator: ) [28:23]
-| | | | whiteSpace: \\b [28:24]
-| | | | identifier: returning [28:25]
-| | | | whiteSpace: \\b [28:34]
-| | | | identifier: var1 [28:35]
-| | operator: [ [28:39]
-| | | | identifier: ind1 [28:40]
-| | operator: ] [28:44]
-| | | | newLine: \\n\\n [28:45]
-| | | | keyword: end [30:1]
-| | | | whiteSpace: \\b [30:4]
-| | keyword: function [30:5]
-| | newLine: \\n\\n [30:13]
-| notSpecified: function [32:1]
-| | whiteSpace: \\b [32:9]
-| notSpecified: f3()
-
- [32:10]
-| | whiteSpace: \\b\\b [34:1]
-| notSpecified: call [34:3]
-| | whiteSpace: \\b [34:7]
-| notSpecified: fgl_winmessage() [34:8]
-| | whiteSpace: \\b [34:24]
-| notSpecified: returning [34:25]
-| | whiteSpace: \\b [34:34]
-| notSpecified: rec1.var1
-
- [34:35]
-| | whiteSpace: \\b\\b [36:1]
-| notSpecified: call [36:3]
-| | whiteSpace: \\b [36:7]
-| notSpecified: fgl_winmessage() [36:8]
-| | whiteSpace: \\b [36:24]
-| notSpecified: returning [36:25]
-| | whiteSpace: \\b [36:34]
-| notSpecified: rec1.*
-
-end [36:35]
-| | whiteSpace: \\b [38:4]
-| notSpecified: function
- [38:5]
+program:  [1:1] {
+| | notSpecified: main\\n\\n [1:1] {
+| | | whiteSpace: \\b\\b [3:1] {
+| notSpecified: call [3:3] {
+| | whiteSpace: \\b [3:7] {
+| notSpecified: fgl_winmessage()\\n\\n [3:8] {
+| | whiteSpace: \\b\\b [5:1] {
+| notSpecified: call [5:3] {
+| | whiteSpace: \\b [5:7] {
+| notSpecified: fgl_winmessage("p1")\\n\\n\\n [5:8] {
+| | whiteSpace: \\b\\b [8:1] {
+| notSpecified: call [8:3] {
+| | whiteSpace: \\b [8:7] {
+| notSpecified: log0030_mensagem("existe(m) [8:8] {
+| | whiteSpace: \\b [8:35] {
+| notSpecified: ...", [8:36] {
+| | whiteSpace: \\b [8:41] {
+| notSpecified: "exclamation");\\n\\n\\n [8:42] {
+| | whiteSpace: \\b\\b [11:1] {
+| notSpecified: call [11:3] {
+| | whiteSpace: \\b [11:7] {
+| notSpecified: fgl_winmessage("p1","p2", [11:8] {
+| | whiteSpace: \\b [11:33] {
+| notSpecified: "p3")\\n [11:34] {
+| | whiteSpace: \\b\\b [12:1] {
+| notSpecified: call [12:3] {
+| | whiteSpace: \\b [12:7] {
+| notSpecified: fgl_winmessage(1,2, [12:8] {
+| | whiteSpace: \\b\\b\\b\\b [12:27] {
+| notSpecified: 3)\\n\\nend [12:31] {
+| | whiteSpace: \\b [14:4] {
+| notSpecified: main\\n\\nfunction [14:5] {
+| | whiteSpace: \\b [16:9] {
+| notSpecified: f1()\\n\\n [16:10] {
+| | whiteSpace: \\b\\b [18:1] {
+| notSpecified: call [18:3] {
+| | whiteSpace: \\b [18:7] {
+| notSpecified: fgl_winmessage() [18:8] {
+| | whiteSpace: \\b [18:24] {
+| notSpecified: returning [18:25] {
+| | whiteSpace: \\b [18:34] {
+| notSpecified: var1\\n\\n [18:35] {
+| | whiteSpace: \\b\\b [20:1] {
+| notSpecified: call [20:3] {
+| | whiteSpace: \\b [20:7] {
+| notSpecified: fgl_winmessage() [20:8] {
+| | whiteSpace: \\b [20:24] {
+| notSpecified: returning [20:25] {
+| | whiteSpace: \\b [20:34] {
+| notSpecified: var1 [20:35] {
+| | whiteSpace: \\b [20:39] {
+| notSpecified: , [20:40] {
+| | whiteSpace: \\b [20:41] {
+| notSpecified: var2\\n\\ncall [20:42] {
+| | whiteSpace: \\b [22:5] {
+| notSpecified: fgl_winmessage() [22:6] {
+| | whiteSpace: \\b [22:22] {
+| notSpecified: returning [22:23] {
+| | whiteSpace: \\b [22:32] {
+| notSpecified: var1,var2,var3\\n\\nend [22:33] {
+| | whiteSpace: \\b [24:4] {
+| block:  [24:5] {
+| | | | | | keyword: function [24:5] {
+| | | | newLine: \\n\\n [24:13] {
+| | identifier: function [26:1] {
+| | | | | | whiteSpace: \\b [26:9] {
+| | | | identifier: f2 [26:10] {
+| | operator: ( [26:12] {
+| | operator: ) [26:13] {
+| | | | newLine: \\n\\n [26:14] {
+| | whiteSpace: \\b\\b [28:1] {
+| | keyword: call [28:3] {
+| | | | whiteSpace: \\b [28:7] {
+| | | | identifier: fgl_winmessage [28:8] {
+| | operator: ( [28:22] {
+| | operator: ) [28:23] {
+| | | | whiteSpace: \\b [28:24] {
+| | | | identifier: returning [28:25] {
+| | | | whiteSpace: \\b [28:34] {
+| | | | identifier: var1 [28:35] {
+| | operator: [ [28:39] {
+| | | | identifier: ind1 [28:40] {
+| | operator: ] [28:44] {
+| | | | newLine: \\n\\n [28:45] {
+| | | | keyword: end [30:1] {
+| | | | whiteSpace: \\b [30:4] {
+| | keyword: function [30:5] {
+| | newLine: \\n\\n [30:13] {
+| notSpecified: function [32:1] {
+| | whiteSpace: \\b [32:9] {
+| notSpecified: f3()\\n\\n [32:10] {
+| | whiteSpace: \\b\\b [34:1] {
+| notSpecified: call [34:3] {
+| | whiteSpace: \\b [34:7] {
+| notSpecified: fgl_winmessage() [34:8] {
+| | whiteSpace: \\b [34:24] {
+| notSpecified: returning [34:25] {
+| | whiteSpace: \\b [34:34] {
+| notSpecified: rec1.var1\\n\\n [34:35] {
+| | whiteSpace: \\b\\b [36:1] {
+| notSpecified: call [36:3] {
+| | whiteSpace: \\b [36:7] {
+| notSpecified: fgl_winmessage() [36:8] {
+| | whiteSpace: \\b [36:24] {
+| notSpecified: returning [36:25] {
+| | whiteSpace: \\b [36:34] {
+| notSpecified: rec1.*\\n\\nend [36:35] {
+| | whiteSpace: \\b [38:4] {
+| notSpecified: function\\n [38:5] {
 
 `;
 
@@ -236,320 +206,300 @@ function f2()
 end function
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1]
-| | block:  [1:1]
-| | | | keyword: MAIN [1:1]
-| | | | | | whiteSpace: \\b [1:5]
-| | newLine: \\n\\n [1:6]
-| | whiteSpace: \\t [3:1]
-| | keyword: DEFINE [3:2]
-| | | | whiteSpace: \\b [3:8]
-| | | | identifier: VAR1 [3:9]
-| | | | whiteSpace: \\b [3:13]
-| | keyword: BIGINT [3:14]
-| | | | whiteSpace: \\b\\b\\b [3:20]
-| | newLine: \\n [3:23]
-| | whiteSpace: \\t [4:1]
-| | keyword: DEFINE [4:2]
-| | | | whiteSpace: \\b [4:8]
-| | | | identifier: VAR1 [4:9]
-| | | | whiteSpace: \\b [4:13]
-| | | | identifier: BYTE [4:14]
-| | | | whiteSpace: \\b\\b\\b [4:18]
-| | newLine: \\n [4:21]
-| | whiteSpace: \\t [5:1]
-| | keyword: DEFINE [5:2]
-| | | | whiteSpace: \\b [5:8]
-| | | | identifier: VAR1 [5:9]
-| | | | whiteSpace: \\b [5:13]
-| | keyword: CHAR [5:14]
-| | operator: ( [5:18]
-| | number: 100 [5:19]
-| | operator: ) [5:22]
-| | | | newLine: \\n [5:23]
-| | whiteSpace: \\t [6:1]
-| | keyword: DEFINE [6:2]
-| | | | whiteSpace: \\b [6:8]
-| | | | identifier: VAR1 [6:9]
-| | | | whiteSpace: \\b [6:13]
-| | | | identifier: CHARACTER [6:14]
-| | | | whiteSpace: \\b\\b [6:23]
-| | newLine: \\n [6:25]
-| | whiteSpace: \\t [7:1]
-| | keyword: DEFINE [7:2]
-| | | | whiteSpace: \\b [7:8]
-| | | | identifier: VAR1 [7:9]
-| | | | whiteSpace: \\b [7:13]
-| | keyword: DATE [7:14]
-| | | | whiteSpace: \\b\\b\\b [7:18]
-| | newLine: \\n [7:21]
-| | whiteSpace: \\t [8:1]
-| | keyword: DEFINE [8:2]
-| | | | whiteSpace: \\b [8:8]
-| | | | identifier: VAR1 [8:9]
-| | | | whiteSpace: \\b [8:13]
-| | | | identifier: DATETIME [8:14]
-| | | | whiteSpace: \\b\\b [8:22]
-| | keyword: day [8:24]
-| | | | whiteSpace: \\b [8:27]
-| | keyword: to [8:28]
-| | | | whiteSpace: \\b [8:30]
-| | keyword: day [8:31]
-| | | | newLine: \\n [8:34]
-| | whiteSpace: \\t [9:1]
-| | keyword: DEFINE [9:2]
-| | | | whiteSpace: \\b [9:8]
-| | | | identifier: VAR1 [9:9]
-| | | | whiteSpace: \\b [9:13]
-| | keyword: DEC [9:14]
-| | | | whiteSpace: \\b\\b\\b [9:17]
-| | newLine: \\n [9:20]
-| | whiteSpace: \\t [10:1]
-| | keyword: DEFINE [10:2]
-| | | | whiteSpace: \\b [10:8]
-| | | | identifier: VAR1 [10:9]
-| | | | whiteSpace: \\b [10:13]
-| | | | identifier: DECIMAL [10:14]
-| | operator: ( [10:21]
-| | number: 10 [10:22]
-| | operator: , [10:24]
-| | number: 2 [10:25]
-| | operator: ) [10:26]
-| | | | newLine: \\n [10:27]
-| | whiteSpace: \\t [11:1]
-| | keyword: DEFINE [11:2]
-| | | | whiteSpace: \\b [11:8]
-| | | | identifier: VAR1 [11:9]
-| | | | whiteSpace: \\b [11:13]
-| | | | identifier: DECIMAL [11:14]
-| | operator: ( [11:21]
-| | number: 10 [11:22]
-| | operator: ) [11:24]
-| | | | newLine: \\n [11:25]
-| | whiteSpace: \\t [12:1]
-| | keyword: DEFINE [12:2]
-| | | | whiteSpace: \\b [12:8]
-| | | | identifier: VAR1 [12:9]
-| | | | whiteSpace: \\b [12:13]
-| | keyword: DOUBLE [12:14]
-| | | | whiteSpace: \\b [12:20]
-| | keyword: PRECISION [12:21]
-| | | | whiteSpace: \\b\\b [12:30]
-| | newLine: \\n [12:32]
-| | whiteSpace: \\t [13:1]
-| | keyword: DEFINE [13:2]
-| | | | whiteSpace: \\b [13:8]
-| | | | identifier: VAR1 [13:9]
-| | | | whiteSpace: \\b [13:13]
-| | keyword: DYNAMIC [13:14]
-| | | | whiteSpace: \\b [13:21]
-| | keyword: ARRAY [13:22]
-| | | | whiteSpace: \\b\\b [13:27]
-| | newLine: \\n [13:29]
-| | whiteSpace: \\t [14:1]
-| | keyword: DEFINE [14:2]
-| | | | whiteSpace: \\b [14:8]
-| | | | identifier: VAR1 [14:9]
-| | | | whiteSpace: \\b [14:13]
-| | keyword: FLOAT [14:14]
-| | | | whiteSpace: \\b\\b [14:19]
-| | newLine: \\n [14:21]
-| | whiteSpace: \\t [15:1]
-| | keyword: DEFINE [15:2]
-| | | | whiteSpace: \\b [15:8]
-| | | | identifier: VAR1 [15:9]
-| | | | whiteSpace: \\b [15:13]
-| | | | identifier: INT [15:14]
-| | | | whiteSpace: \\b\\b [15:17]
-| | newLine: \\n [15:19]
-| | whiteSpace: \\t [16:1]
-| | keyword: DEFINE [16:2]
-| | | | whiteSpace: \\b [16:8]
-| | | | identifier: VAR1 [16:9]
-| | | | whiteSpace: \\b [16:13]
-| | | | identifier: INTEGER [16:14]
-| | | | whiteSpace: \\b\\b [16:21]
-| | newLine: \\n [16:23]
-| | whiteSpace: \\t [17:1]
-| | keyword: DEFINE [17:2]
-| | | | whiteSpace: \\b [17:8]
-| | | | identifier: VAR1 [17:9]
-| | | | whiteSpace: \\b [17:13]
-| | keyword: MONEY [17:14]
-| | | | whiteSpace: \\b\\b [17:19]
-| | newLine: \\n [17:21]
-| | whiteSpace: \\t [18:1]
-| | keyword: DEFINE [18:2]
-| | | | whiteSpace: \\b [18:8]
-| | | | identifier: VAR1 [18:9]
-| | | | whiteSpace: \\b [18:13]
-| | keyword: NCHAR [18:14]
-| | operator: ( [18:19]
-| | number: 100 [18:20]
-| | operator: ) [18:23]
-| | | | whiteSpace: \\b\\b [18:24]
-| | newLine: \\n [18:26]
-| | whiteSpace: \\t [19:1]
-| | keyword: DEFINE [19:2]
-| | | | whiteSpace: \\b [19:8]
-| | | | identifier: VAR1 [19:9]
-| | | | whiteSpace: \\b [19:13]
-| | keyword: NUMERIC [19:14]
-| | | | whiteSpace: \\b\\b [19:21]
-| | newLine: \\n [19:23]
-| | whiteSpace: \\t [20:1]
-| | keyword: DEFINE [20:2]
-| | | | whiteSpace: \\b [20:8]
-| | | | identifier: VAR1 [20:9]
-| | | | whiteSpace: \\b [20:13]
-| | keyword: NVARCHAR [20:14]
-| | operator: ( [20:22]
-| | number: 100 [20:23]
-| | operator: ) [20:26]
-| | | | whiteSpace: \\b\\b [20:27]
-| | newLine: \\n\\n [20:29]
-| | | | keyword: end [22:1]
-| | | | whiteSpace: \\b [22:4]
-| | keyword: MAIN [22:5]
-| | | newLine: \\n\\n [22:9]
-| block:  [24:1]
-| | | | | | keyword: function [24:1]
-| | | | whiteSpace: \\b [24:9]
-| | identifier: f1 [24:10]
-| | | | operator: ( [24:12]
-| | operator: ) [24:13]
-| | | | whiteSpace: \\b [24:14]
-| | newLine: \\n [24:15]
-| | whiteSpace: \\t [25:1]
-| | comment: [object Object],[object Object],,DEFINE VAR1 INTERVAL  ,[object Object] [25:2]
-| | | | keyword: end [26:1]
-| | | | whiteSpace: \\b [26:4]
-| | keyword: function [26:5]
-| | newLine: \\n\\n [26:13]
-| notSpecified: function [28:1]
-| | whiteSpace: \\b [28:9]
-| notSpecified: f2() [28:10]
-| | whiteSpace: \\b [28:14]
-| newLine: \\n [28:15]
-| whiteSpace: \\t [29:1]
-| notSpecified: DEFINE [29:2]
-| | whiteSpace: \\b [29:8]
-| notSpecified: REC1 [29:9]
-| | whiteSpace: \\b [29:13]
-| notSpecified: RECORD
- [29:14]
-| | whiteSpace: \\b\\b\\b\\b\\t [30:1]
-| notSpecified: VAR1 [30:6]
-| | whiteSpace: \\b [30:10]
-| notSpecified: BIGINT
- [30:11]
-| | whiteSpace: \\b\\b\\t [31:1]
-| notSpecified: END [31:4]
-| | whiteSpace: \\b [31:7]
-| notSpecified: RECORD
-
- [31:8]
-| | whiteSpace: \\t [33:1]
-| notSpecified: DEFINE [33:2]
-| | whiteSpace: \\b [33:8]
-| notSpecified: REC2 [33:9]
-| | whiteSpace: \\b [33:13]
-| notSpecified: RECORD
- [33:14]
-| | whiteSpace: \\b\\b\\b\\b [34:1]
-| notSpecified: VAR1 [34:5]
-| | whiteSpace: \\b [34:9]
-| notSpecified: CHAR(100),
- [34:10]
-| | whiteSpace: \\b\\b\\b\\b [35:1]
-| notSpecified: VAR1 [35:5]
-| | whiteSpace: \\b [35:9]
-| notSpecified: CHARACTER,
- [35:10]
-| | whiteSpace: \\b\\b\\b\\b [36:1]
-| notSpecified: VAR1 [36:5]
-| | whiteSpace: \\b [36:9]
-| notSpecified: DATE,
- [36:10]
-| | whiteSpace: \\b\\b\\b\\b [37:1]
-| notSpecified: VAR1 [37:5]
-| | whiteSpace: \\b [37:9]
-| notSpecified: DATETIME [37:10]
-| | whiteSpace: \\b\\b [37:18]
-| notSpecified: day [37:20]
-| | whiteSpace: \\b [37:23]
-| notSpecified: to [37:24]
-| | whiteSpace: \\b [37:26]
-| notSpecified: day,
- [37:27]
-| | whiteSpace: \\b\\b\\b\\b [38:1]
-| notSpecified: VAR1 [38:5]
-| | whiteSpace: \\b [38:9]
-| notSpecified: DEC,
- [38:10]
-| | whiteSpace: \\b\\b\\b\\b [39:1]
-| notSpecified: VAR1 [39:5]
-| | whiteSpace: \\b [39:9]
-| notSpecified: DECIMAL(10,2),
- [39:10]
-| | whiteSpace: \\b\\b\\b\\b [40:1]
-| notSpecified: VAR1 [40:5]
-| | whiteSpace: \\b [40:9]
-| notSpecified: DECIMAL(10),
- [40:10]
-| | whiteSpace: \\b\\b\\b\\b [41:1]
-| notSpecified: VAR1 [41:5]
-| | whiteSpace: \\b [41:9]
-| notSpecified: DOUBLE [41:10]
-| | whiteSpace: \\b [41:16]
-| notSpecified: PRECISION,
- [41:17]
-| | whiteSpace: \\b\\b\\b\\b [42:1]
-| notSpecified: VAR1 [42:5]
-| | whiteSpace: \\b [42:9]
-| notSpecified: FLOAT,
- [42:10]
-| | whiteSpace: \\b\\b\\b\\b [43:1]
-| notSpecified: VAR1 [43:5]
-| | whiteSpace: \\b [43:9]
-| notSpecified: INT,
- [43:10]
-| | whiteSpace: \\b\\b\\b\\b [44:1]
-| notSpecified: VAR1 [44:5]
-| | whiteSpace: \\b [44:9]
-| notSpecified: INTEGER,
- [44:10]
-| | whiteSpace: \\b\\b\\b\\b [45:1]
-| notSpecified: VAR1 [45:5]
-| | whiteSpace: \\b [45:9]
-| notSpecified: MONEY,
- [45:10]
-| | whiteSpace: \\b\\b\\b\\b [46:1]
-| notSpecified: VAR1 [46:5]
-| | whiteSpace: \\b [46:9]
-| notSpecified: NCHAR(100),
- [46:10]
-| | whiteSpace: \\b\\b\\b\\b [47:1]
-| notSpecified: VAR1 [47:5]
-| | whiteSpace: \\b [47:9]
-| notSpecified: NUMERIC,
- [47:10]
-| | whiteSpace: \\b\\b\\b\\b [48:1]
-| notSpecified: VAR1 [48:5]
-| | whiteSpace: \\b [48:9]
-| notSpecified: NVARCHAR(100)
- [48:10]
-| | whiteSpace: \\b\\b [49:1]
-| notSpecified: END [49:3]
-| | whiteSpace: \\b [49:6]
-| notSpecified: RECORD [49:7]
-| | whiteSpace: \\b\\b [49:13]
-| newLine: \\n\\n [49:15]
-| notSpecified: end [51:1]
-| | whiteSpace: \\b [51:4]
-| notSpecified: function
-
- [51:5]
+program:  [1:1] {
+| | block:  [1:1] {
+| | | | keyword: MAIN [1:1] {
+| | | | | | whiteSpace: \\b [1:5] {
+| | newLine: \\n\\n [1:6] {
+| | whiteSpace: \\t [3:1] {
+| | keyword: DEFINE [3:2] {
+| | | | whiteSpace: \\b [3:8] {
+| | | | identifier: VAR1 [3:9] {
+| | | | whiteSpace: \\b [3:13] {
+| | keyword: BIGINT [3:14] {
+| | | | whiteSpace: \\b\\b\\b [3:20] {
+| | newLine: \\n [3:23] {
+| | whiteSpace: \\t [4:1] {
+| | keyword: DEFINE [4:2] {
+| | | | whiteSpace: \\b [4:8] {
+| | | | identifier: VAR1 [4:9] {
+| | | | whiteSpace: \\b [4:13] {
+| | | | identifier: BYTE [4:14] {
+| | | | whiteSpace: \\b\\b\\b [4:18] {
+| | newLine: \\n [4:21] {
+| | whiteSpace: \\t [5:1] {
+| | keyword: DEFINE [5:2] {
+| | | | whiteSpace: \\b [5:8] {
+| | | | identifier: VAR1 [5:9] {
+| | | | whiteSpace: \\b [5:13] {
+| | keyword: CHAR [5:14] {
+| | operator: ( [5:18] {
+| | number: 100 [5:19] {
+| | operator: ) [5:22] {
+| | | | newLine: \\n [5:23] {
+| | whiteSpace: \\t [6:1] {
+| | keyword: DEFINE [6:2] {
+| | | | whiteSpace: \\b [6:8] {
+| | | | identifier: VAR1 [6:9] {
+| | | | whiteSpace: \\b [6:13] {
+| | | | identifier: CHARACTER [6:14] {
+| | | | whiteSpace: \\b\\b [6:23] {
+| | newLine: \\n [6:25] {
+| | whiteSpace: \\t [7:1] {
+| | keyword: DEFINE [7:2] {
+| | | | whiteSpace: \\b [7:8] {
+| | | | identifier: VAR1 [7:9] {
+| | | | whiteSpace: \\b [7:13] {
+| | keyword: DATE [7:14] {
+| | | | whiteSpace: \\b\\b\\b [7:18] {
+| | newLine: \\n [7:21] {
+| | whiteSpace: \\t [8:1] {
+| | keyword: DEFINE [8:2] {
+| | | | whiteSpace: \\b [8:8] {
+| | | | identifier: VAR1 [8:9] {
+| | | | whiteSpace: \\b [8:13] {
+| | | | identifier: DATETIME [8:14] {
+| | | | whiteSpace: \\b\\b [8:22] {
+| | keyword: day [8:24] {
+| | | | whiteSpace: \\b [8:27] {
+| | keyword: to [8:28] {
+| | | | whiteSpace: \\b [8:30] {
+| | keyword: day [8:31] {
+| | | | newLine: \\n [8:34] {
+| | whiteSpace: \\t [9:1] {
+| | keyword: DEFINE [9:2] {
+| | | | whiteSpace: \\b [9:8] {
+| | | | identifier: VAR1 [9:9] {
+| | | | whiteSpace: \\b [9:13] {
+| | keyword: DEC [9:14] {
+| | | | whiteSpace: \\b\\b\\b [9:17] {
+| | newLine: \\n [9:20] {
+| | whiteSpace: \\t [10:1] {
+| | keyword: DEFINE [10:2] {
+| | | | whiteSpace: \\b [10:8] {
+| | | | identifier: VAR1 [10:9] {
+| | | | whiteSpace: \\b [10:13] {
+| | | | identifier: DECIMAL [10:14] {
+| | operator: ( [10:21] {
+| | number: 10 [10:22] {
+| | operator: , [10:24] {
+| | number: 2 [10:25] {
+| | operator: ) [10:26] {
+| | | | newLine: \\n [10:27] {
+| | whiteSpace: \\t [11:1] {
+| | keyword: DEFINE [11:2] {
+| | | | whiteSpace: \\b [11:8] {
+| | | | identifier: VAR1 [11:9] {
+| | | | whiteSpace: \\b [11:13] {
+| | | | identifier: DECIMAL [11:14] {
+| | operator: ( [11:21] {
+| | number: 10 [11:22] {
+| | operator: ) [11:24] {
+| | | | newLine: \\n [11:25] {
+| | whiteSpace: \\t [12:1] {
+| | keyword: DEFINE [12:2] {
+| | | | whiteSpace: \\b [12:8] {
+| | | | identifier: VAR1 [12:9] {
+| | | | whiteSpace: \\b [12:13] {
+| | keyword: DOUBLE [12:14] {
+| | | | whiteSpace: \\b [12:20] {
+| | keyword: PRECISION [12:21] {
+| | | | whiteSpace: \\b\\b [12:30] {
+| | newLine: \\n [12:32] {
+| | whiteSpace: \\t [13:1] {
+| | keyword: DEFINE [13:2] {
+| | | | whiteSpace: \\b [13:8] {
+| | | | identifier: VAR1 [13:9] {
+| | | | whiteSpace: \\b [13:13] {
+| | keyword: DYNAMIC [13:14] {
+| | | | whiteSpace: \\b [13:21] {
+| | keyword: ARRAY [13:22] {
+| | | | whiteSpace: \\b\\b [13:27] {
+| | newLine: \\n [13:29] {
+| | whiteSpace: \\t [14:1] {
+| | keyword: DEFINE [14:2] {
+| | | | whiteSpace: \\b [14:8] {
+| | | | identifier: VAR1 [14:9] {
+| | | | whiteSpace: \\b [14:13] {
+| | keyword: FLOAT [14:14] {
+| | | | whiteSpace: \\b\\b [14:19] {
+| | newLine: \\n [14:21] {
+| | whiteSpace: \\t [15:1] {
+| | keyword: DEFINE [15:2] {
+| | | | whiteSpace: \\b [15:8] {
+| | | | identifier: VAR1 [15:9] {
+| | | | whiteSpace: \\b [15:13] {
+| | | | identifier: INT [15:14] {
+| | | | whiteSpace: \\b\\b [15:17] {
+| | newLine: \\n [15:19] {
+| | whiteSpace: \\t [16:1] {
+| | keyword: DEFINE [16:2] {
+| | | | whiteSpace: \\b [16:8] {
+| | | | identifier: VAR1 [16:9] {
+| | | | whiteSpace: \\b [16:13] {
+| | | | identifier: INTEGER [16:14] {
+| | | | whiteSpace: \\b\\b [16:21] {
+| | newLine: \\n [16:23] {
+| | whiteSpace: \\t [17:1] {
+| | keyword: DEFINE [17:2] {
+| | | | whiteSpace: \\b [17:8] {
+| | | | identifier: VAR1 [17:9] {
+| | | | whiteSpace: \\b [17:13] {
+| | keyword: MONEY [17:14] {
+| | | | whiteSpace: \\b\\b [17:19] {
+| | newLine: \\n [17:21] {
+| | whiteSpace: \\t [18:1] {
+| | keyword: DEFINE [18:2] {
+| | | | whiteSpace: \\b [18:8] {
+| | | | identifier: VAR1 [18:9] {
+| | | | whiteSpace: \\b [18:13] {
+| | keyword: NCHAR [18:14] {
+| | operator: ( [18:19] {
+| | number: 100 [18:20] {
+| | operator: ) [18:23] {
+| | | | whiteSpace: \\b\\b [18:24] {
+| | newLine: \\n [18:26] {
+| | whiteSpace: \\t [19:1] {
+| | keyword: DEFINE [19:2] {
+| | | | whiteSpace: \\b [19:8] {
+| | | | identifier: VAR1 [19:9] {
+| | | | whiteSpace: \\b [19:13] {
+| | keyword: NUMERIC [19:14] {
+| | | | whiteSpace: \\b\\b [19:21] {
+| | newLine: \\n [19:23] {
+| | whiteSpace: \\t [20:1] {
+| | keyword: DEFINE [20:2] {
+| | | | whiteSpace: \\b [20:8] {
+| | | | identifier: VAR1 [20:9] {
+| | | | whiteSpace: \\b [20:13] {
+| | keyword: NVARCHAR [20:14] {
+| | operator: ( [20:22] {
+| | number: 100 [20:23] {
+| | operator: ) [20:26] {
+| | | | whiteSpace: \\b\\b [20:27] {
+| | newLine: \\n\\n [20:29] {
+| | | | keyword: end [22:1] {
+| | | | whiteSpace: \\b [22:4] {
+| | keyword: MAIN [22:5] {
+| | | newLine: \\n\\n [22:9] {
+| block:  [24:1] {
+| | | | | | keyword: function [24:1] {
+| | | | whiteSpace: \\b [24:9] {
+| | identifier: f1 [24:10] {
+| | | | operator: ( [24:12] {
+| | operator: ) [24:13] {
+| | | | whiteSpace: \\b [24:14] {
+| | newLine: \\n [24:15] {
+| | whiteSpace: \\t [25:1] {
+| | | | operator: - [25:2] {
+| | operator: - [25:3] {
+| | DEFINE VAR1 INTERVAL  | | newLine: \\n [25:26] {
+| | | | keyword: end [26:1] {
+| | | | whiteSpace: \\b [26:4] {
+| | keyword: function [26:5] {
+| | newLine: \\n\\n [26:13] {
+| notSpecified: function [28:1] {
+| | whiteSpace: \\b [28:9] {
+| notSpecified: f2() [28:10] {
+| | whiteSpace: \\b [28:14] {
+| newLine: \\n [28:15] {
+| whiteSpace: \\t [29:1] {
+| notSpecified: DEFINE [29:2] {
+| | whiteSpace: \\b [29:8] {
+| notSpecified: REC1 [29:9] {
+| | whiteSpace: \\b [29:13] {
+| notSpecified: RECORD\\n [29:14] {
+| | whiteSpace: \\b\\b\\b\\b\\t [30:1] {
+| notSpecified: VAR1 [30:6] {
+| | whiteSpace: \\b [30:10] {
+| notSpecified: BIGINT\\n [30:11] {
+| | whiteSpace: \\b\\b\\t [31:1] {
+| notSpecified: END [31:4] {
+| | whiteSpace: \\b [31:7] {
+| notSpecified: RECORD\\n\\n [31:8] {
+| | whiteSpace: \\t [33:1] {
+| notSpecified: DEFINE [33:2] {
+| | whiteSpace: \\b [33:8] {
+| notSpecified: REC2 [33:9] {
+| | whiteSpace: \\b [33:13] {
+| notSpecified: RECORD\\n [33:14] {
+| | whiteSpace: \\b\\b\\b\\b [34:1] {
+| notSpecified: VAR1 [34:5] {
+| | whiteSpace: \\b [34:9] {
+| notSpecified: CHAR(100),\\n [34:10] {
+| | whiteSpace: \\b\\b\\b\\b [35:1] {
+| notSpecified: VAR1 [35:5] {
+| | whiteSpace: \\b [35:9] {
+| notSpecified: CHARACTER,\\n [35:10] {
+| | whiteSpace: \\b\\b\\b\\b [36:1] {
+| notSpecified: VAR1 [36:5] {
+| | whiteSpace: \\b [36:9] {
+| notSpecified: DATE,\\n [36:10] {
+| | whiteSpace: \\b\\b\\b\\b [37:1] {
+| notSpecified: VAR1 [37:5] {
+| | whiteSpace: \\b [37:9] {
+| notSpecified: DATETIME [37:10] {
+| | whiteSpace: \\b\\b [37:18] {
+| notSpecified: day [37:20] {
+| | whiteSpace: \\b [37:23] {
+| notSpecified: to [37:24] {
+| | whiteSpace: \\b [37:26] {
+| notSpecified: day,\\n [37:27] {
+| | whiteSpace: \\b\\b\\b\\b [38:1] {
+| notSpecified: VAR1 [38:5] {
+| | whiteSpace: \\b [38:9] {
+| notSpecified: DEC,\\n [38:10] {
+| | whiteSpace: \\b\\b\\b\\b [39:1] {
+| notSpecified: VAR1 [39:5] {
+| | whiteSpace: \\b [39:9] {
+| notSpecified: DECIMAL(10,2),\\n [39:10] {
+| | whiteSpace: \\b\\b\\b\\b [40:1] {
+| notSpecified: VAR1 [40:5] {
+| | whiteSpace: \\b [40:9] {
+| notSpecified: DECIMAL(10),\\n [40:10] {
+| | whiteSpace: \\b\\b\\b\\b [41:1] {
+| notSpecified: VAR1 [41:5] {
+| | whiteSpace: \\b [41:9] {
+| notSpecified: DOUBLE [41:10] {
+| | whiteSpace: \\b [41:16] {
+| notSpecified: PRECISION,\\n [41:17] {
+| | whiteSpace: \\b\\b\\b\\b [42:1] {
+| notSpecified: VAR1 [42:5] {
+| | whiteSpace: \\b [42:9] {
+| notSpecified: FLOAT,\\n [42:10] {
+| | whiteSpace: \\b\\b\\b\\b [43:1] {
+| notSpecified: VAR1 [43:5] {
+| | whiteSpace: \\b [43:9] {
+| notSpecified: INT,\\n [43:10] {
+| | whiteSpace: \\b\\b\\b\\b [44:1] {
+| notSpecified: VAR1 [44:5] {
+| | whiteSpace: \\b [44:9] {
+| notSpecified: INTEGER,\\n [44:10] {
+| | whiteSpace: \\b\\b\\b\\b [45:1] {
+| notSpecified: VAR1 [45:5] {
+| | whiteSpace: \\b [45:9] {
+| notSpecified: MONEY,\\n [45:10] {
+| | whiteSpace: \\b\\b\\b\\b [46:1] {
+| notSpecified: VAR1 [46:5] {
+| | whiteSpace: \\b [46:9] {
+| notSpecified: NCHAR(100),\\n [46:10] {
+| | whiteSpace: \\b\\b\\b\\b [47:1] {
+| notSpecified: VAR1 [47:5] {
+| | whiteSpace: \\b [47:9] {
+| notSpecified: NUMERIC,\\n [47:10] {
+| | whiteSpace: \\b\\b\\b\\b [48:1] {
+| notSpecified: VAR1 [48:5] {
+| | whiteSpace: \\b [48:9] {
+| notSpecified: NVARCHAR(100)\\n [48:10] {
+| | whiteSpace: \\b\\b [49:1] {
+| notSpecified: END [49:3] {
+| | whiteSpace: \\b [49:6] {
+| notSpecified: RECORD [49:7] {
+| | whiteSpace: \\b\\b [49:13] {
+| newLine: \\n\\n [49:15] {
+| notSpecified: end [51:1] {
+| | whiteSpace: \\b [51:4] {
+| notSpecified: function\\n\\n [51:5] {
 
 `;
 
@@ -587,48 +537,68 @@ define m_num_nf_cap                      char(07),
 m_informou_grade                  smallint
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1]
-| | comment: [object Object],###############################################################################,[object Object] [1:1]
-| | comment: [object Object],## atencao atencao atencao atencao atencao atencao atencao atencao atencao ###,[object Object] [2:1]
-| comment: [object Object],##############################################################################,[object Object] [3:1]
-| comment: [object Object],##                                                                         ###,[object Object] [4:1]
-| comment: [object Object],## por motivos de tamanho deste arquivo fonte, os comandos de  selecao em  ###,[object Object] [5:1]
-| comment: [object Object],## tabelas (select), que eram identicos em diversas partes do mesmo foram  ###,[object Object] [6:1]
-| comment: [object Object],## unificados. para manter este principio, procure a seguinte string:      ###,[object Object] [7:1]
-| comment: [object Object],##                      "busca_" + <nome da tabela>                        ###,[object Object] [8:1]
-| comment: [object Object],## exemplo: para verificar se ja existe uma selecao que possa ser          ###,[object Object] [9:1]
-| comment: [object Object],##         utilizada para a tabela ordem_sup, procure "busca_ordem_sup".   ###,[object Object] [10:1]
-| comment: [object Object],##                                                                         ###,[object Object] [11:1]
-| comment: [object Object],##############################################################################,[object Object] [12:1]
-| comment: [object Object],-------------------------------------------------------------------#,[object Object] [14:1]
-| comment: [object Object], sistema.: suprimentos                                             #,[object Object] [15:1]
-| comment: [object Object], programa: sup3760                                                 #,[object Object] [16:1]
-| comment: [object Object], modulos.: sup3760 log0010 log0030 log0040 log0050 log0060 sup0520 #,[object Object] [17:1]
-| comment: [object Object], objetivo: manutencao de notas fiscais                             #,[object Object] [18:1]
-| comment: [object Object], autor...: tatiane wiese                                           #,[object Object] [19:1]
-| comment: [object Object], data....: 18/11/1994                                              #,[object Object] [20:1]
-| comment: [object Object],                                                                   #,[object Object] [21:1]
-| comment: [object Object], ******************** a t e n c a o  ! ! ! ! ********************* #,[object Object] [22:1]
-| comment: [object Object], favor manter a identacao neste  programa (tres colunas),  para  o #,[object Object] [23:1]
-| comment: [object Object], melhor entendimento do programa nas manutencoes posteriores.      #,[object Object] [24:1]
-| comment: [object Object], ***************************************************************** #,[object Object] [25:1]
-| comment: [object Object],-------------------------------------------------------------------#,[object Object] [26:1]
-| notSpecified: define [28:1]
-| | whiteSpace: \\b [28:7]
-| notSpecified: m_msg [28:8]
-| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [28:13]
-| notSpecified: char(200)
-
-define [28:42]
-| | whiteSpace: \\b [30:7]
-| notSpecified: m_num_nf_cap [30:8]
-| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [30:20]
-| notSpecified: char(07),
-m_informou_grade [30:42]
-| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [31:17]
-| notSpecified: smallint
-
- [31:35]
+program:  [1:1] {
+| | | operator: # [1:1] {
+| ###############################################################################| newLine: \\n [1:81] {
+| | | operator: # [2:1] {
+| ## atencao atencao atencao atencao atencao atencao atencao atencao atencao ###| newLine: \\n [2:80] {
+| | operator: # [3:1] {
+| ##############################################################################| newLine: \\n [3:80] {
+| | operator: # [4:1] {
+| ##                                                                         ###| newLine: \\n [4:80] {
+| | operator: # [5:1] {
+| ## por motivos de tamanho deste arquivo fonte, os comandos de  selecao em  ###| newLine: \\n [5:80] {
+| | operator: # [6:1] {
+| ## tabelas (select), que eram identicos em diversas partes do mesmo foram  ###| newLine: \\n [6:80] {
+| | operator: # [7:1] {
+| ## unificados. para manter este principio, procure a seguinte string:      ###| newLine: \\n [7:80] {
+| | operator: # [8:1] {
+| ##                      "busca_" + <nome da tabela>                        ###| newLine: \\n [8:80] {
+| | operator: # [9:1] {
+| ## exemplo: para verificar se ja existe uma selecao que possa ser          ###| newLine: \\n [9:80] {
+| | operator: # [10:1] {
+| ##         utilizada para a tabela ordem_sup, procure "busca_ordem_sup".   ###| newLine: \\n [10:80] {
+| | operator: # [11:1] {
+| ##                                                                         ###| newLine: \\n [11:80] {
+| | operator: # [12:1] {
+| ##############################################################################| newLine: \\n\\n [12:80] {
+| | operator: # [14:1] {
+| -------------------------------------------------------------------#| newLine: \\n [14:70] {
+| | operator: # [15:1] {
+|  sistema.: suprimentos                                             #| newLine: \\n [15:70] {
+| | operator: # [16:1] {
+|  programa: sup3760                                                 #| newLine: \\n [16:70] {
+| | operator: # [17:1] {
+|  modulos.: sup3760 log0010 log0030 log0040 log0050 log0060 sup0520 #| newLine: \\n [17:70] {
+| | operator: # [18:1] {
+|  objetivo: manutencao de notas fiscais                             #| newLine: \\n [18:70] {
+| | operator: # [19:1] {
+|  autor...: tatiane wiese                                           #| newLine: \\n [19:70] {
+| | operator: # [20:1] {
+|  data....: 18/11/1994                                              #| newLine: \\n [20:70] {
+| | operator: # [21:1] {
+|                                                                    #| newLine: \\n [21:70] {
+| | operator: # [22:1] {
+|  ******************** a t e n c a o  ! ! ! ! ********************* #| newLine: \\n [22:70] {
+| | operator: # [23:1] {
+|  favor manter a identacao neste  programa (tres colunas),  para  o #| newLine: \\n [23:70] {
+| | operator: # [24:1] {
+|  melhor entendimento do programa nas manutencoes posteriores.      #| newLine: \\n [24:70] {
+| | operator: # [25:1] {
+|  ***************************************************************** #| newLine: \\n [25:70] {
+| | operator: # [26:1] {
+| -------------------------------------------------------------------#| newLine: \\n\\n [26:70] {
+| notSpecified: define [28:1] {
+| | whiteSpace: \\b [28:7] {
+| notSpecified: m_msg [28:8] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [28:13] {
+| notSpecified: char(200)\\n\\ndefine [28:42] {
+| | whiteSpace: \\b [30:7] {
+| notSpecified: m_num_nf_cap [30:8] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [30:20] {
+| notSpecified: char(07),\\nm_informou_grade [30:42] {
+| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [31:17] {
+| notSpecified: smallint\\n\\n [31:35] {
 
 `;
 
@@ -641,26 +611,35 @@ main
 	--define var1 record like tab1.*
 end main
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1]
-| | notSpecified: globals
-define [1:1]
-| | | whiteSpace: \\b [2:7]
-| notSpecified: mod [2:8]
-| | whiteSpace: \\b [2:11]
-| notSpecified: char(10)
-end [2:12]
-| | whiteSpace: \\b [3:4]
-| notSpecified: globals
-
-main [3:5]
-| | whiteSpace: \\b [5:5]
-| newLine: \\n [5:6]
-| whiteSpace: \\t [6:1]
-| comment: [object Object],[object Object],,define var1 record like tab1.*,[object Object] [6:2]
-| notSpecified: end [7:1]
-| | whiteSpace: \\b [7:4]
-| notSpecified: main
- [7:5]
+program:  [1:1] {
+| | block:  [1:1] {
+| | | | keyword: globals [1:1] {
+| | | | | | newLine: \\n [1:8] {
+| | keyword: define [2:1] {
+| | | | whiteSpace: \\b [2:7] {
+| | keyword: mod [2:8] {
+| | | | whiteSpace: \\b [2:11] {
+| | keyword: char [2:12] {
+| | operator: ( [2:16] {
+| | number: 10 [2:17] {
+| | operator: ) [2:19] {
+| | | | newLine: \\n [2:20] {
+| | | | keyword: end [3:1] {
+| | | | whiteSpace: \\b [3:4] {
+| | keyword: globals [3:5] {
+| | | newLine: \\n\\n [3:12] {
+| block:  [5:1] {
+| | | | keyword: main [5:1] {
+| | | | | | whiteSpace: \\b [5:5] {
+| | newLine: \\n [5:6] {
+| | whiteSpace: \\t [6:1] {
+| | | | operator: - [6:2] {
+| | operator: - [6:3] {
+| | define var1 record like tab1.*| | newLine: \\n [6:34] {
+| | | | keyword: end [7:1] {
+| | | | whiteSpace: \\b [7:4] {
+| | keyword: main [7:5] {
+| | newLine: \\n [7:9] {
 
 `;
 
@@ -669,17 +648,19 @@ main
 	--DEFINE VAR1 record LIKE TAB1.*
 end main
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1]
-| | block:  [1:1]
-| | | | keyword: main [1:1]
-| | | | | | whiteSpace: \\b [1:5]
-| | newLine: \\n [1:6]
-| | whiteSpace: \\t [2:1]
-| | comment: [object Object],[object Object],,DEFINE VAR1 record LIKE TAB1.*,[object Object] [2:2]
-| | | | keyword: end [3:1]
-| | | | whiteSpace: \\b [3:4]
-| | keyword: main [3:5]
-| | | newLine: \\n [3:9]
+program:  [1:1] {
+| | block:  [1:1] {
+| | | | keyword: main [1:1] {
+| | | | | | whiteSpace: \\b [1:5] {
+| | newLine: \\n [1:6] {
+| | whiteSpace: \\t [2:1] {
+| | | | operator: - [2:2] {
+| | operator: - [2:3] {
+| | DEFINE VAR1 record LIKE TAB1.*| | newLine: \\n [2:34] {
+| | | | keyword: end [3:1] {
+| | | | whiteSpace: \\b [3:4] {
+| | keyword: main [3:5] {
+| | | newLine: \\n [3:9] {
 
 `;
 
@@ -695,48 +676,38 @@ main
 
 end main
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1]
-| | notSpecified: main
-
- [1:1]
-| | | whiteSpace: \\b\\b [3:1]
-| notSpecified: for [3:3]
-| | whiteSpace: \\b [3:6]
-| notSpecified: a=1 [3:7]
-| | whiteSpace: \\b [3:10]
-| notSpecified: to [3:11]
-| | whiteSpace: \\b [3:13]
-| notSpecified: 20
- [3:14]
-| | whiteSpace: \\b\\b [4:1]
-| notSpecified: end [4:3]
-| | whiteSpace: \\b [4:6]
-| notSpecified: for
-
- [4:7]
-| | whiteSpace: \\b\\b [6:1]
-| notSpecified: for [6:3]
-| | whiteSpace: \\b [6:6]
-| notSpecified: a=1 [6:7]
-| | whiteSpace: \\b [6:10]
-| notSpecified: to [6:11]
-| | whiteSpace: \\b [6:13]
-| notSpecified: 20
- [6:14]
-| | whiteSpace: \\b\\b\\b\\b [7:1]
-| notSpecified: display [7:5]
-| | whiteSpace: \\b [7:12]
-| notSpecified: b
- [7:13]
-| | whiteSpace: \\b\\b [8:1]
-| notSpecified: end [8:3]
-| | whiteSpace: \\b [8:6]
-| notSpecified: for
-
-end [8:7]
-| | whiteSpace: \\b [10:4]
-| notSpecified: main
- [10:5]
+program:  [1:1] {
+| | notSpecified: main\\n\\n [1:1] {
+| | | whiteSpace: \\b\\b [3:1] {
+| notSpecified: for [3:3] {
+| | whiteSpace: \\b [3:6] {
+| notSpecified: a=1 [3:7] {
+| | whiteSpace: \\b [3:10] {
+| notSpecified: to [3:11] {
+| | whiteSpace: \\b [3:13] {
+| notSpecified: 20\\n [3:14] {
+| | whiteSpace: \\b\\b [4:1] {
+| notSpecified: end [4:3] {
+| | whiteSpace: \\b [4:6] {
+| notSpecified: for\\n\\n [4:7] {
+| | whiteSpace: \\b\\b [6:1] {
+| notSpecified: for [6:3] {
+| | whiteSpace: \\b [6:6] {
+| notSpecified: a=1 [6:7] {
+| | whiteSpace: \\b [6:10] {
+| notSpecified: to [6:11] {
+| | whiteSpace: \\b [6:13] {
+| notSpecified: 20\\n [6:14] {
+| | whiteSpace: \\b\\b\\b\\b [7:1] {
+| notSpecified: display [7:5] {
+| | whiteSpace: \\b [7:12] {
+| notSpecified: b\\n [7:13] {
+| | whiteSpace: \\b\\b [8:1] {
+| notSpecified: end [8:3] {
+| | whiteSpace: \\b [8:6] {
+| notSpecified: for\\n\\nend [8:7] {
+| | whiteSpace: \\b [10:4] {
+| notSpecified: main\\n [10:5] {
 
 `;
 
@@ -757,60 +728,60 @@ function f2(p1, p2)
    
 end function
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1]
-| | block:  [1:1]
-| | | | keyword: main [1:1]
-| | | | | | newLine: \\n [1:5]
-| | whiteSpace: \\b\\b\\b [2:1]
-| | newLine: \\n [2:4]
-| | | | keyword: end [3:1]
-| | | | whiteSpace: \\b [3:4]
-| | keyword: main [3:5]
-| | | newLine: \\n\\n [3:9]
-| block:  [5:1]
-| | | | | | keyword: function [5:1]
-| | | | whiteSpace: \\b [5:9]
-| | identifier: f0 [5:10]
-| | | | operator: ( [5:12]
-| | operator: ) [5:13]
-| | | | newLine: \\n [5:14]
-| | whiteSpace: \\b\\b\\b [6:1]
-| | newLine: \\n [6:4]
-| | | | keyword: end [7:1]
-| | | | whiteSpace: \\b [7:4]
-| | keyword: function [7:5]
-| | newLine: \\n\\n [7:13]
-| block:  [9:1]
-| | | | | | keyword: function [9:1]
-| | | | whiteSpace: \\b [9:9]
-| | identifier: f1 [9:10]
-| | | | operator: ( [9:12]
-| | | | identifier: p1 [9:13]
-| | operator: ) [9:15]
-| | | | newLine: \\n [9:16]
-| | whiteSpace: \\b\\b\\b [10:1]
-| | newLine: \\n [10:4]
-| | | | keyword: end [11:1]
-| | | | whiteSpace: \\b [11:4]
-| | keyword: function [11:5]
-| | newLine: \\n\\n [11:13]
-| block:  [13:1]
-| | | | | | keyword: function [13:1]
-| | | | whiteSpace: \\b [13:9]
-| | identifier: f2 [13:10]
-| | | | operator: ( [13:12]
-| | | | identifier: p1 [13:13]
-| | operator: , [13:15]
-| | | | whiteSpace: \\b [13:16]
-| | | | identifier: p2 [13:17]
-| | operator: ) [13:19]
-| | | | newLine: \\n [13:20]
-| | whiteSpace: \\b\\b\\b [14:1]
-| | newLine: \\n [14:4]
-| | | | keyword: end [15:1]
-| | | | whiteSpace: \\b [15:4]
-| | keyword: function [15:5]
-| | newLine: \\n [15:13]
+program:  [1:1] {
+| | block:  [1:1] {
+| | | | keyword: main [1:1] {
+| | | | | | newLine: \\n [1:5] {
+| | whiteSpace: \\b\\b\\b [2:1] {
+| | newLine: \\n [2:4] {
+| | | | keyword: end [3:1] {
+| | | | whiteSpace: \\b [3:4] {
+| | keyword: main [3:5] {
+| | | newLine: \\n\\n [3:9] {
+| block:  [5:1] {
+| | | | | | keyword: function [5:1] {
+| | | | whiteSpace: \\b [5:9] {
+| | identifier: f0 [5:10] {
+| | | | operator: ( [5:12] {
+| | operator: ) [5:13] {
+| | | | newLine: \\n [5:14] {
+| | whiteSpace: \\b\\b\\b [6:1] {
+| | newLine: \\n [6:4] {
+| | | | keyword: end [7:1] {
+| | | | whiteSpace: \\b [7:4] {
+| | keyword: function [7:5] {
+| | newLine: \\n\\n [7:13] {
+| block:  [9:1] {
+| | | | | | keyword: function [9:1] {
+| | | | whiteSpace: \\b [9:9] {
+| | identifier: f1 [9:10] {
+| | | | operator: ( [9:12] {
+| | | | identifier: p1 [9:13] {
+| | operator: ) [9:15] {
+| | | | newLine: \\n [9:16] {
+| | whiteSpace: \\b\\b\\b [10:1] {
+| | newLine: \\n [10:4] {
+| | | | keyword: end [11:1] {
+| | | | whiteSpace: \\b [11:4] {
+| | keyword: function [11:5] {
+| | newLine: \\n\\n [11:13] {
+| block:  [13:1] {
+| | | | | | keyword: function [13:1] {
+| | | | whiteSpace: \\b [13:9] {
+| | identifier: f2 [13:10] {
+| | | | operator: ( [13:12] {
+| | | | identifier: p1 [13:13] {
+| | operator: , [13:15] {
+| | | | whiteSpace: \\b [13:16] {
+| | | | identifier: p2 [13:17] {
+| | operator: ) [13:19] {
+| | | | newLine: \\n [13:20] {
+| | whiteSpace: \\b\\b\\b [14:1] {
+| | newLine: \\n [14:4] {
+| | | | keyword: end [15:1] {
+| | | | whiteSpace: \\b [15:4] {
+| | keyword: function [15:5] {
+| | newLine: \\n [15:13] {
 
 `;
 
@@ -823,26 +794,21 @@ main
 end main
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1]
-| | notSpecified: main [1:1]
-| | | whiteSpace: \\b [1:5]
-| newLine: \\n\\n [1:6]
-| whiteSpace: \\b\\b [3:1]
-| notSpecified: if [3:3]
-| | whiteSpace: \\b [3:5]
-| notSpecified: a=b [3:6]
-| | whiteSpace: \\b [3:9]
-| notSpecified: then
- [3:10]
-| | whiteSpace: \\b\\b [4:1]
-| notSpecified: end [4:3]
-| | whiteSpace: \\b [4:6]
-| notSpecified: if
-
-end [4:7]
-| | whiteSpace: \\b [6:4]
-| notSpecified: main
-
- [6:5]
+program:  [1:1] {
+| | notSpecified: main [1:1] {
+| | | whiteSpace: \\b [1:5] {
+| newLine: \\n\\n [1:6] {
+| whiteSpace: \\b\\b [3:1] {
+| notSpecified: if [3:3] {
+| | whiteSpace: \\b [3:5] {
+| notSpecified: a=b [3:6] {
+| | whiteSpace: \\b [3:9] {
+| notSpecified: then\\n [3:10] {
+| | whiteSpace: \\b\\b [4:1] {
+| notSpecified: end [4:3] {
+| | whiteSpace: \\b [4:6] {
+| notSpecified: if\\n\\nend [4:7] {
+| | whiteSpace: \\b [6:4] {
+| notSpecified: main\\n\\n [6:5] {
 
 `;

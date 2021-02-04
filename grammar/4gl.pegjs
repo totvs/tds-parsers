@@ -11,12 +11,20 @@ start_program
 	= p1:superToken? p2:superToken*  { return ast("program").add(p1, p2) }
 
 superToken
-  = mainBlock
+  = comment
+  / globalBlock
+  / mainBlock
   / functionBlock
-  / comment
   / WS_NL
   // / tokens 
   / o:$(!WS .)+ { return ast("notSpecified", o) }
+
+globalBlock
+  = GLOBALS WS_NL string WS_NL
+  / b:GLOBALS &WS_NL
+      t:tokens*
+    e:(END WS_NL GLOBALS &WS_NL)
+    { return ast("block").add(b, t, e) }
 
 mainBlock
   = b:MAIN &WS_NL
@@ -141,8 +149,6 @@ keywords
     / FRACTION
     / FREE
     / FROM
-    / FUNCTION
-    / GLOBALS
     / GO
     / GOTO
     / GREEN
@@ -379,11 +385,11 @@ ESCAPED
 
 WS
   = s:$[ \t]+ 
-  { return ast("whiteSpace", s.replace(/ /g, "\\b").replace(/\t/g, "\\t")) }
+  { return ast("whiteSpace", s) }
 
 NL 
-  = s:$("\n" / "\r" / "\r\n")+ 
-  { return ast("newLine", s.replace(/\n/g, "\\n").replace(/\r/g, "\\r")) }
+  = s:$("\n" / "\r" / "\r\n")+
+  { return ast("newLine", s) }
 
 WS_NL
   = w:(WS / NL)+ { return w }
@@ -412,13 +418,13 @@ SQL_AWARN = v:"sqlawarn"i { return ast("builtInVar", v) }
 
 POUND = o:"#" { return ast("operator", o) }
 AT_SIGN = o:"@" { return ast("operator", o) }
-O_BRACES=o:"{" { return ast("operator", o) }
-C_BRACES=o:"}" { return ast("operator", o) }
-O_BRACKET=o:"[" { return ast("operator", o) }
-C_BRACKET=o:"]" { return ast("operator", o) }
-O_PARENTHESIS=o:"(" { return ast("operator", o) }
-C_PARENTHESIS=o:")" { return ast("operator", o) }
-COMMA=o:"," { return ast("operator", o) }
+O_BRACES=o:"{" { return ast("operator", o).set("spacing", "after") }
+C_BRACES=o:"}" { return ast("operator", o).set("spacing", "before") }
+O_BRACKET=o:"[" { return ast("operator", o).set("spacing", "after") }
+C_BRACKET=o:"]" { return ast("operator", o).set("spacing", "before") }
+O_PARENTHESIS=o:"(" { return ast("operator", o).set("spacing", "after") }
+C_PARENTHESIS=o:")" { return ast("operator", o).set("spacing", "before") }
+COMMA=o:"," { return ast("operator", o).set("spacing", "after") }
 ASTERISK=o:"*" { return ast("operator", o) }
 EQUAL=o:"="  { return ast("operator", o) }
 LESS=o:"<" { return ast("operator", o) }
