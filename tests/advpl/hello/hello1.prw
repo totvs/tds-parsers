@@ -1,3 +1,4 @@
+/*
 #include "protheus.ch"
 
 user function hello1() 
@@ -10,4 +11,4 @@ user function hello2()
   conout (x)
 
 return
-  
+*/  

@@ -5,7 +5,7 @@ export function astDump(ast: ASTNode | ASTNode[], prefix: string = ""): string {
         return "";
     }
 
-    let output: string = `${prefix}`;
+    let output: string = ``;
 
     if (Array.isArray(ast)) {
         ast.forEach((element: ASTNode) => {
@@ -15,22 +15,21 @@ export function astDump(ast: ASTNode | ASTNode[], prefix: string = ""): string {
         if (typeof ast == 'string') {
             output += ast;
         } else if (Array.isArray(ast.source)) {
-            ast.source.forEach((element: ASTNode) => {
-                output += astDump(element, prefix);
-            });
+            output += astDump(ast.source, prefix);
         } else {
-            const source = ast.source
-                .replace(/ /g, "\\b")
+            let source = ast.source
                 .replace(/\t/g, "\\t")
                 .replace(/\n/g, "\\n")
                 .replace(/\r/g, "\\r");
-
+            if (source == ' ') {
+                source = "\\b";
+            }
             const attributes: string = ast.attributes.length > 0? JSON.stringify(ast.attributes): "";
-
-            output += `${ast.type}: ${source} [${ast.location.line}:${ast.location.column}] {${attributes}\n`;
+            const location: string = `${ast.location.start.line}:${ast.location.start.column}-${ast.location.end.line}:${ast.location.end.column}`;
+            output = `${prefix}${ast.type}: ${source} [${location}] {C:${ast.children.length}} {A:${attributes}}\n`;
 
             if (ast.children && ast.children.length > 0) {
-                output += astDump(ast.children, prefix + "| ");
+                output += astDump(ast.children, `${prefix}| `);
             };
         }
     }

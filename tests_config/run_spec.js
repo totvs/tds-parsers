@@ -6,6 +6,7 @@ const PRINT_WIDTH = 80;
 const fs = require("fs");
 const path = require("path");
 const parser = require("../lib").parser;
+const PEGUtil = require("pegjs-util");
 
 function run_spec(dirname, options) {
   fs.readdirSync(dirname).forEach((filename) => {
@@ -31,9 +32,12 @@ function run_spec(dirname, options) {
         test(filename, () => {
           const output = parser(source, mergedOptions);
           if (output && output.error) {
-            console.error(output.error);
-            throw new Error(output.error);
+            console.error(PEGUtil.errorMessage(output.error));
           }
+
+          expect(output).not.toBeNull();
+          expect(output.error).toBeNull();
+
           const dump = output.ast.dump();
           expect(
             raw(

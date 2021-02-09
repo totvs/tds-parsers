@@ -22,133 +22,134 @@ function f2()
 
 end function
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1] {
-| | block:  [1:1] {
-| | | | keyword: main [1:1] {
-| | | | | | newLine: \\n [1:5] {
-| | whiteSpace: \\b\\b\\b\\b [2:1] {
-| | keyword: define [2:5] {
-| | | | whiteSpace: \\b [2:11] {
-| | | | identifier: lista [2:12] {
-| | | | whiteSpace: \\b [2:17] {
-| | keyword: array [2:18] {
-| | operator: [ [2:23] {
-| | number: 5 [2:24] {
-| | operator: ] [2:25] {
-| | | | whiteSpace: \\b [2:26] {
-| | keyword: of [2:27] {
-| | | | whiteSpace: \\b [2:29] {
-| | | | identifier: integer [2:30] {
-| | | | newLine: \\n [2:37] {
-| | | | keyword: end [3:1] {
-| | | | whiteSpace: \\b [3:4] {
-| | keyword: main [3:5] {
-| | | newLine: \\n\\n\\n [3:9] {
-| block:  [6:1] {
-| | | | | | keyword: function [6:1] {
-| | | | whiteSpace: \\b [6:9] {
-| | identifier: f1 [6:10] {
-| | | | operator: ( [6:12] {
-| | operator: ) [6:13] {
-| | | | newLine: \\n [6:14] {
-| | whiteSpace: \\t [7:1] {
-| | keyword: define [7:2] {
-| | | | whiteSpace: \\b [7:8] {
-| | | | identifier: var1 [7:9] {
-| | | | whiteSpace: \\b [7:13] {
-| | keyword: array [7:14] {
-| | operator: [ [7:19] {
-| | number: 1 [7:20] {
-| | operator: ] [7:21] {
-| | | | whiteSpace: \\b [7:22] {
-| | keyword: of [7:23] {
-| | | | whiteSpace: \\b [7:25] {
-| | | | identifier: integer [7:26] {
-| | | | newLine: \\n [7:33] {
-| | whiteSpace: \\t [8:1] {
-| | keyword: define [8:2] {
-| | | | whiteSpace: \\b [8:8] {
-| | | | identifier: var1 [8:9] {
-| | | | whiteSpace: \\b [8:13] {
-| | keyword: array [8:14] {
-| | operator: [ [8:19] {
-| | number: 1 [8:20] {
-| | operator: , [8:21] {
-| | number: 2 [8:22] {
-| | operator: ] [8:23] {
-| | | | whiteSpace: \\b [8:24] {
-| | keyword: of [8:25] {
-| | | | whiteSpace: \\b [8:27] {
-| | keyword: char [8:28] {
-| | operator: ( [8:32] {
-| | number: 30 [8:33] {
-| | operator: ) [8:35] {
-| | | | newLine: \\n\\n [8:36] {
-| | | | keyword: end [10:1] {
-| | | | whiteSpace: \\b [10:4] {
-| | keyword: function [10:5] {
-| | newLine: \\n\\n [10:13] {
-| notSpecified: function [12:1] {
-| | whiteSpace: \\b [12:9] {
-| notSpecified: f2()\\n\\n [12:10] {
-| | whiteSpace: \\t [14:1] {
-| notSpecified: let [14:2] {
-| | whiteSpace: \\b [14:5] {
-| notSpecified: ma_array[l_ind].f2_check [14:6] {
-| | whiteSpace: \\b\\b\\b\\b\\b\\b [14:30] {
-| notSpecified: = [14:36] {
-| | whiteSpace: \\b [14:37] {
-| notSpecified: null\\n [14:38] {
-| | whiteSpace: \\t [15:1] {
-| notSpecified: let [15:2] {
-| | whiteSpace: \\b [15:5] {
-| notSpecified: ma_array[l_ind].f2_integer [15:6] {
-| | whiteSpace: \\b\\b\\b\\b [15:32] {
-| notSpecified: = [15:36] {
-| | whiteSpace: \\b [15:37] {
-| notSpecified: null\\n [15:38] {
-| | whiteSpace: \\t [16:1] {
-| notSpecified: let [16:2] {
-| | whiteSpace: \\b [16:5] {
-| notSpecified: ma_array[l_ind].f2_date [16:6] {
-| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [16:29] {
-| notSpecified: = [16:36] {
-| | whiteSpace: \\b [16:37] {
-| notSpecified: today [16:38] {
-| | whiteSpace: \\b [16:43] {
-| notSpecified: + [16:44] {
-| | whiteSpace: \\b [16:45] {
-| notSpecified: l_ind [16:46] {
-| | whiteSpace: \\b [16:51] {
-| notSpecified: units [16:52] {
-| | whiteSpace: \\b [16:57] {
-| notSpecified: day\\n [16:58] {
-| | whiteSpace: \\t [17:1] {
-| notSpecified: let [17:2] {
-| | whiteSpace: \\b [17:5] {
-| notSpecified: ma_array[l_ind].f2_char [17:6] {
-| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [17:29] {
-| notSpecified: = [17:36] {
-| | whiteSpace: \\b [17:37] {
-| notSpecified: "texto"||l_ind\\n [17:38] {
-| | whiteSpace: \\t [18:1] {
-| notSpecified: let [18:2] {
-| | whiteSpace: \\b [18:5] {
-| notSpecified: ma_array[l_ind].f2_date [18:6] {
-| | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [18:29] {
-| notSpecified: = [18:36] {
-| | whiteSpace: \\b [18:37] {
-| notSpecified: today [18:38] {
-| | whiteSpace: \\b [18:43] {
-| notSpecified: + [18:44] {
-| | whiteSpace: \\b [18:45] {
-| notSpecified: 3 [18:46] {
-| | whiteSpace: \\b [18:47] {
-| notSpecified: units [18:48] {
-| | whiteSpace: \\b [18:53] {
-| notSpecified: day\\n\\nend [18:54] {
-| | whiteSpace: \\b [20:4] {
-| notSpecified: function\\n [20:5] {
+program:  [1:1] {C:63} {A:}
+| block:  [1:1] {C:3} {A:}
+| | keyword: main [1:1] {C:0} {A:}
+| | newLine: \\n [1:5] {C:0} {A:}
+| | whiteSpace:      [2:1] {C:0} {A:}
+| | keyword: define [2:5] {C:0} {A:}
+| | whiteSpace: \\b [2:11] {C:0} {A:}
+| | identifier: lista [2:12] {C:0} {A:}
+| | whiteSpace: \\b [2:17] {C:0} {A:}
+| | keyword: array [2:18] {C:0} {A:}
+| | operatorBracket: [ [2:23] {C:0} {A:}
+| | number: 5 [2:24] {C:0} {A:}
+| | operatorBracket: ] [2:25] {C:0} {A:}
+| | whiteSpace: \\b [2:26] {C:0} {A:}
+| | keyword: of [2:27] {C:0} {A:}
+| | whiteSpace: \\b [2:29] {C:0} {A:}
+| | identifier: integer [2:30] {C:0} {A:}
+| | newLine: \\n [2:37] {C:0} {A:}
+| | keyword: end [3:1] {C:0} {A:}
+| | whiteSpace: \\b [3:4] {C:0} {A:}
+| | keyword: main [3:5] {C:0} {A:}
+| | newLine: \\n\\n\\n [3:9] {C:0} {A:}
+| block:  [6:1] {C:3} {A:}
+| | keyword: function [6:1] {C:0} {A:}
+| | whiteSpace: \\b [6:9] {C:0} {A:}
+| | identifier: f1 [6:10] {C:0} {A:}
+| | argumentList:  [6:12] {C:1} {A:}
+| | | operatorParenthesis: ( [6:12] {C:0} {A:}
+| | | operatorParenthesis: ) [6:13] {C:0} {A:}
+| | newLine: \\n [6:14] {C:0} {A:}
+| | whiteSpace: \\t [7:1] {C:0} {A:}
+| | keyword: define [7:2] {C:0} {A:}
+| | whiteSpace: \\b [7:8] {C:0} {A:}
+| | identifier: var1 [7:9] {C:0} {A:}
+| | whiteSpace: \\b [7:13] {C:0} {A:}
+| | keyword: array [7:14] {C:0} {A:}
+| | operatorBracket: [ [7:19] {C:0} {A:}
+| | number: 1 [7:20] {C:0} {A:}
+| | operatorBracket: ] [7:21] {C:0} {A:}
+| | whiteSpace: \\b [7:22] {C:0} {A:}
+| | keyword: of [7:23] {C:0} {A:}
+| | whiteSpace: \\b [7:25] {C:0} {A:}
+| | identifier: integer [7:26] {C:0} {A:}
+| | newLine: \\n [7:33] {C:0} {A:}
+| | whiteSpace: \\t [8:1] {C:0} {A:}
+| | keyword: define [8:2] {C:0} {A:}
+| | whiteSpace: \\b [8:8] {C:0} {A:}
+| | identifier: var1 [8:9] {C:0} {A:}
+| | whiteSpace: \\b [8:13] {C:0} {A:}
+| | keyword: array [8:14] {C:0} {A:}
+| | operatorBracket: [ [8:19] {C:0} {A:}
+| | number: 1 [8:20] {C:0} {A:}
+| | operatorSeparator: , [8:21] {C:0} {A:}
+| | number: 2 [8:22] {C:0} {A:}
+| | operatorBracket: ] [8:23] {C:0} {A:}
+| | whiteSpace: \\b [8:24] {C:0} {A:}
+| | keyword: of [8:25] {C:0} {A:}
+| | whiteSpace: \\b [8:27] {C:0} {A:}
+| | keyword: char [8:28] {C:0} {A:}
+| | operatorParenthesis: ( [8:32] {C:0} {A:}
+| | number: 30 [8:33] {C:0} {A:}
+| | operatorParenthesis: ) [8:35] {C:0} {A:}
+| | newLine: \\n\\n [8:36] {C:0} {A:}
+| | keyword: end [10:1] {C:0} {A:}
+| | whiteSpace: \\b [10:4] {C:0} {A:}
+| | keyword: function [10:5] {C:0} {A:}
+| | newLine: \\n\\n [10:13] {C:0} {A:}
+| notSpecified: function [12:1] {C:0} {A:}
+| whiteSpace: \\b [12:9] {C:0} {A:}
+| notSpecified: f2()\\n\\n [12:10] {C:0} {A:}
+| whiteSpace: \\t [14:1] {C:0} {A:}
+| notSpecified: let [14:2] {C:0} {A:}
+| whiteSpace: \\b [14:5] {C:0} {A:}
+| notSpecified: ma_array[l_ind].f2_check [14:6] {C:0} {A:}
+| whiteSpace:        [14:30] {C:0} {A:}
+| notSpecified: = [14:36] {C:0} {A:}
+| whiteSpace: \\b [14:37] {C:0} {A:}
+| notSpecified: null\\n [14:38] {C:0} {A:}
+| whiteSpace: \\t [15:1] {C:0} {A:}
+| notSpecified: let [15:2] {C:0} {A:}
+| whiteSpace: \\b [15:5] {C:0} {A:}
+| notSpecified: ma_array[l_ind].f2_integer [15:6] {C:0} {A:}
+| whiteSpace:      [15:32] {C:0} {A:}
+| notSpecified: = [15:36] {C:0} {A:}
+| whiteSpace: \\b [15:37] {C:0} {A:}
+| notSpecified: null\\n [15:38] {C:0} {A:}
+| whiteSpace: \\t [16:1] {C:0} {A:}
+| notSpecified: let [16:2] {C:0} {A:}
+| whiteSpace: \\b [16:5] {C:0} {A:}
+| notSpecified: ma_array[l_ind].f2_date [16:6] {C:0} {A:}
+| whiteSpace:         [16:29] {C:0} {A:}
+| notSpecified: = [16:36] {C:0} {A:}
+| whiteSpace: \\b [16:37] {C:0} {A:}
+| notSpecified: today [16:38] {C:0} {A:}
+| whiteSpace: \\b [16:43] {C:0} {A:}
+| notSpecified: + [16:44] {C:0} {A:}
+| whiteSpace: \\b [16:45] {C:0} {A:}
+| notSpecified: l_ind [16:46] {C:0} {A:}
+| whiteSpace: \\b [16:51] {C:0} {A:}
+| notSpecified: units [16:52] {C:0} {A:}
+| whiteSpace: \\b [16:57] {C:0} {A:}
+| notSpecified: day\\n [16:58] {C:0} {A:}
+| whiteSpace: \\t [17:1] {C:0} {A:}
+| notSpecified: let [17:2] {C:0} {A:}
+| whiteSpace: \\b [17:5] {C:0} {A:}
+| notSpecified: ma_array[l_ind].f2_char [17:6] {C:0} {A:}
+| whiteSpace:         [17:29] {C:0} {A:}
+| notSpecified: = [17:36] {C:0} {A:}
+| whiteSpace: \\b [17:37] {C:0} {A:}
+| notSpecified: "texto"||l_ind\\n [17:38] {C:0} {A:}
+| whiteSpace: \\t [18:1] {C:0} {A:}
+| notSpecified: let [18:2] {C:0} {A:}
+| whiteSpace: \\b [18:5] {C:0} {A:}
+| notSpecified: ma_array[l_ind].f2_date [18:6] {C:0} {A:}
+| whiteSpace:         [18:29] {C:0} {A:}
+| notSpecified: = [18:36] {C:0} {A:}
+| whiteSpace: \\b [18:37] {C:0} {A:}
+| notSpecified: today [18:38] {C:0} {A:}
+| whiteSpace: \\b [18:43] {C:0} {A:}
+| notSpecified: + [18:44] {C:0} {A:}
+| whiteSpace: \\b [18:45] {C:0} {A:}
+| notSpecified: 3 [18:46] {C:0} {A:}
+| whiteSpace: \\b [18:47] {C:0} {A:}
+| notSpecified: units [18:48] {C:0} {A:}
+| whiteSpace: \\b [18:53] {C:0} {A:}
+| notSpecified: day\\n\\nend [18:54] {C:0} {A:}
+| whiteSpace: \\b [20:4] {C:0} {A:}
+| notSpecified: function\\n [20:5] {C:0} {A:}
 
 `;
 
@@ -158,37 +159,37 @@ main
 	call arrayadditem(p_array,l_linesadd)
 end main
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1] {
-| | block:  [1:1] {
-| | | | keyword: main [1:1] {
-| | | | | | newLine: \\n [1:5] {
-| | whiteSpace: \\b\\b\\b\\b [2:1] {
-| | keyword: define [2:5] {
-| | | | whiteSpace: \\b [2:11] {
-| | | | identifier: lista [2:12] {
-| | | | whiteSpace: \\b [2:17] {
-| | keyword: array [2:18] {
-| | operator: [ [2:23] {
-| | number: 5 [2:24] {
-| | operator: ] [2:25] {
-| | | | whiteSpace: \\b [2:26] {
-| | keyword: of [2:27] {
-| | | | whiteSpace: \\b [2:29] {
-| | | | identifier: integer [2:30] {
-| | | | newLine: \\n [2:37] {
-| | whiteSpace: \\t [3:1] {
-| | keyword: call [3:2] {
-| | | | whiteSpace: \\b [3:6] {
-| | | | identifier: arrayadditem [3:7] {
-| | operator: ( [3:19] {
-| | | | identifier: p_array [3:20] {
-| | operator: , [3:27] {
-| | | | identifier: l_linesadd [3:28] {
-| | operator: ) [3:38] {
-| | | | newLine: \\n [3:39] {
-| | | | keyword: end [4:1] {
-| | | | whiteSpace: \\b [4:4] {
-| | keyword: main [4:5] {
-| | | newLine: \\n [4:9] {
+program:  [1:1-1:0] {C:1} {A:}
+| block:  [1:1-1:0] {C:3} {A:}
+| | keyword: main [1:1-1:4] {C:0} {A:}
+| | newLine: \\n [1:5-1:5] {C:0} {A:}
+| | whiteSpace:      [2:1-2:4] {C:0} {A:}
+| | keyword: define [2:5-2:10] {C:0} {A:}
+| | whiteSpace: \\b [2:11-2:11] {C:0} {A:}
+| | identifier: lista [2:12-2:16] {C:0} {A:}
+| | whiteSpace: \\b [2:17-2:17] {C:0} {A:}
+| | keyword: array [2:18-2:22] {C:0} {A:}
+| | operatorBracket: [ [2:23-2:23] {C:0} {A:}
+| | number: 5 [2:24-2:24] {C:0} {A:}
+| | operatorBracket: ] [2:25-2:25] {C:0} {A:}
+| | whiteSpace: \\b [2:26-2:26] {C:0} {A:}
+| | keyword: of [2:27-2:28] {C:0} {A:}
+| | whiteSpace: \\b [2:29-2:29] {C:0} {A:}
+| | identifier: integer [2:30-2:36] {C:0} {A:}
+| | newLine: \\n [2:37-2:37] {C:0} {A:}
+| | whiteSpace: \\t [3:1-3:1] {C:0} {A:}
+| | keyword: call [3:2-3:5] {C:0} {A:}
+| | whiteSpace: \\b [3:6-3:6] {C:0} {A:}
+| | identifier: arrayadditem [3:7-3:18] {C:0} {A:}
+| | operatorParenthesis: ( [3:19-3:19] {C:0} {A:}
+| | identifier: p_array [3:20-3:26] {C:0} {A:}
+| | operatorSeparator: , [3:27-3:27] {C:0} {A:}
+| | identifier: l_linesadd [3:28-3:37] {C:0} {A:}
+| | operatorParenthesis: ) [3:38-3:38] {C:0} {A:}
+| | newLine: \\n [3:39-3:39] {C:0} {A:}
+| | keyword: end [4:1-4:3] {C:0} {A:}
+| | whiteSpace: \\b [4:4-4:4] {C:0} {A:}
+| | keyword: main [4:5-4:8] {C:0} {A:}
+| | newLine: \\n [4:9-4:9] {C:0} {A:}
 
 `;

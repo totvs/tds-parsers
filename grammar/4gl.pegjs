@@ -8,35 +8,80 @@ const ast = options.util.makeAST(location, options);
 }
 
 start_program
-	= p1:superToken? p2:superToken*  { return ast("program").add(p1, p2) }
+	= p1:superTokens?  { return ast("program").add(p1 || []) }
+
+superTokens
+  = l:arg_token+ p:superTokens+ { return l.concat(p); }
+  / p:arg_token+ { return p; }
+  / p:arg_token { return [p]; }
+
+arg_token = superToken
 
 superToken
-  = comment
+  = WS_NL
+  / comment
   / globalBlock
   / mainBlock
   / functionBlock
-  / WS_NL
-  // / tokens 
-  / o:$(!WS .)+ { return ast("notSpecified", o) }
+  /// o:$(!WS .)+ { return ast("notSpecified", o) }
 
 globalBlock
-  = GLOBALS WS_NL string WS_NL
-  / b:GLOBALS &WS_NL
+  = GLOBALS WS_NL string endLine 
+  / b:(GLOBALS endLine)
       t:tokens*
-    e:(END WS_NL GLOBALS &WS_NL)
+    e:(END WS_NL GLOBALS endLine)
     { return ast("block").add(b, t, e) }
 
 mainBlock
-  = b:MAIN &WS_NL
+  = b:(MAIN endLine)
       t:tokens*
-    e:(END WS_NL MAIN &WS_NL)
+    e:(END WS_NL MAIN endLine)  
     { return ast("block").add(b, t, e) }
 
 functionBlock
-  = b:(FUNCTION WS_NL ID)
+  = b:(FUNCTION WS_NL ID WS_NL? argumentList endLine)
       t:tokens*
-    e:(END WS_NL FUNCTION &WS_NL)
+    e:(END WS_NL FUNCTION endLine)
     { return ast("block").add(b, t, e) }
+
+forBlock
+  = b:(FOR WS_NL (!NL tokens*) endLine) 
+      t:tokens*
+    e:(END WS_NL FOR endLine)
+    { return ast("block").add(b, t, e) }
+
+forEachBlock
+  = b:(FOREACH WS_NL tokens* endLine) 
+      t:tokens*
+    e:(END WS_NL FOREACH endLine)
+    { return ast("block").add(b, t, e) }
+
+recordBlock
+  = b:(RECORD endLine) 
+      t:tokens*
+    e:(END WS_NL RECORD endLine)
+    { return ast("block").add(b, t, e) }
+
+ifBlock
+  = f:(IF tokens* THEN endLine) 
+      t:tokens*
+    e:(END WS_NL IF endLine)
+    { return ast("block").add(f, t, e) }
+
+argumentList
+  = o:O_PARENTHESIS WS_NL?
+      a:arguments?
+  c:C_PARENTHESIS 
+  { return ast("argumentList").add([o, a || [], c]) }  
+
+arguments
+  = l:arg_list+ p:arg_value+ { return l.concat(p); }
+  / p:arg_list+ { return p; }
+  / p:arg_value { return [p]; }
+
+arg_value = WS_NL? ID WS_NL?
+
+arg_list = WS_NL? ID WS_NL? COMMA WS_NL? 
 
 tokens
   = WS_NL
@@ -46,6 +91,10 @@ tokens
   / operators
   / string
   / number
+  / forBlock
+  / forEachBlock
+  / ifBlock
+  / recordBlock
   / !END ID
 
 keywords
@@ -140,8 +189,6 @@ keywords
     / FIRST
     / FLOAT
     / FLUSH
-    / FOR
-    / FOREACH
     / FORM
     / FORMAT
     / FORMONLY
@@ -159,7 +206,6 @@ keywords
     / HIDE
     / HOLD
     / HOUR
-    / IF
     / IN
     / INCLUDE
     / INDEX
@@ -277,7 +323,6 @@ keywords
     / TABLES
     / TEMP
     / TEXT
-    / THEN
     / THROUGH
     / THRU
     / TIME
@@ -317,7 +362,8 @@ keywords
     / WRAP
     / YEAR
     / YELLOW  
-  ) &(WS_NL/operators) { return k;}
+  ) &(WS_NL / operators)
+  { return k;}
 
 operators
   = (
@@ -355,10 +401,17 @@ builtInVar
   )
 
 comment
-  = c:(POUND $(!NL .)* NL) { return ast("comment", c) }
-  / c:(MINUS MINUS POUND? $(!NL .)* NL) { return ast("comment", c) }
-  / c:(O_BRACES $(!C_BRACES .)* C_BRACES) { return ast("comment", c) }
- 
+  = c:$(singleComment NL) { return ast("comment", c) }
+  / c:$(MINUS MINUS POUND? (!NL .)* NL) { return ast("comment", c) }
+  / c:$(O_BRACES $(!C_BRACES .)* C_BRACES) { return ast("blockcomment", c) }
+
+endLine
+  = w:WS* c:singleComment? n:NL
+      { return ast("endLine", [w, c, n]) }
+
+singleComment
+  = c:$(POUND $(!NL .)*) { return ast("singleComment", c) }
+
 string
   = s:$(double_quoted_string / single_quoted_string) {
       return ast("string", s);
@@ -369,9 +422,8 @@ double_quoted_string = $(D_QUOTE (!D_QUOTE .)* D_QUOTE)
 single_quoted_string = $(S_QUOTE (!S_QUOTE .)* S_QUOTE)
 
 number
-  = n:$([-+]? DIGIT+ (DOT DIGIT+)?) {
-      return ast("number", n); 
-    }
+  = n:$([-+]? DIGIT+ (DOT DIGIT+)?) 
+  { return ast("number", n); }
 
 ESCAPED
  = "\\\"" { return '"'}
@@ -384,7 +436,7 @@ ESCAPED
  / "\\r" { return "\r"}
 
 WS
-  = s:$[ \t]+ 
+  = s:$([ \t]+)
   { return ast("whiteSpace", s) }
 
 NL 
@@ -392,7 +444,7 @@ NL
   { return ast("newLine", s) }
 
 WS_NL
-  = w:(WS / NL)+ { return w }
+  = (WS / NL)+
 
 DIGIT = [0-9]
 
@@ -400,7 +452,7 @@ D_QUOTE = '\"';
 S_QUOTE = '\'';
 DOT = '\.';
 
-ID = id:$([a-zA-Z_] [a-zA-Z_0-9]*) { return ast("identifier", id) }
+ID = id:$([a-zA-Z_] [a-zA-Z_0-9]*)  { return ast("identifier", id) }
 
 TRUE=c:"true"i { return ast("constant", c) }
 FALSE=c:"false"i { return ast("constant", c) }
@@ -418,22 +470,25 @@ SQL_AWARN = v:"sqlawarn"i { return ast("builtInVar", v) }
 
 POUND = o:"#" { return ast("operator", o) }
 AT_SIGN = o:"@" { return ast("operator", o) }
-O_BRACES=o:"{" { return ast("operator", o).set("spacing", "after") }
-C_BRACES=o:"}" { return ast("operator", o).set("spacing", "before") }
-O_BRACKET=o:"[" { return ast("operator", o).set("spacing", "after") }
-C_BRACKET=o:"]" { return ast("operator", o).set("spacing", "before") }
-O_PARENTHESIS=o:"(" { return ast("operator", o).set("spacing", "after") }
-C_PARENTHESIS=o:")" { return ast("operator", o).set("spacing", "before") }
-COMMA=o:"," { return ast("operator", o).set("spacing", "after") }
-ASTERISK=o:"*" { return ast("operator", o) }
-EQUAL=o:"="  { return ast("operator", o) }
-LESS=o:"<" { return ast("operator", o) }
-GREATER=o:">" { return ast("operator", o) }
 EXCLAMATION=o:"!" { return ast("operator", o) }
-PLUS=o:"+" { return ast("operator", o) }
-MINUS=o:"-" { return ast("operator", o) }
 COLON=o:":" { return ast("operator", o) }
-SLASH=o:"/" { return ast("operator", o) }
+
+O_BRACES=o:"{" { return ast("operatorBraces", o) }
+C_BRACES=o:"}" { return ast("operatorBraces", o) }
+O_BRACKET=o:"[" { return ast("operatorBracket", o) }
+C_BRACKET=o:"]" { return ast("operatorBracket", o) }
+O_PARENTHESIS=o:"(" { return ast("operatorParenthesis", o) }
+C_PARENTHESIS=o:")" { return ast("operatorParenthesis", o) }
+
+COMMA=o:"," { return ast("operatorSeparator", o) }
+
+ASTERISK=o:"*" { return ast("operatorMath", o) }
+EQUAL=o:"="  { return ast("operatorMath", o) }
+LESS=o:"<" { return ast("operatorMath", o) }
+GREATER=o:">" { return ast("operatorMath", o) }
+PLUS=o:"+" { return ast("operatorMath", o) }
+MINUS=o:"-" { return ast("operatorMath", o) }
+SLASH=o:"/" { return ast("operatorMath", o) }
 
 ACCEPT = k:"accept"i { return ast("keyword", k) }
 AFTER = k:"after"i  { return ast("keyword", k) }
@@ -705,3 +760,10 @@ WORK = k:"work"i  { return ast("keyword", k) }
 WRAP = k:"wrap"i  { return ast("keyword", k) }
 YEAR = k:"year"i  { return ast("keyword", k) }
 YELLOW = k:"yellow"i  { return ast("keyword", k) }
+// END WS_NL IF = (END WS_NL IF) 
+// END WS_NL MAIN = (END WS_NL MAIN) 
+// END WS_NL FOR = (END WS_NL FOR) 
+// END WS_NL FOREACH = (END WS_NL FOREACH) 
+// END WS_NL GLOBALS = (END WS_NL GLOBALS) 
+// END WS_NL FUNCTION = (END WS_NL FUNCTION) 
+// END WS_NL RECORD = (END WS_NL RECORD) 

@@ -1,8 +1,10 @@
-import { ASTNode } from "./ast_node";
+import { ASTNode, EASTType } from "./ast_node";
 import { IParserOptions, normalize } from "./config";
 import { ERRORS } from "./errors";
 import { parser_token_4gl, parser_token_advpl } from "./parser";
 
+export { ASTNode, EASTType } from "./ast_node";
+ 
 const LANGUAGES = [
   {
     name: "4gl-token",

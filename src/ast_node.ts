@@ -6,35 +6,49 @@ export interface ILocation {
     column: number;
 }
 
+export interface ILocationToken {
+    start: ILocation,
+    end: ILocation
+}
+
 export enum EASTType {
     program = "program",
     block = "block",
+    argumentList = "argumentList",
     begin = "begin",
-    comment = "comment",
     string = "string",
     number = "number",
     whiteSpace = "whiteSpace",
+    endLine = "endLine",
     newLine = "newLine",
     sequence = "sequence",
     identifier = "identifier",
     constant = "constant",
     builtInVar = "builtInVar",
     operator = "operator",
+    operatorBraces = "operatorBraces",
+    operatorBracket = "operatorBracket",
+    operatorParenthesis = "operatorParenthesis",
+    operatorSeparator = "operatorSeparator",
+    operatorMath = "operatorMath",
     keyword = "keyword",
+    comment = "comment",
+    blockcomment = "blockcomment",
+    singleLineComment = "singleLineComment",
     notSpecified = "notSpecified",
-    undefined = "undefined",
+
 }
 
 export class ASTNode {
     private _type: EASTType;
     private _source: string;
-    private _location: ILocation;
+    private _location: ILocationToken;
     private _children: ASTNode[];
     private _attributes: {};
 
-    constructor(type: EASTType, source: string, location: ILocation) {
+    constructor(type: EASTType, source: string, startLoc: ILocation) {
         this._type = type;
-        this._location = location;
+        this._location = { start: startLoc, end: { line: -Infinity, column: -Infinity, offset: -Infinity} };
         this._source = source;
         this._children = [];
         this._attributes = {}
@@ -48,8 +62,12 @@ export class ASTNode {
         return this._source;
     }
 
-    public get location(): ILocation {
+    public get location(): ILocationToken {
         return this._location;
+    }
+
+    public set endLocation(endLocation: ILocation) {
+        this._location = { ...this._location, end: endLocation };
     }
 
     public get children(): ASTNode[] {
@@ -68,6 +86,10 @@ export class ASTNode {
         return ASTUtil.dump(this);
     }
 
+    public getByType(target: EASTType) {
+        return ASTUtil.getByType(this, target);
+    }
+
     public serialize() {
         return ASTUtil.serialize(this);
     }
@@ -79,7 +101,7 @@ export class ASTNode {
     public get(key: string): any {
         return this._attributes[key];
     }
-    
+
     public set(...args: any[]) {
         if (args.length === 1
             && typeof args[0] === "object") {
@@ -103,40 +125,69 @@ export class ASTNode {
         return this;
     }
 
-    public get beginBlock(): ASTNode | undefined {
-        if (this.type == EASTType.block) {
-            return this.children[0];
-        }
+    public get children_0(): ASTNode {
 
-        return undefined;
+        return this.children[0];
     }
 
-    public get bodyBlock(): ASTNode | undefined {
-        if (this.type == EASTType.block) {
-            return this.children[1];
-        }
+    public get children_1(): ASTNode {
 
-        return undefined;
+        return this.children[1];
     }
 
-    public get endBlock(): ASTNode | undefined {
-        if (this.type == EASTType.block) {
-            return this.children[2];
-        }
+    public get children_2(): ASTNode {
 
-        return undefined;
+        return this.children[2];
     }
+
+    public get children_3(): ASTNode {
+
+        return this.children[3];
+    }
+
 }
 
+function astByType(ast: any, target: EASTType): ASTNode[] {
+    const output: ASTNode[] = [];
+
+    if (!ast || typeof ast === "string") {
+        return output;
+    }
+
+    if (Array.isArray(ast)) {
+        ast.forEach((element: ASTNode) => {
+            output.push(...astByType(element, target));
+        });
+    } else {
+        if (Array.isArray(ast.source)) {
+            output.push(...astByType(ast.source, target));
+        } else {
+            if (ast.type === EASTType.notSpecified) {
+                output.push(ast);
+            }
+
+            if (ast.children && ast.children.length > 0) {
+                output.push(...astByType(ast.children, target));
+            };
+        }
+    }
+
+    return output;
+}
+
+
 export const ASTUtil: any = {
-    create: (type: EASTType, source: string, location: ILocation): ASTNode => {
-        return new ASTNode(type, source, location)
+    create: (type: EASTType, source: string, locStart: any): ASTNode => {
+        return new ASTNode(type, source, locStart)
     },
     dump: (ast: ASTNode): string => {
         return astDump(ast);
     },
     serialize: (ast: ASTNode): string => {
         return astSerialize(ast);
+    },
+    getByType: (ast: ASTNode, target: EASTType): ASTNode[] => {
+        return astByType(ast, target);
     },
 
 }

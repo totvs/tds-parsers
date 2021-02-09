@@ -1,6 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`prw: Token hello1.prw 1`] = `
+/*
 #include "protheus.ch"
 
 user function hello1() 
@@ -13,49 +14,12 @@ user function hello2()
   conout (x)
 
 return
-  
+*/  
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-keyword: include [1:2] {
-whiteSpace: \\b [1:9] {
-string: "protheus.ch" [1:10] {
-newLine: \\n\\n [1:23] {
-keyword: user [3:1] {
-whiteSpace: \\b [3:5] {
-keyword: function [3:6] {
-whiteSpace: \\b [3:14] {
-identifier: hello1 [3:15] {
-whiteSpace: \\b [3:23] {
-newLine: \\n [3:24] {
-whiteSpace: \\b\\b [4:1] {
-identifier: conout [4:3] {
-string: "hello" [4:10] {
-newLine: \\n\\n [4:18] {
-keyword: user [6:1] {
-whiteSpace: \\b [6:5] {
-keyword: function [6:6] {
-whiteSpace: \\b [6:14] {
-identifier: hello2 [6:15] {
-newLine: \\n [6:23] {
-whiteSpace: \\b\\b [7:1] {
-keyword: local [7:3] {
-whiteSpace: \\b [7:8] {
-identifier: x [7:9] {
-whiteSpace: \\b [7:10] {
-whiteSpace: \\b [7:13] {
-identifier: time [7:14] {
-newLine: \\n\\n [7:20] {
-whiteSpace: \\b\\b [9:1] {
-identifier: conout [9:3] {
-string: "hello\\b2" [9:10] {
-newLine: \\n [9:20] {
-whiteSpace: \\b\\b [10:1] {
-identifier: conout [10:3] {
-whiteSpace: \\b [10:9] {
-identifier: x [10:11] {
-newLine: \\n\\n [10:13] {
-identifier: return [12:1] {
-newLine: \\n [12:7] {
-whiteSpace: \\b\\b [13:1] {
-newLine: \\n [13:3] {
+program:  [1:1-1:0] {C:2} {A:}
+| comment: /*\\n#include "protheus.ch"\\n\\nuser function hello1() \\n  conout("hello")\\n\\nuser function hello2()\\n  local x := time()\\n\\n  conout("hello 2")\\n  conout (x)\\n\\nreturn\\n*/ [1:1-1:157] {C:0} {A:}
+| whiteSpace: \\b [14:3-14:3] {C:0} {A:}
+| whiteSpace: \\b [14:4-14:4] {C:0} {A:}
+| newLine: \\n [14:5-14:5] {C:0} {A:}
 
 `;

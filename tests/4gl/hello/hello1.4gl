@@ -1,3 +1,3 @@
 main 
-  display "hello "
+display "hello "
 end main
