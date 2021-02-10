@@ -71,22 +71,20 @@ keywords.forEach((keyword) => {
     if (keyword.length > 4) {
         output = `${output}(\n  `
 
-        for (let index = 4; index < keyword.length+1; index++) {
+        for (let index = keyword.length; index > 3; index--) {
             const element = keyword.substr(0, index).toLowerCase();
 
-            if (index == 4) {
-                output = `${output} `
-            } else {
+            if (index != keyword.length) {
                 output = `${output}  /`
             }
 
             output = `${output} '${element}'i\n`
         }
         
-        output = `${output}  )  { k.set('command', '${keyword.toLowerCase()}'); return ast('keyword', k) }\n`
+        output = `${output}  )  { return ast('keyword', k).setAttribute('command', '${keyword.toLowerCase()}') }\n`
     } else {
         const element = keyword.toLowerCase();
-        output = `${output}'${element}'i { k.set('command', '${element}'); return ast('keyword', k) }\n`
+        output = `${output}'${element}'i { return ast('keyword', k).setAttribute('command', '${element}') }\n`
     }
 
     console.log(`${output}\n`);

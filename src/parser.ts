@@ -32,12 +32,12 @@ function locEnd(ast: ASTNode | ASTNode[]): ILocation {
         for (let index = 0; index < ast.length; index++) {
             const element = ast[index];
             location = locEnd(element);
-            if (location.offset !== 0) {
+            if (location.offset !== -Infinity) {
                 break;
             }
         }
-    } else if (ast.children.length > 0) {
-        location = locEnd(ast.children);
+    } else if (typeof ast ==="string") {
+        //ignore
     } else if (ast.children.length > 0) {
         location = locEnd(ast.children);
     } else if (Array.isArray(ast.source)) {

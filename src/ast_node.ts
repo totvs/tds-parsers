@@ -33,10 +33,11 @@ export enum EASTType {
     operatorMath = "operatorMath",
     keyword = "keyword",
     comment = "comment",
-    blockcomment = "blockcomment",
-    singleLineComment = "singleLineComment",
+    blockComment = "blockcomment",
+    directiveBlock = "directiveBlock",
+    directive = "directive",
+    continueLine ="continueLine",
     notSpecified = "notSpecified",
-
 }
 
 export class ASTNode {
@@ -98,11 +99,11 @@ export class ASTNode {
         return this._attributes;
     }
 
-    public get(key: string): any {
+    public getAttribute(key: string): string {
         return this._attributes[key];
     }
 
-    public set(...args: any[]) {
+    public setAttribute(...args: any[]): this {
         if (args.length === 1
             && typeof args[0] === "object") {
             Object.keys(args[0]).forEach((key) => {

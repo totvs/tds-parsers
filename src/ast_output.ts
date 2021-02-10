@@ -12,7 +12,7 @@ export function astDump(ast: ASTNode | ASTNode[], prefix: string = ""): string {
             output += astDump(element, prefix);
         });
     } else {
-        if (typeof ast == 'string') {
+        if (typeof ast == 'string' || typeof ast == 'number') {
             output += ast;
         } else if (Array.isArray(ast.source)) {
             output += astDump(ast.source, prefix);
@@ -24,7 +24,7 @@ export function astDump(ast: ASTNode | ASTNode[], prefix: string = ""): string {
             if (source == ' ') {
                 source = "\\b";
             }
-            const attributes: string = ast.attributes.length > 0? JSON.stringify(ast.attributes): "";
+            const attributes: string = JSON.stringify(ast.attributes());
             const location: string = `${ast.location.start.line}:${ast.location.start.column}-${ast.location.end.line}:${ast.location.end.column}`;
             output = `${prefix}${ast.type}: ${source} [${location}] {C:${ast.children.length}} {A:${attributes}}\n`;
 

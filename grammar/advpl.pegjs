@@ -1,24 +1,33 @@
-// Gramática eleborada com base na análise de arquivos de configuração
-// tmLan
+// Gramática eleborada com base na documentação disponibilizada em
+// https://www.oninit.com/manual/informix/english/docs/4gl/7609.pdf
+// e na pasta "docs" há uma cópia
 {
 
-const ast    = options.util.makeAST   (location, options);
+const ast = options.util.makeAST(location, options);
 
 }
 
 start_program
-	= p1:superToken? p2:superToken*  { return ast("program").add(p1, p2) }
+	= p1:superTokens?  { return ast("program").add(p1 || []) }
+
+superTokens
+  = l:arg_token+ p:superTokens+ { return l.concat(p); }
+  / p:arg_token+ { return p; }
+  / p:arg_token { return [p]; }
+
+arg_token = superToken
 
 superToken
-  = comment
+  = WS_CONTINUE
+  / NL
+  / comment
   / functionBlock
-  / WS_NL_CONTINUE+
-  / o:$(!WS .)+ { return ast("notSpecified", o) }
+  / directives
+  / tokens
 
 functionBlock
-  = b:((scope WS_NL_CONTINUE)? FUNCTION WS_NL_CONTINUE ID WS_NL_CONTINUE? argumentList WS_NL_CONTINUE)
+  = b:(scope? WS_CONTINUE? FUNCTION WS_CONTINUE identifer WS_CONTINUE? argumentList endLine)
       t:tokens*
-    &(functionBlock)?
     { return ast("block").add(b, t) }
 
 scope
@@ -30,87 +39,124 @@ scope
   / USER 
   / WEBUSER 
 
-argumentList
-  = o:O_PARENTHESIS WS_NL_CONTINUE?
-      ids:(ID (WS_NL_CONTINUE? COMMA WS_NL_CONTINUE? ID WS_NL_CONTINUE?)*)?
-  c:C_PARENTHESIS 
-  { return ast("argumentList").add(o, ids || [], c) }  
+forBlock
+  = b:(FOR) 
+      t:tokens*
+    e:(NEXT endLine)
+    { return ast("block").add(b, t, e) }
 
-tokens 
-	= WS_NL_CONTINUE
+ifBlock
+  = f:(IF) 
+      t:tokens*
+    e:(ENDIF endLine)
+    { return ast("block").add(f, t, e) }
+
+argumentList
+  = o:O_PARENTHESIS WS_CONTINUE?
+      a:arguments?
+  c:C_PARENTHESIS 
+  { return ast("argumentList").add([o, a || [], c]) }  
+
+arguments
+  = l:arg_list+ p:arg_value+ { return l.concat(p); }
+  / p:arg_list+ { return p; }
+  / p:arg_value { return [p]; }
+
+arg_value = WS_CONTINUE? identifer WS_CONTINUE?
+
+arg_list = WS_CONTINUE? identifer WS_CONTINUE? COMMA WS_CONTINUE? 
+
+tokens
+  = WS_CONTINUE
+  / NL
+  / comment
   / keywords
   / operators
   / string
   / number
-  / ID
-  / o:$(!WS .)+ { return ast("notSpecified", o) }
+  / forBlock
+  / ifBlock
+  / directives
+  / !scope identifer
 
+directives
+  = p:POUND 
+    d:(COMMAND 
+      / DEFINE
+      / TRANSLATE
+      / XCOMMAND
+      / XTRANSLATE
+    )
+    t:tokens+ 
+    e:endLine?
+    { return ast("directive", p, d, t, e) }
+  / d:(POUND INCLUDE WS string endLine) { return ast("directive", d) }
+  / b:(POUND (IFDEF / IFNDEF) WS ID endLine) 
+      t:tokens*
+    e:(POUND ENDIF endLine) 
+    { return ast("directiveBlock", b).add(t, e)}      
+
+// não esquecer de remover 'scope' da lista de keywords
 keywords
-	= k:(
-    ALIAS
-    / ANNOUNCE
-    / AS
-    / BEGIN
-    / BEGINSQL
-    / BREAK
-    / CASE
-    / CATCH
-    / COLUMN
-    / DATE
-    / DECLARE
-    / DO
-    / ELSE
-    / ELSEIF
-    / ENDCASE
-    / ENDDO
-    / ENDIF
-    / ENDSQL
-    / EXIT
-    / EXTERNAL
-    / FIELD
-    / FOR
-    / FUNCTION
-    / IF
-    / IIF
-    / IN
-    / LOCAL
-    / LOGICAL
-    / LOOP
-    / MAIN
-    / MEMVAR
-    / METHOD
-    / NEXT
-    / NIL
-    / NUMERIC
-    / OTHERWISE
-    / PRIVATE
-    / PROCEDURE
-    / PUBLIC
-    / RECOVER
-    / RETURN
-    / SEQUENCE
-    / STATIC
-    / STEP
-    / THROW
-    / TO
-    / TRY
-    / USING
-    / WHILE
-    / WITH
-    / _FIELD
-    / PYME
-    / PROJECT
-    / TEMPLATE
-    / WEB
-    / HTML
-    / USER
-    / WEBUSER
-	) &(WS_NL_CONTINUE / operators)
-  { return k }
+  = k:(
+  ALIAS
+  / ANNOUNCE
+  / AS
+  / BEGIN
+  / BEGINSQL
+  / BREAK
+  / CASE
+  / CATCH
+  / COLUMN
+  / DATE
+  / DECLARE
+  / DO
+  / ELSE
+  / ELSEIF
+  / ENDCASE
+  / ENDDO
+  / ENDIF
+  / ENDSQL
+  / EXIT
+  / EXTERNAL
+  / FIELD
+  / FOR
+  / FUNCTION
+  / IF
+  / IIF
+  / IN
+  / LOCAL
+  / LOGICAL
+  / LOOP
+  / MAIN
+  / MEMVAR
+  / METHOD
+  / NEXT
+  / NIL
+  / NUMERIC
+  / OTHERWISE
+  / PRIVATE
+  / PROCEDURE
+  / PUBLIC
+  / RECOVER
+  / RETURN
+  / SEQUENCE
+  / STATIC
+  / STEP
+  / THROW
+  / TO
+  / TRY
+  / USING
+  / WHILE
+  / WITH
+  / _FIELD
+  ) &(WS_CONTINUE / operators)
+  { return k;}
 
 operators
   = (
-    C_BRACES
+    ASSIGN
+    / C_BRACES
     / C_BRACKET
     / C_PARENTHESIS
     / O_BRACES
@@ -127,72 +173,67 @@ operators
     / COLON
     / SLASH
     / AT_SIGN
+    / DOUBLE_PIPE
   )
 
 comment
-  = c:$(SLASH SLASH (!NL .)* NL) { return ast("comment", c) }
-  / c:$(SLASH ASTERISK $(!(ASTERISK SLASH) .)* ASTERISK SLASH) { return ast("comment", c) }
+  = c:$(singleComment NL) { return ast("comment", c) }
+  / c:$(MINUS MINUS POUND? (!NL .)* NL) { return ast("comment", c) }
+  / c:$(SLASH ASTERISK $(!(ASTERISK SLASH) .)* (ASTERISK SLASH)) { return ast("blockComment", c) }
 
-sqlExpression
-  = s:$(PERCENT 'NOPARSER'i PERCENT) { ast('sqlExpression', s) }
-  / s:$(PERCENT 'NOTDEL'i PERCENT) { ast('sqlExpression', s) }
-  / s:$(PERCENT 'EXP:'i (!PERCENT .)+ PERCENT) { ast('sqlExpression', s) }
-  / s:$(PERCENT 'ORDER:'i (!PERCENT .)+ PERCENT) { ast('sqlExpression', s) }
-  / s:$(PERCENT 'TABLE:'i (!PERCENT .)+ PERCENT) { ast('sqlExpression', s) }
-  / s:$(PERCENT 'TEMP-TABLE:'i (!PERCENT .)+ PERCENT) { ast('sqlExpression', s) }
-  / s:$(PERCENT 'XFILIAL:'i (!PERCENT .)+ PERCENT) { ast('sqlExpression', s) }
+endLine
+  = w:WS? c:singleComment? n:NL
+      { return ast("endLine", [w, c, n]) }
+
+singleComment
+  = c:$(SLASH SLASH $(!NL .)*) { return ast("singleComment", c) }
 
 string
-  = s:$(double_quoted_string / single_quoted_string) 
-  { return ast("string", s); }
+  = s:$(double_quoted_string / single_quoted_string) {
+      return ast("string", s);
+    }
 
-double_quoted_string = $(D_QUOTE (!D_QUOTE .)* D_QUOTE)
+double_quoted_string = $(D_QUOTE (!D_QUOTE (.))* D_QUOTE)
 
-single_quoted_string = $(S_QUOTE (!S_QUOTE .)* S_QUOTE)
+single_quoted_string = $(S_QUOTE (!S_QUOTE (.))* S_QUOTE)
 
 number
-	= n:$(DIGIT+ [lL]) { return ast("number", n).set("subtype", "long") }
-  / n:$([-+]? DIGIT+ (DOT DIGIT+)? ([eE][+-]?[0-9]+)?) { return ast("number", n).set("subtype", "complex") }
-  / n:$('0' [xX] [0-9a-fA-F]+) { return ast("number", n).set("subtype", "hex") }
-  / n:$('0' [oO] [0-7]+) { return ast("number", n).set("subtype", "octal") }
-  / n:$('0' [bB] [01]+) { return ast("number", n).set("subtype", "binary") }
+  = n:$([-+]? DIGIT+ (DOT DIGIT+)?) 
+  { return ast("number", n); }
 
 WS
-  = s:$[ \t]
+  = s:$([ \t])+
   { return ast("whiteSpace", s) }
 
 NL 
-  = s:$("\n" / "\r" / "\r\n")
+  = s:$("\n" / "\r" / "\r\n")+
   { return ast("newLine", s) }
 
-WS_NL_CONTINUE
-  = (WS / NL / SEMICOLON)
+WS_CONTINUE
+  = WS
+  / s:SEMI_COLON+ { return ast("continueLine", s) }
+
+DIGIT = [0-9]
 
 D_QUOTE = '\"';
 S_QUOTE = '\'';
 DOT = '\.';
-DIGIT = [0-9]
-SEMICOLON = ';'
+SEMI_COLON = ';';
 
-ID
-  = SINGLE_ID 
-  / OBJECT_ID 
+identifer
+  = i:$(COLON COLON ID) { return ast("identifier", i) }
+  / i:ID { return ast("identifier", i) }
 
-SINGLE_ID
-  = id:$([a-zA-Z_] [a-zA-Z_0-9]*)
-	  { return ast("identifier", id) }
-
-OBJECT_ID
-  = o1:$((COLON COLON)? SINGLE_ID) o2:$(COLON SINGLE_ID)*
-	  { return ast("objectVariable").add(o1, o2) }
-
-TRUE=c:"\.t\."i { return ast("constant", c) }
-FALSE=c:"\.f\."i { return ast("constant", c) }
+ID = $(
+      ([a-zA-Z_] [a-zA-Z_0-9]*) 
+      (COLON ([a-zA-Z_] [a-zA-Z_0-9]*))*
+    )
 
 POUND = o:"#" { return ast("operator", o) }
 AT_SIGN = o:"@" { return ast("operator", o) }
-EXCLAMATION=o:"!" { return ast("operator", o) }
-COLON=o:":" { return ast("operator", o) }
+EXCLAMATION = o:"!" { return ast("operator", o) }
+COLON = o:":" { return ast("operator", o) }
+DOUBLE_PIPE = o:"||" { return ast("operator", o) }
 
 O_BRACES=o:"{" { return ast("operatorBraces", o) }
 C_BRACES=o:"}" { return ast("operatorBraces", o) }
@@ -203,6 +244,8 @@ C_PARENTHESIS=o:")" { return ast("operatorParenthesis", o) }
 
 COMMA=o:"," { return ast("operatorSeparator", o) }
 
+ASSIGN=o:":=" { return ast("operatorAssign", o) }
+
 ASTERISK=o:"*" { return ast("operatorMath", o) }
 EQUAL=o:"="  { return ast("operatorMath", o) }
 LESS=o:"<" { return ast("operatorMath", o) }
@@ -210,396 +253,404 @@ GREATER=o:">" { return ast("operatorMath", o) }
 PLUS=o:"+" { return ast("operatorMath", o) }
 MINUS=o:"-" { return ast("operatorMath", o) }
 SLASH=o:"/" { return ast("operatorMath", o) }
-PERCENT=o:"%" { return ast("operator", o) }
 
+COMMAND     = d:'command'i { return ast("keyword", d)}
+DEFINE      = d:'define 'i { return ast("keyword", d)}
+INCLUDE     = d:'include'i { return ast("keyword", d)}
+TRANSLATE   = d:'translate'i { return ast("keyword", d)}
+XCOMMAND    = d:'xcommand'i { return ast("keyword", d)}
+XTRANSLATE  = d:'xtranslate'i { return ast("keyword", d)}
+IFDEF = d:'ifdef'i { return ast("keyword", d)}
+IFNDEF= d:'ifndef'i { return ast("keyword", d)}
+
+//para gerar a lista de tokens das palavras chaves, execute:
+// 
 ALIAS
   = k:(
-    'alia'i
-  / 'alias'i
-  )  { k.set('command', 'alias'); return ast('keyword', k) }
+   'alias'i
+  / 'alia'i
+  )  { return ast('keyword', k).setAttribute('command', 'alias') }
 
 
 ANNOUNCE
   = k:(
-    'anno'i
-  / 'annou'i
-  / 'announ'i
+   'announce'i
   / 'announc'i
-  / 'announce'i
-  )  { k.set('command', 'announce'); return ast('keyword', k) }
+  / 'announ'i
+  / 'annou'i
+  / 'anno'i
+  )  { return ast('keyword', k).setAttribute('command', 'announce') }
 
 
 AS
-  = k:'as'i { k.set('command', 'as'); return ast('keyword', k) }
+  = k:'as'i { return ast('keyword', k).setAttribute('command', 'as') }
 
 
 BEGIN
   = k:(
-    'begi'i
-  / 'begin'i
-  )  { k.set('command', 'begin'); return ast('keyword', k) }
+   'begin'i
+  / 'begi'i
+  )  { return ast('keyword', k).setAttribute('command', 'begin') }
 
 
 BEGINSQL
   = k:(
-    'begi'i
-  / 'begin'i
-  / 'begins'i
+   'beginsql'i
   / 'beginsq'i
-  / 'beginsql'i
-  )  { k.set('command', 'beginsql'); return ast('keyword', k) }
+  / 'begins'i
+  / 'begin'i
+  / 'begi'i
+  )  { return ast('keyword', k).setAttribute('command', 'beginsql') }
 
 
 BREAK
   = k:(
-    'brea'i
-  / 'break'i
-  )  { k.set('command', 'break'); return ast('keyword', k) }
+   'break'i
+  / 'brea'i
+  )  { return ast('keyword', k).setAttribute('command', 'break') }
 
 
 CASE
-  = k:'case'i { k.set('command', 'case'); return ast('keyword', k) }
+  = k:'case'i { return ast('keyword', k).setAttribute('command', 'case') }
 
 
 CATCH
   = k:(
-    'catc'i
-  / 'catch'i
-  )  { k.set('command', 'catch'); return ast('keyword', k) }
+   'catch'i
+  / 'catc'i
+  )  { return ast('keyword', k).setAttribute('command', 'catch') }
 
 
 COLUMN
   = k:(
-    'colu'i
+   'column'i
   / 'colum'i
-  / 'column'i
-  )  { k.set('command', 'column'); return ast('keyword', k) }
+  / 'colu'i
+  )  { return ast('keyword', k).setAttribute('command', 'column') }
 
 
 DATE
-  = k:'date'i { k.set('command', 'date'); return ast('keyword', k) }
+  = k:'date'i { return ast('keyword', k).setAttribute('command', 'date') }
 
 
 DECLARE
   = k:(
-    'decl'i
-  / 'decla'i
+   'declare'i
   / 'declar'i
-  / 'declare'i
-  )  { k.set('command', 'declare'); return ast('keyword', k) }
+  / 'decla'i
+  / 'decl'i
+  )  { return ast('keyword', k).setAttribute('command', 'declare') }
 
 
 DO
-  = k:'do'i { k.set('command', 'do'); return ast('keyword', k) }
+  = k:'do'i { return ast('keyword', k).setAttribute('command', 'do') }
 
 
 ELSE
-  = k:'else'i { k.set('command', 'else'); return ast('keyword', k) }
+  = k:'else'i { return ast('keyword', k).setAttribute('command', 'else') }
 
 
 ELSEIF
   = k:(
-    'else'i
+   'elseif'i
   / 'elsei'i
-  / 'elseif'i
-  )  { k.set('command', 'elseif'); return ast('keyword', k) }
+  / 'else'i
+  )  { return ast('keyword', k).setAttribute('command', 'elseif') }
 
 
 ENDCASE
   = k:(
-    'endc'i
-  / 'endca'i
+   'endcase'i
   / 'endcas'i
-  / 'endcase'i
-  )  { k.set('command', 'endcase'); return ast('keyword', k) }
+  / 'endca'i
+  / 'endc'i
+  )  { return ast('keyword', k).setAttribute('command', 'endcase') }
 
 
 ENDDO
   = k:(
-    'endd'i
-  / 'enddo'i
-  )  { k.set('command', 'enddo'); return ast('keyword', k) }
+   'enddo'i
+  / 'endd'i
+  )  { return ast('keyword', k).setAttribute('command', 'enddo') }
 
 
 ENDIF
   = k:(
-    'endi'i
-  / 'endif'i
-  )  { k.set('command', 'endif'); return ast('keyword', k) }
+   'endif'i
+  / 'endi'i
+  )  { return ast('keyword', k).setAttribute('command', 'endif') }
 
 
 ENDSQL
   = k:(
-    'ends'i
+   'endsql'i
   / 'endsq'i
-  / 'endsql'i
-  )  { k.set('command', 'endsql'); return ast('keyword', k) }
+  / 'ends'i
+  )  { return ast('keyword', k).setAttribute('command', 'endsql') }
 
 
 EXIT
-  = k:'exit'i { k.set('command', 'exit'); return ast('keyword', k) }
+  = k:'exit'i { return ast('keyword', k).setAttribute('command', 'exit') }
 
 
 EXTERNAL
   = k:(
-    'exte'i
-  / 'exter'i
-  / 'extern'i
+   'external'i
   / 'externa'i
-  / 'external'i
-  )  { k.set('command', 'external'); return ast('keyword', k) }
+  / 'extern'i
+  / 'exter'i
+  / 'exte'i
+  )  { return ast('keyword', k).setAttribute('command', 'external') }
 
 
 FIELD
   = k:(
-    'fiel'i
-  / 'field'i
-  )  { k.set('command', 'field'); return ast('keyword', k) }
+   'field'i
+  / 'fiel'i
+  )  { return ast('keyword', k).setAttribute('command', 'field') }
 
 
 FOR
-  = k:'for'i { k.set('command', 'for'); return ast('keyword', k) }
+  = k:'for'i { return ast('keyword', k).setAttribute('command', 'for') }
 
 
 FUNCTION
   = k:(
-    'func'i
-  / 'funct'i
-  / 'functi'i
+   'function'i
   / 'functio'i
-  / 'function'i
-  )  { k.set('command', 'function'); return ast('keyword', k) }
+  / 'functi'i
+  / 'funct'i
+  / 'func'i
+  )  { return ast('keyword', k).setAttribute('command', 'function') }
 
 
 IF
-  = k:'if'i { k.set('command', 'if'); return ast('keyword', k) }
+  = k:'if'i { return ast('keyword', k).setAttribute('command', 'if') }
 
 
 IIF
-  = k:'iif'i { k.set('command', 'iif'); return ast('keyword', k) }
+  = k:'iif'i { return ast('keyword', k).setAttribute('command', 'iif') }
 
 
 IN
-  = k:'in'i { k.set('command', 'in'); return ast('keyword', k) }
+  = k:'in'i { return ast('keyword', k).setAttribute('command', 'in') }
 
 
 LOCAL
   = k:(
-    'loca'i
-  / 'local'i
-  )  { k.set('command', 'local'); return ast('keyword', k) }
+   'local'i
+  / 'loca'i
+  )  { return ast('keyword', k).setAttribute('command', 'local') }
 
 
 LOGICAL
   = k:(
-    'logi'i
-  / 'logic'i
+   'logical'i
   / 'logica'i
-  / 'logical'i
-  )  { k.set('command', 'logical'); return ast('keyword', k) }
+  / 'logic'i
+  / 'logi'i
+  )  { return ast('keyword', k).setAttribute('command', 'logical') }
 
 
 LOOP
-  = k:'loop'i { k.set('command', 'loop'); return ast('keyword', k) }
+  = k:'loop'i { return ast('keyword', k).setAttribute('command', 'loop') }
 
 
 MAIN
-  = k:'main'i { k.set('command', 'main'); return ast('keyword', k) }
+  = k:'main'i { return ast('keyword', k).setAttribute('command', 'main') }
 
 
 MEMVAR
   = k:(
-    'memv'i
+   'memvar'i
   / 'memva'i
-  / 'memvar'i
-  )  { k.set('command', 'memvar'); return ast('keyword', k) }
+  / 'memv'i
+  )  { return ast('keyword', k).setAttribute('command', 'memvar') }
 
 
 METHOD
   = k:(
-    'meth'i
+   'method'i
   / 'metho'i
-  / 'method'i
-  )  { k.set('command', 'method'); return ast('keyword', k) }
+  / 'meth'i
+  )  { return ast('keyword', k).setAttribute('command', 'method') }
 
 
 NEXT
-  = k:'next'i { k.set('command', 'next'); return ast('keyword', k) }
+  = k:'next'i { return ast('keyword', k).setAttribute('command', 'next') }
 
 
 NIL
-  = k:'nil'i { k.set('command', 'nil'); return ast('keyword', k) }
+  = k:'nil'i { return ast('keyword', k).setAttribute('command', 'nil') }
 
 
 NUMERIC
   = k:(
-    'nume'i
-  / 'numer'i
+   'numeric'i
   / 'numeri'i
-  / 'numeric'i
-  )  { k.set('command', 'numeric'); return ast('keyword', k) }
+  / 'numer'i
+  / 'nume'i
+  )  { return ast('keyword', k).setAttribute('command', 'numeric') }
 
 
 OTHERWISE
   = k:(
-    'othe'i
-  / 'other'i
-  / 'otherw'i
-  / 'otherwi'i
+   'otherwise'i
   / 'otherwis'i
-  / 'otherwise'i
-  )  { k.set('command', 'otherwise'); return ast('keyword', k) }
+  / 'otherwi'i
+  / 'otherw'i
+  / 'other'i
+  / 'othe'i
+  )  { return ast('keyword', k).setAttribute('command', 'otherwise') }
 
 
 PRIVATE
   = k:(
-    'priv'i
-  / 'priva'i
+   'private'i
   / 'privat'i
-  / 'private'i
-  )  { k.set('command', 'private'); return ast('keyword', k) }
+  / 'priva'i
+  / 'priv'i
+  )  { return ast('keyword', k).setAttribute('command', 'private') }
 
 
 PROCEDURE
   = k:(
-    'proc'i
-  / 'proce'i
-  / 'proced'i
-  / 'procedu'i
+   'procedure'i
   / 'procedur'i
-  / 'procedure'i
-  )  { k.set('command', 'procedure'); return ast('keyword', k) }
+  / 'procedu'i
+  / 'proced'i
+  / 'proce'i
+  / 'proc'i
+  )  { return ast('keyword', k).setAttribute('command', 'procedure') }
 
 
 PUBLIC
   = k:(
-    'publ'i
+   'public'i
   / 'publi'i
-  / 'public'i
-  )  { k.set('command', 'public'); return ast('keyword', k) }
+  / 'publ'i
+  )  { return ast('keyword', k).setAttribute('command', 'public') }
 
 
 RECOVER
   = k:(
-    'reco'i
-  / 'recov'i
+   'recover'i
   / 'recove'i
-  / 'recover'i
-  )  { k.set('command', 'recover'); return ast('keyword', k) }
+  / 'recov'i
+  / 'reco'i
+  )  { return ast('keyword', k).setAttribute('command', 'recover') }
 
 
 RETURN
   = k:(
-    'retu'i
+   'return'i
   / 'retur'i
-  / 'return'i
-  )  { k.set('command', 'return'); return ast('keyword', k) }
+  / 'retu'i
+  )  { return ast('keyword', k).setAttribute('command', 'return') }
 
 
 SEQUENCE
   = k:(
-    'sequ'i
-  / 'seque'i
-  / 'sequen'i
+   'sequence'i
   / 'sequenc'i
-  / 'sequence'i
-  )  { k.set('command', 'sequence'); return ast('keyword', k) }
+  / 'sequen'i
+  / 'seque'i
+  / 'sequ'i
+  )  { return ast('keyword', k).setAttribute('command', 'sequence') }
 
 
 STATIC
   = k:(
-    'stat'i
+   'static'i
   / 'stati'i
-  / 'static'i
-  )  { k.set('command', 'static'); return ast('keyword', k) }
+  / 'stat'i
+  )  { return ast('keyword', k).setAttribute('command', 'static') }
 
 
 STEP
-  = k:'step'i { k.set('command', 'step'); return ast('keyword', k) }
+  = k:'step'i { return ast('keyword', k).setAttribute('command', 'step') }
 
 
 THROW
   = k:(
-    'thro'i
-  / 'throw'i
-  )  { k.set('command', 'throw'); return ast('keyword', k) }
+   'throw'i
+  / 'thro'i
+  )  { return ast('keyword', k).setAttribute('command', 'throw') }
 
 
 TO
-  = k:'to'i { k.set('command', 'to'); return ast('keyword', k) }
+  = k:'to'i { return ast('keyword', k).setAttribute('command', 'to') }
 
 
 TRY
-  = k:'try'i { k.set('command', 'try'); return ast('keyword', k) }
+  = k:'try'i { return ast('keyword', k).setAttribute('command', 'try') }
 
 
 USING
   = k:(
-    'usin'i
-  / 'using'i
-  )  { k.set('command', 'using'); return ast('keyword', k) }
+   'using'i
+  / 'usin'i
+  )  { return ast('keyword', k).setAttribute('command', 'using') }
 
 
 WHILE
   = k:(
-    'whil'i
-  / 'while'i
-  )  { k.set('command', 'while'); return ast('keyword', k) }
+   'while'i
+  / 'whil'i
+  )  { return ast('keyword', k).setAttribute('command', 'while') }
 
 
 WITH
-  = k:'with'i { k.set('command', 'with'); return ast('keyword', k) }
+  = k:'with'i { return ast('keyword', k).setAttribute('command', 'with') }
 
 
 _FIELD
   = k:(
-    '_fie'i
+   '_field'i
   / '_fiel'i
-  / '_field'i
-  )  { k.set('command', '_field'); return ast('keyword', k) }
+  / '_fie'i
+  )  { return ast('keyword', k).setAttribute('command', '_field') }
 
 
 PYME
-  = k:'pyme'i { k.set('command', 'pyme'); return ast('keyword', k) }
+  = k:'pyme'i { return ast('keyword', k).setAttribute('command', 'pyme') }
 
 
 PROJECT
   = k:(
-    'proj'i
-  / 'proje'i
+   'project'i
   / 'projec'i
-  / 'project'i
-  )  { k.set('command', 'project'); return ast('keyword', k) }
+  / 'proje'i
+  / 'proj'i
+  )  { return ast('keyword', k).setAttribute('command', 'project') }
 
 
 TEMPLATE
   = k:(
-    'temp'i
-  / 'templ'i
-  / 'templa'i
+   'template'i
   / 'templat'i
-  / 'template'i
-  )  { k.set('command', 'template'); return ast('keyword', k) }
+  / 'templa'i
+  / 'templ'i
+  / 'temp'i
+  )  { return ast('keyword', k).setAttribute('command', 'template') }
 
 
 WEB
-  = k:'web'i { k.set('command', 'web'); return ast('keyword', k) }
+  = k:'web'i { return ast('keyword', k).setAttribute('command', 'web') }
 
 
 HTML
-  = k:'html'i { k.set('command', 'html'); return ast('keyword', k) }
+  = k:'html'i { return ast('keyword', k).setAttribute('command', 'html') }
 
 
 USER
-  = k:'user'i { k.set('command', 'user'); return ast('keyword', k) }
+  = k:'user'i { return ast('keyword', k).setAttribute('command', 'user') }
 
 
 WEBUSER
   = k:(
-    'webu'i
-  / 'webus'i
+   'webuser'i
   / 'webuse'i
-  / 'webuser'i
-  )  { k.set('command', 'webuser'); return ast('keyword', k) }
-
-
+  / 'webus'i
+  / 'webu'i
+  )  { return ast('keyword', k).setAttribute('command', 'webuser') }
