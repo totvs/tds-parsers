@@ -22,10 +22,11 @@ function f2()
 
 end function
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1-1:0] {C:1} {A:{}}
-| block:  [1:1-1:0] {C:3} {A:{}}
-| | keyword: main [1:1-1:4] {C:0} {A:{}}
-| | newLine: \\n [1:5-1:5] {C:0} {A:{}}
+program:  [1:1-1:0] {C:3} {A:{}}
+| block: - [1:1-1:5] {C:18} {A:{}}
+| -keyword: main [1:1-1:4] {C:0} {A:{}}
+| -endLine: - [1:5-1:5] {C:0} {A:{}}
+| --newLine: \\n [1:5-1:5] {C:0} {A:{}}
 | | whiteSpace:      [2:1-2:4] {C:0} {A:{}}
 | | keyword: define [2:5-2:10] {C:0} {A:{}}
 | | whiteSpace: \\b [2:11-2:11] {C:0} {A:{}}
@@ -43,15 +44,17 @@ program:  [1:1-1:0] {C:1} {A:{}}
 | | keyword: end [3:1-3:3] {C:0} {A:{}}
 | | whiteSpace: \\b [3:4-3:4] {C:0} {A:{}}
 | | keyword: main [3:5-3:8] {C:0} {A:{}}
-| | newLine: \\n\\n\\n [3:9-3:11] {C:0} {A:{}}
-| block:  [6:1-6:0] {C:3} {A:{}}
-| | keyword: function [6:1-6:8] {C:0} {A:{}}
-| | whiteSpace: \\b [6:9-6:9] {C:0} {A:{}}
-| | identifier: f1 [6:10-6:11] {C:0} {A:{}}
-| | argumentList:  [6:12-6:11] {C:1} {A:{}}
-| | | operatorParenthesis: ( [6:12-6:12] {C:0} {A:{}}
-| | | operatorParenthesis: ) [6:13-6:13] {C:0} {A:{}}
-| | newLine: \\n [6:14-6:14] {C:0} {A:{}}
+| | endLine: - [3:9-3:11] {C:0} {A:{}}
+| | -newLine: \\n\\n\\n [3:9-3:11] {C:0} {A:{}}
+| block: - [6:1-6:14] {C:36} {A:{}}
+| -keyword: function [6:1-6:8] {C:0} {A:{}}
+| -whiteSpace: \\b [6:9-6:9] {C:0} {A:{}}
+| -identifier: f1 [6:10-6:11] {C:0} {A:{}}
+| -argumentList:  [6:12-6:11] {C:3} {A:{}}
+|  | operatorParenthesis: ( [6:12-6:12] {C:0} {A:{}}
+|  | operatorParenthesis: ) [6:13-6:13] {C:0} {A:{}}
+| -endLine: - [6:14-6:14] {C:0} {A:{}}
+| --newLine: \\n [6:14-6:14] {C:0} {A:{}}
 | | whiteSpace: \\t [7:1-7:1] {C:0} {A:{}}
 | | keyword: define [7:2-7:7] {C:0} {A:{}}
 | | whiteSpace: \\b [7:8-7:8] {C:0} {A:{}}
@@ -88,15 +91,17 @@ program:  [1:1-1:0] {C:1} {A:{}}
 | | keyword: end [10:1-10:3] {C:0} {A:{}}
 | | whiteSpace: \\b [10:4-10:4] {C:0} {A:{}}
 | | keyword: function [10:5-10:12] {C:0} {A:{}}
-| | newLine: \\n\\n [10:13-10:14] {C:0} {A:{}}
-| block:  [12:1-12:0] {C:3} {A:{}}
-| | keyword: function [12:1-12:8] {C:0} {A:{}}
-| | whiteSpace: \\b [12:9-12:9] {C:0} {A:{}}
-| | identifier: f2 [12:10-12:11] {C:0} {A:{}}
-| | argumentList:  [12:12-12:11] {C:1} {A:{}}
-| | | operatorParenthesis: ( [12:12-12:12] {C:0} {A:{}}
-| | | operatorParenthesis: ) [12:13-12:13] {C:0} {A:{}}
-| | newLine: \\n\\n [12:14-12:15] {C:0} {A:{}}
+| | endLine: - [10:13-10:14] {C:0} {A:{}}
+| | -newLine: \\n\\n [10:13-10:14] {C:0} {A:{}}
+| block: - [12:1-12:15] {C:83} {A:{}}
+| -keyword: function [12:1-12:8] {C:0} {A:{}}
+| -whiteSpace: \\b [12:9-12:9] {C:0} {A:{}}
+| -identifier: f2 [12:10-12:11] {C:0} {A:{}}
+| -argumentList:  [12:12-12:11] {C:3} {A:{}}
+|  | operatorParenthesis: ( [12:12-12:12] {C:0} {A:{}}
+|  | operatorParenthesis: ) [12:13-12:13] {C:0} {A:{}}
+| -endLine: - [12:14-12:15] {C:0} {A:{}}
+| --newLine: \\n\\n [12:14-12:15] {C:0} {A:{}}
 | | whiteSpace: \\t [14:1-14:1] {C:0} {A:{}}
 | | keyword: let [14:2-14:4] {C:0} {A:{}}
 | | whiteSpace: \\b [14:5-14:5] {C:0} {A:{}}
@@ -183,7 +188,8 @@ program:  [1:1-1:0] {C:1} {A:{}}
 | | keyword: end [20:1-20:3] {C:0} {A:{}}
 | | whiteSpace: \\b [20:4-20:4] {C:0} {A:{}}
 | | keyword: function [20:5-20:12] {C:0} {A:{}}
-| | newLine: \\n [20:13-20:13] {C:0} {A:{}}
+| | endLine: - [20:13-20:13] {C:0} {A:{}}
+| | -newLine: \\n [20:13-20:13] {C:0} {A:{}}
 
 `;
 
@@ -194,9 +200,10 @@ main
 end main
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 program:  [1:1-1:0] {C:1} {A:{}}
-| block:  [1:1-1:0] {C:3} {A:{}}
-| | keyword: main [1:1-1:4] {C:0} {A:{}}
-| | newLine: \\n [1:5-1:5] {C:0} {A:{}}
+| block: - [1:1-1:5] {C:27} {A:{}}
+| -keyword: main [1:1-1:4] {C:0} {A:{}}
+| -endLine: - [1:5-1:5] {C:0} {A:{}}
+| --newLine: \\n [1:5-1:5] {C:0} {A:{}}
 | | whiteSpace:      [2:1-2:4] {C:0} {A:{}}
 | | keyword: define [2:5-2:10] {C:0} {A:{}}
 | | whiteSpace: \\b [2:11-2:11] {C:0} {A:{}}
@@ -224,6 +231,7 @@ program:  [1:1-1:0] {C:1} {A:{}}
 | | keyword: end [4:1-4:3] {C:0} {A:{}}
 | | whiteSpace: \\b [4:4-4:4] {C:0} {A:{}}
 | | keyword: main [4:5-4:8] {C:0} {A:{}}
-| | newLine: \\n [4:9-4:9] {C:0} {A:{}}
+| | endLine: - [4:9-4:9] {C:0} {A:{}}
+| | -newLine: \\n [4:9-4:9] {C:0} {A:{}}
 
 `;

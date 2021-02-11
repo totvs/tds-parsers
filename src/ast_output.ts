@@ -18,7 +18,7 @@ export function astDump(ast: ASTNode | ASTNode[], prefix: string = ""): string {
 
         if (typeof ast == 'string' || typeof ast == 'number') {
             source = ast;
-        } else if (Array.isArray(ast.source)) {
+        } else if (Array.isArray(ast.source) || (typeof ast.source == 'object')) {
             sourceArray = astDump(ast.source, `${prefix}-`);
             source = "-";
         } else {

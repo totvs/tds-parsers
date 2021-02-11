@@ -6,6 +6,9 @@ import { ASTNode, ASTUtil, ILocation, ILocationToken } from "./ast_node";
 function locEnd(ast: ASTNode | ASTNode[]): ILocation {
     let location: ILocation = { line: -Infinity, column: -Infinity, offset: -Infinity };
 
+    if (!ast) {
+        return location;
+    }
     if (Array.isArray(ast)) {
         for (let index = 0; index < ast.length; index++) {
             const element = ast[index];
@@ -14,7 +17,7 @@ function locEnd(ast: ASTNode | ASTNode[]): ILocation {
                 location = loc;
             }
         }
-    } else if (typeof ast ==="string") {
+    } else if (typeof ast === "string") {
         //ignore
     } else if (ast.children.length > 0) {
         location = locEnd(ast.children);
@@ -22,7 +25,7 @@ function locEnd(ast: ASTNode | ASTNode[]): ILocation {
         location = locEnd(ast.source);
     } else if (ast.location.start.offset > ast.location.end.offset) {
         const start: ILocation = ast.location.start;
-        location = { line: start.line, column: start.column + ast.source.length - 1,  offset: start.offset + ast.source.length - 1};
+        location = { line: start.line, column: start.column + ast.source.length - 1, offset: start.offset + ast.source.length - 1 };
     } else {
         location = ast.location.end;
     }
