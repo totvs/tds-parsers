@@ -84,7 +84,7 @@ keywords.forEach((keyword) => {
         output = `${output}  )  { return ast('keyword', k).setAttribute('command', '${keyword.toLowerCase()}') }\n`
     } else {
         const element = keyword.toLowerCase();
-        output = `${output}'${element}'i { return ast('keyword', k).setAttribute('command', '${element}') }\n`
+        output = `${output}'${element}'i { return ast('keyword', k) }\n`
     }
 
     console.log(`${output}\n`);

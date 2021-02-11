@@ -31,7 +31,7 @@ globalBlock
   / b:(GLOBALS endLine)
       t:tokens*
     e:(END WS_NL GLOBALS endLine)
-    { return ast("block").add(b, t, e) }
+    { return ast("block", b).add(t).add(e) }
 
 moduleBlock
   = DEFINE defineTokens*
@@ -41,37 +41,37 @@ mainBlock
   = b:(MAIN endLine)
       t:tokens*
     e:(END WS_NL MAIN endLine)  
-    { return ast("block").add(b, t, e) }
+    { return ast("block",b).add(t).add(e) }
 
 functionBlock
   = b:(FUNCTION WS_NL identifer WS_NL? argumentList endLine)
       t:tokens*
     e:(END WS_NL FUNCTION endLine)
-    { return ast("block").add(b, t, e) }
+    { return ast("block", b).add(t).add(e) }
 
 forBlock
   = b:(FOR) 
       t:tokens*
     e:(END WS_NL FOR endLine)
-    { return ast("block").add(b, t, e) }
+    { return ast("block", b).add(t).add(e) }
 
 forEachBlock
   = b:(FOREACH) 
       t:tokens*
     e:(END WS_NL FOREACH endLine)
-    { return ast("block").add(b, t, e) }
+    { return ast("block", b).add(t).add(e) }
 
 recordBlock
   = b:(RECORD) 
       t:tokens*
     e:(END WS_NL RECORD (endLine / WS? COMMA))
-    { return ast("block").add(b, t, e) }
+    { return ast("block", b).add(t).add(e) }
 
 ifBlock
-  = f:(IF) 
+  = b:(IF) 
       t:tokens*
     e:(END WS_NL IF endLine)
-    { return ast("block").add(f, t, e) }
+    { return ast("block", b).add(t).add(e) }
 
 argumentList
   = o:O_PARENTHESIS WS_NL?

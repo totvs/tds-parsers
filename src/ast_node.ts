@@ -35,8 +35,9 @@ export enum EASTType {
     comment = "comment",
     blockComment = "blockcomment",
     directiveBlock = "directiveBlock",
+    operatorAssign = "operatorAssign",
     directive = "directive",
-    continueLine ="continueLine",
+    continueLine = "continueLine",
     notSpecified = "notSpecified",
 }
 
@@ -49,7 +50,7 @@ export class ASTNode {
 
     constructor(type: EASTType, source: string, startLoc: ILocation) {
         this._type = type;
-        this._location = { start: startLoc, end: { line: -Infinity, column: -Infinity, offset: -Infinity} };
+        this._location = { start: startLoc, end: { line: -Infinity, column: -Infinity, offset: -Infinity } };
         this._source = source;
         this._children = [];
         this._attributes = {}
@@ -75,10 +76,14 @@ export class ASTNode {
         return this._children;
     }
 
-    public add(...children: ASTNode[]): this {
-        children.forEach((child: ASTNode) => {
-            this._children.push(child);
-        });
+    public add(children: ASTNode | ASTNode[]): this {
+        if (Array.isArray(children)) {
+            children.forEach((child: ASTNode) => {
+                this._children.push(child);
+            });
+        } else {
+            this._children.push(children);
+        }
 
         return this;
     }

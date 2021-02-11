@@ -20,59 +20,25 @@ program:  [1:1-1:0] {C:1} {A:{}}
 | whiteSpace: \\b [1:9-1:9] {C:0} {A:{}}
 | string: "protheus.ch" [1:10-1:22] {C:0} {A:{}}
 | newLine: \\n\\n [1:23-1:24] {C:0} {A:{}}
-| block:  [3:1-3:0] {C:2} {A:{}}
-| | keyword: user [3:1-3:4] {C:0} {A:{"command":"user"}}
-| | whiteSpace: \\b [3:5-3:5] {C:0} {A:{}}
-| | keyword: function [3:6-3:13] {C:0} {A:{"command":"function"}}
-| | whiteSpace: \\b [3:14-3:14] {C:0} {A:{}}
-| | identifier: hello1 [3:15-3:20] {C:0} {A:{}}
-| | argumentList:  [3:21-3:20] {C:1} {A:{}}
-| | | operatorParenthesis: ( [3:21-3:21] {C:0} {A:{}}
-| | | operatorParenthesis: ) [3:22-3:22] {C:0} {A:{}}
-| | whiteSpace: \\b [3:23-3:23] {C:0} {A:{}}
-| | newLine: \\n [3:24-3:24] {C:0} {A:{}}
-| | whiteSpace:    [4:1-4:2] {C:0} {A:{}}
-| | identifier: conout [4:3-4:8] {C:0} {A:{}}
-| | operatorParenthesis: ( [4:9-4:9] {C:0} {A:{}}
-| | string: "hello" [4:10-4:16] {C:0} {A:{}}
-| | operatorParenthesis: ) [4:17-4:17] {C:0} {A:{}}
-| | newLine: \\n\\n [4:18-4:19] {C:0} {A:{}}
-| block:  [6:1-6:0] {C:2} {A:{}}
-| | keyword: user [6:1-6:4] {C:0} {A:{"command":"user"}}
-| | whiteSpace: \\b [6:5-6:5] {C:0} {A:{}}
-| | keyword: function [6:6-6:13] {C:0} {A:{"command":"function"}}
-| | whiteSpace: \\b [6:14-6:14] {C:0} {A:{}}
-| | identifier: hello2 [6:15-6:20] {C:0} {A:{}}
-| | argumentList:  [6:21-6:20] {C:1} {A:{}}
-| | | operatorParenthesis: ( [6:21-6:21] {C:0} {A:{}}
-| | | operatorParenthesis: ) [6:22-6:22] {C:0} {A:{}}
-| | newLine: \\n [6:23-6:23] {C:0} {A:{}}
-| | whiteSpace:    [7:1-7:2] {C:0} {A:{}}
-| | keyword: local [7:3-7:7] {C:0} {A:{"command":"local"}}
-| | whiteSpace: \\b [7:8-7:8] {C:0} {A:{}}
-| | identifier: x [7:9-7:9] {C:0} {A:{}}
-| | whiteSpace: \\b [7:10-7:10] {C:0} {A:{}}
-| | operatorAssign: := [7:11-7:12] {C:0} {A:{}}
-| | whiteSpace: \\b [7:13-7:13] {C:0} {A:{}}
-| | identifier: time [7:14-7:17] {C:0} {A:{}}
-| | operatorParenthesis: ( [7:18-7:18] {C:0} {A:{}}
-| | operatorParenthesis: ) [7:19-7:19] {C:0} {A:{}}
-| | newLine: \\n\\n [7:20-7:21] {C:0} {A:{}}
-| | whiteSpace:    [9:1-9:2] {C:0} {A:{}}
-| | identifier: conout [9:3-9:8] {C:0} {A:{}}
-| | operatorParenthesis: ( [9:9-9:9] {C:0} {A:{}}
-| | string: "hello 2" [9:10-9:18] {C:0} {A:{}}
-| | operatorParenthesis: ) [9:19-9:19] {C:0} {A:{}}
-| | newLine: \\n [9:20-9:20] {C:0} {A:{}}
-| | whiteSpace:    [10:1-10:2] {C:0} {A:{}}
-| | identifier: conout [10:3-10:8] {C:0} {A:{}}
-| | whiteSpace: \\b [10:9-10:9] {C:0} {A:{}}
-| | operatorParenthesis: ( [10:10-10:10] {C:0} {A:{}}
-| | identifier: x [10:11-10:11] {C:0} {A:{}}
-| | operatorParenthesis: ) [10:12-10:12] {C:0} {A:{}}
-| | newLine: \\n\\n [10:13-10:14] {C:0} {A:{}}
-| | identifier: return [12:1-12:6] {C:0} {A:{}}
-| | newLine: \\n [12:7-12:7] {C:0} {A:{}}
+| keyword: user [3:1-3:4] {C:0} {A:{}}
+| whiteSpace: \\b [3:5-3:5] {C:0} {A:{}}
+| keyword: function [3:6-3:13] {C:0} {A:{"command":"function"}}
+| whiteSpace: \\b [3:14-3:14] {C:0} {A:{}}
+| identifier: hello1 [3:15-3:20] {C:0} {A:{}}
+| argumentList:  [3:21-3:20] {C:1} {A:{}}
+| | operatorParenthesis: ( [3:21-3:21] {C:0} {A:{}}
+| | operatorParenthesis: ) [3:22-3:22] {C:0} {A:{}}
+| whiteSpace: \\b [3:23-3:23] {C:0} {A:{}}
+| newLine: \\n [3:24-3:24] {C:0} {A:{}}
+| keyword: user [6:1-6:4] {C:0} {A:{}}
+| whiteSpace: \\b [6:5-6:5] {C:0} {A:{}}
+| keyword: function [6:6-6:13] {C:0} {A:{"command":"function"}}
+| whiteSpace: \\b [6:14-6:14] {C:0} {A:{}}
+| identifier: hello2 [6:15-6:20] {C:0} {A:{}}
+| argumentList:  [6:21-6:20] {C:1} {A:{}}
+| | operatorParenthesis: ( [6:21-6:21] {C:0} {A:{}}
+| | operatorParenthesis: ) [6:22-6:22] {C:0} {A:{}}
+| newLine: \\n [6:23-6:23] {C:0} {A:{}}
 
 `;
 
@@ -90,64 +56,5 @@ user func hello2()
 
 retu
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1-1:0] {C:1} {A:{}}
-| operator: # [1:1-1:1] {C:0} {A:{}}
-| keyword: include [1:2-1:8] {C:0} {A:{}}
-| whiteSpace: \\b [1:9-1:9] {C:0} {A:{}}
-| string: "protheus.ch" [1:10-1:22] {C:0} {A:{}}
-| newLine: \\n\\n [1:23-1:24] {C:0} {A:{}}
-| block:  [3:1-3:0] {C:2} {A:{}}
-| | keyword: user [3:1-3:4] {C:0} {A:{"command":"user"}}
-| | whiteSpace: \\b [3:5-3:5] {C:0} {A:{}}
-| | keyword: func [3:6-3:9] {C:0} {A:{"command":"function"}}
-| | whiteSpace: \\b [3:10-3:10] {C:0} {A:{}}
-| | identifier: hello1 [3:11-3:16] {C:0} {A:{}}
-| | argumentList:  [3:17-3:16] {C:1} {A:{}}
-| | | operatorParenthesis: ( [3:17-3:17] {C:0} {A:{}}
-| | | operatorParenthesis: ) [3:18-3:18] {C:0} {A:{}}
-| | whiteSpace: \\b [3:19-3:19] {C:0} {A:{}}
-| | newLine: \\n [3:20-3:20] {C:0} {A:{}}
-| | whiteSpace:    [4:1-4:2] {C:0} {A:{}}
-| | identifier: conout [4:3-4:8] {C:0} {A:{}}
-| | operatorParenthesis: ( [4:9-4:9] {C:0} {A:{}}
-| | string: "hello" [4:10-4:16] {C:0} {A:{}}
-| | operatorParenthesis: ) [4:17-4:17] {C:0} {A:{}}
-| | newLine: \\n\\n [4:18-4:19] {C:0} {A:{}}
-| block:  [6:1-6:0] {C:2} {A:{}}
-| | keyword: user [6:1-6:4] {C:0} {A:{"command":"user"}}
-| | whiteSpace: \\b [6:5-6:5] {C:0} {A:{}}
-| | keyword: func [6:6-6:9] {C:0} {A:{"command":"function"}}
-| | whiteSpace: \\b [6:10-6:10] {C:0} {A:{}}
-| | identifier: hello2 [6:11-6:16] {C:0} {A:{}}
-| | argumentList:  [6:17-6:16] {C:1} {A:{}}
-| | | operatorParenthesis: ( [6:17-6:17] {C:0} {A:{}}
-| | | operatorParenthesis: ) [6:18-6:18] {C:0} {A:{}}
-| | newLine: \\n [6:19-6:19] {C:0} {A:{}}
-| | whiteSpace:    [7:1-7:2] {C:0} {A:{}}
-| | keyword: local [7:3-7:7] {C:0} {A:{"command":"local"}}
-| | whiteSpace: \\b [7:8-7:8] {C:0} {A:{}}
-| | identifier: x [7:9-7:9] {C:0} {A:{}}
-| | whiteSpace: \\b [7:10-7:10] {C:0} {A:{}}
-| | operatorAssign: := [7:11-7:12] {C:0} {A:{}}
-| | whiteSpace: \\b [7:13-7:13] {C:0} {A:{}}
-| | identifier: time [7:14-7:17] {C:0} {A:{}}
-| | operatorParenthesis: ( [7:18-7:18] {C:0} {A:{}}
-| | operatorParenthesis: ) [7:19-7:19] {C:0} {A:{}}
-| | newLine: \\n\\n [7:20-7:21] {C:0} {A:{}}
-| | whiteSpace:    [9:1-9:2] {C:0} {A:{}}
-| | identifier: conout [9:3-9:8] {C:0} {A:{}}
-| | operatorParenthesis: ( [9:9-9:9] {C:0} {A:{}}
-| | string: "hello 2" [9:10-9:18] {C:0} {A:{}}
-| | operatorParenthesis: ) [9:19-9:19] {C:0} {A:{}}
-| | newLine: \\n [9:20-9:20] {C:0} {A:{}}
-| | whiteSpace:    [10:1-10:2] {C:0} {A:{}}
-| | identifier: conout [10:3-10:8] {C:0} {A:{}}
-| | whiteSpace: \\b [10:9-10:9] {C:0} {A:{}}
-| | operatorParenthesis: ( [10:10-10:10] {C:0} {A:{}}
-| | identifier: x [10:11-10:11] {C:0} {A:{}}
-| | operatorParenthesis: ) [10:12-10:12] {C:0} {A:{}}
-| | newLine: \\n\\n [10:13-10:14] {C:0} {A:{}}
-| | identifier: retu [12:1-12:4] {C:0} {A:{}}
-| | newLine: \\n [12:5-12:5] {C:0} {A:{}}
 
 `;

@@ -12,27 +12,36 @@ export function astDump(ast: ASTNode | ASTNode[], prefix: string = ""): string {
             output += astDump(element, prefix);
         });
     } else {
+        let source: string = "";
+        let sourceArray: string = "";
+        let children: string = "";
+
         if (typeof ast == 'string' || typeof ast == 'number') {
-            output += ast;
+            source = ast;
         } else if (Array.isArray(ast.source)) {
-            output += astDump(ast.source, prefix);
+            sourceArray = astDump(ast.source, `${prefix}-`);
+            source = "-";
         } else {
-            let source = ast.source
+            source = ast.source
                 .replace(/\t/g, "\\t")
                 .replace(/\n/g, "\\n")
                 .replace(/\r/g, "\\r");
             if (source == ' ') {
                 source = "\\b";
             }
-            const attributes: string = JSON.stringify(ast.attributes());
-            const location: string = `${ast.location.start.line}:${ast.location.start.column}-${ast.location.end.line}:${ast.location.end.column}`;
-            output = `${prefix}${ast.type}: ${source} [${location}] {C:${ast.children.length}} {A:${attributes}}\n`;
-
-            if (ast.children && ast.children.length > 0) {
-                output += astDump(ast.children, `${prefix}| `);
-            };
         }
+
+        if (ast.children && ast.children.length > 0) {
+            children = astDump(ast.children, `${prefix}| `.replace('-', ' '));
+        };
+
+        const attributes: string = JSON.stringify(ast.attributes());
+        const location: string = `${ast.location.start.line}:${ast.location.start.column}-${ast.location.end.line}:${ast.location.end.column}`;
+
+        output = `${prefix}${ast.type}: ${source} [${location}] {C:${ast.children.length}} {A:${attributes}}\n`;
+        output = `${output}${sourceArray}${children}`;
     }
+
     return output;
 };
 

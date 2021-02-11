@@ -26,9 +26,10 @@ superToken
   / tokens
 
 functionBlock
-  = b:(scope? WS_CONTINUE? FUNCTION WS_CONTINUE identifer WS_CONTINUE? argumentList endLine)
+  = b:(
+      scope? WS_CONTINUE? FUNCTION WS_CONTINUE identifer WS_CONTINUE? argumentList endLine)
       t:tokens*
-    { return ast("block").add(b, t) }
+    { return ast("block", b).add(t || []) }
 
 scope
   = PYME
@@ -43,19 +44,19 @@ forBlock
   = b:(FOR) 
       t:tokens*
     e:(NEXT endLine)
-    { return ast("block").add(b, t, e) }
+    { return ast("block", b).add(t).add(e) }
 
 ifBlock
   = f:(IF) 
       t:tokens*
     e:(ENDIF endLine)
-    { return ast("block").add(f, t, e) }
+    { return ast("block", f).add(t).add(e) }
 
 argumentList
   = o:O_PARENTHESIS WS_CONTINUE?
       a:arguments?
   c:C_PARENTHESIS 
-  { return ast("argumentList").add([o, a || [], c]) }  
+  { return ast("argumentList").add(o).add(a || []).add(c) }  
 
 arguments
   = l:arg_list+ p:arg_value+ { return l.concat(p); }
@@ -94,7 +95,7 @@ directives
   / b:(POUND (IFDEF / IFNDEF) WS ID endLine) 
       t:tokens*
     e:(POUND ENDIF endLine) 
-    { return ast("directiveBlock", b).add(t, e)}      
+    { return ast("directiveBlock", b).add(t).add(e) }      
 
 // não esquecer de remover 'scope' da lista de keywords
 keywords
@@ -283,7 +284,7 @@ ANNOUNCE
 
 
 AS
-  = k:'as'i { return ast('keyword', k).setAttribute('command', 'as') }
+  = k:'as'i { return ast('keyword', k) }
 
 
 BEGIN
@@ -311,7 +312,7 @@ BREAK
 
 
 CASE
-  = k:'case'i { return ast('keyword', k).setAttribute('command', 'case') }
+  = k:'case'i { return ast('keyword', k) }
 
 
 CATCH
@@ -330,7 +331,7 @@ COLUMN
 
 
 DATE
-  = k:'date'i { return ast('keyword', k).setAttribute('command', 'date') }
+  = k:'date'i { return ast('keyword', k) }
 
 
 DECLARE
@@ -343,11 +344,11 @@ DECLARE
 
 
 DO
-  = k:'do'i { return ast('keyword', k).setAttribute('command', 'do') }
+  = k:'do'i { return ast('keyword', k) }
 
 
 ELSE
-  = k:'else'i { return ast('keyword', k).setAttribute('command', 'else') }
+  = k:'else'i { return ast('keyword', k) }
 
 
 ELSEIF
@@ -390,7 +391,7 @@ ENDSQL
 
 
 EXIT
-  = k:'exit'i { return ast('keyword', k).setAttribute('command', 'exit') }
+  = k:'exit'i { return ast('keyword', k) }
 
 
 EXTERNAL
@@ -411,7 +412,7 @@ FIELD
 
 
 FOR
-  = k:'for'i { return ast('keyword', k).setAttribute('command', 'for') }
+  = k:'for'i { return ast('keyword', k) }
 
 
 FUNCTION
@@ -425,15 +426,15 @@ FUNCTION
 
 
 IF
-  = k:'if'i { return ast('keyword', k).setAttribute('command', 'if') }
+  = k:'if'i { return ast('keyword', k) }
 
 
 IIF
-  = k:'iif'i { return ast('keyword', k).setAttribute('command', 'iif') }
+  = k:'iif'i { return ast('keyword', k) }
 
 
 IN
-  = k:'in'i { return ast('keyword', k).setAttribute('command', 'in') }
+  = k:'in'i { return ast('keyword', k) }
 
 
 LOCAL
@@ -453,11 +454,11 @@ LOGICAL
 
 
 LOOP
-  = k:'loop'i { return ast('keyword', k).setAttribute('command', 'loop') }
+  = k:'loop'i { return ast('keyword', k) }
 
 
 MAIN
-  = k:'main'i { return ast('keyword', k).setAttribute('command', 'main') }
+  = k:'main'i { return ast('keyword', k) }
 
 
 MEMVAR
@@ -477,11 +478,11 @@ METHOD
 
 
 NEXT
-  = k:'next'i { return ast('keyword', k).setAttribute('command', 'next') }
+  = k:'next'i { return ast('keyword', k) }
 
 
 NIL
-  = k:'nil'i { return ast('keyword', k).setAttribute('command', 'nil') }
+  = k:'nil'i { return ast('keyword', k) }
 
 
 NUMERIC
@@ -568,7 +569,7 @@ STATIC
 
 
 STEP
-  = k:'step'i { return ast('keyword', k).setAttribute('command', 'step') }
+  = k:'step'i { return ast('keyword', k) }
 
 
 THROW
@@ -579,11 +580,11 @@ THROW
 
 
 TO
-  = k:'to'i { return ast('keyword', k).setAttribute('command', 'to') }
+  = k:'to'i { return ast('keyword', k) }
 
 
 TRY
-  = k:'try'i { return ast('keyword', k).setAttribute('command', 'try') }
+  = k:'try'i { return ast('keyword', k) }
 
 
 USING
@@ -601,7 +602,7 @@ WHILE
 
 
 WITH
-  = k:'with'i { return ast('keyword', k).setAttribute('command', 'with') }
+  = k:'with'i { return ast('keyword', k) }
 
 
 _FIELD
@@ -613,7 +614,7 @@ _FIELD
 
 
 PYME
-  = k:'pyme'i { return ast('keyword', k).setAttribute('command', 'pyme') }
+  = k:'pyme'i { return ast('keyword', k) }
 
 
 PROJECT
@@ -636,15 +637,15 @@ TEMPLATE
 
 
 WEB
-  = k:'web'i { return ast('keyword', k).setAttribute('command', 'web') }
+  = k:'web'i { return ast('keyword', k) }
 
 
 HTML
-  = k:'html'i { return ast('keyword', k).setAttribute('command', 'html') }
+  = k:'html'i { return ast('keyword', k) }
 
 
 USER
-  = k:'user'i { return ast('keyword', k).setAttribute('command', 'user') }
+  = k:'user'i { return ast('keyword', k) }
 
 
 WEBUSER

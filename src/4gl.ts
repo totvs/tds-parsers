@@ -169,8 +169,8 @@ function peg$parse(input: string, options?: IParseOptions) {
   const peg$c1 = function(l: any, p: any): any { return l.concat(p); };
   const peg$c2 = function(p: any): any { return p; };
   const peg$c3 = function(p: any): any { return [p]; };
-  const peg$c4 = function(b: any, t: any, e: any): any { return ast("block").add(b, t, e) };
-  const peg$c5 = function(f: any, t: any, e: any): any { return ast("block").add(f, t, e) };
+  const peg$c4 = function(b: any, t: any, e: any): any { return ast("block", b).add(t).add(e) };
+  const peg$c5 = function(b: any, t: any, e: any): any { return ast("block",b).add(t).add(e) };
   const peg$c6 = function(o: any, a: any, c: any): any { return ast("argumentList").add([o, a || [], c]) };
   const peg$c7 = function(k: any): any { return k;};
   const peg$c8 = function(c: any): any { return ast("comment", c) };
@@ -1280,7 +1280,7 @@ function peg$parse(input: string, options?: IParseOptions) {
         }
         if (s3 !== peg$FAILED) {
           peg$savedPos = s0;
-          s1 = peg$c4(s1, s2, s3);
+          s1 = peg$c5(s1, s2, s3);
           s0 = s1;
         } else {
           peg$currPos = s0;
@@ -1641,7 +1641,7 @@ function peg$parse(input: string, options?: IParseOptions) {
         }
         if (s3 !== peg$FAILED) {
           peg$savedPos = s0;
-          s1 = peg$c5(s1, s2, s3);
+          s1 = peg$c4(s1, s2, s3);
           s0 = s1;
         } else {
           peg$currPos = s0;

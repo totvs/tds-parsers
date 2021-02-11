@@ -1,5 +1,3 @@
-#include "protheus.ch"
-
 user function hello1() 
   conout("hello")
 
