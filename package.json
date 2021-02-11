@@ -2,7 +2,7 @@
   "name": "tds-parsers",
   "displayName": "TOTVS Developer Studio: Analisador Sintático",
   "description": "Extensão para análise sintática das linguagens proprietárias TOTVS.",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "publisher": "TOTVS",
   "author": {
     "name": "TOTVS",
