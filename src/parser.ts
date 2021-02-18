@@ -1,9 +1,9 @@
 import PEGUtil = require("pegjs-util")
 import { parse as parser_4gl } from "./4gl";
 import { parse as parser_advpl } from "./advpl";
-import { ASTNode, ASTUtil, ILocation, ILocationToken } from "./ast_node";
+import { ASTChildren, ASTNode, ASTUtil, EASTType, ILocation, ILocationToken } from "./ast_node";
 
-function locEnd(ast: ASTNode | ASTNode[]): ILocation {
+function locEnd(ast: ASTChildren | ASTChildren[]): ILocation {
     let location: ILocation = { line: -Infinity, column: -Infinity, offset: -Infinity };
 
     if (!ast) {
@@ -39,10 +39,15 @@ function parser_token(parser: any, text: string): { ast: ASTNode, error?: any } 
         makeAST: function (line: number, column: number, offset: number, _args: any[]) {
             const args: any[] = [];
 
-            args.push(_args[0] || "");
+            if (!Object.values(EASTType).includes(_args[0])) {
+                console.error("Invalid EASType: " + _args[0]);
+                throw new Error("Invalid EASType: " + _args[0]);
+            }
+
+            args.push(_args[0]);
             if (_args.length > 1) {
                 if (Array.isArray(_args[1])) {
-                    args.push(_args[1].filter((element) => element != null));
+                    args.push(_args[1].filter((element) => (element != null) && (element != undefined)));
                 } else {
                     args.push(_args[1]);
                 }
@@ -55,6 +60,7 @@ function parser_token(parser: any, text: string): { ast: ASTNode, error?: any } 
 
             return node;
         }
+
     });
 
     return result;

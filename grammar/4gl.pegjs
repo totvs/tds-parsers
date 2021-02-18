@@ -4,6 +4,12 @@
 {
 
 const ast = options.util.makeAST(location, options);
+const astBlock = (begin, body, end) => {
+    return ast("block")
+      .add(ast("beginBlock").add(begin))
+      .add(ast("bodyBlock").add(body))
+      .add(ast("endBlock").add(end));
+};
 
 }
 
@@ -31,7 +37,7 @@ globalBlock
   / b:(GLOBALS endLine)
       t:tokens*
     e:(END WS_NL GLOBALS endLine)
-    { return ast("block", b).add(t).add(e) }
+    { return astBlock(b, t, e) }
 
 moduleBlock
   = DEFINE defineTokens*
@@ -41,37 +47,37 @@ mainBlock
   = b:(MAIN endLine)
       t:tokens*
     e:(END WS_NL MAIN endLine)  
-    { return ast("block",b).add(t).add(e) }
+    { return astBlock(b, t, e) }
 
 functionBlock
   = b:(FUNCTION WS_NL identifer WS_NL? argumentList endLine)
       t:tokens*
     e:(END WS_NL FUNCTION endLine)
-    { return ast("block", b).add(t).add(e) }
+    { return astBlock(b, t, e) }
 
 forBlock
   = b:(FOR) 
       t:tokens*
     e:(END WS_NL FOR endLine)
-    { return ast("block", b).add(t).add(e) }
+    { return astBlock(b, t, e) }
 
 forEachBlock
   = b:(FOREACH) 
       t:tokens*
     e:(END WS_NL FOREACH endLine)
-    { return ast("block", b).add(t).add(e) }
+    { return astBlock(b, t, e) }
 
 recordBlock
   = b:(RECORD) 
       t:tokens*
     e:(END WS_NL RECORD (endLine / WS? COMMA))
-    { return ast("block", b).add(t).add(e) }
+    { return astBlock(b, t, e) }
 
 ifBlock
   = b:(IF) 
       t:tokens*
     e:(END WS_NL IF endLine)
-    { return ast("block", b).add(t).add(e) }
+    { return astBlock(b, t, e) }
 
 argumentList
   = o:O_PARENTHESIS WS_NL?

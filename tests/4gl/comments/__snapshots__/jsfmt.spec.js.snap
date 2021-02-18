@@ -1,9 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`4gl: Token comment.4gl 1`] = `
-main # linha com comentário ao final
-end main # mais uma linha com comentário ao final
-
 # linha 1
 # linha 2
 # linha 3
@@ -15,29 +12,30 @@ end main # mais uma linha com comentário ao final
 
 --linha B2
 --linha B3
+
+{ bloco comentado de uma linha }
+
+{ 
+    bloco 
+    comentado 
+    de 
+    varias
+    linhas 
+}
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1-1:0] {C:9} {A:{}}
-| block: - [1:1-1:37] {C:4} {A:{}}
-| -keyword: main [1:1-1:4] {C:0} {A:{}}
-| -endLine: - [1:5-1:37] {C:0} {A:{}}
-| --whiteSpace: \\b [1:5-1:5] {C:0} {A:{}}
-| --singleComment: # linha com comentário ao final [1:6-1:36] {C:0} {A:{}}
-| --newLine: \\n [1:37-1:37] {C:0} {A:{}}
-| | keyword: end [2:1-2:3] {C:0} {A:{}}
-| | whiteSpace: \\b [2:4-2:4] {C:0} {A:{}}
-| | keyword: main [2:5-2:8] {C:0} {A:{}}
-| | endLine: - [2:9-2:51] {C:0} {A:{}}
-| | -whiteSpace: \\b [2:9-2:9] {C:0} {A:{}}
-| | -singleComment: # mais uma linha com comentário ao final [2:10-2:49] {C:0} {A:{}}
-| | -newLine: \\n\\n [2:50-2:51] {C:0} {A:{}}
-| comment: # linha 1\\n [4:1-4:10] {C:0} {A:{}}
-| comment: # linha 2\\n [5:1-5:10] {C:0} {A:{}}
-| comment: # linha 3\\n\\n [6:1-6:11] {C:0} {A:{}}
-| comment: --linha A\\n [8:1-8:10] {C:0} {A:{}}
-| comment: --linha B\\n\\n [9:1-9:11] {C:0} {A:{}}
-| comment: --linha A1\\n\\n [11:1-11:12] {C:0} {A:{}}
-| comment: --linha B2\\n [13:1-13:11] {C:0} {A:{}}
-| comment: --linha B3\\n [14:1-14:11] {C:0} {A:{}}
+program:  [1:1-1:0] {C:1} {A:{}}
+| comment: #\\blinha\\b1\\n [1:1-1:10] {C:0} {A:{}}
+| comment: #\\blinha\\b2\\n [2:1-2:10] {C:0} {A:{}}
+| comment: #\\blinha\\b3\\n\\n [3:1-3:11] {C:0} {A:{}}
+| comment: --linha\\bA\\n [5:1-5:10] {C:0} {A:{}}
+| comment: --linha\\bB\\n\\n [6:1-6:11] {C:0} {A:{}}
+| comment: --linha\\bA1\\n\\n [8:1-8:12] {C:0} {A:{}}
+| comment: --linha\\bB2\\n [10:1-10:11] {C:0} {A:{}}
+| comment: --linha\\bB3\\n\\n [11:1-11:12] {C:0} {A:{}}
+| blockComment: {\\bbloco\\bcomentado\\bde\\buma\\blinha\\b} [13:1-13:32] {C:0} {A:{}}
+| newLine: \\n\\n [13:33-13:34] {C:0} {A:{}}
+| blockComment: {\\b\\n\\b\\b\\b\\bbloco\\b\\n\\b\\b\\b\\bcomentado\\b\\n\\b\\b\\b\\bde\\b\\n\\b\\b\\b\\bvarias\\n\\b\\b\\b\\blinhas\\b\\n} [15:1-15:61] {C:0} {A:{}}
+| newLine: \\n [21:2-21:2] {C:0} {A:{}}
 
 `;
 
@@ -54,22 +52,25 @@ end main
     linhas 
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1-1:0] {C:3} {A:{}}
-| block: - [1:1-1:6] {C:7} {A:{}}
-| -keyword: main [1:1-1:4] {C:0} {A:{}}
-| -endLine: - [1:5-1:6] {C:0} {A:{}}
-| --whiteSpace: \\b [1:5-1:5] {C:0} {A:{}}
-| --newLine: \\n [1:6-1:6] {C:0} {A:{}}
-| | whiteSpace:      [2:1-2:4] {C:0} {A:{}}
-| | blockComment: { bloco comentado de uma linha } [2:5-2:36] {C:0} {A:{}}
-| | newLine: \\n [2:37-2:37] {C:0} {A:{}}
-| | keyword: end [3:1-3:3] {C:0} {A:{}}
-| | whiteSpace: \\b [3:4-3:4] {C:0} {A:{}}
-| | keyword: main [3:5-3:8] {C:0} {A:{}}
-| | endLine: - [3:9-3:11] {C:0} {A:{}}
-| | -whiteSpace: \\b [3:9-3:9] {C:0} {A:{}}
-| | -newLine: \\n\\n [3:10-3:11] {C:0} {A:{}}
-| blockComment: { \\n    bloco \\n    comentado \\n    de \\n    varias\\n    linhas \\n} [5:1-5:61] {C:0} {A:{}}
+program:  [1:1-1:0] {C:1} {A:{}}
+| block:  [1:1-1:0] {C:3} {A:{}}
+| | beginBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | keyword: main [1:1-1:4] {C:0} {A:{}}
+| | | endLine: - [1:5-1:6] {C:0} {A:{}}
+| | | -whiteSpace: \\b [1:5-1:5] {C:0} {A:{}}
+| | | -newLine: \\n [1:6-1:6] {C:0} {A:{}}
+| | bodyBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | whiteSpace: \\b\\b\\b\\b [2:1-2:4] {C:0} {A:{}}
+| | | blockComment: {\\bbloco\\bcomentado\\bde\\buma\\blinha\\b} [2:5-2:36] {C:0} {A:{}}
+| | | newLine: \\n [2:37-2:37] {C:0} {A:{}}
+| | endBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | keyword: end [3:1-3:3] {C:0} {A:{}}
+| | | whiteSpace: \\b [3:4-3:4] {C:0} {A:{}}
+| | | keyword: main [3:5-3:8] {C:0} {A:{}}
+| | | endLine: - [3:9-3:11] {C:0} {A:{}}
+| | | -whiteSpace: \\b [3:9-3:9] {C:0} {A:{}}
+| | | -newLine: \\n\\n [3:10-3:11] {C:0} {A:{}}
+| blockComment: {\\b\\n\\b\\b\\b\\bbloco\\b\\n\\b\\b\\b\\bcomentado\\b\\n\\b\\b\\b\\bde\\b\\n\\b\\b\\b\\bvarias\\n\\b\\b\\b\\blinhas\\b\\n} [5:1-5:61] {C:0} {A:{}}
 | newLine: \\n [11:2-11:2] {C:0} {A:{}}
 
 `;

@@ -14,6 +14,9 @@ export interface ILocationToken {
 export enum EASTType {
     program = "program",
     block = "block",
+    beginBlock = "beginBlock",
+    bodyBlock = "bodyBlock",
+    endBlock = "endBlock",
     argumentList = "argumentList",
     begin = "begin",
     string = "string",
@@ -33,7 +36,8 @@ export enum EASTType {
     operatorMath = "operatorMath",
     keyword = "keyword",
     comment = "comment",
-    blockComment = "blockcomment",
+    blockComment = "blockComment",
+    singleComment = "singleComment",
     directiveBlock = "directiveBlock",
     operatorAssign = "operatorAssign",
     directive = "directive",
@@ -41,11 +45,13 @@ export enum EASTType {
     notSpecified = "notSpecified",
 }
 
+export type ASTChildren = ASTNode;
+
 export class ASTNode {
     private _type: EASTType;
     private _source: string;
     private _location: ILocationToken;
-    private _children: ASTNode[];
+    private _children: ASTChildren[];
     private _attributes: {};
 
     constructor(type: EASTType, source: string, startLoc: ILocation) {
@@ -72,20 +78,26 @@ export class ASTNode {
         this._location = { ...this._location, end: endLocation };
     }
 
-    public get children(): ASTNode[] {
+    public get children(): ASTChildren[] {
         return this._children;
     }
 
-    public add(children: ASTNode | ASTNode[]): this {
-        if (Array.isArray(children)) {
-            children.forEach((child: ASTNode) => {
-                this._children.push(child);
-            });
-        } else {
-            this._children.push(children);
-        }
+    public add(children: ASTNode): this {
+        // if (Array.isArray(children)) {
+        //     children.forEach((child: ASTNode) => {
+        //         this._children.push(child);
+        //     });
+        // } else {
+        this._children.push(children);
+        //        }
 
         return this;
+    }
+
+    public get block(): any[] {
+        return [this._children[0] //begin block
+            , this._children[1]   //content
+            , this._children[2]]  //end block
     }
 
     public dump() {
@@ -129,26 +141,6 @@ export class ASTNode {
         }
 
         return this;
-    }
-
-    public get children_0(): ASTNode {
-
-        return this.children[0];
-    }
-
-    public get children_1(): ASTNode {
-
-        return this.children[1];
-    }
-
-    public get children_2(): ASTNode {
-
-        return this.children[2];
-    }
-
-    public get children_3(): ASTNode {
-
-        return this.children[3];
     }
 
 }

@@ -1,6 +1,6 @@
-import { ASTNode } from "./ast_node";
+import { ASTChildren, ASTNode } from "./ast_node";
 
-export function astDump(ast: ASTNode | ASTNode[], prefix: string = ""): string {
+export function astDump(ast: ASTChildren[] | ASTChildren, prefix: string = ""): string {
     if (!ast) {
         return "";
     }
@@ -8,7 +8,7 @@ export function astDump(ast: ASTNode | ASTNode[], prefix: string = ""): string {
     let output: string = ``;
 
     if (Array.isArray(ast)) {
-        ast.forEach((element: ASTNode) => {
+        ast.forEach((element: ASTChildren) => {
             output += astDump(element, prefix);
         });
     } else {
@@ -23,12 +23,10 @@ export function astDump(ast: ASTNode | ASTNode[], prefix: string = ""): string {
             source = "-";
         } else {
             source = ast.source
+                .replace(/ /g, "\\b")
                 .replace(/\t/g, "\\t")
                 .replace(/\n/g, "\\n")
                 .replace(/\r/g, "\\r");
-            if (source == ' ') {
-                source = "\\b";
-            }
         }
 
         if (ast.children && ast.children.length > 0) {
