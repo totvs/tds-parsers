@@ -55,7 +55,7 @@
     "pretest": "npm run build",
     "---RELEASE---": "",
     "release": "standard-version",
-    "to_publish": "git push --follow-tags origin develop && npm publish",
+    "to_publish": "git push --follow-tags origin develop && npm publish --access public",
     "pack": "npm pack",
     "prerelease": "npm run test",
     "---MISC---": "",
