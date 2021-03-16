@@ -1,20 +1,21 @@
 {
-  "name": "tds-parsers",
+  "name": "@totvs/tds-parsers",
   "displayName": "TOTVS Developer Studio: Analisador Sintático",
   "description": "Extensão para análise sintática das linguagens proprietárias TOTVS.",
-  "version": "0.0.17",
+  "version": "0.1.0",
   "publisher": "TOTVS",
   "author": {
     "name": "TOTVS",
     "email": "tecnologia@totvs.com.br"
   },
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "keywords": [
     "4gl",
     "advpl",
     "tds",
     "totvs",
-    "parser"
+    "parser",
+    "pegjs"
   ],
   "repository": {
     "type": "git",
