@@ -1,0 +1,952 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`4gl: Token call.4gl 1`] = `
+main
+
+  call fgl_winmessage()
+
+  call fgl_winmessage("p1")
+
+
+  call log0030_mensagem("existe(m) ...", "exclamation");
+
+
+  call fgl_winmessage("p1","p2", "p3")
+  call fgl_winmessage(1,2,    3)
+
+end main
+
+function f1()
+
+  call fgl_winmessage() returning var1
+
+  call fgl_winmessage() returning var1 , var2
+
+call fgl_winmessage() returning var1,var2,var3
+
+end function
+
+function f2()
+
+  call fgl_winmessage() returning var1[ind1]
+
+end function
+
+function f3()
+
+  call fgl_winmessage() returning rec1.var1
+
+  call fgl_winmessage() returning rec1.*
+
+end function
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+program:  [1:1-1:0] {C:1} {A:{}}
+| block:  [1:1-1:0] {C:3} {A:{}}
+| | beginBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | keyword: main [1:1-1:4] {C:0} {A:{}}
+| | | endLine: - [1:5-1:6] {C:0} {A:{}}
+| | | -newLine: \\n\\n [1:5-1:6] {C:0} {A:{}}
+| | bodyBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | whiteSpace: \\b\\b [3:1-3:2] {C:0} {A:{}}
+| | | keyword: call [3:3-3:6] {C:0} {A:{}}
+| | | whiteSpace: \\b [3:7-3:7] {C:0} {A:{}}
+| | | identifier: fgl_winmessage [3:8-3:21] {C:0} {A:{}}
+| | | operatorParenthesis: ( [3:22-3:22] {C:0} {A:{}}
+| | | operatorParenthesis: ) [3:23-3:23] {C:0} {A:{}}
+| | | newLine: \\n\\n [3:24-3:25] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b [5:1-5:2] {C:0} {A:{}}
+| | | keyword: call [5:3-5:6] {C:0} {A:{}}
+| | | whiteSpace: \\b [5:7-5:7] {C:0} {A:{}}
+| | | identifier: fgl_winmessage [5:8-5:21] {C:0} {A:{}}
+| | | operatorParenthesis: ( [5:22-5:22] {C:0} {A:{}}
+| | | string: "p1" [5:23-5:26] {C:0} {A:{}}
+| | | operatorParenthesis: ) [5:27-5:27] {C:0} {A:{}}
+| | | newLine: \\n\\n\\n [5:28-5:30] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b [8:1-8:2] {C:0} {A:{}}
+| | | keyword: call [8:3-8:6] {C:0} {A:{}}
+| | | whiteSpace: \\b [8:7-8:7] {C:0} {A:{}}
+| | | identifier: log0030_mensagem [8:8-8:23] {C:0} {A:{}}
+| | | operatorParenthesis: ( [8:24-8:24] {C:0} {A:{}}
+| | | string: "existe(m)\\b..." [8:25-8:39] {C:0} {A:{}}
+| | | operatorSeparator: , [8:40-8:40] {C:0} {A:{}}
+| | | whiteSpace: \\b [8:41-8:41] {C:0} {A:{}}
+| | | string: "exclamation" [8:42-8:54] {C:0} {A:{}}
+| | | operatorParenthesis: ) [8:55-8:55] {C:0} {A:{}}
+| | | whiteSpace: ; [8:56-8:56] {C:0} {A:{}}
+| | | newLine: \\n\\n\\n [8:57-8:59] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b [11:1-11:2] {C:0} {A:{}}
+| | | keyword: call [11:3-11:6] {C:0} {A:{}}
+| | | whiteSpace: \\b [11:7-11:7] {C:0} {A:{}}
+| | | identifier: fgl_winmessage [11:8-11:21] {C:0} {A:{}}
+| | | operatorParenthesis: ( [11:22-11:22] {C:0} {A:{}}
+| | | string: "p1" [11:23-11:26] {C:0} {A:{}}
+| | | operatorSeparator: , [11:27-11:27] {C:0} {A:{}}
+| | | string: "p2" [11:28-11:31] {C:0} {A:{}}
+| | | operatorSeparator: , [11:32-11:32] {C:0} {A:{}}
+| | | whiteSpace: \\b [11:33-11:33] {C:0} {A:{}}
+| | | string: "p3" [11:34-11:37] {C:0} {A:{}}
+| | | operatorParenthesis: ) [11:38-11:38] {C:0} {A:{}}
+| | | newLine: \\n [11:39-11:39] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b [12:1-12:2] {C:0} {A:{}}
+| | | keyword: call [12:3-12:6] {C:0} {A:{}}
+| | | whiteSpace: \\b [12:7-12:7] {C:0} {A:{}}
+| | | identifier: fgl_winmessage [12:8-12:21] {C:0} {A:{}}
+| | | operatorParenthesis: ( [12:22-12:22] {C:0} {A:{}}
+| | | number: 1 [12:23-12:23] {C:0} {A:{}}
+| | | operatorSeparator: , [12:24-12:24] {C:0} {A:{}}
+| | | number: 2 [12:25-12:25] {C:0} {A:{}}
+| | | operatorSeparator: , [12:26-12:26] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b\\b\\b [12:27-12:30] {C:0} {A:{}}
+| | | number: 3 [12:31-12:31] {C:0} {A:{}}
+| | | operatorParenthesis: ) [12:32-12:32] {C:0} {A:{}}
+| | | newLine: \\n\\n [12:33-12:34] {C:0} {A:{}}
+| | endBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | keyword: end [14:1-14:3] {C:0} {A:{}}
+| | | whiteSpace: \\b [14:4-14:4] {C:0} {A:{}}
+| | | keyword: main [14:5-14:8] {C:0} {A:{}}
+| | | endLine: - [14:9-14:10] {C:0} {A:{}}
+| | | -newLine: \\n\\n [14:9-14:10] {C:0} {A:{}}
+| block:  [16:1-16:0] {C:3} {A:{}}
+| | beginBlock:  [16:1-16:0] {C:1} {A:{}}
+| | | keyword: function [16:1-16:8] {C:0} {A:{}}
+| | | whiteSpace: \\b [16:9-16:9] {C:0} {A:{}}
+| | | identifier: f1 [16:10-16:11] {C:0} {A:{}}
+| | | argumentList:  [16:12-16:11] {C:1} {A:{}}
+| | | | operatorParenthesis: ( [16:12-16:12] {C:0} {A:{}}
+| | | | operatorParenthesis: ) [16:13-16:13] {C:0} {A:{}}
+| | | endLine: - [16:14-16:15] {C:0} {A:{}}
+| | | -newLine: \\n\\n [16:14-16:15] {C:0} {A:{}}
+| | bodyBlock:  [16:1-16:0] {C:1} {A:{}}
+| | | whiteSpace: \\b\\b [18:1-18:2] {C:0} {A:{}}
+| | | keyword: call [18:3-18:6] {C:0} {A:{}}
+| | | whiteSpace: \\b [18:7-18:7] {C:0} {A:{}}
+| | | identifier: fgl_winmessage [18:8-18:21] {C:0} {A:{}}
+| | | operatorParenthesis: ( [18:22-18:22] {C:0} {A:{}}
+| | | operatorParenthesis: ) [18:23-18:23] {C:0} {A:{}}
+| | | whiteSpace: \\b [18:24-18:24] {C:0} {A:{}}
+| | | identifier: returning [18:25-18:33] {C:0} {A:{}}
+| | | whiteSpace: \\b [18:34-18:34] {C:0} {A:{}}
+| | | identifier: var1 [18:35-18:38] {C:0} {A:{}}
+| | | newLine: \\n\\n [18:39-18:40] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b [20:1-20:2] {C:0} {A:{}}
+| | | keyword: call [20:3-20:6] {C:0} {A:{}}
+| | | whiteSpace: \\b [20:7-20:7] {C:0} {A:{}}
+| | | identifier: fgl_winmessage [20:8-20:21] {C:0} {A:{}}
+| | | operatorParenthesis: ( [20:22-20:22] {C:0} {A:{}}
+| | | operatorParenthesis: ) [20:23-20:23] {C:0} {A:{}}
+| | | whiteSpace: \\b [20:24-20:24] {C:0} {A:{}}
+| | | identifier: returning [20:25-20:33] {C:0} {A:{}}
+| | | whiteSpace: \\b [20:34-20:34] {C:0} {A:{}}
+| | | identifier: var1 [20:35-20:38] {C:0} {A:{}}
+| | | whiteSpace: \\b [20:39-20:39] {C:0} {A:{}}
+| | | operatorSeparator: , [20:40-20:40] {C:0} {A:{}}
+| | | whiteSpace: \\b [20:41-20:41] {C:0} {A:{}}
+| | | identifier: var2 [20:42-20:45] {C:0} {A:{}}
+| | | newLine: \\n\\n [20:46-20:47] {C:0} {A:{}}
+| | | keyword: call [22:1-22:4] {C:0} {A:{}}
+| | | whiteSpace: \\b [22:5-22:5] {C:0} {A:{}}
+| | | identifier: fgl_winmessage [22:6-22:19] {C:0} {A:{}}
+| | | operatorParenthesis: ( [22:20-22:20] {C:0} {A:{}}
+| | | operatorParenthesis: ) [22:21-22:21] {C:0} {A:{}}
+| | | whiteSpace: \\b [22:22-22:22] {C:0} {A:{}}
+| | | identifier: returning [22:23-22:31] {C:0} {A:{}}
+| | | whiteSpace: \\b [22:32-22:32] {C:0} {A:{}}
+| | | identifier: var1 [22:33-22:36] {C:0} {A:{}}
+| | | operatorSeparator: , [22:37-22:37] {C:0} {A:{}}
+| | | identifier: var2 [22:38-22:41] {C:0} {A:{}}
+| | | operatorSeparator: , [22:42-22:42] {C:0} {A:{}}
+| | | identifier: var3 [22:43-22:46] {C:0} {A:{}}
+| | | newLine: \\n\\n [22:47-22:48] {C:0} {A:{}}
+| | endBlock:  [16:1-16:0] {C:1} {A:{}}
+| | | keyword: end [24:1-24:3] {C:0} {A:{}}
+| | | whiteSpace: \\b [24:4-24:4] {C:0} {A:{}}
+| | | keyword: function [24:5-24:12] {C:0} {A:{}}
+| | | endLine: - [24:13-24:14] {C:0} {A:{}}
+| | | -newLine: \\n\\n [24:13-24:14] {C:0} {A:{}}
+| block:  [26:1-26:0] {C:3} {A:{}}
+| | beginBlock:  [26:1-26:0] {C:1} {A:{}}
+| | | keyword: function [26:1-26:8] {C:0} {A:{}}
+| | | whiteSpace: \\b [26:9-26:9] {C:0} {A:{}}
+| | | identifier: f2 [26:10-26:11] {C:0} {A:{}}
+| | | argumentList:  [26:12-26:11] {C:1} {A:{}}
+| | | | operatorParenthesis: ( [26:12-26:12] {C:0} {A:{}}
+| | | | operatorParenthesis: ) [26:13-26:13] {C:0} {A:{}}
+| | | endLine: - [26:14-26:15] {C:0} {A:{}}
+| | | -newLine: \\n\\n [26:14-26:15] {C:0} {A:{}}
+| | bodyBlock:  [26:1-26:0] {C:1} {A:{}}
+| | | whiteSpace: \\b\\b [28:1-28:2] {C:0} {A:{}}
+| | | keyword: call [28:3-28:6] {C:0} {A:{}}
+| | | whiteSpace: \\b [28:7-28:7] {C:0} {A:{}}
+| | | identifier: fgl_winmessage [28:8-28:21] {C:0} {A:{}}
+| | | operatorParenthesis: ( [28:22-28:22] {C:0} {A:{}}
+| | | operatorParenthesis: ) [28:23-28:23] {C:0} {A:{}}
+| | | whiteSpace: \\b [28:24-28:24] {C:0} {A:{}}
+| | | identifier: returning [28:25-28:33] {C:0} {A:{}}
+| | | whiteSpace: \\b [28:34-28:34] {C:0} {A:{}}
+| | | identifier: var1 [28:35-28:38] {C:0} {A:{}}
+| | | operatorBracket: [ [28:39-28:39] {C:0} {A:{}}
+| | | identifier: ind1 [28:40-28:43] {C:0} {A:{}}
+| | | operatorBracket: ] [28:44-28:44] {C:0} {A:{}}
+| | | newLine: \\n\\n [28:45-28:46] {C:0} {A:{}}
+| | endBlock:  [26:1-26:0] {C:1} {A:{}}
+| | | keyword: end [30:1-30:3] {C:0} {A:{}}
+| | | whiteSpace: \\b [30:4-30:4] {C:0} {A:{}}
+| | | keyword: function [30:5-30:12] {C:0} {A:{}}
+| | | endLine: - [30:13-30:14] {C:0} {A:{}}
+| | | -newLine: \\n\\n [30:13-30:14] {C:0} {A:{}}
+| block:  [32:1-32:0] {C:3} {A:{}}
+| | beginBlock:  [32:1-32:0] {C:1} {A:{}}
+| | | keyword: function [32:1-32:8] {C:0} {A:{}}
+| | | whiteSpace: \\b [32:9-32:9] {C:0} {A:{}}
+| | | identifier: f3 [32:10-32:11] {C:0} {A:{}}
+| | | argumentList:  [32:12-32:11] {C:1} {A:{}}
+| | | | operatorParenthesis: ( [32:12-32:12] {C:0} {A:{}}
+| | | | operatorParenthesis: ) [32:13-32:13] {C:0} {A:{}}
+| | | endLine: - [32:14-32:15] {C:0} {A:{}}
+| | | -newLine: \\n\\n [32:14-32:15] {C:0} {A:{}}
+| | bodyBlock:  [32:1-32:0] {C:1} {A:{}}
+| | | whiteSpace: \\b\\b [34:1-34:2] {C:0} {A:{}}
+| | | keyword: call [34:3-34:6] {C:0} {A:{}}
+| | | whiteSpace: \\b [34:7-34:7] {C:0} {A:{}}
+| | | identifier: fgl_winmessage [34:8-34:21] {C:0} {A:{}}
+| | | operatorParenthesis: ( [34:22-34:22] {C:0} {A:{}}
+| | | operatorParenthesis: ) [34:23-34:23] {C:0} {A:{}}
+| | | whiteSpace: \\b [34:24-34:24] {C:0} {A:{}}
+| | | identifier: returning [34:25-34:33] {C:0} {A:{}}
+| | | whiteSpace: \\b [34:34-34:34] {C:0} {A:{}}
+| | | identifier: rec1.var1 [34:35-34:43] {C:0} {A:{}}
+| | | newLine: \\n\\n [34:44-34:45] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b [36:1-36:2] {C:0} {A:{}}
+| | | keyword: call [36:3-36:6] {C:0} {A:{}}
+| | | whiteSpace: \\b [36:7-36:7] {C:0} {A:{}}
+| | | identifier: fgl_winmessage [36:8-36:21] {C:0} {A:{}}
+| | | operatorParenthesis: ( [36:22-36:22] {C:0} {A:{}}
+| | | operatorParenthesis: ) [36:23-36:23] {C:0} {A:{}}
+| | | whiteSpace: \\b [36:24-36:24] {C:0} {A:{}}
+| | | identifier: returning [36:25-36:33] {C:0} {A:{}}
+| | | whiteSpace: \\b [36:34-36:34] {C:0} {A:{}}
+| | | identifier: rec1.* [36:35-36:40] {C:0} {A:{}}
+| | | newLine: \\n\\n [36:41-36:42] {C:0} {A:{}}
+| | endBlock:  [32:1-32:0] {C:1} {A:{}}
+| | | keyword: end [38:1-38:3] {C:0} {A:{}}
+| | | whiteSpace: \\b [38:4-38:4] {C:0} {A:{}}
+| | | keyword: function [38:5-38:12] {C:0} {A:{}}
+| | | endLine: - [38:13-38:13] {C:0} {A:{}}
+| | | -newLine: \\n [38:13-38:13] {C:0} {A:{}}
+
+`;
+
+exports[`4gl: Token define.4gl 1`] = `
+MAIN 
+
+	DEFINE VAR1 BIGINT   
+	DEFINE VAR1 BYTE   
+	DEFINE VAR1 CHAR(100)
+	DEFINE VAR1 CHARACTER  
+	DEFINE VAR1 DATE   
+	DEFINE VAR1 DATETIME  day to day
+	DEFINE VAR1 DEC   
+	DEFINE VAR1 DECIMAL(10,2)
+	DEFINE VAR1 DECIMAL(10)
+	DEFINE VAR1 DOUBLE PRECISION  
+	DEFINE VAR1 DYNAMIC ARRAY  
+	DEFINE VAR1 FLOAT  
+	DEFINE VAR1 INT  
+	DEFINE VAR1 INTEGER  
+	DEFINE VAR1 MONEY  
+	DEFINE VAR1 NCHAR(100)  
+	DEFINE VAR1 NUMERIC  
+	DEFINE VAR1 NVARCHAR(100)  
+
+end MAIN
+
+function f1() 
+	--DEFINE VAR1 INTERVAL  
+end function
+
+function f2() 
+	DEFINE REC1 RECORD
+    	VAR1 BIGINT
+  	END RECORD
+
+	DEFINE REC2 RECORD
+    VAR1 CHAR(100),
+    VAR1 CHARACTER,
+    VAR1 DATE,
+    VAR1 DATETIME  day to day,
+    VAR1 DEC,
+    VAR1 DECIMAL(10,2),
+    VAR1 DECIMAL(10),
+    VAR1 DOUBLE PRECISION,
+    VAR1 FLOAT,
+    VAR1 INT,
+    VAR1 INTEGER,
+    VAR1 MONEY,
+    VAR1 NCHAR(100),
+    VAR1 NUMERIC,
+    VAR1 NVARCHAR(100)
+  END RECORD  
+
+end function
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+program:  [1:1-1:0] {C:1} {A:{}}
+| block:  [1:1-1:0] {C:3} {A:{}}
+| | beginBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | keyword: MAIN [1:1-1:4] {C:0} {A:{}}
+| | | endLine: - [1:5-1:7] {C:0} {A:{}}
+| | | -whiteSpace: \\b [1:5-1:5] {C:0} {A:{}}
+| | | -newLine: \\n\\n [1:6-1:7] {C:0} {A:{}}
+| | bodyBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | whiteSpace: \\t [3:1-3:1] {C:0} {A:{}}
+| | | keyword: DEFINE [3:2-3:7] {C:0} {A:{}}
+| | | whiteSpace: \\b [3:8-3:8] {C:0} {A:{}}
+| | | identifier: VAR1 [3:9-3:12] {C:0} {A:{}}
+| | | whiteSpace: \\b [3:13-3:13] {C:0} {A:{}}
+| | | keyword: BIGINT [3:14-3:19] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b\\b [3:20-3:22] {C:0} {A:{}}
+| | | newLine: \\n [3:23-3:23] {C:0} {A:{}}
+| | | whiteSpace: \\t [4:1-4:1] {C:0} {A:{}}
+| | | keyword: DEFINE [4:2-4:7] {C:0} {A:{}}
+| | | whiteSpace: \\b [4:8-4:8] {C:0} {A:{}}
+| | | identifier: VAR1 [4:9-4:12] {C:0} {A:{}}
+| | | whiteSpace: \\b [4:13-4:13] {C:0} {A:{}}
+| | | identifier: BYTE [4:14-4:17] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b\\b [4:18-4:20] {C:0} {A:{}}
+| | | newLine: \\n [4:21-4:21] {C:0} {A:{}}
+| | | whiteSpace: \\t [5:1-5:1] {C:0} {A:{}}
+| | | keyword: DEFINE [5:2-5:7] {C:0} {A:{}}
+| | | whiteSpace: \\b [5:8-5:8] {C:0} {A:{}}
+| | | identifier: VAR1 [5:9-5:12] {C:0} {A:{}}
+| | | whiteSpace: \\b [5:13-5:13] {C:0} {A:{}}
+| | | keyword: CHAR [5:14-5:17] {C:0} {A:{}}
+| | | operatorParenthesis: ( [5:18-5:18] {C:0} {A:{}}
+| | | number: 100 [5:19-5:21] {C:0} {A:{}}
+| | | operatorParenthesis: ) [5:22-5:22] {C:0} {A:{}}
+| | | newLine: \\n [5:23-5:23] {C:0} {A:{}}
+| | | whiteSpace: \\t [6:1-6:1] {C:0} {A:{}}
+| | | keyword: DEFINE [6:2-6:7] {C:0} {A:{}}
+| | | whiteSpace: \\b [6:8-6:8] {C:0} {A:{}}
+| | | identifier: VAR1 [6:9-6:12] {C:0} {A:{}}
+| | | whiteSpace: \\b [6:13-6:13] {C:0} {A:{}}
+| | | identifier: CHARACTER [6:14-6:22] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b [6:23-6:24] {C:0} {A:{}}
+| | | newLine: \\n [6:25-6:25] {C:0} {A:{}}
+| | | whiteSpace: \\t [7:1-7:1] {C:0} {A:{}}
+| | | keyword: DEFINE [7:2-7:7] {C:0} {A:{}}
+| | | whiteSpace: \\b [7:8-7:8] {C:0} {A:{}}
+| | | identifier: VAR1 [7:9-7:12] {C:0} {A:{}}
+| | | whiteSpace: \\b [7:13-7:13] {C:0} {A:{}}
+| | | keyword: DATE [7:14-7:17] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b\\b [7:18-7:20] {C:0} {A:{}}
+| | | newLine: \\n [7:21-7:21] {C:0} {A:{}}
+| | | whiteSpace: \\t [8:1-8:1] {C:0} {A:{}}
+| | | keyword: DEFINE [8:2-8:7] {C:0} {A:{}}
+| | | whiteSpace: \\b [8:8-8:8] {C:0} {A:{}}
+| | | identifier: VAR1 [8:9-8:12] {C:0} {A:{}}
+| | | whiteSpace: \\b [8:13-8:13] {C:0} {A:{}}
+| | | identifier: DATETIME [8:14-8:21] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b [8:22-8:23] {C:0} {A:{}}
+| | | keyword: day [8:24-8:26] {C:0} {A:{}}
+| | | whiteSpace: \\b [8:27-8:27] {C:0} {A:{}}
+| | | keyword: to [8:28-8:29] {C:0} {A:{}}
+| | | whiteSpace: \\b [8:30-8:30] {C:0} {A:{}}
+| | | keyword: day [8:31-8:33] {C:0} {A:{}}
+| | | newLine: \\n [8:34-8:34] {C:0} {A:{}}
+| | | whiteSpace: \\t [9:1-9:1] {C:0} {A:{}}
+| | | keyword: DEFINE [9:2-9:7] {C:0} {A:{}}
+| | | whiteSpace: \\b [9:8-9:8] {C:0} {A:{}}
+| | | identifier: VAR1 [9:9-9:12] {C:0} {A:{}}
+| | | whiteSpace: \\b [9:13-9:13] {C:0} {A:{}}
+| | | keyword: DEC [9:14-9:16] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b\\b [9:17-9:19] {C:0} {A:{}}
+| | | newLine: \\n [9:20-9:20] {C:0} {A:{}}
+| | | whiteSpace: \\t [10:1-10:1] {C:0} {A:{}}
+| | | keyword: DEFINE [10:2-10:7] {C:0} {A:{}}
+| | | whiteSpace: \\b [10:8-10:8] {C:0} {A:{}}
+| | | identifier: VAR1 [10:9-10:12] {C:0} {A:{}}
+| | | whiteSpace: \\b [10:13-10:13] {C:0} {A:{}}
+| | | identifier: DECIMAL [10:14-10:20] {C:0} {A:{}}
+| | | operatorParenthesis: ( [10:21-10:21] {C:0} {A:{}}
+| | | number: 10 [10:22-10:23] {C:0} {A:{}}
+| | | operatorSeparator: , [10:24-10:24] {C:0} {A:{}}
+| | | number: 2 [10:25-10:25] {C:0} {A:{}}
+| | | operatorParenthesis: ) [10:26-10:26] {C:0} {A:{}}
+| | | newLine: \\n [10:27-10:27] {C:0} {A:{}}
+| | | whiteSpace: \\t [11:1-11:1] {C:0} {A:{}}
+| | | keyword: DEFINE [11:2-11:7] {C:0} {A:{}}
+| | | whiteSpace: \\b [11:8-11:8] {C:0} {A:{}}
+| | | identifier: VAR1 [11:9-11:12] {C:0} {A:{}}
+| | | whiteSpace: \\b [11:13-11:13] {C:0} {A:{}}
+| | | identifier: DECIMAL [11:14-11:20] {C:0} {A:{}}
+| | | operatorParenthesis: ( [11:21-11:21] {C:0} {A:{}}
+| | | number: 10 [11:22-11:23] {C:0} {A:{}}
+| | | operatorParenthesis: ) [11:24-11:24] {C:0} {A:{}}
+| | | newLine: \\n [11:25-11:25] {C:0} {A:{}}
+| | | whiteSpace: \\t [12:1-12:1] {C:0} {A:{}}
+| | | keyword: DEFINE [12:2-12:7] {C:0} {A:{}}
+| | | whiteSpace: \\b [12:8-12:8] {C:0} {A:{}}
+| | | identifier: VAR1 [12:9-12:12] {C:0} {A:{}}
+| | | whiteSpace: \\b [12:13-12:13] {C:0} {A:{}}
+| | | keyword: DOUBLE [12:14-12:19] {C:0} {A:{}}
+| | | whiteSpace: \\b [12:20-12:20] {C:0} {A:{}}
+| | | keyword: PRECISION [12:21-12:29] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b [12:30-12:31] {C:0} {A:{}}
+| | | newLine: \\n [12:32-12:32] {C:0} {A:{}}
+| | | whiteSpace: \\t [13:1-13:1] {C:0} {A:{}}
+| | | keyword: DEFINE [13:2-13:7] {C:0} {A:{}}
+| | | whiteSpace: \\b [13:8-13:8] {C:0} {A:{}}
+| | | identifier: VAR1 [13:9-13:12] {C:0} {A:{}}
+| | | whiteSpace: \\b [13:13-13:13] {C:0} {A:{}}
+| | | keyword: DYNAMIC [13:14-13:20] {C:0} {A:{}}
+| | | whiteSpace: \\b [13:21-13:21] {C:0} {A:{}}
+| | | keyword: ARRAY [13:22-13:26] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b [13:27-13:28] {C:0} {A:{}}
+| | | newLine: \\n [13:29-13:29] {C:0} {A:{}}
+| | | whiteSpace: \\t [14:1-14:1] {C:0} {A:{}}
+| | | keyword: DEFINE [14:2-14:7] {C:0} {A:{}}
+| | | whiteSpace: \\b [14:8-14:8] {C:0} {A:{}}
+| | | identifier: VAR1 [14:9-14:12] {C:0} {A:{}}
+| | | whiteSpace: \\b [14:13-14:13] {C:0} {A:{}}
+| | | keyword: FLOAT [14:14-14:18] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b [14:19-14:20] {C:0} {A:{}}
+| | | newLine: \\n [14:21-14:21] {C:0} {A:{}}
+| | | whiteSpace: \\t [15:1-15:1] {C:0} {A:{}}
+| | | keyword: DEFINE [15:2-15:7] {C:0} {A:{}}
+| | | whiteSpace: \\b [15:8-15:8] {C:0} {A:{}}
+| | | identifier: VAR1 [15:9-15:12] {C:0} {A:{}}
+| | | whiteSpace: \\b [15:13-15:13] {C:0} {A:{}}
+| | | identifier: INT [15:14-15:16] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b [15:17-15:18] {C:0} {A:{}}
+| | | newLine: \\n [15:19-15:19] {C:0} {A:{}}
+| | | whiteSpace: \\t [16:1-16:1] {C:0} {A:{}}
+| | | keyword: DEFINE [16:2-16:7] {C:0} {A:{}}
+| | | whiteSpace: \\b [16:8-16:8] {C:0} {A:{}}
+| | | identifier: VAR1 [16:9-16:12] {C:0} {A:{}}
+| | | whiteSpace: \\b [16:13-16:13] {C:0} {A:{}}
+| | | identifier: INTEGER [16:14-16:20] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b [16:21-16:22] {C:0} {A:{}}
+| | | newLine: \\n [16:23-16:23] {C:0} {A:{}}
+| | | whiteSpace: \\t [17:1-17:1] {C:0} {A:{}}
+| | | keyword: DEFINE [17:2-17:7] {C:0} {A:{}}
+| | | whiteSpace: \\b [17:8-17:8] {C:0} {A:{}}
+| | | identifier: VAR1 [17:9-17:12] {C:0} {A:{}}
+| | | whiteSpace: \\b [17:13-17:13] {C:0} {A:{}}
+| | | keyword: MONEY [17:14-17:18] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b [17:19-17:20] {C:0} {A:{}}
+| | | newLine: \\n [17:21-17:21] {C:0} {A:{}}
+| | | whiteSpace: \\t [18:1-18:1] {C:0} {A:{}}
+| | | keyword: DEFINE [18:2-18:7] {C:0} {A:{}}
+| | | whiteSpace: \\b [18:8-18:8] {C:0} {A:{}}
+| | | identifier: VAR1 [18:9-18:12] {C:0} {A:{}}
+| | | whiteSpace: \\b [18:13-18:13] {C:0} {A:{}}
+| | | keyword: NCHAR [18:14-18:18] {C:0} {A:{}}
+| | | operatorParenthesis: ( [18:19-18:19] {C:0} {A:{}}
+| | | number: 100 [18:20-18:22] {C:0} {A:{}}
+| | | operatorParenthesis: ) [18:23-18:23] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b [18:24-18:25] {C:0} {A:{}}
+| | | newLine: \\n [18:26-18:26] {C:0} {A:{}}
+| | | whiteSpace: \\t [19:1-19:1] {C:0} {A:{}}
+| | | keyword: DEFINE [19:2-19:7] {C:0} {A:{}}
+| | | whiteSpace: \\b [19:8-19:8] {C:0} {A:{}}
+| | | identifier: VAR1 [19:9-19:12] {C:0} {A:{}}
+| | | whiteSpace: \\b [19:13-19:13] {C:0} {A:{}}
+| | | keyword: NUMERIC [19:14-19:20] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b [19:21-19:22] {C:0} {A:{}}
+| | | newLine: \\n [19:23-19:23] {C:0} {A:{}}
+| | | whiteSpace: \\t [20:1-20:1] {C:0} {A:{}}
+| | | keyword: DEFINE [20:2-20:7] {C:0} {A:{}}
+| | | whiteSpace: \\b [20:8-20:8] {C:0} {A:{}}
+| | | identifier: VAR1 [20:9-20:12] {C:0} {A:{}}
+| | | whiteSpace: \\b [20:13-20:13] {C:0} {A:{}}
+| | | keyword: NVARCHAR [20:14-20:21] {C:0} {A:{}}
+| | | operatorParenthesis: ( [20:22-20:22] {C:0} {A:{}}
+| | | number: 100 [20:23-20:25] {C:0} {A:{}}
+| | | operatorParenthesis: ) [20:26-20:26] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b [20:27-20:28] {C:0} {A:{}}
+| | | newLine: \\n\\n [20:29-20:30] {C:0} {A:{}}
+| | endBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | keyword: end [22:1-22:3] {C:0} {A:{}}
+| | | whiteSpace: \\b [22:4-22:4] {C:0} {A:{}}
+| | | keyword: MAIN [22:5-22:8] {C:0} {A:{}}
+| | | endLine: - [22:9-22:10] {C:0} {A:{}}
+| | | -newLine: \\n\\n [22:9-22:10] {C:0} {A:{}}
+| block:  [24:1-24:0] {C:3} {A:{}}
+| | beginBlock:  [24:1-24:0] {C:1} {A:{}}
+| | | keyword: function [24:1-24:8] {C:0} {A:{}}
+| | | whiteSpace: \\b [24:9-24:9] {C:0} {A:{}}
+| | | identifier: f1 [24:10-24:11] {C:0} {A:{}}
+| | | argumentList:  [24:12-24:11] {C:1} {A:{}}
+| | | | operatorParenthesis: ( [24:12-24:12] {C:0} {A:{}}
+| | | | operatorParenthesis: ) [24:13-24:13] {C:0} {A:{}}
+| | | endLine: - [24:14-24:15] {C:0} {A:{}}
+| | | -whiteSpace: \\b [24:14-24:14] {C:0} {A:{}}
+| | | -newLine: \\n [24:15-24:15] {C:0} {A:{}}
+| | bodyBlock:  [24:1-24:0] {C:1} {A:{}}
+| | | whiteSpace: \\t [25:1-25:1] {C:0} {A:{}}
+| | | comment: --DEFINE\\bVAR1\\bINTERVAL\\b\\b\\n [25:2-25:26] {C:0} {A:{}}
+| | endBlock:  [24:1-24:0] {C:1} {A:{}}
+| | | keyword: end [26:1-26:3] {C:0} {A:{}}
+| | | whiteSpace: \\b [26:4-26:4] {C:0} {A:{}}
+| | | keyword: function [26:5-26:12] {C:0} {A:{}}
+| | | endLine: - [26:13-26:14] {C:0} {A:{}}
+| | | -newLine: \\n\\n [26:13-26:14] {C:0} {A:{}}
+| block:  [28:1-28:0] {C:3} {A:{}}
+| | beginBlock:  [28:1-28:0] {C:1} {A:{}}
+| | | keyword: function [28:1-28:8] {C:0} {A:{}}
+| | | whiteSpace: \\b [28:9-28:9] {C:0} {A:{}}
+| | | identifier: f2 [28:10-28:11] {C:0} {A:{}}
+| | | argumentList:  [28:12-28:11] {C:1} {A:{}}
+| | | | operatorParenthesis: ( [28:12-28:12] {C:0} {A:{}}
+| | | | operatorParenthesis: ) [28:13-28:13] {C:0} {A:{}}
+| | | endLine: - [28:14-28:15] {C:0} {A:{}}
+| | | -whiteSpace: \\b [28:14-28:14] {C:0} {A:{}}
+| | | -newLine: \\n [28:15-28:15] {C:0} {A:{}}
+| | bodyBlock:  [28:1-28:0] {C:1} {A:{}}
+| | | whiteSpace: \\t [29:1-29:1] {C:0} {A:{}}
+| | | keyword: DEFINE [29:2-29:7] {C:0} {A:{}}
+| | | whiteSpace: \\b [29:8-29:8] {C:0} {A:{}}
+| | | identifier: REC1 [29:9-29:12] {C:0} {A:{}}
+| | | whiteSpace: \\b [29:13-29:13] {C:0} {A:{}}
+| | | block:  [29:14-29:13] {C:3} {A:{}}
+| | | | beginBlock:  [29:14-29:13] {C:1} {A:{}}
+| | | | | keyword: RECORD [29:14-29:19] {C:0} {A:{}}
+| | | | bodyBlock:  [29:14-29:13] {C:1} {A:{}}
+| | | | | newLine: \\n [29:20-29:20] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b\\b\\b\\t [30:1-30:5] {C:0} {A:{}}
+| | | | | identifier: VAR1 [30:6-30:9] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [30:10-30:10] {C:0} {A:{}}
+| | | | | keyword: BIGINT [30:11-30:16] {C:0} {A:{}}
+| | | | | newLine: \\n [30:17-30:17] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b\\t [31:1-31:3] {C:0} {A:{}}
+| | | | endBlock:  [29:14-29:13] {C:1} {A:{}}
+| | | | | keyword: END [31:4-31:6] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [31:7-31:7] {C:0} {A:{}}
+| | | | | keyword: RECORD [31:8-31:13] {C:0} {A:{}}
+| | | | | endLine: - [31:14-31:15] {C:0} {A:{}}
+| | | | | -newLine: \\n\\n [31:14-31:15] {C:0} {A:{}}
+| | | whiteSpace: \\t [33:1-33:1] {C:0} {A:{}}
+| | | keyword: DEFINE [33:2-33:7] {C:0} {A:{}}
+| | | whiteSpace: \\b [33:8-33:8] {C:0} {A:{}}
+| | | identifier: REC2 [33:9-33:12] {C:0} {A:{}}
+| | | whiteSpace: \\b [33:13-33:13] {C:0} {A:{}}
+| | | block:  [33:14-33:13] {C:3} {A:{}}
+| | | | beginBlock:  [33:14-33:13] {C:1} {A:{}}
+| | | | | keyword: RECORD [33:14-33:19] {C:0} {A:{}}
+| | | | bodyBlock:  [33:14-33:13] {C:1} {A:{}}
+| | | | | newLine: \\n [33:20-33:20] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b\\b\\b [34:1-34:4] {C:0} {A:{}}
+| | | | | identifier: VAR1 [34:5-34:8] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [34:9-34:9] {C:0} {A:{}}
+| | | | | keyword: CHAR [34:10-34:13] {C:0} {A:{}}
+| | | | | operatorParenthesis: ( [34:14-34:14] {C:0} {A:{}}
+| | | | | number: 100 [34:15-34:17] {C:0} {A:{}}
+| | | | | operatorParenthesis: ) [34:18-34:18] {C:0} {A:{}}
+| | | | | operatorSeparator: , [34:19-34:19] {C:0} {A:{}}
+| | | | | newLine: \\n [34:20-34:20] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b\\b\\b [35:1-35:4] {C:0} {A:{}}
+| | | | | identifier: VAR1 [35:5-35:8] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [35:9-35:9] {C:0} {A:{}}
+| | | | | identifier: CHARACTER [35:10-35:18] {C:0} {A:{}}
+| | | | | operatorSeparator: , [35:19-35:19] {C:0} {A:{}}
+| | | | | newLine: \\n [35:20-35:20] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b\\b\\b [36:1-36:4] {C:0} {A:{}}
+| | | | | identifier: VAR1 [36:5-36:8] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [36:9-36:9] {C:0} {A:{}}
+| | | | | keyword: DATE [36:10-36:13] {C:0} {A:{}}
+| | | | | operatorSeparator: , [36:14-36:14] {C:0} {A:{}}
+| | | | | newLine: \\n [36:15-36:15] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b\\b\\b [37:1-37:4] {C:0} {A:{}}
+| | | | | identifier: VAR1 [37:5-37:8] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [37:9-37:9] {C:0} {A:{}}
+| | | | | identifier: DATETIME [37:10-37:17] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b [37:18-37:19] {C:0} {A:{}}
+| | | | | keyword: day [37:20-37:22] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [37:23-37:23] {C:0} {A:{}}
+| | | | | keyword: to [37:24-37:25] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [37:26-37:26] {C:0} {A:{}}
+| | | | | keyword: day [37:27-37:29] {C:0} {A:{}}
+| | | | | operatorSeparator: , [37:30-37:30] {C:0} {A:{}}
+| | | | | newLine: \\n [37:31-37:31] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b\\b\\b [38:1-38:4] {C:0} {A:{}}
+| | | | | identifier: VAR1 [38:5-38:8] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [38:9-38:9] {C:0} {A:{}}
+| | | | | keyword: DEC [38:10-38:12] {C:0} {A:{}}
+| | | | | operatorSeparator: , [38:13-38:13] {C:0} {A:{}}
+| | | | | newLine: \\n [38:14-38:14] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b\\b\\b [39:1-39:4] {C:0} {A:{}}
+| | | | | identifier: VAR1 [39:5-39:8] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [39:9-39:9] {C:0} {A:{}}
+| | | | | identifier: DECIMAL [39:10-39:16] {C:0} {A:{}}
+| | | | | operatorParenthesis: ( [39:17-39:17] {C:0} {A:{}}
+| | | | | number: 10 [39:18-39:19] {C:0} {A:{}}
+| | | | | operatorSeparator: , [39:20-39:20] {C:0} {A:{}}
+| | | | | number: 2 [39:21-39:21] {C:0} {A:{}}
+| | | | | operatorParenthesis: ) [39:22-39:22] {C:0} {A:{}}
+| | | | | operatorSeparator: , [39:23-39:23] {C:0} {A:{}}
+| | | | | newLine: \\n [39:24-39:24] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b\\b\\b [40:1-40:4] {C:0} {A:{}}
+| | | | | identifier: VAR1 [40:5-40:8] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [40:9-40:9] {C:0} {A:{}}
+| | | | | identifier: DECIMAL [40:10-40:16] {C:0} {A:{}}
+| | | | | operatorParenthesis: ( [40:17-40:17] {C:0} {A:{}}
+| | | | | number: 10 [40:18-40:19] {C:0} {A:{}}
+| | | | | operatorParenthesis: ) [40:20-40:20] {C:0} {A:{}}
+| | | | | operatorSeparator: , [40:21-40:21] {C:0} {A:{}}
+| | | | | newLine: \\n [40:22-40:22] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b\\b\\b [41:1-41:4] {C:0} {A:{}}
+| | | | | identifier: VAR1 [41:5-41:8] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [41:9-41:9] {C:0} {A:{}}
+| | | | | keyword: DOUBLE [41:10-41:15] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [41:16-41:16] {C:0} {A:{}}
+| | | | | keyword: PRECISION [41:17-41:25] {C:0} {A:{}}
+| | | | | operatorSeparator: , [41:26-41:26] {C:0} {A:{}}
+| | | | | newLine: \\n [41:27-41:27] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b\\b\\b [42:1-42:4] {C:0} {A:{}}
+| | | | | identifier: VAR1 [42:5-42:8] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [42:9-42:9] {C:0} {A:{}}
+| | | | | keyword: FLOAT [42:10-42:14] {C:0} {A:{}}
+| | | | | operatorSeparator: , [42:15-42:15] {C:0} {A:{}}
+| | | | | newLine: \\n [42:16-42:16] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b\\b\\b [43:1-43:4] {C:0} {A:{}}
+| | | | | identifier: VAR1 [43:5-43:8] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [43:9-43:9] {C:0} {A:{}}
+| | | | | identifier: INT [43:10-43:12] {C:0} {A:{}}
+| | | | | operatorSeparator: , [43:13-43:13] {C:0} {A:{}}
+| | | | | newLine: \\n [43:14-43:14] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b\\b\\b [44:1-44:4] {C:0} {A:{}}
+| | | | | identifier: VAR1 [44:5-44:8] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [44:9-44:9] {C:0} {A:{}}
+| | | | | identifier: INTEGER [44:10-44:16] {C:0} {A:{}}
+| | | | | operatorSeparator: , [44:17-44:17] {C:0} {A:{}}
+| | | | | newLine: \\n [44:18-44:18] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b\\b\\b [45:1-45:4] {C:0} {A:{}}
+| | | | | identifier: VAR1 [45:5-45:8] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [45:9-45:9] {C:0} {A:{}}
+| | | | | keyword: MONEY [45:10-45:14] {C:0} {A:{}}
+| | | | | operatorSeparator: , [45:15-45:15] {C:0} {A:{}}
+| | | | | newLine: \\n [45:16-45:16] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b\\b\\b [46:1-46:4] {C:0} {A:{}}
+| | | | | identifier: VAR1 [46:5-46:8] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [46:9-46:9] {C:0} {A:{}}
+| | | | | keyword: NCHAR [46:10-46:14] {C:0} {A:{}}
+| | | | | operatorParenthesis: ( [46:15-46:15] {C:0} {A:{}}
+| | | | | number: 100 [46:16-46:18] {C:0} {A:{}}
+| | | | | operatorParenthesis: ) [46:19-46:19] {C:0} {A:{}}
+| | | | | operatorSeparator: , [46:20-46:20] {C:0} {A:{}}
+| | | | | newLine: \\n [46:21-46:21] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b\\b\\b [47:1-47:4] {C:0} {A:{}}
+| | | | | identifier: VAR1 [47:5-47:8] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [47:9-47:9] {C:0} {A:{}}
+| | | | | keyword: NUMERIC [47:10-47:16] {C:0} {A:{}}
+| | | | | operatorSeparator: , [47:17-47:17] {C:0} {A:{}}
+| | | | | newLine: \\n [47:18-47:18] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b\\b\\b [48:1-48:4] {C:0} {A:{}}
+| | | | | identifier: VAR1 [48:5-48:8] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [48:9-48:9] {C:0} {A:{}}
+| | | | | keyword: NVARCHAR [48:10-48:17] {C:0} {A:{}}
+| | | | | operatorParenthesis: ( [48:18-48:18] {C:0} {A:{}}
+| | | | | number: 100 [48:19-48:21] {C:0} {A:{}}
+| | | | | operatorParenthesis: ) [48:22-48:22] {C:0} {A:{}}
+| | | | | newLine: \\n [48:23-48:23] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b [49:1-49:2] {C:0} {A:{}}
+| | | | endBlock:  [33:14-33:13] {C:1} {A:{}}
+| | | | | keyword: END [49:3-49:5] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [49:6-49:6] {C:0} {A:{}}
+| | | | | keyword: RECORD [49:7-49:12] {C:0} {A:{}}
+| | | | | endLine: - [49:13-49:16] {C:0} {A:{}}
+| | | | | -whiteSpace: \\b\\b [49:13-49:14] {C:0} {A:{}}
+| | | | | -newLine: \\n\\n [49:15-49:16] {C:0} {A:{}}
+| | endBlock:  [28:1-28:0] {C:1} {A:{}}
+| | | keyword: end [51:1-51:3] {C:0} {A:{}}
+| | | whiteSpace: \\b [51:4-51:4] {C:0} {A:{}}
+| | | keyword: function [51:5-51:12] {C:0} {A:{}}
+| | | endLine: - [51:13-51:14] {C:0} {A:{}}
+| | | -newLine: \\n\\n [51:13-51:14] {C:0} {A:{}}
+
+`;
+
+exports[`4gl: Token define-list.4gl 1`] = `
+################################################################################
+### atencao atencao atencao atencao atencao atencao atencao atencao atencao ###
+###############################################################################
+###                                                                         ###
+### por motivos de tamanho deste arquivo fonte, os comandos de  selecao em  ###
+### tabelas (select), que eram identicos em diversas partes do mesmo foram  ###
+### unificados. para manter este principio, procure a seguinte string:      ###
+###                      "busca_" + <nome da tabela>                        ###
+### exemplo: para verificar se ja existe uma selecao que possa ser          ###
+###         utilizada para a tabela ordem_sup, procure "busca_ordem_sup".   ###
+###                                                                         ###
+###############################################################################
+
+#-------------------------------------------------------------------#
+# sistema.: suprimentos                                             #
+# programa: sup3760                                                 #
+# modulos.: sup3760 log0010 log0030 log0040 log0050 log0060 sup0520 #
+# objetivo: manutencao de notas fiscais                             #
+# autor...: tatiane wiese                                           #
+# data....: 18/11/1994                                              #
+#                                                                   #
+# ******************** a t e n c a o  ! ! ! ! ********************* #
+# favor manter a identacao neste  programa (tres colunas),  para  o #
+# melhor entendimento do programa nas manutencoes posteriores.      #
+# ***************************************************************** #
+#-------------------------------------------------------------------#
+
+define m_msg                             char(200)
+
+define m_num_nf_cap                      char(07),
+m_informou_grade                  smallint
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+program:  [1:1-1:0] {C:1} {A:{}}
+| comment: ################################################################################\\n [1:1-1:81] {C:0} {A:{}}
+| comment: ###\\batencao\\batencao\\batencao\\batencao\\batencao\\batencao\\batencao\\batencao\\batencao\\b###\\n [2:1-2:80] {C:0} {A:{}}
+| comment: ###############################################################################\\n [3:1-3:80] {C:0} {A:{}}
+| comment: ###\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b###\\n [4:1-4:80] {C:0} {A:{}}
+| comment: ###\\bpor\\bmotivos\\bde\\btamanho\\bdeste\\barquivo\\bfonte,\\bos\\bcomandos\\bde\\b\\bselecao\\bem\\b\\b###\\n [5:1-5:80] {C:0} {A:{}}
+| comment: ###\\btabelas\\b(select),\\bque\\beram\\bidenticos\\bem\\bdiversas\\bpartes\\bdo\\bmesmo\\bforam\\b\\b###\\n [6:1-6:80] {C:0} {A:{}}
+| comment: ###\\bunificados.\\bpara\\bmanter\\beste\\bprincipio,\\bprocure\\ba\\bseguinte\\bstring:\\b\\b\\b\\b\\b\\b###\\n [7:1-7:80] {C:0} {A:{}}
+| comment: ###\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b"busca_"\\b+\\b<nome\\bda\\btabela>\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b###\\n [8:1-8:80] {C:0} {A:{}}
+| comment: ###\\bexemplo:\\bpara\\bverificar\\bse\\bja\\bexiste\\buma\\bselecao\\bque\\bpossa\\bser\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b###\\n [9:1-9:80] {C:0} {A:{}}
+| comment: ###\\b\\b\\b\\b\\b\\b\\b\\b\\butilizada\\bpara\\ba\\btabela\\bordem_sup,\\bprocure\\b"busca_ordem_sup".\\b\\b\\b###\\n [10:1-10:80] {C:0} {A:{}}
+| comment: ###\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b###\\n [11:1-11:80] {C:0} {A:{}}
+| comment: ###############################################################################\\n\\n [12:1-12:81] {C:0} {A:{}}
+| comment: #-------------------------------------------------------------------#\\n [14:1-14:70] {C:0} {A:{}}
+| comment: #\\bsistema.:\\bsuprimentos\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b#\\n [15:1-15:70] {C:0} {A:{}}
+| comment: #\\bprograma:\\bsup3760\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b#\\n [16:1-16:70] {C:0} {A:{}}
+| comment: #\\bmodulos.:\\bsup3760\\blog0010\\blog0030\\blog0040\\blog0050\\blog0060\\bsup0520\\b#\\n [17:1-17:70] {C:0} {A:{}}
+| comment: #\\bobjetivo:\\bmanutencao\\bde\\bnotas\\bfiscais\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b#\\n [18:1-18:70] {C:0} {A:{}}
+| comment: #\\bautor...:\\btatiane\\bwiese\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b#\\n [19:1-19:70] {C:0} {A:{}}
+| comment: #\\bdata....:\\b18/11/1994\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b#\\n [20:1-20:70] {C:0} {A:{}}
+| comment: #\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b#\\n [21:1-21:70] {C:0} {A:{}}
+| comment: #\\b********************\\ba\\bt\\be\\bn\\bc\\ba\\bo\\b\\b!\\b!\\b!\\b!\\b*********************\\b#\\n [22:1-22:70] {C:0} {A:{}}
+| comment: #\\bfavor\\bmanter\\ba\\bidentacao\\bneste\\b\\bprograma\\b(tres\\bcolunas),\\b\\bpara\\b\\bo\\b#\\n [23:1-23:70] {C:0} {A:{}}
+| comment: #\\bmelhor\\bentendimento\\bdo\\bprograma\\bnas\\bmanutencoes\\bposteriores.\\b\\b\\b\\b\\b\\b#\\n [24:1-24:70] {C:0} {A:{}}
+| comment: #\\b*****************************************************************\\b#\\n [25:1-25:70] {C:0} {A:{}}
+| comment: #-------------------------------------------------------------------#\\n\\n [26:1-26:71] {C:0} {A:{}}
+| keyword: define [28:1-28:6] {C:0} {A:{}}
+| whiteSpace: \\b [28:7-28:7] {C:0} {A:{}}
+| identifier: m_msg [28:8-28:12] {C:0} {A:{}}
+| whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [28:13-28:41] {C:0} {A:{}}
+| keyword: char [28:42-28:45] {C:0} {A:{}}
+| operatorParenthesis: ( [28:46-28:46] {C:0} {A:{}}
+| number: 200 [28:47-28:49] {C:0} {A:{}}
+| operatorParenthesis: ) [28:50-28:50] {C:0} {A:{}}
+| newLine: \\n\\n [28:51-28:52] {C:0} {A:{}}
+| keyword: define [30:1-30:6] {C:0} {A:{}}
+| whiteSpace: \\b [30:7-30:7] {C:0} {A:{}}
+| identifier: m_num_nf_cap [30:8-30:19] {C:0} {A:{}}
+| whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [30:20-30:41] {C:0} {A:{}}
+| keyword: char [30:42-30:45] {C:0} {A:{}}
+| operatorParenthesis: ( [30:46-30:46] {C:0} {A:{}}
+| number: 07 [30:47-30:48] {C:0} {A:{}}
+| operatorParenthesis: ) [30:49-30:49] {C:0} {A:{}}
+| operatorSeparator: , [30:50-30:50] {C:0} {A:{}}
+| newLine: \\n [30:51-30:51] {C:0} {A:{}}
+| identifier: m_informou_grade [31:1-31:16] {C:0} {A:{}}
+| whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [31:17-31:34] {C:0} {A:{}}
+| identifier: smallint [31:35-31:42] {C:0} {A:{}}
+| newLine: \\n\\n [31:43-31:44] {C:0} {A:{}}
+
+`;
+
+exports[`4gl: Token define1.4gl 1`] = `
+globals
+define mod char(10)
+end globals
+
+main 
+	--define var1 record like tab1.*
+end main
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+program:  [1:1-1:0] {C:1} {A:{}}
+| block:  [1:1-1:0] {C:3} {A:{}}
+| | beginBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | keyword: globals [1:1-1:7] {C:0} {A:{}}
+| | | endLine: - [1:8-1:8] {C:0} {A:{}}
+| | | -newLine: \\n [1:8-1:8] {C:0} {A:{}}
+| | bodyBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | keyword: define [2:1-2:6] {C:0} {A:{}}
+| | | whiteSpace: \\b [2:7-2:7] {C:0} {A:{}}
+| | | keyword: mod [2:8-2:10] {C:0} {A:{}}
+| | | whiteSpace: \\b [2:11-2:11] {C:0} {A:{}}
+| | | keyword: char [2:12-2:15] {C:0} {A:{}}
+| | | operatorParenthesis: ( [2:16-2:16] {C:0} {A:{}}
+| | | number: 10 [2:17-2:18] {C:0} {A:{}}
+| | | operatorParenthesis: ) [2:19-2:19] {C:0} {A:{}}
+| | | newLine: \\n [2:20-2:20] {C:0} {A:{}}
+| | endBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | keyword: end [3:1-3:3] {C:0} {A:{}}
+| | | whiteSpace: \\b [3:4-3:4] {C:0} {A:{}}
+| | | keyword: globals [3:5-3:11] {C:0} {A:{}}
+| | | endLine: - [3:12-3:13] {C:0} {A:{}}
+| | | -newLine: \\n\\n [3:12-3:13] {C:0} {A:{}}
+| block:  [5:1-5:0] {C:3} {A:{}}
+| | beginBlock:  [5:1-5:0] {C:1} {A:{}}
+| | | keyword: main [5:1-5:4] {C:0} {A:{}}
+| | | endLine: - [5:5-5:6] {C:0} {A:{}}
+| | | -whiteSpace: \\b [5:5-5:5] {C:0} {A:{}}
+| | | -newLine: \\n [5:6-5:6] {C:0} {A:{}}
+| | bodyBlock:  [5:1-5:0] {C:1} {A:{}}
+| | | whiteSpace: \\t [6:1-6:1] {C:0} {A:{}}
+| | | comment: --define\\bvar1\\brecord\\blike\\btab1.*\\n [6:2-6:34] {C:0} {A:{}}
+| | endBlock:  [5:1-5:0] {C:1} {A:{}}
+| | | keyword: end [7:1-7:3] {C:0} {A:{}}
+| | | whiteSpace: \\b [7:4-7:4] {C:0} {A:{}}
+| | | keyword: main [7:5-7:8] {C:0} {A:{}}
+| | | endLine: - [7:9-7:9] {C:0} {A:{}}
+| | | -newLine: \\n [7:9-7:9] {C:0} {A:{}}
+
+`;
+
+exports[`4gl: Token define2.4gl 1`] = `
+main 
+	--DEFINE VAR1 record LIKE TAB1.*
+end main
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+program:  [1:1-1:0] {C:1} {A:{}}
+| block:  [1:1-1:0] {C:3} {A:{}}
+| | beginBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | keyword: main [1:1-1:4] {C:0} {A:{}}
+| | | endLine: - [1:5-1:6] {C:0} {A:{}}
+| | | -whiteSpace: \\b [1:5-1:5] {C:0} {A:{}}
+| | | -newLine: \\n [1:6-1:6] {C:0} {A:{}}
+| | bodyBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | whiteSpace: \\t [2:1-2:1] {C:0} {A:{}}
+| | | comment: --DEFINE\\bVAR1\\brecord\\bLIKE\\bTAB1.*\\n [2:2-2:34] {C:0} {A:{}}
+| | endBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | keyword: end [3:1-3:3] {C:0} {A:{}}
+| | | whiteSpace: \\b [3:4-3:4] {C:0} {A:{}}
+| | | keyword: main [3:5-3:8] {C:0} {A:{}}
+| | | endLine: - [3:9-3:9] {C:0} {A:{}}
+| | | -newLine: \\n [3:9-3:9] {C:0} {A:{}}
+
+`;
+
+exports[`4gl: Token for.4gl 1`] = `
+main
+
+  for a=1 to 20
+  end for
+
+  for a=1 to 20
+    display b
+  end for
+
+end main
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+program:  [1:1-1:0] {C:1} {A:{}}
+| block:  [1:1-1:0] {C:3} {A:{}}
+| | beginBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | keyword: main [1:1-1:4] {C:0} {A:{}}
+| | | endLine: - [1:5-1:6] {C:0} {A:{}}
+| | | -newLine: \\n\\n [1:5-1:6] {C:0} {A:{}}
+| | bodyBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | whiteSpace: \\b\\b [3:1-3:2] {C:0} {A:{}}
+| | | block:  [3:3-3:2] {C:3} {A:{}}
+| | | | beginBlock:  [3:3-3:2] {C:1} {A:{}}
+| | | | | keyword: for [3:3-3:5] {C:0} {A:{}}
+| | | | bodyBlock:  [3:3-3:2] {C:1} {A:{}}
+| | | | | whiteSpace: \\b [3:6-3:6] {C:0} {A:{}}
+| | | | | identifier: a [3:7-3:7] {C:0} {A:{}}
+| | | | | operatorMath: = [3:8-3:8] {C:0} {A:{}}
+| | | | | number: 1 [3:9-3:9] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [3:10-3:10] {C:0} {A:{}}
+| | | | | keyword: to [3:11-3:12] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [3:13-3:13] {C:0} {A:{}}
+| | | | | number: 20 [3:14-3:15] {C:0} {A:{}}
+| | | | | newLine: \\n [3:16-3:16] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b [4:1-4:2] {C:0} {A:{}}
+| | | | endBlock:  [3:3-3:2] {C:1} {A:{}}
+| | | | | keyword: end [4:3-4:5] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [4:6-4:6] {C:0} {A:{}}
+| | | | | keyword: for [4:7-4:9] {C:0} {A:{}}
+| | | | | endLine: - [4:10-4:11] {C:0} {A:{}}
+| | | | | -newLine: \\n\\n [4:10-4:11] {C:0} {A:{}}
+| | | whiteSpace: \\b\\b [6:1-6:2] {C:0} {A:{}}
+| | | block:  [6:3-6:2] {C:3} {A:{}}
+| | | | beginBlock:  [6:3-6:2] {C:1} {A:{}}
+| | | | | keyword: for [6:3-6:5] {C:0} {A:{}}
+| | | | bodyBlock:  [6:3-6:2] {C:1} {A:{}}
+| | | | | whiteSpace: \\b [6:6-6:6] {C:0} {A:{}}
+| | | | | identifier: a [6:7-6:7] {C:0} {A:{}}
+| | | | | operatorMath: = [6:8-6:8] {C:0} {A:{}}
+| | | | | number: 1 [6:9-6:9] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [6:10-6:10] {C:0} {A:{}}
+| | | | | keyword: to [6:11-6:12] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [6:13-6:13] {C:0} {A:{}}
+| | | | | number: 20 [6:14-6:15] {C:0} {A:{}}
+| | | | | newLine: \\n [6:16-6:16] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b\\b\\b [7:1-7:4] {C:0} {A:{}}
+| | | | | keyword: display [7:5-7:11] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [7:12-7:12] {C:0} {A:{}}
+| | | | | identifier: b [7:13-7:13] {C:0} {A:{}}
+| | | | | newLine: \\n [7:14-7:14] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b [8:1-8:2] {C:0} {A:{}}
+| | | | endBlock:  [6:3-6:2] {C:1} {A:{}}
+| | | | | keyword: end [8:3-8:5] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [8:6-8:6] {C:0} {A:{}}
+| | | | | keyword: for [8:7-8:9] {C:0} {A:{}}
+| | | | | endLine: - [8:10-8:11] {C:0} {A:{}}
+| | | | | -newLine: \\n\\n [8:10-8:11] {C:0} {A:{}}
+| | endBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | keyword: end [10:1-10:3] {C:0} {A:{}}
+| | | whiteSpace: \\b [10:4-10:4] {C:0} {A:{}}
+| | | keyword: main [10:5-10:8] {C:0} {A:{}}
+| | | endLine: - [10:9-10:9] {C:0} {A:{}}
+| | | -newLine: \\n [10:9-10:9] {C:0} {A:{}}
+
+`;
+
+exports[`4gl: Token if.4gl 1`] = `
+main 
+
+  if a=b then
+    display "xxxx"
+  end if
+
+end main
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+program:  [1:1-1:0] {C:1} {A:{}}
+| block:  [1:1-1:0] {C:3} {A:{}}
+| | beginBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | keyword: main [1:1-1:4] {C:0} {A:{}}
+| | | endLine: - [1:5-1:7] {C:0} {A:{}}
+| | | -whiteSpace: \\b [1:5-1:5] {C:0} {A:{}}
+| | | -newLine: \\n\\n [1:6-1:7] {C:0} {A:{}}
+| | bodyBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | whiteSpace: \\b\\b [3:1-3:2] {C:0} {A:{}}
+| | | block:  [3:3-3:2] {C:3} {A:{}}
+| | | | beginBlock:  [3:3-3:2] {C:1} {A:{}}
+| | | | | keyword: if [3:3-3:4] {C:0} {A:{}}
+| | | | bodyBlock:  [3:3-3:2] {C:1} {A:{}}
+| | | | | whiteSpace: \\b [3:5-3:5] {C:0} {A:{}}
+| | | | | identifier: a [3:6-3:6] {C:0} {A:{}}
+| | | | | operatorMath: = [3:7-3:7] {C:0} {A:{}}
+| | | | | identifier: b [3:8-3:8] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [3:9-3:9] {C:0} {A:{}}
+| | | | | keyword: then [3:10-3:13] {C:0} {A:{}}
+| | | | | newLine: \\n [3:14-3:14] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b\\b\\b [4:1-4:4] {C:0} {A:{}}
+| | | | | keyword: display [4:5-4:11] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [4:12-4:12] {C:0} {A:{}}
+| | | | | string: "xxxx" [4:13-4:18] {C:0} {A:{}}
+| | | | | newLine: \\n [4:19-4:19] {C:0} {A:{}}
+| | | | | whiteSpace: \\b\\b [5:1-5:2] {C:0} {A:{}}
+| | | | endBlock:  [3:3-3:2] {C:1} {A:{}}
+| | | | | keyword: end [5:3-5:5] {C:0} {A:{}}
+| | | | | whiteSpace: \\b [5:6-5:6] {C:0} {A:{}}
+| | | | | keyword: if [5:7-5:8] {C:0} {A:{}}
+| | | | | endLine: - [5:9-5:10] {C:0} {A:{}}
+| | | | | -newLine: \\n\\n [5:9-5:10] {C:0} {A:{}}
+| | endBlock:  [1:1-1:0] {C:1} {A:{}}
+| | | keyword: end [7:1-7:3] {C:0} {A:{}}
+| | | whiteSpace: \\b [7:4-7:4] {C:0} {A:{}}
+| | | keyword: main [7:5-7:8] {C:0} {A:{}}
+| | | endLine: - [7:9-7:10] {C:0} {A:{}}
+| | | -newLine: \\n\\n [7:9-7:10] {C:0} {A:{}}
+
+`;

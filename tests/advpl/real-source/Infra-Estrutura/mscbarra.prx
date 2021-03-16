@@ -1,0 +1,388 @@
+#include "fivewin.ch"
+Static nAt     :=  1
+#IFDEF WINDOWS
+    #IFNDEF PROTHEUS
+        Static nHdlDLL := -1
+		/*/
+        ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+        ±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+        ±±³Fun‡„o    ³ DLLOpen  ³ Autor ³ Ben-Hur M. Castilho   ³ Data ³ 16/08/97 ³±±
+        ±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+        ±±³Descri‡„o ³Inicializa a DLL "SERIAL.DLL"                               ³±±
+        ±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+        ±±³Uso       ³ Init Procedure                                             ³±±
+        ±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+        ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+        ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+		/*/
+        Init Procedure DLLOPEN()
+
+        nHdlDLL := 0
+
+        Return
+		/*/
+        ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+        ±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+        ±±³Fun‡„o    ³ DLLClose ³ Autor ³ Ben-Hur M. Castilho   ³ Data ³ 16/08/97 ³±±
+        ±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+        ±±³Descri‡„o ³Finaliza a DLL "SERIAL.DLL"                                 ³±±
+        ±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+        ±±³Uso       ³ Exit Procedure                                             ³±±
+        ±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+        ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+        ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+		/*/
+        Exit Procedure DLLCLOSE()
+
+        //	FreeLibrary(nHdlDLL)
+
+        Return
+    #ENDIF
+#ENDIF
+/*/
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+±±³Fun‡„o    ³MsEtqBarra³ Autor ³ Ben-Hur M. Castilho   ³ Data ³ 16/08/97 ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Descri‡„o ³Imprime etiquetas de codigo de barras p/ a impressora Zebra ³±±
+±±³          ³(OBS: Devera se Ajustada apos a COMDEX/97)                  ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Parametros³ExpC1 - Porta Serial da Impressora de Codigo de Barras      ³±±
+±±³          ³ExpC2 - Nome Fantasia de Empresa                            ³±±
+±±³          ³ExpC3 - Descricao do Codigo de Barras a Ser Impresso        ³±±
+±±³          ³ExpC4 - Codigo de Barras a Ser Impresso                     ³±±
+±±³          ³ExpC5 - Nome do LogoTipo a Ser Carregado e Impresso         ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Uso       ³ Generico                                                   ³±±
+±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+/*/
+Function MsEtqBarra( ExpC1,ExpC2,ExpC3,ExpC4,ExpC5 )
+
+    #define DEVICE_SET 20
+    #define PRINT__SET 24
+
+    If (ValType(ExpC1) == "C")
+        ExpC1 := Upper(ExpC1)
+        If !("COM"$ExpC1)
+            Return(NIL)
+        EndIf
+    Else
+        Return(NIL)
+    EndIf
+
+    ExpC2 := If((ValType(ExpC2) == "C"),Alltrim(ExpC2),"")
+    ExpC3 := If((ValType(ExpC3) == "C"),Alltrim(ExpC3),"")
+    ExpC4 := If((ValType(ExpC4) == "C"),PadR(ExpC4,15),"")
+    ExpC5 := If((ValType(ExpC5) == "C"),Alltrim(ExpC5),"")
+    ExpC5 := PadR(ExpC5,8)
+
+    MsOpenPort(nHdlDLL,ExpC1+":9600,e,7,2,r")
+
+    MsWrite(nHdlDLL,"^XA^LL432")
+
+    If !Empty(ExpC5)
+        MsWrite(nHdlDLL,"^FO56,56^XG"+ExpC5+",1,1^FS")
+    EndIf
+
+    MsWrite(nHdlDLL,"^FO260,100^A0N,80,48^FD"+ExpC2+"^FS")
+
+    If !Empty(ExpC4)
+        MsWrite(nHdlDLL,"^FO100,210^BY2,4,150^B3N,N,100,Y,N,^FD"+ExpC4+"^FS")
+    EndIf
+
+    MsWrite(nHdlDLL,"^FO50,400^ADN,30,15^FD"+ExpC3+"^FS^XZ")
+
+    MsClosePort(nHdlDLL)
+
+Return(NIL)
+
+	/*/
+    ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+    ±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+    ±±³Fun‡„o    ³ MsCodBarra³ Autor ³ Waldemiro L. Lustosa ³ Data ³ 19.09.94 ³±±
+    ±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+    ±±³Descri‡„o ³ Entrada de Codigos Via Codigo de Barras.                   ³±±
+    ±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+    ±±³Parametros³ExpC1 - Alias do Arquivo a Ser Pesquisado                   ³±±
+    ±±³          ³ExpN1 - Ordem de Pesquisa dos Codigos                       ³±±
+    ±±³          ³ExpA1 - Array de Campos a Utilizar (Cod./Descricao/Qtde)    ³±±
+    ±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+    ±±³Uso       ³ Generico                                                   ³±±
+    ±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+    ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+    ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Function MsCodBarra( ExpC1,ExpN1,ExpA1 )
+
+    Local cBarEntry	:= NIL
+    Local cSvScrB		:= NIL
+    Local aCRA			:= { "Confirma","Redigita","Abandona" }, cSavMenuh, nOpcA:=3
+    Local oDlg			:= NIL
+    Local oCod			:= NIL
+    Local lLoop			:= .F.
+    Local aCodI			:= GetSX3Info(ExpA1[1])
+    Local aDscI			:= GetSX3Info(ExpA1[2])
+    Local nLenList		:= 0
+    Local nCnt01
+
+    PRIVATE nBytes		:= IIf( GetMV("MV_CONSBAR") > aCodI[3] , aCodI[3] , GetMV("MV_CONSBAR") )
+    PRIVATE oBrowse	:= NIL
+    PRIVATE aListBox	:={{Space(aCodI[3]),Space(aDscI[3]),0}}
+
+    cTitulo:="Entrada por C¢digo de Barras"
+    cBarEntry:=Space(Len(SB1->B1_COD))
+
+    cVar:=NIL
+    SetKey(VK_F5,{||MsGetQuant(oBrowse)})
+    SetKey(VK_F6,{||MsApagaItm(oBrowse,aListBox)})
+    DEFINE MSDIALOG oDlg TITLE OemtoAnsi(cTitulo) FROM  180,080 TO 450,550 PIXEL OF oMainWnd
+    @ 10,10 SAY OemToAnsi("Leitura do C¢digo") SIZE 50,8 OF oDlg PIXEL
+    @ 10,60 MSGET oCod VAR cBarEntry PICTURE "@!" VALID MsValidate(@cBarEntry,@lLoop,nBytes,ExpC1,ExpN1,ExpA1,oCod) F3 "SB1" SIZE 160,10 OF oDlg PIXEL
+    @ 28,10 TO 110, 227 LABEL "" OF oDlg PIXEL
+    @ 33,12 LISTBOX oBrowse VAR cVar FIELDS HEADER "Codigo","Descricao","Quantidade" ON DBLCLICK MsGetQuant(oBrowse) SIZE 214,76 PIXEL
+    oBrowse:bGotFocus:={||SetFocus(oCod:hWnd)}
+    oBrowse:SetArray(aListBox)
+    oBrowse:bLine:={||{aListBox[oBrowse:nAt,1],aListBox[oBrowse:nAt,2],xPadl(Str(aListBox[oBrowse:nAt,3]),100)}}
+    DEFINE SBUTTON FROM 115, 172 TYPE 1 ACTION (nOpca:=1,oDlg:End()) ENABLE OF oDlg
+    DEFINE SBUTTON FROM 115, 200 TYPE 2 ACTION (nOpca:=3,oDlg:End()) ENABLE OF oDlg
+    @ 115,10 SAY OemToAnsi("[F5] Quantidade [F6] Excluir") SIZE 100,8 OF oDlg PIXEL
+    ACTIVATE MSDIALOG oDlg
+    SetKey(VK_F5,NIL)
+    SetKey(VK_F6,NIL)
+
+    If (nOpcA == 1)
+        nLenList := Len(aListBox)
+
+        For nCnt01 := 1 To nLenList
+            If Empty(aListBox[nCnt01,1])
+                ADel(aListBox,nCnt01)
+                nLenList--
+                nCnt01--
+                aSize(aListBox,nLenList)
+            Endif
+        Next
+    Else
+        aListBox := {}
+    EndIf
+
+Return(aListBox)
+	/*/
+    ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+    ±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+    ±±³Fun‡„o    ³MsNewColumn ³Autor³ Juan Jose Pereira     ³ Data ³ 30.09.96 ³±±
+    ±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+    ±±³Descri‡„o ³Controla teclas do browse da entrada por codigo de barras   ³±±
+    ±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+    ±±³Uso       ³ Generico                                                   ³±±
+    ±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+    ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+    ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Function MsNewColumn(aListBox,nCnt01,ExpA1)
+
+    Local oBack   := NIL
+    Local aInfSX3 := GetSX3Info(ExpA1[nCnt01])
+
+Return( TBColumnNew( aInfSX3[1],{ || aListBox[nAt,nCnt01]} ) )
+
+	/*/
+    ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+    ±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+    ±±³Fun‡„o    ³MsAvalKey   ³Autor³ Juan Jose Pereira     ³ Data ³ 30.09.96 ³±±
+    ±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+    ±±³Descri‡„o ³Controla teclas do browse da entrada por codigo de barras   ³±±
+    ±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+    ±±³Uso       ³ Generico                                                   ³±±
+    ±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+    ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+    ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Function MsAvalKey(oBrowse,nTecla,lGetInativo,lExit,aListBox)
+
+    Do Case
+    Case nTecla==K_UP 	; oBrowse:Up()
+    Case nTecla==K_DOWN 	; oBrowse:Down()
+    Case nTecla==K_RIGHT ; oBrowse:Right()
+    Case nTecla==K_LEFT 	; oBrowse:Left()
+    Case nTecla==K_TAB 	; lGetInativo:=.F.
+    Case nTecla==K_F5		; MsGetQuant(oBrowse)
+    Case nTecla==K_ENTER ; MsGetQuant(oBrowse)
+    Case nTecla==K_F6 	; MsApagaItm(oBrowse,aListBox)
+    Case nTecla==K_ESC 	; lExit:=.T.
+    EndCase
+
+Return
+	/*/
+    ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+    ±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+    ±±³Fun‡„o    ³MsApagaItm  ³Autor³ Juan Jose Pereira     ³ Data ³ 30.09.96 ³±±
+    ±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+    ±±³Descri‡„o ³Apaga itens da entrada por leitora de codigo de barras      ³±±
+    ±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+    ±±³Uso       ³ Generico                                                   ³±±
+    ±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+    ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+    ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	*/
+Function MsApagaItm(oBrowse,aListBox)
+
+    nPos:=oBrowse:nAt
+
+    If !Empty(aListBox[nPos,1])
+        If Len(aListBox)==1
+            aListBox[1,1]:=Space(Len(SB1->B1_COD))
+            aListBox[1,2]:=Space(Len(SB1->B1_DESC))
+            aListBox[1,3]:=0
+        Else
+            ADEL(aListBox,nPos)
+            ASIZE(aListBox,Len(aListBox)-1)
+        Endif
+    Endif
+    oBrowse:SetArray(aListBox)
+    oBrowse:bLine:={||{aListBox[oBrowse:nAt,1],aListBox[oBrowse:nAt,2],xPadl(Str(aListBox[oBrowse:nAt,3]),100)}}
+    oBrowse:Refresh()
+
+Return NIL
+	/*/
+    ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+    ±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+    ±±³Fun‡„o    ³ MsValidate ³ Autor ³ Waldemiro L. Lustosa ³ Data ³ 05.10.94 ³±±
+    ±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+    ±±³Descri‡„o ³ Checa a Existencia do Codigo no Campo Chave Especificado    ³±±
+    ±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+    ±±³Uso       ³ Generico                                                    ³±±
+    ±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+    ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+    ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Function MsValidate(cCodigo,lLoop,nBytes,cALias,nOrder,aFields,oCod)
+
+    Local lRet	:= .F.
+    Local cArea	:= Alias()
+    Local aCodI	:= GetSX3Info(aFields[1])
+
+    DbSelectArea(cAlias) ; DbSetOrder(nOrder)
+    lRet := DbSeek(xFilial(cAlias)+cCodigo,.F.)
+    DbSelectArea(cArea)
+
+    If !lRet
+        IF !Empty(cCodigo)
+            Help(" ",1,"A410NPROD")
+        Else
+            lRet := .t.
+        Endif
+        cCodigo:=Space(aCodI[3])
+        oCod:Refresh()
+    Else
+        nPosProd:=Ascan(aListBox,{|x|x[1]==cCodigo})
+        If nPosProd==0
+            If Len(aListBox)==1.and.Empty(Trim(aListBox[1,1]))
+                aListBox[1,1]:=cCodigo
+                aListBox[1,2]:=(cAlias)->(FieldGet(FieldPos(aFields[2])))
+                aListBox[1,3]:=1
+                nPosProd:=1
+            Else
+                If (Len(aListBox)+1)>99
+                    Help(" ",1,"A410LIMMAX")
+                    nPosProd:=oBrowse:nAt
+                Else
+                    Aadd(aListBox,{cCodigo,(cAlias)->(FieldGet(FieldPos(aFields[2]))),1})
+                    nPosProd:=Len(aListBox)
+                Endif
+            Endif
+        Else
+            aListBox[nPosProd,3]+=1
+        Endif
+        oBrowse:SetArray(aListBox)
+        oBrowse:bLine:={||{aListBox[oBrowse:nAt,1],aListBox[oBrowse:nAt,2],xPadl(Str(aListBox[oBrowse:nAt,3]),100)}}
+        oBrowse:nAt:=nPosProd
+        oBrowse:Refresh()
+        cCodigo:=Space(aCodI[3])
+        oCod:Refresh()
+    Endif
+    lLoop:=.T.
+
+Return(lRet)
+	/*/
+    ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+    ±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+    ±±³Fun‡„o    ³MsGetQuant  ³Autor³ Juan Jose Pereira     ³ Data ³ 30.09.96 ³±±
+    ±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+    ±±³Descri‡„o ³Aciona Get para alteracao da quantidade em entrada por      ³±±
+    ±±³          ³leitora por codigo de barras                                ³±±
+    ±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+    ±±³Uso       ³ Generico                                                   ³±±
+    ±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+    ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+    ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Function MsGetQuant(oBrowse)
+
+    Local oDlgGet	:= NIL
+    Local nQuant	:= NIL
+    Local cTitulo	:= "Quantidade"
+    Local nOpcGet	:= 2
+    Local nPos		:= 0
+    Local cSvScr	:= ""
+    Local GetList	:= {}
+    Local cProduto	:= ""
+
+    nPos:=oBrowse:nAt
+
+    If !Empty(aListBox[nPos,1])
+        cProduto:=Alltrim(aListBox[nPos,1])+" - "+Alltrim(aListBox[nPos,2])
+        nQuant:=aListBox[nPos,3]
+        DEFINE MSDIALOG oDlgGet TITLE OemtoAnsi(cTitulo) FROM  200,80 TO 300,560 PIXEL OF oMainWnd
+        @ 01,03 TO 25, 231 LABEL "" OF oDlgGet PIXEL
+        @ 10,10 say OemToAnsi(cProduto) SIZE 150,08 OF oDlgGet PIXEL
+        @ 10,179 MSGET nQuant PICTURE "@E 99999999999" VALID NaoVazio(nQuant) SIZE 50,08 OF oDlgGet PIXEL
+        DEFINE SBUTTON FROM 30, 175 TYPE 1 ACTION (nOpcGet:=1,oDlgGet:End()) ENABLE OF oDlgGet
+        DEFINE SBUTTON FROM 30, 204 TYPE 2 ACTION (nOpcGet:=2,oDlgGet:End()) ENABLE OF oDlgGet
+        ACTIVATE MSDIALOG oDlgGet
+        If nQuant>0
+            aListBox[nPos,3]:=nQuant
+            oBrowse:SetArray(aListBox)
+            oBrowse:bLine:={||{aListBox[oBrowse:nAt,1],aListBox[oBrowse:nAt,2],xPadl(Str(aListBox[oBrowse:nAt,3]),100)}}
+            oBrowse:Refresh()
+        Endif
+    Endif
+
+Return NIL
+	/*/
+    ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+    ±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+    ±±³Fun‡„o    ³GetSX3Info  ³Autor³ Juan Jose Pereira     ³ Data ³ 30.09.96 ³±±
+    ±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+    ±±³Descri‡„o ³                                                            ³±±
+    ±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+    ±±³Uso       ³ Generico                                                   ³±±
+    ±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+    ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+    ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	/*/
+Function GetSX3Info(cCampo)
+
+    Local aInfo := { "","",0,0 }
+
+    Local cArea := Alias(),;
+        nOrd1 := IndexOrd(),;
+        nRecN := RecNo()
+
+    Local nOrd2 := 0
+
+    DbSelectArea("SX3"); nOrd2 := IndexOrd(); DbSetOrder(2)
+
+    If DbSeek(cCampo,.F.)
+        aInfo[1] := X3Titulo()
+        aInfo[2] := SX3->X3_TIPO
+        aInfo[3] := SX3->X3_TAMANHO
+        aInfo[4] := SX3->X3_DECIMAL
+    EndIf
+
+    DbSetOrder(1)
+
+    DbSelectArea(cArea); DbSetOrder(nOrd1); DbGoTo(nRecN)
+
+Return(aInfo)

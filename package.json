@@ -1,20 +1,21 @@
 {
-  "name": "tds-parsers",
-  "displayName": "TOTVS Developer Studio: Parsers",
-  "description": "Extensão para análise sintática das linguagens proprietárias TOTVS e de terceiros.",
-  "version": "0.0.3",
+  "name": "@totvs/tds-parsers",
+  "displayName": "TOTVS Developer Studio: Analisador Sintático",
+  "description": "Extensão para análise sintática das linguagens proprietárias TOTVS.",
+  "version": "0.1.0",
   "publisher": "TOTVS",
   "author": {
     "name": "TOTVS",
     "email": "tecnologia@totvs.com.br"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "keywords": [
     "4gl",
     "advpl",
     "tds",
     "totvs",
-    "parser"
+    "parser",
+    "pegjs"
   ],
   "repository": {
     "type": "git",
@@ -29,51 +30,55 @@
   "main": "lib/index.js",
   "types": "typings/index.d.ts",
   "files": [
-    "bin/",
     "lib/",
     "typings/",
+    "grammar/",
     "README.md",
     "LICENSE"
   ],
-  "bin": {
-    "tds-parser": "./bin/tds-parser-cli.js"
-  },
   "scripts": {
-    "clean": "rimraf lib",
+    "clean": "rimraf lib && rimraf typings",
     "build": "tsc -p ./src",
     "watch": "tsc -p ./src --watch",
-    "prebuild": "npm run clean & npm run pegjs",
+    "prebuild": "npm run pegjs",
     "---PARSER---": "",
     "pegjs": "npm-run-all genparser:*",
-    "genparser:4gl": "pegjs -o src/4gl.js grammar/4gl.pegjs",
-    "genparser:4gl_token": "pegjs -o src/4gl-token.js grammar/4gl-token.pegjs",
+    "genparser:4gl": "pegjs --plugin ./node_modules/ts-pegjs --allowed-start-rules start_program -o src/4gl.ts grammar/4gl.pegjs",
+    "genparser:advpl": "pegjs --plugin ./node_modules/ts-pegjs --allowed-start-rules start_program -o src/advpl.ts grammar/advpl.pegjs",
     "---TEST---": "",
     "test": "jest",
     "test:snapshot": "npm run test -- --updateSnapshot",
+    "test:file": "npm run test -- --testNamePattern hello1.4gl",
+    "test:folder": "npm run test -- --testPathPattern advpl/hello",
     "test:coverage": "npm run test -- --coverage",
     "test:onlyFailures": "npm run test --onlyFailures ",
     "pretest": "npm run build",
     "---RELEASE---": "",
     "release": "standard-version",
-    "tag": "git push --follow-tags",
-    "publish": "npm publish",
+    "to_publish": "git push --follow-tags origin develop && npm publish",
     "pack": "npm pack",
+    "prerelease": "npm run test",
     "---MISC---": "",
+    "link:pegjs-util": "npm link W:\\github\\pegjs-util --force",
     "contributors:check": "all-contributors check",
     "contributors:generate": "all-contributors generate"
   },
   "peerDependencies": {},
   "dependencies": {
-    "@types/node": "^14.6.2"
+    "pegjs": "^0.10.0",
+    "pegjs-util": "^1.4.21",
+    "ts-pegjs": "^0.3.1",
+    "typescript": "^4.1.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "^9.1.2",
-    "@commitlint/config-conventional": "^10.0.0",
-    "husky": "^4.2.5",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@types/node": "^14.14.25",
+    "@types/pegjs": "^0.10.2",
+    "husky": "^5.0.9",
     "jest": "^26.4.2",
-    "jest-watch-typeahead": "^0.6.0",
+    "jest-watch-typeahead": "^0.6.1",
     "npm-run-all": "^4.1.5",
-    "pegjs": "^0.10.0",
     "standard-version": "^9.0.0"
   },
   "config": {

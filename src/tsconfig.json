@@ -19,13 +19,11 @@
         "declaration": true,
         "declarationMap": true,
         "declarationDir": "../typings",
-        "strict": false, /* enable all strict type-checking options */
+        "strict": true, /* enable all strict type-checking options */
         "noUnusedParameters": false,
         "resolveJsonModule": true,
     },
     "exclude": [
-        "node_modules/",
-        "../out/",
-        "test/",
+        "node_modules/"
     ]
 }

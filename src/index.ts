@@ -1,52 +1,53 @@
+import { ASTNode, EASTType } from "./ast_node";
 import { IParserOptions, normalize } from "./config";
 import { ERRORS } from "./errors";
-import * as call_parser from "./parsers";
+import { parser_token_4gl, parser_token_advpl } from "./parser";
 
+export { ASTNode, EASTType } from "./ast_node";
+ 
 const LANGUAGES = [
   {
-    extensions: [".4gl"],
-    name: "4GL",
-    parsers: ["4gl-source", "4gl-token"],
+    name: "4gl-token",
+    extensions: [
+      ".4gl", 
+      ".per"
+    ],
+    parser: (text: string, options: any) => {
+      return parser_token_4gl(text);
+    },
+  },
+  {
+    name: "advpL-token",
+    parser: (text: string, options: any) => {
+      return parser_token_advpl(text);
+    },
+    extensions: [
+      ".prw",
+      ".prx",
+      ".aph",
+      ".ppx",
+      ".ppp",
+      ".tlpp",
+      ".ch"
+    ],
   },
 ];
 
-const PARSERS = {
-  "4gl-source": {
-    parse: (text, options) => {
-      return call_parser.parser(text, options);
-    },
-  },
-  "4gl-token": {
-    parse: (text, options) => {
-      return call_parser.parser_token(text, options);
-    },
-  },
-};
-
-export function parser(content: string, options: IParserOptions): any[] {
-  let parserList: any[] = undefined;
+export function parser(content: string, options: IParserOptions): ASTNode {
+  let parserList: any[] = [];
 
   options = normalize(options);
 
   parserList = LANGUAGES.filter((language) => {
-    return language.parsers.includes(options.parser);
-  }).map((lang) => {
-    return lang.parsers.filter((parser) => {
-      return parser == options.parser;
-    });
+    return language.name == (options.parser as string)
+    || language.extensions.includes(options.fileext as string);
   });
 
   if (!parserList || parserList.length == 0) {
-    throw new Error(ERRORS.E002);
+    throw new Error(`${ERRORS.E002} [${options.parser}]`);
   } else if (parserList.length > 1) {
-    throw new Error(ERRORS.E003);
+    throw new Error(`${ERRORS.E003} [${options.parser}]`);
   }
 
-  const result = [];
-
-  parserList.forEach((parser) => {
-    result.push(PARSERS[parser].parse(content, options));
-  });
-
-  return result;
+  return parserList[0].parser(content, options);
 }
