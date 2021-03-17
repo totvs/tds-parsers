@@ -5,21 +5,21 @@ main
 display "hello "
 end main
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1-1:0] {C:1} {A:{}}
-| block:  [1:1-1:0] {C:3} {A:{}}
-| | beginBlock:  [1:1-1:0] {C:1} {A:{}}
+program:  [1:1-3:9] {C:1} {A:{}}
+| block:  [1:1-3:9] {C:3} {A:{}}
+| | beginBlock:  [1:1-1:6] {C:1} {A:{}}
 | | | keyword: main [1:1-1:4] {C:0} {A:{}}
 | | | endLine: - [1:5-1:6] {C:0} {A:{}}
-| | | -whiteSpace: \\b [1:5-1:5] {C:0} {A:{}}
+| | | -whiteSpace: ?b [1:5-1:5] {C:0} {A:{}}
 | | | -newLine: \\n [1:6-1:6] {C:0} {A:{}}
-| | bodyBlock:  [1:1-1:0] {C:1} {A:{}}
+| | bodyBlock:  [1:1-2:17] {C:1} {A:{}}
 | | | keyword: display [2:1-2:7] {C:0} {A:{}}
-| | | whiteSpace: \\b [2:8-2:8] {C:0} {A:{}}
-| | | string: "hello\\b" [2:9-2:16] {C:0} {A:{}}
+| | | whiteSpace: ?b [2:8-2:8] {C:0} {A:{}}
+| | | string: "hello?b" [2:9-2:16] {C:0} {A:{}}
 | | | newLine: \\n [2:17-2:17] {C:0} {A:{}}
-| | endBlock:  [1:1-1:0] {C:1} {A:{}}
+| | endBlock:  [1:1-3:9] {C:1} {A:{}}
 | | | keyword: end [3:1-3:3] {C:0} {A:{}}
-| | | whiteSpace: \\b [3:4-3:4] {C:0} {A:{}}
+| | | whiteSpace: ?b [3:4-3:4] {C:0} {A:{}}
 | | | keyword: main [3:5-3:8] {C:0} {A:{}}
 | | | endLine: - [3:9-3:9] {C:0} {A:{}}
 | | | -newLine: \\n [3:9-3:9] {C:0} {A:{}}
@@ -43,104 +43,104 @@ function f1(a,    b,    c)
 
  end function
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1-1:0] {C:1} {A:{}}
-| block:  [1:1-1:0] {C:3} {A:{}}
-| | beginBlock:  [1:1-1:0] {C:1} {A:{}}
+program:  [1:1-16:2] {C:1} {A:{}}
+| block:  [1:1-3:11] {C:3} {A:{}}
+| | beginBlock:  [1:1-1:5] {C:1} {A:{}}
 | | | keyword: main [1:1-1:4] {C:0} {A:{}}
 | | | endLine: - [1:5-1:5] {C:0} {A:{}}
 | | | -newLine: \\n [1:5-1:5] {C:0} {A:{}}
-| | bodyBlock:  [1:1-1:0] {C:1} {A:{}}
+| | bodyBlock:  [1:1-2:10] {C:1} {A:{}}
 | | | keyword: call [2:1-2:4] {C:0} {A:{}}
-| | | whiteSpace: \\b [2:5-2:5] {C:0} {A:{}}
+| | | whiteSpace: ?b [2:5-2:5] {C:0} {A:{}}
 | | | identifier: f1 [2:6-2:7] {C:0} {A:{}}
 | | | operatorParenthesis: ( [2:8-2:8] {C:0} {A:{}}
 | | | operatorParenthesis: ) [2:9-2:9] {C:0} {A:{}}
 | | | newLine: \\n [2:10-2:10] {C:0} {A:{}}
-| | endBlock:  [1:1-1:0] {C:1} {A:{}}
+| | endBlock:  [1:1-3:11] {C:1} {A:{}}
 | | | keyword: end [3:1-3:3] {C:0} {A:{}}
-| | | whiteSpace: \\b [3:4-3:4] {C:0} {A:{}}
+| | | whiteSpace: ?b [3:4-3:4] {C:0} {A:{}}
 | | | keyword: main [3:5-3:8] {C:0} {A:{}}
 | | | endLine: - [3:9-3:11] {C:0} {A:{}}
 | | | -newLine: \\n\\n\\n [3:9-3:11] {C:0} {A:{}}
-| comment: --#\\bfunção\\bcom\\b3\\bargumentos\\n [6:1-6:28] {C:0} {A:{}}
-| block:  [7:1-7:0] {C:3} {A:{}}
-| | beginBlock:  [7:1-7:0] {C:1} {A:{}}
+| comment: --#?bfunção?bcom?b3?bargumentos\\n [6:1-6:28] {C:0} {A:{}}
+| block:  [7:1-15:14] {C:3} {A:{}}
+| | beginBlock:  [7:1-7:28] {C:1} {A:{}}
 | | | keyword: function [7:1-7:8] {C:0} {A:{}}
-| | | whiteSpace: \\b [7:9-7:9] {C:0} {A:{}}
+| | | whiteSpace: ?b [7:9-7:9] {C:0} {A:{}}
 | | | identifier: f1 [7:10-7:11] {C:0} {A:{}}
-| | | argumentList:  [7:12-7:11] {C:1} {A:{}}
+| | | argumentList:  [7:12-7:26] {C:1} {A:{}}
 | | | | operatorParenthesis: ( [7:12-7:12] {C:0} {A:{}}
 | | | | identifier: a [7:13-7:13] {C:0} {A:{}}
 | | | | operatorSeparator: , [7:14-7:14] {C:0} {A:{}}
-| | | | whiteSpace: \\b\\b\\b\\b [7:15-7:18] {C:0} {A:{}}
+| | | | whiteSpace: ?b?b?b?b [7:15-7:18] {C:0} {A:{}}
 | | | | identifier: b [7:19-7:19] {C:0} {A:{}}
 | | | | operatorSeparator: , [7:20-7:20] {C:0} {A:{}}
-| | | | whiteSpace: \\b\\b\\b\\b [7:21-7:24] {C:0} {A:{}}
+| | | | whiteSpace: ?b?b?b?b [7:21-7:24] {C:0} {A:{}}
 | | | | identifier: c [7:25-7:25] {C:0} {A:{}}
 | | | | operatorParenthesis: ) [7:26-7:26] {C:0} {A:{}}
 | | | endLine: - [7:27-7:28] {C:0} {A:{}}
 | | | -newLine: \\n\\n [7:27-7:28] {C:0} {A:{}}
-| | bodyBlock:  [7:1-7:0] {C:1} {A:{}}
-| | | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [9:1-9:7] {C:0} {A:{}}
+| | bodyBlock:  [7:1-15:1] {C:1} {A:{}}
+| | | whiteSpace: ?b?b?b?b?b?b?b [9:1-9:7] {C:0} {A:{}}
 | | | keyword: define [9:8-9:13] {C:0} {A:{}}
-| | | whiteSpace: \\b [9:14-9:14] {C:0} {A:{}}
+| | | whiteSpace: ?b [9:14-9:14] {C:0} {A:{}}
 | | | identifier: nome [9:15-9:18] {C:0} {A:{}}
-| | | whiteSpace: \\b [9:19-9:19] {C:0} {A:{}}
+| | | whiteSpace: ?b [9:19-9:19] {C:0} {A:{}}
 | | | keyword: char [9:20-9:23] {C:0} {A:{}}
 | | | operatorParenthesis: ( [9:24-9:24] {C:0} {A:{}}
 | | | number: 50 [9:25-9:26] {C:0} {A:{}}
 | | | operatorParenthesis: ) [9:27-9:27] {C:0} {A:{}}
-| | | whiteSpace: \\b [9:28-9:28] {C:0} {A:{}}
-| | | comment: #\\babc\\n [9:29-9:34] {C:0} {A:{}}
-| | | whiteSpace: \\b\\b\\b\\b\\b\\b\\b [10:1-10:7] {C:0} {A:{}}
+| | | whiteSpace: ?b [9:28-9:28] {C:0} {A:{}}
+| | | comment: #?babc\\n [9:29-9:34] {C:0} {A:{}}
+| | | whiteSpace: ?b?b?b?b?b?b?b [10:1-10:7] {C:0} {A:{}}
 | | | keyword: define [10:8-10:13] {C:0} {A:{}}
-| | | whiteSpace: \\b [10:14-10:14] {C:0} {A:{}}
+| | | whiteSpace: ?b [10:14-10:14] {C:0} {A:{}}
 | | | identifier: big_field [10:15-10:23] {C:0} {A:{}}
-| | | whiteSpace: \\b [10:24-10:24] {C:0} {A:{}}
+| | | whiteSpace: ?b [10:24-10:24] {C:0} {A:{}}
 | | | keyword: char [10:25-10:28] {C:0} {A:{}}
 | | | operatorParenthesis: ( [10:29-10:29] {C:0} {A:{}}
 | | | number: 1234 [10:30-10:33] {C:0} {A:{}}
 | | | operatorParenthesis: ) [10:34-10:34] {C:0} {A:{}}
-| | | whiteSpace: \\b [10:35-10:35] {C:0} {A:{}}
-| | | comment: #\\babc\\n [10:36-10:41] {C:0} {A:{}}
-| | | whiteSpace: \\b [11:1-11:1] {C:0} {A:{}}
+| | | whiteSpace: ?b [10:35-10:35] {C:0} {A:{}}
+| | | comment: #?babc\\n [10:36-10:41] {C:0} {A:{}}
+| | | whiteSpace: ?b [11:1-11:1] {C:0} {A:{}}
 | | | keyword: prompt [11:2-11:7] {C:0} {A:{}}
-| | | whiteSpace: \\b [11:8-11:8] {C:0} {A:{}}
-| | | string: "digite\\bseu\\bnome\\b:\\b" [11:9-11:28] {C:0} {A:{}}
-| | | whiteSpace: \\b [11:29-11:29] {C:0} {A:{}}
+| | | whiteSpace: ?b [11:8-11:8] {C:0} {A:{}}
+| | | string: "digite?bseu?bnome?b:?b" [11:9-11:28] {C:0} {A:{}}
+| | | whiteSpace: ?b [11:29-11:29] {C:0} {A:{}}
 | | | identifier: for [11:30-11:32] {C:0} {A:{}}
-| | | whiteSpace: \\b [11:33-11:33] {C:0} {A:{}}
+| | | whiteSpace: ?b [11:33-11:33] {C:0} {A:{}}
 | | | identifier: nome [11:34-11:37] {C:0} {A:{}}
 | | | newLine: \\n\\n [11:38-11:39] {C:0} {A:{}}
-| | | whiteSpace: \\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b [13:1-13:13] {C:0} {A:{}}
+| | | whiteSpace: ?b?b?b?b?b?b?b?b?b?b?b?b?b [13:1-13:13] {C:0} {A:{}}
 | | | keyword: call [13:14-13:17] {C:0} {A:{}}
-| | | whiteSpace: \\b [13:18-13:18] {C:0} {A:{}}
+| | | whiteSpace: ?b [13:18-13:18] {C:0} {A:{}}
 | | | identifier: fgl_winmessage [13:19-13:32] {C:0} {A:{}}
 | | | operatorParenthesis: ( [13:33-13:33] {C:0} {A:{}}
-| | | whiteSpace: \\b [13:34-13:34] {C:0} {A:{}}
+| | | whiteSpace: ?b [13:34-13:34] {C:0} {A:{}}
 | | | string: "hello" [13:35-13:41] {C:0} {A:{}}
 | | | operatorSeparator: , [13:42-13:42] {C:0} {A:{}}
 | | | identifier: nome [13:43-13:46] {C:0} {A:{}}
 | | | operatorSeparator: , [13:47-13:47] {C:0} {A:{}}
-| | | whiteSpace: \\b [13:48-13:48] {C:0} {A:{}}
+| | | whiteSpace: ?b [13:48-13:48] {C:0} {A:{}}
 | | | string: "info" [13:49-13:54] {C:0} {A:{}}
 | | | operatorParenthesis: ) [13:55-13:55] {C:0} {A:{}}
 | | | newLine: \\n\\n [13:56-13:57] {C:0} {A:{}}
-| | | whiteSpace: \\b [15:1-15:1] {C:0} {A:{}}
-| | endBlock:  [7:1-7:0] {C:1} {A:{}}
+| | | whiteSpace: ?b [15:1-15:1] {C:0} {A:{}}
+| | endBlock:  [7:1-15:14] {C:1} {A:{}}
 | | | keyword: end [15:2-15:4] {C:0} {A:{}}
-| | | whiteSpace: \\b [15:5-15:5] {C:0} {A:{}}
+| | | whiteSpace: ?b [15:5-15:5] {C:0} {A:{}}
 | | | keyword: function [15:6-15:13] {C:0} {A:{}}
 | | | endLine: - [15:14-15:14] {C:0} {A:{}}
 | | | -newLine: \\n [15:14-15:14] {C:0} {A:{}}
-| whiteSpace: \\b [16:1-16:1] {C:0} {A:{}}
+| whiteSpace: ?b [16:1-16:1] {C:0} {A:{}}
 | newLine: \\n [16:2-16:2] {C:0} {A:{}}
 
 `;
 
 exports[`4gl: Token hello3.4gl 1`] = `
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1-1:0] {C:1} {A:{}}
+program:  [1:1-1:1] {C:1} {A:{}}
 | newLine: \\n [1:1-1:1] {C:0} {A:{}}
 
 `;
@@ -218,43 +218,43 @@ for l_ind = 1 to 3
 end for
 }
 end main~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1-1:0] {C:1} {A:{}}
-| block:  [1:1-1:0] {C:3} {A:{}}
-| | beginBlock:  [1:1-1:0] {C:1} {A:{}}
+program:  [1:1-72:9] {C:1} {A:{}}
+| block:  [1:1-72:9] {C:3} {A:{}}
+| | beginBlock:  [1:1-1:5] {C:1} {A:{}}
 | | | keyword: main [1:1-1:4] {C:0} {A:{}}
 | | | endLine: - [1:5-1:5] {C:0} {A:{}}
 | | | -newLine: \\n [1:5-1:5] {C:0} {A:{}}
-| | bodyBlock:  [1:1-1:0] {C:1} {A:{}}
+| | bodyBlock:  [1:1-71:2] {C:1} {A:{}}
 | | | whiteSpace: \\t [2:1-2:1] {C:0} {A:{}}
 | | | keyword: define [2:2-2:7] {C:0} {A:{}}
-| | | whiteSpace: \\b [2:8-2:8] {C:0} {A:{}}
+| | | whiteSpace: ?b [2:8-2:8] {C:0} {A:{}}
 | | | identifier: l_ind [2:9-2:13] {C:0} {A:{}}
-| | | whiteSpace: \\b [2:14-2:14] {C:0} {A:{}}
+| | | whiteSpace: ?b [2:14-2:14] {C:0} {A:{}}
 | | | identifier: smallint [2:15-2:22] {C:0} {A:{}}
 | | | newLine: \\n [2:23-2:23] {C:0} {A:{}}
 | | | whiteSpace: \\t [3:1-3:1] {C:0} {A:{}}
 | | | keyword: define [3:2-3:7] {C:0} {A:{}}
-| | | whiteSpace: \\b [3:8-3:8] {C:0} {A:{}}
+| | | whiteSpace: ?b [3:8-3:8] {C:0} {A:{}}
 | | | identifier: ma_char [3:9-3:15] {C:0} {A:{}}
-| | | whiteSpace: \\b [3:16-3:16] {C:0} {A:{}}
+| | | whiteSpace: ?b [3:16-3:16] {C:0} {A:{}}
 | | | keyword: array [3:17-3:21] {C:0} {A:{}}
 | | | operatorBracket: [ [3:22-3:22] {C:0} {A:{}}
 | | | number: 5 [3:23-3:23] {C:0} {A:{}}
 | | | operatorBracket: ] [3:24-3:24] {C:0} {A:{}}
-| | | whiteSpace: \\b [3:25-3:25] {C:0} {A:{}}
+| | | whiteSpace: ?b [3:25-3:25] {C:0} {A:{}}
 | | | keyword: of [3:26-3:27] {C:0} {A:{}}
-| | | whiteSpace: \\b [3:28-3:28] {C:0} {A:{}}
+| | | whiteSpace: ?b [3:28-3:28] {C:0} {A:{}}
 | | | keyword: char [3:29-3:32] {C:0} {A:{}}
 | | | operatorParenthesis: ( [3:33-3:33] {C:0} {A:{}}
 | | | number: 3 [3:34-3:34] {C:0} {A:{}}
 | | | operatorParenthesis: ) [3:35-3:35] {C:0} {A:{}}
 | | | newLine: \\n\\n [3:36-3:37] {C:0} {A:{}}
-| | | comment: --#\\tdefine\\bma_integer\\barray[3]\\bof\\binteger\\n\\n [5:1-5:43] {C:0} {A:{}}
-| | | blockComment: {\\n\\tdefine\\bma_array\\barray\\b[3]\\bof\\brecord\\n\\tf2_check\\b\\b\\b\\b\\b\\bchar(1),\\n\\tf2_integer\\b\\b\\b\\binteger,\\n\\tf2_smallint\\b\\b\\bsmallint,\\n\\tf2_decimal\\b\\b\\b\\bdecimal(17,6),\\n\\tf2_decimal0\\b\\b\\bdecimal(10,0),\\n\\tf2_char\\b\\b\\b\\b\\b\\b\\bchar(10),\\n\\tf2_date\\b\\b\\b\\b\\b\\b\\bdate,\\n\\tf2_dttime_y2s\\bdatetime\\byear\\bto\\bsecond,\\n\\tf2_dttime_y2m\\bdatetime\\byear\\bto\\bmonth,\\n\\tf2_dttime_y2f\\bdatetime\\byear\\bto\\bfraction(3),\\n\\tf2_scroll\\b\\b\\b\\b\\bchar(100),\\n\\tf2_varchar\\b\\b\\b\\bvarchar(20)\\n\\nend\\brecord\\n\\n\\ninitialize\\bma_array\\bto\\bnull\\ninitialize\\bma_integer\\bto\\bnull\\n\\n\\ndisplay\\b"hello\\bworld"\\n\\ncall\\b_arraydeleteitem(ma_array)\\ncall\\b_arrayadditem(ma_array,3)\\n\\ncall\\b_arraydeleteitem(ma_integer)\\ncall\\b_arrayadditem(ma_integer,3)\\n\\nfor\\bl_ind\\b=\\b1\\bto\\b3\\n\\tlet\\bma_integer[l_ind]\\b=\\bnull\\n\\n\\tlet\\bma_array[l_ind].f2_check\\b\\b\\b\\b\\b\\b=\\bnull\\n\\tlet\\bma_array[l_ind].f2_integer\\b\\b\\b\\b=\\bnull\\n\\tlet\\bma_array[l_ind].f2_smallint\\b\\b\\b=\\bnull\\n\\tlet\\bma_array[l_ind].f2_decimal\\b\\b\\b\\b=\\bnull\\n\\tlet\\bma_array[l_ind].f2_decimal0\\b\\b\\b=\\bnull\\n\\tlet\\bma_array[l_ind].f2_char\\b\\b\\b\\b\\b\\b\\b=\\b"\\b"\\n\\tlet\\bma_array[l_ind].f2_varchar\\b\\b\\b\\b=\\b"\\b"\\n\\tlet\\bma_array[l_ind].f2_date\\b\\b\\b\\b\\b\\b\\b=\\btoday\\b+\\bl_ind\\bunits\\bday\\n\\tlet\\bma_array[l_ind].f2_dttime_y2s\\b=\\bnull\\n\\tlet\\bma_array[l_ind].f2_dttime_y2m\\b=\\bnull\\n\\tlet\\bma_array[l_ind].f2_dttime_y2f\\b=\\bnull\\n\\tlet\\bma_array[l_ind].f2_scroll\\b\\b\\b\\b\\b=\\bnull\\n\\nend\\bfor\\n\\nfor\\bl_ind\\b=\\b1\\bto\\b3\\n\\tlet\\bma_integer[l_ind]\\b=\\bl_ind\\n\\n\\tlet\\bma_array[l_ind].f2_check\\b\\b\\b\\b\\b\\b=\\b"s"\\n\\tlet\\bma_array[l_ind].f2_integer\\b\\b\\b\\b=\\b339782827\\b+\\bl_ind\\n\\tlet\\bma_array[l_ind].f2_smallint\\b\\b\\b=\\b18721\\b+\\bl_ind\\n\\tlet\\bma_array[l_ind].f2_decimal\\b\\b\\b\\b=\\b-19838849.087712\\b+\\bl_ind\\n\\tlet\\bma_array[l_ind].f2_decimal0\\b\\b\\b=\\b9389007739\\b+\\bl_ind\\n\\tlet\\bma_array[l_ind].f2_char\\b\\b\\b\\b\\b\\b\\b=\\b"texto"||l_ind\\n\\tlet\\bma_array[l_ind].f2_varchar\\b\\b\\b\\b=\\b"textovarchar\\b\\b\\b"||l_ind\\n\\tlet\\bma_array[l_ind].f2_date\\b\\b\\b\\b\\b\\b\\b=\\btoday\\b+\\b3\\bunits\\bday\\n\\tlet\\bma_array[l_ind].f2_dttime_y2s\\b=\\bcurrent\\b+\\bl_ind\\bunits\\bday\\n\\tlet\\bma_array[l_ind].f2_dttime_y2m\\b=\\bcurrent\\b+\\bl_ind\\b+\\b1\\bunits\\bday\\n\\tlet\\bma_array[l_ind].f2_dttime_y2f\\b=\\bcurrent\\b+\\bl_ind\\b+\\b2\\bunits\\bday\\n\\tlet\\bma_array[l_ind].f2_scroll\\b\\b\\b\\b\\b=\\b"texto\\bscroll\\btexto\\bscroll\\btexto\\bscroll\\b"\\nend\\bfor\\n} [7:1-7:1977] {C:0} {A:{}}
+| | | comment: --#\\tdefine?bma_integer?barray[3]?bof?binteger\\n\\n [5:1-5:43] {C:0} {A:{}}
+| | | blockComment: {\\n\\tdefine?bma_array?barray?b[3]?bof?brecord\\n\\tf2_check?b?b?b?b?b?bchar(1),\\n\\tf2_integer?b?b?b?binteger,\\n\\tf2_smallint?b?b?bsmallint,\\n\\tf2_decimal?b?b?b?bdecimal(17,6),\\n\\tf2_decimal0?b?b?bdecimal(10,0),\\n\\tf2_char?b?b?b?b?b?b?bchar(10),\\n\\tf2_date?b?b?b?b?b?b?bdate,\\n\\tf2_dttime_y2s?bdatetime?byear?bto?bsecond,\\n\\tf2_dttime_y2m?bdatetime?byear?bto?bmonth,\\n\\tf2_dttime_y2f?bdatetime?byear?bto?bfraction(3),\\n\\tf2_scroll?b?b?b?b?bchar(100),\\n\\tf2_varchar?b?b?b?bvarchar(20)\\n\\nend?brecord\\n\\n\\ninitialize?bma_array?bto?bnull\\ninitialize?bma_integer?bto?bnull\\n\\n\\ndisplay?b"hello?bworld"\\n\\ncall?b_arraydeleteitem(ma_array)\\ncall?b_arrayadditem(ma_array,3)\\n\\ncall?b_arraydeleteitem(ma_integer)\\ncall?b_arrayadditem(ma_integer,3)\\n\\nfor?bl_ind?b=?b1?bto?b3\\n\\tlet?bma_integer[l_ind]?b=?bnull\\n\\n\\tlet?bma_array[l_ind].f2_check?b?b?b?b?b?b=?bnull\\n\\tlet?bma_array[l_ind].f2_integer?b?b?b?b=?bnull\\n\\tlet?bma_array[l_ind].f2_smallint?b?b?b=?bnull\\n\\tlet?bma_array[l_ind].f2_decimal?b?b?b?b=?bnull\\n\\tlet?bma_array[l_ind].f2_decimal0?b?b?b=?bnull\\n\\tlet?bma_array[l_ind].f2_char?b?b?b?b?b?b?b=?b"?b"\\n\\tlet?bma_array[l_ind].f2_varchar?b?b?b?b=?b"?b"\\n\\tlet?bma_array[l_ind].f2_date?b?b?b?b?b?b?b=?btoday?b+?bl_ind?bunits?bday\\n\\tlet?bma_array[l_ind].f2_dttime_y2s?b=?bnull\\n\\tlet?bma_array[l_ind].f2_dttime_y2m?b=?bnull\\n\\tlet?bma_array[l_ind].f2_dttime_y2f?b=?bnull\\n\\tlet?bma_array[l_ind].f2_scroll?b?b?b?b?b=?bnull\\n\\nend?bfor\\n\\nfor?bl_ind?b=?b1?bto?b3\\n\\tlet?bma_integer[l_ind]?b=?bl_ind\\n\\n\\tlet?bma_array[l_ind].f2_check?b?b?b?b?b?b=?b"s"\\n\\tlet?bma_array[l_ind].f2_integer?b?b?b?b=?b339782827?b+?bl_ind\\n\\tlet?bma_array[l_ind].f2_smallint?b?b?b=?b18721?b+?bl_ind\\n\\tlet?bma_array[l_ind].f2_decimal?b?b?b?b=?b-19838849.087712?b+?bl_ind\\n\\tlet?bma_array[l_ind].f2_decimal0?b?b?b=?b9389007739?b+?bl_ind\\n\\tlet?bma_array[l_ind].f2_char?b?b?b?b?b?b?b=?b"texto"||l_ind\\n\\tlet?bma_array[l_ind].f2_varchar?b?b?b?b=?b"textovarchar?b?b?b"||l_ind\\n\\tlet?bma_array[l_ind].f2_date?b?b?b?b?b?b?b=?btoday?b+?b3?bunits?bday\\n\\tlet?bma_array[l_ind].f2_dttime_y2s?b=?bcurrent?b+?bl_ind?bunits?bday\\n\\tlet?bma_array[l_ind].f2_dttime_y2m?b=?bcurrent?b+?bl_ind?b+?b1?bunits?bday\\n\\tlet?bma_array[l_ind].f2_dttime_y2f?b=?bcurrent?b+?bl_ind?b+?b2?bunits?bday\\n\\tlet?bma_array[l_ind].f2_scroll?b?b?b?b?b=?b"texto?bscroll?btexto?bscroll?btexto?bscroll?b"\\nend?bfor\\n} [7:1-7:1977] {C:0} {A:{}}
 | | | newLine: \\n [71:2-71:2] {C:0} {A:{}}
-| | endBlock:  [1:1-1:0] {C:1} {A:{}}
+| | endBlock:  [1:1-72:9] {C:1} {A:{}}
 | | | keyword: end [72:1-72:3] {C:0} {A:{}}
-| | | whiteSpace: \\b [72:4-72:4] {C:0} {A:{}}
+| | | whiteSpace: ?b [72:4-72:4] {C:0} {A:{}}
 | | | keyword: main [72:5-72:8] {C:0} {A:{}}
 | | | endLine: - [72:9-72:9] {C:0} {A:{}}
 | | | -newLine: \\n [72:9-72:9] {C:0} {A:{}}

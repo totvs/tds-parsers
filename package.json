@@ -48,7 +48,7 @@
     "---TEST---": "",
     "test": "jest",
     "test:snapshot": "npm run test -- --updateSnapshot",
-    "test:file": "npm run test -- --testNamePattern hello1.4gl",
+    "test:singlefile": "npm run test -- --testNamePattern if.4gl",
     "test:folder": "npm run test -- --testPathPattern advpl/hello",
     "test:coverage": "npm run test -- --coverage",
     "test:onlyFailures": "npm run test --onlyFailures ",

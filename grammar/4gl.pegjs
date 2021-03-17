@@ -99,16 +99,16 @@ defineTokens
 
 tokens
   = WS_NL
+  / forBlock
+  / forEachBlock
+  / ifBlock
+  / recordBlock
   / comment
   / keywords
   / builtInVar
   / operators
   / string
   / number
-  / forBlock
-  / forEachBlock
-  / ifBlock
-  / recordBlock
   / !(END / THEN) identifer
 
 keywords
@@ -219,6 +219,7 @@ keywords
     / HIDE
     / HOLD
     / HOUR
+    / IF
     / IN
     / INCLUDE
     / INDEX
