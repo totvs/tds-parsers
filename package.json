@@ -2,7 +2,7 @@
   "name": "@totvs/tds-parsers",
   "displayName": "TOTVS Developer Studio: Analisador Sintático",
   "description": "Extensão para análise sintática das linguagens proprietárias TOTVS.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "TOTVS",
   "author": {
     "name": "TOTVS",
@@ -57,7 +57,7 @@
     "release": "standard-version",
     "to_publish": "git push --follow-tags origin develop && npm publish --access public",
     "pack": "npm pack",
-    "prerelease": "npm run test",
+    "prerelease": "npm run build",
     "---MISC---": "",
     "contributors:check": "all-contributors check",
     "contributors:generate": "all-contributors generate",
