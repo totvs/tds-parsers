@@ -22,6 +22,8 @@ export enum EASTType {
   begin = 'begin',
   string = 'string',
   number = 'number',
+  boolean = 'boolean',
+  codeBlock = 'codeBlock',
   whiteSpace = 'whiteSpace',
   endLine = 'endLine',
   newLine = 'newLine',
@@ -35,6 +37,7 @@ export enum EASTType {
   operatorParenthesis = 'operatorParenthesis',
   operatorSeparator = 'operatorSeparator',
   operatorMath = 'operatorMath',
+  operatorLogical = 'operatorLogical',
   keyword = 'keyword',
   comment = 'comment',
   blockComment = 'blockComment',
@@ -107,8 +110,8 @@ export class ASTNode {
     ]; //end block
   }
 
-  public dump() {
-    return ASTUtil.dump(this);
+  public dump(maxLevel: number = Infinity) {
+    return ASTUtil.dump(this, maxLevel);
   }
 
   public getByType(target: EASTType) {
@@ -119,7 +122,7 @@ export class ASTNode {
     return ASTUtil.serialize(this);
   }
 
-  public attributes(): {} {
+  public get attributes(): {} {
     return this._attributes;
   }
 
@@ -176,8 +179,8 @@ export const ASTUtil: any = {
   create: (type: EASTType, source: string, locStart: any): ASTNode => {
     return new ASTNode(type, source, locStart);
   },
-  dump: (ast: ASTNode): string => {
-    return astDump(ast);
+  dump: (ast: ASTNode, maxLevel: number): string => {
+    return astDump(ast, '', maxLevel);
   },
   serialize: (ast: ASTNode): string => {
     return astSerialize(ast);

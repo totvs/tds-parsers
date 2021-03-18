@@ -1,28 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`4gl: Token comment.4gl 1`] = `
-# linha 1
-# linha 2
-# linha 3
-
---linha A
---linha B
-
---linha A1
-
---linha B2
---linha B3
-
-{ bloco comentado de uma linha }
-
-{ 
-    bloco 
-    comentado 
-    de 
-    varias
-    linhas 
-}
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 program:  [1:1-21:2] {C:1} {A:{}}
 | comment: #?blinha?b1\\n [1:1-1:10] {C:0} {A:{}}
 | comment: #?blinha?b2\\n [2:1-2:10] {C:0} {A:{}}
@@ -40,18 +18,6 @@ program:  [1:1-21:2] {C:1} {A:{}}
 `;
 
 exports[`4gl: Token comment-blocks.4gl 1`] = `
-main 
-    { bloco comentado de uma linha }
-end main 
-
-{ 
-    bloco 
-    comentado 
-    de 
-    varias
-    linhas 
-}
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 program:  [1:1-11:2] {C:1} {A:{}}
 | block:  [1:1-3:11] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:6] {C:1} {A:{}}

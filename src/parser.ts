@@ -1,14 +1,7 @@
 import PEGUtil = require('pegjs-util');
 import { parse as parser_4gl } from './4gl';
 import { parse as parser_advpl } from './advpl';
-import {
-  ASTChild,
-  ASTNode,
-  ASTUtil,
-  EASTType,
-  ILocation,
-  ILocationToken,
-} from './ast_node';
+import { ASTChild, ASTNode, ASTUtil, EASTType, ILocation } from './ast_node';
 
 export function locEnd(ast: ASTChild | ASTChild[]): ILocation {
   let location: ILocation = {
@@ -92,9 +85,9 @@ function parser_token(
   return result;
 }
 
-export const parser_token_4gl = (text: string) => {
-  return parser_token(parser_4gl, text.endsWith('\n') ? text : text + '\n');
+export const parser_token_4gl = (text: string): any => {
+  return parser_token(parser_4gl, text);
 };
 export const parser_token_advpl = (text: string) => {
-  return parser_token(parser_advpl, text.endsWith('\n') ? text : text + '\n');
+  return parser_token(parser_advpl, text);
 };

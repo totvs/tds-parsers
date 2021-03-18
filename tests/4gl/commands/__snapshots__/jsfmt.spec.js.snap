@@ -1,45 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`4gl: Token call.4gl 1`] = `
-main
-
-  call fgl_winmessage()
-
-  call fgl_winmessage("p1")
-
-
-  call log0030_mensagem("existe(m) ...", "exclamation");
-
-
-  call fgl_winmessage("p1","p2", "p3")
-  call fgl_winmessage(1,2,    3)
-
-end main
-
-function f1()
-
-  call fgl_winmessage() returning var1
-
-  call fgl_winmessage() returning var1 , var2
-
-call fgl_winmessage() returning var1,var2,var3
-
-end function
-
-function f2()
-
-  call fgl_winmessage() returning var1[ind1]
-
-end function
-
-function f3()
-
-  call fgl_winmessage() returning rec1.var1
-
-  call fgl_winmessage() returning rec1.*
-
-end function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 program:  [1:1-38:13] {C:1} {A:{}}
 | block:  [1:1-14:10] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:6] {C:1} {A:{}}
@@ -237,59 +198,6 @@ program:  [1:1-38:13] {C:1} {A:{}}
 `;
 
 exports[`4gl: Token define.4gl 1`] = `
-MAIN 
-
-	DEFINE VAR1 BIGINT   
-	DEFINE VAR1 BYTE   
-	DEFINE VAR1 CHAR(100)
-	DEFINE VAR1 CHARACTER  
-	DEFINE VAR1 DATE   
-	DEFINE VAR1 DATETIME  day to day
-	DEFINE VAR1 DEC   
-	DEFINE VAR1 DECIMAL(10,2)
-	DEFINE VAR1 DECIMAL(10)
-	DEFINE VAR1 DOUBLE PRECISION  
-	DEFINE VAR1 DYNAMIC ARRAY  
-	DEFINE VAR1 FLOAT  
-	DEFINE VAR1 INT  
-	DEFINE VAR1 INTEGER  
-	DEFINE VAR1 MONEY  
-	DEFINE VAR1 NCHAR(100)  
-	DEFINE VAR1 NUMERIC  
-	DEFINE VAR1 NVARCHAR(100)  
-
-end MAIN
-
-function f1() 
-	--DEFINE VAR1 INTERVAL  
-end function
-
-function f2() 
-	DEFINE REC1 RECORD
-    	VAR1 BIGINT
-  	END RECORD
-
-	DEFINE REC2 RECORD
-    VAR1 CHAR(100),
-    VAR1 CHARACTER,
-    VAR1 DATE,
-    VAR1 DATETIME  day to day,
-    VAR1 DEC,
-    VAR1 DECIMAL(10,2),
-    VAR1 DECIMAL(10),
-    VAR1 DOUBLE PRECISION,
-    VAR1 FLOAT,
-    VAR1 INT,
-    VAR1 INTEGER,
-    VAR1 MONEY,
-    VAR1 NCHAR(100),
-    VAR1 NUMERIC,
-    VAR1 NVARCHAR(100)
-  END RECORD  
-
-end function
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 program:  [1:1-51:14] {C:1} {A:{}}
 | block:  [1:1-22:10] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:7] {C:1} {A:{}}
@@ -667,39 +575,6 @@ program:  [1:1-51:14] {C:1} {A:{}}
 `;
 
 exports[`4gl: Token define-list.4gl 1`] = `
-################################################################################
-### atencao atencao atencao atencao atencao atencao atencao atencao atencao ###
-###############################################################################
-###                                                                         ###
-### por motivos de tamanho deste arquivo fonte, os comandos de  selecao em  ###
-### tabelas (select), que eram identicos em diversas partes do mesmo foram  ###
-### unificados. para manter este principio, procure a seguinte string:      ###
-###                      "busca_" + <nome da tabela>                        ###
-### exemplo: para verificar se ja existe uma selecao que possa ser          ###
-###         utilizada para a tabela ordem_sup, procure "busca_ordem_sup".   ###
-###                                                                         ###
-###############################################################################
-
-#-------------------------------------------------------------------#
-# sistema.: suprimentos                                             #
-# programa: sup3760                                                 #
-# modulos.: sup3760 log0010 log0030 log0040 log0050 log0060 sup0520 #
-# objetivo: manutencao de notas fiscais                             #
-# autor...: tatiane wiese                                           #
-# data....: 18/11/1994                                              #
-#                                                                   #
-# ******************** a t e n c a o  ! ! ! ! ********************* #
-# favor manter a identacao neste  programa (tres colunas),  para  o #
-# melhor entendimento do programa nas manutencoes posteriores.      #
-# ***************************************************************** #
-#-------------------------------------------------------------------#
-
-define m_msg                             char(200)
-
-define m_num_nf_cap                      char(07),
-m_informou_grade                  smallint
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 program:  [1:1-31:44] {C:1} {A:{}}
 | comment: ################################################################################\\n [1:1-1:81] {C:0} {A:{}}
 | comment: ###?batencao?batencao?batencao?batencao?batencao?batencao?batencao?batencao?batencao?b###\\n [2:1-2:80] {C:0} {A:{}}
@@ -753,14 +628,6 @@ program:  [1:1-31:44] {C:1} {A:{}}
 `;
 
 exports[`4gl: Token define1.4gl 1`] = `
-globals
-define mod char(10)
-end globals
-
-main 
-	--define var1 record like tab1.*
-end main
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 program:  [1:1-7:9] {C:1} {A:{}}
 | block:  [1:1-3:13] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:8] {C:1} {A:{}}
@@ -802,10 +669,6 @@ program:  [1:1-7:9] {C:1} {A:{}}
 `;
 
 exports[`4gl: Token define2.4gl 1`] = `
-main 
-	--DEFINE VAR1 record LIKE TAB1.*
-end main
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 program:  [1:1-3:9] {C:1} {A:{}}
 | block:  [1:1-3:9] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:6] {C:1} {A:{}}
@@ -826,17 +689,6 @@ program:  [1:1-3:9] {C:1} {A:{}}
 `;
 
 exports[`4gl: Token for.4gl 1`] = `
-main
-
-  for a=1 to 20
-  end for
-
-  for a=1 to 20
-    display b
-  end for
-
-end main
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 program:  [1:1-10:9] {C:1} {A:{}}
 | block:  [1:1-10:9] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:6] {C:1} {A:{}}
@@ -901,15 +753,6 @@ program:  [1:1-10:9] {C:1} {A:{}}
 `;
 
 exports[`4gl: Token if.4gl 1`] = `
-main 
-  
-  if a=b then
-    display "xxxx"
-  end if
-
-end main
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 program:  [1:1-7:10] {C:1} {A:{}}
 | block:  [1:1-7:10] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:6] {C:1} {A:{}}

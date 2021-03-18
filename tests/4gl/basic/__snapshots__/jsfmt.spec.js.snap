@@ -1,14 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`4gl: Token break_lines.4gl 1`] = `
-main
-
-if 
-a==b
-then
-
-end main
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 program:  [1:1-7:9] {C:1} {A:{}}
 | block:  [1:1-7:9] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:6] {C:1} {A:{}}
@@ -36,16 +28,7 @@ program:  [1:1-7:9] {C:1} {A:{}}
 `;
 
 exports[`4gl: Token builtInVars.4gl 1`] = `
-main
-
-    let x,X1 = arg_val
-    let x = arr_count
-    let x = arr_cur
-    let x = sqlca
-
-end main
- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1-9:2] {C:1} {A:{}}
+program:  [1:1-9:1] {C:1} {A:{}}
 | block:  [1:1-8:9] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:6] {C:1} {A:{}}
 | | | keyword: main [1:1-1:4] {C:0} {A:{}}
@@ -97,17 +80,10 @@ program:  [1:1-9:2] {C:1} {A:{}}
 | | | endLine: - [8:9-8:9] {C:0} {A:{}}
 | | | -newLine: \\n [8:9-8:9] {C:0} {A:{}}
 | whiteSpace: ?b [9:1-9:1] {C:0} {A:{}}
-| newLine: \\n [9:2-9:2] {C:0} {A:{}}
 
 `;
 
 exports[`4gl: Token constant.4gl 1`] = `
-main
-
-    initialize x to null
-    
-end main
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 program:  [1:1-5:9] {C:1} {A:{}}
 | block:  [1:1-5:9] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:6] {C:1} {A:{}}
@@ -136,13 +112,6 @@ program:  [1:1-5:9] {C:1} {A:{}}
 `;
 
 exports[`4gl: Token datetime.4gl 1`] = `
-main
-
-	let a       = today + l_ind units day
-	let b       = today + 3 units day
-
-end main
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 program:  [1:1-6:9] {C:1} {A:{}}
 | block:  [1:1-6:9] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:6] {C:1} {A:{}}
@@ -194,43 +163,19 @@ program:  [1:1-6:9] {C:1} {A:{}}
 `;
 
 exports[`4gl: Token empty_file.4gl 1`] = `
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1-1:1] {C:1} {A:{}}
-| newLine: \\n [1:1-1:1] {C:0} {A:{}}
+program:  [1:1--Infinity:-Infinity] {C:1} {A:{}}
 
 `;
 
 exports[`4gl: Token empty_main.4gl 1`] = `
-main
-
-end main~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-program:  [1:1-3:9] {C:1} {A:{}}
-| block:  [1:1-3:9] {C:3} {A:{}}
-| | beginBlock:  [1:1-1:6] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
-| | | endLine: - [1:5-1:6] {C:0} {A:{}}
-| | | -newLine: \\n\\n [1:5-1:6] {C:0} {A:{}}
-| | bodyBlock:  [1:1--Infinity:-Infinity] {C:1} {A:{}}
-| | endBlock:  [1:1-3:9] {C:1} {A:{}}
-| | | keyword: end [3:1-3:3] {C:0} {A:{}}
-| | | whiteSpace: ?b [3:4-3:4] {C:0} {A:{}}
-| | | keyword: main [3:5-3:8] {C:0} {A:{}}
-| | | endLine: - [3:9-3:9] {C:0} {A:{}}
-| | | -newLine: \\n [3:9-3:9] {C:0} {A:{}}
+empty_main.4gl
+line 3 (column 9): main\\n\\nend main
+-----------------------------------^
+Expected "#", "\\n", "\\r", "\\r\\n", or [;, ,\\t] but end of input found.
 
 `;
 
 exports[`4gl: Token globals.4gl 1`] = `
-globals "abc.txt"
-
-globals
-  DEFINE NOME CHAR(50) # abc
-end globals
-
-main
-
-end main
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 program:  [1:1-9:9] {C:1} {A:{}}
 | keyword: globals [1:1-1:7] {C:0} {A:{}}
 | whiteSpace: ?b [1:8-1:8] {C:0} {A:{}}
@@ -275,118 +220,15 @@ program:  [1:1-9:9] {C:1} {A:{}}
 
 `;
 
+exports[`4gl: Token no_eol_in_last_line.4gl 1`] = `
+no_eol_in_last_line.4gl
+line 4 (column 9): tly 4 lines\\nend main
+----------------------------------------^
+Expected "#", "\\n", "\\r", "\\r\\n", or [;, ,\\t] but end of input found.
+
+`;
+
 exports[`4gl: Token numbers.4gl 1`] = `
-main
-
-    let x = 0
-    let x = 1
-    let x = 2
-    let x = 3
-    let x = 4
-    let x = 5
-    let x = 6
-    let x = 7
-    let x = 8
-    let x = 9
-    let x = 10
-    let x = 11
-    let x = 12
-    let x = 13
-    let x = 14
-    let x = 15
-    let x = 16
-    let x = 17
-    let x = 18
-    let x = 19
-    let x = 20
-    let x = 30
-    let x = 40
-    let x = 50
-    let x = 60
-    let x = 70
-    let x = 80
-    let x = 90
-    let x = 100
-    let x = 1000
-    let x = 10000
-    let x = 100000
-    let x = 1000000
-    
-
-end main
-
-function f1()
-    let x = 0.0
-    let x = 1.1
-    let x = 2.2
-    let x = 3.3
-    let x = 4.4
-    let x = 5.5
-    let x = 6.6
-    let x = 7.7
-    let x = 8.8
-    let x = 9.9
-    let x = 10.10
-    let x = 11.11
-    let x = 12.12
-    let x = 13.13
-    let x = 14.14
-    let x = 15.15
-    let x = 16.16
-    let x = 17.17
-    let x = 18.18
-    let x = 19.19
-    let x = 20.20
-    let x = 30.30
-    let x = 40.40
-    let x = 50.50
-    let x = 60.60
-    let x = 70.70
-    let x = 80.80
-    let x = 90.90
-    let x = 1.001
-    let x = 10.001
-    let x = 100.001
-    let x = 1000.001
-    let x = 10000.001
-end function
-
-function f2()
-    let x = -0.0
-    let x = -1.1
-    let x = -2.2
-    let x = -3.3
-    let x = -4.4
-    let x = -5.5
-    let x = -6.6
-    let x = -7.7
-    let x = -8.8
-    let x = -9.9
-    let x = -10.10
-    let x = -11.11
-    let x = -12.12
-    let x = -13.13
-    let x = -14.14
-    let x = -15.15
-    let x = -16.16
-    let x = -17.17
-    let x = -18.18
-    let x = -19.19
-    let x = -20.20
-    let x = -30.30
-    let x = -40.40
-    let x = -50.50
-    let x = -60.60
-    let x = -70.70
-    let x = -80.80
-    let x = -90.90
-    let x = -1.001
-    let x = -10.001
-    let x = -100.001
-    let x = -1000.001
-    let x = -10000.001
-end function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 program:  [1:1-110:13] {C:1} {A:{}}
 | block:  [1:1-38:10] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:6] {C:1} {A:{}}
@@ -1364,24 +1206,6 @@ program:  [1:1-110:13] {C:1} {A:{}}
 `;
 
 exports[`4gl: Token strings.4gl 1`] = `
-main
-
-    let x, y = ''
-    let x, y = 'ABC,DEF'
-    let x, y = '"'
-    let x, y = 'ABC\\'DEF'
-    
-end main
-
-function f1()
-
-    let x, y = ""
-    let x, y = "ABC,DEF"
-    let x, y = "'"
-    let x, y = "ABC\\"DEF"
-    
-end function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 program:  [1:1-17:13] {C:1} {A:{}}
 | block:  [1:1-8:10] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:6] {C:1} {A:{}}

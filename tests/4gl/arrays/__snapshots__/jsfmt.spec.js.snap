@@ -1,27 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`4gl: Token array.4gl 1`] = `
-main
-    define lista array[5] of integer
-end main
-
-
-function f1()
-	define var1 array[1] of integer
-	define var1 array[1,2] of char(30)
-
-end function
-
-function f2()
-
-	let ma_array[l_ind].f2_check      = null
-	let ma_array[l_ind].f2_integer    = null
-	let ma_array[l_ind].f2_date       = today + l_ind units day
-	let ma_array[l_ind].f2_char       = "texto"||l_ind
-	let ma_array[l_ind].f2_date       = today + 3 units day
-
-end function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 program:  [1:1-20:13] {C:1} {A:{}}
 | block:  [1:1-3:11] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:5] {C:1} {A:{}}
@@ -203,11 +182,6 @@ program:  [1:1-20:13] {C:1} {A:{}}
 `;
 
 exports[`4gl: Token array2.4gl 1`] = `
-main
-    define lista array[5] of integer
-	call arrayadditem(p_array,l_linesadd)
-end main
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 program:  [1:1-4:9] {C:1} {A:{}}
 | block:  [1:1-4:9] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:5] {C:1} {A:{}}

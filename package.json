@@ -48,7 +48,7 @@
     "---TEST---": "",
     "test": "jest",
     "test:snapshot": "npm run test -- --updateSnapshot",
-    "test:singlefile": "npm run test -- --testNamePattern if.4gl",
+    "test:singlefile": "npm run test -- --testNamePattern CFGX011.PRW",
     "test:folder": "npm run test -- --testPathPattern advpl/hello",
     "test:coverage": "npm run test -- --coverage",
     "test:onlyFailures": "npm run test --onlyFailures ",
@@ -60,7 +60,9 @@
     "prerelease": "npm run test",
     "---MISC---": "",
     "contributors:check": "all-contributors check",
-    "contributors:generate": "all-contributors generate"
+    "contributors:generate": "all-contributors generate",
+    "---LINKS---": "",
+    "link:pegjs-util": "npm link ../pegjs-util --force"
   },
   "peerDependencies": {},
   "dependencies": {

@@ -2,9 +2,11 @@ import { ASTChild, ASTNode } from './ast_node';
 
 export function astDump(
   ast: ASTChild[] | ASTChild,
-  prefix: string = ''
+  prefix: string = '',
+  maxLevel: number
 ): string {
   if (!ast) {
+    // || maxLevel == 0) {
     return '';
   }
 
@@ -12,7 +14,7 @@ export function astDump(
 
   if (Array.isArray(ast)) {
     ast.forEach((element: ASTChild) => {
-      output += astDump(element, prefix);
+      output += astDump(element, prefix, --maxLevel);
     });
   } else {
     let source: string = '';
@@ -22,7 +24,7 @@ export function astDump(
     if (typeof ast == 'string' || typeof ast == 'number') {
       source = ast;
     } else if (Array.isArray(ast.source) || typeof ast.source == 'object') {
-      sourceArray = astDump(ast.source, `${prefix}-`);
+      sourceArray = astDump(ast.source, `${prefix}-`, maxLevel);
       source = '-';
     } else {
       source = ast.source
@@ -33,10 +35,14 @@ export function astDump(
     }
 
     if (ast.children && ast.children.length > 0) {
-      children = astDump(ast.children, `${prefix}| `.replace('-', ' '));
+      children = astDump(
+        ast.children,
+        `${prefix}| `.replace('-', ' '),
+        maxLevel--
+      );
     }
 
-    const attributes: string = JSON.stringify(ast.attributes());
+    const attributes: string = JSON.stringify(ast.attributes);
     const location: string = `${ast.location.start.line}:${ast.location.start.column}-${ast.location.end.line}:${ast.location.end.column}`;
 
     output = `${prefix}${ast.type}: ${source} [${location}] {C:${ast.children.length}} {A:${attributes}}\n`;

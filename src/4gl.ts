@@ -1659,30 +1659,38 @@ function peg$parse(input: string, options?: IParseOptions) {
   }
 
   function peg$parseargumentList(): any {
-    let s0, s1, s2, s3, s4;
+    let s0, s1, s2, s3;
 
     s0 = peg$currPos;
-    s1 = peg$parseO_PARENTHESIS();
+    s1 = peg$currPos;
+    s2 = peg$parseO_PARENTHESIS();
+    if (s2 !== peg$FAILED) {
+      s3 = peg$parseWS_NL();
+      if (s3 === peg$FAILED) {
+        s3 = null;
+      }
+      if (s3 !== peg$FAILED) {
+        s2 = [s2, s3];
+        s1 = s2;
+      } else {
+        peg$currPos = s1;
+        s1 = peg$FAILED;
+      }
+    } else {
+      peg$currPos = s1;
+      s1 = peg$FAILED;
+    }
     if (s1 !== peg$FAILED) {
-      s2 = peg$parseWS_NL();
+      s2 = peg$parsearguments();
       if (s2 === peg$FAILED) {
         s2 = null;
       }
       if (s2 !== peg$FAILED) {
-        s3 = peg$parsearguments();
-        if (s3 === peg$FAILED) {
-          s3 = null;
-        }
+        s3 = peg$parseC_PARENTHESIS();
         if (s3 !== peg$FAILED) {
-          s4 = peg$parseC_PARENTHESIS();
-          if (s4 !== peg$FAILED) {
-            peg$savedPos = s0;
-            s1 = peg$c5(s1, s3, s4);
-            s0 = s1;
-          } else {
-            peg$currPos = s0;
-            s0 = peg$FAILED;
-          }
+          peg$savedPos = s0;
+          s1 = peg$c5(s1, s2, s3);
+          s0 = s1;
         } else {
           peg$currPos = s0;
           s0 = peg$FAILED;
@@ -10145,11 +10153,12 @@ function peg$parse(input: string, options?: IParseOptions) {
 
 
   const ast = options.util.makeAST(location, options);
-  const astBlock = (begin, body, end) => {
-      return ast("block")
-        .add(ast("beginBlock").add(begin))
-        .add(ast("bodyBlock").add(body))
-        .add(ast("endBlock").add(end));
+  const astBlock = (_begin, _body, _end) => {
+    const begin = ast("beginBlock").add(_begin);
+    const body = ast("bodyBlock").add(_body || []);
+    const end = ast("endBlock").add(_end);
+    
+    return ast("block").add(begin).add(body).add(end);
   };
 
 

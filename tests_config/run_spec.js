@@ -31,19 +31,19 @@ function run_spec(dirname, options) {
 
         test(filename, () => {
           const output = parser(source, mergedOptions);
+          let dump = ""; //output.ast.dump();
+          
+          expect(output).not.toBeNull();
+         // expect(output.ast).not.toBeNull();
+
           if (output && output.error) {
-            console.error(`${filename}\n${PEGUtil.errorMessage(output.error)}`);
+            dump = (`${filename}\n${PEGUtil.errorMessage(output.error)}`);
+          } else {
+            dump = output.ast.dump();
           }
 
-          expect(output).not.toBeNull();
-          //expect(output.error).toBeNull();
-
-          const dump = output.ast.dump();
           expect(
             raw(
-              source +
-              "~".repeat(PRINT_WIDTH) +
-              "\n" +
               dump
             )
           ).toMatchSnapshot();
