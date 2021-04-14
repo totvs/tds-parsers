@@ -1,21 +1,17 @@
 #include "protheus.Ch"
 #include "cfgx011.ch"
 /*/
-ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
-±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
-±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
-±±³Fun‡…o    ³ CFGx011  ³ Autor ³ Vinicius Barreira     ³ Data ³14.02.96  ³±±
-±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
-±±³Descri‡…o ³ Tabela de IRRF                                             ³±±
-±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
-±±³Sintaxe e ³ CFGx011(void)                                              ³±±
-±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
-±±³Parametros³ Sem Argumentos                                             ³±±
-±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
-±±³ Uso      ³ Configurador   ³ Fun‡„o Relacionada ³ Entrada Dados (Todos)³±±
-±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
-±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
-ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+/----------v----------v-------v-----------------------v------v----------\
+|Fun‡…o    | CFGx011  | Autor | Vinicius Barreira     | Data |14.02.96  |
+|----------+----------^-------^-----------------------^------^----------|
+|Descri‡…o | Tabela de IRRF                                             |
+|----------+------------------------------------------------------------|
+|Sintaxe e | CFGx011(void)                                              |
+|----------+------------------------------------------------------------|
+|Parametros| Sem Argumentos                                             |
+|----------+----------------v--------------------v----------------------|
+| Uso      | Configurador   | Fun‡„o Relacionada | Entrada Dados (Todos)|
+\----------^----------------^--------------------^----------------------/
 Last change:  VSB  14 Feb 96    5:16 pm
 */
 
@@ -43,9 +39,9 @@ FuncTion Cfgx011(lWizard, oWizard, aArray, lEdit, oBtnWiz, oSayWiz)
 
 	cArqTmp := CriaTrab( aCampos , .T.)
 	dbUseArea( .T.,, cArqTmp, "cArqTmp", if(.F. .OR. .F., !.F., NIL), .F. )
-	//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
-	//³ "Importa" o arquivo TXT com a tabela do I.R.       ³
-	//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+	//*----------------------------------------------------*
+	//| "Importa" o arquivo TXT com a tabela do I.R.       |
+	//*----------------------------------------------------*
 	dbSelectArea( "cArqTmp" )
 	If File( "SIGAADV.IRF" )
 		APPEND FROM SIGAADV.IRF SDF
@@ -103,15 +99,15 @@ FuncTion Cfgx011(lWizard, oWizard, aArray, lEdit, oBtnWiz, oSayWiz)
 
 	/*/
 	ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
-	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
-	±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
-	±±³Fun‡„o    ³ EDITA    ³ Autor ³ Vinicius Barreira     ³ Data ³ 14/02/96 ³±±
-	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
-	±±³Descri‡„o ³ Edita os campos do arquivo temporario                      ³±±
-	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
-	±±³Sintaxe   ³ EDITA()                                                    ³±±
-	±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
-	±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+	±
+	*----------+----------+-------+-----------------------+------+----------*
+	|Fun‡„o    | EDITA    | Autor | Vinicius Barreira     | Data | 14/02/96 |
+	|----------+----------+-------+-----------------------+------+----------|
+	|Descri‡„o | Edita os campos do arquivo temporario                      |
+	|----------+------------------------------------------------------------|
+	|Sintaxe   | EDITA()                                                    |
+	|----------+------------------------------------------------------------|
+	±
 	ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 	*/
 Static Function EDITA( oLbx, lWizard, aArray, lEdit, oBtnWiz, oSayWiz )

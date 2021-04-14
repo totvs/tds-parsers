@@ -42,11 +42,15 @@ export function astDump(
       );
     }
 
-    const attributes: string = JSON.stringify(ast.attributes);
-    const location: string = `${ast.location.start.line}:${ast.location.start.column}-${ast.location.end.line}:${ast.location.end.column}`;
+    if (!ast.location || !ast.location.start) {
+      output += source;
+    } else {
+      const attributes: string = JSON.stringify(ast.attributes);
+      const location: string = `${ast.location.start.line}:${ast.location.start.column}-${ast.location.end.line}:${ast.location.end.column}`;
 
-    output = `${prefix}${ast.type}: ${source} [${location}] {C:${ast.children.length}} {A:${attributes}}\n`;
-    output = `${output}${sourceArray}${children}`;
+      output = `${prefix}${ast.type}: ${source} [${location}] {C:${ast.children.length}} {A:${attributes}}\n`;
+      output = `${output}${sourceArray}${children}`;
+    }
   }
 
   return output;

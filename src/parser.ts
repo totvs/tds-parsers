@@ -1,4 +1,4 @@
-import PEGUtil = require('pegjs-util');
+import PEGUtil = require('./PEGUtil'); //pegjs-util
 import { parse as parser_4gl } from './4gl';
 import { parse as parser_advpl } from './advpl';
 import { ASTChild, ASTNode, ASTUtil, EASTType, ILocation } from './ast_node';
@@ -45,7 +45,7 @@ export function locEnd(ast: ASTChild | ASTChild[]): ILocation {
 function parser_token(
   parser: any,
   text: string
-): { ast: ASTNode; error?: any } {
+): { ast: ASTNode | null; error?: any } {
   const result = PEGUtil.parse({ parse: parser }, text, {
     startRule: 'start_program',
     makeAST: function (

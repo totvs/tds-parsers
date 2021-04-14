@@ -6,7 +6,7 @@ const PRINT_WIDTH = 80;
 const fs = require("fs");
 const path = require("path");
 const parser = require("../lib").parser;
-const PEGUtil = require("pegjs-util");
+const PEGUtil = require("../src/PEGUtil"); //pegjs-util
 
 function run_spec(dirname, options) {
   fs.readdirSync(dirname).forEach((filename) => {
