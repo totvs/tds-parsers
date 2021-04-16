@@ -2,7 +2,7 @@
   "name": "@totvs/tds-parsers",
   "displayName": "TOTVS Developer Studio: Analisador Sintático",
   "description": "Extensão para análise sintática das linguagens proprietárias TOTVS.",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "publisher": "TOTVS",
   "author": {
     "name": "TOTVS",
@@ -38,7 +38,7 @@
   ],
   "scripts": {
     "clean": "rimraf lib && rimraf typings",
-    "build": "tsc -p ./src",
+    "build": "tsc --version && tsc -p ./src",
     "watch": "tsc -p ./src --watch",
     "prebuild": "npm run pegjs",
     "---PARSER---": "",
@@ -48,38 +48,35 @@
     "---TEST---": "",
     "test": "jest",
     "test:snapshot": "npm run test -- --updateSnapshot",
-    "test:file": "npm run test -- --testNamePattern hello1.4gl",
+    "test:singlefile": "npm run test -- --testNamePattern CFGX011.PRW",
     "test:folder": "npm run test -- --testPathPattern advpl/hello",
     "test:coverage": "npm run test -- --coverage",
     "test:onlyFailures": "npm run test --onlyFailures ",
     "pretest": "npm run build",
     "---RELEASE---": "",
-    "release": "standard-version",
-    "to_publish": "git push --follow-tags origin develop && npm publish",
+    "release": "npx standard-version",
+    "to_publish": "git push --follow-tags origin develop && npm publish --access public",
     "pack": "npm pack",
-    "prerelease": "npm run test",
+    "prerelease": "npm run build",
     "---MISC---": "",
-    "link:pegjs-util": "npm link W:\\github\\pegjs-util --force",
-    "contributors:check": "all-contributors check",
-    "contributors:generate": "all-contributors generate"
+    "contributors:check": "npx all-contributors check",
+    "contributors:generate": "npx all-contributors generate"
   },
   "peerDependencies": {},
   "dependencies": {
     "pegjs": "^0.10.0",
-    "pegjs-util": "^1.4.21",
     "ts-pegjs": "^0.3.1",
-    "typescript": "^4.1.3"
+    "typescript": "^4.2.4"
   },
   "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
-    "@types/node": "^14.14.25",
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
+    "@types/node": "^14.14.37",
     "@types/pegjs": "^0.10.2",
-    "husky": "^5.0.9",
+    "husky": "^6.0.0",
     "jest": "^26.4.2",
-    "jest-watch-typeahead": "^0.6.1",
-    "npm-run-all": "^4.1.5",
-    "standard-version": "^9.0.0"
+    "jest-watch-typeahead": "^0.6.2",
+    "npm-run-all": "^4.1.5"
   },
   "config": {
     "commitizen": {

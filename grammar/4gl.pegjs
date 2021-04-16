@@ -4,11 +4,12 @@
 {
 
 const ast = options.util.makeAST(location, options);
-const astBlock = (begin, body, end) => {
-    return ast("block")
-      .add(ast("beginBlock").add(begin))
-      .add(ast("bodyBlock").add(body))
-      .add(ast("endBlock").add(end));
+const astBlock = (_begin, _body, _end) => {
+  const begin = ast("beginBlock").add(_begin);
+  const body = ast("bodyBlock").add(_body || []);
+  const end = ast("endBlock").add(_end);
+  
+  return ast("block").add(begin).add(body).add(end);
 };
 
 }
@@ -80,7 +81,7 @@ ifBlock
     { return astBlock(b, t, e) }
 
 argumentList
-  = o:O_PARENTHESIS WS_NL?
+  = o:(O_PARENTHESIS WS_NL?)
       a:arguments?
   c:C_PARENTHESIS 
   { return ast("argumentList").add([o, a || [], c]) }  
@@ -99,16 +100,16 @@ defineTokens
 
 tokens
   = WS_NL
+  / forBlock
+  / forEachBlock
+  / ifBlock
+  / recordBlock
   / comment
   / keywords
   / builtInVar
   / operators
   / string
   / number
-  / forBlock
-  / forEachBlock
-  / ifBlock
-  / recordBlock
   / !(END / THEN) identifer
 
 keywords
@@ -219,6 +220,7 @@ keywords
     / HIDE
     / HOLD
     / HOUR
+    / IF
     / IN
     / INCLUDE
     / INDEX

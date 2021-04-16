@@ -6,7 +6,7 @@ const PRINT_WIDTH = 80;
 const fs = require("fs");
 const path = require("path");
 const parser = require("../lib").parser;
-const PEGUtil = require("pegjs-util");
+const PEGUtil = require("../src/PEGUtil"); //pegjs-util
 
 function run_spec(dirname, options) {
   fs.readdirSync(dirname).forEach((filename) => {
@@ -31,19 +31,19 @@ function run_spec(dirname, options) {
 
         test(filename, () => {
           const output = parser(source, mergedOptions);
+          let dump = ""; //output.ast.dump();
+          
+          expect(output).not.toBeNull();
+         // expect(output.ast).not.toBeNull();
+
           if (output && output.error) {
-            console.error(`${filename}\n${PEGUtil.errorMessage(output.error)}`);
+            dump = (`${filename}\n${PEGUtil.errorMessage(output.error)}`);
+          } else {
+            dump = output.ast.dump();
           }
 
-          expect(output).not.toBeNull();
-          //expect(output.error).toBeNull();
-
-          const dump = output.ast.dump();
           expect(
             raw(
-              source +
-              "~".repeat(PRINT_WIDTH) +
-              "\n" +
               dump
             )
           ).toMatchSnapshot();

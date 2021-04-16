@@ -1,6 +1,7 @@
 {
   "recommendations": [
-    "mike-lischke.vscode-antlr4",
-    "sirtobi.pegjs-language"
+    "sirtobi.pegjs-language",
+    "eg2.vscode-npm-script",
+    "christian-kohler.npm-intellisense"
   ]
 }

@@ -1,9 +1,20 @@
 // Gramática eleborada com base na documentação disponibilizada em
-// https://www.oninit.com/manual/informix/english/docs/4gl/7609.pdf
-// e na pasta "docs" há uma cópia
+// https://tdn.totvs.com/display/tec/AdvPL
+
 {
 
 const ast = options.util.makeAST(location, options);
+const astBlock = (_begin, _body, _end) => {
+  const begin = ast("beginBlock").add(_begin);
+  const body = ast("bodyBlock").add(_body || [] );
+  const end = ast("endBlock").add(_end);
+
+  if (end.location.end.line == -Infinity) {
+    end.location.end = body.location.end;
+  } 
+  
+  return ast("block").add(begin).add(body).add(end);
+};
 
 }
 
@@ -26,10 +37,9 @@ superToken
   / tokens
 
 functionBlock
-  = b:(
-      scope? WS_CONTINUE? FUNCTION WS_CONTINUE identifer WS_CONTINUE? argumentList endLine)
+  = b:(scope? WS_CONTINUE? FUNCTION WS_CONTINUE identifer WS_CONTINUE? argumentList endLine)
       t:tokens*
-    { return ast("block", b).add(t || []) }
+    { return astBlock(b, t, []) }
 
 scope
   = PYME
@@ -44,16 +54,25 @@ forBlock
   = b:(FOR) 
       t:tokens*
     e:(NEXT endLine)
-    { return ast("block", b).add(t).add(e) }
+    { return astBlock(b, t, e) }
 
 ifBlock
-  = f:(IF) 
+  = b:(IF) 
       t:tokens*
     e:(ENDIF endLine)
-    { return ast("block", f).add(t).add(e) }
+    { return astBlock(b, t, e) }
+
+/*
+codeBlock
+  = b:(O_BRACES WS_CONTINUE? PIPE)
+      a:(arguments? WS_CONTINUE? PIPE)    
+      t:tokens*
+    e:(C_BRACES endLine)
+    { return astBlock(b, t, e).add(ast("arguments").add(a || [])) }
+*/
 
 argumentList
-  = o:O_PARENTHESIS WS_CONTINUE?
+  = o:(O_PARENTHESIS WS_CONTINUE?)
       a:arguments?
   c:C_PARENTHESIS 
   { return ast("argumentList").add(o).add(a || []).add(c) }  
@@ -71,13 +90,17 @@ tokens
   = WS_CONTINUE
   / NL
   / comment
+  / forBlock
+  / ifBlock
+  // / codeBlock
+  / directives
   / keywords
+  / logicalOperators
   / operators
   / string
   / number
-  / forBlock
-  / ifBlock
-  / directives
+  / boolean
+  / !scope fileIdentifer
   / !scope identifer
 
 directives
@@ -154,6 +177,14 @@ keywords
   ) &(WS_CONTINUE / operators)
   { return k;}
 
+logicalOperators
+  = o:(
+    DOT 'and'i DOT 
+    / DOT 'or'i DOT 
+    / DOT 'not'i DOT 
+    / EXCLAMATION 
+  ) { return ast("operatorLogical", o); }
+
 operators
   = (
     ASSIGN
@@ -174,7 +205,7 @@ operators
     / COLON
     / SLASH
     / AT_SIGN
-    / DOUBLE_PIPE
+    / PIPE
   )
 
 comment
@@ -202,6 +233,10 @@ number
   = n:$([-+]? DIGIT+ (DOT DIGIT+)?) 
   { return ast("number", n); }
 
+boolean
+  = b:$(DOT [TtFfYyNn] DOT) 
+  { return ast("boolean", b); }
+
 WS
   = s:$([ \t])+
   { return ast("whiteSpace", s) }
@@ -225,6 +260,9 @@ identifer
   = i:$(COLON COLON ID) { return ast("identifier", i) }
   / i:ID { return ast("identifier", i) }
 
+fileIdentifer
+  = i:$(ID DOT ID) { return ast("identifier", i) }
+
 ID = $(
       ([a-zA-Z_] [a-zA-Z_0-9]*) 
       (COLON ([a-zA-Z_] [a-zA-Z_0-9]*))*
@@ -234,7 +272,7 @@ POUND = o:"#" { return ast("operator", o) }
 AT_SIGN = o:"@" { return ast("operator", o) }
 EXCLAMATION = o:"!" { return ast("operator", o) }
 COLON = o:":" { return ast("operator", o) }
-DOUBLE_PIPE = o:"||" { return ast("operator", o) }
+PIPE = o:"|" { return ast("operator", o) }
 
 O_BRACES=o:"{" { return ast("operatorBraces", o) }
 C_BRACES=o:"}" { return ast("operatorBraces", o) }
