@@ -1,1 +1,0 @@
-#include 'protheus.ch'

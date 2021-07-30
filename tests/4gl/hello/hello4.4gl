@@ -69,4 +69,5 @@ for l_ind = 1 to 3
 	let ma_array[l_ind].f2_scroll     = "texto scroll texto scroll texto scroll "
 end for
 }
+
 end main

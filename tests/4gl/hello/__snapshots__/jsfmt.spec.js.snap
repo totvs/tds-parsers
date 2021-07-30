@@ -124,8 +124,8 @@ program:  [1:1--Infinity:-Infinity] {C:1} {A:{}}
 
 exports[`4gl: Token hello4.4gl 1`] = `
 hello4.4gl
-line 72 (column 9): "\\nend for\\n}\\nend main
--------------------------------------------^
+line 73 (column 9): \\nend for\\n}\\n\\nend main
+--------------------------------------------^
 Expected "#", "\\n", "\\r", "\\r\\n", or [;, ,\\t] but end of input found.
 
 `;

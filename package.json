@@ -48,7 +48,7 @@
     "---TEST---": "",
     "test": "jest",
     "test:snapshot": "npm run test -- --updateSnapshot",
-    "test:singlefile": "npm run test -- --testNamePattern CFGX011.PRW",
+    "test:singlefile": "npm run test -- --testNamePattern array2.4gl",
     "test:folder": "npm run test -- --testPathPattern advpl/hello",
     "test:coverage": "npm run test -- --coverage",
     "test:onlyFailures": "npm run test --onlyFailures ",
@@ -65,17 +65,17 @@
   "peerDependencies": {},
   "dependencies": {
     "pegjs": "^0.10.0",
-    "ts-pegjs": "^0.3.1",
-    "typescript": "^4.2.4"
+    "ts-pegjs": "^1.1.1",
+    "typescript": "^4.3.5"
   },
   "devDependencies": {
-    "@commitlint/cli": "^12.1.1",
-    "@commitlint/config-conventional": "^12.1.1",
-    "@types/node": "^14.14.37",
-    "@types/pegjs": "^0.10.2",
-    "husky": "^6.0.0",
-    "jest": "^26.4.2",
-    "jest-watch-typeahead": "^0.6.2",
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@types/node": "^16.4.7",
+    "@types/pegjs": "^0.10.3",
+    "husky": "^7.0.1",
+    "jest": "^27.0.6",
+    "jest-watch-typeahead": "^0.6.4",
     "npm-run-all": "^4.1.5"
   },
   "config": {
