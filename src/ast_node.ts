@@ -39,6 +39,7 @@ export enum EASTType {
   operatorMath = 'operatorMath',
   operatorLogical = 'operatorLogical',
   keyword = 'keyword',
+  token = 'token',
   comment = 'comment',
   blockComment = 'blockComment',
   singleComment = 'singleComment',

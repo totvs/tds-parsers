@@ -1,4 +1,4 @@
-import PEGUtil = require('./PEGUtil'); //pegjs-util
+import PEGUtil = require('pegjs-util');
 import { parse as parser_4gl } from './4gl';
 import { parse as parser_advpl } from './advpl';
 import { ASTChild, ASTNode, ASTUtil, EASTType, ILocation } from './ast_node';
@@ -42,52 +42,66 @@ export function locEnd(ast: ASTChild | ASTChild[]): ILocation {
   return location;
 }
 
-function parser_token(
+function parser_process(
   parser: any,
-  text: string
+  text: string,
+  startRule: string
 ): { ast: ASTNode | null; error?: any } {
-  const result = PEGUtil.parse({ parse: parser }, text, {
-    startRule: 'start_program',
-    makeAST: function (
-      line: number,
-      column: number,
-      offset: number,
-      _args: any[]
-    ) {
-      const args: any[] = [];
+  const result = PEGUtil.parse(
+    { parse: parser, SyntaxError: SyntaxError },
+    text,
+    {
+      startRule: startRule,
+      makeAST: function (
+        line: number,
+        column: number,
+        offset: number,
+        _args: any[]
+      ) {
+        const args: any[] = [];
 
-      if (!Object.values(EASTType).includes(_args[0])) {
-        console.error('Invalid EASType: ' + _args[0]);
-        throw new Error('Invalid EASType: ' + _args[0]);
-      }
-
-      args.push(_args[0]);
-      if (_args.length > 1) {
-        if (Array.isArray(_args[1])) {
-          args.push(
-            _args[1].filter(
-              (element) => element != null && element != undefined
-            )
-          );
-        } else {
-          args.push(_args[1]);
+        if (!Object.values(EASTType).includes(_args[0])) {
+          console.error('Invalid EASType: ' + _args[0]);
+          throw new Error('Invalid EASType: ' + _args[0]);
         }
-      } else {
-        args.push('');
-      }
 
-      const node: ASTNode = ASTUtil.create(...args, { line, column, offset });
+        args.push(_args[0]);
+        if (_args.length > 1) {
+          if (Array.isArray(_args[1])) {
+            args.push(
+              _args[1].filter(
+                (element) => element != null && element != undefined
+              )
+            );
+          } else {
+            args.push(_args[1]);
+          }
+        } else {
+          args.push('');
+        }
 
-      return node;
-    },
-  });
+        const node: ASTNode = ASTUtil.create(...args, { line, column, offset });
+
+        return node;
+      },
+    }
+  );
 
   return result;
 }
 
 export const parser_token_4gl = (text: string): any => {
-  return parser_token(parser_4gl, text);
+  return parser_process(parser_4gl, text, 'start_token');
 };
+
+export const parser_program_4gl = (text: string): any => {
+  return parser_process(parser_4gl, text, 'start_program');
+};
+
 export const parser_token_advpl = (text: string) => {
-  return parser_token(parser_advpl, text);
+  return parser_process(parser_advpl, text, 'start_token');
+};
+
+export const parser_program_advpl = (text: string) => {
+  return parser_process(parser_advpl, text, 'start_program');
 };

@@ -1,131 +1,733 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`4gl: Token hello1.4gl 1`] = `
-program:  [1:1-3:9] {C:1} {A:{}}
-| block:  [1:1-3:9] {C:3} {A:{}}
-| | beginBlock:  [1:1-1:6] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
-| | | endLine: - [1:5-1:6] {C:0} {A:{}}
-| | | -whiteSpace: ?b [1:5-1:5] {C:0} {A:{}}
-| | | -newLine: \\n [1:6-1:6] {C:0} {A:{}}
-| | bodyBlock:  [1:1-2:17] {C:1} {A:{}}
-| | | keyword: display [2:1-2:7] {C:0} {A:{}}
-| | | whiteSpace: ?b [2:8-2:8] {C:0} {A:{}}
-| | | string: "hello?b" [2:9-2:16] {C:0} {A:{}}
-| | | newLine: \\n [2:17-2:17] {C:0} {A:{}}
-| | endBlock:  [1:1-3:9] {C:1} {A:{}}
-| | | keyword: end [3:1-3:3] {C:0} {A:{}}
-| | | whiteSpace: ?b [3:4-3:4] {C:0} {A:{}}
-| | | keyword: main [3:5-3:8] {C:0} {A:{}}
-| | | endLine: - [3:9-3:9] {C:0} {A:{}}
-| | | -newLine: \\n [3:9-3:9] {C:0} {A:{}}
+token:  [1:1-3:9] {C:1} {A:{}}
+| keyword: main [1:1-1:4] {C:0} {A:{}}
+| whiteSpace: ?b [1:5-1:5] {C:0} {A:{}}
+| newLine: \\n [1:6-1:6] {C:0} {A:{}}
+| keyword: display [2:1-2:7] {C:0} {A:{}}
+| whiteSpace: ?b [2:8-2:8] {C:0} {A:{}}
+| string: "hello?b" [2:9-2:16] {C:0} {A:{}}
+| newLine: \\n [2:17-2:17] {C:0} {A:{}}
+| keyword: end [3:1-3:3] {C:0} {A:{}}
+| whiteSpace: ?b [3:4-3:4] {C:0} {A:{}}
+| keyword: main [3:5-3:8] {C:0} {A:{}}
+| newLine: \\n [3:9-3:9] {C:0} {A:{}}
 
 `;
 
 exports[`4gl: Token hello2.4gl 1`] = `
-program:  [1:1-16:1] {C:1} {A:{}}
-| block:  [1:1-3:11] {C:3} {A:{}}
-| | beginBlock:  [1:1-1:5] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
-| | | endLine: - [1:5-1:5] {C:0} {A:{}}
-| | | -newLine: \\n [1:5-1:5] {C:0} {A:{}}
-| | bodyBlock:  [1:1-2:10] {C:1} {A:{}}
-| | | keyword: call [2:1-2:4] {C:0} {A:{}}
-| | | whiteSpace: ?b [2:5-2:5] {C:0} {A:{}}
-| | | identifier: f1 [2:6-2:7] {C:0} {A:{}}
-| | | operatorParenthesis: ( [2:8-2:8] {C:0} {A:{}}
-| | | operatorParenthesis: ) [2:9-2:9] {C:0} {A:{}}
-| | | newLine: \\n [2:10-2:10] {C:0} {A:{}}
-| | endBlock:  [1:1-3:11] {C:1} {A:{}}
-| | | keyword: end [3:1-3:3] {C:0} {A:{}}
-| | | whiteSpace: ?b [3:4-3:4] {C:0} {A:{}}
-| | | keyword: main [3:5-3:8] {C:0} {A:{}}
-| | | endLine: - [3:9-3:11] {C:0} {A:{}}
-| | | -newLine: \\n\\n\\n [3:9-3:11] {C:0} {A:{}}
-| comment: --#?bfunção?bcom?b3?bargumentos\\n [6:1-6:28] {C:0} {A:{}}
-| block:  [7:1-15:14] {C:3} {A:{}}
-| | beginBlock:  [7:1-7:28] {C:1} {A:{}}
-| | | keyword: function [7:1-7:8] {C:0} {A:{}}
-| | | whiteSpace: ?b [7:9-7:9] {C:0} {A:{}}
-| | | identifier: f1 [7:10-7:11] {C:0} {A:{}}
-| | | argumentList:  [7:12-7:26] {C:1} {A:{}}
-| | | | operatorParenthesis: ( [7:12-7:12] {C:0} {A:{}}
-| | | | identifier: a [7:13-7:13] {C:0} {A:{}}
-| | | | operatorSeparator: , [7:14-7:14] {C:0} {A:{}}
-| | | | whiteSpace: ?b?b?b?b [7:15-7:18] {C:0} {A:{}}
-| | | | identifier: b [7:19-7:19] {C:0} {A:{}}
-| | | | operatorSeparator: , [7:20-7:20] {C:0} {A:{}}
-| | | | whiteSpace: ?b?b?b?b [7:21-7:24] {C:0} {A:{}}
-| | | | identifier: c [7:25-7:25] {C:0} {A:{}}
-| | | | operatorParenthesis: ) [7:26-7:26] {C:0} {A:{}}
-| | | endLine: - [7:27-7:28] {C:0} {A:{}}
-| | | -newLine: \\n\\n [7:27-7:28] {C:0} {A:{}}
-| | bodyBlock:  [7:1-15:1] {C:1} {A:{}}
-| | | whiteSpace: ?b?b?b?b?b?b?b [9:1-9:7] {C:0} {A:{}}
-| | | keyword: define [9:8-9:13] {C:0} {A:{}}
-| | | whiteSpace: ?b [9:14-9:14] {C:0} {A:{}}
-| | | identifier: nome [9:15-9:18] {C:0} {A:{}}
-| | | whiteSpace: ?b [9:19-9:19] {C:0} {A:{}}
-| | | keyword: char [9:20-9:23] {C:0} {A:{}}
-| | | operatorParenthesis: ( [9:24-9:24] {C:0} {A:{}}
-| | | number: 50 [9:25-9:26] {C:0} {A:{}}
-| | | operatorParenthesis: ) [9:27-9:27] {C:0} {A:{}}
-| | | whiteSpace: ?b [9:28-9:28] {C:0} {A:{}}
-| | | comment: #?babc\\n [9:29-9:34] {C:0} {A:{}}
-| | | whiteSpace: ?b?b?b?b?b?b?b [10:1-10:7] {C:0} {A:{}}
-| | | keyword: define [10:8-10:13] {C:0} {A:{}}
-| | | whiteSpace: ?b [10:14-10:14] {C:0} {A:{}}
-| | | identifier: big_field [10:15-10:23] {C:0} {A:{}}
-| | | whiteSpace: ?b [10:24-10:24] {C:0} {A:{}}
-| | | keyword: char [10:25-10:28] {C:0} {A:{}}
-| | | operatorParenthesis: ( [10:29-10:29] {C:0} {A:{}}
-| | | number: 1234 [10:30-10:33] {C:0} {A:{}}
-| | | operatorParenthesis: ) [10:34-10:34] {C:0} {A:{}}
-| | | whiteSpace: ?b [10:35-10:35] {C:0} {A:{}}
-| | | comment: #?babc\\n [10:36-10:41] {C:0} {A:{}}
-| | | whiteSpace: ?b [11:1-11:1] {C:0} {A:{}}
-| | | keyword: prompt [11:2-11:7] {C:0} {A:{}}
-| | | whiteSpace: ?b [11:8-11:8] {C:0} {A:{}}
-| | | string: "digite?bseu?bnome?b:?b" [11:9-11:28] {C:0} {A:{}}
-| | | whiteSpace: ?b [11:29-11:29] {C:0} {A:{}}
-| | | identifier: for [11:30-11:32] {C:0} {A:{}}
-| | | whiteSpace: ?b [11:33-11:33] {C:0} {A:{}}
-| | | identifier: nome [11:34-11:37] {C:0} {A:{}}
-| | | newLine: \\n\\n [11:38-11:39] {C:0} {A:{}}
-| | | whiteSpace: ?b?b?b?b?b?b?b?b?b?b?b?b?b [13:1-13:13] {C:0} {A:{}}
-| | | keyword: call [13:14-13:17] {C:0} {A:{}}
-| | | whiteSpace: ?b [13:18-13:18] {C:0} {A:{}}
-| | | identifier: fgl_winmessage [13:19-13:32] {C:0} {A:{}}
-| | | operatorParenthesis: ( [13:33-13:33] {C:0} {A:{}}
-| | | whiteSpace: ?b [13:34-13:34] {C:0} {A:{}}
-| | | string: "hello" [13:35-13:41] {C:0} {A:{}}
-| | | operatorSeparator: , [13:42-13:42] {C:0} {A:{}}
-| | | identifier: nome [13:43-13:46] {C:0} {A:{}}
-| | | operatorSeparator: , [13:47-13:47] {C:0} {A:{}}
-| | | whiteSpace: ?b [13:48-13:48] {C:0} {A:{}}
-| | | string: "info" [13:49-13:54] {C:0} {A:{}}
-| | | operatorParenthesis: ) [13:55-13:55] {C:0} {A:{}}
-| | | newLine: \\n\\n [13:56-13:57] {C:0} {A:{}}
-| | | whiteSpace: ?b [15:1-15:1] {C:0} {A:{}}
-| | endBlock:  [7:1-15:14] {C:1} {A:{}}
-| | | keyword: end [15:2-15:4] {C:0} {A:{}}
-| | | whiteSpace: ?b [15:5-15:5] {C:0} {A:{}}
-| | | keyword: function [15:6-15:13] {C:0} {A:{}}
-| | | endLine: - [15:14-15:14] {C:0} {A:{}}
-| | | -newLine: \\n [15:14-15:14] {C:0} {A:{}}
-| whiteSpace: ?b [16:1-16:1] {C:0} {A:{}}
+token:  [1:1-70:9] {C:1} {A:{}}
+| newLine: \\n [1:1-1:1] {C:0} {A:{}}
+| comment: #?berro?bde?bnão?bpoder?bsobescrever\\n [2:1-2:32] {C:0} {A:{}}
+| keyword: main [3:1-3:4] {C:0} {A:{}}
+| newLine: \\n [3:5-3:5] {C:0} {A:{}}
+| whiteSpace: \\t [4:1-4:1] {C:0} {A:{}}
+| keyword: define [4:2-4:7] {C:0} {A:{}}
+| whiteSpace: ?b [4:8-4:8] {C:0} {A:{}}
+| identifier: l_ind [4:9-4:13] {C:0} {A:{}}
+| whiteSpace: ?b [4:14-4:14] {C:0} {A:{}}
+| identifier: smallint [4:15-4:22] {C:0} {A:{}}
+| newLine: \\n [4:23-4:23] {C:0} {A:{}}
+| whiteSpace: \\t [5:1-5:1] {C:0} {A:{}}
+| keyword: define [5:2-5:7] {C:0} {A:{}}
+| whiteSpace: ?b [5:8-5:8] {C:0} {A:{}}
+| identifier: ma_char [5:9-5:15] {C:0} {A:{}}
+| whiteSpace: ?b [5:16-5:16] {C:0} {A:{}}
+| keyword: array [5:17-5:21] {C:0} {A:{}}
+| operatorBracket: [ [5:22-5:22] {C:0} {A:{}}
+| number: 5 [5:23-5:23] {C:0} {A:{}}
+| operatorBracket: ] [5:24-5:24] {C:0} {A:{}}
+| whiteSpace: ?b [5:25-5:25] {C:0} {A:{}}
+| keyword: of [5:26-5:27] {C:0} {A:{}}
+| whiteSpace: ?b [5:28-5:28] {C:0} {A:{}}
+| keyword: char [5:29-5:32] {C:0} {A:{}}
+| operatorParenthesis: ( [5:33-5:33] {C:0} {A:{}}
+| number: 3 [5:34-5:34] {C:0} {A:{}}
+| operatorParenthesis: ) [5:35-5:35] {C:0} {A:{}}
+| newLine: \\n\\n [5:36-5:37] {C:0} {A:{}}
+| whiteSpace: \\t [7:1-7:1] {C:0} {A:{}}
+| keyword: define [7:2-7:7] {C:0} {A:{}}
+| whiteSpace: ?b [7:8-7:8] {C:0} {A:{}}
+| identifier: ma_integer [7:9-7:18] {C:0} {A:{}}
+| whiteSpace: ?b [7:19-7:19] {C:0} {A:{}}
+| keyword: array [7:20-7:24] {C:0} {A:{}}
+| whiteSpace: ?b [7:25-7:25] {C:0} {A:{}}
+| operatorBracket: [ [7:26-7:26] {C:0} {A:{}}
+| number: 3 [7:27-7:27] {C:0} {A:{}}
+| operatorBracket: ] [7:28-7:28] {C:0} {A:{}}
+| whiteSpace: ?b [7:29-7:29] {C:0} {A:{}}
+| keyword: of [7:30-7:31] {C:0} {A:{}}
+| whiteSpace: ?b [7:32-7:32] {C:0} {A:{}}
+| identifier: integer [7:33-7:39] {C:0} {A:{}}
+| newLine: \\n\\n [7:40-7:41] {C:0} {A:{}}
+| whiteSpace: \\t [9:1-9:1] {C:0} {A:{}}
+| keyword: define [9:2-9:7] {C:0} {A:{}}
+| whiteSpace: ?b [9:8-9:8] {C:0} {A:{}}
+| identifier: ma_array [9:9-9:16] {C:0} {A:{}}
+| whiteSpace: ?b [9:17-9:17] {C:0} {A:{}}
+| keyword: array [9:18-9:22] {C:0} {A:{}}
+| whiteSpace: ?b [9:23-9:23] {C:0} {A:{}}
+| operatorBracket: [ [9:24-9:24] {C:0} {A:{}}
+| number: 3 [9:25-9:25] {C:0} {A:{}}
+| operatorBracket: ] [9:26-9:26] {C:0} {A:{}}
+| whiteSpace: ?b [9:27-9:27] {C:0} {A:{}}
+| keyword: of [9:28-9:29] {C:0} {A:{}}
+| whiteSpace: ?b [9:30-9:30] {C:0} {A:{}}
+| identifier: record [9:31-9:36] {C:0} {A:{}}
+| newLine: \\n [9:37-9:37] {C:0} {A:{}}
+| whiteSpace: \\t [10:1-10:1] {C:0} {A:{}}
+| identifier: f2_check [10:2-10:9] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b?b?b [10:10-10:15] {C:0} {A:{}}
+| keyword: char [10:16-10:19] {C:0} {A:{}}
+| operatorParenthesis: ( [10:20-10:20] {C:0} {A:{}}
+| number: 1 [10:21-10:21] {C:0} {A:{}}
+| operatorParenthesis: ) [10:22-10:22] {C:0} {A:{}}
+| operatorSeparator: , [10:23-10:23] {C:0} {A:{}}
+| newLine: \\n [10:24-10:24] {C:0} {A:{}}
+| whiteSpace: \\t [11:1-11:1] {C:0} {A:{}}
+| identifier: f2_integer [11:2-11:11] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b [11:12-11:15] {C:0} {A:{}}
+| identifier: integer [11:16-11:22] {C:0} {A:{}}
+| operatorSeparator: , [11:23-11:23] {C:0} {A:{}}
+| newLine: \\n [11:24-11:24] {C:0} {A:{}}
+| whiteSpace: \\t [12:1-12:1] {C:0} {A:{}}
+| identifier: f2_smallint [12:2-12:12] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [12:13-12:15] {C:0} {A:{}}
+| identifier: smallint [12:16-12:23] {C:0} {A:{}}
+| operatorSeparator: , [12:24-12:24] {C:0} {A:{}}
+| newLine: \\n [12:25-12:25] {C:0} {A:{}}
+| whiteSpace: \\t [13:1-13:1] {C:0} {A:{}}
+| identifier: f2_decimal [13:2-13:11] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b [13:12-13:15] {C:0} {A:{}}
+| identifier: decimal [13:16-13:22] {C:0} {A:{}}
+| operatorParenthesis: ( [13:23-13:23] {C:0} {A:{}}
+| number: 17 [13:24-13:25] {C:0} {A:{}}
+| operatorSeparator: , [13:26-13:26] {C:0} {A:{}}
+| number: 6 [13:27-13:27] {C:0} {A:{}}
+| operatorParenthesis: ) [13:28-13:28] {C:0} {A:{}}
+| operatorSeparator: , [13:29-13:29] {C:0} {A:{}}
+| newLine: \\n [13:30-13:30] {C:0} {A:{}}
+| whiteSpace: \\t [14:1-14:1] {C:0} {A:{}}
+| identifier: f2_decimal0 [14:2-14:12] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [14:13-14:15] {C:0} {A:{}}
+| identifier: decimal [14:16-14:22] {C:0} {A:{}}
+| operatorParenthesis: ( [14:23-14:23] {C:0} {A:{}}
+| number: 10 [14:24-14:25] {C:0} {A:{}}
+| operatorSeparator: , [14:26-14:26] {C:0} {A:{}}
+| number: 0 [14:27-14:27] {C:0} {A:{}}
+| operatorParenthesis: ) [14:28-14:28] {C:0} {A:{}}
+| operatorSeparator: , [14:29-14:29] {C:0} {A:{}}
+| newLine: \\n [14:30-14:30] {C:0} {A:{}}
+| whiteSpace: \\t [15:1-15:1] {C:0} {A:{}}
+| identifier: f2_char [15:2-15:8] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b?b?b?b [15:9-15:15] {C:0} {A:{}}
+| keyword: char [15:16-15:19] {C:0} {A:{}}
+| operatorParenthesis: ( [15:20-15:20] {C:0} {A:{}}
+| number: 10 [15:21-15:22] {C:0} {A:{}}
+| operatorParenthesis: ) [15:23-15:23] {C:0} {A:{}}
+| operatorSeparator: , [15:24-15:24] {C:0} {A:{}}
+| newLine: \\n [15:25-15:25] {C:0} {A:{}}
+| whiteSpace: \\t [16:1-16:1] {C:0} {A:{}}
+| identifier: f2_date [16:2-16:8] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b?b?b?b [16:9-16:15] {C:0} {A:{}}
+| keyword: date [16:16-16:19] {C:0} {A:{}}
+| operatorSeparator: , [16:20-16:20] {C:0} {A:{}}
+| newLine: \\n [16:21-16:21] {C:0} {A:{}}
+| whiteSpace: \\t [17:1-17:1] {C:0} {A:{}}
+| identifier: f2_dttime_y2s [17:2-17:14] {C:0} {A:{}}
+| whiteSpace: ?b [17:15-17:15] {C:0} {A:{}}
+| identifier: datetime [17:16-17:23] {C:0} {A:{}}
+| whiteSpace: ?b [17:24-17:24] {C:0} {A:{}}
+| keyword: year [17:25-17:28] {C:0} {A:{}}
+| whiteSpace: ?b [17:29-17:29] {C:0} {A:{}}
+| keyword: to [17:30-17:31] {C:0} {A:{}}
+| whiteSpace: ?b [17:32-17:32] {C:0} {A:{}}
+| keyword: second [17:33-17:38] {C:0} {A:{}}
+| operatorSeparator: , [17:39-17:39] {C:0} {A:{}}
+| newLine: \\n [17:40-17:40] {C:0} {A:{}}
+| whiteSpace: \\t [18:1-18:1] {C:0} {A:{}}
+| identifier: f2_dttime_y2m [18:2-18:14] {C:0} {A:{}}
+| whiteSpace: ?b [18:15-18:15] {C:0} {A:{}}
+| identifier: datetime [18:16-18:23] {C:0} {A:{}}
+| whiteSpace: ?b [18:24-18:24] {C:0} {A:{}}
+| keyword: year [18:25-18:28] {C:0} {A:{}}
+| whiteSpace: ?b [18:29-18:29] {C:0} {A:{}}
+| keyword: to [18:30-18:31] {C:0} {A:{}}
+| whiteSpace: ?b [18:32-18:32] {C:0} {A:{}}
+| keyword: month [18:33-18:37] {C:0} {A:{}}
+| operatorSeparator: , [18:38-18:38] {C:0} {A:{}}
+| newLine: \\n [18:39-18:39] {C:0} {A:{}}
+| whiteSpace: \\t [19:1-19:1] {C:0} {A:{}}
+| identifier: f2_dttime_y2f [19:2-19:14] {C:0} {A:{}}
+| whiteSpace: ?b [19:15-19:15] {C:0} {A:{}}
+| identifier: datetime [19:16-19:23] {C:0} {A:{}}
+| whiteSpace: ?b [19:24-19:24] {C:0} {A:{}}
+| keyword: year [19:25-19:28] {C:0} {A:{}}
+| whiteSpace: ?b [19:29-19:29] {C:0} {A:{}}
+| keyword: to [19:30-19:31] {C:0} {A:{}}
+| whiteSpace: ?b [19:32-19:32] {C:0} {A:{}}
+| keyword: fraction [19:33-19:40] {C:0} {A:{}}
+| operatorParenthesis: ( [19:41-19:41] {C:0} {A:{}}
+| number: 3 [19:42-19:42] {C:0} {A:{}}
+| operatorParenthesis: ) [19:43-19:43] {C:0} {A:{}}
+| operatorSeparator: , [19:44-19:44] {C:0} {A:{}}
+| newLine: \\n [19:45-19:45] {C:0} {A:{}}
+| whiteSpace: \\t [20:1-20:1] {C:0} {A:{}}
+| identifier: f2_scroll [20:2-20:10] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b?b [20:11-20:15] {C:0} {A:{}}
+| keyword: char [20:16-20:19] {C:0} {A:{}}
+| operatorParenthesis: ( [20:20-20:20] {C:0} {A:{}}
+| number: 100 [20:21-20:23] {C:0} {A:{}}
+| operatorParenthesis: ) [20:24-20:24] {C:0} {A:{}}
+| operatorSeparator: , [20:25-20:25] {C:0} {A:{}}
+| newLine: \\n [20:26-20:26] {C:0} {A:{}}
+| whiteSpace: \\t [21:1-21:1] {C:0} {A:{}}
+| identifier: f2_varchar [21:2-21:11] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b [21:12-21:15] {C:0} {A:{}}
+| keyword: varchar [21:16-21:22] {C:0} {A:{}}
+| operatorParenthesis: ( [21:23-21:23] {C:0} {A:{}}
+| number: 20 [21:24-21:25] {C:0} {A:{}}
+| operatorParenthesis: ) [21:26-21:26] {C:0} {A:{}}
+| newLine: \\n [21:27-21:27] {C:0} {A:{}}
+| keyword: end [22:1-22:3] {C:0} {A:{}}
+| whiteSpace: ?b [22:4-22:4] {C:0} {A:{}}
+| identifier: record [22:5-22:10] {C:0} {A:{}}
+| newLine: \\n\\n [22:11-22:12] {C:0} {A:{}}
+| identifier: initialize [24:1-24:10] {C:0} {A:{}}
+| whiteSpace: ?b [24:11-24:11] {C:0} {A:{}}
+| identifier: ma_array [24:12-24:19] {C:0} {A:{}}
+| whiteSpace: ?b [24:20-24:20] {C:0} {A:{}}
+| keyword: to [24:21-24:22] {C:0} {A:{}}
+| whiteSpace: ?b [24:23-24:23] {C:0} {A:{}}
+| keyword: null [24:24-24:27] {C:0} {A:{}}
+| newLine: \\n [24:28-24:28] {C:0} {A:{}}
+| identifier: initialize [25:1-25:10] {C:0} {A:{}}
+| whiteSpace: ?b [25:11-25:11] {C:0} {A:{}}
+| identifier: ma_integer [25:12-25:21] {C:0} {A:{}}
+| whiteSpace: ?b [25:22-25:22] {C:0} {A:{}}
+| keyword: to [25:23-25:24] {C:0} {A:{}}
+| whiteSpace: ?b [25:25-25:25] {C:0} {A:{}}
+| keyword: null [25:26-25:29] {C:0} {A:{}}
+| newLine: \\n\\n\\n [25:30-25:32] {C:0} {A:{}}
+| keyword: display [28:1-28:7] {C:0} {A:{}}
+| whiteSpace: ?b [28:8-28:8] {C:0} {A:{}}
+| string: "hello?bworld" [28:9-28:21] {C:0} {A:{}}
+| newLine: \\n\\n [28:22-28:23] {C:0} {A:{}}
+| keyword: call [30:1-30:4] {C:0} {A:{}}
+| whiteSpace: ?b [30:5-30:5] {C:0} {A:{}}
+| identifier: arraydeleteitem [30:6-30:20] {C:0} {A:{}}
+| operatorParenthesis: ( [30:21-30:21] {C:0} {A:{}}
+| identifier: ma_array [30:22-30:29] {C:0} {A:{}}
+| operatorParenthesis: ) [30:30-30:30] {C:0} {A:{}}
+| newLine: \\n [30:31-30:31] {C:0} {A:{}}
+| keyword: call [31:1-31:4] {C:0} {A:{}}
+| whiteSpace: ?b [31:5-31:5] {C:0} {A:{}}
+| identifier: arrayadditem [31:6-31:17] {C:0} {A:{}}
+| operatorParenthesis: ( [31:18-31:18] {C:0} {A:{}}
+| identifier: ma_array [31:19-31:26] {C:0} {A:{}}
+| operatorSeparator: , [31:27-31:27] {C:0} {A:{}}
+| number: 3 [31:28-31:28] {C:0} {A:{}}
+| operatorParenthesis: ) [31:29-31:29] {C:0} {A:{}}
+| newLine: \\n\\n [31:30-31:31] {C:0} {A:{}}
+| keyword: call [33:1-33:4] {C:0} {A:{}}
+| whiteSpace: ?b [33:5-33:5] {C:0} {A:{}}
+| identifier: arraydeleteitem [33:6-33:20] {C:0} {A:{}}
+| operatorParenthesis: ( [33:21-33:21] {C:0} {A:{}}
+| identifier: ma_integer [33:22-33:31] {C:0} {A:{}}
+| operatorParenthesis: ) [33:32-33:32] {C:0} {A:{}}
+| newLine: \\n [33:33-33:33] {C:0} {A:{}}
+| keyword: call [34:1-34:4] {C:0} {A:{}}
+| whiteSpace: ?b [34:5-34:5] {C:0} {A:{}}
+| identifier: arrayadditem [34:6-34:17] {C:0} {A:{}}
+| operatorParenthesis: ( [34:18-34:18] {C:0} {A:{}}
+| identifier: ma_integer [34:19-34:28] {C:0} {A:{}}
+| operatorSeparator: , [34:29-34:29] {C:0} {A:{}}
+| number: 3 [34:30-34:30] {C:0} {A:{}}
+| operatorParenthesis: ) [34:31-34:31] {C:0} {A:{}}
+| newLine: \\n\\n [34:32-34:33] {C:0} {A:{}}
+| identifier: for [36:1-36:3] {C:0} {A:{}}
+| whiteSpace: ?b [36:4-36:4] {C:0} {A:{}}
+| identifier: l_ind [36:5-36:9] {C:0} {A:{}}
+| whiteSpace: ?b [36:10-36:10] {C:0} {A:{}}
+| operatorMath: = [36:11-36:11] {C:0} {A:{}}
+| whiteSpace: ?b [36:12-36:12] {C:0} {A:{}}
+| number: 1 [36:13-36:13] {C:0} {A:{}}
+| whiteSpace: ?b [36:14-36:14] {C:0} {A:{}}
+| keyword: to [36:15-36:16] {C:0} {A:{}}
+| whiteSpace: ?b [36:17-36:17] {C:0} {A:{}}
+| number: 3 [36:18-36:18] {C:0} {A:{}}
+| newLine: \\n [36:19-36:19] {C:0} {A:{}}
+| whiteSpace: \\t [37:1-37:1] {C:0} {A:{}}
+| keyword: let [37:2-37:4] {C:0} {A:{}}
+| whiteSpace: ?b [37:5-37:5] {C:0} {A:{}}
+| identifier: ma_integer [37:6-37:15] {C:0} {A:{}}
+| operatorBracket: [ [37:16-37:16] {C:0} {A:{}}
+| identifier: l_ind [37:17-37:21] {C:0} {A:{}}
+| operatorBracket: ] [37:22-37:22] {C:0} {A:{}}
+| whiteSpace: ?b [37:23-37:23] {C:0} {A:{}}
+| operatorMath: = [37:24-37:24] {C:0} {A:{}}
+| whiteSpace: ?b [37:25-37:25] {C:0} {A:{}}
+| keyword: null [37:26-37:29] {C:0} {A:{}}
+| newLine: \\n\\n [37:30-37:31] {C:0} {A:{}}
+| whiteSpace: \\t [39:1-39:1] {C:0} {A:{}}
+| keyword: let [39:2-39:4] {C:0} {A:{}}
+| whiteSpace: ?b [39:5-39:5] {C:0} {A:{}}
+| identifier: ma_array [39:6-39:13] {C:0} {A:{}}
+| operatorBracket: [ [39:14-39:14] {C:0} {A:{}}
+| identifier: l_ind [39:15-39:19] {C:0} {A:{}}
+| operatorBracket: ] [39:20-39:20] {C:0} {A:{}}
+| identifier: .f2_check [39:21-39:29] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b?b?b [39:30-39:35] {C:0} {A:{}}
+| operatorMath: = [39:36-39:36] {C:0} {A:{}}
+| whiteSpace: ?b [39:37-39:37] {C:0} {A:{}}
+| keyword: null [39:38-39:41] {C:0} {A:{}}
+| newLine: \\n [39:42-39:42] {C:0} {A:{}}
+| whiteSpace: \\t [40:1-40:1] {C:0} {A:{}}
+| keyword: let [40:2-40:4] {C:0} {A:{}}
+| whiteSpace: ?b [40:5-40:5] {C:0} {A:{}}
+| identifier: ma_array [40:6-40:13] {C:0} {A:{}}
+| operatorBracket: [ [40:14-40:14] {C:0} {A:{}}
+| identifier: l_ind [40:15-40:19] {C:0} {A:{}}
+| operatorBracket: ] [40:20-40:20] {C:0} {A:{}}
+| identifier: .f2_integer [40:21-40:31] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b [40:32-40:35] {C:0} {A:{}}
+| operatorMath: = [40:36-40:36] {C:0} {A:{}}
+| whiteSpace: ?b [40:37-40:37] {C:0} {A:{}}
+| keyword: null [40:38-40:41] {C:0} {A:{}}
+| newLine: \\n [40:42-40:42] {C:0} {A:{}}
+| whiteSpace: \\t [41:1-41:1] {C:0} {A:{}}
+| keyword: let [41:2-41:4] {C:0} {A:{}}
+| whiteSpace: ?b [41:5-41:5] {C:0} {A:{}}
+| identifier: ma_array [41:6-41:13] {C:0} {A:{}}
+| operatorBracket: [ [41:14-41:14] {C:0} {A:{}}
+| identifier: l_ind [41:15-41:19] {C:0} {A:{}}
+| operatorBracket: ] [41:20-41:20] {C:0} {A:{}}
+| identifier: .f2_smallint [41:21-41:32] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [41:33-41:35] {C:0} {A:{}}
+| operatorMath: = [41:36-41:36] {C:0} {A:{}}
+| whiteSpace: ?b [41:37-41:37] {C:0} {A:{}}
+| keyword: null [41:38-41:41] {C:0} {A:{}}
+| newLine: \\n [41:42-41:42] {C:0} {A:{}}
+| whiteSpace: \\t [42:1-42:1] {C:0} {A:{}}
+| keyword: let [42:2-42:4] {C:0} {A:{}}
+| whiteSpace: ?b [42:5-42:5] {C:0} {A:{}}
+| identifier: ma_array [42:6-42:13] {C:0} {A:{}}
+| operatorBracket: [ [42:14-42:14] {C:0} {A:{}}
+| identifier: l_ind [42:15-42:19] {C:0} {A:{}}
+| operatorBracket: ] [42:20-42:20] {C:0} {A:{}}
+| identifier: .f2_decimal [42:21-42:31] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b [42:32-42:35] {C:0} {A:{}}
+| operatorMath: = [42:36-42:36] {C:0} {A:{}}
+| whiteSpace: ?b [42:37-42:37] {C:0} {A:{}}
+| keyword: null [42:38-42:41] {C:0} {A:{}}
+| newLine: \\n [42:42-42:42] {C:0} {A:{}}
+| whiteSpace: \\t [43:1-43:1] {C:0} {A:{}}
+| keyword: let [43:2-43:4] {C:0} {A:{}}
+| whiteSpace: ?b [43:5-43:5] {C:0} {A:{}}
+| identifier: ma_array [43:6-43:13] {C:0} {A:{}}
+| operatorBracket: [ [43:14-43:14] {C:0} {A:{}}
+| identifier: l_ind [43:15-43:19] {C:0} {A:{}}
+| operatorBracket: ] [43:20-43:20] {C:0} {A:{}}
+| identifier: .f2_decimal0 [43:21-43:32] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [43:33-43:35] {C:0} {A:{}}
+| operatorMath: = [43:36-43:36] {C:0} {A:{}}
+| whiteSpace: ?b [43:37-43:37] {C:0} {A:{}}
+| keyword: null [43:38-43:41] {C:0} {A:{}}
+| newLine: \\n [43:42-43:42] {C:0} {A:{}}
+| whiteSpace: \\t [44:1-44:1] {C:0} {A:{}}
+| keyword: let [44:2-44:4] {C:0} {A:{}}
+| whiteSpace: ?b [44:5-44:5] {C:0} {A:{}}
+| identifier: ma_array [44:6-44:13] {C:0} {A:{}}
+| operatorBracket: [ [44:14-44:14] {C:0} {A:{}}
+| identifier: l_ind [44:15-44:19] {C:0} {A:{}}
+| operatorBracket: ] [44:20-44:20] {C:0} {A:{}}
+| identifier: .f2_char [44:21-44:28] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b?b?b?b [44:29-44:35] {C:0} {A:{}}
+| operatorMath: = [44:36-44:36] {C:0} {A:{}}
+| whiteSpace: ?b [44:37-44:37] {C:0} {A:{}}
+| string: "?b" [44:38-44:40] {C:0} {A:{}}
+| newLine: \\n [44:41-44:41] {C:0} {A:{}}
+| whiteSpace: \\t [45:1-45:1] {C:0} {A:{}}
+| keyword: let [45:2-45:4] {C:0} {A:{}}
+| whiteSpace: ?b [45:5-45:5] {C:0} {A:{}}
+| identifier: ma_array [45:6-45:13] {C:0} {A:{}}
+| operatorBracket: [ [45:14-45:14] {C:0} {A:{}}
+| identifier: l_ind [45:15-45:19] {C:0} {A:{}}
+| operatorBracket: ] [45:20-45:20] {C:0} {A:{}}
+| identifier: .f2_varchar [45:21-45:31] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b [45:32-45:35] {C:0} {A:{}}
+| operatorMath: = [45:36-45:36] {C:0} {A:{}}
+| whiteSpace: ?b [45:37-45:37] {C:0} {A:{}}
+| string: "?b" [45:38-45:40] {C:0} {A:{}}
+| newLine: \\n [45:41-45:41] {C:0} {A:{}}
+| whiteSpace: \\t [46:1-46:1] {C:0} {A:{}}
+| keyword: let [46:2-46:4] {C:0} {A:{}}
+| whiteSpace: ?b [46:5-46:5] {C:0} {A:{}}
+| identifier: ma_array [46:6-46:13] {C:0} {A:{}}
+| operatorBracket: [ [46:14-46:14] {C:0} {A:{}}
+| identifier: l_ind [46:15-46:19] {C:0} {A:{}}
+| operatorBracket: ] [46:20-46:20] {C:0} {A:{}}
+| identifier: .f2_date [46:21-46:28] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b?b?b?b [46:29-46:35] {C:0} {A:{}}
+| operatorMath: = [46:36-46:36] {C:0} {A:{}}
+| whiteSpace: ?b [46:37-46:37] {C:0} {A:{}}
+| identifier: today [46:38-46:42] {C:0} {A:{}}
+| whiteSpace: ?b [46:43-46:43] {C:0} {A:{}}
+| operatorMath: + [46:44-46:44] {C:0} {A:{}}
+| whiteSpace: ?b [46:45-46:45] {C:0} {A:{}}
+| identifier: l_ind [46:46-46:50] {C:0} {A:{}}
+| whiteSpace: ?b [46:51-46:51] {C:0} {A:{}}
+| keyword: units [46:52-46:56] {C:0} {A:{}}
+| whiteSpace: ?b [46:57-46:57] {C:0} {A:{}}
+| keyword: day [46:58-46:60] {C:0} {A:{}}
+| newLine: \\n [46:61-46:61] {C:0} {A:{}}
+| whiteSpace: \\t [47:1-47:1] {C:0} {A:{}}
+| keyword: let [47:2-47:4] {C:0} {A:{}}
+| whiteSpace: ?b [47:5-47:5] {C:0} {A:{}}
+| identifier: ma_array [47:6-47:13] {C:0} {A:{}}
+| operatorBracket: [ [47:14-47:14] {C:0} {A:{}}
+| identifier: l_ind [47:15-47:19] {C:0} {A:{}}
+| operatorBracket: ] [47:20-47:20] {C:0} {A:{}}
+| identifier: .f2_dttime_y2s [47:21-47:34] {C:0} {A:{}}
+| whiteSpace: ?b [47:35-47:35] {C:0} {A:{}}
+| operatorMath: = [47:36-47:36] {C:0} {A:{}}
+| whiteSpace: ?b [47:37-47:37] {C:0} {A:{}}
+| keyword: null [47:38-47:41] {C:0} {A:{}}
+| newLine: \\n [47:42-47:42] {C:0} {A:{}}
+| whiteSpace: \\t [48:1-48:1] {C:0} {A:{}}
+| keyword: let [48:2-48:4] {C:0} {A:{}}
+| whiteSpace: ?b [48:5-48:5] {C:0} {A:{}}
+| identifier: ma_array [48:6-48:13] {C:0} {A:{}}
+| operatorBracket: [ [48:14-48:14] {C:0} {A:{}}
+| identifier: l_ind [48:15-48:19] {C:0} {A:{}}
+| operatorBracket: ] [48:20-48:20] {C:0} {A:{}}
+| identifier: .f2_dttime_y2m [48:21-48:34] {C:0} {A:{}}
+| whiteSpace: ?b [48:35-48:35] {C:0} {A:{}}
+| operatorMath: = [48:36-48:36] {C:0} {A:{}}
+| whiteSpace: ?b [48:37-48:37] {C:0} {A:{}}
+| keyword: null [48:38-48:41] {C:0} {A:{}}
+| newLine: \\n [48:42-48:42] {C:0} {A:{}}
+| whiteSpace: \\t [49:1-49:1] {C:0} {A:{}}
+| keyword: let [49:2-49:4] {C:0} {A:{}}
+| whiteSpace: ?b [49:5-49:5] {C:0} {A:{}}
+| identifier: ma_array [49:6-49:13] {C:0} {A:{}}
+| operatorBracket: [ [49:14-49:14] {C:0} {A:{}}
+| identifier: l_ind [49:15-49:19] {C:0} {A:{}}
+| operatorBracket: ] [49:20-49:20] {C:0} {A:{}}
+| identifier: .f2_dttime_y2f [49:21-49:34] {C:0} {A:{}}
+| whiteSpace: ?b [49:35-49:35] {C:0} {A:{}}
+| operatorMath: = [49:36-49:36] {C:0} {A:{}}
+| whiteSpace: ?b [49:37-49:37] {C:0} {A:{}}
+| keyword: null [49:38-49:41] {C:0} {A:{}}
+| newLine: \\n [49:42-49:42] {C:0} {A:{}}
+| whiteSpace: \\t [50:1-50:1] {C:0} {A:{}}
+| keyword: let [50:2-50:4] {C:0} {A:{}}
+| whiteSpace: ?b [50:5-50:5] {C:0} {A:{}}
+| identifier: ma_array [50:6-50:13] {C:0} {A:{}}
+| operatorBracket: [ [50:14-50:14] {C:0} {A:{}}
+| identifier: l_ind [50:15-50:19] {C:0} {A:{}}
+| operatorBracket: ] [50:20-50:20] {C:0} {A:{}}
+| identifier: .f2_scroll [50:21-50:30] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b?b [50:31-50:35] {C:0} {A:{}}
+| operatorMath: = [50:36-50:36] {C:0} {A:{}}
+| whiteSpace: ?b [50:37-50:37] {C:0} {A:{}}
+| keyword: null [50:38-50:41] {C:0} {A:{}}
+| newLine: \\n\\n [50:42-50:43] {C:0} {A:{}}
+| keyword: end [52:1-52:3] {C:0} {A:{}}
+| whiteSpace: ?b [52:4-52:4] {C:0} {A:{}}
+| identifier: for [52:5-52:7] {C:0} {A:{}}
+| newLine: \\n\\n [52:8-52:9] {C:0} {A:{}}
+| identifier: for [54:1-54:3] {C:0} {A:{}}
+| whiteSpace: ?b [54:4-54:4] {C:0} {A:{}}
+| identifier: l_ind [54:5-54:9] {C:0} {A:{}}
+| whiteSpace: ?b [54:10-54:10] {C:0} {A:{}}
+| operatorMath: = [54:11-54:11] {C:0} {A:{}}
+| whiteSpace: ?b [54:12-54:12] {C:0} {A:{}}
+| number: 1 [54:13-54:13] {C:0} {A:{}}
+| whiteSpace: ?b [54:14-54:14] {C:0} {A:{}}
+| keyword: to [54:15-54:16] {C:0} {A:{}}
+| whiteSpace: ?b [54:17-54:17] {C:0} {A:{}}
+| number: 3 [54:18-54:18] {C:0} {A:{}}
+| newLine: \\n [54:19-54:19] {C:0} {A:{}}
+| whiteSpace: \\t [55:1-55:1] {C:0} {A:{}}
+| keyword: let [55:2-55:4] {C:0} {A:{}}
+| whiteSpace: ?b [55:5-55:5] {C:0} {A:{}}
+| identifier: ma_integer [55:6-55:15] {C:0} {A:{}}
+| operatorBracket: [ [55:16-55:16] {C:0} {A:{}}
+| identifier: l_ind [55:17-55:21] {C:0} {A:{}}
+| operatorBracket: ] [55:22-55:22] {C:0} {A:{}}
+| whiteSpace: ?b [55:23-55:23] {C:0} {A:{}}
+| operatorMath: = [55:24-55:24] {C:0} {A:{}}
+| whiteSpace: ?b [55:25-55:25] {C:0} {A:{}}
+| identifier: l_ind [55:26-55:30] {C:0} {A:{}}
+| newLine: \\n\\n [55:31-55:32] {C:0} {A:{}}
+| whiteSpace: \\t [57:1-57:1] {C:0} {A:{}}
+| keyword: let [57:2-57:4] {C:0} {A:{}}
+| whiteSpace: ?b [57:5-57:5] {C:0} {A:{}}
+| identifier: ma_array [57:6-57:13] {C:0} {A:{}}
+| operatorBracket: [ [57:14-57:14] {C:0} {A:{}}
+| identifier: l_ind [57:15-57:19] {C:0} {A:{}}
+| operatorBracket: ] [57:20-57:20] {C:0} {A:{}}
+| identifier: .f2_check [57:21-57:29] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b?b?b [57:30-57:35] {C:0} {A:{}}
+| operatorMath: = [57:36-57:36] {C:0} {A:{}}
+| whiteSpace: ?b [57:37-57:37] {C:0} {A:{}}
+| string: "s" [57:38-57:40] {C:0} {A:{}}
+| newLine: \\n [57:41-57:41] {C:0} {A:{}}
+| whiteSpace: \\t [58:1-58:1] {C:0} {A:{}}
+| keyword: let [58:2-58:4] {C:0} {A:{}}
+| whiteSpace: ?b [58:5-58:5] {C:0} {A:{}}
+| identifier: ma_array [58:6-58:13] {C:0} {A:{}}
+| operatorBracket: [ [58:14-58:14] {C:0} {A:{}}
+| identifier: l_ind [58:15-58:19] {C:0} {A:{}}
+| operatorBracket: ] [58:20-58:20] {C:0} {A:{}}
+| identifier: .f2_integer [58:21-58:31] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b [58:32-58:35] {C:0} {A:{}}
+| operatorMath: = [58:36-58:36] {C:0} {A:{}}
+| whiteSpace: ?b [58:37-58:37] {C:0} {A:{}}
+| number: 339782827 [58:38-58:46] {C:0} {A:{}}
+| whiteSpace: ?b [58:47-58:47] {C:0} {A:{}}
+| operatorMath: + [58:48-58:48] {C:0} {A:{}}
+| whiteSpace: ?b [58:49-58:49] {C:0} {A:{}}
+| identifier: l_ind [58:50-58:54] {C:0} {A:{}}
+| newLine: \\n [58:55-58:55] {C:0} {A:{}}
+| whiteSpace: \\t [59:1-59:1] {C:0} {A:{}}
+| keyword: let [59:2-59:4] {C:0} {A:{}}
+| whiteSpace: ?b [59:5-59:5] {C:0} {A:{}}
+| identifier: ma_array [59:6-59:13] {C:0} {A:{}}
+| operatorBracket: [ [59:14-59:14] {C:0} {A:{}}
+| identifier: l_ind [59:15-59:19] {C:0} {A:{}}
+| operatorBracket: ] [59:20-59:20] {C:0} {A:{}}
+| identifier: .f2_smallint [59:21-59:32] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [59:33-59:35] {C:0} {A:{}}
+| operatorMath: = [59:36-59:36] {C:0} {A:{}}
+| whiteSpace: ?b [59:37-59:37] {C:0} {A:{}}
+| number: 18721 [59:38-59:42] {C:0} {A:{}}
+| whiteSpace: ?b [59:43-59:43] {C:0} {A:{}}
+| operatorMath: + [59:44-59:44] {C:0} {A:{}}
+| whiteSpace: ?b [59:45-59:45] {C:0} {A:{}}
+| identifier: l_ind [59:46-59:50] {C:0} {A:{}}
+| newLine: \\n [59:51-59:51] {C:0} {A:{}}
+| whiteSpace: \\t [60:1-60:1] {C:0} {A:{}}
+| keyword: let [60:2-60:4] {C:0} {A:{}}
+| whiteSpace: ?b [60:5-60:5] {C:0} {A:{}}
+| identifier: ma_array [60:6-60:13] {C:0} {A:{}}
+| operatorBracket: [ [60:14-60:14] {C:0} {A:{}}
+| identifier: l_ind [60:15-60:19] {C:0} {A:{}}
+| operatorBracket: ] [60:20-60:20] {C:0} {A:{}}
+| identifier: .f2_decimal [60:21-60:31] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b [60:32-60:35] {C:0} {A:{}}
+| operatorMath: = [60:36-60:36] {C:0} {A:{}}
+| whiteSpace: ?b [60:37-60:37] {C:0} {A:{}}
+| operatorMath: - [60:38-60:38] {C:0} {A:{}}
+| number: 19838849.087712 [60:39-60:53] {C:0} {A:{}}
+| whiteSpace: ?b [60:54-60:54] {C:0} {A:{}}
+| operatorMath: + [60:55-60:55] {C:0} {A:{}}
+| whiteSpace: ?b [60:56-60:56] {C:0} {A:{}}
+| identifier: l_ind [60:57-60:61] {C:0} {A:{}}
+| newLine: \\n [60:62-60:62] {C:0} {A:{}}
+| whiteSpace: \\t [61:1-61:1] {C:0} {A:{}}
+| keyword: let [61:2-61:4] {C:0} {A:{}}
+| whiteSpace: ?b [61:5-61:5] {C:0} {A:{}}
+| identifier: ma_array [61:6-61:13] {C:0} {A:{}}
+| operatorBracket: [ [61:14-61:14] {C:0} {A:{}}
+| identifier: l_ind [61:15-61:19] {C:0} {A:{}}
+| operatorBracket: ] [61:20-61:20] {C:0} {A:{}}
+| identifier: .f2_decimal0 [61:21-61:32] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [61:33-61:35] {C:0} {A:{}}
+| operatorMath: = [61:36-61:36] {C:0} {A:{}}
+| whiteSpace: ?b [61:37-61:37] {C:0} {A:{}}
+| number: 9389007739 [61:38-61:47] {C:0} {A:{}}
+| whiteSpace: ?b [61:48-61:48] {C:0} {A:{}}
+| operatorMath: + [61:49-61:49] {C:0} {A:{}}
+| whiteSpace: ?b [61:50-61:50] {C:0} {A:{}}
+| identifier: l_ind [61:51-61:55] {C:0} {A:{}}
+| newLine: \\n [61:56-61:56] {C:0} {A:{}}
+| whiteSpace: \\t [62:1-62:1] {C:0} {A:{}}
+| keyword: let [62:2-62:4] {C:0} {A:{}}
+| whiteSpace: ?b [62:5-62:5] {C:0} {A:{}}
+| identifier: ma_array [62:6-62:13] {C:0} {A:{}}
+| operatorBracket: [ [62:14-62:14] {C:0} {A:{}}
+| identifier: l_ind [62:15-62:19] {C:0} {A:{}}
+| operatorBracket: ] [62:20-62:20] {C:0} {A:{}}
+| identifier: .f2_char [62:21-62:28] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b?b?b?b [62:29-62:35] {C:0} {A:{}}
+| operatorMath: = [62:36-62:36] {C:0} {A:{}}
+| whiteSpace: ?b [62:37-62:37] {C:0} {A:{}}
+| string: "texto" [62:38-62:44] {C:0} {A:{}}
+| operator: || [62:45-62:46] {C:0} {A:{}}
+| identifier: l_ind [62:47-62:51] {C:0} {A:{}}
+| newLine: \\n [62:52-62:52] {C:0} {A:{}}
+| whiteSpace: \\t [63:1-63:1] {C:0} {A:{}}
+| keyword: let [63:2-63:4] {C:0} {A:{}}
+| whiteSpace: ?b [63:5-63:5] {C:0} {A:{}}
+| identifier: ma_array [63:6-63:13] {C:0} {A:{}}
+| operatorBracket: [ [63:14-63:14] {C:0} {A:{}}
+| identifier: l_ind [63:15-63:19] {C:0} {A:{}}
+| operatorBracket: ] [63:20-63:20] {C:0} {A:{}}
+| identifier: .f2_varchar [63:21-63:31] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b [63:32-63:35] {C:0} {A:{}}
+| operatorMath: = [63:36-63:36] {C:0} {A:{}}
+| whiteSpace: ?b [63:37-63:37] {C:0} {A:{}}
+| string: "textovarchar?b?b?b" [63:38-63:54] {C:0} {A:{}}
+| operator: || [63:55-63:56] {C:0} {A:{}}
+| identifier: l_ind [63:57-63:61] {C:0} {A:{}}
+| newLine: \\n [63:62-63:62] {C:0} {A:{}}
+| whiteSpace: \\t [64:1-64:1] {C:0} {A:{}}
+| keyword: let [64:2-64:4] {C:0} {A:{}}
+| whiteSpace: ?b [64:5-64:5] {C:0} {A:{}}
+| identifier: ma_array [64:6-64:13] {C:0} {A:{}}
+| operatorBracket: [ [64:14-64:14] {C:0} {A:{}}
+| identifier: l_ind [64:15-64:19] {C:0} {A:{}}
+| operatorBracket: ] [64:20-64:20] {C:0} {A:{}}
+| identifier: .f2_date [64:21-64:28] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b?b?b?b [64:29-64:35] {C:0} {A:{}}
+| operatorMath: = [64:36-64:36] {C:0} {A:{}}
+| whiteSpace: ?b [64:37-64:37] {C:0} {A:{}}
+| identifier: today [64:38-64:42] {C:0} {A:{}}
+| whiteSpace: ?b [64:43-64:43] {C:0} {A:{}}
+| operatorMath: + [64:44-64:44] {C:0} {A:{}}
+| whiteSpace: ?b [64:45-64:45] {C:0} {A:{}}
+| number: 3 [64:46-64:46] {C:0} {A:{}}
+| whiteSpace: ?b [64:47-64:47] {C:0} {A:{}}
+| keyword: units [64:48-64:52] {C:0} {A:{}}
+| whiteSpace: ?b [64:53-64:53] {C:0} {A:{}}
+| keyword: day [64:54-64:56] {C:0} {A:{}}
+| newLine: \\n [64:57-64:57] {C:0} {A:{}}
+| whiteSpace: \\t [65:1-65:1] {C:0} {A:{}}
+| keyword: let [65:2-65:4] {C:0} {A:{}}
+| whiteSpace: ?b [65:5-65:5] {C:0} {A:{}}
+| identifier: ma_array [65:6-65:13] {C:0} {A:{}}
+| operatorBracket: [ [65:14-65:14] {C:0} {A:{}}
+| identifier: l_ind [65:15-65:19] {C:0} {A:{}}
+| operatorBracket: ] [65:20-65:20] {C:0} {A:{}}
+| identifier: .f2_dttime_y2s [65:21-65:34] {C:0} {A:{}}
+| whiteSpace: ?b [65:35-65:35] {C:0} {A:{}}
+| operatorMath: = [65:36-65:36] {C:0} {A:{}}
+| whiteSpace: ?b [65:37-65:37] {C:0} {A:{}}
+| keyword: current [65:38-65:44] {C:0} {A:{}}
+| whiteSpace: ?b [65:45-65:45] {C:0} {A:{}}
+| operatorMath: + [65:46-65:46] {C:0} {A:{}}
+| whiteSpace: ?b [65:47-65:47] {C:0} {A:{}}
+| identifier: l_ind [65:48-65:52] {C:0} {A:{}}
+| whiteSpace: ?b [65:53-65:53] {C:0} {A:{}}
+| keyword: units [65:54-65:58] {C:0} {A:{}}
+| whiteSpace: ?b [65:59-65:59] {C:0} {A:{}}
+| keyword: day [65:60-65:62] {C:0} {A:{}}
+| newLine: \\n [65:63-65:63] {C:0} {A:{}}
+| whiteSpace: \\t [66:1-66:1] {C:0} {A:{}}
+| keyword: let [66:2-66:4] {C:0} {A:{}}
+| whiteSpace: ?b [66:5-66:5] {C:0} {A:{}}
+| identifier: ma_array [66:6-66:13] {C:0} {A:{}}
+| operatorBracket: [ [66:14-66:14] {C:0} {A:{}}
+| identifier: l_ind [66:15-66:19] {C:0} {A:{}}
+| operatorBracket: ] [66:20-66:20] {C:0} {A:{}}
+| identifier: .f2_dttime_y2m [66:21-66:34] {C:0} {A:{}}
+| whiteSpace: ?b [66:35-66:35] {C:0} {A:{}}
+| operatorMath: = [66:36-66:36] {C:0} {A:{}}
+| whiteSpace: ?b [66:37-66:37] {C:0} {A:{}}
+| keyword: current [66:38-66:44] {C:0} {A:{}}
+| whiteSpace: ?b [66:45-66:45] {C:0} {A:{}}
+| operatorMath: + [66:46-66:46] {C:0} {A:{}}
+| whiteSpace: ?b [66:47-66:47] {C:0} {A:{}}
+| identifier: l_ind [66:48-66:52] {C:0} {A:{}}
+| whiteSpace: ?b [66:53-66:53] {C:0} {A:{}}
+| operatorMath: + [66:54-66:54] {C:0} {A:{}}
+| whiteSpace: ?b [66:55-66:55] {C:0} {A:{}}
+| number: 1 [66:56-66:56] {C:0} {A:{}}
+| whiteSpace: ?b [66:57-66:57] {C:0} {A:{}}
+| keyword: units [66:58-66:62] {C:0} {A:{}}
+| whiteSpace: ?b [66:63-66:63] {C:0} {A:{}}
+| keyword: day [66:64-66:66] {C:0} {A:{}}
+| newLine: \\n [66:67-66:67] {C:0} {A:{}}
+| whiteSpace: \\t [67:1-67:1] {C:0} {A:{}}
+| keyword: let [67:2-67:4] {C:0} {A:{}}
+| whiteSpace: ?b [67:5-67:5] {C:0} {A:{}}
+| identifier: ma_array [67:6-67:13] {C:0} {A:{}}
+| operatorBracket: [ [67:14-67:14] {C:0} {A:{}}
+| identifier: l_ind [67:15-67:19] {C:0} {A:{}}
+| operatorBracket: ] [67:20-67:20] {C:0} {A:{}}
+| identifier: .f2_dttime_y2f [67:21-67:34] {C:0} {A:{}}
+| whiteSpace: ?b [67:35-67:35] {C:0} {A:{}}
+| operatorMath: = [67:36-67:36] {C:0} {A:{}}
+| whiteSpace: ?b [67:37-67:37] {C:0} {A:{}}
+| keyword: current [67:38-67:44] {C:0} {A:{}}
+| whiteSpace: ?b [67:45-67:45] {C:0} {A:{}}
+| operatorMath: + [67:46-67:46] {C:0} {A:{}}
+| whiteSpace: ?b [67:47-67:47] {C:0} {A:{}}
+| identifier: l_ind [67:48-67:52] {C:0} {A:{}}
+| whiteSpace: ?b [67:53-67:53] {C:0} {A:{}}
+| operatorMath: + [67:54-67:54] {C:0} {A:{}}
+| whiteSpace: ?b [67:55-67:55] {C:0} {A:{}}
+| number: 2 [67:56-67:56] {C:0} {A:{}}
+| whiteSpace: ?b [67:57-67:57] {C:0} {A:{}}
+| keyword: units [67:58-67:62] {C:0} {A:{}}
+| whiteSpace: ?b [67:63-67:63] {C:0} {A:{}}
+| keyword: day [67:64-67:66] {C:0} {A:{}}
+| newLine: \\n [67:67-67:67] {C:0} {A:{}}
+| whiteSpace: \\t [68:1-68:1] {C:0} {A:{}}
+| keyword: let [68:2-68:4] {C:0} {A:{}}
+| whiteSpace: ?b [68:5-68:5] {C:0} {A:{}}
+| identifier: ma_array [68:6-68:13] {C:0} {A:{}}
+| operatorBracket: [ [68:14-68:14] {C:0} {A:{}}
+| identifier: l_ind [68:15-68:19] {C:0} {A:{}}
+| operatorBracket: ] [68:20-68:20] {C:0} {A:{}}
+| identifier: .f2_scroll [68:21-68:30] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b?b [68:31-68:35] {C:0} {A:{}}
+| operatorMath: = [68:36-68:36] {C:0} {A:{}}
+| whiteSpace: ?b [68:37-68:37] {C:0} {A:{}}
+| string: "texto?bscroll?btexto?bscroll?btexto?bscroll?b" [68:38-68:78] {C:0} {A:{}}
+| newLine: \\n [68:79-68:79] {C:0} {A:{}}
+| keyword: end [69:1-69:3] {C:0} {A:{}}
+| whiteSpace: ?b [69:4-69:4] {C:0} {A:{}}
+| identifier: for [69:5-69:7] {C:0} {A:{}}
+| newLine: \\n [69:8-69:8] {C:0} {A:{}}
+| keyword: end [70:1-70:3] {C:0} {A:{}}
+| whiteSpace: ?b [70:4-70:4] {C:0} {A:{}}
+| keyword: main [70:5-70:8] {C:0} {A:{}}
+| newLine: \\n [70:9-70:9] {C:0} {A:{}}
 
 `;
 
 exports[`4gl: Token hello3.4gl 1`] = `
-program:  [1:1--Infinity:-Infinity] {C:1} {A:{}}
+token:  [1:1--Infinity:-Infinity] {C:1} {A:{}}
 
 `;
 
 exports[`4gl: Token hello4.4gl 1`] = `
-hello4.4gl
-line 73 (column 9): \\nend for\\n}\\n\\nend main
---------------------------------------------^
-Expected "#", "\\n", "\\r", "\\r\\n", or [;, ,\\t] but end of input found.
+token:  [1:1-73:8] {C:1} {A:{}}
+| keyword: main [1:1-1:4] {C:0} {A:{}}
+| newLine: \\n [1:5-1:5] {C:0} {A:{}}
+| whiteSpace: \\t [2:1-2:1] {C:0} {A:{}}
+| keyword: define [2:2-2:7] {C:0} {A:{}}
+| whiteSpace: ?b [2:8-2:8] {C:0} {A:{}}
+| identifier: l_ind [2:9-2:13] {C:0} {A:{}}
+| whiteSpace: ?b [2:14-2:14] {C:0} {A:{}}
+| identifier: smallint [2:15-2:22] {C:0} {A:{}}
+| newLine: \\n [2:23-2:23] {C:0} {A:{}}
+| whiteSpace: \\t [3:1-3:1] {C:0} {A:{}}
+| keyword: define [3:2-3:7] {C:0} {A:{}}
+| whiteSpace: ?b [3:8-3:8] {C:0} {A:{}}
+| identifier: ma_char [3:9-3:15] {C:0} {A:{}}
+| whiteSpace: ?b [3:16-3:16] {C:0} {A:{}}
+| keyword: array [3:17-3:21] {C:0} {A:{}}
+| operatorBracket: [ [3:22-3:22] {C:0} {A:{}}
+| number: 5 [3:23-3:23] {C:0} {A:{}}
+| operatorBracket: ] [3:24-3:24] {C:0} {A:{}}
+| whiteSpace: ?b [3:25-3:25] {C:0} {A:{}}
+| keyword: of [3:26-3:27] {C:0} {A:{}}
+| whiteSpace: ?b [3:28-3:28] {C:0} {A:{}}
+| keyword: char [3:29-3:32] {C:0} {A:{}}
+| operatorParenthesis: ( [3:33-3:33] {C:0} {A:{}}
+| number: 3 [3:34-3:34] {C:0} {A:{}}
+| operatorParenthesis: ) [3:35-3:35] {C:0} {A:{}}
+| newLine: \\n\\n [3:36-3:37] {C:0} {A:{}}
+| comment: --#\\tdefine?bma_integer?barray[3]?bof?binteger\\n\\n [5:1-5:43] {C:0} {A:{}}
+| blockComment: {\\n\\tdefine?bma_array?barray?b[3]?bof?brecord\\n\\tf2_check?b?b?b?b?b?bchar(1),\\n\\tf2_integer?b?b?b?binteger,\\n\\tf2_smallint?b?b?bsmallint,\\n\\tf2_decimal?b?b?b?bdecimal(17,6),\\n\\tf2_decimal0?b?b?bdecimal(10,0),\\n\\tf2_char?b?b?b?b?b?b?bchar(10),\\n\\tf2_date?b?b?b?b?b?b?bdate,\\n\\tf2_dttime_y2s?bdatetime?byear?bto?bsecond,\\n\\tf2_dttime_y2m?bdatetime?byear?bto?bmonth,\\n\\tf2_dttime_y2f?bdatetime?byear?bto?bfraction(3),\\n\\tf2_scroll?b?b?b?b?bchar(100),\\n\\tf2_varchar?b?b?b?bvarchar(20)\\n\\nend?brecord\\n\\n\\ninitialize?bma_array?bto?bnull\\ninitialize?bma_integer?bto?bnull\\n\\n\\ndisplay?b"hello?bworld"\\n\\ncall?b_arraydeleteitem(ma_array)\\ncall?b_arrayadditem(ma_array,3)\\n\\ncall?b_arraydeleteitem(ma_integer)\\ncall?b_arrayadditem(ma_integer,3)\\n\\nfor?bl_ind?b=?b1?bto?b3\\n\\tlet?bma_integer[l_ind]?b=?bnull\\n\\n\\tlet?bma_array[l_ind].f2_check?b?b?b?b?b?b=?bnull\\n\\tlet?bma_array[l_ind].f2_integer?b?b?b?b=?bnull\\n\\tlet?bma_array[l_ind].f2_smallint?b?b?b=?bnull\\n\\tlet?bma_array[l_ind].f2_decimal?b?b?b?b=?bnull\\n\\tlet?bma_array[l_ind].f2_decimal0?b?b?b=?bnull\\n\\tlet?bma_array[l_ind].f2_char?b?b?b?b?b?b?b=?b"?b"\\n\\tlet?bma_array[l_ind].f2_varchar?b?b?b?b=?b"?b"\\n\\tlet?bma_array[l_ind].f2_date?b?b?b?b?b?b?b=?btoday?b+?bl_ind?bunits?bday\\n\\tlet?bma_array[l_ind].f2_dttime_y2s?b=?bnull\\n\\tlet?bma_array[l_ind].f2_dttime_y2m?b=?bnull\\n\\tlet?bma_array[l_ind].f2_dttime_y2f?b=?bnull\\n\\tlet?bma_array[l_ind].f2_scroll?b?b?b?b?b=?bnull\\n\\nend?bfor\\n\\nfor?bl_ind?b=?b1?bto?b3\\n\\tlet?bma_integer[l_ind]?b=?bl_ind\\n\\n\\tlet?bma_array[l_ind].f2_check?b?b?b?b?b?b=?b"s"\\n\\tlet?bma_array[l_ind].f2_integer?b?b?b?b=?b339782827?b+?bl_ind\\n\\tlet?bma_array[l_ind].f2_smallint?b?b?b=?b18721?b+?bl_ind\\n\\tlet?bma_array[l_ind].f2_decimal?b?b?b?b=?b-19838849.087712?b+?bl_ind\\n\\tlet?bma_array[l_ind].f2_decimal0?b?b?b=?b9389007739?b+?bl_ind\\n\\tlet?bma_array[l_ind].f2_char?b?b?b?b?b?b?b=?b"texto"||l_ind\\n\\tlet?bma_array[l_ind].f2_varchar?b?b?b?b=?b"textovarchar?b?b?b"||l_ind\\n\\tlet?bma_array[l_ind].f2_date?b?b?b?b?b?b?b=?btoday?b+?b3?bunits?bday\\n\\tlet?bma_array[l_ind].f2_dttime_y2s?b=?bcurrent?b+?bl_ind?bunits?bday\\n\\tlet?bma_array[l_ind].f2_dttime_y2m?b=?bcurrent?b+?bl_ind?b+?b1?bunits?bday\\n\\tlet?bma_array[l_ind].f2_dttime_y2f?b=?bcurrent?b+?bl_ind?b+?b2?bunits?bday\\n\\tlet?bma_array[l_ind].f2_scroll?b?b?b?b?b=?b"texto?bscroll?btexto?bscroll?btexto?bscroll?b"\\nend?bfor\\n} [7:1-7:1977] {C:0} {A:{}}
+| newLine: \\n\\n [71:2-71:3] {C:0} {A:{}}
+| keyword: end [73:1-73:3] {C:0} {A:{}}
+| whiteSpace: ?b [73:4-73:4] {C:0} {A:{}}
+| identifier: main [73:5-73:8] {C:0} {A:{}}
 
 `;

@@ -4,6 +4,7 @@
 {
 
 const ast = options.util.makeAST(location, options);
+
 const astBlock = (_begin, _body, _end) => {
   const begin = ast("beginBlock").add(_begin);
   const body = ast("bodyBlock").add(_body || []);
@@ -16,6 +17,24 @@ const astBlock = (_begin, _body, _end) => {
 
 start_program
 	= p1:superTokens?  { return ast("program").add(p1 || []) }
+
+start_token
+	= p1:onlyTokens?  { return ast("token").add(p1 || []) }
+
+onlyTokens
+  = l:onlyToken+ p:onlyTokens+ { return l.concat(p); }
+  / p:onlyToken+ { return p; }
+  / p:onlyToken { return [p]; }
+
+onlyToken
+  = WS_NL
+  / comment
+  / keywords
+  / builtInVar
+  / operators
+  / string
+  / number
+  / identifer
 
 superTokens
   = l:arg_token+ p:superTokens+ { return l.concat(p); }
@@ -187,6 +206,7 @@ keywords
     / DYNAMIC
     / ELIF
     / ELSE
+    / END
     / ERROR
     / ESCAPE
     / EVERY
@@ -210,6 +230,7 @@ keywords
     / FRACTION
     / FREE
     / FROM
+    / FUNCTION
     / GO
     / GOTO
     / GREEN

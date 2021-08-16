@@ -1,349 +1,243 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`4gl: Token function.4gl 1`] = `
-program:  [1:1-21:13] {C:1} {A:{}}
-| block:  [1:1-3:10] {C:3} {A:{}}
-| | beginBlock:  [1:1-1:5] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
-| | | endLine: - [1:5-1:5] {C:0} {A:{}}
-| | | -newLine: \\n [1:5-1:5] {C:0} {A:{}}
-| | bodyBlock:  [1:1-2:4] {C:1} {A:{}}
-| | | whiteSpace: ?b?b?b [2:1-2:3] {C:0} {A:{}}
-| | | newLine: \\n [2:4-2:4] {C:0} {A:{}}
-| | endBlock:  [1:1-3:10] {C:1} {A:{}}
-| | | keyword: end [3:1-3:3] {C:0} {A:{}}
-| | | whiteSpace: ?b [3:4-3:4] {C:0} {A:{}}
-| | | keyword: main [3:5-3:8] {C:0} {A:{}}
-| | | endLine: - [3:9-3:10] {C:0} {A:{}}
-| | | -newLine: \\n\\n [3:9-3:10] {C:0} {A:{}}
-| block:  [5:1-7:14] {C:3} {A:{}}
-| | beginBlock:  [5:1-5:14] {C:1} {A:{}}
-| | | keyword: function [5:1-5:8] {C:0} {A:{}}
-| | | whiteSpace: ?b [5:9-5:9] {C:0} {A:{}}
-| | | identifier: f0 [5:10-5:11] {C:0} {A:{}}
-| | | argumentList:  [5:12-5:13] {C:1} {A:{}}
-| | | | operatorParenthesis: ( [5:12-5:12] {C:0} {A:{}}
-| | | | operatorParenthesis: ) [5:13-5:13] {C:0} {A:{}}
-| | | endLine: - [5:14-5:14] {C:0} {A:{}}
-| | | -newLine: \\n [5:14-5:14] {C:0} {A:{}}
-| | bodyBlock:  [5:1-6:4] {C:1} {A:{}}
-| | | whiteSpace: ?b?b?b [6:1-6:3] {C:0} {A:{}}
-| | | newLine: \\n [6:4-6:4] {C:0} {A:{}}
-| | endBlock:  [5:1-7:14] {C:1} {A:{}}
-| | | keyword: end [7:1-7:3] {C:0} {A:{}}
-| | | whiteSpace: ?b [7:4-7:4] {C:0} {A:{}}
-| | | keyword: function [7:5-7:12] {C:0} {A:{}}
-| | | endLine: - [7:13-7:14] {C:0} {A:{}}
-| | | -newLine: \\n\\n [7:13-7:14] {C:0} {A:{}}
-| block:  [9:1-11:14] {C:3} {A:{}}
-| | beginBlock:  [9:1-9:16] {C:1} {A:{}}
-| | | keyword: function [9:1-9:8] {C:0} {A:{}}
-| | | whiteSpace: ?b [9:9-9:9] {C:0} {A:{}}
-| | | identifier: f1 [9:10-9:11] {C:0} {A:{}}
-| | | argumentList:  [9:12-9:15] {C:1} {A:{}}
-| | | | operatorParenthesis: ( [9:12-9:12] {C:0} {A:{}}
-| | | | identifier: p1 [9:13-9:14] {C:0} {A:{}}
-| | | | operatorParenthesis: ) [9:15-9:15] {C:0} {A:{}}
-| | | endLine: - [9:16-9:16] {C:0} {A:{}}
-| | | -newLine: \\n [9:16-9:16] {C:0} {A:{}}
-| | bodyBlock:  [9:1-10:4] {C:1} {A:{}}
-| | | whiteSpace: ?b?b?b [10:1-10:3] {C:0} {A:{}}
-| | | newLine: \\n [10:4-10:4] {C:0} {A:{}}
-| | endBlock:  [9:1-11:14] {C:1} {A:{}}
-| | | keyword: end [11:1-11:3] {C:0} {A:{}}
-| | | whiteSpace: ?b [11:4-11:4] {C:0} {A:{}}
-| | | keyword: function [11:5-11:12] {C:0} {A:{}}
-| | | endLine: - [11:13-11:14] {C:0} {A:{}}
-| | | -newLine: \\n\\n [11:13-11:14] {C:0} {A:{}}
-| block:  [13:1-15:14] {C:3} {A:{}}
-| | beginBlock:  [13:1-13:20] {C:1} {A:{}}
-| | | keyword: function [13:1-13:8] {C:0} {A:{}}
-| | | whiteSpace: ?b [13:9-13:9] {C:0} {A:{}}
-| | | identifier: f2 [13:10-13:11] {C:0} {A:{}}
-| | | argumentList:  [13:12-13:19] {C:1} {A:{}}
-| | | | operatorParenthesis: ( [13:12-13:12] {C:0} {A:{}}
-| | | | identifier: p1 [13:13-13:14] {C:0} {A:{}}
-| | | | operatorSeparator: , [13:15-13:15] {C:0} {A:{}}
-| | | | whiteSpace: ?b [13:16-13:16] {C:0} {A:{}}
-| | | | identifier: p2 [13:17-13:18] {C:0} {A:{}}
-| | | | operatorParenthesis: ) [13:19-13:19] {C:0} {A:{}}
-| | | endLine: - [13:20-13:20] {C:0} {A:{}}
-| | | -newLine: \\n [13:20-13:20] {C:0} {A:{}}
-| | bodyBlock:  [13:1-14:4] {C:1} {A:{}}
-| | | whiteSpace: ?b?b?b [14:1-14:3] {C:0} {A:{}}
-| | | newLine: \\n [14:4-14:4] {C:0} {A:{}}
-| | endBlock:  [13:1-15:14] {C:1} {A:{}}
-| | | keyword: end [15:1-15:3] {C:0} {A:{}}
-| | | whiteSpace: ?b [15:4-15:4] {C:0} {A:{}}
-| | | keyword: function [15:5-15:12] {C:0} {A:{}}
-| | | endLine: - [15:13-15:14] {C:0} {A:{}}
-| | | -newLine: \\n\\n [15:13-15:14] {C:0} {A:{}}
-| block:  [17:1-21:13] {C:3} {A:{}}
-| | beginBlock:  [17:1-19:8] {C:1} {A:{}}
-| | | keyword: function [17:1-17:8] {C:0} {A:{}}
-| | | whiteSpace: ?b [17:9-17:9] {C:0} {A:{}}
-| | | identifier: f2 [17:10-17:11] {C:0} {A:{}}
-| | | argumentList:  [17:12-19:7] {C:1} {A:{}}
-| | | | operatorParenthesis: ( [17:12-17:12] {C:0} {A:{}}
-| | | | identifier: p1 [17:13-17:14] {C:0} {A:{}}
-| | | | operatorSeparator: , [17:15-17:15] {C:0} {A:{}}
-| | | | whiteSpace: ?b [17:16-17:16] {C:0} {A:{}}
-| | | | newLine: \\n [17:17-17:17] {C:0} {A:{}}
-| | | | whiteSpace: ?b?b?b?b [18:1-18:4] {C:0} {A:{}}
-| | | | identifier: p2 [18:5-18:6] {C:0} {A:{}}
-| | | | operatorSeparator: , [18:7-18:7] {C:0} {A:{}}
-| | | | whiteSpace: ?b [18:8-18:8] {C:0} {A:{}}
-| | | | newLine: \\n [18:9-18:9] {C:0} {A:{}}
-| | | | whiteSpace: ?b?b?b?b [19:1-19:4] {C:0} {A:{}}
-| | | | identifier: p3 [19:5-19:6] {C:0} {A:{}}
-| | | | operatorParenthesis: ) [19:7-19:7] {C:0} {A:{}}
-| | | endLine: - [19:8-19:8] {C:0} {A:{}}
-| | | -newLine: \\n [19:8-19:8] {C:0} {A:{}}
-| | bodyBlock:  [17:1-20:4] {C:1} {A:{}}
-| | | whiteSpace: ?b?b?b [20:1-20:3] {C:0} {A:{}}
-| | | newLine: \\n [20:4-20:4] {C:0} {A:{}}
-| | endBlock:  [17:1-21:13] {C:1} {A:{}}
-| | | keyword: end [21:1-21:3] {C:0} {A:{}}
-| | | whiteSpace: ?b [21:4-21:4] {C:0} {A:{}}
-| | | keyword: function [21:5-21:12] {C:0} {A:{}}
-| | | endLine: - [21:13-21:13] {C:0} {A:{}}
-| | | -newLine: \\n [21:13-21:13] {C:0} {A:{}}
+token:  [1:1-21:13] {C:1} {A:{}}
+| keyword: main [1:1-1:4] {C:0} {A:{}}
+| newLine: \\n [1:5-1:5] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [2:1-2:3] {C:0} {A:{}}
+| newLine: \\n [2:4-2:4] {C:0} {A:{}}
+| keyword: end [3:1-3:3] {C:0} {A:{}}
+| whiteSpace: ?b [3:4-3:4] {C:0} {A:{}}
+| keyword: main [3:5-3:8] {C:0} {A:{}}
+| newLine: \\n\\n [3:9-3:10] {C:0} {A:{}}
+| keyword: function [5:1-5:8] {C:0} {A:{}}
+| whiteSpace: ?b [5:9-5:9] {C:0} {A:{}}
+| identifier: f0 [5:10-5:11] {C:0} {A:{}}
+| operatorParenthesis: ( [5:12-5:12] {C:0} {A:{}}
+| operatorParenthesis: ) [5:13-5:13] {C:0} {A:{}}
+| newLine: \\n [5:14-5:14] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [6:1-6:3] {C:0} {A:{}}
+| newLine: \\n [6:4-6:4] {C:0} {A:{}}
+| keyword: end [7:1-7:3] {C:0} {A:{}}
+| whiteSpace: ?b [7:4-7:4] {C:0} {A:{}}
+| keyword: function [7:5-7:12] {C:0} {A:{}}
+| newLine: \\n\\n [7:13-7:14] {C:0} {A:{}}
+| keyword: function [9:1-9:8] {C:0} {A:{}}
+| whiteSpace: ?b [9:9-9:9] {C:0} {A:{}}
+| identifier: f1 [9:10-9:11] {C:0} {A:{}}
+| operatorParenthesis: ( [9:12-9:12] {C:0} {A:{}}
+| identifier: p1 [9:13-9:14] {C:0} {A:{}}
+| operatorParenthesis: ) [9:15-9:15] {C:0} {A:{}}
+| newLine: \\n [9:16-9:16] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [10:1-10:3] {C:0} {A:{}}
+| newLine: \\n [10:4-10:4] {C:0} {A:{}}
+| keyword: end [11:1-11:3] {C:0} {A:{}}
+| whiteSpace: ?b [11:4-11:4] {C:0} {A:{}}
+| keyword: function [11:5-11:12] {C:0} {A:{}}
+| newLine: \\n\\n [11:13-11:14] {C:0} {A:{}}
+| keyword: function [13:1-13:8] {C:0} {A:{}}
+| whiteSpace: ?b [13:9-13:9] {C:0} {A:{}}
+| identifier: f2 [13:10-13:11] {C:0} {A:{}}
+| operatorParenthesis: ( [13:12-13:12] {C:0} {A:{}}
+| identifier: p1 [13:13-13:14] {C:0} {A:{}}
+| operatorSeparator: , [13:15-13:15] {C:0} {A:{}}
+| whiteSpace: ?b [13:16-13:16] {C:0} {A:{}}
+| identifier: p2 [13:17-13:18] {C:0} {A:{}}
+| operatorParenthesis: ) [13:19-13:19] {C:0} {A:{}}
+| newLine: \\n [13:20-13:20] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [14:1-14:3] {C:0} {A:{}}
+| newLine: \\n [14:4-14:4] {C:0} {A:{}}
+| keyword: end [15:1-15:3] {C:0} {A:{}}
+| whiteSpace: ?b [15:4-15:4] {C:0} {A:{}}
+| keyword: function [15:5-15:12] {C:0} {A:{}}
+| newLine: \\n\\n [15:13-15:14] {C:0} {A:{}}
+| keyword: function [17:1-17:8] {C:0} {A:{}}
+| whiteSpace: ?b [17:9-17:9] {C:0} {A:{}}
+| identifier: f2 [17:10-17:11] {C:0} {A:{}}
+| operatorParenthesis: ( [17:12-17:12] {C:0} {A:{}}
+| identifier: p1 [17:13-17:14] {C:0} {A:{}}
+| operatorSeparator: , [17:15-17:15] {C:0} {A:{}}
+| whiteSpace: ?b [17:16-17:16] {C:0} {A:{}}
+| newLine: \\n [17:17-17:17] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b [18:1-18:4] {C:0} {A:{}}
+| identifier: p2 [18:5-18:6] {C:0} {A:{}}
+| operatorSeparator: , [18:7-18:7] {C:0} {A:{}}
+| whiteSpace: ?b [18:8-18:8] {C:0} {A:{}}
+| newLine: \\n [18:9-18:9] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b [19:1-19:4] {C:0} {A:{}}
+| identifier: p3 [19:5-19:6] {C:0} {A:{}}
+| operatorParenthesis: ) [19:7-19:7] {C:0} {A:{}}
+| newLine: \\n [19:8-19:8] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [20:1-20:3] {C:0} {A:{}}
+| newLine: \\n [20:4-20:4] {C:0} {A:{}}
+| keyword: end [21:1-21:3] {C:0} {A:{}}
+| whiteSpace: ?b [21:4-21:4] {C:0} {A:{}}
+| keyword: function [21:5-21:12] {C:0} {A:{}}
+| newLine: \\n [21:13-21:13] {C:0} {A:{}}
 
 `;
 
 exports[`4gl: Token function-0-args.4gl 1`] = `
-program:  [1:1-7:13] {C:1} {A:{}}
-| block:  [1:1-3:10] {C:3} {A:{}}
-| | beginBlock:  [1:1-1:5] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
-| | | endLine: - [1:5-1:5] {C:0} {A:{}}
-| | | -newLine: \\n [1:5-1:5] {C:0} {A:{}}
-| | bodyBlock:  [1:1-2:4] {C:1} {A:{}}
-| | | whiteSpace: ?b?b?b [2:1-2:3] {C:0} {A:{}}
-| | | newLine: \\n [2:4-2:4] {C:0} {A:{}}
-| | endBlock:  [1:1-3:10] {C:1} {A:{}}
-| | | keyword: end [3:1-3:3] {C:0} {A:{}}
-| | | whiteSpace: ?b [3:4-3:4] {C:0} {A:{}}
-| | | keyword: main [3:5-3:8] {C:0} {A:{}}
-| | | endLine: - [3:9-3:10] {C:0} {A:{}}
-| | | -newLine: \\n\\n [3:9-3:10] {C:0} {A:{}}
-| block:  [5:1-7:13] {C:3} {A:{}}
-| | beginBlock:  [5:1-5:14] {C:1} {A:{}}
-| | | keyword: function [5:1-5:8] {C:0} {A:{}}
-| | | whiteSpace: ?b [5:9-5:9] {C:0} {A:{}}
-| | | identifier: f0 [5:10-5:11] {C:0} {A:{}}
-| | | argumentList:  [5:12-5:13] {C:1} {A:{}}
-| | | | operatorParenthesis: ( [5:12-5:12] {C:0} {A:{}}
-| | | | operatorParenthesis: ) [5:13-5:13] {C:0} {A:{}}
-| | | endLine: - [5:14-5:14] {C:0} {A:{}}
-| | | -newLine: \\n [5:14-5:14] {C:0} {A:{}}
-| | bodyBlock:  [5:1-6:4] {C:1} {A:{}}
-| | | whiteSpace: ?b?b?b [6:1-6:3] {C:0} {A:{}}
-| | | newLine: \\n [6:4-6:4] {C:0} {A:{}}
-| | endBlock:  [5:1-7:13] {C:1} {A:{}}
-| | | keyword: end [7:1-7:3] {C:0} {A:{}}
-| | | whiteSpace: ?b [7:4-7:4] {C:0} {A:{}}
-| | | keyword: function [7:5-7:12] {C:0} {A:{}}
-| | | endLine: - [7:13-7:13] {C:0} {A:{}}
-| | | -newLine: \\n [7:13-7:13] {C:0} {A:{}}
+token:  [1:1-7:13] {C:1} {A:{}}
+| keyword: main [1:1-1:4] {C:0} {A:{}}
+| newLine: \\n [1:5-1:5] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [2:1-2:3] {C:0} {A:{}}
+| newLine: \\n [2:4-2:4] {C:0} {A:{}}
+| keyword: end [3:1-3:3] {C:0} {A:{}}
+| whiteSpace: ?b [3:4-3:4] {C:0} {A:{}}
+| keyword: main [3:5-3:8] {C:0} {A:{}}
+| newLine: \\n\\n [3:9-3:10] {C:0} {A:{}}
+| keyword: function [5:1-5:8] {C:0} {A:{}}
+| whiteSpace: ?b [5:9-5:9] {C:0} {A:{}}
+| identifier: f0 [5:10-5:11] {C:0} {A:{}}
+| operatorParenthesis: ( [5:12-5:12] {C:0} {A:{}}
+| operatorParenthesis: ) [5:13-5:13] {C:0} {A:{}}
+| newLine: \\n [5:14-5:14] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [6:1-6:3] {C:0} {A:{}}
+| newLine: \\n [6:4-6:4] {C:0} {A:{}}
+| keyword: end [7:1-7:3] {C:0} {A:{}}
+| whiteSpace: ?b [7:4-7:4] {C:0} {A:{}}
+| keyword: function [7:5-7:12] {C:0} {A:{}}
+| newLine: \\n [7:13-7:13] {C:0} {A:{}}
 
 `;
 
 exports[`4gl: Token function-1-args.4gl 1`] = `
-program:  [1:1-8:35] {C:1} {A:{}}
-| block:  [1:1-3:10] {C:3} {A:{}}
-| | beginBlock:  [1:1-1:5] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
-| | | endLine: - [1:5-1:5] {C:0} {A:{}}
-| | | -newLine: \\n [1:5-1:5] {C:0} {A:{}}
-| | bodyBlock:  [1:1-2:4] {C:1} {A:{}}
-| | | whiteSpace: ?b?b?b [2:1-2:3] {C:0} {A:{}}
-| | | newLine: \\n [2:4-2:4] {C:0} {A:{}}
-| | endBlock:  [1:1-3:10] {C:1} {A:{}}
-| | | keyword: end [3:1-3:3] {C:0} {A:{}}
-| | | whiteSpace: ?b [3:4-3:4] {C:0} {A:{}}
-| | | keyword: main [3:5-3:8] {C:0} {A:{}}
-| | | endLine: - [3:9-3:10] {C:0} {A:{}}
-| | | -newLine: \\n\\n [3:9-3:10] {C:0} {A:{}}
+token:  [1:1-8:35] {C:1} {A:{}}
+| keyword: main [1:1-1:4] {C:0} {A:{}}
+| newLine: \\n [1:5-1:5] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [2:1-2:3] {C:0} {A:{}}
+| newLine: \\n [2:4-2:4] {C:0} {A:{}}
+| keyword: end [3:1-3:3] {C:0} {A:{}}
+| whiteSpace: ?b [3:4-3:4] {C:0} {A:{}}
+| keyword: main [3:5-3:8] {C:0} {A:{}}
+| newLine: \\n\\n [3:9-3:10] {C:0} {A:{}}
 | comment: --#comentário\\n [5:1-5:14] {C:0} {A:{}}
-| block:  [6:1-8:35] {C:3} {A:{}}
-| | beginBlock:  [6:1-6:19] {C:1} {A:{}}
-| | | keyword: function [6:1-6:8] {C:0} {A:{}}
-| | | whiteSpace: ?b [6:9-6:9] {C:0} {A:{}}
-| | | identifier: f0 [6:10-6:11] {C:0} {A:{}}
-| | | argumentList:  [6:12-6:18] {C:1} {A:{}}
-| | | | operatorParenthesis: ( [6:12-6:12] {C:0} {A:{}}
-| | | | identifier: arg_1 [6:13-6:17] {C:0} {A:{}}
-| | | | operatorParenthesis: ) [6:18-6:18] {C:0} {A:{}}
-| | | endLine: - [6:19-6:19] {C:0} {A:{}}
-| | | -newLine: \\n [6:19-6:19] {C:0} {A:{}}
-| | bodyBlock:  [6:1-7:4] {C:1} {A:{}}
-| | | whiteSpace: ?b?b?b [7:1-7:3] {C:0} {A:{}}
-| | | newLine: \\n [7:4-7:4] {C:0} {A:{}}
-| | endBlock:  [6:1-8:35] {C:1} {A:{}}
-| | | keyword: end [8:1-8:3] {C:0} {A:{}}
-| | | whiteSpace: ?b [8:4-8:4] {C:0} {A:{}}
-| | | keyword: function [8:5-8:12] {C:0} {A:{}}
-| | | endLine: - [8:13-8:35] {C:0} {A:{}}
-| | | -whiteSpace: ?b [8:13-8:13] {C:0} {A:{}}
-| | | -singleComment: #?bend?bof?bline?bcomment [8:14-8:34] {C:0} {A:{}}
-| | | -newLine: \\n [8:35-8:35] {C:0} {A:{}}
+| keyword: function [6:1-6:8] {C:0} {A:{}}
+| whiteSpace: ?b [6:9-6:9] {C:0} {A:{}}
+| identifier: f0 [6:10-6:11] {C:0} {A:{}}
+| operatorParenthesis: ( [6:12-6:12] {C:0} {A:{}}
+| identifier: arg_1 [6:13-6:17] {C:0} {A:{}}
+| operatorParenthesis: ) [6:18-6:18] {C:0} {A:{}}
+| newLine: \\n [6:19-6:19] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [7:1-7:3] {C:0} {A:{}}
+| newLine: \\n [7:4-7:4] {C:0} {A:{}}
+| keyword: end [8:1-8:3] {C:0} {A:{}}
+| whiteSpace: ?b [8:4-8:4] {C:0} {A:{}}
+| keyword: function [8:5-8:12] {C:0} {A:{}}
+| whiteSpace: ?b [8:13-8:13] {C:0} {A:{}}
+| comment: #?bend?bof?bline?bcomment\\n [8:14-8:35] {C:0} {A:{}}
 
 `;
 
 exports[`4gl: Token function-1-args-per-line.4gl 1`] = `
-program:  [1:1-10:13] {C:1} {A:{}}
-| block:  [1:1-3:10] {C:3} {A:{}}
-| | beginBlock:  [1:1-1:5] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
-| | | endLine: - [1:5-1:5] {C:0} {A:{}}
-| | | -newLine: \\n [1:5-1:5] {C:0} {A:{}}
-| | bodyBlock:  [1:1-2:4] {C:1} {A:{}}
-| | | whiteSpace: ?b?b?b [2:1-2:3] {C:0} {A:{}}
-| | | newLine: \\n [2:4-2:4] {C:0} {A:{}}
-| | endBlock:  [1:1-3:10] {C:1} {A:{}}
-| | | keyword: end [3:1-3:3] {C:0} {A:{}}
-| | | whiteSpace: ?b [3:4-3:4] {C:0} {A:{}}
-| | | keyword: main [3:5-3:8] {C:0} {A:{}}
-| | | endLine: - [3:9-3:10] {C:0} {A:{}}
-| | | -newLine: \\n\\n [3:9-3:10] {C:0} {A:{}}
-| block:  [5:1-10:13] {C:3} {A:{}}
-| | beginBlock:  [5:1-8:6] {C:1} {A:{}}
-| | | keyword: function [5:1-5:8] {C:0} {A:{}}
-| | | whiteSpace: ?b [5:9-5:9] {C:0} {A:{}}
-| | | identifier: f0 [5:10-5:11] {C:0} {A:{}}
-| | | argumentList:  [5:12-8:5] {C:1} {A:{}}
-| | | | operatorParenthesis: ( [5:12-5:12] {C:0} {A:{}}
-| | | | identifier: arg_1 [5:13-5:17] {C:0} {A:{}}
-| | | | operatorSeparator: , [5:18-5:18] {C:0} {A:{}}
-| | | | whiteSpace: ?b [5:19-5:19] {C:0} {A:{}}
-| | | | newLine: \\n [5:20-5:20] {C:0} {A:{}}
-| | | | whiteSpace: ?b?b?b?b [6:1-6:4] {C:0} {A:{}}
-| | | | identifier: arg_2 [6:5-6:9] {C:0} {A:{}}
-| | | | operatorSeparator: , [6:10-6:10] {C:0} {A:{}}
-| | | | whiteSpace: ?b [6:11-6:11] {C:0} {A:{}}
-| | | | newLine: \\n [6:12-6:12] {C:0} {A:{}}
-| | | | whiteSpace: ?b?b?b?b [7:1-7:4] {C:0} {A:{}}
-| | | | identifier: arg_3 [7:5-7:9] {C:0} {A:{}}
-| | | | newLine: \\n [7:10-7:10] {C:0} {A:{}}
-| | | | whiteSpace: ?b?b?b?b [8:1-8:4] {C:0} {A:{}}
-| | | | operatorParenthesis: ) [8:5-8:5] {C:0} {A:{}}
-| | | endLine: - [8:6-8:6] {C:0} {A:{}}
-| | | -newLine: \\n [8:6-8:6] {C:0} {A:{}}
-| | bodyBlock:  [5:1-9:4] {C:1} {A:{}}
-| | | whiteSpace: ?b?b?b [9:1-9:3] {C:0} {A:{}}
-| | | newLine: \\n [9:4-9:4] {C:0} {A:{}}
-| | endBlock:  [5:1-10:13] {C:1} {A:{}}
-| | | keyword: end [10:1-10:3] {C:0} {A:{}}
-| | | whiteSpace: ?b [10:4-10:4] {C:0} {A:{}}
-| | | keyword: function [10:5-10:12] {C:0} {A:{}}
-| | | endLine: - [10:13-10:13] {C:0} {A:{}}
-| | | -newLine: \\n [10:13-10:13] {C:0} {A:{}}
+token:  [1:1-10:13] {C:1} {A:{}}
+| keyword: main [1:1-1:4] {C:0} {A:{}}
+| newLine: \\n [1:5-1:5] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [2:1-2:3] {C:0} {A:{}}
+| newLine: \\n [2:4-2:4] {C:0} {A:{}}
+| keyword: end [3:1-3:3] {C:0} {A:{}}
+| whiteSpace: ?b [3:4-3:4] {C:0} {A:{}}
+| keyword: main [3:5-3:8] {C:0} {A:{}}
+| newLine: \\n\\n [3:9-3:10] {C:0} {A:{}}
+| keyword: function [5:1-5:8] {C:0} {A:{}}
+| whiteSpace: ?b [5:9-5:9] {C:0} {A:{}}
+| identifier: f0 [5:10-5:11] {C:0} {A:{}}
+| operatorParenthesis: ( [5:12-5:12] {C:0} {A:{}}
+| identifier: arg_1 [5:13-5:17] {C:0} {A:{}}
+| operatorSeparator: , [5:18-5:18] {C:0} {A:{}}
+| whiteSpace: ?b [5:19-5:19] {C:0} {A:{}}
+| newLine: \\n [5:20-5:20] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b [6:1-6:4] {C:0} {A:{}}
+| identifier: arg_2 [6:5-6:9] {C:0} {A:{}}
+| operatorSeparator: , [6:10-6:10] {C:0} {A:{}}
+| whiteSpace: ?b [6:11-6:11] {C:0} {A:{}}
+| newLine: \\n [6:12-6:12] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b [7:1-7:4] {C:0} {A:{}}
+| identifier: arg_3 [7:5-7:9] {C:0} {A:{}}
+| newLine: \\n [7:10-7:10] {C:0} {A:{}}
+| whiteSpace: ?b?b?b?b [8:1-8:4] {C:0} {A:{}}
+| operatorParenthesis: ) [8:5-8:5] {C:0} {A:{}}
+| newLine: \\n [8:6-8:6] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [9:1-9:3] {C:0} {A:{}}
+| newLine: \\n [9:4-9:4] {C:0} {A:{}}
+| keyword: end [10:1-10:3] {C:0} {A:{}}
+| whiteSpace: ?b [10:4-10:4] {C:0} {A:{}}
+| keyword: function [10:5-10:12] {C:0} {A:{}}
+| newLine: \\n [10:13-10:13] {C:0} {A:{}}
 
 `;
 
 exports[`4gl: Token function-2-args.4gl 1`] = `
-program:  [1:1-7:13] {C:1} {A:{}}
-| block:  [1:1-3:10] {C:3} {A:{}}
-| | beginBlock:  [1:1-1:5] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
-| | | endLine: - [1:5-1:5] {C:0} {A:{}}
-| | | -newLine: \\n [1:5-1:5] {C:0} {A:{}}
-| | bodyBlock:  [1:1-2:4] {C:1} {A:{}}
-| | | whiteSpace: ?b?b?b [2:1-2:3] {C:0} {A:{}}
-| | | newLine: \\n [2:4-2:4] {C:0} {A:{}}
-| | endBlock:  [1:1-3:10] {C:1} {A:{}}
-| | | keyword: end [3:1-3:3] {C:0} {A:{}}
-| | | whiteSpace: ?b [3:4-3:4] {C:0} {A:{}}
-| | | keyword: main [3:5-3:8] {C:0} {A:{}}
-| | | endLine: - [3:9-3:10] {C:0} {A:{}}
-| | | -newLine: \\n\\n [3:9-3:10] {C:0} {A:{}}
-| block:  [5:1-7:13] {C:3} {A:{}}
-| | beginBlock:  [5:1-5:26] {C:1} {A:{}}
-| | | keyword: function [5:1-5:8] {C:0} {A:{}}
-| | | whiteSpace: ?b [5:9-5:9] {C:0} {A:{}}
-| | | identifier: f0 [5:10-5:11] {C:0} {A:{}}
-| | | argumentList:  [5:12-5:25] {C:1} {A:{}}
-| | | | operatorParenthesis: ( [5:12-5:12] {C:0} {A:{}}
-| | | | identifier: arg_1 [5:13-5:17] {C:0} {A:{}}
-| | | | operatorSeparator: , [5:18-5:18] {C:0} {A:{}}
-| | | | whiteSpace: ?b [5:19-5:19] {C:0} {A:{}}
-| | | | identifier: arg_2 [5:20-5:24] {C:0} {A:{}}
-| | | | operatorParenthesis: ) [5:25-5:25] {C:0} {A:{}}
-| | | endLine: - [5:26-5:26] {C:0} {A:{}}
-| | | -newLine: \\n [5:26-5:26] {C:0} {A:{}}
-| | bodyBlock:  [5:1-6:4] {C:1} {A:{}}
-| | | whiteSpace: ?b?b?b [6:1-6:3] {C:0} {A:{}}
-| | | newLine: \\n [6:4-6:4] {C:0} {A:{}}
-| | endBlock:  [5:1-7:13] {C:1} {A:{}}
-| | | keyword: end [7:1-7:3] {C:0} {A:{}}
-| | | whiteSpace: ?b [7:4-7:4] {C:0} {A:{}}
-| | | keyword: function [7:5-7:12] {C:0} {A:{}}
-| | | endLine: - [7:13-7:13] {C:0} {A:{}}
-| | | -newLine: \\n [7:13-7:13] {C:0} {A:{}}
+token:  [1:1-7:13] {C:1} {A:{}}
+| keyword: main [1:1-1:4] {C:0} {A:{}}
+| newLine: \\n [1:5-1:5] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [2:1-2:3] {C:0} {A:{}}
+| newLine: \\n [2:4-2:4] {C:0} {A:{}}
+| keyword: end [3:1-3:3] {C:0} {A:{}}
+| whiteSpace: ?b [3:4-3:4] {C:0} {A:{}}
+| keyword: main [3:5-3:8] {C:0} {A:{}}
+| newLine: \\n\\n [3:9-3:10] {C:0} {A:{}}
+| keyword: function [5:1-5:8] {C:0} {A:{}}
+| whiteSpace: ?b [5:9-5:9] {C:0} {A:{}}
+| identifier: f0 [5:10-5:11] {C:0} {A:{}}
+| operatorParenthesis: ( [5:12-5:12] {C:0} {A:{}}
+| identifier: arg_1 [5:13-5:17] {C:0} {A:{}}
+| operatorSeparator: , [5:18-5:18] {C:0} {A:{}}
+| whiteSpace: ?b [5:19-5:19] {C:0} {A:{}}
+| identifier: arg_2 [5:20-5:24] {C:0} {A:{}}
+| operatorParenthesis: ) [5:25-5:25] {C:0} {A:{}}
+| newLine: \\n [5:26-5:26] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [6:1-6:3] {C:0} {A:{}}
+| newLine: \\n [6:4-6:4] {C:0} {A:{}}
+| keyword: end [7:1-7:3] {C:0} {A:{}}
+| whiteSpace: ?b [7:4-7:4] {C:0} {A:{}}
+| keyword: function [7:5-7:12] {C:0} {A:{}}
+| newLine: \\n [7:13-7:13] {C:0} {A:{}}
 
 `;
 
 exports[`4gl: Token function-3-args.4gl 1`] = `
-program:  [1:1-7:13] {C:1} {A:{}}
-| block:  [1:1-3:10] {C:3} {A:{}}
-| | beginBlock:  [1:1-1:5] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
-| | | endLine: - [1:5-1:5] {C:0} {A:{}}
-| | | -newLine: \\n [1:5-1:5] {C:0} {A:{}}
-| | bodyBlock:  [1:1-2:4] {C:1} {A:{}}
-| | | whiteSpace: ?b?b?b [2:1-2:3] {C:0} {A:{}}
-| | | newLine: \\n [2:4-2:4] {C:0} {A:{}}
-| | endBlock:  [1:1-3:10] {C:1} {A:{}}
-| | | keyword: end [3:1-3:3] {C:0} {A:{}}
-| | | whiteSpace: ?b [3:4-3:4] {C:0} {A:{}}
-| | | keyword: main [3:5-3:8] {C:0} {A:{}}
-| | | endLine: - [3:9-3:10] {C:0} {A:{}}
-| | | -newLine: \\n\\n [3:9-3:10] {C:0} {A:{}}
-| block:  [5:1-7:13] {C:3} {A:{}}
-| | beginBlock:  [5:1-5:33] {C:1} {A:{}}
-| | | keyword: function [5:1-5:8] {C:0} {A:{}}
-| | | whiteSpace: ?b [5:9-5:9] {C:0} {A:{}}
-| | | identifier: f0 [5:10-5:11] {C:0} {A:{}}
-| | | argumentList:  [5:12-5:32] {C:1} {A:{}}
-| | | | operatorParenthesis: ( [5:12-5:12] {C:0} {A:{}}
-| | | | identifier: arg_1 [5:13-5:17] {C:0} {A:{}}
-| | | | operatorSeparator: , [5:18-5:18] {C:0} {A:{}}
-| | | | whiteSpace: ?b [5:19-5:19] {C:0} {A:{}}
-| | | | identifier: arg_2 [5:20-5:24] {C:0} {A:{}}
-| | | | operatorSeparator: , [5:25-5:25] {C:0} {A:{}}
-| | | | whiteSpace: ?b [5:26-5:26] {C:0} {A:{}}
-| | | | identifier: arg_3 [5:27-5:31] {C:0} {A:{}}
-| | | | operatorParenthesis: ) [5:32-5:32] {C:0} {A:{}}
-| | | endLine: - [5:33-5:33] {C:0} {A:{}}
-| | | -newLine: \\n [5:33-5:33] {C:0} {A:{}}
-| | bodyBlock:  [5:1-6:4] {C:1} {A:{}}
-| | | whiteSpace: ?b?b?b [6:1-6:3] {C:0} {A:{}}
-| | | newLine: \\n [6:4-6:4] {C:0} {A:{}}
-| | endBlock:  [5:1-7:13] {C:1} {A:{}}
-| | | keyword: end [7:1-7:3] {C:0} {A:{}}
-| | | whiteSpace: ?b [7:4-7:4] {C:0} {A:{}}
-| | | keyword: function [7:5-7:12] {C:0} {A:{}}
-| | | endLine: - [7:13-7:13] {C:0} {A:{}}
-| | | -newLine: \\n [7:13-7:13] {C:0} {A:{}}
+token:  [1:1-7:13] {C:1} {A:{}}
+| keyword: main [1:1-1:4] {C:0} {A:{}}
+| newLine: \\n [1:5-1:5] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [2:1-2:3] {C:0} {A:{}}
+| newLine: \\n [2:4-2:4] {C:0} {A:{}}
+| keyword: end [3:1-3:3] {C:0} {A:{}}
+| whiteSpace: ?b [3:4-3:4] {C:0} {A:{}}
+| keyword: main [3:5-3:8] {C:0} {A:{}}
+| newLine: \\n\\n [3:9-3:10] {C:0} {A:{}}
+| keyword: function [5:1-5:8] {C:0} {A:{}}
+| whiteSpace: ?b [5:9-5:9] {C:0} {A:{}}
+| identifier: f0 [5:10-5:11] {C:0} {A:{}}
+| operatorParenthesis: ( [5:12-5:12] {C:0} {A:{}}
+| identifier: arg_1 [5:13-5:17] {C:0} {A:{}}
+| operatorSeparator: , [5:18-5:18] {C:0} {A:{}}
+| whiteSpace: ?b [5:19-5:19] {C:0} {A:{}}
+| identifier: arg_2 [5:20-5:24] {C:0} {A:{}}
+| operatorSeparator: , [5:25-5:25] {C:0} {A:{}}
+| whiteSpace: ?b [5:26-5:26] {C:0} {A:{}}
+| identifier: arg_3 [5:27-5:31] {C:0} {A:{}}
+| operatorParenthesis: ) [5:32-5:32] {C:0} {A:{}}
+| newLine: \\n [5:33-5:33] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [6:1-6:3] {C:0} {A:{}}
+| newLine: \\n [6:4-6:4] {C:0} {A:{}}
+| keyword: end [7:1-7:3] {C:0} {A:{}}
+| whiteSpace: ?b [7:4-7:4] {C:0} {A:{}}
+| keyword: function [7:5-7:12] {C:0} {A:{}}
+| newLine: \\n [7:13-7:13] {C:0} {A:{}}
 
 `;
 
 exports[`4gl: Token main.4gl 1`] = `
-program:  [1:1-3:10] {C:1} {A:{}}
-| block:  [1:1-3:10] {C:3} {A:{}}
-| | beginBlock:  [1:1-1:5] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
-| | | endLine: - [1:5-1:5] {C:0} {A:{}}
-| | | -newLine: \\n [1:5-1:5] {C:0} {A:{}}
-| | bodyBlock:  [1:1-2:4] {C:1} {A:{}}
-| | | whiteSpace: ?b?b?b [2:1-2:3] {C:0} {A:{}}
-| | | newLine: \\n [2:4-2:4] {C:0} {A:{}}
-| | endBlock:  [1:1-3:10] {C:1} {A:{}}
-| | | keyword: end [3:1-3:3] {C:0} {A:{}}
-| | | whiteSpace: ?b [3:4-3:4] {C:0} {A:{}}
-| | | keyword: main [3:5-3:8] {C:0} {A:{}}
-| | | endLine: - [3:9-3:10] {C:0} {A:{}}
-| | | -newLine: \\n\\n [3:9-3:10] {C:0} {A:{}}
+token:  [1:1-3:10] {C:1} {A:{}}
+| keyword: main [1:1-1:4] {C:0} {A:{}}
+| newLine: \\n [1:5-1:5] {C:0} {A:{}}
+| whiteSpace: ?b?b?b [2:1-2:3] {C:0} {A:{}}
+| newLine: \\n [2:4-2:4] {C:0} {A:{}}
+| keyword: end [3:1-3:3] {C:0} {A:{}}
+| whiteSpace: ?b [3:4-3:4] {C:0} {A:{}}
+| keyword: main [3:5-3:8] {C:0} {A:{}}
+| newLine: \\n\\n [3:9-3:10] {C:0} {A:{}}
 
 `;
