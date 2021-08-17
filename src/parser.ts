@@ -1,4 +1,4 @@
-import PEGUtil = require('pegjs-util');
+import PEGUtil = require('./PEGUtil');
 import { parse as parser_4gl } from './4gl';
 import { parse as parser_advpl } from './advpl';
 import { ASTChild, ASTNode, ASTUtil, EASTType, ILocation } from './ast_node';

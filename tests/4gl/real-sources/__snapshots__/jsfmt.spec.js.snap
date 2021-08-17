@@ -1,6 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`4gl: Token sup3761.4gl 1`] = `
+exports[`4gl: program sup3761.4gl 1`] = `
+program:  [1:1--Infinity:-Infinity] {C:1} {A:{}}
+
+`;
+
+exports[`4gl: token sup3761.4gl 1`] = `
 token:  [1:1--Infinity:-Infinity] {C:1} {A:{}}
 
 `;

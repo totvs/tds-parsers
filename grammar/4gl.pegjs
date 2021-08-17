@@ -16,86 +16,76 @@ const astBlock = (_begin, _body, _end) => {
 }
 
 start_program
-	= p1:superTokens?  { return ast("program").add(p1 || []) }
+	= p1:blocks?  { return ast("program").add(p1 || []) }
+
+blocks
+  = l:block+ p:blocks+ { return l.concat(p); }
+  / p:block+ { return p; }
+  / p:block { return [p]; }
 
 start_token
 	= p1:onlyTokens?  { return ast("token").add(p1 || []) }
 
 onlyTokens
-  = l:onlyToken+ p:onlyTokens+ { return l.concat(p); }
-  / p:onlyToken+ { return p; }
-  / p:onlyToken { return [p]; }
+  = l:tokens+ p:onlyTokens+ { return l.concat(p); }
+  / p:tokens+ { return p; }
+  / p:tokens { return [p]; }
 
-onlyToken
-  = WS_NL
-  / comment
-  / keywords
-  / builtInVar
-  / operators
-  / string
-  / number
-  / identifer
-
-superTokens
-  = l:arg_token+ p:superTokens+ { return l.concat(p); }
-  / p:arg_token+ { return p; }
-  / p:arg_token { return [p]; }
-
-arg_token = superToken
-
-superToken
-  = WS_NL
-  / comment
-  / moduleBlock
+block
+  = moduleBlock
   / globalBlock
   / mainBlock
   / functionBlock
-  /// o:$(!WS .)+ { return ast("notSpecified", o) }
+  / forBlock
+  / forEachBlock
+  / ifBlock
+  / comment
+  / WS_NL
 
 globalBlock
   = GLOBALS WS_NL string endLine 
   / b:(GLOBALS endLine)
-      t:tokens*
+      t:tokensBlock*
     e:(END WS_NL GLOBALS endLine)
     { return astBlock(b, t, e) }
 
 moduleBlock
-  = DEFINE defineTokens*
+  = DEFINE tokens*
   / DATABASE WS_NL identifer
 
 mainBlock
   = b:(MAIN endLine)
-      t:tokens*
+      t:tokensBlock*
     e:(END WS_NL MAIN endLine)  
     { return astBlock(b, t, e) }
 
 functionBlock
   = b:(FUNCTION WS_NL identifer WS_NL? argumentList endLine)
-      t:tokens*
+      t:tokensBlock*
     e:(END WS_NL FUNCTION endLine)
     { return astBlock(b, t, e) }
 
 forBlock
   = b:(FOR) 
-      t:tokens*
+      t:tokensBlock*
     e:(END WS_NL FOR endLine)
     { return astBlock(b, t, e) }
 
 forEachBlock
   = b:(FOREACH) 
-      t:tokens*
+      t:tokensBlock*
     e:(END WS_NL FOREACH endLine)
     { return astBlock(b, t, e) }
 
 recordBlock
   = b:(RECORD) 
-      t:tokens*
+      t:tokensBlock*
     e:(END WS_NL RECORD (endLine / WS? COMMA))
     { return astBlock(b, t, e) }
 
 ifBlock
   = b:(IF) 
-      t:tokens*
+      t:tokensBlock*
     e:(END WS_NL IF endLine)
     { return astBlock(b, t, e) }
 
@@ -114,290 +104,293 @@ arg_list = WS_NL? identifer WS_NL? COMMA WS_NL?
 
 arg_value = WS_NL? identifer WS_NL?
 
-defineTokens
-  = tokens
+tokensBlock
+  = define 
+  / block
+  / !(END) tokens
+
+define
+  = DEFINE (!recordBlock tokensBlock)* recordBlock?
 
 tokens
   = WS_NL
-  / forBlock
-  / forEachBlock
-  / ifBlock
-  / recordBlock
   / comment
   / keywords
   / builtInVar
   / operators
   / string
   / number
-  / !(END / THEN) identifer
+  / identifer 
 
+// Devido ao mecanismo de funcionamento do PEGJS, a lista de palavras chaves
+// deve ser informada em ordem descrescente
 keywords
   = k:(
-    ACCEPT
-    / AFTER
-    / ALL
-    / AND
-    / ANY
-    / ARRAY
-    / ASC
-    / ASCENDING
-    / ASCII
-    / AT
-    / ATTRIBUTE
-    / ATTRIBUTES
-    / AUTONEXT
-    / AVG
-    / BEFORE
-    / BEGIN
-    / BETWEEN
-    / BIGINT
-    / BLACK
-    / BLINK
-    / BLUE
-    / BOLD
-    / BORDER
-    / BOTTOM
-    / BY
-    / BYTE
-    / CALL
-    / CASE
-    / CHAR
-    / CHARACTER
-    / CLEAR
-    / CLIPPED
-    / CLOSE
-    / COLUMN
-    / COLUMNS
-    / COMMAND
-    / COMMENT
-    / COMMENTS
-    / COMMIT
-    / CONSTRAINT
-    / CONSTRUCT
-    / CONTINUE
-    / CONTROL
-    / COUNT
-    / CREATE
-    / CURRENT
-    / CURSOR
-    / CYAN
-    / DATE
-    / DATETIME
-    / DAY
-    / DEC
-    / DECIMAL
-    / DECLARE
-    / DEFAULTS
-    / DEFER
-    / DEFINE
-    / DELETE
-    / DELIMITER
-    / DELIMITERS
-    / DESC
-    / DESCENDING
-    / DIM
-    / DIRTY
-    / DISPLAY
-    / DISTINCT
-    / DOUBLE
-    / DOWN
-    / DOWNSHIFT
-    / DROP
-    / DYNAMIC
-    / ELIF
-    / ELSE
-    / END
-    / ERROR
-    / ESCAPE
-    / EVERY
-    / EXCLUSIVE
-    / EXECUTE
-    / EXISTS
-    / EXIT
-    / EXTEND
-    / EXTERNAL
-    / FETCH
-    / FIELD
-    / FILE
-    / FINISH
-    / FIRST
-    / FLOAT
-    / FLUSH
-    / FORM
-    / FORMAT
-    / FORMONLY
-    / FOUND
-    / FRACTION
-    / FREE
-    / FROM
-    / FUNCTION
-    / GO
-    / GOTO
-    / GREEN
-    / GROUP
-    / HAVING
-    / HEADER
-    / HELP
-    / HIDE
-    / HOLD
-    / HOUR
-    / IF
-    / IN
-    / INCLUDE
-    / INDEX
-    / INITIALIZE
-    / INPUT
-    / INSERT
-    / INSTRUCTIONS  
-    / INT
-    / INTEGER
-    / INTERRUPT
-    / INTERVAL
-    / INTO
-    / INVISIBLE
-    / IS
-    / ISOLATION
-    / KEY
-    / LABEL
-    / LAST
-    / LEFT
-    / LENGTH
-    / LET
-    / LIKE
-    / LINE
-    / LINES
-    / LOAD
-    / LOCATE
-    / LOCK
-    / LOG
-    / MAGENTA
-    / MAIN
-    / MARGIN
-    / MATCHES
-    / MAX
-    / MDY
-    / MEMORY
-    / MENU
-    / MESSAGE
-    / MIN
-    / MINUTE
-    / MOD
-    / MODE
-    / MONEY
-    / MONTH
-    / NAME
-    / NCHAR
-    / NEED
-    / NEXT
-    / NO
-    / NOENTRY
-    / NORMAL
-    / NOT
-    / NOTFOUND
-    / NULL
-    / NUMERIC
-    / NVARCHAR
-    / OF
-    / OFF
-    / ON
-    / OPEN
-    / OPTION
-    / OPTIONS
-    / OR
-    / ORDER
-    / OTHERWISE
-    / OUTER
-    / OUTPUT
-    / PAGE
-    / PAGENO
-    / PIPE
-    / PRECISION
-    / PREPARE
-    / PREVIOUS
-    / PRIMARY
-    / PRINT
-    / PROGRAM
-    / PROMPT
-    / PUT
-    / QUIT
-    / READ
-    / REAL
-    / RED
-    / REPORT
-    / RETURN
-    / RETURNING
-    / REVERSE
-    / RIGTH
-    / ROLLBACK
-    / ROW
-    / ROWS
-    / RUN
-    / SCREEN
-    / SCROLL
-    / SECOND
-    / SELECT
-    / SET
-    / SHARE
-    / SHOW
-    / SKIP
-    / SLEEP
-    / SMALL
-    / SMALLFLOAT
-    / SMALLINT
-    / SPACE
-    / SPACES
-    / SQL
-    / SQLERROR
-    / SQLWARNING
-    / START
-    / STEP
-    / STOP
-    / STRING
-    / SUM
-    / TABLE
-    / TABLES
-    / TEMP
-    / TEXT
-    / THEN
-    / THROUGH
-    / THRU
-    / TIME
-    / TO
-    / TODAY
-    / TOP
-    / TRAILER
-    / TYPE
-    / UNCONSTRAINED  
-    / UNDERLINE
-    / UNION
-    / UNIQUE
-    / UNITS
-    / UNLOAD
-    / UNLOCK
-    / UP
-    / UPDATE
-    / UPSHIFT
-    / USING
-    / VALIDATE
-    / VALUES
-    / VARCHAR
-    / WAIT
-    / WAITING
-    / WARNING
-    / WEEKDAY
-    / WHEN
-    / WHENEVER
-    / WHERE
-    / WHILE
-    / WHITE
-    / WINDOW
-    / WITH
-    / WITHOUT
-    / WORDWRAP
-    / WORK
-    / WRAP
-    / YEAR
-    / YELLOW  
+  YELLOW 
+  / YEAR
+  / WRAP
+  / WORK
+  / WORDWRAP
+  / WITHOUT
+  / WITH
+  / WINDOW
+  / WHITE
+  / WHILE
+  / WHERE
+  / WHENEVER
+  / WHEN
+  / WEEKDAY
+  / WARNING
+  / WAITING
+  / WAIT
+  / VARCHAR
+  / VALUES
+  / VALIDATE
+  / USING
+  / UPSHIFT
+  / UPDATE
+  / UP
+  / UNLOCK
+  / UNLOAD
+  / UNITS
+  / UNIQUE
+  / UNION
+  / UNDERLINE
+  / UNCONSTRAINED  
+  / TYPE
+  / TRAILER
+  / TOP
+  / TODAY
+  / TO
+  / TIME
+  / THRU
+  / THROUGH
+  / THEN
+  / TEXT
+  / TEMP
+  / TABLES
+  / TABLE
+  / SUM
+  / STRING
+  / STOP
+  / STEP
+  / START
+  / SQLWARNING
+  / SQLERROR
+  / SQL
+  / SPACES
+  / SPACE
+  / SMALLINT
+  / SMALLFLOAT
+  / SMALL
+  / SLEEP
+  / SKIP
+  / SHOW
+  / SHARE
+  / SET
+  / SELECT
+  / SECOND
+  / SCROLL
+  / SCREEN
+  / RUN
+  / ROWS
+  / ROW
+  / ROLLBACK
+  / RIGTH
+  / REVERSE
+  / RETURNING
+  / RETURN
+  / REPORT
+  / RED
+  / REAL
+  / READ
+  / QUIT
+  / PUT
+  / PROMPT
+  / PROGRAM
+  / PRINT
+  / PRIMARY
+  / PREVIOUS
+  / PREPARE
+  / PRECISION
+  / PIPE
+  / PAGENO
+  / PAGE
+  / OUTPUT
+  / OUTER
+  / OTHERWISE
+  / ORDER
+  / OR
+  / OPTIONS
+  / OPTION
+  / OPEN
+  / ON
+  / OFF
+  / OF
+  / NVARCHAR
+  / NUMERIC
+  / NULL
+  / NOTFOUND
+  / NOT
+  / NORMAL
+  / NOENTRY
+  / NO
+  / NEXT
+  / NEED
+  / NCHAR
+  / NAME
+  / MONTH
+  / MONEY
+  / MODE
+  / MOD
+  / MINUTE
+  / MIN
+  / MESSAGE
+  / MENU
+  / MEMORY
+  / MDY
+  / MAX
+  / MATCHES
+  / MARGIN
+  / MAIN
+  / MAGENTA
+  / LOG
+  / LOCK
+  / LOCATE
+  / LOAD
+  / LINES
+  / LINE
+  / LIKE
+  / LET
+  / LENGTH
+  / LEFT
+  / LAST
+  / LABEL
+  / KEY
+  / ISOLATION
+  / IS
+  / INVISIBLE
+  / INTO
+  / INTERVAL
+  / INTERRUPT
+  / INTEGER
+  / INT
+  / INSTRUCTIONS  
+  / INSERT
+  / INPUT
+  / INITIALIZE
+  / INDEX
+  / INCLUDE
+  / IN
+  / IF
+  / HOUR
+  / HOLD
+  / HIDE
+  / HELP
+  / HEADER
+  / HAVING
+  / GROUP
+  / GREEN
+  / GOTO
+  / GO
+  / FUNCTION
+  / FROM
+  / FREE
+  / FRACTION
+  / FOUND
+  / FORMONLY
+  / FORMAT
+  / FORM
+  / FLUSH
+  / FLOAT
+  / FIRST
+  / FINISH
+  / FILE
+  / FIELD
+  / FETCH
+  / EXTERNAL
+  / EXTEND
+  / EXIT
+  / EXISTS
+  / EXECUTE
+  / EXCLUSIVE
+  / EVERY
+  / ESCAPE
+  / ERROR
+  / END
+  / ELSE
+  / ELIF
+  / DYNAMIC
+  / DROP
+  / DOWNSHIFT
+  / DOWN
+  / DOUBLE
+  / DISTINCT
+  / DISPLAY
+  / DIRTY
+  / DIM
+  / DESCENDING
+  / DESC
+  / DELIMITERS
+  / DELIMITER
+  / DELETE
+  / DEFINE
+  / DEFER
+  / DEFAULTS
+  / DECLARE
+  / DECIMAL
+  / DEC
+  / DAY
+  / DATETIME
+  / DATE
+  / CYAN
+  / CURSOR
+  / CURRENT
+  / CREATE
+  / COUNT
+  / CONTROL
+  / CONTINUE
+  / CONSTRUCT
+  / CONSTRAINT
+  / COMMIT
+  / COMMENTS
+  / COMMENT
+  / COMMAND
+  / COLUMNS
+  / COLUMN
+  / CLOSE
+  / CLIPPED
+  / CLEAR
+  / CHARACTER
+  / CHAR
+  / CASE
+  / CALL
+  / BYTE
+  / BY
+  / BOTTOM
+  / BORDER
+  / BOLD
+  / BLUE
+  / BLINK
+  / BLACK
+  / BIGINT
+  / BETWEEN
+  / BEGIN
+  / BEFORE
+  / AVG
+  / AUTONEXT
+  / ATTRIBUTES
+  / ATTRIBUTE
+  / AT
+  / ASCII
+  / ASCENDING
+  / ASC
+  / ARRAY
+  / ANY
+  / AND
+  / ALL
+  / AFTER
+  / ACCEPT 
   ) &(WS_NL / operators)
   { return k;}
 

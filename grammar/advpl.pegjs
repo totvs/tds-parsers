@@ -19,22 +19,29 @@ const astBlock = (_begin, _body, _end) => {
 }
 
 start_program
-	= p1:superTokens?  { return ast("program").add(p1 || []) }
+	= p1:blocks?  { return ast("program").add(p1 || []) }
 
-superTokens
-  = l:arg_token+ p:superTokens+ { return l.concat(p); }
-  / p:arg_token+ { return p; }
-  / p:arg_token { return [p]; }
+blocks
+  = l:block+ p:blocks+ { return l.concat(p); }
+  / p:block+ { return p; }
+  / p:block { return [p]; }
 
-arg_token = superToken
+start_token
+	= p1:onlyTokens?  { return ast("token").add(p1 || []) }
 
-superToken
-  = WS_CONTINUE
-  / NL
-  / comment
-  / functionBlock
+onlyTokens
+  = l:tokens+ p:onlyTokens+ { return l.concat(p); }
+  / p:tokens+ { return p; }
+  / p:tokens { return [p]; }
+
+block
+  = functionBlock
   / directives
-  / tokens
+  / forBlock
+  / ifBlock
+  / whileBlock
+  / comment
+  / NL
 
 functionBlock
   = b:(scope? WS_CONTINUE? FUNCTION WS_CONTINUE identifer WS_CONTINUE? argumentList endLine)
@@ -60,6 +67,12 @@ ifBlock
   = b:(IF) 
       t:tokens*
     e:(ENDIF endLine)
+    { return astBlock(b, t, e) }
+
+whileBlock
+  = b:(WHILE) 
+      t:tokens*
+    e:(ENDDO endLine)
     { return astBlock(b, t, e) }
 
 /*
@@ -90,11 +103,10 @@ tokens
   = WS_CONTINUE
   / NL
   / comment
-  / forBlock
-  / ifBlock
   // / codeBlock
   / directives
   / keywords
+  / scope
   / logicalOperators
   / operators
   / string

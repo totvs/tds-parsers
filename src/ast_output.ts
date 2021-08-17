@@ -28,7 +28,7 @@ export function astDump(
       source = '-';
     } else {
       source = ast.source
-        .replace(/ /g, '?b')
+        //.replace(/ /g, '\\b')
         .replace(/\t/g, '\\t')
         .replace(/\n/g, '\\n')
         .replace(/\r/g, '\\r');

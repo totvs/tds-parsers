@@ -5,7 +5,7 @@ const PRINT_WIDTH = 80;
 const fs = require('fs');
 const path = require('path');
 const tds_parser = require('../lib').tds_parser;
-const PEGUtil = require('pegjs-util');
+const PEGUtil = require('../lib/PEGUtil');
 
 function run_spec(dirname, options) {
   fs.readdirSync(dirname).forEach((filename) => {
@@ -20,28 +20,30 @@ function run_spec(dirname, options) {
       const source = fs.readFileSync(filepath, 'utf8').replace(/\r\n/g, '\n');
       const parsePrefix = path.extname(filename).substr(1);
 
-      describe(parsePrefix + ': Token', () => {
-        const mergedOptions = Object.assign(
-          mergeDefaultOptions(options || {}),
-          {
-            filepath: filepath,
-          }
-        );
+      ['token', 'program'].forEach((process) => {
+        describe(`${parsePrefix}: ${process}`, () => {
+          const mergedOptions = Object.assign(
+            mergeDefaultOptions(options || {}),
+            {
+              parserProcess: process,
+              filepath: filepath,
+            }
+          );
 
-        test(filename, () => {
-          const output = tds_parser(source, mergedOptions);
-          let dump = ''; //output.ast.dump();
+          test(filename, () => {
+            const output = tds_parser(source, mergedOptions);
+            let dump = ''; //output.ast.dump();
 
-          expect(output).not.toBeNull();
-          // expect(output.ast).not.toBeNull();
+            expect(output).not.toBeNull();
 
-          if (output && output.error) {
-            dump = `${filename}\n${PEGUtil.errorMessage(output.error)}`;
-          } else {
-            dump = output.ast.dump();
-          }
-
-          expect(raw(dump)).toMatchSnapshot();
+            if (output && output.error) {
+              dump = `${filename}\n${PEGUtil.errorMessage(output.error)}`;
+              expect(dump).toBeNull();
+            } else {
+              dump = output.ast.dump();
+              expect(raw(dump)).toMatchSnapshot();
+            }
+          });
         });
       });
     }
@@ -54,7 +56,6 @@ function mergeDefaultOptions(parserConfig) {
   return Object.assign(
     {
       debug: false,
-      parserProcess: 'token',
     },
     parserConfig
   );

@@ -4,7 +4,6 @@ main
 
 --#	define ma_integer array[3] of integer
 
-{
 	define ma_array array [3] of record
 	f2_check      char(1),
 	f2_integer    integer,
@@ -68,6 +67,6 @@ for l_ind = 1 to 3
 	let ma_array[l_ind].f2_dttime_y2f = current + l_ind + 2 units day
 	let ma_array[l_ind].f2_scroll     = "texto scroll texto scroll texto scroll "
 end for
-}
+
 
 end main
