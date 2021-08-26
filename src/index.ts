@@ -49,7 +49,7 @@ export function tds_parser(content: string, options: IParserOptions): ASTNode {
   parserList = LANGUAGES.filter((language) => {
     return (
       language.name.endsWith(options.parserProcess as string) &&
-      language.extensions.includes(options.fileext as string)
+      language.extensions.indexOf(options.fileext as string) > -1
     );
   });
 

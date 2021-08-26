@@ -1,11 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`4gl: program sup3761.4gl 1`] = `
+exports[`4gl: sup3761.4gl program 1`] = `
+Object {
+  Symbol(jest-snapshot-serializer-raw): "
+
+====================================options=====================================
+debug: false
+filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\real-sources/sup3761.4gl\\"
+parserProcess: \\"program\\"
+=====================================input======================================
+
+=====================================output=====================================
 program:  [1:1--Infinity:-Infinity] {C:1} {A:{}}
 
+================================================================================",
+}
 `;
 
-exports[`4gl: token sup3761.4gl 1`] = `
+exports[`4gl: sup3761.4gl token 1`] = `
+Object {
+  Symbol(jest-snapshot-serializer-raw): "
+
+====================================options=====================================
+debug: false
+filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\real-sources/sup3761.4gl\\"
+parserProcess: \\"token\\"
+=====================================input======================================
+
+=====================================output=====================================
 token:  [1:1--Infinity:-Infinity] {C:1} {A:{}}
 
+================================================================================",
+}
 `;

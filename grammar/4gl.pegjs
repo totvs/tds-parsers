@@ -50,9 +50,9 @@ globalBlock
     { return astBlock(b, t, e) }
 
 moduleBlock
-  = DEFINE tokens*
-  / DATABASE WS_NL identifer
-
+  = defineStatment tokens+
+  / databaseStatment WS_NL identifer
+  
 mainBlock
   = b:(MAIN endLine)
       t:tokensBlock*
@@ -81,7 +81,7 @@ recordBlock
   = b:(RECORD) 
       t:tokensBlock*
     e:(END WS_NL RECORD (endLine / WS? COMMA))
-    { return astBlock(b, t, e) }
+    { return astBlock(b, t, e).setAttribute('recordBlock', true) }
 
 ifBlock
   = b:(IF) 
@@ -110,11 +110,14 @@ tokensBlock
   / !(END) tokens
 
 define
-  = DEFINE (!recordBlock tokensBlock)* recordBlock?
+  = defineStatment (!recordBlock tokensBlock)* recordBlock?
 
 tokens
   = WS_NL
   / comment
+  / defineStatment
+  / databaseStatment
+  / statements
   / keywords
   / builtInVar
   / operators
@@ -123,7 +126,96 @@ tokens
   / identifer 
 
 // Devido ao mecanismo de funcionamento do PEGJS, a lista de palavras chaves
-// deve ser informada em ordem descrescente
+// e comandos devem ser informados em ordem descrescente
+defineStatment
+  = s:DEFINE { return ast("statement", s) }
+
+databaseStatment
+  = s:DATABASE { return ast("statement", s) }
+
+statements
+  = s:(
+  WHILE
+  / WHENEVER
+  / VALIDATE
+  / UPDATE
+  / UNLOCK
+  / UNLOAD
+  / TABLES
+  / START
+  / SLEEP
+  / SKIP
+  / SET
+  / SELECT
+  / SCROLL
+  / SCREEN
+  / RUN
+  / ROLLFORWARD
+  / ROLLBACK
+  / REVOKE
+  / RETURN
+  / REPORT
+  / REPORT
+  / RENAME
+  / RECOVER
+  / PUT
+  / PROMPT
+  / PRINT
+  / PREPARE
+  / PAUSE
+  / OUTPUT
+  / ORDER
+  / OPTIONS
+  / OPEN
+  / NEED
+  / MESSAGE
+  / MENU
+  / MAIN
+  / LOCK
+  / LOCATE
+  / LOAD
+  / LET
+  / LABEL
+  / INSTRUCTIONS  
+  / INSERT
+  / INPUT
+  / INITIALIZE
+  / IF
+  / GRANT
+  / GOTO
+  / GLOBALS
+  / FUNCTION
+  / FREE
+  / FORMAT
+  / FOREACH
+  / FOR
+  / FLUSH
+  / FINISH
+  / FETCH
+  / EXIT
+  / EXECUTE
+  / ERROR
+  / END
+  / DROP
+  / DISPLAY
+  / DELETE
+  / DEFINE
+  / DEFER
+  / DECLARE
+  / DATABASE
+  / CREATE
+  / CONTINUE
+  / CONSTRUCT
+  / COMMIT
+  / CLOSE
+  / CLEAR
+  / CASE
+  / CALL
+  / BEGIN
+  / ATTRIBUTES
+  / ALTER
+  )  { s.setAttribute('statement', true); return s; }
+  
 keywords
   = k:(
   YELLOW 
@@ -135,9 +227,7 @@ keywords
   / WITH
   / WINDOW
   / WHITE
-  / WHILE
   / WHERE
-  / WHENEVER
   / WHEN
   / WEEKDAY
   / WARNING
@@ -145,13 +235,9 @@ keywords
   / WAIT
   / VARCHAR
   / VALUES
-  / VALIDATE
   / USING
   / UPSHIFT
-  / UPDATE
   / UP
-  / UNLOCK
-  / UNLOAD
   / UNITS
   / UNIQUE
   / UNION
@@ -168,13 +254,11 @@ keywords
   / THEN
   / TEXT
   / TEMP
-  / TABLES
   / TABLE
   / SUM
   / STRING
   / STOP
   / STEP
-  / START
   / SQLWARNING
   / SQLERROR
   / SQL
@@ -183,47 +267,29 @@ keywords
   / SMALLINT
   / SMALLFLOAT
   / SMALL
-  / SLEEP
-  / SKIP
   / SHOW
   / SHARE
-  / SET
-  / SELECT
   / SECOND
-  / SCROLL
-  / SCREEN
-  / RUN
   / ROWS
   / ROW
-  / ROLLBACK
   / RIGTH
   / REVERSE
   / RETURNING
-  / RETURN
-  / REPORT
   / RED
   / REAL
   / READ
   / QUIT
-  / PUT
-  / PROMPT
   / PROGRAM
-  / PRINT
   / PRIMARY
   / PREVIOUS
-  / PREPARE
   / PRECISION
   / PIPE
   / PAGENO
   / PAGE
-  / OUTPUT
   / OUTER
   / OTHERWISE
-  / ORDER
   / OR
-  / OPTIONS
   / OPTION
-  / OPEN
   / ON
   / OFF
   / OF
@@ -236,7 +302,6 @@ keywords
   / NOENTRY
   / NO
   / NEXT
-  / NEED
   / NCHAR
   / NAME
   / MONTH
@@ -245,27 +310,19 @@ keywords
   / MOD
   / MINUTE
   / MIN
-  / MESSAGE
-  / MENU
   / MEMORY
   / MDY
   / MAX
   / MATCHES
   / MARGIN
-  / MAIN
   / MAGENTA
   / LOG
-  / LOCK
-  / LOCATE
-  / LOAD
   / LINES
   / LINE
   / LIKE
-  / LET
   / LENGTH
   / LEFT
   / LAST
-  / LABEL
   / KEY
   / ISOLATION
   / IS
@@ -275,14 +332,9 @@ keywords
   / INTERRUPT
   / INTEGER
   / INT
-  / INSTRUCTIONS  
-  / INSERT
-  / INPUT
-  / INITIALIZE
   / INDEX
   / INCLUDE
   / IN
-  / IF
   / HOUR
   / HOLD
   / HIDE
@@ -291,53 +343,36 @@ keywords
   / HAVING
   / GROUP
   / GREEN
-  / GOTO
   / GO
-  / FUNCTION
   / FROM
-  / FREE
   / FRACTION
   / FOUND
   / FORMONLY
-  / FORMAT
   / FORM
-  / FLUSH
   / FLOAT
   / FIRST
-  / FINISH
   / FILE
   / FIELD
-  / FETCH
   / EXTERNAL
   / EXTEND
-  / EXIT
   / EXISTS
-  / EXECUTE
   / EXCLUSIVE
   / EVERY
   / ESCAPE
-  / ERROR
-  / END
   / ELSE
   / ELIF
   / DYNAMIC
-  / DROP
   / DOWNSHIFT
   / DOWN
   / DOUBLE
   / DISTINCT
-  / DISPLAY
   / DIRTY
   / DIM
   / DESCENDING
   / DESC
   / DELIMITERS
   / DELIMITER
-  / DELETE
-  / DEFINE
-  / DEFER
   / DEFAULTS
-  / DECLARE
   / DECIMAL
   / DEC
   / DAY
@@ -346,25 +381,17 @@ keywords
   / CYAN
   / CURSOR
   / CURRENT
-  / CREATE
   / COUNT
   / CONTROL
-  / CONTINUE
-  / CONSTRUCT
   / CONSTRAINT
-  / COMMIT
   / COMMENTS
   / COMMENT
   / COMMAND
   / COLUMNS
   / COLUMN
-  / CLOSE
   / CLIPPED
-  / CLEAR
   / CHARACTER
   / CHAR
-  / CASE
-  / CALL
   / BYTE
   / BY
   / BOTTOM
@@ -375,11 +402,9 @@ keywords
   / BLACK
   / BIGINT
   / BETWEEN
-  / BEGIN
   / BEFORE
   / AVG
   / AUTONEXT
-  / ATTRIBUTES
   / ATTRIBUTE
   / AT
   / ASCII
@@ -527,6 +552,7 @@ SLASH=o:"/" { return ast("operatorMath", o) }
 ACCEPT = k:"accept"i { return ast("keyword", k) }
 AFTER = k:"after"i  { return ast("keyword", k) }
 ALL = k:"all"i  { return ast("keyword", k) }
+ALTER = k:"alter"i  { return ast("keyword", k) }
 AND = k:"and"i  { return ast("keyword", k) }
 ANY = k:"any"i  { return ast("keyword", k) }
 ARRAY = k:"array"i  { return ast("keyword", k) }
@@ -628,6 +654,7 @@ FUNCTION = k:"function"i{ return ast("keyword", k) }
 GLOBALS = k:"globals"i  { return ast("keyword", k) }
 GO = k:"go"i  { return ast("keyword", k) }
 GOTO = k:"goto"i  { return ast("keyword", k) }
+GRANT = k:"grant"i  { return ast("keyword", k) }
 GREEN = k:"green"i  { return ast("keyword", k) }
 GROUP = k:"group"i  { return ast("keyword", k) }
 HAVING = k:"having"i  { return ast("keyword", k) }
@@ -705,6 +732,7 @@ OUTER = k:"outer"i  { return ast("keyword", k) }
 OUTPUT = k:"output"i  { return ast("keyword", k) }
 PAGE = k:"page"i  { return ast("keyword", k) }
 PAGENO = k:"pageno"i  { return ast("keyword", k) }
+PAUSE = k:"pause"i  { return ast("keyword", k) }
 PIPE = k:"pipe"i  { return ast("keyword", k) }
 PRECISION = k:"precision"i  { return ast("keyword", k) }
 PREPARE = k:"prepare"i  { return ast("keyword", k) }
@@ -718,12 +746,16 @@ QUIT = k:"quit"i  { return ast("keyword", k) }
 READ = k:"read"i  { return ast("keyword", k) }
 REAL = k:"real"i  { return ast("keyword", k) }
 RECORD = k:"record"i  { return ast("keyword", k) }
+RECOVER = k:"recover"i  { return ast("keyword", k) }
 RED = k:"red"i  { return ast("keyword", k) }
+RENAME = k:"rename"i  { return ast("keyword", k) }
 REPORT = k:"report"i  { return ast("keyword", k) }
 RETURN = k:"return"i  { return ast("keyword", k) }
 RETURNING = k:"returning"i  { return ast("keyword", k) }
 REVERSE = k:"reverse"i  { return ast("keyword", k) }
+REVOKE = k:"revoke"i  { return ast("keyword", k) }
 RIGTH = k:"rigth"i  { return ast("keyword", k) }
+ROLLFORWARD = k:"rollforward"i  { return ast("keyword", k) }
 ROLLBACK = k:"rollback"i  { return ast("keyword", k) }
 ROW = k:"row"i  { return ast("keyword", k) }
 ROWS = k:"rows"i  { return ast("keyword", k) }
