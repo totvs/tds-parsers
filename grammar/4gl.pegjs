@@ -19,7 +19,7 @@ start_program
 	= p1:blocks?  { return ast("program").add(p1 || []) }
 
 blocks
-  = l:block+ p:blocks+ { return l.concat(p); }
+  = l:block+ p:blocks { return l.concat(p); }
   / p:block+ { return p; }
   / p:block { return [p]; }
 
@@ -27,31 +27,40 @@ start_token
 	= p1:onlyTokens?  { return ast("token").add(p1 || []) }
 
 onlyTokens
-  = l:tokens+ p:onlyTokens+ { return l.concat(p); }
+  = l:tokens+ p:onlyTokens { return l.concat(p); }
   / p:tokens+ { return p; }
   / p:tokens { return [p]; }
 
 block
-  = moduleBlock
+  = comment
+  / moduleBlock
   / globalBlock
   / mainBlock
   / functionBlock
+  / WS_NL
+
+codeBlock
+  = comment
+//  / whileBlock
+  / recordBlock
   / forBlock
   / forEachBlock
   / ifBlock
-  / comment
   / WS_NL
 
 globalBlock
-  = GLOBALS WS_NL string endLine 
+  = s:GLOBALS t:(WS_NL string endLine) { return [s, t] }
   / b:(GLOBALS endLine)
       t:tokensBlock*
     e:(END WS_NL GLOBALS endLine)
     { return astBlock(b, t, e) }
 
 moduleBlock
-  = defineStatment tokens+
-  / databaseStatment WS_NL identifer
+  = s:DEFINE t:defineToken { return [s, ...t] }
+    / s:DATABASE t:(WS_NL identifer endLine) { return [s, ...t] }
+
+defineToken
+  = (!(MAIN / FUNCTION / END) tokens)+
   
 mainBlock
   = b:(MAIN endLine)
@@ -96,7 +105,7 @@ argumentList
   { return ast("argumentList").add([o, a || [], c]) }  
 
 arguments
-  = l:arg_list+ p:arg_value+ { return l.concat(p); }
+  = l:arg_list+ p:arg_value { return l.concat(p); }
   / p:arg_list+ { return p; }
   / p:arg_value { return [p]; }
 
@@ -105,18 +114,12 @@ arg_list = WS_NL? identifer WS_NL? COMMA WS_NL?
 arg_value = WS_NL? identifer WS_NL?
 
 tokensBlock
-  = define 
-  / block
+  = codeBlock
   / !(END) tokens
-
-define
-  = defineStatment (!recordBlock tokensBlock)* recordBlock?
 
 tokens
   = WS_NL
   / comment
-  / defineStatment
-  / databaseStatment
   / statements
   / keywords
   / builtInVar
@@ -127,14 +130,8 @@ tokens
 
 // Devido ao mecanismo de funcionamento do PEGJS, a lista de palavras chaves
 // e comandos devem ser informados em ordem descrescente
-defineStatment
-  = s:DEFINE { return ast("statement", s) }
-
-databaseStatment
-  = s:DATABASE { return ast("statement", s) }
-
 statements
-  = s:(
+= s:(
   WHILE
   / WHENEVER
   / VALIDATE
@@ -155,12 +152,11 @@ statements
   / REVOKE
   / RETURN
   / REPORT
-  / REPORT
   / RENAME
   / RECOVER
   / PUT
   / PROMPT
-  / PRINT
+  / PRIMARY
   / PREPARE
   / PAUSE
   / OUTPUT
@@ -176,7 +172,7 @@ statements
   / LOAD
   / LET
   / LABEL
-  / INSTRUCTIONS  
+  / INSTRUCTIONS
   / INSERT
   / INPUT
   / INITIALIZE
@@ -214,11 +210,11 @@ statements
   / BEGIN
   / ATTRIBUTES
   / ALTER
-  )  { s.setAttribute('statement', true); return s; }
-  
+) &(WS_NL / operators) 
+
 keywords
-  = k:(
-  YELLOW 
+= s:(
+  YELLOW
   / YEAR
   / WRAP
   / WORK
@@ -242,7 +238,7 @@ keywords
   / UNIQUE
   / UNION
   / UNDERLINE
-  / UNCONSTRAINED  
+  / UNCONSTRAINED
   / TYPE
   / TRAILER
   / TOP
@@ -276,11 +272,12 @@ keywords
   / REVERSE
   / RETURNING
   / RED
+  / RECORD
   / REAL
   / READ
   / QUIT
   / PROGRAM
-  / PRIMARY
+  / PRINT
   / PREVIOUS
   / PRECISION
   / PIPE
@@ -415,9 +412,8 @@ keywords
   / AND
   / ALL
   / AFTER
-  / ACCEPT 
-  ) &(WS_NL / operators)
-  { return k;}
+  / ACCEPT
+) &(WS_NL / operators)
 
 operators
   = (
@@ -486,7 +482,7 @@ ESCAPED
  / "\\'" { return "\\'"}
 
 WS
-  = s:$([; \t]+)
+  = s:$((" " / "\t")+)
   { return ast("whiteSpace", s) }
 
 NL 
@@ -549,280 +545,280 @@ PLUS=o:"+" { return ast("operatorMath", o) }
 MINUS=o:"-" { return ast("operatorMath", o) }
 SLASH=o:"/" { return ast("operatorMath", o) }
 
-ACCEPT = k:"accept"i { return ast("keyword", k) }
-AFTER = k:"after"i  { return ast("keyword", k) }
-ALL = k:"all"i  { return ast("keyword", k) }
-ALTER = k:"alter"i  { return ast("keyword", k) }
-AND = k:"and"i  { return ast("keyword", k) }
-ANY = k:"any"i  { return ast("keyword", k) }
-ARRAY = k:"array"i  { return ast("keyword", k) }
-ASC = k:"asc"i  { return ast("keyword", k) }
-ASCENDING = k:"ascending"i  { return ast("keyword", k) }
-ASCII = k:"ascii"i  { return ast("keyword", k) }
-AT = k:"year"i  { return ast("keyword", k) }
-ATTRIBUTE = k:"attribute"i  { return ast("keyword", k) }
-ATTRIBUTES = k:"attributes"i  { return ast("keyword", k) }
-AUTONEXT = k:"autonext"i  { return ast("keyword", k) }
-AVG = k:"avg"i  { return ast("keyword", k) }
-BEFORE = k:"before"i  { return ast("keyword", k) }
-BEGIN = k:"begin"i{ return ast("keyword", k) }
-BETWEEN = k:"between"i  { return ast("keyword", k) }
-BIGINT = k:"bigint"i  { return ast("keyword", k) }
-BLACK = k:"black"i  { return ast("keyword", k) }
-BLINK = k:"blink"i  { return ast("keyword", k) }
-BLUE = k:"blue"i  { return ast("keyword", k) }
-BOLD = k:"bold"i  { return ast("keyword", k) }
-BORDER = k:"border"i  { return ast("keyword", k) }
-BOTTOM = k:"bottom"i  { return ast("keyword", k) }
-BY = k:"by"i  { return ast("keyword", k) }
-BYTE = k:"byte"i  { return ast("keyword", k) }
-CALL = k:"call"i  { return ast("keyword", k) }
-CASE = k:"case"i{ return ast("keyword", k) }
-CHAR = k:"char"i  { return ast("keyword", k) }
-CHARACTER = k:"character"i  { return ast("keyword", k) }
-CLEAR = k:"clear"i  { return ast("keyword", k) }
-CLIPPED = k:"clipped"i  { return ast("keyword", k) }
-CLOSE = k:"close"i  { return ast("keyword", k) }
-COLUMN = k:"column"i  { return ast("keyword", k) }
-COLUMNS = k:"columns"i  { return ast("keyword", k) }
-COMMAND = k:"command"i  { return ast("keyword", k) }
-COMMENT = k:"comment"i  { return ast("keyword", k) }
-COMMENTS = k:"comments"i  { return ast("keyword", k) }
-COMMIT = k:"commit"i  { return ast("keyword", k) }
-CONSTRAINT = k:"constraint"i  { return ast("keyword", k) }
-CONSTRUCT = k:"construct"i  { return ast("keyword", k) }
-CONTINUE = k:"continue"i  { return ast("keyword", k) }
-CONTROL = k:"control"i  { return ast("keyword", k) }
-COUNT = k:"count"i  { return ast("keyword", k) }
-CREATE = k:"create"i  { return ast("keyword", k) }
-CURRENT = k:"current"i  { return ast("keyword", k) }
-CURSOR = k:"cursor"i  { return ast("keyword", k) }
-CYAN = k:"cyan"i  { return ast("keyword", k) }
-DATABASE = k:"database"i  { return ast("keyword", k) }
-DATE = k:"date"i  { return ast("keyword", k) }
-DATETIME = k:"datetime"i  { return ast("keyword", k) }
-DAY = k:"day"i  { return ast("keyword", k) }
-DEC = k:"dec"i  { return ast("keyword", k) }
-DECIMAL = k:"decimal"i  { return ast("keyword", k) }
-DECLARE = k:"declare"i  { return ast("keyword", k) }
-DEFAULTS = k:"defaults"i  { return ast("keyword", k) }
-DEFER = k:"defer"i  { return ast("keyword", k) }
-DEFINE = k:"define"i  { return ast("keyword", k) }
-DELETE = k:"delete"i  { return ast("keyword", k) }
-DELIMITER = k:"delimiter"i  { return ast("keyword", k) }
-DELIMITERS = k:"delimiters"i  { return ast("keyword", k) }
-DESC = k:"desc"i  { return ast("keyword", k) }
-DESCENDING = k:"descending"i  { return ast("keyword", k) }
-DIM = k:"dim"i  { return ast("keyword", k) }
-DIRTY = k:"dirty"i  { return ast("keyword", k) }
-DISPLAY = k:"display"i  { return ast("keyword", k) }
-DISTINCT = k:"distinct"i  { return ast("keyword", k) }
-DOUBLE = k:"double"i  { return ast("keyword", k) }
-DOWN = k:"down"i  { return ast("keyword", k) }
-DOWNSHIFT = k:"downshift"i  { return ast("keyword", k) }
-DROP = k:"drop"i  { return ast("keyword", k) }
-DYNAMIC = k:"dynamic"i  { return ast("keyword", k) }
-ELIF = k:"elif"i  { return ast("keyword", k) }
-ELSE = k:"else"i  { return ast("keyword", k) }
-END = k:"end"i{ return ast("keyword", k) }
-ERROR = k:"error"i  { return ast("keyword", k) }
-ESCAPE = k:"escape"i  { return ast("keyword", k) }
-EVERY = k:"every"i  { return ast("keyword", k) }
-EXCLUSIVE = k:"exclusive"i  { return ast("keyword", k) }
-EXECUTE = k:"execute"i  { return ast("keyword", k) }
-EXISTS = k:"exists"i  { return ast("keyword", k) }
-EXIT = k:"exit"i  { return ast("keyword", k) }
-EXTEND = k:"extend"i  { return ast("keyword", k) }
-EXTERNAL = k:"external"i  { return ast("keyword", k) }
-FETCH = k:"fetch"i  { return ast("keyword", k) }
-FIELD = k:"field"i  { return ast("keyword", k) }
-FILE = k:"file"i  { return ast("keyword", k) }
-FINISH = k:"finish"i{ return ast("keyword", k) }
-FIRST = k:"first"i  { return ast("keyword", k) }
-FLOAT = k:"float"i  { return ast("keyword", k) }
-FLUSH = k:"flush"i  { return ast("keyword", k) }
-FOR = k:"for"i { return ast("keyword", k) }
-FOREACH = k:"foreach"i{ return ast("keyword", k) }
-FORM = k:"form"i  { return ast("keyword", k) }
-FORMAT = k:"format"i  { return ast("keyword", k) }
-FORMONLY = k:"formonly"i  { return ast("keyword", k) }
-FOUND = k:"found"i  { return ast("keyword", k) }
-FRACTION = k:"fraction"i  { return ast("keyword", k) }
-FREE = k:"free"i  { return ast("keyword", k) }
-FROM = k:"from"i  { return ast("keyword", k) }
-FUNCTION = k:"function"i{ return ast("keyword", k) }
-GLOBALS = k:"globals"i  { return ast("keyword", k) }
-GO = k:"go"i  { return ast("keyword", k) }
-GOTO = k:"goto"i  { return ast("keyword", k) }
-GRANT = k:"grant"i  { return ast("keyword", k) }
-GREEN = k:"green"i  { return ast("keyword", k) }
-GROUP = k:"group"i  { return ast("keyword", k) }
-HAVING = k:"having"i  { return ast("keyword", k) }
-HEADER = k:"header"i  { return ast("keyword", k) }
-HELP = k:"help"i  { return ast("keyword", k) }
-HIDE = k:"hide"i  { return ast("keyword", k) }
-HOLD = k:"hold"i  { return ast("keyword", k) }
-HOUR = k:"hour"i  { return ast("keyword", k) }
-IF = k:"if"i  { return ast("keyword", k) }
-IN = k:"in"i  { return ast("keyword", k) }
-INCLUDE = k:"include"i  { return ast("keyword", k) }
-INDEX = k:"index"i  { return ast("keyword", k) }
-INITIALIZE = k:"initialize"i  { return ast("keyword", k) }
-INPUT = k:"input"i  { return ast("keyword", k) }
-INSERT = k:"insert"i  { return ast("keyword", k) }
-INSTRUCTIONS = k:"instructions"i{ return ast("keyword", k) }  
-INT = k:"int"i  { return ast("keyword", k) }
-INTEGER = k:"integer"i  { return ast("keyword", k) }
-INTERRUPT = k:"interrupt"i  { return ast("keyword", k) }
-INTERVAL = k:"interval"i  { return ast("keyword", k) }
-INTO = k:"into"i  { return ast("keyword", k) }
-INVISIBLE = k:"invisible"i  { return ast("keyword", k) }
-IS = k:"is"i  { return ast("keyword", k) }
-ISOLATION = k:"isolation"i  { return ast("keyword", k) }
-KEY = k:"key"i  { return ast("keyword", k) }
-LABEL = k:"label"i  { return ast("keyword", k) }
-LAST = k:"last"i  { return ast("keyword", k) }
-LEFT = k:"left"i  { return ast("keyword", k) }
-LENGTH = k:"length"i  { return ast("keyword", k) }
-LET = k:"let"i  { return ast("keyword", k) }
-LIKE = k:"like"i  { return ast("keyword", k) }
-LINE = k:"line"i  { return ast("keyword", k) }
-LINES = k:"lines"i  { return ast("keyword", k) }
-LOAD = k:"load"i  { return ast("keyword", k) }
-LOCATE = k:"locate"i  { return ast("keyword", k) }
-LOCK = k:"lock"i  { return ast("keyword", k) }
-LOG = k:"log"i  { return ast("keyword", k) }
-MAGENTA = k:"magenta"i  { return ast("keyword", k) }
-MAIN = k:"main"i{ return ast("keyword", k) }
-MARGIN = k:"margin"i  { return ast("keyword", k) }
-MATCHES = k:"matches"i  { return ast("keyword", k) }
-MAX = k:"max"i  { return ast("keyword", k) }
-MDY = k:"mdy"i  { return ast("keyword", k) }
-MEMORY = k:"memory"i  { return ast("keyword", k) }
-MENU = k:"menu"i  { return ast("keyword", k) }
-MESSAGE = k:"message"i  { return ast("keyword", k) }
-MIN = k:"min"i  { return ast("keyword", k) }
-MINUTE = k:"minute"i  { return ast("keyword", k) }
-MOD = k:"mod"i  { return ast("keyword", k) }
-MODE = k:"mode"i  { return ast("keyword", k) }
-MONEY = k:"money"i  { return ast("keyword", k) }
-MONTH = k:"month"i  { return ast("keyword", k) }
-NAME = k:"name"i  { return ast("keyword", k) }
-NCHAR = k:"nchar"i  { return ast("keyword", k) }
-NEED = k:"need"i  { return ast("keyword", k) }
-NEXT = k:"next"i  { return ast("keyword", k) }
-NO = k:"no"i  { return ast("keyword", k) }
-NOENTRY = k:"noentry"i  { return ast("keyword", k) }
-NORMAL = k:"normal"i  { return ast("keyword", k) }
-NOT = k:"not"i  { return ast("keyword", k) }
-NOTFOUND = k:"notfound"i  { return ast("keyword", k) }
-NULL = k:"null"i  { return ast("keyword", k) }
-NUMERIC = k:"numeric"i  { return ast("keyword", k) }
-NVARCHAR = k:"nvarchar"i  { return ast("keyword", k) }
-OF = k:"of"i  { return ast("keyword", k) }
-OFF = k:"off"i  { return ast("keyword", k) }
-ON = k:"on"i  { return ast("keyword", k) }
-OPEN = k:"open"i  { return ast("keyword", k) }
-OPTION = k:"option"i  { return ast("keyword", k) }
-OPTIONS = k:"options"i  { return ast("keyword", k) }
-OR = k:"or"i  { return ast("keyword", k) }
-ORDER = k:"order"i  { return ast("keyword", k) }
-OTHERWISE = k:"otherwise"i  { return ast("keyword", k) }
-OUTER = k:"outer"i  { return ast("keyword", k) }
-OUTPUT = k:"output"i  { return ast("keyword", k) }
-PAGE = k:"page"i  { return ast("keyword", k) }
-PAGENO = k:"pageno"i  { return ast("keyword", k) }
-PAUSE = k:"pause"i  { return ast("keyword", k) }
-PIPE = k:"pipe"i  { return ast("keyword", k) }
-PRECISION = k:"precision"i  { return ast("keyword", k) }
-PREPARE = k:"prepare"i  { return ast("keyword", k) }
-PREVIOUS = k:"previous"i  { return ast("keyword", k) }
-PRIMARY = k:"primary"i  { return ast("keyword", k) }
-PRINT = k:"print"i  { return ast("keyword", k) }
-PROGRAM = k:"program"i  { return ast("keyword", k) }
-PROMPT = k:"prompt"i  { return ast("keyword", k) }
-PUT = k:"put"i  { return ast("keyword", k) }
-QUIT = k:"quit"i  { return ast("keyword", k) }
-READ = k:"read"i  { return ast("keyword", k) }
-REAL = k:"real"i  { return ast("keyword", k) }
-RECORD = k:"record"i  { return ast("keyword", k) }
-RECOVER = k:"recover"i  { return ast("keyword", k) }
-RED = k:"red"i  { return ast("keyword", k) }
-RENAME = k:"rename"i  { return ast("keyword", k) }
-REPORT = k:"report"i  { return ast("keyword", k) }
-RETURN = k:"return"i  { return ast("keyword", k) }
-RETURNING = k:"returning"i  { return ast("keyword", k) }
-REVERSE = k:"reverse"i  { return ast("keyword", k) }
-REVOKE = k:"revoke"i  { return ast("keyword", k) }
-RIGTH = k:"rigth"i  { return ast("keyword", k) }
-ROLLFORWARD = k:"rollforward"i  { return ast("keyword", k) }
-ROLLBACK = k:"rollback"i  { return ast("keyword", k) }
-ROW = k:"row"i  { return ast("keyword", k) }
-ROWS = k:"rows"i  { return ast("keyword", k) }
-RUN = k:"run"i  { return ast("keyword", k) }
-SCREEN = k:"screen"i  { return ast("keyword", k) }
-SCROLL = k:"scroll"i  { return ast("keyword", k) }
-SECOND = k:"second"i  { return ast("keyword", k) }
-SELECT = k:"select"i  { return ast("keyword", k) }
-SET = k:"set"i  { return ast("keyword", k) }
-SHARE = k:"share"i  { return ast("keyword", k) }
-SHOW = k:"show"i  { return ast("keyword", k) }
-SKIP = k:"skip"i  { return ast("keyword", k) }
-SLEEP = k:"sleep"i  { return ast("keyword", k) }
-SMALL = k:"small"i  { return ast("keyword", k) }
-SMALLFLOAT = k:"smallfloat"i  { return ast("keyword", k) }
-SMALLINT = k:"smallint"i  { return ast("keyword", k) }
-SPACE = k:"space"i  { return ast("keyword", k) }
-SPACES = k:"spaces"i  { return ast("keyword", k) }
-SQL = k:"sql"i  { return ast("keyword", k) }
-SQLERROR = k:"sqlerror"i  { return ast("keyword", k) }
-SQLWARNING = k:"sqlwarning"i  { return ast("keyword", k) }
-START = k:"start"i  { return ast("keyword", k) }
-STEP = k:"step"i  { return ast("keyword", k) }
-STOP = k:"stop"i  { return ast("keyword", k) }
-STRING = k:"string"i  { return ast("keyword", k) }
-SUM = k:"sum"i  { return ast("keyword", k) }
-TABLE = k:"table"i  { return ast("keyword", k) }
-TABLES = k:"tables"i  { return ast("keyword", k) }
-TEMP = k:"temp"i  { return ast("keyword", k) }
-TEXT = k:"text"i  { return ast("keyword", k) }
-THEN = k:"then"i  { return ast("keyword", k) }
-THROUGH = k:"through"i  { return ast("keyword", k) }
-THRU = k:"thru"i  { return ast("keyword", k) }
-TIME = k:"time"i  { return ast("keyword", k) }
-TO = k:"to"i  { return ast("keyword", k) }
-TODAY = k:"today"i  { return ast("keyword", k) }
-TOP = k:"top"i  { return ast("keyword", k) }
-TRAILER = k:"trailer"i  { return ast("keyword", k) }
-TYPE = k:"type"i  { return ast("keyword", k) }
-UNCONSTRAINED = k:"unconstrained"i { return ast("keyword", k) }  
-UNDERLINE = k:"underline"i  { return ast("keyword", k) }
-UNION = k:"union"i  { return ast("keyword", k) }
-UNIQUE = k:"unique"i  { return ast("keyword", k) }
-UNITS = k:"units"i  { return ast("keyword", k) }
-UNLOAD = k:"unload"i  { return ast("keyword", k) }
-UNLOCK = k:"unlock"i  { return ast("keyword", k) }
-UP = k:"up"i  { return ast("keyword", k) }
-UPDATE = k:"update"i  { return ast("keyword", k) }
-UPSHIFT = k:"upshift"i  { return ast("keyword", k) }
-USING = k:"using"i  { return ast("keyword", k) }
-VALIDATE = k:"validate"i  { return ast("keyword", k) }
-VALUES = k:"values"i  { return ast("keyword", k) }
-VARCHAR = k:"varchar"i  { return ast("keyword", k) }
-WAIT = k:"wait"i  { return ast("keyword", k) }
-WAITING = k:"waiting"i  { return ast("keyword", k) }
-WARNING = k:"warning"i  { return ast("keyword", k) }
-WEEKDAY = k:"weekday"i  { return ast("keyword", k) }
-WHEN = k:"when"i  { return ast("keyword", k) }
-WHENEVER = k:"whenever"i  { return ast("keyword", k) }
-WHERE = k:"where"i  { return ast("keyword", k) }
-WHILE = k:"while"i  { return ast("keyword", k) }
-WHITE = k:"white"i  { return ast("keyword", k) }
-WINDOW = k:"window"i  { return ast("keyword", k) }
-WITH = k:"with"i  { return ast("keyword", k) }
-WITHOUT = k:"without"i  { return ast("keyword", k) }
-WORDWRAP = k:"wordwrap"i  { return ast("keyword", k) }
-WORK = k:"work"i  { return ast("keyword", k) }
-WRAP = k:"wrap"i  { return ast("keyword", k) }
-YEAR = k:"year"i  { return ast("keyword", k) }
-YELLOW = k:"yellow"i  { return ast("keyword", k) }
+ACCEPT = k:"accept"i { return ast('keyword', k) }
+AFTER = k:"after"i { return ast('keyword', k) }
+ALL = k:"all"i { return ast('keyword', k) }
+ALTER = s:"alter"i { return ast('statement', s) }
+AND = k:"and"i { return ast('keyword', k) }
+ANY = k:"any"i { return ast('keyword', k) }
+ARRAY = k:"array"i { return ast('keyword', k) }
+ASC = k:"asc"i { return ast('keyword', k) }
+ASCENDING = k:"ascending"i { return ast('keyword', k) }
+ASCII = k:"ascii"i { return ast('keyword', k) }
+AT = k:"at"i { return ast('keyword', k) }
+ATTRIBUTE = k:"attribute"i { return ast('keyword', k) }
+ATTRIBUTES = s:"attributes"i { return ast('statement', s) }
+AUTONEXT = k:"autonext"i { return ast('keyword', k) }
+AVG = k:"avg"i { return ast('keyword', k) }
+BEFORE = k:"before"i { return ast('keyword', k) }
+BEGIN = s:"begin"i { return ast('statement', s) }
+BETWEEN = k:"between"i { return ast('keyword', k) }
+BIGINT = k:"bigint"i { return ast('keyword', k) }
+BLACK = k:"black"i { return ast('keyword', k) }
+BLINK = k:"blink"i { return ast('keyword', k) }
+BLUE = k:"blue"i { return ast('keyword', k) }
+BOLD = k:"bold"i { return ast('keyword', k) }
+BORDER = k:"border"i { return ast('keyword', k) }
+BOTTOM = k:"bottom"i { return ast('keyword', k) }
+BY = k:"by"i { return ast('keyword', k) }
+BYTE = k:"byte"i { return ast('keyword', k) }
+CALL = s:"call"i { return ast('statement', s) }
+CASE = s:"case"i { return ast('statement', s) }
+CHAR = k:"char"i { return ast('keyword', k) }
+CHARACTER = k:"character"i { return ast('keyword', k) }
+CLEAR = s:"clear"i { return ast('statement', s) }
+CLIPPED = k:"clipped"i { return ast('keyword', k) }
+CLOSE = s:"close"i { return ast('statement', s) }
+COLUMN = k:"column"i { return ast('keyword', k) }
+COLUMNS = k:"columns"i { return ast('keyword', k) }
+COMMAND = k:"command"i { return ast('keyword', k) }
+COMMENT = k:"comment"i { return ast('keyword', k) }
+COMMENTS = k:"comments"i { return ast('keyword', k) }
+COMMIT = s:"commit"i { return ast('statement', s) }
+CONSTRAINT = k:"constraint"i { return ast('keyword', k) }
+CONSTRUCT = s:"construct"i { return ast('statement', s) }
+CONTINUE = s:"continue"i { return ast('statement', s) }
+CONTROL = k:"control"i { return ast('keyword', k) }
+COUNT = k:"count"i { return ast('keyword', k) }
+CREATE = s:"create"i { return ast('statement', s) }
+CURRENT = k:"current"i { return ast('keyword', k) }
+CURSOR = k:"cursor"i { return ast('keyword', k) }
+CYAN = k:"cyan"i { return ast('keyword', k) }
+DATABASE = s:"database"i { return ast('statement', s) }
+DATE = k:"date"i { return ast('keyword', k) }
+DATETIME = k:"datetime"i { return ast('keyword', k) }
+DAY = k:"day"i { return ast('keyword', k) }
+DEC = k:"dec"i { return ast('keyword', k) }
+DECIMAL = k:"decimal"i { return ast('keyword', k) }
+DECLARE = s:"declare"i { return ast('statement', s) }
+DEFAULTS = k:"defaults"i { return ast('keyword', k) }
+DEFER = s:"defer"i { return ast('statement', s) }
+DEFINE = s:"define"i { return ast('statement', s) }
+DELETE = s:"delete"i { return ast('statement', s) }
+DELIMITER = k:"delimiter"i { return ast('keyword', k) }
+DELIMITERS = k:"delimiters"i { return ast('keyword', k) }
+DESC = k:"desc"i { return ast('keyword', k) }
+DESCENDING = k:"descending"i { return ast('keyword', k) }
+DIM = k:"dim"i { return ast('keyword', k) }
+DIRTY = k:"dirty"i { return ast('keyword', k) }
+DISPLAY = s:"display"i { return ast('statement', s) }
+DISTINCT = k:"distinct"i { return ast('keyword', k) }
+DOUBLE = k:"double"i { return ast('keyword', k) }
+DOWN = k:"down"i { return ast('keyword', k) }
+DOWNSHIFT = k:"downshift"i { return ast('keyword', k) }
+DROP = s:"drop"i { return ast('statement', s) }
+DYNAMIC = k:"dynamic"i { return ast('keyword', k) }
+ELIF = k:"elif"i { return ast('keyword', k) }
+ELSE = k:"else"i { return ast('keyword', k) }
+END = s:"end"i { return ast('statement', s) }
+ERROR = s:"error"i { return ast('statement', s) }
+ESCAPE = k:"escape"i { return ast('keyword', k) }
+EVERY = k:"every"i { return ast('keyword', k) }
+EXCLUSIVE = k:"exclusive"i { return ast('keyword', k) }
+EXECUTE = s:"execute"i { return ast('statement', s) }
+EXISTS = k:"exists"i { return ast('keyword', k) }
+EXIT = s:"exit"i { return ast('statement', s) }
+EXTEND = k:"extend"i { return ast('keyword', k) }
+EXTERNAL = k:"external"i { return ast('keyword', k) }
+FETCH = s:"fetch"i { return ast('statement', s) }
+FIELD = k:"field"i { return ast('keyword', k) }
+FILE = k:"file"i { return ast('keyword', k) }
+FINISH = s:"finish"i { return ast('statement', s) }
+FIRST = k:"first"i { return ast('keyword', k) }
+FLOAT = k:"float"i { return ast('keyword', k) }
+FLUSH = s:"flush"i { return ast('statement', s) }
+FOR = s:"for"i { return ast('statement', s) }
+FOREACH = s:"foreach"i { return ast('statement', s) }
+FORM = k:"form"i { return ast('keyword', k) }
+FORMAT = s:"format"i { return ast('statement', s) }
+FORMONLY = k:"formonly"i { return ast('keyword', k) }
+FOUND = k:"found"i { return ast('keyword', k) }
+FRACTION = k:"fraction"i { return ast('keyword', k) }
+FREE = s:"free"i { return ast('statement', s) }
+FROM = k:"from"i { return ast('keyword', k) }
+FUNCTION = s:"function"i { return ast('statement', s) }
+GLOBALS = s:"globals"i { return ast('statement', s) }
+GO = k:"go"i { return ast('keyword', k) }
+GOTO = s:"goto"i { return ast('statement', s) }
+GRANT = s:"grant"i { return ast('statement', s) }
+GREEN = k:"green"i { return ast('keyword', k) }
+GROUP = k:"group"i { return ast('keyword', k) }
+HAVING = k:"having"i { return ast('keyword', k) }
+HEADER = k:"header"i { return ast('keyword', k) }
+HELP = k:"help"i { return ast('keyword', k) }
+HIDE = k:"hide"i { return ast('keyword', k) }
+HOLD = k:"hold"i { return ast('keyword', k) }
+HOUR = k:"hour"i { return ast('keyword', k) }
+IF = s:"if"i { return ast('statement', s) }
+IN = k:"in"i { return ast('keyword', k) }
+INCLUDE = k:"include"i { return ast('keyword', k) }
+INDEX = k:"index"i { return ast('keyword', k) }
+INITIALIZE = s:"initialize"i { return ast('statement', s) }
+INPUT = s:"input"i { return ast('statement', s) }
+INSERT = s:"insert"i { return ast('statement', s) }
+INSTRUCTIONS = s:"instructions"i { return ast('statement', s) }
+INT = k:"int"i { return ast('keyword', k) }
+INTEGER = k:"integer"i { return ast('keyword', k) }
+INTERRUPT = k:"interrupt"i { return ast('keyword', k) }
+INTERVAL = k:"interval"i { return ast('keyword', k) }
+INTO = k:"into"i { return ast('keyword', k) }
+INVISIBLE = k:"invisible"i { return ast('keyword', k) }
+IS = k:"is"i { return ast('keyword', k) }
+ISOLATION = k:"isolation"i { return ast('keyword', k) }
+KEY = k:"key"i { return ast('keyword', k) }
+LABEL = s:"label"i { return ast('statement', s) }
+LAST = k:"last"i { return ast('keyword', k) }
+LEFT = k:"left"i { return ast('keyword', k) }
+LENGTH = k:"length"i { return ast('keyword', k) }
+LET = s:"let"i { return ast('statement', s) }
+LIKE = k:"like"i { return ast('keyword', k) }
+LINE = k:"line"i { return ast('keyword', k) }
+LINES = k:"lines"i { return ast('keyword', k) }
+LOAD = s:"load"i { return ast('statement', s) }
+LOCATE = s:"locate"i { return ast('statement', s) }
+LOCK = s:"lock"i { return ast('statement', s) }
+LOG = k:"log"i { return ast('keyword', k) }
+MAGENTA = k:"magenta"i { return ast('keyword', k) }
+MAIN = s:"main"i { return ast('statement', s) }
+MARGIN = k:"margin"i { return ast('keyword', k) }
+MATCHES = k:"matches"i { return ast('keyword', k) }
+MAX = k:"max"i { return ast('keyword', k) }
+MDY = k:"mdy"i { return ast('keyword', k) }
+MEMORY = k:"memory"i { return ast('keyword', k) }
+MENU = s:"menu"i { return ast('statement', s) }
+MESSAGE = s:"message"i { return ast('statement', s) }
+MIN = k:"min"i { return ast('keyword', k) }
+MINUTE = k:"minute"i { return ast('keyword', k) }
+MOD = k:"mod"i { return ast('keyword', k) }
+MODE = k:"mode"i { return ast('keyword', k) }
+MONEY = k:"money"i { return ast('keyword', k) }
+MONTH = k:"month"i { return ast('keyword', k) }
+NAME = k:"name"i { return ast('keyword', k) }
+NCHAR = k:"nchar"i { return ast('keyword', k) }
+NEED = s:"need"i { return ast('statement', s) }
+NEXT = k:"next"i { return ast('keyword', k) }
+NO = k:"no"i { return ast('keyword', k) }
+NOENTRY = k:"noentry"i { return ast('keyword', k) }
+NORMAL = k:"normal"i { return ast('keyword', k) }
+NOT = k:"not"i { return ast('keyword', k) }
+NOTFOUND = k:"notfound"i { return ast('keyword', k) }
+NULL = k:"null"i { return ast('keyword', k) }
+NUMERIC = k:"numeric"i { return ast('keyword', k) }
+NVARCHAR = k:"nvarchar"i { return ast('keyword', k) }
+OF = k:"of"i { return ast('keyword', k) }
+OFF = k:"off"i { return ast('keyword', k) }
+ON = k:"on"i { return ast('keyword', k) }
+OPEN = s:"open"i { return ast('statement', s) }
+OPTION = k:"option"i { return ast('keyword', k) }
+OPTIONS = s:"options"i { return ast('statement', s) }
+OR = k:"or"i { return ast('keyword', k) }
+ORDER = s:"order"i { return ast('statement', s) }
+OTHERWISE = k:"otherwise"i { return ast('keyword', k) }
+OUTER = k:"outer"i { return ast('keyword', k) }
+OUTPUT = s:"output"i { return ast('statement', s) }
+PAGE = k:"page"i { return ast('keyword', k) }
+PAGENO = k:"pageno"i { return ast('keyword', k) }
+PAUSE = s:"pause"i { return ast('statement', s) }
+PIPE = k:"pipe"i { return ast('keyword', k) }
+PRECISION = k:"precision"i { return ast('keyword', k) }
+PREPARE = s:"prepare"i { return ast('statement', s) }
+PREVIOUS = k:"previous"i { return ast('keyword', k) }
+PRIMARY = s:"primary"i { return ast('statement', s) }
+PRINT = k:"print"i { return ast('keyword', k) }
+PROGRAM = k:"program"i { return ast('keyword', k) }
+PROMPT = s:"prompt"i { return ast('statement', s) }
+PUT = s:"put"i { return ast('statement', s) }
+QUIT = k:"quit"i { return ast('keyword', k) }
+READ = k:"read"i { return ast('keyword', k) }
+REAL = k:"real"i { return ast('keyword', k) }
+RECORD = k:"record"i { return ast('keyword', k) }
+RECOVER = s:"recover"i { return ast('statement', s) }
+RED = k:"red"i { return ast('keyword', k) }
+RENAME = s:"rename"i { return ast('statement', s) }
+REPORT = s:"report"i { return ast('statement', s) }
+RETURN = s:"return"i { return ast('statement', s) }
+RETURNING = k:"returning"i { return ast('keyword', k) }
+REVERSE = k:"reverse"i { return ast('keyword', k) }
+REVOKE = s:"revoke"i { return ast('statement', s) }
+RIGTH = k:"rigth"i { return ast('keyword', k) }
+ROLLBACK = s:"rollback"i { return ast('statement', s) }
+ROLLFORWARD = s:"rollforward"i { return ast('statement', s) }
+ROW = k:"row"i { return ast('keyword', k) }
+ROWS = k:"rows"i { return ast('keyword', k) }
+RUN = s:"run"i { return ast('statement', s) }
+SCREEN = s:"screen"i { return ast('statement', s) }
+SCROLL = s:"scroll"i { return ast('statement', s) }
+SECOND = k:"second"i { return ast('keyword', k) }
+SELECT = s:"select"i { return ast('statement', s) }
+SET = s:"set"i { return ast('statement', s) }
+SHARE = k:"share"i { return ast('keyword', k) }
+SHOW = k:"show"i { return ast('keyword', k) }
+SKIP = s:"skip"i { return ast('statement', s) }
+SLEEP = s:"sleep"i { return ast('statement', s) }
+SMALL = k:"small"i { return ast('keyword', k) }
+SMALLFLOAT = k:"smallfloat"i { return ast('keyword', k) }
+SMALLINT = k:"smallint"i { return ast('keyword', k) }
+SPACE = k:"space"i { return ast('keyword', k) }
+SPACES = k:"spaces"i { return ast('keyword', k) }
+SQL = k:"sql"i { return ast('keyword', k) }
+SQLERROR = k:"sqlerror"i { return ast('keyword', k) }
+SQLWARNING = k:"sqlwarning"i { return ast('keyword', k) }
+START = s:"start"i { return ast('statement', s) }
+STEP = k:"step"i { return ast('keyword', k) }
+STOP = k:"stop"i { return ast('keyword', k) }
+STRING = k:"string"i { return ast('keyword', k) }
+SUM = k:"sum"i { return ast('keyword', k) }
+TABLE = k:"table"i { return ast('keyword', k) }
+TABLES = s:"tables"i { return ast('statement', s) }
+TEMP = k:"temp"i { return ast('keyword', k) }
+TEXT = k:"text"i { return ast('keyword', k) }
+THEN = k:"then"i { return ast('keyword', k) }
+THROUGH = k:"through"i { return ast('keyword', k) }
+THRU = k:"thru"i { return ast('keyword', k) }
+TIME = k:"time"i { return ast('keyword', k) }
+TO = k:"to"i { return ast('keyword', k) }
+TODAY = k:"today"i { return ast('keyword', k) }
+TOP = k:"top"i { return ast('keyword', k) }
+TRAILER = k:"trailer"i { return ast('keyword', k) }
+TYPE = k:"type"i { return ast('keyword', k) }
+UNCONSTRAINED = k:"unconstrained"i { return ast('keyword', k) }
+UNDERLINE = k:"underline"i { return ast('keyword', k) }
+UNION = k:"union"i { return ast('keyword', k) }
+UNIQUE = k:"unique"i { return ast('keyword', k) }
+UNITS = k:"units"i { return ast('keyword', k) }
+UNLOAD = s:"unload"i { return ast('statement', s) }
+UNLOCK = s:"unlock"i { return ast('statement', s) }
+UP = k:"up"i { return ast('keyword', k) }
+UPDATE = s:"update"i { return ast('statement', s) }
+UPSHIFT = k:"upshift"i { return ast('keyword', k) }
+USING = k:"using"i { return ast('keyword', k) }
+VALIDATE = s:"validate"i { return ast('statement', s) }
+VALUES = k:"values"i { return ast('keyword', k) }
+VARCHAR = k:"varchar"i { return ast('keyword', k) }
+WAIT = k:"wait"i { return ast('keyword', k) }
+WAITING = k:"waiting"i { return ast('keyword', k) }
+WARNING = k:"warning"i { return ast('keyword', k) }
+WEEKDAY = k:"weekday"i { return ast('keyword', k) }
+WHEN = k:"when"i { return ast('keyword', k) }
+WHENEVER = s:"whenever"i { return ast('statement', s) }
+WHERE = k:"where"i { return ast('keyword', k) }
+WHILE = s:"while"i { return ast('statement', s) }
+WHITE = k:"white"i { return ast('keyword', k) }
+WINDOW = k:"window"i { return ast('keyword', k) }
+WITH = k:"with"i { return ast('keyword', k) }
+WITHOUT = k:"without"i { return ast('keyword', k) }
+WORDWRAP = k:"wordwrap"i { return ast('keyword', k) }
+WORK = k:"work"i { return ast('keyword', k) }
+WRAP = k:"wrap"i { return ast('keyword', k) }
+YEAR = k:"year"i { return ast('keyword', k) }
+YELLOW = k:"yellow"i { return ast('keyword', k) }

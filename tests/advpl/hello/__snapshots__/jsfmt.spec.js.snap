@@ -9,17 +9,17 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\advpl\\\\\\\\hello/hello1.prw\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-user function hello1() 
-  conout(\\"hello\\")
-
-user function hello2()
-  local x := time()
-
-  conout(\\"hello 2\\")
-  conout (x)
-
-return
-
+001:user function hello1() 
+002:  conout(\\"hello\\")
+003:
+004:user function hello2()
+005:  local x := time()
+006:
+007:  conout(\\"hello 2\\")
+008:  conout (x)
+009:
+010:return
+011:
 =====================================output=====================================
 program:  [1:1-10:7] {C:1} {A:{}}
 | block:  [1:1-10:7] {C:3} {A:{}}
@@ -91,17 +91,17 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\advpl\\\\\\\\hello/hello1.prw\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-user function hello1() 
-  conout(\\"hello\\")
-
-user function hello2()
-  local x := time()
-
-  conout(\\"hello 2\\")
-  conout (x)
-
-return
-
+001:user function hello1() 
+002:  conout(\\"hello\\")
+003:
+004:user function hello2()
+005:  local x := time()
+006:
+007:  conout(\\"hello 2\\")
+008:  conout (x)
+009:
+010:return
+011:
 =====================================output=====================================
 token:  [1:1-10:7] {C:1} {A:{}}
 | keyword: user [1:1-1:4] {C:0} {A:{}}
@@ -167,19 +167,19 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\advpl\\\\\\\\hello/hello2.prw\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-#include \\"protheus.ch\\"
-
-user func hello1() 
-  conout(\\"hello\\")
-
-user func hello2()
-  local x := time()
-
-  conout(\\"hello 2\\")
-  conout (x)
-
-retu
-
+001:#include \\"protheus.ch\\"
+002:
+003:user func hello1() 
+004:  conout(\\"hello\\")
+005:
+006:user func hello2()
+007:  local x := time()
+008:
+009:  conout(\\"hello 2\\")
+010:  conout (x)
+011:
+012:retu
+013:
 =====================================output=====================================
 program:  [1:1-12:5] {C:1} {A:{}}
 | directive: - [1:1-1:24] {C:0} {A:{}}
@@ -258,19 +258,19 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\advpl\\\\\\\\hello/hello2.prw\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-#include \\"protheus.ch\\"
-
-user func hello1() 
-  conout(\\"hello\\")
-
-user func hello2()
-  local x := time()
-
-  conout(\\"hello 2\\")
-  conout (x)
-
-retu
-
+001:#include \\"protheus.ch\\"
+002:
+003:user func hello1() 
+004:  conout(\\"hello\\")
+005:
+006:user func hello2()
+007:  local x := time()
+008:
+009:  conout(\\"hello 2\\")
+010:  conout (x)
+011:
+012:retu
+013:
 =====================================output=====================================
 token:  [1:1-12:5] {C:1} {A:{}}
 | directive: - [1:1-1:24] {C:0} {A:{}}

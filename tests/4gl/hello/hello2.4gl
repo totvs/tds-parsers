@@ -4,7 +4,7 @@ end main
 
 
 
-  --# funÃ§Ã£o 2
+  --# função 2
          function f1(a,    b,    c)
 
        define nome char(50) # abc

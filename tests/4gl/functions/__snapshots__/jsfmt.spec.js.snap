@@ -9,47 +9,47 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\functions/function.4gl\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-main
-   
-end main
-
-function f0()
-   
-end function
-
-function f1(p1)
-   
-end function
-
-function f2(p1, p2)
-   
-end function
-
-function f2(p1, 
-    p2, 
-    p3)
-   
-end function
-
+001:main
+002:   
+003:end main
+004:
+005:function f0()
+006:   
+007:end function
+008:
+009:function f1(p1)
+010:   
+011:end function
+012:
+013:function f2(p1, p2)
+014:   
+015:end function
+016:
+017:function f2(p1, 
+018:    p2, 
+019:    p3)
+020:   
+021:end function
+022:
 =====================================output=====================================
 program:  [1:1-21:13] {C:1} {A:{}}
 | block:  [1:1-3:10] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:5] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
+| | | statement: main [1:1-1:4] {C:0} {A:{}}
 | | | endLine: - [1:5-1:5] {C:0} {A:{}}
 | | | -newLine: \\\\n [1:5-1:5] {C:0} {A:{}}
 | | bodyBlock:  [1:1-2:4] {C:1} {A:{}}
 | | | whiteSpace:     [2:1-2:3] {C:0} {A:{}}
 | | | newLine: \\\\n [2:4-2:4] {C:0} {A:{}}
 | | endBlock:  [1:1-3:10] {C:1} {A:{}}
-| | | keyword: end [3:1-3:3] {C:0} {A:{}}
+| | | statement: end [3:1-3:3] {C:0} {A:{}}
 | | | whiteSpace:   [3:4-3:4] {C:0} {A:{}}
-| | | keyword: main [3:5-3:8] {C:0} {A:{}}
+| | | statement: main [3:5-3:8] {C:0} {A:{}}
 | | | endLine: - [3:9-3:10] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [3:9-3:10] {C:0} {A:{}}
 | block:  [5:1-7:14] {C:3} {A:{}}
 | | beginBlock:  [5:1-5:14] {C:1} {A:{}}
-| | | keyword: function [5:1-5:8] {C:0} {A:{}}
+| | | statement: function [5:1-5:8] {C:0} {A:{}}
 | | | whiteSpace:   [5:9-5:9] {C:0} {A:{}}
 | | | identifier: f0 [5:10-5:11] {C:0} {A:{}}
 | | | argumentList:  [5:12-5:13] {C:1} {A:{}}
@@ -61,14 +61,14 @@ program:  [1:1-21:13] {C:1} {A:{}}
 | | | whiteSpace:     [6:1-6:3] {C:0} {A:{}}
 | | | newLine: \\\\n [6:4-6:4] {C:0} {A:{}}
 | | endBlock:  [5:1-7:14] {C:1} {A:{}}
-| | | keyword: end [7:1-7:3] {C:0} {A:{}}
+| | | statement: end [7:1-7:3] {C:0} {A:{}}
 | | | whiteSpace:   [7:4-7:4] {C:0} {A:{}}
-| | | keyword: function [7:5-7:12] {C:0} {A:{}}
+| | | statement: function [7:5-7:12] {C:0} {A:{}}
 | | | endLine: - [7:13-7:14] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [7:13-7:14] {C:0} {A:{}}
 | block:  [9:1-11:14] {C:3} {A:{}}
 | | beginBlock:  [9:1-9:16] {C:1} {A:{}}
-| | | keyword: function [9:1-9:8] {C:0} {A:{}}
+| | | statement: function [9:1-9:8] {C:0} {A:{}}
 | | | whiteSpace:   [9:9-9:9] {C:0} {A:{}}
 | | | identifier: f1 [9:10-9:11] {C:0} {A:{}}
 | | | argumentList:  [9:12-9:15] {C:1} {A:{}}
@@ -81,14 +81,14 @@ program:  [1:1-21:13] {C:1} {A:{}}
 | | | whiteSpace:     [10:1-10:3] {C:0} {A:{}}
 | | | newLine: \\\\n [10:4-10:4] {C:0} {A:{}}
 | | endBlock:  [9:1-11:14] {C:1} {A:{}}
-| | | keyword: end [11:1-11:3] {C:0} {A:{}}
+| | | statement: end [11:1-11:3] {C:0} {A:{}}
 | | | whiteSpace:   [11:4-11:4] {C:0} {A:{}}
-| | | keyword: function [11:5-11:12] {C:0} {A:{}}
+| | | statement: function [11:5-11:12] {C:0} {A:{}}
 | | | endLine: - [11:13-11:14] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [11:13-11:14] {C:0} {A:{}}
 | block:  [13:1-15:14] {C:3} {A:{}}
 | | beginBlock:  [13:1-13:20] {C:1} {A:{}}
-| | | keyword: function [13:1-13:8] {C:0} {A:{}}
+| | | statement: function [13:1-13:8] {C:0} {A:{}}
 | | | whiteSpace:   [13:9-13:9] {C:0} {A:{}}
 | | | identifier: f2 [13:10-13:11] {C:0} {A:{}}
 | | | argumentList:  [13:12-13:19] {C:1} {A:{}}
@@ -104,14 +104,14 @@ program:  [1:1-21:13] {C:1} {A:{}}
 | | | whiteSpace:     [14:1-14:3] {C:0} {A:{}}
 | | | newLine: \\\\n [14:4-14:4] {C:0} {A:{}}
 | | endBlock:  [13:1-15:14] {C:1} {A:{}}
-| | | keyword: end [15:1-15:3] {C:0} {A:{}}
+| | | statement: end [15:1-15:3] {C:0} {A:{}}
 | | | whiteSpace:   [15:4-15:4] {C:0} {A:{}}
-| | | keyword: function [15:5-15:12] {C:0} {A:{}}
+| | | statement: function [15:5-15:12] {C:0} {A:{}}
 | | | endLine: - [15:13-15:14] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [15:13-15:14] {C:0} {A:{}}
 | block:  [17:1-21:13] {C:3} {A:{}}
 | | beginBlock:  [17:1-19:8] {C:1} {A:{}}
-| | | keyword: function [17:1-17:8] {C:0} {A:{}}
+| | | statement: function [17:1-17:8] {C:0} {A:{}}
 | | | whiteSpace:   [17:9-17:9] {C:0} {A:{}}
 | | | identifier: f2 [17:10-17:11] {C:0} {A:{}}
 | | | argumentList:  [17:12-19:7] {C:1} {A:{}}
@@ -134,9 +134,9 @@ program:  [1:1-21:13] {C:1} {A:{}}
 | | | whiteSpace:     [20:1-20:3] {C:0} {A:{}}
 | | | newLine: \\\\n [20:4-20:4] {C:0} {A:{}}
 | | endBlock:  [17:1-21:13] {C:1} {A:{}}
-| | | keyword: end [21:1-21:3] {C:0} {A:{}}
+| | | statement: end [21:1-21:3] {C:0} {A:{}}
 | | | whiteSpace:   [21:4-21:4] {C:0} {A:{}}
-| | | keyword: function [21:5-21:12] {C:0} {A:{}}
+| | | statement: function [21:5-21:12] {C:0} {A:{}}
 | | | endLine: - [21:13-21:13] {C:0} {A:{}}
 | | | -newLine: \\\\n [21:13-21:13] {C:0} {A:{}}
 
@@ -153,39 +153,39 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\functions/function.4gl\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-main
-   
-end main
-
-function f0()
-   
-end function
-
-function f1(p1)
-   
-end function
-
-function f2(p1, p2)
-   
-end function
-
-function f2(p1, 
-    p2, 
-    p3)
-   
-end function
-
+001:main
+002:   
+003:end main
+004:
+005:function f0()
+006:   
+007:end function
+008:
+009:function f1(p1)
+010:   
+011:end function
+012:
+013:function f2(p1, p2)
+014:   
+015:end function
+016:
+017:function f2(p1, 
+018:    p2, 
+019:    p3)
+020:   
+021:end function
+022:
 =====================================output=====================================
 token:  [1:1-21:13] {C:1} {A:{}}
-| keyword: main [1:1-1:4] {C:0} {A:{\\"statement\\":true}}
+| statement: main [1:1-1:4] {C:0} {A:{}}
 | newLine: \\\\n [1:5-1:5] {C:0} {A:{}}
 | whiteSpace:     [2:1-2:3] {C:0} {A:{}}
 | newLine: \\\\n [2:4-2:4] {C:0} {A:{}}
-| keyword: end [3:1-3:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [3:1-3:3] {C:0} {A:{}}
 | whiteSpace:   [3:4-3:4] {C:0} {A:{}}
-| keyword: main [3:5-3:8] {C:0} {A:{\\"statement\\":true}}
+| statement: main [3:5-3:8] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [3:9-3:10] {C:0} {A:{}}
-| keyword: function [5:1-5:8] {C:0} {A:{\\"statement\\":true}}
+| statement: function [5:1-5:8] {C:0} {A:{}}
 | whiteSpace:   [5:9-5:9] {C:0} {A:{}}
 | identifier: f0 [5:10-5:11] {C:0} {A:{}}
 | operatorParenthesis: ( [5:12-5:12] {C:0} {A:{}}
@@ -193,11 +193,11 @@ token:  [1:1-21:13] {C:1} {A:{}}
 | newLine: \\\\n [5:14-5:14] {C:0} {A:{}}
 | whiteSpace:     [6:1-6:3] {C:0} {A:{}}
 | newLine: \\\\n [6:4-6:4] {C:0} {A:{}}
-| keyword: end [7:1-7:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [7:1-7:3] {C:0} {A:{}}
 | whiteSpace:   [7:4-7:4] {C:0} {A:{}}
-| keyword: function [7:5-7:12] {C:0} {A:{\\"statement\\":true}}
+| statement: function [7:5-7:12] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [7:13-7:14] {C:0} {A:{}}
-| keyword: function [9:1-9:8] {C:0} {A:{\\"statement\\":true}}
+| statement: function [9:1-9:8] {C:0} {A:{}}
 | whiteSpace:   [9:9-9:9] {C:0} {A:{}}
 | identifier: f1 [9:10-9:11] {C:0} {A:{}}
 | operatorParenthesis: ( [9:12-9:12] {C:0} {A:{}}
@@ -206,11 +206,11 @@ token:  [1:1-21:13] {C:1} {A:{}}
 | newLine: \\\\n [9:16-9:16] {C:0} {A:{}}
 | whiteSpace:     [10:1-10:3] {C:0} {A:{}}
 | newLine: \\\\n [10:4-10:4] {C:0} {A:{}}
-| keyword: end [11:1-11:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [11:1-11:3] {C:0} {A:{}}
 | whiteSpace:   [11:4-11:4] {C:0} {A:{}}
-| keyword: function [11:5-11:12] {C:0} {A:{\\"statement\\":true}}
+| statement: function [11:5-11:12] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [11:13-11:14] {C:0} {A:{}}
-| keyword: function [13:1-13:8] {C:0} {A:{\\"statement\\":true}}
+| statement: function [13:1-13:8] {C:0} {A:{}}
 | whiteSpace:   [13:9-13:9] {C:0} {A:{}}
 | identifier: f2 [13:10-13:11] {C:0} {A:{}}
 | operatorParenthesis: ( [13:12-13:12] {C:0} {A:{}}
@@ -222,11 +222,11 @@ token:  [1:1-21:13] {C:1} {A:{}}
 | newLine: \\\\n [13:20-13:20] {C:0} {A:{}}
 | whiteSpace:     [14:1-14:3] {C:0} {A:{}}
 | newLine: \\\\n [14:4-14:4] {C:0} {A:{}}
-| keyword: end [15:1-15:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [15:1-15:3] {C:0} {A:{}}
 | whiteSpace:   [15:4-15:4] {C:0} {A:{}}
-| keyword: function [15:5-15:12] {C:0} {A:{\\"statement\\":true}}
+| statement: function [15:5-15:12] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [15:13-15:14] {C:0} {A:{}}
-| keyword: function [17:1-17:8] {C:0} {A:{\\"statement\\":true}}
+| statement: function [17:1-17:8] {C:0} {A:{}}
 | whiteSpace:   [17:9-17:9] {C:0} {A:{}}
 | identifier: f2 [17:10-17:11] {C:0} {A:{}}
 | operatorParenthesis: ( [17:12-17:12] {C:0} {A:{}}
@@ -245,9 +245,9 @@ token:  [1:1-21:13] {C:1} {A:{}}
 | newLine: \\\\n [19:8-19:8] {C:0} {A:{}}
 | whiteSpace:     [20:1-20:3] {C:0} {A:{}}
 | newLine: \\\\n [20:4-20:4] {C:0} {A:{}}
-| keyword: end [21:1-21:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [21:1-21:3] {C:0} {A:{}}
 | whiteSpace:   [21:4-21:4] {C:0} {A:{}}
-| keyword: function [21:5-21:12] {C:0} {A:{\\"statement\\":true}}
+| statement: function [21:5-21:12] {C:0} {A:{}}
 | newLine: \\\\n [21:13-21:13] {C:0} {A:{}}
 
 ================================================================================",
@@ -263,33 +263,33 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\functions/function-0-args.4gl\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-main
-   
-end main
-
-function f0()
-   
-end function
-
+001:main
+002:   
+003:end main
+004:
+005:function f0()
+006:   
+007:end function
+008:
 =====================================output=====================================
 program:  [1:1-7:13] {C:1} {A:{}}
 | block:  [1:1-3:10] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:5] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
+| | | statement: main [1:1-1:4] {C:0} {A:{}}
 | | | endLine: - [1:5-1:5] {C:0} {A:{}}
 | | | -newLine: \\\\n [1:5-1:5] {C:0} {A:{}}
 | | bodyBlock:  [1:1-2:4] {C:1} {A:{}}
 | | | whiteSpace:     [2:1-2:3] {C:0} {A:{}}
 | | | newLine: \\\\n [2:4-2:4] {C:0} {A:{}}
 | | endBlock:  [1:1-3:10] {C:1} {A:{}}
-| | | keyword: end [3:1-3:3] {C:0} {A:{}}
+| | | statement: end [3:1-3:3] {C:0} {A:{}}
 | | | whiteSpace:   [3:4-3:4] {C:0} {A:{}}
-| | | keyword: main [3:5-3:8] {C:0} {A:{}}
+| | | statement: main [3:5-3:8] {C:0} {A:{}}
 | | | endLine: - [3:9-3:10] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [3:9-3:10] {C:0} {A:{}}
 | block:  [5:1-7:13] {C:3} {A:{}}
 | | beginBlock:  [5:1-5:14] {C:1} {A:{}}
-| | | keyword: function [5:1-5:8] {C:0} {A:{}}
+| | | statement: function [5:1-5:8] {C:0} {A:{}}
 | | | whiteSpace:   [5:9-5:9] {C:0} {A:{}}
 | | | identifier: f0 [5:10-5:11] {C:0} {A:{}}
 | | | argumentList:  [5:12-5:13] {C:1} {A:{}}
@@ -301,9 +301,9 @@ program:  [1:1-7:13] {C:1} {A:{}}
 | | | whiteSpace:     [6:1-6:3] {C:0} {A:{}}
 | | | newLine: \\\\n [6:4-6:4] {C:0} {A:{}}
 | | endBlock:  [5:1-7:13] {C:1} {A:{}}
-| | | keyword: end [7:1-7:3] {C:0} {A:{}}
+| | | statement: end [7:1-7:3] {C:0} {A:{}}
 | | | whiteSpace:   [7:4-7:4] {C:0} {A:{}}
-| | | keyword: function [7:5-7:12] {C:0} {A:{}}
+| | | statement: function [7:5-7:12] {C:0} {A:{}}
 | | | endLine: - [7:13-7:13] {C:0} {A:{}}
 | | | -newLine: \\\\n [7:13-7:13] {C:0} {A:{}}
 
@@ -320,25 +320,25 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\functions/function-0-args.4gl\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-main
-   
-end main
-
-function f0()
-   
-end function
-
+001:main
+002:   
+003:end main
+004:
+005:function f0()
+006:   
+007:end function
+008:
 =====================================output=====================================
 token:  [1:1-7:13] {C:1} {A:{}}
-| keyword: main [1:1-1:4] {C:0} {A:{\\"statement\\":true}}
+| statement: main [1:1-1:4] {C:0} {A:{}}
 | newLine: \\\\n [1:5-1:5] {C:0} {A:{}}
 | whiteSpace:     [2:1-2:3] {C:0} {A:{}}
 | newLine: \\\\n [2:4-2:4] {C:0} {A:{}}
-| keyword: end [3:1-3:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [3:1-3:3] {C:0} {A:{}}
 | whiteSpace:   [3:4-3:4] {C:0} {A:{}}
-| keyword: main [3:5-3:8] {C:0} {A:{\\"statement\\":true}}
+| statement: main [3:5-3:8] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [3:9-3:10] {C:0} {A:{}}
-| keyword: function [5:1-5:8] {C:0} {A:{\\"statement\\":true}}
+| statement: function [5:1-5:8] {C:0} {A:{}}
 | whiteSpace:   [5:9-5:9] {C:0} {A:{}}
 | identifier: f0 [5:10-5:11] {C:0} {A:{}}
 | operatorParenthesis: ( [5:12-5:12] {C:0} {A:{}}
@@ -346,9 +346,9 @@ token:  [1:1-7:13] {C:1} {A:{}}
 | newLine: \\\\n [5:14-5:14] {C:0} {A:{}}
 | whiteSpace:     [6:1-6:3] {C:0} {A:{}}
 | newLine: \\\\n [6:4-6:4] {C:0} {A:{}}
-| keyword: end [7:1-7:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [7:1-7:3] {C:0} {A:{}}
 | whiteSpace:   [7:4-7:4] {C:0} {A:{}}
-| keyword: function [7:5-7:12] {C:0} {A:{\\"statement\\":true}}
+| statement: function [7:5-7:12] {C:0} {A:{}}
 | newLine: \\\\n [7:13-7:13] {C:0} {A:{}}
 
 ================================================================================",
@@ -364,35 +364,35 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\functions/function-1-args.4gl\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-main
-   
-end main
-
---#comentário
-function f0(arg_1)
-   
-end function # end of line comment
-
+001:main
+002:   
+003:end main
+004:
+005:--#comentário
+006:function f0(arg_1)
+007:   
+008:end function # end of line comment
+009:
 =====================================output=====================================
 program:  [1:1-8:35] {C:1} {A:{}}
 | block:  [1:1-3:10] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:5] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
+| | | statement: main [1:1-1:4] {C:0} {A:{}}
 | | | endLine: - [1:5-1:5] {C:0} {A:{}}
 | | | -newLine: \\\\n [1:5-1:5] {C:0} {A:{}}
 | | bodyBlock:  [1:1-2:4] {C:1} {A:{}}
 | | | whiteSpace:     [2:1-2:3] {C:0} {A:{}}
 | | | newLine: \\\\n [2:4-2:4] {C:0} {A:{}}
 | | endBlock:  [1:1-3:10] {C:1} {A:{}}
-| | | keyword: end [3:1-3:3] {C:0} {A:{}}
+| | | statement: end [3:1-3:3] {C:0} {A:{}}
 | | | whiteSpace:   [3:4-3:4] {C:0} {A:{}}
-| | | keyword: main [3:5-3:8] {C:0} {A:{}}
+| | | statement: main [3:5-3:8] {C:0} {A:{}}
 | | | endLine: - [3:9-3:10] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [3:9-3:10] {C:0} {A:{}}
 | comment: --#comentário\\\\n [5:1-5:14] {C:0} {A:{}}
 | block:  [6:1-8:35] {C:3} {A:{}}
 | | beginBlock:  [6:1-6:19] {C:1} {A:{}}
-| | | keyword: function [6:1-6:8] {C:0} {A:{}}
+| | | statement: function [6:1-6:8] {C:0} {A:{}}
 | | | whiteSpace:   [6:9-6:9] {C:0} {A:{}}
 | | | identifier: f0 [6:10-6:11] {C:0} {A:{}}
 | | | argumentList:  [6:12-6:18] {C:1} {A:{}}
@@ -405,9 +405,9 @@ program:  [1:1-8:35] {C:1} {A:{}}
 | | | whiteSpace:     [7:1-7:3] {C:0} {A:{}}
 | | | newLine: \\\\n [7:4-7:4] {C:0} {A:{}}
 | | endBlock:  [6:1-8:35] {C:1} {A:{}}
-| | | keyword: end [8:1-8:3] {C:0} {A:{}}
+| | | statement: end [8:1-8:3] {C:0} {A:{}}
 | | | whiteSpace:   [8:4-8:4] {C:0} {A:{}}
-| | | keyword: function [8:5-8:12] {C:0} {A:{}}
+| | | statement: function [8:5-8:12] {C:0} {A:{}}
 | | | endLine: - [8:13-8:35] {C:0} {A:{}}
 | | | -whiteSpace:   [8:13-8:13] {C:0} {A:{}}
 | | | -singleComment: # end of line comment [8:14-8:34] {C:0} {A:{}}
@@ -426,27 +426,27 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\functions/function-1-args.4gl\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-main
-   
-end main
-
---#comentário
-function f0(arg_1)
-   
-end function # end of line comment
-
+001:main
+002:   
+003:end main
+004:
+005:--#comentário
+006:function f0(arg_1)
+007:   
+008:end function # end of line comment
+009:
 =====================================output=====================================
 token:  [1:1-8:35] {C:1} {A:{}}
-| keyword: main [1:1-1:4] {C:0} {A:{\\"statement\\":true}}
+| statement: main [1:1-1:4] {C:0} {A:{}}
 | newLine: \\\\n [1:5-1:5] {C:0} {A:{}}
 | whiteSpace:     [2:1-2:3] {C:0} {A:{}}
 | newLine: \\\\n [2:4-2:4] {C:0} {A:{}}
-| keyword: end [3:1-3:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [3:1-3:3] {C:0} {A:{}}
 | whiteSpace:   [3:4-3:4] {C:0} {A:{}}
-| keyword: main [3:5-3:8] {C:0} {A:{\\"statement\\":true}}
+| statement: main [3:5-3:8] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [3:9-3:10] {C:0} {A:{}}
 | comment: --#comentário\\\\n [5:1-5:14] {C:0} {A:{}}
-| keyword: function [6:1-6:8] {C:0} {A:{\\"statement\\":true}}
+| statement: function [6:1-6:8] {C:0} {A:{}}
 | whiteSpace:   [6:9-6:9] {C:0} {A:{}}
 | identifier: f0 [6:10-6:11] {C:0} {A:{}}
 | operatorParenthesis: ( [6:12-6:12] {C:0} {A:{}}
@@ -455,9 +455,9 @@ token:  [1:1-8:35] {C:1} {A:{}}
 | newLine: \\\\n [6:19-6:19] {C:0} {A:{}}
 | whiteSpace:     [7:1-7:3] {C:0} {A:{}}
 | newLine: \\\\n [7:4-7:4] {C:0} {A:{}}
-| keyword: end [8:1-8:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [8:1-8:3] {C:0} {A:{}}
 | whiteSpace:   [8:4-8:4] {C:0} {A:{}}
-| keyword: function [8:5-8:12] {C:0} {A:{\\"statement\\":true}}
+| statement: function [8:5-8:12] {C:0} {A:{}}
 | whiteSpace:   [8:13-8:13] {C:0} {A:{}}
 | comment: # end of line comment\\\\n [8:14-8:35] {C:0} {A:{}}
 
@@ -474,36 +474,36 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\functions/function-1-args-per-line.4gl\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-main
-   
-end main
-
-function f0(arg_1, 
-    arg_2, 
-    arg_3
-    )
-   
-end function
-
+001:main
+002:   
+003:end main
+004:
+005:function f0(arg_1, 
+006:    arg_2, 
+007:    arg_3
+008:    )
+009:   
+010:end function
+011:
 =====================================output=====================================
 program:  [1:1-10:13] {C:1} {A:{}}
 | block:  [1:1-3:10] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:5] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
+| | | statement: main [1:1-1:4] {C:0} {A:{}}
 | | | endLine: - [1:5-1:5] {C:0} {A:{}}
 | | | -newLine: \\\\n [1:5-1:5] {C:0} {A:{}}
 | | bodyBlock:  [1:1-2:4] {C:1} {A:{}}
 | | | whiteSpace:     [2:1-2:3] {C:0} {A:{}}
 | | | newLine: \\\\n [2:4-2:4] {C:0} {A:{}}
 | | endBlock:  [1:1-3:10] {C:1} {A:{}}
-| | | keyword: end [3:1-3:3] {C:0} {A:{}}
+| | | statement: end [3:1-3:3] {C:0} {A:{}}
 | | | whiteSpace:   [3:4-3:4] {C:0} {A:{}}
-| | | keyword: main [3:5-3:8] {C:0} {A:{}}
+| | | statement: main [3:5-3:8] {C:0} {A:{}}
 | | | endLine: - [3:9-3:10] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [3:9-3:10] {C:0} {A:{}}
 | block:  [5:1-10:13] {C:3} {A:{}}
 | | beginBlock:  [5:1-8:6] {C:1} {A:{}}
-| | | keyword: function [5:1-5:8] {C:0} {A:{}}
+| | | statement: function [5:1-5:8] {C:0} {A:{}}
 | | | whiteSpace:   [5:9-5:9] {C:0} {A:{}}
 | | | identifier: f0 [5:10-5:11] {C:0} {A:{}}
 | | | argumentList:  [5:12-8:5] {C:1} {A:{}}
@@ -528,9 +528,9 @@ program:  [1:1-10:13] {C:1} {A:{}}
 | | | whiteSpace:     [9:1-9:3] {C:0} {A:{}}
 | | | newLine: \\\\n [9:4-9:4] {C:0} {A:{}}
 | | endBlock:  [5:1-10:13] {C:1} {A:{}}
-| | | keyword: end [10:1-10:3] {C:0} {A:{}}
+| | | statement: end [10:1-10:3] {C:0} {A:{}}
 | | | whiteSpace:   [10:4-10:4] {C:0} {A:{}}
-| | | keyword: function [10:5-10:12] {C:0} {A:{}}
+| | | statement: function [10:5-10:12] {C:0} {A:{}}
 | | | endLine: - [10:13-10:13] {C:0} {A:{}}
 | | | -newLine: \\\\n [10:13-10:13] {C:0} {A:{}}
 
@@ -547,28 +547,28 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\functions/function-1-args-per-line.4gl\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-main
-   
-end main
-
-function f0(arg_1, 
-    arg_2, 
-    arg_3
-    )
-   
-end function
-
+001:main
+002:   
+003:end main
+004:
+005:function f0(arg_1, 
+006:    arg_2, 
+007:    arg_3
+008:    )
+009:   
+010:end function
+011:
 =====================================output=====================================
 token:  [1:1-10:13] {C:1} {A:{}}
-| keyword: main [1:1-1:4] {C:0} {A:{\\"statement\\":true}}
+| statement: main [1:1-1:4] {C:0} {A:{}}
 | newLine: \\\\n [1:5-1:5] {C:0} {A:{}}
 | whiteSpace:     [2:1-2:3] {C:0} {A:{}}
 | newLine: \\\\n [2:4-2:4] {C:0} {A:{}}
-| keyword: end [3:1-3:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [3:1-3:3] {C:0} {A:{}}
 | whiteSpace:   [3:4-3:4] {C:0} {A:{}}
-| keyword: main [3:5-3:8] {C:0} {A:{\\"statement\\":true}}
+| statement: main [3:5-3:8] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [3:9-3:10] {C:0} {A:{}}
-| keyword: function [5:1-5:8] {C:0} {A:{\\"statement\\":true}}
+| statement: function [5:1-5:8] {C:0} {A:{}}
 | whiteSpace:   [5:9-5:9] {C:0} {A:{}}
 | identifier: f0 [5:10-5:11] {C:0} {A:{}}
 | operatorParenthesis: ( [5:12-5:12] {C:0} {A:{}}
@@ -589,9 +589,9 @@ token:  [1:1-10:13] {C:1} {A:{}}
 | newLine: \\\\n [8:6-8:6] {C:0} {A:{}}
 | whiteSpace:     [9:1-9:3] {C:0} {A:{}}
 | newLine: \\\\n [9:4-9:4] {C:0} {A:{}}
-| keyword: end [10:1-10:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [10:1-10:3] {C:0} {A:{}}
 | whiteSpace:   [10:4-10:4] {C:0} {A:{}}
-| keyword: function [10:5-10:12] {C:0} {A:{\\"statement\\":true}}
+| statement: function [10:5-10:12] {C:0} {A:{}}
 | newLine: \\\\n [10:13-10:13] {C:0} {A:{}}
 
 ================================================================================",
@@ -607,33 +607,33 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\functions/function-2-args.4gl\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-main
-   
-end main
-
-function f0(arg_1, arg_2)
-   
-end function
-
+001:main
+002:   
+003:end main
+004:
+005:function f0(arg_1, arg_2)
+006:   
+007:end function
+008:
 =====================================output=====================================
 program:  [1:1-7:13] {C:1} {A:{}}
 | block:  [1:1-3:10] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:5] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
+| | | statement: main [1:1-1:4] {C:0} {A:{}}
 | | | endLine: - [1:5-1:5] {C:0} {A:{}}
 | | | -newLine: \\\\n [1:5-1:5] {C:0} {A:{}}
 | | bodyBlock:  [1:1-2:4] {C:1} {A:{}}
 | | | whiteSpace:     [2:1-2:3] {C:0} {A:{}}
 | | | newLine: \\\\n [2:4-2:4] {C:0} {A:{}}
 | | endBlock:  [1:1-3:10] {C:1} {A:{}}
-| | | keyword: end [3:1-3:3] {C:0} {A:{}}
+| | | statement: end [3:1-3:3] {C:0} {A:{}}
 | | | whiteSpace:   [3:4-3:4] {C:0} {A:{}}
-| | | keyword: main [3:5-3:8] {C:0} {A:{}}
+| | | statement: main [3:5-3:8] {C:0} {A:{}}
 | | | endLine: - [3:9-3:10] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [3:9-3:10] {C:0} {A:{}}
 | block:  [5:1-7:13] {C:3} {A:{}}
 | | beginBlock:  [5:1-5:26] {C:1} {A:{}}
-| | | keyword: function [5:1-5:8] {C:0} {A:{}}
+| | | statement: function [5:1-5:8] {C:0} {A:{}}
 | | | whiteSpace:   [5:9-5:9] {C:0} {A:{}}
 | | | identifier: f0 [5:10-5:11] {C:0} {A:{}}
 | | | argumentList:  [5:12-5:25] {C:1} {A:{}}
@@ -649,9 +649,9 @@ program:  [1:1-7:13] {C:1} {A:{}}
 | | | whiteSpace:     [6:1-6:3] {C:0} {A:{}}
 | | | newLine: \\\\n [6:4-6:4] {C:0} {A:{}}
 | | endBlock:  [5:1-7:13] {C:1} {A:{}}
-| | | keyword: end [7:1-7:3] {C:0} {A:{}}
+| | | statement: end [7:1-7:3] {C:0} {A:{}}
 | | | whiteSpace:   [7:4-7:4] {C:0} {A:{}}
-| | | keyword: function [7:5-7:12] {C:0} {A:{}}
+| | | statement: function [7:5-7:12] {C:0} {A:{}}
 | | | endLine: - [7:13-7:13] {C:0} {A:{}}
 | | | -newLine: \\\\n [7:13-7:13] {C:0} {A:{}}
 
@@ -668,25 +668,25 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\functions/function-2-args.4gl\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-main
-   
-end main
-
-function f0(arg_1, arg_2)
-   
-end function
-
+001:main
+002:   
+003:end main
+004:
+005:function f0(arg_1, arg_2)
+006:   
+007:end function
+008:
 =====================================output=====================================
 token:  [1:1-7:13] {C:1} {A:{}}
-| keyword: main [1:1-1:4] {C:0} {A:{\\"statement\\":true}}
+| statement: main [1:1-1:4] {C:0} {A:{}}
 | newLine: \\\\n [1:5-1:5] {C:0} {A:{}}
 | whiteSpace:     [2:1-2:3] {C:0} {A:{}}
 | newLine: \\\\n [2:4-2:4] {C:0} {A:{}}
-| keyword: end [3:1-3:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [3:1-3:3] {C:0} {A:{}}
 | whiteSpace:   [3:4-3:4] {C:0} {A:{}}
-| keyword: main [3:5-3:8] {C:0} {A:{\\"statement\\":true}}
+| statement: main [3:5-3:8] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [3:9-3:10] {C:0} {A:{}}
-| keyword: function [5:1-5:8] {C:0} {A:{\\"statement\\":true}}
+| statement: function [5:1-5:8] {C:0} {A:{}}
 | whiteSpace:   [5:9-5:9] {C:0} {A:{}}
 | identifier: f0 [5:10-5:11] {C:0} {A:{}}
 | operatorParenthesis: ( [5:12-5:12] {C:0} {A:{}}
@@ -698,9 +698,9 @@ token:  [1:1-7:13] {C:1} {A:{}}
 | newLine: \\\\n [5:26-5:26] {C:0} {A:{}}
 | whiteSpace:     [6:1-6:3] {C:0} {A:{}}
 | newLine: \\\\n [6:4-6:4] {C:0} {A:{}}
-| keyword: end [7:1-7:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [7:1-7:3] {C:0} {A:{}}
 | whiteSpace:   [7:4-7:4] {C:0} {A:{}}
-| keyword: function [7:5-7:12] {C:0} {A:{\\"statement\\":true}}
+| statement: function [7:5-7:12] {C:0} {A:{}}
 | newLine: \\\\n [7:13-7:13] {C:0} {A:{}}
 
 ================================================================================",
@@ -716,33 +716,33 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\functions/function-3-args.4gl\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-main
-   
-end main
-
-function f0(arg_1, arg_2, arg_3)
-   
-end function
-
+001:main
+002:   
+003:end main
+004:
+005:function f0(arg_1, arg_2, arg_3)
+006:   
+007:end function
+008:
 =====================================output=====================================
 program:  [1:1-7:13] {C:1} {A:{}}
 | block:  [1:1-3:10] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:5] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
+| | | statement: main [1:1-1:4] {C:0} {A:{}}
 | | | endLine: - [1:5-1:5] {C:0} {A:{}}
 | | | -newLine: \\\\n [1:5-1:5] {C:0} {A:{}}
 | | bodyBlock:  [1:1-2:4] {C:1} {A:{}}
 | | | whiteSpace:     [2:1-2:3] {C:0} {A:{}}
 | | | newLine: \\\\n [2:4-2:4] {C:0} {A:{}}
 | | endBlock:  [1:1-3:10] {C:1} {A:{}}
-| | | keyword: end [3:1-3:3] {C:0} {A:{}}
+| | | statement: end [3:1-3:3] {C:0} {A:{}}
 | | | whiteSpace:   [3:4-3:4] {C:0} {A:{}}
-| | | keyword: main [3:5-3:8] {C:0} {A:{}}
+| | | statement: main [3:5-3:8] {C:0} {A:{}}
 | | | endLine: - [3:9-3:10] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [3:9-3:10] {C:0} {A:{}}
 | block:  [5:1-7:13] {C:3} {A:{}}
 | | beginBlock:  [5:1-5:33] {C:1} {A:{}}
-| | | keyword: function [5:1-5:8] {C:0} {A:{}}
+| | | statement: function [5:1-5:8] {C:0} {A:{}}
 | | | whiteSpace:   [5:9-5:9] {C:0} {A:{}}
 | | | identifier: f0 [5:10-5:11] {C:0} {A:{}}
 | | | argumentList:  [5:12-5:32] {C:1} {A:{}}
@@ -761,9 +761,9 @@ program:  [1:1-7:13] {C:1} {A:{}}
 | | | whiteSpace:     [6:1-6:3] {C:0} {A:{}}
 | | | newLine: \\\\n [6:4-6:4] {C:0} {A:{}}
 | | endBlock:  [5:1-7:13] {C:1} {A:{}}
-| | | keyword: end [7:1-7:3] {C:0} {A:{}}
+| | | statement: end [7:1-7:3] {C:0} {A:{}}
 | | | whiteSpace:   [7:4-7:4] {C:0} {A:{}}
-| | | keyword: function [7:5-7:12] {C:0} {A:{}}
+| | | statement: function [7:5-7:12] {C:0} {A:{}}
 | | | endLine: - [7:13-7:13] {C:0} {A:{}}
 | | | -newLine: \\\\n [7:13-7:13] {C:0} {A:{}}
 
@@ -780,25 +780,25 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\functions/function-3-args.4gl\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-main
-   
-end main
-
-function f0(arg_1, arg_2, arg_3)
-   
-end function
-
+001:main
+002:   
+003:end main
+004:
+005:function f0(arg_1, arg_2, arg_3)
+006:   
+007:end function
+008:
 =====================================output=====================================
 token:  [1:1-7:13] {C:1} {A:{}}
-| keyword: main [1:1-1:4] {C:0} {A:{\\"statement\\":true}}
+| statement: main [1:1-1:4] {C:0} {A:{}}
 | newLine: \\\\n [1:5-1:5] {C:0} {A:{}}
 | whiteSpace:     [2:1-2:3] {C:0} {A:{}}
 | newLine: \\\\n [2:4-2:4] {C:0} {A:{}}
-| keyword: end [3:1-3:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [3:1-3:3] {C:0} {A:{}}
 | whiteSpace:   [3:4-3:4] {C:0} {A:{}}
-| keyword: main [3:5-3:8] {C:0} {A:{\\"statement\\":true}}
+| statement: main [3:5-3:8] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [3:9-3:10] {C:0} {A:{}}
-| keyword: function [5:1-5:8] {C:0} {A:{\\"statement\\":true}}
+| statement: function [5:1-5:8] {C:0} {A:{}}
 | whiteSpace:   [5:9-5:9] {C:0} {A:{}}
 | identifier: f0 [5:10-5:11] {C:0} {A:{}}
 | operatorParenthesis: ( [5:12-5:12] {C:0} {A:{}}
@@ -813,9 +813,9 @@ token:  [1:1-7:13] {C:1} {A:{}}
 | newLine: \\\\n [5:33-5:33] {C:0} {A:{}}
 | whiteSpace:     [6:1-6:3] {C:0} {A:{}}
 | newLine: \\\\n [6:4-6:4] {C:0} {A:{}}
-| keyword: end [7:1-7:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [7:1-7:3] {C:0} {A:{}}
 | whiteSpace:   [7:4-7:4] {C:0} {A:{}}
-| keyword: function [7:5-7:12] {C:0} {A:{\\"statement\\":true}}
+| statement: function [7:5-7:12] {C:0} {A:{}}
 | newLine: \\\\n [7:13-7:13] {C:0} {A:{}}
 
 ================================================================================",
@@ -831,25 +831,25 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\functions/main.4gl\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-main
-   
-end main
-
-
+001:main
+002:   
+003:end main
+004:
+005:
 =====================================output=====================================
 program:  [1:1-3:10] {C:1} {A:{}}
 | block:  [1:1-3:10] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:5] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
+| | | statement: main [1:1-1:4] {C:0} {A:{}}
 | | | endLine: - [1:5-1:5] {C:0} {A:{}}
 | | | -newLine: \\\\n [1:5-1:5] {C:0} {A:{}}
 | | bodyBlock:  [1:1-2:4] {C:1} {A:{}}
 | | | whiteSpace:     [2:1-2:3] {C:0} {A:{}}
 | | | newLine: \\\\n [2:4-2:4] {C:0} {A:{}}
 | | endBlock:  [1:1-3:10] {C:1} {A:{}}
-| | | keyword: end [3:1-3:3] {C:0} {A:{}}
+| | | statement: end [3:1-3:3] {C:0} {A:{}}
 | | | whiteSpace:   [3:4-3:4] {C:0} {A:{}}
-| | | keyword: main [3:5-3:8] {C:0} {A:{}}
+| | | statement: main [3:5-3:8] {C:0} {A:{}}
 | | | endLine: - [3:9-3:10] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [3:9-3:10] {C:0} {A:{}}
 
@@ -866,20 +866,20 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\functions/main.4gl\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-main
-   
-end main
-
-
+001:main
+002:   
+003:end main
+004:
+005:
 =====================================output=====================================
 token:  [1:1-3:10] {C:1} {A:{}}
-| keyword: main [1:1-1:4] {C:0} {A:{\\"statement\\":true}}
+| statement: main [1:1-1:4] {C:0} {A:{}}
 | newLine: \\\\n [1:5-1:5] {C:0} {A:{}}
 | whiteSpace:     [2:1-2:3] {C:0} {A:{}}
 | newLine: \\\\n [2:4-2:4] {C:0} {A:{}}
-| keyword: end [3:1-3:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [3:1-3:3] {C:0} {A:{}}
 | whiteSpace:   [3:4-3:4] {C:0} {A:{}}
-| keyword: main [3:5-3:8] {C:0} {A:{\\"statement\\":true}}
+| statement: main [3:5-3:8] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [3:9-3:10] {C:0} {A:{}}
 
 ================================================================================",

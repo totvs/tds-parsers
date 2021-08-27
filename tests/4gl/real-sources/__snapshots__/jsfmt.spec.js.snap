@@ -9,7 +9,7 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\real-sources/sup3761.4gl\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-
+001:
 =====================================output=====================================
 program:  [1:1--Infinity:-Infinity] {C:1} {A:{}}
 
@@ -26,7 +26,7 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\real-sources/sup3761.4gl\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-
+001:
 =====================================output=====================================
 token:  [1:1--Infinity:-Infinity] {C:1} {A:{}}
 

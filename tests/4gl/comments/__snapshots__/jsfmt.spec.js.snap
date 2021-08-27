@@ -9,28 +9,28 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\comments/comment.4gl\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-# linha 1
-# linha 2
-# linha 3
-
---linha A
---linha B
-
---linha A1
-
---linha B2
---linha B3
-
-{ bloco comentado de uma linha }
-
-{ 
-    bloco 
-    comentado 
-    de 
-    varias
-    linhas 
-}
-
+001:# linha 1
+002:# linha 2
+003:# linha 3
+004:
+005:--linha A
+006:--linha B
+007:
+008:--linha A1
+009:
+010:--linha B2
+011:--linha B3
+012:
+013:{ bloco comentado de uma linha }
+014:
+015:{ 
+016:    bloco 
+017:    comentado 
+018:    de 
+019:    varias
+020:    linhas 
+021:}
+022:
 =====================================output=====================================
 program:  [1:1-21:2] {C:1} {A:{}}
 | comment: # linha 1\\\\n [1:1-1:10] {C:0} {A:{}}
@@ -59,28 +59,28 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\comments/comment.4gl\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-# linha 1
-# linha 2
-# linha 3
-
---linha A
---linha B
-
---linha A1
-
---linha B2
---linha B3
-
-{ bloco comentado de uma linha }
-
-{ 
-    bloco 
-    comentado 
-    de 
-    varias
-    linhas 
-}
-
+001:# linha 1
+002:# linha 2
+003:# linha 3
+004:
+005:--linha A
+006:--linha B
+007:
+008:--linha A1
+009:
+010:--linha B2
+011:--linha B3
+012:
+013:{ bloco comentado de uma linha }
+014:
+015:{ 
+016:    bloco 
+017:    comentado 
+018:    de 
+019:    varias
+020:    linhas 
+021:}
+022:
 =====================================output=====================================
 token:  [1:1-21:2] {C:1} {A:{}}
 | comment: # linha 1\\\\n [1:1-1:10] {C:0} {A:{}}
@@ -109,23 +109,23 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\comments/comment-blocks.4gl\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-main 
-    { bloco comentado de uma linha }
-end main 
-
-{ 
-    bloco 
-    comentado 
-    de 
-    varias
-    linhas 
-}
-
+001:main 
+002:    { bloco comentado de uma linha }
+003:end main 
+004:
+005:{ 
+006:    bloco 
+007:    comentado 
+008:    de 
+009:    varias
+010:    linhas 
+011:}
+012:
 =====================================output=====================================
 program:  [1:1-11:2] {C:1} {A:{}}
 | block:  [1:1-3:11] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:6] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
+| | | statement: main [1:1-1:4] {C:0} {A:{}}
 | | | endLine: - [1:5-1:6] {C:0} {A:{}}
 | | | -whiteSpace:   [1:5-1:5] {C:0} {A:{}}
 | | | -newLine: \\\\n [1:6-1:6] {C:0} {A:{}}
@@ -134,9 +134,9 @@ program:  [1:1-11:2] {C:1} {A:{}}
 | | | blockComment: { bloco comentado de uma linha } [2:5-2:36] {C:0} {A:{}}
 | | | newLine: \\\\n [2:37-2:37] {C:0} {A:{}}
 | | endBlock:  [1:1-3:11] {C:1} {A:{}}
-| | | keyword: end [3:1-3:3] {C:0} {A:{}}
+| | | statement: end [3:1-3:3] {C:0} {A:{}}
 | | | whiteSpace:   [3:4-3:4] {C:0} {A:{}}
-| | | keyword: main [3:5-3:8] {C:0} {A:{}}
+| | | statement: main [3:5-3:8] {C:0} {A:{}}
 | | | endLine: - [3:9-3:11] {C:0} {A:{}}
 | | | -whiteSpace:   [3:9-3:9] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [3:10-3:11] {C:0} {A:{}}
@@ -156,29 +156,29 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\comments/comment-blocks.4gl\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-main 
-    { bloco comentado de uma linha }
-end main 
-
-{ 
-    bloco 
-    comentado 
-    de 
-    varias
-    linhas 
-}
-
+001:main 
+002:    { bloco comentado de uma linha }
+003:end main 
+004:
+005:{ 
+006:    bloco 
+007:    comentado 
+008:    de 
+009:    varias
+010:    linhas 
+011:}
+012:
 =====================================output=====================================
 token:  [1:1-11:2] {C:1} {A:{}}
-| keyword: main [1:1-1:4] {C:0} {A:{\\"statement\\":true}}
+| statement: main [1:1-1:4] {C:0} {A:{}}
 | whiteSpace:   [1:5-1:5] {C:0} {A:{}}
 | newLine: \\\\n [1:6-1:6] {C:0} {A:{}}
 | whiteSpace:      [2:1-2:4] {C:0} {A:{}}
 | blockComment: { bloco comentado de uma linha } [2:5-2:36] {C:0} {A:{}}
 | newLine: \\\\n [2:37-2:37] {C:0} {A:{}}
-| keyword: end [3:1-3:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [3:1-3:3] {C:0} {A:{}}
 | whiteSpace:   [3:4-3:4] {C:0} {A:{}}
-| keyword: main [3:5-3:8] {C:0} {A:{\\"statement\\":true}}
+| statement: main [3:5-3:8] {C:0} {A:{}}
 | whiteSpace:   [3:9-3:9] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [3:10-3:11] {C:0} {A:{}}
 | blockComment: { \\\\n    bloco \\\\n    comentado \\\\n    de \\\\n    varias\\\\n    linhas \\\\n} [5:1-5:61] {C:0} {A:{}}

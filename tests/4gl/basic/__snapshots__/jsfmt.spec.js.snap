@@ -9,23 +9,23 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\basic/break_lines.4gl\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-main
-
-if 
-a==b
-then
-
-end main
-
+001:main
+002:
+003:if 
+004:a==b
+005:then
+006:
+007:end main
+008:
 =====================================output=====================================
 program:  [1:1-7:9] {C:1} {A:{}}
 | block:  [1:1-7:9] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:6] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
+| | | statement: main [1:1-1:4] {C:0} {A:{}}
 | | | endLine: - [1:5-1:6] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [1:5-1:6] {C:0} {A:{}}
 | | bodyBlock:  [1:1-5:6] {C:1} {A:{}}
-| | | keyword: if [3:1-3:2] {C:0} {A:{\\"statement\\":true}}
+| | | statement: if [3:1-3:2] {C:0} {A:{}}
 | | | whiteSpace:   [3:3-3:3] {C:0} {A:{}}
 | | | newLine: \\\\n [3:4-3:4] {C:0} {A:{}}
 | | | identifier: a [4:1-4:1] {C:0} {A:{}}
@@ -36,9 +36,9 @@ program:  [1:1-7:9] {C:1} {A:{}}
 | | | keyword: then [5:1-5:4] {C:0} {A:{}}
 | | | newLine: \\\\n\\\\n [5:5-5:6] {C:0} {A:{}}
 | | endBlock:  [1:1-7:9] {C:1} {A:{}}
-| | | keyword: end [7:1-7:3] {C:0} {A:{}}
+| | | statement: end [7:1-7:3] {C:0} {A:{}}
 | | | whiteSpace:   [7:4-7:4] {C:0} {A:{}}
-| | | keyword: main [7:5-7:8] {C:0} {A:{}}
+| | | statement: main [7:5-7:8] {C:0} {A:{}}
 | | | endLine: - [7:9-7:9] {C:0} {A:{}}
 | | | -newLine: \\\\n [7:9-7:9] {C:0} {A:{}}
 
@@ -55,19 +55,19 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\basic/break_lines.4gl\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-main
-
-if 
-a==b
-then
-
-end main
-
+001:main
+002:
+003:if 
+004:a==b
+005:then
+006:
+007:end main
+008:
 =====================================output=====================================
 token:  [1:1-7:9] {C:1} {A:{}}
-| keyword: main [1:1-1:4] {C:0} {A:{\\"statement\\":true}}
+| statement: main [1:1-1:4] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [1:5-1:6] {C:0} {A:{}}
-| keyword: if [3:1-3:2] {C:0} {A:{\\"statement\\":true}}
+| statement: if [3:1-3:2] {C:0} {A:{}}
 | whiteSpace:   [3:3-3:3] {C:0} {A:{}}
 | newLine: \\\\n [3:4-3:4] {C:0} {A:{}}
 | identifier: a [4:1-4:1] {C:0} {A:{}}
@@ -77,9 +77,9 @@ token:  [1:1-7:9] {C:1} {A:{}}
 | newLine: \\\\n [4:5-4:5] {C:0} {A:{}}
 | keyword: then [5:1-5:4] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [5:5-5:6] {C:0} {A:{}}
-| keyword: end [7:1-7:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [7:1-7:3] {C:0} {A:{}}
 | whiteSpace:   [7:4-7:4] {C:0} {A:{}}
-| keyword: main [7:5-7:8] {C:0} {A:{\\"statement\\":true}}
+| statement: main [7:5-7:8] {C:0} {A:{}}
 | newLine: \\\\n [7:9-7:9] {C:0} {A:{}}
 
 ================================================================================",
@@ -95,25 +95,25 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\basic/builtInVars.4gl\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-main
-
-    let x,X1 = arg_val
-    let x = arr_count
-    let x = arr_cur
-    let x = sqlca
-
-end main
- 
+001:main
+002:
+003:    let x,X1 = arg_val
+004:    let x = arr_count
+005:    let x = arr_cur
+006:    let x = sqlca
+007:
+008:end main
+009: 
 =====================================output=====================================
 program:  [1:1-9:1] {C:1} {A:{}}
 | block:  [1:1-8:9] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:6] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
+| | | statement: main [1:1-1:4] {C:0} {A:{}}
 | | | endLine: - [1:5-1:6] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [1:5-1:6] {C:0} {A:{}}
 | | bodyBlock:  [1:1-6:19] {C:1} {A:{}}
 | | | whiteSpace:      [3:1-3:4] {C:0} {A:{}}
-| | | keyword: let [3:5-3:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [3:5-3:7] {C:0} {A:{}}
 | | | whiteSpace:   [3:8-3:8] {C:0} {A:{}}
 | | | identifier: x [3:9-3:9] {C:0} {A:{}}
 | | | operatorSeparator: , [3:10-3:10] {C:0} {A:{}}
@@ -124,7 +124,7 @@ program:  [1:1-9:1] {C:1} {A:{}}
 | | | identifier: arg_val [3:16-3:22] {C:0} {A:{}}
 | | | newLine: \\\\n [3:23-3:23] {C:0} {A:{}}
 | | | whiteSpace:      [4:1-4:4] {C:0} {A:{}}
-| | | keyword: let [4:5-4:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [4:5-4:7] {C:0} {A:{}}
 | | | whiteSpace:   [4:8-4:8] {C:0} {A:{}}
 | | | identifier: x [4:9-4:9] {C:0} {A:{}}
 | | | whiteSpace:   [4:10-4:10] {C:0} {A:{}}
@@ -133,7 +133,7 @@ program:  [1:1-9:1] {C:1} {A:{}}
 | | | identifier: arr_count [4:13-4:21] {C:0} {A:{}}
 | | | newLine: \\\\n [4:22-4:22] {C:0} {A:{}}
 | | | whiteSpace:      [5:1-5:4] {C:0} {A:{}}
-| | | keyword: let [5:5-5:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [5:5-5:7] {C:0} {A:{}}
 | | | whiteSpace:   [5:8-5:8] {C:0} {A:{}}
 | | | identifier: x [5:9-5:9] {C:0} {A:{}}
 | | | whiteSpace:   [5:10-5:10] {C:0} {A:{}}
@@ -142,7 +142,7 @@ program:  [1:1-9:1] {C:1} {A:{}}
 | | | identifier: arr_cur [5:13-5:19] {C:0} {A:{}}
 | | | newLine: \\\\n [5:20-5:20] {C:0} {A:{}}
 | | | whiteSpace:      [6:1-6:4] {C:0} {A:{}}
-| | | keyword: let [6:5-6:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [6:5-6:7] {C:0} {A:{}}
 | | | whiteSpace:   [6:8-6:8] {C:0} {A:{}}
 | | | identifier: x [6:9-6:9] {C:0} {A:{}}
 | | | whiteSpace:   [6:10-6:10] {C:0} {A:{}}
@@ -151,9 +151,9 @@ program:  [1:1-9:1] {C:1} {A:{}}
 | | | identifier: sqlca [6:13-6:17] {C:0} {A:{}}
 | | | newLine: \\\\n\\\\n [6:18-6:19] {C:0} {A:{}}
 | | endBlock:  [1:1-8:9] {C:1} {A:{}}
-| | | keyword: end [8:1-8:3] {C:0} {A:{}}
+| | | statement: end [8:1-8:3] {C:0} {A:{}}
 | | | whiteSpace:   [8:4-8:4] {C:0} {A:{}}
-| | | keyword: main [8:5-8:8] {C:0} {A:{}}
+| | | statement: main [8:5-8:8] {C:0} {A:{}}
 | | | endLine: - [8:9-8:9] {C:0} {A:{}}
 | | | -newLine: \\\\n [8:9-8:9] {C:0} {A:{}}
 | whiteSpace:   [9:1-9:1] {C:0} {A:{}}
@@ -171,21 +171,21 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\basic/builtInVars.4gl\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-main
-
-    let x,X1 = arg_val
-    let x = arr_count
-    let x = arr_cur
-    let x = sqlca
-
-end main
- 
+001:main
+002:
+003:    let x,X1 = arg_val
+004:    let x = arr_count
+005:    let x = arr_cur
+006:    let x = sqlca
+007:
+008:end main
+009: 
 =====================================output=====================================
 token:  [1:1-9:1] {C:1} {A:{}}
-| keyword: main [1:1-1:4] {C:0} {A:{\\"statement\\":true}}
+| statement: main [1:1-1:4] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [1:5-1:6] {C:0} {A:{}}
 | whiteSpace:      [3:1-3:4] {C:0} {A:{}}
-| keyword: let [3:5-3:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [3:5-3:7] {C:0} {A:{}}
 | whiteSpace:   [3:8-3:8] {C:0} {A:{}}
 | identifier: x [3:9-3:9] {C:0} {A:{}}
 | operatorSeparator: , [3:10-3:10] {C:0} {A:{}}
@@ -196,7 +196,7 @@ token:  [1:1-9:1] {C:1} {A:{}}
 | identifier: arg_val [3:16-3:22] {C:0} {A:{}}
 | newLine: \\\\n [3:23-3:23] {C:0} {A:{}}
 | whiteSpace:      [4:1-4:4] {C:0} {A:{}}
-| keyword: let [4:5-4:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [4:5-4:7] {C:0} {A:{}}
 | whiteSpace:   [4:8-4:8] {C:0} {A:{}}
 | identifier: x [4:9-4:9] {C:0} {A:{}}
 | whiteSpace:   [4:10-4:10] {C:0} {A:{}}
@@ -205,7 +205,7 @@ token:  [1:1-9:1] {C:1} {A:{}}
 | identifier: arr_count [4:13-4:21] {C:0} {A:{}}
 | newLine: \\\\n [4:22-4:22] {C:0} {A:{}}
 | whiteSpace:      [5:1-5:4] {C:0} {A:{}}
-| keyword: let [5:5-5:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [5:5-5:7] {C:0} {A:{}}
 | whiteSpace:   [5:8-5:8] {C:0} {A:{}}
 | identifier: x [5:9-5:9] {C:0} {A:{}}
 | whiteSpace:   [5:10-5:10] {C:0} {A:{}}
@@ -214,7 +214,7 @@ token:  [1:1-9:1] {C:1} {A:{}}
 | identifier: arr_cur [5:13-5:19] {C:0} {A:{}}
 | newLine: \\\\n [5:20-5:20] {C:0} {A:{}}
 | whiteSpace:      [6:1-6:4] {C:0} {A:{}}
-| keyword: let [6:5-6:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [6:5-6:7] {C:0} {A:{}}
 | whiteSpace:   [6:8-6:8] {C:0} {A:{}}
 | identifier: x [6:9-6:9] {C:0} {A:{}}
 | whiteSpace:   [6:10-6:10] {C:0} {A:{}}
@@ -222,9 +222,9 @@ token:  [1:1-9:1] {C:1} {A:{}}
 | whiteSpace:   [6:12-6:12] {C:0} {A:{}}
 | identifier: sqlca [6:13-6:17] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [6:18-6:19] {C:0} {A:{}}
-| keyword: end [8:1-8:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [8:1-8:3] {C:0} {A:{}}
 | whiteSpace:   [8:4-8:4] {C:0} {A:{}}
-| keyword: main [8:5-8:8] {C:0} {A:{\\"statement\\":true}}
+| statement: main [8:5-8:8] {C:0} {A:{}}
 | newLine: \\\\n [8:9-8:9] {C:0} {A:{}}
 | whiteSpace:   [9:1-9:1] {C:0} {A:{}}
 
@@ -241,22 +241,22 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\basic/constant.4gl\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-main
-
-    initialize x to null
-    
-end main
-
+001:main
+002:
+003:    initialize x to null
+004:    
+005:end main
+006:
 =====================================output=====================================
 program:  [1:1-5:9] {C:1} {A:{}}
 | block:  [1:1-5:9] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:6] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
+| | | statement: main [1:1-1:4] {C:0} {A:{}}
 | | | endLine: - [1:5-1:6] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [1:5-1:6] {C:0} {A:{}}
 | | bodyBlock:  [1:1-4:5] {C:1} {A:{}}
 | | | whiteSpace:      [3:1-3:4] {C:0} {A:{}}
-| | | keyword: initialize [3:5-3:14] {C:0} {A:{\\"statement\\":true}}
+| | | statement: initialize [3:5-3:14] {C:0} {A:{}}
 | | | whiteSpace:   [3:15-3:15] {C:0} {A:{}}
 | | | identifier: x [3:16-3:16] {C:0} {A:{}}
 | | | whiteSpace:   [3:17-3:17] {C:0} {A:{}}
@@ -267,9 +267,9 @@ program:  [1:1-5:9] {C:1} {A:{}}
 | | | whiteSpace:      [4:1-4:4] {C:0} {A:{}}
 | | | newLine: \\\\n [4:5-4:5] {C:0} {A:{}}
 | | endBlock:  [1:1-5:9] {C:1} {A:{}}
-| | | keyword: end [5:1-5:3] {C:0} {A:{}}
+| | | statement: end [5:1-5:3] {C:0} {A:{}}
 | | | whiteSpace:   [5:4-5:4] {C:0} {A:{}}
-| | | keyword: main [5:5-5:8] {C:0} {A:{}}
+| | | statement: main [5:5-5:8] {C:0} {A:{}}
 | | | endLine: - [5:9-5:9] {C:0} {A:{}}
 | | | -newLine: \\\\n [5:9-5:9] {C:0} {A:{}}
 
@@ -286,18 +286,18 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\basic/constant.4gl\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-main
-
-    initialize x to null
-    
-end main
-
+001:main
+002:
+003:    initialize x to null
+004:    
+005:end main
+006:
 =====================================output=====================================
 token:  [1:1-5:9] {C:1} {A:{}}
-| keyword: main [1:1-1:4] {C:0} {A:{\\"statement\\":true}}
+| statement: main [1:1-1:4] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [1:5-1:6] {C:0} {A:{}}
 | whiteSpace:      [3:1-3:4] {C:0} {A:{}}
-| keyword: initialize [3:5-3:14] {C:0} {A:{\\"statement\\":true}}
+| statement: initialize [3:5-3:14] {C:0} {A:{}}
 | whiteSpace:   [3:15-3:15] {C:0} {A:{}}
 | identifier: x [3:16-3:16] {C:0} {A:{}}
 | whiteSpace:   [3:17-3:17] {C:0} {A:{}}
@@ -307,9 +307,9 @@ token:  [1:1-5:9] {C:1} {A:{}}
 | newLine: \\\\n [3:25-3:25] {C:0} {A:{}}
 | whiteSpace:      [4:1-4:4] {C:0} {A:{}}
 | newLine: \\\\n [4:5-4:5] {C:0} {A:{}}
-| keyword: end [5:1-5:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [5:1-5:3] {C:0} {A:{}}
 | whiteSpace:   [5:4-5:4] {C:0} {A:{}}
-| keyword: main [5:5-5:8] {C:0} {A:{\\"statement\\":true}}
+| statement: main [5:5-5:8] {C:0} {A:{}}
 | newLine: \\\\n [5:9-5:9] {C:0} {A:{}}
 
 ================================================================================",
@@ -325,23 +325,23 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\basic/datetime.4gl\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-main
-
-	let a       = today + l_ind units day
-	let b       = today + 3 units day
-
-end main
-
+001:main
+002:
+003:	let a       = today + l_ind units day
+004:	let b       = today + 3 units day
+005:
+006:end main
+007:
 =====================================output=====================================
 program:  [1:1-6:9] {C:1} {A:{}}
 | block:  [1:1-6:9] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:6] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
+| | | statement: main [1:1-1:4] {C:0} {A:{}}
 | | | endLine: - [1:5-1:6] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [1:5-1:6] {C:0} {A:{}}
 | | bodyBlock:  [1:1-4:36] {C:1} {A:{}}
 | | | whiteSpace: \\\\t [3:1-3:1] {C:0} {A:{}}
-| | | keyword: let [3:2-3:4] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [3:2-3:4] {C:0} {A:{}}
 | | | whiteSpace:   [3:5-3:5] {C:0} {A:{}}
 | | | identifier: a [3:6-3:6] {C:0} {A:{}}
 | | | whiteSpace:         [3:7-3:13] {C:0} {A:{}}
@@ -358,7 +358,7 @@ program:  [1:1-6:9] {C:1} {A:{}}
 | | | keyword: day [3:36-3:38] {C:0} {A:{}}
 | | | newLine: \\\\n [3:39-3:39] {C:0} {A:{}}
 | | | whiteSpace: \\\\t [4:1-4:1] {C:0} {A:{}}
-| | | keyword: let [4:2-4:4] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [4:2-4:4] {C:0} {A:{}}
 | | | whiteSpace:   [4:5-4:5] {C:0} {A:{}}
 | | | identifier: b [4:6-4:6] {C:0} {A:{}}
 | | | whiteSpace:         [4:7-4:13] {C:0} {A:{}}
@@ -375,9 +375,9 @@ program:  [1:1-6:9] {C:1} {A:{}}
 | | | keyword: day [4:32-4:34] {C:0} {A:{}}
 | | | newLine: \\\\n\\\\n [4:35-4:36] {C:0} {A:{}}
 | | endBlock:  [1:1-6:9] {C:1} {A:{}}
-| | | keyword: end [6:1-6:3] {C:0} {A:{}}
+| | | statement: end [6:1-6:3] {C:0} {A:{}}
 | | | whiteSpace:   [6:4-6:4] {C:0} {A:{}}
-| | | keyword: main [6:5-6:8] {C:0} {A:{}}
+| | | statement: main [6:5-6:8] {C:0} {A:{}}
 | | | endLine: - [6:9-6:9] {C:0} {A:{}}
 | | | -newLine: \\\\n [6:9-6:9] {C:0} {A:{}}
 
@@ -394,19 +394,19 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\basic/datetime.4gl\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-main
-
-	let a       = today + l_ind units day
-	let b       = today + 3 units day
-
-end main
-
+001:main
+002:
+003:	let a       = today + l_ind units day
+004:	let b       = today + 3 units day
+005:
+006:end main
+007:
 =====================================output=====================================
 token:  [1:1-6:9] {C:1} {A:{}}
-| keyword: main [1:1-1:4] {C:0} {A:{\\"statement\\":true}}
+| statement: main [1:1-1:4] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [1:5-1:6] {C:0} {A:{}}
 | whiteSpace: \\\\t [3:1-3:1] {C:0} {A:{}}
-| keyword: let [3:2-3:4] {C:0} {A:{\\"statement\\":true}}
+| statement: let [3:2-3:4] {C:0} {A:{}}
 | whiteSpace:   [3:5-3:5] {C:0} {A:{}}
 | identifier: a [3:6-3:6] {C:0} {A:{}}
 | whiteSpace:         [3:7-3:13] {C:0} {A:{}}
@@ -423,7 +423,7 @@ token:  [1:1-6:9] {C:1} {A:{}}
 | keyword: day [3:36-3:38] {C:0} {A:{}}
 | newLine: \\\\n [3:39-3:39] {C:0} {A:{}}
 | whiteSpace: \\\\t [4:1-4:1] {C:0} {A:{}}
-| keyword: let [4:2-4:4] {C:0} {A:{\\"statement\\":true}}
+| statement: let [4:2-4:4] {C:0} {A:{}}
 | whiteSpace:   [4:5-4:5] {C:0} {A:{}}
 | identifier: b [4:6-4:6] {C:0} {A:{}}
 | whiteSpace:         [4:7-4:13] {C:0} {A:{}}
@@ -439,9 +439,9 @@ token:  [1:1-6:9] {C:1} {A:{}}
 | whiteSpace:   [4:31-4:31] {C:0} {A:{}}
 | keyword: day [4:32-4:34] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [4:35-4:36] {C:0} {A:{}}
-| keyword: end [6:1-6:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [6:1-6:3] {C:0} {A:{}}
 | whiteSpace:   [6:4-6:4] {C:0} {A:{}}
-| keyword: main [6:5-6:8] {C:0} {A:{\\"statement\\":true}}
+| statement: main [6:5-6:8] {C:0} {A:{}}
 | newLine: \\\\n [6:9-6:9] {C:0} {A:{}}
 
 ================================================================================",
@@ -457,7 +457,7 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\basic/empty_file.4gl\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-
+001:
 =====================================output=====================================
 program:  [1:1--Infinity:-Infinity] {C:1} {A:{}}
 
@@ -474,7 +474,7 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\basic/empty_file.4gl\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-
+001:
 =====================================output=====================================
 token:  [1:1--Infinity:-Infinity] {C:1} {A:{}}
 
@@ -491,22 +491,22 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\basic/empty_main.4gl\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-main
-
-end main
-
+001:main
+002:
+003:end main
+004:
 =====================================output=====================================
 program:  [1:1-3:9] {C:1} {A:{}}
 | block:  [1:1-3:9] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:6] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
+| | | statement: main [1:1-1:4] {C:0} {A:{}}
 | | | endLine: - [1:5-1:6] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [1:5-1:6] {C:0} {A:{}}
 | | bodyBlock:  [1:1--Infinity:-Infinity] {C:1} {A:{}}
 | | endBlock:  [1:1-3:9] {C:1} {A:{}}
-| | | keyword: end [3:1-3:3] {C:0} {A:{}}
+| | | statement: end [3:1-3:3] {C:0} {A:{}}
 | | | whiteSpace:   [3:4-3:4] {C:0} {A:{}}
-| | | keyword: main [3:5-3:8] {C:0} {A:{}}
+| | | statement: main [3:5-3:8] {C:0} {A:{}}
 | | | endLine: - [3:9-3:9] {C:0} {A:{}}
 | | | -newLine: \\\\n [3:9-3:9] {C:0} {A:{}}
 
@@ -523,17 +523,17 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\basic/empty_main.4gl\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-main
-
-end main
-
+001:main
+002:
+003:end main
+004:
 =====================================output=====================================
 token:  [1:1-3:9] {C:1} {A:{}}
-| keyword: main [1:1-1:4] {C:0} {A:{\\"statement\\":true}}
+| statement: main [1:1-1:4] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [1:5-1:6] {C:0} {A:{}}
-| keyword: end [3:1-3:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [3:1-3:3] {C:0} {A:{}}
 | whiteSpace:   [3:4-3:4] {C:0} {A:{}}
-| keyword: main [3:5-3:8] {C:0} {A:{\\"statement\\":true}}
+| statement: main [3:5-3:8] {C:0} {A:{}}
 | newLine: \\\\n [3:9-3:9] {C:0} {A:{}}
 
 ================================================================================",
@@ -549,32 +549,31 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\basic/globals.4gl\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-globals \\"abc.txt\\"
-
-globals
-  DEFINE NOME CHAR(50) # abc
-end globals
-
-main
-
-end main
-
+001:globals \\"abc.txt\\"
+002:
+003:globals
+004:  DEFINE NOME CHAR(50) # abc
+005:end globals
+006:
+007:main
+008:
+009:end main
+010:
 =====================================output=====================================
 program:  [1:1-9:9] {C:1} {A:{}}
-| keyword: globals [1:1-1:7] {C:0} {A:{}}
+| statement: globals [1:1-1:7] {C:0} {A:{}}
 | whiteSpace:   [1:8-1:8] {C:0} {A:{}}
 | string: \\"abc.txt\\" [1:9-1:17] {C:0} {A:{}}
 | endLine: - [1:18-1:19] {C:0} {A:{}}
 | -newLine: \\\\n\\\\n [1:18-1:19] {C:0} {A:{}}
 | block:  [3:1-5:13] {C:3} {A:{}}
 | | beginBlock:  [3:1-3:8] {C:1} {A:{}}
-| | | keyword: globals [3:1-3:7] {C:0} {A:{}}
+| | | statement: globals [3:1-3:7] {C:0} {A:{}}
 | | | endLine: - [3:8-3:8] {C:0} {A:{}}
 | | | -newLine: \\\\n [3:8-3:8] {C:0} {A:{}}
 | | bodyBlock:  [3:1-4:29] {C:1} {A:{}}
 | | | whiteSpace:    [4:1-4:2] {C:0} {A:{}}
-| | | statement: - [4:3-4:NaN] {C:0} {A:{}}
-| | | -keyword: DEFINE [4:3-4:8] {C:0} {A:{}}
+| | | statement: DEFINE [4:3-4:8] {C:0} {A:{}}
 | | | whiteSpace:   [4:9-4:9] {C:0} {A:{}}
 | | | identifier: NOME [4:10-4:13] {C:0} {A:{}}
 | | | whiteSpace:   [4:14-4:14] {C:0} {A:{}}
@@ -585,21 +584,21 @@ program:  [1:1-9:9] {C:1} {A:{}}
 | | | whiteSpace:   [4:23-4:23] {C:0} {A:{}}
 | | | comment: # abc\\\\n [4:24-4:29] {C:0} {A:{}}
 | | endBlock:  [3:1-5:13] {C:1} {A:{}}
-| | | keyword: end [5:1-5:3] {C:0} {A:{}}
+| | | statement: end [5:1-5:3] {C:0} {A:{}}
 | | | whiteSpace:   [5:4-5:4] {C:0} {A:{}}
-| | | keyword: globals [5:5-5:11] {C:0} {A:{}}
+| | | statement: globals [5:5-5:11] {C:0} {A:{}}
 | | | endLine: - [5:12-5:13] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [5:12-5:13] {C:0} {A:{}}
 | block:  [7:1-9:9] {C:3} {A:{}}
 | | beginBlock:  [7:1-7:6] {C:1} {A:{}}
-| | | keyword: main [7:1-7:4] {C:0} {A:{}}
+| | | statement: main [7:1-7:4] {C:0} {A:{}}
 | | | endLine: - [7:5-7:6] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [7:5-7:6] {C:0} {A:{}}
 | | bodyBlock:  [7:1--Infinity:-Infinity] {C:1} {A:{}}
 | | endBlock:  [7:1-9:9] {C:1} {A:{}}
-| | | keyword: end [9:1-9:3] {C:0} {A:{}}
+| | | statement: end [9:1-9:3] {C:0} {A:{}}
 | | | whiteSpace:   [9:4-9:4] {C:0} {A:{}}
-| | | keyword: main [9:5-9:8] {C:0} {A:{}}
+| | | statement: main [9:5-9:8] {C:0} {A:{}}
 | | | endLine: - [9:9-9:9] {C:0} {A:{}}
 | | | -newLine: \\\\n [9:9-9:9] {C:0} {A:{}}
 
@@ -616,27 +615,26 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\basic/globals.4gl\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-globals \\"abc.txt\\"
-
-globals
-  DEFINE NOME CHAR(50) # abc
-end globals
-
-main
-
-end main
-
+001:globals \\"abc.txt\\"
+002:
+003:globals
+004:  DEFINE NOME CHAR(50) # abc
+005:end globals
+006:
+007:main
+008:
+009:end main
+010:
 =====================================output=====================================
 token:  [1:1-9:9] {C:1} {A:{}}
-| keyword: globals [1:1-1:7] {C:0} {A:{\\"statement\\":true}}
+| statement: globals [1:1-1:7] {C:0} {A:{}}
 | whiteSpace:   [1:8-1:8] {C:0} {A:{}}
 | string: \\"abc.txt\\" [1:9-1:17] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [1:18-1:19] {C:0} {A:{}}
-| keyword: globals [3:1-3:7] {C:0} {A:{\\"statement\\":true}}
+| statement: globals [3:1-3:7] {C:0} {A:{}}
 | newLine: \\\\n [3:8-3:8] {C:0} {A:{}}
 | whiteSpace:    [4:1-4:2] {C:0} {A:{}}
-| statement: - [4:3-4:NaN] {C:0} {A:{}}
-| -keyword: DEFINE [4:3-4:8] {C:0} {A:{}}
+| statement: DEFINE [4:3-4:8] {C:0} {A:{}}
 | whiteSpace:   [4:9-4:9] {C:0} {A:{}}
 | identifier: NOME [4:10-4:13] {C:0} {A:{}}
 | whiteSpace:   [4:14-4:14] {C:0} {A:{}}
@@ -646,15 +644,15 @@ token:  [1:1-9:9] {C:1} {A:{}}
 | operatorParenthesis: ) [4:22-4:22] {C:0} {A:{}}
 | whiteSpace:   [4:23-4:23] {C:0} {A:{}}
 | comment: # abc\\\\n [4:24-4:29] {C:0} {A:{}}
-| keyword: end [5:1-5:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [5:1-5:3] {C:0} {A:{}}
 | whiteSpace:   [5:4-5:4] {C:0} {A:{}}
-| keyword: globals [5:5-5:11] {C:0} {A:{\\"statement\\":true}}
+| statement: globals [5:5-5:11] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [5:12-5:13] {C:0} {A:{}}
-| keyword: main [7:1-7:4] {C:0} {A:{\\"statement\\":true}}
+| statement: main [7:1-7:4] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [7:5-7:6] {C:0} {A:{}}
-| keyword: end [9:1-9:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [9:1-9:3] {C:0} {A:{}}
 | whiteSpace:   [9:4-9:4] {C:0} {A:{}}
-| keyword: main [9:5-9:8] {C:0} {A:{\\"statement\\":true}}
+| statement: main [9:5-9:8] {C:0} {A:{}}
 | newLine: \\\\n [9:9-9:9] {C:0} {A:{}}
 
 ================================================================================",
@@ -670,15 +668,43 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\basic/module.4gl\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-//DEFINE NOME CHAR(50) # abc
-
-//DATABASE ABC
-
+001:DEFINE NOME CHAR(50) # abc
+002:
+003:DATABASE ABC
+004:
+005:main 
+006:
+007:end main
+008:
 =====================================output=====================================
-module.4gl
-line 1 (column 1): //DEFINE NOME CHAR(5
--------------------^
-Expected \\"#\\", \\"-\\", \\"\\\\n\\", \\"\\\\r\\", \\"\\\\r\\\\n\\", \\"database\\", \\"define\\", \\"for\\", \\"foreach\\", \\"function\\", \\"globals\\", \\"if\\", \\"main\\", \\"{\\", [; \\\\t], or end of input but \\"/\\" found.
+program:  [1:1-7:9] {C:1} {A:{}}
+| statement: DEFINE [1:1-1:6] {C:0} {A:{}}
+| whiteSpace:   [1:7-1:7] {C:0} {A:{}}
+| identifier: NOME [1:8-1:11] {C:0} {A:{}}
+| whiteSpace:   [1:12-1:12] {C:0} {A:{}}
+| keyword: CHAR [1:13-1:16] {C:0} {A:{}}
+| operatorParenthesis: ( [1:17-1:17] {C:0} {A:{}}
+| number: 50 [1:18-1:19] {C:0} {A:{}}
+| operatorParenthesis: ) [1:20-1:20] {C:0} {A:{}}
+| whiteSpace:   [1:21-1:21] {C:0} {A:{}}
+| comment: # abc\\\\n\\\\n [1:22-1:28] {C:0} {A:{}}
+| statement: DATABASE [3:1-3:8] {C:0} {A:{}}
+| whiteSpace:   [3:9-3:9] {C:0} {A:{}}
+| identifier: ABC [3:10-3:12] {C:0} {A:{}}
+| newLine: \\\\n\\\\n [3:13-3:14] {C:0} {A:{}}
+| block:  [5:1-7:9] {C:3} {A:{}}
+| | beginBlock:  [5:1-5:7] {C:1} {A:{}}
+| | | statement: main [5:1-5:4] {C:0} {A:{}}
+| | | endLine: - [5:5-5:7] {C:0} {A:{}}
+| | | -whiteSpace:   [5:5-5:5] {C:0} {A:{}}
+| | | -newLine: \\\\n\\\\n [5:6-5:7] {C:0} {A:{}}
+| | bodyBlock:  [5:1--Infinity:-Infinity] {C:1} {A:{}}
+| | endBlock:  [5:1-7:9] {C:1} {A:{}}
+| | | statement: end [7:1-7:3] {C:0} {A:{}}
+| | | whiteSpace:   [7:4-7:4] {C:0} {A:{}}
+| | | statement: main [7:5-7:8] {C:0} {A:{}}
+| | | endLine: - [7:9-7:9] {C:0} {A:{}}
+| | | -newLine: \\\\n [7:9-7:9] {C:0} {A:{}}
 
 ================================================================================",
 }
@@ -693,32 +719,37 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\basic/module.4gl\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-//DEFINE NOME CHAR(50) # abc
-
-//DATABASE ABC
-
+001:DEFINE NOME CHAR(50) # abc
+002:
+003:DATABASE ABC
+004:
+005:main 
+006:
+007:end main
+008:
 =====================================output=====================================
-token:  [1:1-3:15] {C:1} {A:{}}
-| operatorMath: / [1:1-1:1] {C:0} {A:{}}
-| operatorMath: / [1:2-1:2] {C:0} {A:{}}
-| statement: - [1:3-1:NaN] {C:0} {A:{}}
-| -keyword: DEFINE [1:3-1:8] {C:0} {A:{}}
-| whiteSpace:   [1:9-1:9] {C:0} {A:{}}
-| identifier: NOME [1:10-1:13] {C:0} {A:{}}
-| whiteSpace:   [1:14-1:14] {C:0} {A:{}}
-| keyword: CHAR [1:15-1:18] {C:0} {A:{}}
-| operatorParenthesis: ( [1:19-1:19] {C:0} {A:{}}
-| number: 50 [1:20-1:21] {C:0} {A:{}}
-| operatorParenthesis: ) [1:22-1:22] {C:0} {A:{}}
-| whiteSpace:   [1:23-1:23] {C:0} {A:{}}
-| comment: # abc\\\\n\\\\n [1:24-1:30] {C:0} {A:{}}
-| operatorMath: / [3:1-3:1] {C:0} {A:{}}
-| operatorMath: / [3:2-3:2] {C:0} {A:{}}
-| statement: - [3:3-3:NaN] {C:0} {A:{}}
-| -keyword: DATABASE [3:3-3:10] {C:0} {A:{}}
-| whiteSpace:   [3:11-3:11] {C:0} {A:{}}
-| identifier: ABC [3:12-3:14] {C:0} {A:{}}
-| newLine: \\\\n [3:15-3:15] {C:0} {A:{}}
+token:  [1:1-7:9] {C:1} {A:{}}
+| statement: DEFINE [1:1-1:6] {C:0} {A:{}}
+| whiteSpace:   [1:7-1:7] {C:0} {A:{}}
+| identifier: NOME [1:8-1:11] {C:0} {A:{}}
+| whiteSpace:   [1:12-1:12] {C:0} {A:{}}
+| keyword: CHAR [1:13-1:16] {C:0} {A:{}}
+| operatorParenthesis: ( [1:17-1:17] {C:0} {A:{}}
+| number: 50 [1:18-1:19] {C:0} {A:{}}
+| operatorParenthesis: ) [1:20-1:20] {C:0} {A:{}}
+| whiteSpace:   [1:21-1:21] {C:0} {A:{}}
+| comment: # abc\\\\n\\\\n [1:22-1:28] {C:0} {A:{}}
+| statement: DATABASE [3:1-3:8] {C:0} {A:{}}
+| whiteSpace:   [3:9-3:9] {C:0} {A:{}}
+| identifier: ABC [3:10-3:12] {C:0} {A:{}}
+| newLine: \\\\n\\\\n [3:13-3:14] {C:0} {A:{}}
+| statement: main [5:1-5:4] {C:0} {A:{}}
+| whiteSpace:   [5:5-5:5] {C:0} {A:{}}
+| newLine: \\\\n\\\\n [5:6-5:7] {C:0} {A:{}}
+| statement: end [7:1-7:3] {C:0} {A:{}}
+| whiteSpace:   [7:4-7:4] {C:0} {A:{}}
+| statement: main [7:5-7:8] {C:0} {A:{}}
+| newLine: \\\\n [7:9-7:9] {C:0} {A:{}}
 
 ================================================================================",
 }
@@ -733,127 +764,127 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\basic/numbers.4gl\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-main
-
-    let x = 0
-    let x = 1
-    let x = 2
-    let x = 3
-    let x = 4
-    let x = 5
-    let x = 6
-    let x = 7
-    let x = 8
-    let x = 9
-    let x = 10
-    let x = 11
-    let x = 12
-    let x = 13
-    let x = 14
-    let x = 15
-    let x = 16
-    let x = 17
-    let x = 18
-    let x = 19
-    let x = 20
-    let x = 30
-    let x = 40
-    let x = 50
-    let x = 60
-    let x = 70
-    let x = 80
-    let x = 90
-    let x = 100
-    let x = 1000
-    let x = 10000
-    let x = 100000
-    let x = 1000000
-    
-
-end main
-
-function f1()
-    let x = 0.0
-    let x = 1.1
-    let x = 2.2
-    let x = 3.3
-    let x = 4.4
-    let x = 5.5
-    let x = 6.6
-    let x = 7.7
-    let x = 8.8
-    let x = 9.9
-    let x = 10.10
-    let x = 11.11
-    let x = 12.12
-    let x = 13.13
-    let x = 14.14
-    let x = 15.15
-    let x = 16.16
-    let x = 17.17
-    let x = 18.18
-    let x = 19.19
-    let x = 20.20
-    let x = 30.30
-    let x = 40.40
-    let x = 50.50
-    let x = 60.60
-    let x = 70.70
-    let x = 80.80
-    let x = 90.90
-    let x = 1.001
-    let x = 10.001
-    let x = 100.001
-    let x = 1000.001
-    let x = 10000.001
-end function
-
-function f2()
-    let x = -0.0
-    let x = -1.1
-    let x = -2.2
-    let x = -3.3
-    let x = -4.4
-    let x = -5.5
-    let x = -6.6
-    let x = -7.7
-    let x = -8.8
-    let x = -9.9
-    let x = -10.10
-    let x = -11.11
-    let x = -12.12
-    let x = -13.13
-    let x = -14.14
-    let x = -15.15
-    let x = -16.16
-    let x = -17.17
-    let x = -18.18
-    let x = -19.19
-    let x = -20.20
-    let x = -30.30
-    let x = -40.40
-    let x = -50.50
-    let x = -60.60
-    let x = -70.70
-    let x = -80.80
-    let x = -90.90
-    let x = -1.001
-    let x = -10.001
-    let x = -100.001
-    let x = -1000.001
-    let x = -10000.001
-end function
-
+001:main
+002:
+003:    let x = 0
+004:    let x = 1
+005:    let x = 2
+006:    let x = 3
+007:    let x = 4
+008:    let x = 5
+009:    let x = 6
+010:    let x = 7
+011:    let x = 8
+012:    let x = 9
+013:    let x = 10
+014:    let x = 11
+015:    let x = 12
+016:    let x = 13
+017:    let x = 14
+018:    let x = 15
+019:    let x = 16
+020:    let x = 17
+021:    let x = 18
+022:    let x = 19
+023:    let x = 20
+024:    let x = 30
+025:    let x = 40
+026:    let x = 50
+027:    let x = 60
+028:    let x = 70
+029:    let x = 80
+030:    let x = 90
+031:    let x = 100
+032:    let x = 1000
+033:    let x = 10000
+034:    let x = 100000
+035:    let x = 1000000
+036:    
+037:
+038:end main
+039:
+040:function f1()
+041:    let x = 0.0
+042:    let x = 1.1
+043:    let x = 2.2
+044:    let x = 3.3
+045:    let x = 4.4
+046:    let x = 5.5
+047:    let x = 6.6
+048:    let x = 7.7
+049:    let x = 8.8
+050:    let x = 9.9
+051:    let x = 10.10
+052:    let x = 11.11
+053:    let x = 12.12
+054:    let x = 13.13
+055:    let x = 14.14
+056:    let x = 15.15
+057:    let x = 16.16
+058:    let x = 17.17
+059:    let x = 18.18
+060:    let x = 19.19
+061:    let x = 20.20
+062:    let x = 30.30
+063:    let x = 40.40
+064:    let x = 50.50
+065:    let x = 60.60
+066:    let x = 70.70
+067:    let x = 80.80
+068:    let x = 90.90
+069:    let x = 1.001
+070:    let x = 10.001
+071:    let x = 100.001
+072:    let x = 1000.001
+073:    let x = 10000.001
+074:end function
+075:
+076:function f2()
+077:    let x = -0.0
+078:    let x = -1.1
+079:    let x = -2.2
+080:    let x = -3.3
+081:    let x = -4.4
+082:    let x = -5.5
+083:    let x = -6.6
+084:    let x = -7.7
+085:    let x = -8.8
+086:    let x = -9.9
+087:    let x = -10.10
+088:    let x = -11.11
+089:    let x = -12.12
+090:    let x = -13.13
+091:    let x = -14.14
+092:    let x = -15.15
+093:    let x = -16.16
+094:    let x = -17.17
+095:    let x = -18.18
+096:    let x = -19.19
+097:    let x = -20.20
+098:    let x = -30.30
+099:    let x = -40.40
+100:    let x = -50.50
+101:    let x = -60.60
+102:    let x = -70.70
+103:    let x = -80.80
+104:    let x = -90.90
+105:    let x = -1.001
+106:    let x = -10.001
+107:    let x = -100.001
+108:    let x = -1000.001
+109:    let x = -10000.001
+110:end function
+111:
 =====================================output=====================================
 program:  [1:1-110:13] {C:1} {A:{}}
 | block:  [1:1-38:10] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:6] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
+| | | statement: main [1:1-1:4] {C:0} {A:{}}
 | | | endLine: - [1:5-1:6] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [1:5-1:6] {C:0} {A:{}}
 | | bodyBlock:  [1:1-36:6] {C:1} {A:{}}
 | | | whiteSpace:      [3:1-3:4] {C:0} {A:{}}
-| | | keyword: let [3:5-3:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [3:5-3:7] {C:0} {A:{}}
 | | | whiteSpace:   [3:8-3:8] {C:0} {A:{}}
 | | | identifier: x [3:9-3:9] {C:0} {A:{}}
 | | | whiteSpace:   [3:10-3:10] {C:0} {A:{}}
@@ -862,7 +893,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 0 [3:13-3:13] {C:0} {A:{}}
 | | | newLine: \\\\n [3:14-3:14] {C:0} {A:{}}
 | | | whiteSpace:      [4:1-4:4] {C:0} {A:{}}
-| | | keyword: let [4:5-4:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [4:5-4:7] {C:0} {A:{}}
 | | | whiteSpace:   [4:8-4:8] {C:0} {A:{}}
 | | | identifier: x [4:9-4:9] {C:0} {A:{}}
 | | | whiteSpace:   [4:10-4:10] {C:0} {A:{}}
@@ -871,7 +902,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 1 [4:13-4:13] {C:0} {A:{}}
 | | | newLine: \\\\n [4:14-4:14] {C:0} {A:{}}
 | | | whiteSpace:      [5:1-5:4] {C:0} {A:{}}
-| | | keyword: let [5:5-5:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [5:5-5:7] {C:0} {A:{}}
 | | | whiteSpace:   [5:8-5:8] {C:0} {A:{}}
 | | | identifier: x [5:9-5:9] {C:0} {A:{}}
 | | | whiteSpace:   [5:10-5:10] {C:0} {A:{}}
@@ -880,7 +911,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 2 [5:13-5:13] {C:0} {A:{}}
 | | | newLine: \\\\n [5:14-5:14] {C:0} {A:{}}
 | | | whiteSpace:      [6:1-6:4] {C:0} {A:{}}
-| | | keyword: let [6:5-6:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [6:5-6:7] {C:0} {A:{}}
 | | | whiteSpace:   [6:8-6:8] {C:0} {A:{}}
 | | | identifier: x [6:9-6:9] {C:0} {A:{}}
 | | | whiteSpace:   [6:10-6:10] {C:0} {A:{}}
@@ -889,7 +920,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 3 [6:13-6:13] {C:0} {A:{}}
 | | | newLine: \\\\n [6:14-6:14] {C:0} {A:{}}
 | | | whiteSpace:      [7:1-7:4] {C:0} {A:{}}
-| | | keyword: let [7:5-7:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [7:5-7:7] {C:0} {A:{}}
 | | | whiteSpace:   [7:8-7:8] {C:0} {A:{}}
 | | | identifier: x [7:9-7:9] {C:0} {A:{}}
 | | | whiteSpace:   [7:10-7:10] {C:0} {A:{}}
@@ -898,7 +929,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 4 [7:13-7:13] {C:0} {A:{}}
 | | | newLine: \\\\n [7:14-7:14] {C:0} {A:{}}
 | | | whiteSpace:      [8:1-8:4] {C:0} {A:{}}
-| | | keyword: let [8:5-8:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [8:5-8:7] {C:0} {A:{}}
 | | | whiteSpace:   [8:8-8:8] {C:0} {A:{}}
 | | | identifier: x [8:9-8:9] {C:0} {A:{}}
 | | | whiteSpace:   [8:10-8:10] {C:0} {A:{}}
@@ -907,7 +938,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 5 [8:13-8:13] {C:0} {A:{}}
 | | | newLine: \\\\n [8:14-8:14] {C:0} {A:{}}
 | | | whiteSpace:      [9:1-9:4] {C:0} {A:{}}
-| | | keyword: let [9:5-9:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [9:5-9:7] {C:0} {A:{}}
 | | | whiteSpace:   [9:8-9:8] {C:0} {A:{}}
 | | | identifier: x [9:9-9:9] {C:0} {A:{}}
 | | | whiteSpace:   [9:10-9:10] {C:0} {A:{}}
@@ -916,7 +947,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 6 [9:13-9:13] {C:0} {A:{}}
 | | | newLine: \\\\n [9:14-9:14] {C:0} {A:{}}
 | | | whiteSpace:      [10:1-10:4] {C:0} {A:{}}
-| | | keyword: let [10:5-10:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [10:5-10:7] {C:0} {A:{}}
 | | | whiteSpace:   [10:8-10:8] {C:0} {A:{}}
 | | | identifier: x [10:9-10:9] {C:0} {A:{}}
 | | | whiteSpace:   [10:10-10:10] {C:0} {A:{}}
@@ -925,7 +956,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 7 [10:13-10:13] {C:0} {A:{}}
 | | | newLine: \\\\n [10:14-10:14] {C:0} {A:{}}
 | | | whiteSpace:      [11:1-11:4] {C:0} {A:{}}
-| | | keyword: let [11:5-11:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [11:5-11:7] {C:0} {A:{}}
 | | | whiteSpace:   [11:8-11:8] {C:0} {A:{}}
 | | | identifier: x [11:9-11:9] {C:0} {A:{}}
 | | | whiteSpace:   [11:10-11:10] {C:0} {A:{}}
@@ -934,7 +965,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 8 [11:13-11:13] {C:0} {A:{}}
 | | | newLine: \\\\n [11:14-11:14] {C:0} {A:{}}
 | | | whiteSpace:      [12:1-12:4] {C:0} {A:{}}
-| | | keyword: let [12:5-12:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [12:5-12:7] {C:0} {A:{}}
 | | | whiteSpace:   [12:8-12:8] {C:0} {A:{}}
 | | | identifier: x [12:9-12:9] {C:0} {A:{}}
 | | | whiteSpace:   [12:10-12:10] {C:0} {A:{}}
@@ -943,7 +974,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 9 [12:13-12:13] {C:0} {A:{}}
 | | | newLine: \\\\n [12:14-12:14] {C:0} {A:{}}
 | | | whiteSpace:      [13:1-13:4] {C:0} {A:{}}
-| | | keyword: let [13:5-13:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [13:5-13:7] {C:0} {A:{}}
 | | | whiteSpace:   [13:8-13:8] {C:0} {A:{}}
 | | | identifier: x [13:9-13:9] {C:0} {A:{}}
 | | | whiteSpace:   [13:10-13:10] {C:0} {A:{}}
@@ -952,7 +983,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 10 [13:13-13:14] {C:0} {A:{}}
 | | | newLine: \\\\n [13:15-13:15] {C:0} {A:{}}
 | | | whiteSpace:      [14:1-14:4] {C:0} {A:{}}
-| | | keyword: let [14:5-14:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [14:5-14:7] {C:0} {A:{}}
 | | | whiteSpace:   [14:8-14:8] {C:0} {A:{}}
 | | | identifier: x [14:9-14:9] {C:0} {A:{}}
 | | | whiteSpace:   [14:10-14:10] {C:0} {A:{}}
@@ -961,7 +992,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 11 [14:13-14:14] {C:0} {A:{}}
 | | | newLine: \\\\n [14:15-14:15] {C:0} {A:{}}
 | | | whiteSpace:      [15:1-15:4] {C:0} {A:{}}
-| | | keyword: let [15:5-15:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [15:5-15:7] {C:0} {A:{}}
 | | | whiteSpace:   [15:8-15:8] {C:0} {A:{}}
 | | | identifier: x [15:9-15:9] {C:0} {A:{}}
 | | | whiteSpace:   [15:10-15:10] {C:0} {A:{}}
@@ -970,7 +1001,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 12 [15:13-15:14] {C:0} {A:{}}
 | | | newLine: \\\\n [15:15-15:15] {C:0} {A:{}}
 | | | whiteSpace:      [16:1-16:4] {C:0} {A:{}}
-| | | keyword: let [16:5-16:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [16:5-16:7] {C:0} {A:{}}
 | | | whiteSpace:   [16:8-16:8] {C:0} {A:{}}
 | | | identifier: x [16:9-16:9] {C:0} {A:{}}
 | | | whiteSpace:   [16:10-16:10] {C:0} {A:{}}
@@ -979,7 +1010,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 13 [16:13-16:14] {C:0} {A:{}}
 | | | newLine: \\\\n [16:15-16:15] {C:0} {A:{}}
 | | | whiteSpace:      [17:1-17:4] {C:0} {A:{}}
-| | | keyword: let [17:5-17:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [17:5-17:7] {C:0} {A:{}}
 | | | whiteSpace:   [17:8-17:8] {C:0} {A:{}}
 | | | identifier: x [17:9-17:9] {C:0} {A:{}}
 | | | whiteSpace:   [17:10-17:10] {C:0} {A:{}}
@@ -988,7 +1019,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 14 [17:13-17:14] {C:0} {A:{}}
 | | | newLine: \\\\n [17:15-17:15] {C:0} {A:{}}
 | | | whiteSpace:      [18:1-18:4] {C:0} {A:{}}
-| | | keyword: let [18:5-18:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [18:5-18:7] {C:0} {A:{}}
 | | | whiteSpace:   [18:8-18:8] {C:0} {A:{}}
 | | | identifier: x [18:9-18:9] {C:0} {A:{}}
 | | | whiteSpace:   [18:10-18:10] {C:0} {A:{}}
@@ -997,7 +1028,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 15 [18:13-18:14] {C:0} {A:{}}
 | | | newLine: \\\\n [18:15-18:15] {C:0} {A:{}}
 | | | whiteSpace:      [19:1-19:4] {C:0} {A:{}}
-| | | keyword: let [19:5-19:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [19:5-19:7] {C:0} {A:{}}
 | | | whiteSpace:   [19:8-19:8] {C:0} {A:{}}
 | | | identifier: x [19:9-19:9] {C:0} {A:{}}
 | | | whiteSpace:   [19:10-19:10] {C:0} {A:{}}
@@ -1006,7 +1037,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 16 [19:13-19:14] {C:0} {A:{}}
 | | | newLine: \\\\n [19:15-19:15] {C:0} {A:{}}
 | | | whiteSpace:      [20:1-20:4] {C:0} {A:{}}
-| | | keyword: let [20:5-20:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [20:5-20:7] {C:0} {A:{}}
 | | | whiteSpace:   [20:8-20:8] {C:0} {A:{}}
 | | | identifier: x [20:9-20:9] {C:0} {A:{}}
 | | | whiteSpace:   [20:10-20:10] {C:0} {A:{}}
@@ -1015,7 +1046,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 17 [20:13-20:14] {C:0} {A:{}}
 | | | newLine: \\\\n [20:15-20:15] {C:0} {A:{}}
 | | | whiteSpace:      [21:1-21:4] {C:0} {A:{}}
-| | | keyword: let [21:5-21:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [21:5-21:7] {C:0} {A:{}}
 | | | whiteSpace:   [21:8-21:8] {C:0} {A:{}}
 | | | identifier: x [21:9-21:9] {C:0} {A:{}}
 | | | whiteSpace:   [21:10-21:10] {C:0} {A:{}}
@@ -1024,7 +1055,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 18 [21:13-21:14] {C:0} {A:{}}
 | | | newLine: \\\\n [21:15-21:15] {C:0} {A:{}}
 | | | whiteSpace:      [22:1-22:4] {C:0} {A:{}}
-| | | keyword: let [22:5-22:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [22:5-22:7] {C:0} {A:{}}
 | | | whiteSpace:   [22:8-22:8] {C:0} {A:{}}
 | | | identifier: x [22:9-22:9] {C:0} {A:{}}
 | | | whiteSpace:   [22:10-22:10] {C:0} {A:{}}
@@ -1033,7 +1064,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 19 [22:13-22:14] {C:0} {A:{}}
 | | | newLine: \\\\n [22:15-22:15] {C:0} {A:{}}
 | | | whiteSpace:      [23:1-23:4] {C:0} {A:{}}
-| | | keyword: let [23:5-23:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [23:5-23:7] {C:0} {A:{}}
 | | | whiteSpace:   [23:8-23:8] {C:0} {A:{}}
 | | | identifier: x [23:9-23:9] {C:0} {A:{}}
 | | | whiteSpace:   [23:10-23:10] {C:0} {A:{}}
@@ -1042,7 +1073,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 20 [23:13-23:14] {C:0} {A:{}}
 | | | newLine: \\\\n [23:15-23:15] {C:0} {A:{}}
 | | | whiteSpace:      [24:1-24:4] {C:0} {A:{}}
-| | | keyword: let [24:5-24:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [24:5-24:7] {C:0} {A:{}}
 | | | whiteSpace:   [24:8-24:8] {C:0} {A:{}}
 | | | identifier: x [24:9-24:9] {C:0} {A:{}}
 | | | whiteSpace:   [24:10-24:10] {C:0} {A:{}}
@@ -1051,7 +1082,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 30 [24:13-24:14] {C:0} {A:{}}
 | | | newLine: \\\\n [24:15-24:15] {C:0} {A:{}}
 | | | whiteSpace:      [25:1-25:4] {C:0} {A:{}}
-| | | keyword: let [25:5-25:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [25:5-25:7] {C:0} {A:{}}
 | | | whiteSpace:   [25:8-25:8] {C:0} {A:{}}
 | | | identifier: x [25:9-25:9] {C:0} {A:{}}
 | | | whiteSpace:   [25:10-25:10] {C:0} {A:{}}
@@ -1060,7 +1091,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 40 [25:13-25:14] {C:0} {A:{}}
 | | | newLine: \\\\n [25:15-25:15] {C:0} {A:{}}
 | | | whiteSpace:      [26:1-26:4] {C:0} {A:{}}
-| | | keyword: let [26:5-26:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [26:5-26:7] {C:0} {A:{}}
 | | | whiteSpace:   [26:8-26:8] {C:0} {A:{}}
 | | | identifier: x [26:9-26:9] {C:0} {A:{}}
 | | | whiteSpace:   [26:10-26:10] {C:0} {A:{}}
@@ -1069,7 +1100,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 50 [26:13-26:14] {C:0} {A:{}}
 | | | newLine: \\\\n [26:15-26:15] {C:0} {A:{}}
 | | | whiteSpace:      [27:1-27:4] {C:0} {A:{}}
-| | | keyword: let [27:5-27:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [27:5-27:7] {C:0} {A:{}}
 | | | whiteSpace:   [27:8-27:8] {C:0} {A:{}}
 | | | identifier: x [27:9-27:9] {C:0} {A:{}}
 | | | whiteSpace:   [27:10-27:10] {C:0} {A:{}}
@@ -1078,7 +1109,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 60 [27:13-27:14] {C:0} {A:{}}
 | | | newLine: \\\\n [27:15-27:15] {C:0} {A:{}}
 | | | whiteSpace:      [28:1-28:4] {C:0} {A:{}}
-| | | keyword: let [28:5-28:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [28:5-28:7] {C:0} {A:{}}
 | | | whiteSpace:   [28:8-28:8] {C:0} {A:{}}
 | | | identifier: x [28:9-28:9] {C:0} {A:{}}
 | | | whiteSpace:   [28:10-28:10] {C:0} {A:{}}
@@ -1087,7 +1118,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 70 [28:13-28:14] {C:0} {A:{}}
 | | | newLine: \\\\n [28:15-28:15] {C:0} {A:{}}
 | | | whiteSpace:      [29:1-29:4] {C:0} {A:{}}
-| | | keyword: let [29:5-29:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [29:5-29:7] {C:0} {A:{}}
 | | | whiteSpace:   [29:8-29:8] {C:0} {A:{}}
 | | | identifier: x [29:9-29:9] {C:0} {A:{}}
 | | | whiteSpace:   [29:10-29:10] {C:0} {A:{}}
@@ -1096,7 +1127,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 80 [29:13-29:14] {C:0} {A:{}}
 | | | newLine: \\\\n [29:15-29:15] {C:0} {A:{}}
 | | | whiteSpace:      [30:1-30:4] {C:0} {A:{}}
-| | | keyword: let [30:5-30:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [30:5-30:7] {C:0} {A:{}}
 | | | whiteSpace:   [30:8-30:8] {C:0} {A:{}}
 | | | identifier: x [30:9-30:9] {C:0} {A:{}}
 | | | whiteSpace:   [30:10-30:10] {C:0} {A:{}}
@@ -1105,7 +1136,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 90 [30:13-30:14] {C:0} {A:{}}
 | | | newLine: \\\\n [30:15-30:15] {C:0} {A:{}}
 | | | whiteSpace:      [31:1-31:4] {C:0} {A:{}}
-| | | keyword: let [31:5-31:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [31:5-31:7] {C:0} {A:{}}
 | | | whiteSpace:   [31:8-31:8] {C:0} {A:{}}
 | | | identifier: x [31:9-31:9] {C:0} {A:{}}
 | | | whiteSpace:   [31:10-31:10] {C:0} {A:{}}
@@ -1114,7 +1145,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 100 [31:13-31:15] {C:0} {A:{}}
 | | | newLine: \\\\n [31:16-31:16] {C:0} {A:{}}
 | | | whiteSpace:      [32:1-32:4] {C:0} {A:{}}
-| | | keyword: let [32:5-32:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [32:5-32:7] {C:0} {A:{}}
 | | | whiteSpace:   [32:8-32:8] {C:0} {A:{}}
 | | | identifier: x [32:9-32:9] {C:0} {A:{}}
 | | | whiteSpace:   [32:10-32:10] {C:0} {A:{}}
@@ -1123,7 +1154,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 1000 [32:13-32:16] {C:0} {A:{}}
 | | | newLine: \\\\n [32:17-32:17] {C:0} {A:{}}
 | | | whiteSpace:      [33:1-33:4] {C:0} {A:{}}
-| | | keyword: let [33:5-33:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [33:5-33:7] {C:0} {A:{}}
 | | | whiteSpace:   [33:8-33:8] {C:0} {A:{}}
 | | | identifier: x [33:9-33:9] {C:0} {A:{}}
 | | | whiteSpace:   [33:10-33:10] {C:0} {A:{}}
@@ -1132,7 +1163,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 10000 [33:13-33:17] {C:0} {A:{}}
 | | | newLine: \\\\n [33:18-33:18] {C:0} {A:{}}
 | | | whiteSpace:      [34:1-34:4] {C:0} {A:{}}
-| | | keyword: let [34:5-34:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [34:5-34:7] {C:0} {A:{}}
 | | | whiteSpace:   [34:8-34:8] {C:0} {A:{}}
 | | | identifier: x [34:9-34:9] {C:0} {A:{}}
 | | | whiteSpace:   [34:10-34:10] {C:0} {A:{}}
@@ -1141,7 +1172,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 100000 [34:13-34:18] {C:0} {A:{}}
 | | | newLine: \\\\n [34:19-34:19] {C:0} {A:{}}
 | | | whiteSpace:      [35:1-35:4] {C:0} {A:{}}
-| | | keyword: let [35:5-35:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [35:5-35:7] {C:0} {A:{}}
 | | | whiteSpace:   [35:8-35:8] {C:0} {A:{}}
 | | | identifier: x [35:9-35:9] {C:0} {A:{}}
 | | | whiteSpace:   [35:10-35:10] {C:0} {A:{}}
@@ -1152,14 +1183,14 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | whiteSpace:      [36:1-36:4] {C:0} {A:{}}
 | | | newLine: \\\\n\\\\n [36:5-36:6] {C:0} {A:{}}
 | | endBlock:  [1:1-38:10] {C:1} {A:{}}
-| | | keyword: end [38:1-38:3] {C:0} {A:{}}
+| | | statement: end [38:1-38:3] {C:0} {A:{}}
 | | | whiteSpace:   [38:4-38:4] {C:0} {A:{}}
-| | | keyword: main [38:5-38:8] {C:0} {A:{}}
+| | | statement: main [38:5-38:8] {C:0} {A:{}}
 | | | endLine: - [38:9-38:10] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [38:9-38:10] {C:0} {A:{}}
 | block:  [40:1-74:14] {C:3} {A:{}}
 | | beginBlock:  [40:1-40:14] {C:1} {A:{}}
-| | | keyword: function [40:1-40:8] {C:0} {A:{}}
+| | | statement: function [40:1-40:8] {C:0} {A:{}}
 | | | whiteSpace:   [40:9-40:9] {C:0} {A:{}}
 | | | identifier: f1 [40:10-40:11] {C:0} {A:{}}
 | | | argumentList:  [40:12-40:13] {C:1} {A:{}}
@@ -1169,7 +1200,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | -newLine: \\\\n [40:14-40:14] {C:0} {A:{}}
 | | bodyBlock:  [40:1-73:22] {C:1} {A:{}}
 | | | whiteSpace:      [41:1-41:4] {C:0} {A:{}}
-| | | keyword: let [41:5-41:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [41:5-41:7] {C:0} {A:{}}
 | | | whiteSpace:   [41:8-41:8] {C:0} {A:{}}
 | | | identifier: x [41:9-41:9] {C:0} {A:{}}
 | | | whiteSpace:   [41:10-41:10] {C:0} {A:{}}
@@ -1178,7 +1209,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 0.0 [41:13-41:15] {C:0} {A:{}}
 | | | newLine: \\\\n [41:16-41:16] {C:0} {A:{}}
 | | | whiteSpace:      [42:1-42:4] {C:0} {A:{}}
-| | | keyword: let [42:5-42:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [42:5-42:7] {C:0} {A:{}}
 | | | whiteSpace:   [42:8-42:8] {C:0} {A:{}}
 | | | identifier: x [42:9-42:9] {C:0} {A:{}}
 | | | whiteSpace:   [42:10-42:10] {C:0} {A:{}}
@@ -1187,7 +1218,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 1.1 [42:13-42:15] {C:0} {A:{}}
 | | | newLine: \\\\n [42:16-42:16] {C:0} {A:{}}
 | | | whiteSpace:      [43:1-43:4] {C:0} {A:{}}
-| | | keyword: let [43:5-43:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [43:5-43:7] {C:0} {A:{}}
 | | | whiteSpace:   [43:8-43:8] {C:0} {A:{}}
 | | | identifier: x [43:9-43:9] {C:0} {A:{}}
 | | | whiteSpace:   [43:10-43:10] {C:0} {A:{}}
@@ -1196,7 +1227,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 2.2 [43:13-43:15] {C:0} {A:{}}
 | | | newLine: \\\\n [43:16-43:16] {C:0} {A:{}}
 | | | whiteSpace:      [44:1-44:4] {C:0} {A:{}}
-| | | keyword: let [44:5-44:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [44:5-44:7] {C:0} {A:{}}
 | | | whiteSpace:   [44:8-44:8] {C:0} {A:{}}
 | | | identifier: x [44:9-44:9] {C:0} {A:{}}
 | | | whiteSpace:   [44:10-44:10] {C:0} {A:{}}
@@ -1205,7 +1236,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 3.3 [44:13-44:15] {C:0} {A:{}}
 | | | newLine: \\\\n [44:16-44:16] {C:0} {A:{}}
 | | | whiteSpace:      [45:1-45:4] {C:0} {A:{}}
-| | | keyword: let [45:5-45:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [45:5-45:7] {C:0} {A:{}}
 | | | whiteSpace:   [45:8-45:8] {C:0} {A:{}}
 | | | identifier: x [45:9-45:9] {C:0} {A:{}}
 | | | whiteSpace:   [45:10-45:10] {C:0} {A:{}}
@@ -1214,7 +1245,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 4.4 [45:13-45:15] {C:0} {A:{}}
 | | | newLine: \\\\n [45:16-45:16] {C:0} {A:{}}
 | | | whiteSpace:      [46:1-46:4] {C:0} {A:{}}
-| | | keyword: let [46:5-46:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [46:5-46:7] {C:0} {A:{}}
 | | | whiteSpace:   [46:8-46:8] {C:0} {A:{}}
 | | | identifier: x [46:9-46:9] {C:0} {A:{}}
 | | | whiteSpace:   [46:10-46:10] {C:0} {A:{}}
@@ -1223,7 +1254,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 5.5 [46:13-46:15] {C:0} {A:{}}
 | | | newLine: \\\\n [46:16-46:16] {C:0} {A:{}}
 | | | whiteSpace:      [47:1-47:4] {C:0} {A:{}}
-| | | keyword: let [47:5-47:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [47:5-47:7] {C:0} {A:{}}
 | | | whiteSpace:   [47:8-47:8] {C:0} {A:{}}
 | | | identifier: x [47:9-47:9] {C:0} {A:{}}
 | | | whiteSpace:   [47:10-47:10] {C:0} {A:{}}
@@ -1232,7 +1263,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 6.6 [47:13-47:15] {C:0} {A:{}}
 | | | newLine: \\\\n [47:16-47:16] {C:0} {A:{}}
 | | | whiteSpace:      [48:1-48:4] {C:0} {A:{}}
-| | | keyword: let [48:5-48:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [48:5-48:7] {C:0} {A:{}}
 | | | whiteSpace:   [48:8-48:8] {C:0} {A:{}}
 | | | identifier: x [48:9-48:9] {C:0} {A:{}}
 | | | whiteSpace:   [48:10-48:10] {C:0} {A:{}}
@@ -1241,7 +1272,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 7.7 [48:13-48:15] {C:0} {A:{}}
 | | | newLine: \\\\n [48:16-48:16] {C:0} {A:{}}
 | | | whiteSpace:      [49:1-49:4] {C:0} {A:{}}
-| | | keyword: let [49:5-49:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [49:5-49:7] {C:0} {A:{}}
 | | | whiteSpace:   [49:8-49:8] {C:0} {A:{}}
 | | | identifier: x [49:9-49:9] {C:0} {A:{}}
 | | | whiteSpace:   [49:10-49:10] {C:0} {A:{}}
@@ -1250,7 +1281,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 8.8 [49:13-49:15] {C:0} {A:{}}
 | | | newLine: \\\\n [49:16-49:16] {C:0} {A:{}}
 | | | whiteSpace:      [50:1-50:4] {C:0} {A:{}}
-| | | keyword: let [50:5-50:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [50:5-50:7] {C:0} {A:{}}
 | | | whiteSpace:   [50:8-50:8] {C:0} {A:{}}
 | | | identifier: x [50:9-50:9] {C:0} {A:{}}
 | | | whiteSpace:   [50:10-50:10] {C:0} {A:{}}
@@ -1259,7 +1290,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 9.9 [50:13-50:15] {C:0} {A:{}}
 | | | newLine: \\\\n [50:16-50:16] {C:0} {A:{}}
 | | | whiteSpace:      [51:1-51:4] {C:0} {A:{}}
-| | | keyword: let [51:5-51:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [51:5-51:7] {C:0} {A:{}}
 | | | whiteSpace:   [51:8-51:8] {C:0} {A:{}}
 | | | identifier: x [51:9-51:9] {C:0} {A:{}}
 | | | whiteSpace:   [51:10-51:10] {C:0} {A:{}}
@@ -1268,7 +1299,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 10.10 [51:13-51:17] {C:0} {A:{}}
 | | | newLine: \\\\n [51:18-51:18] {C:0} {A:{}}
 | | | whiteSpace:      [52:1-52:4] {C:0} {A:{}}
-| | | keyword: let [52:5-52:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [52:5-52:7] {C:0} {A:{}}
 | | | whiteSpace:   [52:8-52:8] {C:0} {A:{}}
 | | | identifier: x [52:9-52:9] {C:0} {A:{}}
 | | | whiteSpace:   [52:10-52:10] {C:0} {A:{}}
@@ -1277,7 +1308,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 11.11 [52:13-52:17] {C:0} {A:{}}
 | | | newLine: \\\\n [52:18-52:18] {C:0} {A:{}}
 | | | whiteSpace:      [53:1-53:4] {C:0} {A:{}}
-| | | keyword: let [53:5-53:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [53:5-53:7] {C:0} {A:{}}
 | | | whiteSpace:   [53:8-53:8] {C:0} {A:{}}
 | | | identifier: x [53:9-53:9] {C:0} {A:{}}
 | | | whiteSpace:   [53:10-53:10] {C:0} {A:{}}
@@ -1286,7 +1317,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 12.12 [53:13-53:17] {C:0} {A:{}}
 | | | newLine: \\\\n [53:18-53:18] {C:0} {A:{}}
 | | | whiteSpace:      [54:1-54:4] {C:0} {A:{}}
-| | | keyword: let [54:5-54:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [54:5-54:7] {C:0} {A:{}}
 | | | whiteSpace:   [54:8-54:8] {C:0} {A:{}}
 | | | identifier: x [54:9-54:9] {C:0} {A:{}}
 | | | whiteSpace:   [54:10-54:10] {C:0} {A:{}}
@@ -1295,7 +1326,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 13.13 [54:13-54:17] {C:0} {A:{}}
 | | | newLine: \\\\n [54:18-54:18] {C:0} {A:{}}
 | | | whiteSpace:      [55:1-55:4] {C:0} {A:{}}
-| | | keyword: let [55:5-55:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [55:5-55:7] {C:0} {A:{}}
 | | | whiteSpace:   [55:8-55:8] {C:0} {A:{}}
 | | | identifier: x [55:9-55:9] {C:0} {A:{}}
 | | | whiteSpace:   [55:10-55:10] {C:0} {A:{}}
@@ -1304,7 +1335,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 14.14 [55:13-55:17] {C:0} {A:{}}
 | | | newLine: \\\\n [55:18-55:18] {C:0} {A:{}}
 | | | whiteSpace:      [56:1-56:4] {C:0} {A:{}}
-| | | keyword: let [56:5-56:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [56:5-56:7] {C:0} {A:{}}
 | | | whiteSpace:   [56:8-56:8] {C:0} {A:{}}
 | | | identifier: x [56:9-56:9] {C:0} {A:{}}
 | | | whiteSpace:   [56:10-56:10] {C:0} {A:{}}
@@ -1313,7 +1344,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 15.15 [56:13-56:17] {C:0} {A:{}}
 | | | newLine: \\\\n [56:18-56:18] {C:0} {A:{}}
 | | | whiteSpace:      [57:1-57:4] {C:0} {A:{}}
-| | | keyword: let [57:5-57:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [57:5-57:7] {C:0} {A:{}}
 | | | whiteSpace:   [57:8-57:8] {C:0} {A:{}}
 | | | identifier: x [57:9-57:9] {C:0} {A:{}}
 | | | whiteSpace:   [57:10-57:10] {C:0} {A:{}}
@@ -1322,7 +1353,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 16.16 [57:13-57:17] {C:0} {A:{}}
 | | | newLine: \\\\n [57:18-57:18] {C:0} {A:{}}
 | | | whiteSpace:      [58:1-58:4] {C:0} {A:{}}
-| | | keyword: let [58:5-58:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [58:5-58:7] {C:0} {A:{}}
 | | | whiteSpace:   [58:8-58:8] {C:0} {A:{}}
 | | | identifier: x [58:9-58:9] {C:0} {A:{}}
 | | | whiteSpace:   [58:10-58:10] {C:0} {A:{}}
@@ -1331,7 +1362,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 17.17 [58:13-58:17] {C:0} {A:{}}
 | | | newLine: \\\\n [58:18-58:18] {C:0} {A:{}}
 | | | whiteSpace:      [59:1-59:4] {C:0} {A:{}}
-| | | keyword: let [59:5-59:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [59:5-59:7] {C:0} {A:{}}
 | | | whiteSpace:   [59:8-59:8] {C:0} {A:{}}
 | | | identifier: x [59:9-59:9] {C:0} {A:{}}
 | | | whiteSpace:   [59:10-59:10] {C:0} {A:{}}
@@ -1340,7 +1371,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 18.18 [59:13-59:17] {C:0} {A:{}}
 | | | newLine: \\\\n [59:18-59:18] {C:0} {A:{}}
 | | | whiteSpace:      [60:1-60:4] {C:0} {A:{}}
-| | | keyword: let [60:5-60:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [60:5-60:7] {C:0} {A:{}}
 | | | whiteSpace:   [60:8-60:8] {C:0} {A:{}}
 | | | identifier: x [60:9-60:9] {C:0} {A:{}}
 | | | whiteSpace:   [60:10-60:10] {C:0} {A:{}}
@@ -1349,7 +1380,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 19.19 [60:13-60:17] {C:0} {A:{}}
 | | | newLine: \\\\n [60:18-60:18] {C:0} {A:{}}
 | | | whiteSpace:      [61:1-61:4] {C:0} {A:{}}
-| | | keyword: let [61:5-61:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [61:5-61:7] {C:0} {A:{}}
 | | | whiteSpace:   [61:8-61:8] {C:0} {A:{}}
 | | | identifier: x [61:9-61:9] {C:0} {A:{}}
 | | | whiteSpace:   [61:10-61:10] {C:0} {A:{}}
@@ -1358,7 +1389,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 20.20 [61:13-61:17] {C:0} {A:{}}
 | | | newLine: \\\\n [61:18-61:18] {C:0} {A:{}}
 | | | whiteSpace:      [62:1-62:4] {C:0} {A:{}}
-| | | keyword: let [62:5-62:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [62:5-62:7] {C:0} {A:{}}
 | | | whiteSpace:   [62:8-62:8] {C:0} {A:{}}
 | | | identifier: x [62:9-62:9] {C:0} {A:{}}
 | | | whiteSpace:   [62:10-62:10] {C:0} {A:{}}
@@ -1367,7 +1398,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 30.30 [62:13-62:17] {C:0} {A:{}}
 | | | newLine: \\\\n [62:18-62:18] {C:0} {A:{}}
 | | | whiteSpace:      [63:1-63:4] {C:0} {A:{}}
-| | | keyword: let [63:5-63:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [63:5-63:7] {C:0} {A:{}}
 | | | whiteSpace:   [63:8-63:8] {C:0} {A:{}}
 | | | identifier: x [63:9-63:9] {C:0} {A:{}}
 | | | whiteSpace:   [63:10-63:10] {C:0} {A:{}}
@@ -1376,7 +1407,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 40.40 [63:13-63:17] {C:0} {A:{}}
 | | | newLine: \\\\n [63:18-63:18] {C:0} {A:{}}
 | | | whiteSpace:      [64:1-64:4] {C:0} {A:{}}
-| | | keyword: let [64:5-64:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [64:5-64:7] {C:0} {A:{}}
 | | | whiteSpace:   [64:8-64:8] {C:0} {A:{}}
 | | | identifier: x [64:9-64:9] {C:0} {A:{}}
 | | | whiteSpace:   [64:10-64:10] {C:0} {A:{}}
@@ -1385,7 +1416,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 50.50 [64:13-64:17] {C:0} {A:{}}
 | | | newLine: \\\\n [64:18-64:18] {C:0} {A:{}}
 | | | whiteSpace:      [65:1-65:4] {C:0} {A:{}}
-| | | keyword: let [65:5-65:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [65:5-65:7] {C:0} {A:{}}
 | | | whiteSpace:   [65:8-65:8] {C:0} {A:{}}
 | | | identifier: x [65:9-65:9] {C:0} {A:{}}
 | | | whiteSpace:   [65:10-65:10] {C:0} {A:{}}
@@ -1394,7 +1425,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 60.60 [65:13-65:17] {C:0} {A:{}}
 | | | newLine: \\\\n [65:18-65:18] {C:0} {A:{}}
 | | | whiteSpace:      [66:1-66:4] {C:0} {A:{}}
-| | | keyword: let [66:5-66:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [66:5-66:7] {C:0} {A:{}}
 | | | whiteSpace:   [66:8-66:8] {C:0} {A:{}}
 | | | identifier: x [66:9-66:9] {C:0} {A:{}}
 | | | whiteSpace:   [66:10-66:10] {C:0} {A:{}}
@@ -1403,7 +1434,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 70.70 [66:13-66:17] {C:0} {A:{}}
 | | | newLine: \\\\n [66:18-66:18] {C:0} {A:{}}
 | | | whiteSpace:      [67:1-67:4] {C:0} {A:{}}
-| | | keyword: let [67:5-67:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [67:5-67:7] {C:0} {A:{}}
 | | | whiteSpace:   [67:8-67:8] {C:0} {A:{}}
 | | | identifier: x [67:9-67:9] {C:0} {A:{}}
 | | | whiteSpace:   [67:10-67:10] {C:0} {A:{}}
@@ -1412,7 +1443,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 80.80 [67:13-67:17] {C:0} {A:{}}
 | | | newLine: \\\\n [67:18-67:18] {C:0} {A:{}}
 | | | whiteSpace:      [68:1-68:4] {C:0} {A:{}}
-| | | keyword: let [68:5-68:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [68:5-68:7] {C:0} {A:{}}
 | | | whiteSpace:   [68:8-68:8] {C:0} {A:{}}
 | | | identifier: x [68:9-68:9] {C:0} {A:{}}
 | | | whiteSpace:   [68:10-68:10] {C:0} {A:{}}
@@ -1421,7 +1452,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 90.90 [68:13-68:17] {C:0} {A:{}}
 | | | newLine: \\\\n [68:18-68:18] {C:0} {A:{}}
 | | | whiteSpace:      [69:1-69:4] {C:0} {A:{}}
-| | | keyword: let [69:5-69:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [69:5-69:7] {C:0} {A:{}}
 | | | whiteSpace:   [69:8-69:8] {C:0} {A:{}}
 | | | identifier: x [69:9-69:9] {C:0} {A:{}}
 | | | whiteSpace:   [69:10-69:10] {C:0} {A:{}}
@@ -1430,7 +1461,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 1.001 [69:13-69:17] {C:0} {A:{}}
 | | | newLine: \\\\n [69:18-69:18] {C:0} {A:{}}
 | | | whiteSpace:      [70:1-70:4] {C:0} {A:{}}
-| | | keyword: let [70:5-70:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [70:5-70:7] {C:0} {A:{}}
 | | | whiteSpace:   [70:8-70:8] {C:0} {A:{}}
 | | | identifier: x [70:9-70:9] {C:0} {A:{}}
 | | | whiteSpace:   [70:10-70:10] {C:0} {A:{}}
@@ -1439,7 +1470,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 10.001 [70:13-70:18] {C:0} {A:{}}
 | | | newLine: \\\\n [70:19-70:19] {C:0} {A:{}}
 | | | whiteSpace:      [71:1-71:4] {C:0} {A:{}}
-| | | keyword: let [71:5-71:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [71:5-71:7] {C:0} {A:{}}
 | | | whiteSpace:   [71:8-71:8] {C:0} {A:{}}
 | | | identifier: x [71:9-71:9] {C:0} {A:{}}
 | | | whiteSpace:   [71:10-71:10] {C:0} {A:{}}
@@ -1448,7 +1479,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 100.001 [71:13-71:19] {C:0} {A:{}}
 | | | newLine: \\\\n [71:20-71:20] {C:0} {A:{}}
 | | | whiteSpace:      [72:1-72:4] {C:0} {A:{}}
-| | | keyword: let [72:5-72:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [72:5-72:7] {C:0} {A:{}}
 | | | whiteSpace:   [72:8-72:8] {C:0} {A:{}}
 | | | identifier: x [72:9-72:9] {C:0} {A:{}}
 | | | whiteSpace:   [72:10-72:10] {C:0} {A:{}}
@@ -1457,7 +1488,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 1000.001 [72:13-72:20] {C:0} {A:{}}
 | | | newLine: \\\\n [72:21-72:21] {C:0} {A:{}}
 | | | whiteSpace:      [73:1-73:4] {C:0} {A:{}}
-| | | keyword: let [73:5-73:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [73:5-73:7] {C:0} {A:{}}
 | | | whiteSpace:   [73:8-73:8] {C:0} {A:{}}
 | | | identifier: x [73:9-73:9] {C:0} {A:{}}
 | | | whiteSpace:   [73:10-73:10] {C:0} {A:{}}
@@ -1466,14 +1497,14 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 10000.001 [73:13-73:21] {C:0} {A:{}}
 | | | newLine: \\\\n [73:22-73:22] {C:0} {A:{}}
 | | endBlock:  [40:1-74:14] {C:1} {A:{}}
-| | | keyword: end [74:1-74:3] {C:0} {A:{}}
+| | | statement: end [74:1-74:3] {C:0} {A:{}}
 | | | whiteSpace:   [74:4-74:4] {C:0} {A:{}}
-| | | keyword: function [74:5-74:12] {C:0} {A:{}}
+| | | statement: function [74:5-74:12] {C:0} {A:{}}
 | | | endLine: - [74:13-74:14] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [74:13-74:14] {C:0} {A:{}}
 | block:  [76:1-110:13] {C:3} {A:{}}
 | | beginBlock:  [76:1-76:14] {C:1} {A:{}}
-| | | keyword: function [76:1-76:8] {C:0} {A:{}}
+| | | statement: function [76:1-76:8] {C:0} {A:{}}
 | | | whiteSpace:   [76:9-76:9] {C:0} {A:{}}
 | | | identifier: f2 [76:10-76:11] {C:0} {A:{}}
 | | | argumentList:  [76:12-76:13] {C:1} {A:{}}
@@ -1483,7 +1514,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | -newLine: \\\\n [76:14-76:14] {C:0} {A:{}}
 | | bodyBlock:  [76:1-109:23] {C:1} {A:{}}
 | | | whiteSpace:      [77:1-77:4] {C:0} {A:{}}
-| | | keyword: let [77:5-77:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [77:5-77:7] {C:0} {A:{}}
 | | | whiteSpace:   [77:8-77:8] {C:0} {A:{}}
 | | | identifier: x [77:9-77:9] {C:0} {A:{}}
 | | | whiteSpace:   [77:10-77:10] {C:0} {A:{}}
@@ -1493,7 +1524,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 0.0 [77:14-77:16] {C:0} {A:{}}
 | | | newLine: \\\\n [77:17-77:17] {C:0} {A:{}}
 | | | whiteSpace:      [78:1-78:4] {C:0} {A:{}}
-| | | keyword: let [78:5-78:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [78:5-78:7] {C:0} {A:{}}
 | | | whiteSpace:   [78:8-78:8] {C:0} {A:{}}
 | | | identifier: x [78:9-78:9] {C:0} {A:{}}
 | | | whiteSpace:   [78:10-78:10] {C:0} {A:{}}
@@ -1503,7 +1534,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 1.1 [78:14-78:16] {C:0} {A:{}}
 | | | newLine: \\\\n [78:17-78:17] {C:0} {A:{}}
 | | | whiteSpace:      [79:1-79:4] {C:0} {A:{}}
-| | | keyword: let [79:5-79:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [79:5-79:7] {C:0} {A:{}}
 | | | whiteSpace:   [79:8-79:8] {C:0} {A:{}}
 | | | identifier: x [79:9-79:9] {C:0} {A:{}}
 | | | whiteSpace:   [79:10-79:10] {C:0} {A:{}}
@@ -1513,7 +1544,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 2.2 [79:14-79:16] {C:0} {A:{}}
 | | | newLine: \\\\n [79:17-79:17] {C:0} {A:{}}
 | | | whiteSpace:      [80:1-80:4] {C:0} {A:{}}
-| | | keyword: let [80:5-80:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [80:5-80:7] {C:0} {A:{}}
 | | | whiteSpace:   [80:8-80:8] {C:0} {A:{}}
 | | | identifier: x [80:9-80:9] {C:0} {A:{}}
 | | | whiteSpace:   [80:10-80:10] {C:0} {A:{}}
@@ -1523,7 +1554,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 3.3 [80:14-80:16] {C:0} {A:{}}
 | | | newLine: \\\\n [80:17-80:17] {C:0} {A:{}}
 | | | whiteSpace:      [81:1-81:4] {C:0} {A:{}}
-| | | keyword: let [81:5-81:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [81:5-81:7] {C:0} {A:{}}
 | | | whiteSpace:   [81:8-81:8] {C:0} {A:{}}
 | | | identifier: x [81:9-81:9] {C:0} {A:{}}
 | | | whiteSpace:   [81:10-81:10] {C:0} {A:{}}
@@ -1533,7 +1564,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 4.4 [81:14-81:16] {C:0} {A:{}}
 | | | newLine: \\\\n [81:17-81:17] {C:0} {A:{}}
 | | | whiteSpace:      [82:1-82:4] {C:0} {A:{}}
-| | | keyword: let [82:5-82:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [82:5-82:7] {C:0} {A:{}}
 | | | whiteSpace:   [82:8-82:8] {C:0} {A:{}}
 | | | identifier: x [82:9-82:9] {C:0} {A:{}}
 | | | whiteSpace:   [82:10-82:10] {C:0} {A:{}}
@@ -1543,7 +1574,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 5.5 [82:14-82:16] {C:0} {A:{}}
 | | | newLine: \\\\n [82:17-82:17] {C:0} {A:{}}
 | | | whiteSpace:      [83:1-83:4] {C:0} {A:{}}
-| | | keyword: let [83:5-83:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [83:5-83:7] {C:0} {A:{}}
 | | | whiteSpace:   [83:8-83:8] {C:0} {A:{}}
 | | | identifier: x [83:9-83:9] {C:0} {A:{}}
 | | | whiteSpace:   [83:10-83:10] {C:0} {A:{}}
@@ -1553,7 +1584,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 6.6 [83:14-83:16] {C:0} {A:{}}
 | | | newLine: \\\\n [83:17-83:17] {C:0} {A:{}}
 | | | whiteSpace:      [84:1-84:4] {C:0} {A:{}}
-| | | keyword: let [84:5-84:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [84:5-84:7] {C:0} {A:{}}
 | | | whiteSpace:   [84:8-84:8] {C:0} {A:{}}
 | | | identifier: x [84:9-84:9] {C:0} {A:{}}
 | | | whiteSpace:   [84:10-84:10] {C:0} {A:{}}
@@ -1563,7 +1594,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 7.7 [84:14-84:16] {C:0} {A:{}}
 | | | newLine: \\\\n [84:17-84:17] {C:0} {A:{}}
 | | | whiteSpace:      [85:1-85:4] {C:0} {A:{}}
-| | | keyword: let [85:5-85:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [85:5-85:7] {C:0} {A:{}}
 | | | whiteSpace:   [85:8-85:8] {C:0} {A:{}}
 | | | identifier: x [85:9-85:9] {C:0} {A:{}}
 | | | whiteSpace:   [85:10-85:10] {C:0} {A:{}}
@@ -1573,7 +1604,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 8.8 [85:14-85:16] {C:0} {A:{}}
 | | | newLine: \\\\n [85:17-85:17] {C:0} {A:{}}
 | | | whiteSpace:      [86:1-86:4] {C:0} {A:{}}
-| | | keyword: let [86:5-86:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [86:5-86:7] {C:0} {A:{}}
 | | | whiteSpace:   [86:8-86:8] {C:0} {A:{}}
 | | | identifier: x [86:9-86:9] {C:0} {A:{}}
 | | | whiteSpace:   [86:10-86:10] {C:0} {A:{}}
@@ -1583,7 +1614,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 9.9 [86:14-86:16] {C:0} {A:{}}
 | | | newLine: \\\\n [86:17-86:17] {C:0} {A:{}}
 | | | whiteSpace:      [87:1-87:4] {C:0} {A:{}}
-| | | keyword: let [87:5-87:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [87:5-87:7] {C:0} {A:{}}
 | | | whiteSpace:   [87:8-87:8] {C:0} {A:{}}
 | | | identifier: x [87:9-87:9] {C:0} {A:{}}
 | | | whiteSpace:   [87:10-87:10] {C:0} {A:{}}
@@ -1593,7 +1624,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 10.10 [87:14-87:18] {C:0} {A:{}}
 | | | newLine: \\\\n [87:19-87:19] {C:0} {A:{}}
 | | | whiteSpace:      [88:1-88:4] {C:0} {A:{}}
-| | | keyword: let [88:5-88:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [88:5-88:7] {C:0} {A:{}}
 | | | whiteSpace:   [88:8-88:8] {C:0} {A:{}}
 | | | identifier: x [88:9-88:9] {C:0} {A:{}}
 | | | whiteSpace:   [88:10-88:10] {C:0} {A:{}}
@@ -1603,7 +1634,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 11.11 [88:14-88:18] {C:0} {A:{}}
 | | | newLine: \\\\n [88:19-88:19] {C:0} {A:{}}
 | | | whiteSpace:      [89:1-89:4] {C:0} {A:{}}
-| | | keyword: let [89:5-89:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [89:5-89:7] {C:0} {A:{}}
 | | | whiteSpace:   [89:8-89:8] {C:0} {A:{}}
 | | | identifier: x [89:9-89:9] {C:0} {A:{}}
 | | | whiteSpace:   [89:10-89:10] {C:0} {A:{}}
@@ -1613,7 +1644,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 12.12 [89:14-89:18] {C:0} {A:{}}
 | | | newLine: \\\\n [89:19-89:19] {C:0} {A:{}}
 | | | whiteSpace:      [90:1-90:4] {C:0} {A:{}}
-| | | keyword: let [90:5-90:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [90:5-90:7] {C:0} {A:{}}
 | | | whiteSpace:   [90:8-90:8] {C:0} {A:{}}
 | | | identifier: x [90:9-90:9] {C:0} {A:{}}
 | | | whiteSpace:   [90:10-90:10] {C:0} {A:{}}
@@ -1623,7 +1654,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 13.13 [90:14-90:18] {C:0} {A:{}}
 | | | newLine: \\\\n [90:19-90:19] {C:0} {A:{}}
 | | | whiteSpace:      [91:1-91:4] {C:0} {A:{}}
-| | | keyword: let [91:5-91:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [91:5-91:7] {C:0} {A:{}}
 | | | whiteSpace:   [91:8-91:8] {C:0} {A:{}}
 | | | identifier: x [91:9-91:9] {C:0} {A:{}}
 | | | whiteSpace:   [91:10-91:10] {C:0} {A:{}}
@@ -1633,7 +1664,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 14.14 [91:14-91:18] {C:0} {A:{}}
 | | | newLine: \\\\n [91:19-91:19] {C:0} {A:{}}
 | | | whiteSpace:      [92:1-92:4] {C:0} {A:{}}
-| | | keyword: let [92:5-92:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [92:5-92:7] {C:0} {A:{}}
 | | | whiteSpace:   [92:8-92:8] {C:0} {A:{}}
 | | | identifier: x [92:9-92:9] {C:0} {A:{}}
 | | | whiteSpace:   [92:10-92:10] {C:0} {A:{}}
@@ -1643,7 +1674,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 15.15 [92:14-92:18] {C:0} {A:{}}
 | | | newLine: \\\\n [92:19-92:19] {C:0} {A:{}}
 | | | whiteSpace:      [93:1-93:4] {C:0} {A:{}}
-| | | keyword: let [93:5-93:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [93:5-93:7] {C:0} {A:{}}
 | | | whiteSpace:   [93:8-93:8] {C:0} {A:{}}
 | | | identifier: x [93:9-93:9] {C:0} {A:{}}
 | | | whiteSpace:   [93:10-93:10] {C:0} {A:{}}
@@ -1653,7 +1684,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 16.16 [93:14-93:18] {C:0} {A:{}}
 | | | newLine: \\\\n [93:19-93:19] {C:0} {A:{}}
 | | | whiteSpace:      [94:1-94:4] {C:0} {A:{}}
-| | | keyword: let [94:5-94:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [94:5-94:7] {C:0} {A:{}}
 | | | whiteSpace:   [94:8-94:8] {C:0} {A:{}}
 | | | identifier: x [94:9-94:9] {C:0} {A:{}}
 | | | whiteSpace:   [94:10-94:10] {C:0} {A:{}}
@@ -1663,7 +1694,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 17.17 [94:14-94:18] {C:0} {A:{}}
 | | | newLine: \\\\n [94:19-94:19] {C:0} {A:{}}
 | | | whiteSpace:      [95:1-95:4] {C:0} {A:{}}
-| | | keyword: let [95:5-95:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [95:5-95:7] {C:0} {A:{}}
 | | | whiteSpace:   [95:8-95:8] {C:0} {A:{}}
 | | | identifier: x [95:9-95:9] {C:0} {A:{}}
 | | | whiteSpace:   [95:10-95:10] {C:0} {A:{}}
@@ -1673,7 +1704,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 18.18 [95:14-95:18] {C:0} {A:{}}
 | | | newLine: \\\\n [95:19-95:19] {C:0} {A:{}}
 | | | whiteSpace:      [96:1-96:4] {C:0} {A:{}}
-| | | keyword: let [96:5-96:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [96:5-96:7] {C:0} {A:{}}
 | | | whiteSpace:   [96:8-96:8] {C:0} {A:{}}
 | | | identifier: x [96:9-96:9] {C:0} {A:{}}
 | | | whiteSpace:   [96:10-96:10] {C:0} {A:{}}
@@ -1683,7 +1714,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 19.19 [96:14-96:18] {C:0} {A:{}}
 | | | newLine: \\\\n [96:19-96:19] {C:0} {A:{}}
 | | | whiteSpace:      [97:1-97:4] {C:0} {A:{}}
-| | | keyword: let [97:5-97:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [97:5-97:7] {C:0} {A:{}}
 | | | whiteSpace:   [97:8-97:8] {C:0} {A:{}}
 | | | identifier: x [97:9-97:9] {C:0} {A:{}}
 | | | whiteSpace:   [97:10-97:10] {C:0} {A:{}}
@@ -1693,7 +1724,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 20.20 [97:14-97:18] {C:0} {A:{}}
 | | | newLine: \\\\n [97:19-97:19] {C:0} {A:{}}
 | | | whiteSpace:      [98:1-98:4] {C:0} {A:{}}
-| | | keyword: let [98:5-98:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [98:5-98:7] {C:0} {A:{}}
 | | | whiteSpace:   [98:8-98:8] {C:0} {A:{}}
 | | | identifier: x [98:9-98:9] {C:0} {A:{}}
 | | | whiteSpace:   [98:10-98:10] {C:0} {A:{}}
@@ -1703,7 +1734,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 30.30 [98:14-98:18] {C:0} {A:{}}
 | | | newLine: \\\\n [98:19-98:19] {C:0} {A:{}}
 | | | whiteSpace:      [99:1-99:4] {C:0} {A:{}}
-| | | keyword: let [99:5-99:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [99:5-99:7] {C:0} {A:{}}
 | | | whiteSpace:   [99:8-99:8] {C:0} {A:{}}
 | | | identifier: x [99:9-99:9] {C:0} {A:{}}
 | | | whiteSpace:   [99:10-99:10] {C:0} {A:{}}
@@ -1713,7 +1744,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 40.40 [99:14-99:18] {C:0} {A:{}}
 | | | newLine: \\\\n [99:19-99:19] {C:0} {A:{}}
 | | | whiteSpace:      [100:1-100:4] {C:0} {A:{}}
-| | | keyword: let [100:5-100:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [100:5-100:7] {C:0} {A:{}}
 | | | whiteSpace:   [100:8-100:8] {C:0} {A:{}}
 | | | identifier: x [100:9-100:9] {C:0} {A:{}}
 | | | whiteSpace:   [100:10-100:10] {C:0} {A:{}}
@@ -1723,7 +1754,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 50.50 [100:14-100:18] {C:0} {A:{}}
 | | | newLine: \\\\n [100:19-100:19] {C:0} {A:{}}
 | | | whiteSpace:      [101:1-101:4] {C:0} {A:{}}
-| | | keyword: let [101:5-101:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [101:5-101:7] {C:0} {A:{}}
 | | | whiteSpace:   [101:8-101:8] {C:0} {A:{}}
 | | | identifier: x [101:9-101:9] {C:0} {A:{}}
 | | | whiteSpace:   [101:10-101:10] {C:0} {A:{}}
@@ -1733,7 +1764,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 60.60 [101:14-101:18] {C:0} {A:{}}
 | | | newLine: \\\\n [101:19-101:19] {C:0} {A:{}}
 | | | whiteSpace:      [102:1-102:4] {C:0} {A:{}}
-| | | keyword: let [102:5-102:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [102:5-102:7] {C:0} {A:{}}
 | | | whiteSpace:   [102:8-102:8] {C:0} {A:{}}
 | | | identifier: x [102:9-102:9] {C:0} {A:{}}
 | | | whiteSpace:   [102:10-102:10] {C:0} {A:{}}
@@ -1743,7 +1774,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 70.70 [102:14-102:18] {C:0} {A:{}}
 | | | newLine: \\\\n [102:19-102:19] {C:0} {A:{}}
 | | | whiteSpace:      [103:1-103:4] {C:0} {A:{}}
-| | | keyword: let [103:5-103:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [103:5-103:7] {C:0} {A:{}}
 | | | whiteSpace:   [103:8-103:8] {C:0} {A:{}}
 | | | identifier: x [103:9-103:9] {C:0} {A:{}}
 | | | whiteSpace:   [103:10-103:10] {C:0} {A:{}}
@@ -1753,7 +1784,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 80.80 [103:14-103:18] {C:0} {A:{}}
 | | | newLine: \\\\n [103:19-103:19] {C:0} {A:{}}
 | | | whiteSpace:      [104:1-104:4] {C:0} {A:{}}
-| | | keyword: let [104:5-104:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [104:5-104:7] {C:0} {A:{}}
 | | | whiteSpace:   [104:8-104:8] {C:0} {A:{}}
 | | | identifier: x [104:9-104:9] {C:0} {A:{}}
 | | | whiteSpace:   [104:10-104:10] {C:0} {A:{}}
@@ -1763,7 +1794,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 90.90 [104:14-104:18] {C:0} {A:{}}
 | | | newLine: \\\\n [104:19-104:19] {C:0} {A:{}}
 | | | whiteSpace:      [105:1-105:4] {C:0} {A:{}}
-| | | keyword: let [105:5-105:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [105:5-105:7] {C:0} {A:{}}
 | | | whiteSpace:   [105:8-105:8] {C:0} {A:{}}
 | | | identifier: x [105:9-105:9] {C:0} {A:{}}
 | | | whiteSpace:   [105:10-105:10] {C:0} {A:{}}
@@ -1773,7 +1804,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 1.001 [105:14-105:18] {C:0} {A:{}}
 | | | newLine: \\\\n [105:19-105:19] {C:0} {A:{}}
 | | | whiteSpace:      [106:1-106:4] {C:0} {A:{}}
-| | | keyword: let [106:5-106:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [106:5-106:7] {C:0} {A:{}}
 | | | whiteSpace:   [106:8-106:8] {C:0} {A:{}}
 | | | identifier: x [106:9-106:9] {C:0} {A:{}}
 | | | whiteSpace:   [106:10-106:10] {C:0} {A:{}}
@@ -1783,7 +1814,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 10.001 [106:14-106:19] {C:0} {A:{}}
 | | | newLine: \\\\n [106:20-106:20] {C:0} {A:{}}
 | | | whiteSpace:      [107:1-107:4] {C:0} {A:{}}
-| | | keyword: let [107:5-107:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [107:5-107:7] {C:0} {A:{}}
 | | | whiteSpace:   [107:8-107:8] {C:0} {A:{}}
 | | | identifier: x [107:9-107:9] {C:0} {A:{}}
 | | | whiteSpace:   [107:10-107:10] {C:0} {A:{}}
@@ -1793,7 +1824,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 100.001 [107:14-107:20] {C:0} {A:{}}
 | | | newLine: \\\\n [107:21-107:21] {C:0} {A:{}}
 | | | whiteSpace:      [108:1-108:4] {C:0} {A:{}}
-| | | keyword: let [108:5-108:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [108:5-108:7] {C:0} {A:{}}
 | | | whiteSpace:   [108:8-108:8] {C:0} {A:{}}
 | | | identifier: x [108:9-108:9] {C:0} {A:{}}
 | | | whiteSpace:   [108:10-108:10] {C:0} {A:{}}
@@ -1803,7 +1834,7 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 1000.001 [108:14-108:21] {C:0} {A:{}}
 | | | newLine: \\\\n [108:22-108:22] {C:0} {A:{}}
 | | | whiteSpace:      [109:1-109:4] {C:0} {A:{}}
-| | | keyword: let [109:5-109:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [109:5-109:7] {C:0} {A:{}}
 | | | whiteSpace:   [109:8-109:8] {C:0} {A:{}}
 | | | identifier: x [109:9-109:9] {C:0} {A:{}}
 | | | whiteSpace:   [109:10-109:10] {C:0} {A:{}}
@@ -1813,9 +1844,9 @@ program:  [1:1-110:13] {C:1} {A:{}}
 | | | number: 10000.001 [109:14-109:22] {C:0} {A:{}}
 | | | newLine: \\\\n [109:23-109:23] {C:0} {A:{}}
 | | endBlock:  [76:1-110:13] {C:1} {A:{}}
-| | | keyword: end [110:1-110:3] {C:0} {A:{}}
+| | | statement: end [110:1-110:3] {C:0} {A:{}}
 | | | whiteSpace:   [110:4-110:4] {C:0} {A:{}}
-| | | keyword: function [110:5-110:12] {C:0} {A:{}}
+| | | statement: function [110:5-110:12] {C:0} {A:{}}
 | | | endLine: - [110:13-110:13] {C:0} {A:{}}
 | | | -newLine: \\\\n [110:13-110:13] {C:0} {A:{}}
 
@@ -1832,123 +1863,123 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\basic/numbers.4gl\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-main
-
-    let x = 0
-    let x = 1
-    let x = 2
-    let x = 3
-    let x = 4
-    let x = 5
-    let x = 6
-    let x = 7
-    let x = 8
-    let x = 9
-    let x = 10
-    let x = 11
-    let x = 12
-    let x = 13
-    let x = 14
-    let x = 15
-    let x = 16
-    let x = 17
-    let x = 18
-    let x = 19
-    let x = 20
-    let x = 30
-    let x = 40
-    let x = 50
-    let x = 60
-    let x = 70
-    let x = 80
-    let x = 90
-    let x = 100
-    let x = 1000
-    let x = 10000
-    let x = 100000
-    let x = 1000000
-    
-
-end main
-
-function f1()
-    let x = 0.0
-    let x = 1.1
-    let x = 2.2
-    let x = 3.3
-    let x = 4.4
-    let x = 5.5
-    let x = 6.6
-    let x = 7.7
-    let x = 8.8
-    let x = 9.9
-    let x = 10.10
-    let x = 11.11
-    let x = 12.12
-    let x = 13.13
-    let x = 14.14
-    let x = 15.15
-    let x = 16.16
-    let x = 17.17
-    let x = 18.18
-    let x = 19.19
-    let x = 20.20
-    let x = 30.30
-    let x = 40.40
-    let x = 50.50
-    let x = 60.60
-    let x = 70.70
-    let x = 80.80
-    let x = 90.90
-    let x = 1.001
-    let x = 10.001
-    let x = 100.001
-    let x = 1000.001
-    let x = 10000.001
-end function
-
-function f2()
-    let x = -0.0
-    let x = -1.1
-    let x = -2.2
-    let x = -3.3
-    let x = -4.4
-    let x = -5.5
-    let x = -6.6
-    let x = -7.7
-    let x = -8.8
-    let x = -9.9
-    let x = -10.10
-    let x = -11.11
-    let x = -12.12
-    let x = -13.13
-    let x = -14.14
-    let x = -15.15
-    let x = -16.16
-    let x = -17.17
-    let x = -18.18
-    let x = -19.19
-    let x = -20.20
-    let x = -30.30
-    let x = -40.40
-    let x = -50.50
-    let x = -60.60
-    let x = -70.70
-    let x = -80.80
-    let x = -90.90
-    let x = -1.001
-    let x = -10.001
-    let x = -100.001
-    let x = -1000.001
-    let x = -10000.001
-end function
-
+001:main
+002:
+003:    let x = 0
+004:    let x = 1
+005:    let x = 2
+006:    let x = 3
+007:    let x = 4
+008:    let x = 5
+009:    let x = 6
+010:    let x = 7
+011:    let x = 8
+012:    let x = 9
+013:    let x = 10
+014:    let x = 11
+015:    let x = 12
+016:    let x = 13
+017:    let x = 14
+018:    let x = 15
+019:    let x = 16
+020:    let x = 17
+021:    let x = 18
+022:    let x = 19
+023:    let x = 20
+024:    let x = 30
+025:    let x = 40
+026:    let x = 50
+027:    let x = 60
+028:    let x = 70
+029:    let x = 80
+030:    let x = 90
+031:    let x = 100
+032:    let x = 1000
+033:    let x = 10000
+034:    let x = 100000
+035:    let x = 1000000
+036:    
+037:
+038:end main
+039:
+040:function f1()
+041:    let x = 0.0
+042:    let x = 1.1
+043:    let x = 2.2
+044:    let x = 3.3
+045:    let x = 4.4
+046:    let x = 5.5
+047:    let x = 6.6
+048:    let x = 7.7
+049:    let x = 8.8
+050:    let x = 9.9
+051:    let x = 10.10
+052:    let x = 11.11
+053:    let x = 12.12
+054:    let x = 13.13
+055:    let x = 14.14
+056:    let x = 15.15
+057:    let x = 16.16
+058:    let x = 17.17
+059:    let x = 18.18
+060:    let x = 19.19
+061:    let x = 20.20
+062:    let x = 30.30
+063:    let x = 40.40
+064:    let x = 50.50
+065:    let x = 60.60
+066:    let x = 70.70
+067:    let x = 80.80
+068:    let x = 90.90
+069:    let x = 1.001
+070:    let x = 10.001
+071:    let x = 100.001
+072:    let x = 1000.001
+073:    let x = 10000.001
+074:end function
+075:
+076:function f2()
+077:    let x = -0.0
+078:    let x = -1.1
+079:    let x = -2.2
+080:    let x = -3.3
+081:    let x = -4.4
+082:    let x = -5.5
+083:    let x = -6.6
+084:    let x = -7.7
+085:    let x = -8.8
+086:    let x = -9.9
+087:    let x = -10.10
+088:    let x = -11.11
+089:    let x = -12.12
+090:    let x = -13.13
+091:    let x = -14.14
+092:    let x = -15.15
+093:    let x = -16.16
+094:    let x = -17.17
+095:    let x = -18.18
+096:    let x = -19.19
+097:    let x = -20.20
+098:    let x = -30.30
+099:    let x = -40.40
+100:    let x = -50.50
+101:    let x = -60.60
+102:    let x = -70.70
+103:    let x = -80.80
+104:    let x = -90.90
+105:    let x = -1.001
+106:    let x = -10.001
+107:    let x = -100.001
+108:    let x = -1000.001
+109:    let x = -10000.001
+110:end function
+111:
 =====================================output=====================================
 token:  [1:1-110:13] {C:1} {A:{}}
-| keyword: main [1:1-1:4] {C:0} {A:{\\"statement\\":true}}
+| statement: main [1:1-1:4] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [1:5-1:6] {C:0} {A:{}}
 | whiteSpace:      [3:1-3:4] {C:0} {A:{}}
-| keyword: let [3:5-3:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [3:5-3:7] {C:0} {A:{}}
 | whiteSpace:   [3:8-3:8] {C:0} {A:{}}
 | identifier: x [3:9-3:9] {C:0} {A:{}}
 | whiteSpace:   [3:10-3:10] {C:0} {A:{}}
@@ -1957,7 +1988,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 0 [3:13-3:13] {C:0} {A:{}}
 | newLine: \\\\n [3:14-3:14] {C:0} {A:{}}
 | whiteSpace:      [4:1-4:4] {C:0} {A:{}}
-| keyword: let [4:5-4:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [4:5-4:7] {C:0} {A:{}}
 | whiteSpace:   [4:8-4:8] {C:0} {A:{}}
 | identifier: x [4:9-4:9] {C:0} {A:{}}
 | whiteSpace:   [4:10-4:10] {C:0} {A:{}}
@@ -1966,7 +1997,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 1 [4:13-4:13] {C:0} {A:{}}
 | newLine: \\\\n [4:14-4:14] {C:0} {A:{}}
 | whiteSpace:      [5:1-5:4] {C:0} {A:{}}
-| keyword: let [5:5-5:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [5:5-5:7] {C:0} {A:{}}
 | whiteSpace:   [5:8-5:8] {C:0} {A:{}}
 | identifier: x [5:9-5:9] {C:0} {A:{}}
 | whiteSpace:   [5:10-5:10] {C:0} {A:{}}
@@ -1975,7 +2006,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 2 [5:13-5:13] {C:0} {A:{}}
 | newLine: \\\\n [5:14-5:14] {C:0} {A:{}}
 | whiteSpace:      [6:1-6:4] {C:0} {A:{}}
-| keyword: let [6:5-6:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [6:5-6:7] {C:0} {A:{}}
 | whiteSpace:   [6:8-6:8] {C:0} {A:{}}
 | identifier: x [6:9-6:9] {C:0} {A:{}}
 | whiteSpace:   [6:10-6:10] {C:0} {A:{}}
@@ -1984,7 +2015,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 3 [6:13-6:13] {C:0} {A:{}}
 | newLine: \\\\n [6:14-6:14] {C:0} {A:{}}
 | whiteSpace:      [7:1-7:4] {C:0} {A:{}}
-| keyword: let [7:5-7:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [7:5-7:7] {C:0} {A:{}}
 | whiteSpace:   [7:8-7:8] {C:0} {A:{}}
 | identifier: x [7:9-7:9] {C:0} {A:{}}
 | whiteSpace:   [7:10-7:10] {C:0} {A:{}}
@@ -1993,7 +2024,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 4 [7:13-7:13] {C:0} {A:{}}
 | newLine: \\\\n [7:14-7:14] {C:0} {A:{}}
 | whiteSpace:      [8:1-8:4] {C:0} {A:{}}
-| keyword: let [8:5-8:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [8:5-8:7] {C:0} {A:{}}
 | whiteSpace:   [8:8-8:8] {C:0} {A:{}}
 | identifier: x [8:9-8:9] {C:0} {A:{}}
 | whiteSpace:   [8:10-8:10] {C:0} {A:{}}
@@ -2002,7 +2033,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 5 [8:13-8:13] {C:0} {A:{}}
 | newLine: \\\\n [8:14-8:14] {C:0} {A:{}}
 | whiteSpace:      [9:1-9:4] {C:0} {A:{}}
-| keyword: let [9:5-9:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [9:5-9:7] {C:0} {A:{}}
 | whiteSpace:   [9:8-9:8] {C:0} {A:{}}
 | identifier: x [9:9-9:9] {C:0} {A:{}}
 | whiteSpace:   [9:10-9:10] {C:0} {A:{}}
@@ -2011,7 +2042,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 6 [9:13-9:13] {C:0} {A:{}}
 | newLine: \\\\n [9:14-9:14] {C:0} {A:{}}
 | whiteSpace:      [10:1-10:4] {C:0} {A:{}}
-| keyword: let [10:5-10:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [10:5-10:7] {C:0} {A:{}}
 | whiteSpace:   [10:8-10:8] {C:0} {A:{}}
 | identifier: x [10:9-10:9] {C:0} {A:{}}
 | whiteSpace:   [10:10-10:10] {C:0} {A:{}}
@@ -2020,7 +2051,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 7 [10:13-10:13] {C:0} {A:{}}
 | newLine: \\\\n [10:14-10:14] {C:0} {A:{}}
 | whiteSpace:      [11:1-11:4] {C:0} {A:{}}
-| keyword: let [11:5-11:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [11:5-11:7] {C:0} {A:{}}
 | whiteSpace:   [11:8-11:8] {C:0} {A:{}}
 | identifier: x [11:9-11:9] {C:0} {A:{}}
 | whiteSpace:   [11:10-11:10] {C:0} {A:{}}
@@ -2029,7 +2060,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 8 [11:13-11:13] {C:0} {A:{}}
 | newLine: \\\\n [11:14-11:14] {C:0} {A:{}}
 | whiteSpace:      [12:1-12:4] {C:0} {A:{}}
-| keyword: let [12:5-12:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [12:5-12:7] {C:0} {A:{}}
 | whiteSpace:   [12:8-12:8] {C:0} {A:{}}
 | identifier: x [12:9-12:9] {C:0} {A:{}}
 | whiteSpace:   [12:10-12:10] {C:0} {A:{}}
@@ -2038,7 +2069,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 9 [12:13-12:13] {C:0} {A:{}}
 | newLine: \\\\n [12:14-12:14] {C:0} {A:{}}
 | whiteSpace:      [13:1-13:4] {C:0} {A:{}}
-| keyword: let [13:5-13:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [13:5-13:7] {C:0} {A:{}}
 | whiteSpace:   [13:8-13:8] {C:0} {A:{}}
 | identifier: x [13:9-13:9] {C:0} {A:{}}
 | whiteSpace:   [13:10-13:10] {C:0} {A:{}}
@@ -2047,7 +2078,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 10 [13:13-13:14] {C:0} {A:{}}
 | newLine: \\\\n [13:15-13:15] {C:0} {A:{}}
 | whiteSpace:      [14:1-14:4] {C:0} {A:{}}
-| keyword: let [14:5-14:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [14:5-14:7] {C:0} {A:{}}
 | whiteSpace:   [14:8-14:8] {C:0} {A:{}}
 | identifier: x [14:9-14:9] {C:0} {A:{}}
 | whiteSpace:   [14:10-14:10] {C:0} {A:{}}
@@ -2056,7 +2087,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 11 [14:13-14:14] {C:0} {A:{}}
 | newLine: \\\\n [14:15-14:15] {C:0} {A:{}}
 | whiteSpace:      [15:1-15:4] {C:0} {A:{}}
-| keyword: let [15:5-15:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [15:5-15:7] {C:0} {A:{}}
 | whiteSpace:   [15:8-15:8] {C:0} {A:{}}
 | identifier: x [15:9-15:9] {C:0} {A:{}}
 | whiteSpace:   [15:10-15:10] {C:0} {A:{}}
@@ -2065,7 +2096,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 12 [15:13-15:14] {C:0} {A:{}}
 | newLine: \\\\n [15:15-15:15] {C:0} {A:{}}
 | whiteSpace:      [16:1-16:4] {C:0} {A:{}}
-| keyword: let [16:5-16:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [16:5-16:7] {C:0} {A:{}}
 | whiteSpace:   [16:8-16:8] {C:0} {A:{}}
 | identifier: x [16:9-16:9] {C:0} {A:{}}
 | whiteSpace:   [16:10-16:10] {C:0} {A:{}}
@@ -2074,7 +2105,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 13 [16:13-16:14] {C:0} {A:{}}
 | newLine: \\\\n [16:15-16:15] {C:0} {A:{}}
 | whiteSpace:      [17:1-17:4] {C:0} {A:{}}
-| keyword: let [17:5-17:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [17:5-17:7] {C:0} {A:{}}
 | whiteSpace:   [17:8-17:8] {C:0} {A:{}}
 | identifier: x [17:9-17:9] {C:0} {A:{}}
 | whiteSpace:   [17:10-17:10] {C:0} {A:{}}
@@ -2083,7 +2114,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 14 [17:13-17:14] {C:0} {A:{}}
 | newLine: \\\\n [17:15-17:15] {C:0} {A:{}}
 | whiteSpace:      [18:1-18:4] {C:0} {A:{}}
-| keyword: let [18:5-18:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [18:5-18:7] {C:0} {A:{}}
 | whiteSpace:   [18:8-18:8] {C:0} {A:{}}
 | identifier: x [18:9-18:9] {C:0} {A:{}}
 | whiteSpace:   [18:10-18:10] {C:0} {A:{}}
@@ -2092,7 +2123,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 15 [18:13-18:14] {C:0} {A:{}}
 | newLine: \\\\n [18:15-18:15] {C:0} {A:{}}
 | whiteSpace:      [19:1-19:4] {C:0} {A:{}}
-| keyword: let [19:5-19:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [19:5-19:7] {C:0} {A:{}}
 | whiteSpace:   [19:8-19:8] {C:0} {A:{}}
 | identifier: x [19:9-19:9] {C:0} {A:{}}
 | whiteSpace:   [19:10-19:10] {C:0} {A:{}}
@@ -2101,7 +2132,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 16 [19:13-19:14] {C:0} {A:{}}
 | newLine: \\\\n [19:15-19:15] {C:0} {A:{}}
 | whiteSpace:      [20:1-20:4] {C:0} {A:{}}
-| keyword: let [20:5-20:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [20:5-20:7] {C:0} {A:{}}
 | whiteSpace:   [20:8-20:8] {C:0} {A:{}}
 | identifier: x [20:9-20:9] {C:0} {A:{}}
 | whiteSpace:   [20:10-20:10] {C:0} {A:{}}
@@ -2110,7 +2141,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 17 [20:13-20:14] {C:0} {A:{}}
 | newLine: \\\\n [20:15-20:15] {C:0} {A:{}}
 | whiteSpace:      [21:1-21:4] {C:0} {A:{}}
-| keyword: let [21:5-21:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [21:5-21:7] {C:0} {A:{}}
 | whiteSpace:   [21:8-21:8] {C:0} {A:{}}
 | identifier: x [21:9-21:9] {C:0} {A:{}}
 | whiteSpace:   [21:10-21:10] {C:0} {A:{}}
@@ -2119,7 +2150,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 18 [21:13-21:14] {C:0} {A:{}}
 | newLine: \\\\n [21:15-21:15] {C:0} {A:{}}
 | whiteSpace:      [22:1-22:4] {C:0} {A:{}}
-| keyword: let [22:5-22:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [22:5-22:7] {C:0} {A:{}}
 | whiteSpace:   [22:8-22:8] {C:0} {A:{}}
 | identifier: x [22:9-22:9] {C:0} {A:{}}
 | whiteSpace:   [22:10-22:10] {C:0} {A:{}}
@@ -2128,7 +2159,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 19 [22:13-22:14] {C:0} {A:{}}
 | newLine: \\\\n [22:15-22:15] {C:0} {A:{}}
 | whiteSpace:      [23:1-23:4] {C:0} {A:{}}
-| keyword: let [23:5-23:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [23:5-23:7] {C:0} {A:{}}
 | whiteSpace:   [23:8-23:8] {C:0} {A:{}}
 | identifier: x [23:9-23:9] {C:0} {A:{}}
 | whiteSpace:   [23:10-23:10] {C:0} {A:{}}
@@ -2137,7 +2168,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 20 [23:13-23:14] {C:0} {A:{}}
 | newLine: \\\\n [23:15-23:15] {C:0} {A:{}}
 | whiteSpace:      [24:1-24:4] {C:0} {A:{}}
-| keyword: let [24:5-24:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [24:5-24:7] {C:0} {A:{}}
 | whiteSpace:   [24:8-24:8] {C:0} {A:{}}
 | identifier: x [24:9-24:9] {C:0} {A:{}}
 | whiteSpace:   [24:10-24:10] {C:0} {A:{}}
@@ -2146,7 +2177,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 30 [24:13-24:14] {C:0} {A:{}}
 | newLine: \\\\n [24:15-24:15] {C:0} {A:{}}
 | whiteSpace:      [25:1-25:4] {C:0} {A:{}}
-| keyword: let [25:5-25:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [25:5-25:7] {C:0} {A:{}}
 | whiteSpace:   [25:8-25:8] {C:0} {A:{}}
 | identifier: x [25:9-25:9] {C:0} {A:{}}
 | whiteSpace:   [25:10-25:10] {C:0} {A:{}}
@@ -2155,7 +2186,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 40 [25:13-25:14] {C:0} {A:{}}
 | newLine: \\\\n [25:15-25:15] {C:0} {A:{}}
 | whiteSpace:      [26:1-26:4] {C:0} {A:{}}
-| keyword: let [26:5-26:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [26:5-26:7] {C:0} {A:{}}
 | whiteSpace:   [26:8-26:8] {C:0} {A:{}}
 | identifier: x [26:9-26:9] {C:0} {A:{}}
 | whiteSpace:   [26:10-26:10] {C:0} {A:{}}
@@ -2164,7 +2195,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 50 [26:13-26:14] {C:0} {A:{}}
 | newLine: \\\\n [26:15-26:15] {C:0} {A:{}}
 | whiteSpace:      [27:1-27:4] {C:0} {A:{}}
-| keyword: let [27:5-27:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [27:5-27:7] {C:0} {A:{}}
 | whiteSpace:   [27:8-27:8] {C:0} {A:{}}
 | identifier: x [27:9-27:9] {C:0} {A:{}}
 | whiteSpace:   [27:10-27:10] {C:0} {A:{}}
@@ -2173,7 +2204,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 60 [27:13-27:14] {C:0} {A:{}}
 | newLine: \\\\n [27:15-27:15] {C:0} {A:{}}
 | whiteSpace:      [28:1-28:4] {C:0} {A:{}}
-| keyword: let [28:5-28:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [28:5-28:7] {C:0} {A:{}}
 | whiteSpace:   [28:8-28:8] {C:0} {A:{}}
 | identifier: x [28:9-28:9] {C:0} {A:{}}
 | whiteSpace:   [28:10-28:10] {C:0} {A:{}}
@@ -2182,7 +2213,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 70 [28:13-28:14] {C:0} {A:{}}
 | newLine: \\\\n [28:15-28:15] {C:0} {A:{}}
 | whiteSpace:      [29:1-29:4] {C:0} {A:{}}
-| keyword: let [29:5-29:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [29:5-29:7] {C:0} {A:{}}
 | whiteSpace:   [29:8-29:8] {C:0} {A:{}}
 | identifier: x [29:9-29:9] {C:0} {A:{}}
 | whiteSpace:   [29:10-29:10] {C:0} {A:{}}
@@ -2191,7 +2222,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 80 [29:13-29:14] {C:0} {A:{}}
 | newLine: \\\\n [29:15-29:15] {C:0} {A:{}}
 | whiteSpace:      [30:1-30:4] {C:0} {A:{}}
-| keyword: let [30:5-30:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [30:5-30:7] {C:0} {A:{}}
 | whiteSpace:   [30:8-30:8] {C:0} {A:{}}
 | identifier: x [30:9-30:9] {C:0} {A:{}}
 | whiteSpace:   [30:10-30:10] {C:0} {A:{}}
@@ -2200,7 +2231,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 90 [30:13-30:14] {C:0} {A:{}}
 | newLine: \\\\n [30:15-30:15] {C:0} {A:{}}
 | whiteSpace:      [31:1-31:4] {C:0} {A:{}}
-| keyword: let [31:5-31:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [31:5-31:7] {C:0} {A:{}}
 | whiteSpace:   [31:8-31:8] {C:0} {A:{}}
 | identifier: x [31:9-31:9] {C:0} {A:{}}
 | whiteSpace:   [31:10-31:10] {C:0} {A:{}}
@@ -2209,7 +2240,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 100 [31:13-31:15] {C:0} {A:{}}
 | newLine: \\\\n [31:16-31:16] {C:0} {A:{}}
 | whiteSpace:      [32:1-32:4] {C:0} {A:{}}
-| keyword: let [32:5-32:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [32:5-32:7] {C:0} {A:{}}
 | whiteSpace:   [32:8-32:8] {C:0} {A:{}}
 | identifier: x [32:9-32:9] {C:0} {A:{}}
 | whiteSpace:   [32:10-32:10] {C:0} {A:{}}
@@ -2218,7 +2249,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 1000 [32:13-32:16] {C:0} {A:{}}
 | newLine: \\\\n [32:17-32:17] {C:0} {A:{}}
 | whiteSpace:      [33:1-33:4] {C:0} {A:{}}
-| keyword: let [33:5-33:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [33:5-33:7] {C:0} {A:{}}
 | whiteSpace:   [33:8-33:8] {C:0} {A:{}}
 | identifier: x [33:9-33:9] {C:0} {A:{}}
 | whiteSpace:   [33:10-33:10] {C:0} {A:{}}
@@ -2227,7 +2258,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 10000 [33:13-33:17] {C:0} {A:{}}
 | newLine: \\\\n [33:18-33:18] {C:0} {A:{}}
 | whiteSpace:      [34:1-34:4] {C:0} {A:{}}
-| keyword: let [34:5-34:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [34:5-34:7] {C:0} {A:{}}
 | whiteSpace:   [34:8-34:8] {C:0} {A:{}}
 | identifier: x [34:9-34:9] {C:0} {A:{}}
 | whiteSpace:   [34:10-34:10] {C:0} {A:{}}
@@ -2236,7 +2267,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 100000 [34:13-34:18] {C:0} {A:{}}
 | newLine: \\\\n [34:19-34:19] {C:0} {A:{}}
 | whiteSpace:      [35:1-35:4] {C:0} {A:{}}
-| keyword: let [35:5-35:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [35:5-35:7] {C:0} {A:{}}
 | whiteSpace:   [35:8-35:8] {C:0} {A:{}}
 | identifier: x [35:9-35:9] {C:0} {A:{}}
 | whiteSpace:   [35:10-35:10] {C:0} {A:{}}
@@ -2246,18 +2277,18 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | newLine: \\\\n [35:20-35:20] {C:0} {A:{}}
 | whiteSpace:      [36:1-36:4] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [36:5-36:6] {C:0} {A:{}}
-| keyword: end [38:1-38:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [38:1-38:3] {C:0} {A:{}}
 | whiteSpace:   [38:4-38:4] {C:0} {A:{}}
-| keyword: main [38:5-38:8] {C:0} {A:{\\"statement\\":true}}
+| statement: main [38:5-38:8] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [38:9-38:10] {C:0} {A:{}}
-| keyword: function [40:1-40:8] {C:0} {A:{\\"statement\\":true}}
+| statement: function [40:1-40:8] {C:0} {A:{}}
 | whiteSpace:   [40:9-40:9] {C:0} {A:{}}
 | identifier: f1 [40:10-40:11] {C:0} {A:{}}
 | operatorParenthesis: ( [40:12-40:12] {C:0} {A:{}}
 | operatorParenthesis: ) [40:13-40:13] {C:0} {A:{}}
 | newLine: \\\\n [40:14-40:14] {C:0} {A:{}}
 | whiteSpace:      [41:1-41:4] {C:0} {A:{}}
-| keyword: let [41:5-41:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [41:5-41:7] {C:0} {A:{}}
 | whiteSpace:   [41:8-41:8] {C:0} {A:{}}
 | identifier: x [41:9-41:9] {C:0} {A:{}}
 | whiteSpace:   [41:10-41:10] {C:0} {A:{}}
@@ -2266,7 +2297,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 0.0 [41:13-41:15] {C:0} {A:{}}
 | newLine: \\\\n [41:16-41:16] {C:0} {A:{}}
 | whiteSpace:      [42:1-42:4] {C:0} {A:{}}
-| keyword: let [42:5-42:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [42:5-42:7] {C:0} {A:{}}
 | whiteSpace:   [42:8-42:8] {C:0} {A:{}}
 | identifier: x [42:9-42:9] {C:0} {A:{}}
 | whiteSpace:   [42:10-42:10] {C:0} {A:{}}
@@ -2275,7 +2306,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 1.1 [42:13-42:15] {C:0} {A:{}}
 | newLine: \\\\n [42:16-42:16] {C:0} {A:{}}
 | whiteSpace:      [43:1-43:4] {C:0} {A:{}}
-| keyword: let [43:5-43:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [43:5-43:7] {C:0} {A:{}}
 | whiteSpace:   [43:8-43:8] {C:0} {A:{}}
 | identifier: x [43:9-43:9] {C:0} {A:{}}
 | whiteSpace:   [43:10-43:10] {C:0} {A:{}}
@@ -2284,7 +2315,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 2.2 [43:13-43:15] {C:0} {A:{}}
 | newLine: \\\\n [43:16-43:16] {C:0} {A:{}}
 | whiteSpace:      [44:1-44:4] {C:0} {A:{}}
-| keyword: let [44:5-44:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [44:5-44:7] {C:0} {A:{}}
 | whiteSpace:   [44:8-44:8] {C:0} {A:{}}
 | identifier: x [44:9-44:9] {C:0} {A:{}}
 | whiteSpace:   [44:10-44:10] {C:0} {A:{}}
@@ -2293,7 +2324,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 3.3 [44:13-44:15] {C:0} {A:{}}
 | newLine: \\\\n [44:16-44:16] {C:0} {A:{}}
 | whiteSpace:      [45:1-45:4] {C:0} {A:{}}
-| keyword: let [45:5-45:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [45:5-45:7] {C:0} {A:{}}
 | whiteSpace:   [45:8-45:8] {C:0} {A:{}}
 | identifier: x [45:9-45:9] {C:0} {A:{}}
 | whiteSpace:   [45:10-45:10] {C:0} {A:{}}
@@ -2302,7 +2333,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 4.4 [45:13-45:15] {C:0} {A:{}}
 | newLine: \\\\n [45:16-45:16] {C:0} {A:{}}
 | whiteSpace:      [46:1-46:4] {C:0} {A:{}}
-| keyword: let [46:5-46:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [46:5-46:7] {C:0} {A:{}}
 | whiteSpace:   [46:8-46:8] {C:0} {A:{}}
 | identifier: x [46:9-46:9] {C:0} {A:{}}
 | whiteSpace:   [46:10-46:10] {C:0} {A:{}}
@@ -2311,7 +2342,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 5.5 [46:13-46:15] {C:0} {A:{}}
 | newLine: \\\\n [46:16-46:16] {C:0} {A:{}}
 | whiteSpace:      [47:1-47:4] {C:0} {A:{}}
-| keyword: let [47:5-47:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [47:5-47:7] {C:0} {A:{}}
 | whiteSpace:   [47:8-47:8] {C:0} {A:{}}
 | identifier: x [47:9-47:9] {C:0} {A:{}}
 | whiteSpace:   [47:10-47:10] {C:0} {A:{}}
@@ -2320,7 +2351,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 6.6 [47:13-47:15] {C:0} {A:{}}
 | newLine: \\\\n [47:16-47:16] {C:0} {A:{}}
 | whiteSpace:      [48:1-48:4] {C:0} {A:{}}
-| keyword: let [48:5-48:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [48:5-48:7] {C:0} {A:{}}
 | whiteSpace:   [48:8-48:8] {C:0} {A:{}}
 | identifier: x [48:9-48:9] {C:0} {A:{}}
 | whiteSpace:   [48:10-48:10] {C:0} {A:{}}
@@ -2329,7 +2360,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 7.7 [48:13-48:15] {C:0} {A:{}}
 | newLine: \\\\n [48:16-48:16] {C:0} {A:{}}
 | whiteSpace:      [49:1-49:4] {C:0} {A:{}}
-| keyword: let [49:5-49:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [49:5-49:7] {C:0} {A:{}}
 | whiteSpace:   [49:8-49:8] {C:0} {A:{}}
 | identifier: x [49:9-49:9] {C:0} {A:{}}
 | whiteSpace:   [49:10-49:10] {C:0} {A:{}}
@@ -2338,7 +2369,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 8.8 [49:13-49:15] {C:0} {A:{}}
 | newLine: \\\\n [49:16-49:16] {C:0} {A:{}}
 | whiteSpace:      [50:1-50:4] {C:0} {A:{}}
-| keyword: let [50:5-50:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [50:5-50:7] {C:0} {A:{}}
 | whiteSpace:   [50:8-50:8] {C:0} {A:{}}
 | identifier: x [50:9-50:9] {C:0} {A:{}}
 | whiteSpace:   [50:10-50:10] {C:0} {A:{}}
@@ -2347,7 +2378,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 9.9 [50:13-50:15] {C:0} {A:{}}
 | newLine: \\\\n [50:16-50:16] {C:0} {A:{}}
 | whiteSpace:      [51:1-51:4] {C:0} {A:{}}
-| keyword: let [51:5-51:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [51:5-51:7] {C:0} {A:{}}
 | whiteSpace:   [51:8-51:8] {C:0} {A:{}}
 | identifier: x [51:9-51:9] {C:0} {A:{}}
 | whiteSpace:   [51:10-51:10] {C:0} {A:{}}
@@ -2356,7 +2387,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 10.10 [51:13-51:17] {C:0} {A:{}}
 | newLine: \\\\n [51:18-51:18] {C:0} {A:{}}
 | whiteSpace:      [52:1-52:4] {C:0} {A:{}}
-| keyword: let [52:5-52:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [52:5-52:7] {C:0} {A:{}}
 | whiteSpace:   [52:8-52:8] {C:0} {A:{}}
 | identifier: x [52:9-52:9] {C:0} {A:{}}
 | whiteSpace:   [52:10-52:10] {C:0} {A:{}}
@@ -2365,7 +2396,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 11.11 [52:13-52:17] {C:0} {A:{}}
 | newLine: \\\\n [52:18-52:18] {C:0} {A:{}}
 | whiteSpace:      [53:1-53:4] {C:0} {A:{}}
-| keyword: let [53:5-53:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [53:5-53:7] {C:0} {A:{}}
 | whiteSpace:   [53:8-53:8] {C:0} {A:{}}
 | identifier: x [53:9-53:9] {C:0} {A:{}}
 | whiteSpace:   [53:10-53:10] {C:0} {A:{}}
@@ -2374,7 +2405,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 12.12 [53:13-53:17] {C:0} {A:{}}
 | newLine: \\\\n [53:18-53:18] {C:0} {A:{}}
 | whiteSpace:      [54:1-54:4] {C:0} {A:{}}
-| keyword: let [54:5-54:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [54:5-54:7] {C:0} {A:{}}
 | whiteSpace:   [54:8-54:8] {C:0} {A:{}}
 | identifier: x [54:9-54:9] {C:0} {A:{}}
 | whiteSpace:   [54:10-54:10] {C:0} {A:{}}
@@ -2383,7 +2414,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 13.13 [54:13-54:17] {C:0} {A:{}}
 | newLine: \\\\n [54:18-54:18] {C:0} {A:{}}
 | whiteSpace:      [55:1-55:4] {C:0} {A:{}}
-| keyword: let [55:5-55:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [55:5-55:7] {C:0} {A:{}}
 | whiteSpace:   [55:8-55:8] {C:0} {A:{}}
 | identifier: x [55:9-55:9] {C:0} {A:{}}
 | whiteSpace:   [55:10-55:10] {C:0} {A:{}}
@@ -2392,7 +2423,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 14.14 [55:13-55:17] {C:0} {A:{}}
 | newLine: \\\\n [55:18-55:18] {C:0} {A:{}}
 | whiteSpace:      [56:1-56:4] {C:0} {A:{}}
-| keyword: let [56:5-56:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [56:5-56:7] {C:0} {A:{}}
 | whiteSpace:   [56:8-56:8] {C:0} {A:{}}
 | identifier: x [56:9-56:9] {C:0} {A:{}}
 | whiteSpace:   [56:10-56:10] {C:0} {A:{}}
@@ -2401,7 +2432,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 15.15 [56:13-56:17] {C:0} {A:{}}
 | newLine: \\\\n [56:18-56:18] {C:0} {A:{}}
 | whiteSpace:      [57:1-57:4] {C:0} {A:{}}
-| keyword: let [57:5-57:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [57:5-57:7] {C:0} {A:{}}
 | whiteSpace:   [57:8-57:8] {C:0} {A:{}}
 | identifier: x [57:9-57:9] {C:0} {A:{}}
 | whiteSpace:   [57:10-57:10] {C:0} {A:{}}
@@ -2410,7 +2441,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 16.16 [57:13-57:17] {C:0} {A:{}}
 | newLine: \\\\n [57:18-57:18] {C:0} {A:{}}
 | whiteSpace:      [58:1-58:4] {C:0} {A:{}}
-| keyword: let [58:5-58:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [58:5-58:7] {C:0} {A:{}}
 | whiteSpace:   [58:8-58:8] {C:0} {A:{}}
 | identifier: x [58:9-58:9] {C:0} {A:{}}
 | whiteSpace:   [58:10-58:10] {C:0} {A:{}}
@@ -2419,7 +2450,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 17.17 [58:13-58:17] {C:0} {A:{}}
 | newLine: \\\\n [58:18-58:18] {C:0} {A:{}}
 | whiteSpace:      [59:1-59:4] {C:0} {A:{}}
-| keyword: let [59:5-59:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [59:5-59:7] {C:0} {A:{}}
 | whiteSpace:   [59:8-59:8] {C:0} {A:{}}
 | identifier: x [59:9-59:9] {C:0} {A:{}}
 | whiteSpace:   [59:10-59:10] {C:0} {A:{}}
@@ -2428,7 +2459,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 18.18 [59:13-59:17] {C:0} {A:{}}
 | newLine: \\\\n [59:18-59:18] {C:0} {A:{}}
 | whiteSpace:      [60:1-60:4] {C:0} {A:{}}
-| keyword: let [60:5-60:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [60:5-60:7] {C:0} {A:{}}
 | whiteSpace:   [60:8-60:8] {C:0} {A:{}}
 | identifier: x [60:9-60:9] {C:0} {A:{}}
 | whiteSpace:   [60:10-60:10] {C:0} {A:{}}
@@ -2437,7 +2468,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 19.19 [60:13-60:17] {C:0} {A:{}}
 | newLine: \\\\n [60:18-60:18] {C:0} {A:{}}
 | whiteSpace:      [61:1-61:4] {C:0} {A:{}}
-| keyword: let [61:5-61:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [61:5-61:7] {C:0} {A:{}}
 | whiteSpace:   [61:8-61:8] {C:0} {A:{}}
 | identifier: x [61:9-61:9] {C:0} {A:{}}
 | whiteSpace:   [61:10-61:10] {C:0} {A:{}}
@@ -2446,7 +2477,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 20.20 [61:13-61:17] {C:0} {A:{}}
 | newLine: \\\\n [61:18-61:18] {C:0} {A:{}}
 | whiteSpace:      [62:1-62:4] {C:0} {A:{}}
-| keyword: let [62:5-62:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [62:5-62:7] {C:0} {A:{}}
 | whiteSpace:   [62:8-62:8] {C:0} {A:{}}
 | identifier: x [62:9-62:9] {C:0} {A:{}}
 | whiteSpace:   [62:10-62:10] {C:0} {A:{}}
@@ -2455,7 +2486,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 30.30 [62:13-62:17] {C:0} {A:{}}
 | newLine: \\\\n [62:18-62:18] {C:0} {A:{}}
 | whiteSpace:      [63:1-63:4] {C:0} {A:{}}
-| keyword: let [63:5-63:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [63:5-63:7] {C:0} {A:{}}
 | whiteSpace:   [63:8-63:8] {C:0} {A:{}}
 | identifier: x [63:9-63:9] {C:0} {A:{}}
 | whiteSpace:   [63:10-63:10] {C:0} {A:{}}
@@ -2464,7 +2495,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 40.40 [63:13-63:17] {C:0} {A:{}}
 | newLine: \\\\n [63:18-63:18] {C:0} {A:{}}
 | whiteSpace:      [64:1-64:4] {C:0} {A:{}}
-| keyword: let [64:5-64:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [64:5-64:7] {C:0} {A:{}}
 | whiteSpace:   [64:8-64:8] {C:0} {A:{}}
 | identifier: x [64:9-64:9] {C:0} {A:{}}
 | whiteSpace:   [64:10-64:10] {C:0} {A:{}}
@@ -2473,7 +2504,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 50.50 [64:13-64:17] {C:0} {A:{}}
 | newLine: \\\\n [64:18-64:18] {C:0} {A:{}}
 | whiteSpace:      [65:1-65:4] {C:0} {A:{}}
-| keyword: let [65:5-65:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [65:5-65:7] {C:0} {A:{}}
 | whiteSpace:   [65:8-65:8] {C:0} {A:{}}
 | identifier: x [65:9-65:9] {C:0} {A:{}}
 | whiteSpace:   [65:10-65:10] {C:0} {A:{}}
@@ -2482,7 +2513,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 60.60 [65:13-65:17] {C:0} {A:{}}
 | newLine: \\\\n [65:18-65:18] {C:0} {A:{}}
 | whiteSpace:      [66:1-66:4] {C:0} {A:{}}
-| keyword: let [66:5-66:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [66:5-66:7] {C:0} {A:{}}
 | whiteSpace:   [66:8-66:8] {C:0} {A:{}}
 | identifier: x [66:9-66:9] {C:0} {A:{}}
 | whiteSpace:   [66:10-66:10] {C:0} {A:{}}
@@ -2491,7 +2522,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 70.70 [66:13-66:17] {C:0} {A:{}}
 | newLine: \\\\n [66:18-66:18] {C:0} {A:{}}
 | whiteSpace:      [67:1-67:4] {C:0} {A:{}}
-| keyword: let [67:5-67:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [67:5-67:7] {C:0} {A:{}}
 | whiteSpace:   [67:8-67:8] {C:0} {A:{}}
 | identifier: x [67:9-67:9] {C:0} {A:{}}
 | whiteSpace:   [67:10-67:10] {C:0} {A:{}}
@@ -2500,7 +2531,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 80.80 [67:13-67:17] {C:0} {A:{}}
 | newLine: \\\\n [67:18-67:18] {C:0} {A:{}}
 | whiteSpace:      [68:1-68:4] {C:0} {A:{}}
-| keyword: let [68:5-68:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [68:5-68:7] {C:0} {A:{}}
 | whiteSpace:   [68:8-68:8] {C:0} {A:{}}
 | identifier: x [68:9-68:9] {C:0} {A:{}}
 | whiteSpace:   [68:10-68:10] {C:0} {A:{}}
@@ -2509,7 +2540,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 90.90 [68:13-68:17] {C:0} {A:{}}
 | newLine: \\\\n [68:18-68:18] {C:0} {A:{}}
 | whiteSpace:      [69:1-69:4] {C:0} {A:{}}
-| keyword: let [69:5-69:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [69:5-69:7] {C:0} {A:{}}
 | whiteSpace:   [69:8-69:8] {C:0} {A:{}}
 | identifier: x [69:9-69:9] {C:0} {A:{}}
 | whiteSpace:   [69:10-69:10] {C:0} {A:{}}
@@ -2518,7 +2549,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 1.001 [69:13-69:17] {C:0} {A:{}}
 | newLine: \\\\n [69:18-69:18] {C:0} {A:{}}
 | whiteSpace:      [70:1-70:4] {C:0} {A:{}}
-| keyword: let [70:5-70:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [70:5-70:7] {C:0} {A:{}}
 | whiteSpace:   [70:8-70:8] {C:0} {A:{}}
 | identifier: x [70:9-70:9] {C:0} {A:{}}
 | whiteSpace:   [70:10-70:10] {C:0} {A:{}}
@@ -2527,7 +2558,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 10.001 [70:13-70:18] {C:0} {A:{}}
 | newLine: \\\\n [70:19-70:19] {C:0} {A:{}}
 | whiteSpace:      [71:1-71:4] {C:0} {A:{}}
-| keyword: let [71:5-71:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [71:5-71:7] {C:0} {A:{}}
 | whiteSpace:   [71:8-71:8] {C:0} {A:{}}
 | identifier: x [71:9-71:9] {C:0} {A:{}}
 | whiteSpace:   [71:10-71:10] {C:0} {A:{}}
@@ -2536,7 +2567,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 100.001 [71:13-71:19] {C:0} {A:{}}
 | newLine: \\\\n [71:20-71:20] {C:0} {A:{}}
 | whiteSpace:      [72:1-72:4] {C:0} {A:{}}
-| keyword: let [72:5-72:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [72:5-72:7] {C:0} {A:{}}
 | whiteSpace:   [72:8-72:8] {C:0} {A:{}}
 | identifier: x [72:9-72:9] {C:0} {A:{}}
 | whiteSpace:   [72:10-72:10] {C:0} {A:{}}
@@ -2545,7 +2576,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 1000.001 [72:13-72:20] {C:0} {A:{}}
 | newLine: \\\\n [72:21-72:21] {C:0} {A:{}}
 | whiteSpace:      [73:1-73:4] {C:0} {A:{}}
-| keyword: let [73:5-73:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [73:5-73:7] {C:0} {A:{}}
 | whiteSpace:   [73:8-73:8] {C:0} {A:{}}
 | identifier: x [73:9-73:9] {C:0} {A:{}}
 | whiteSpace:   [73:10-73:10] {C:0} {A:{}}
@@ -2553,18 +2584,18 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | whiteSpace:   [73:12-73:12] {C:0} {A:{}}
 | number: 10000.001 [73:13-73:21] {C:0} {A:{}}
 | newLine: \\\\n [73:22-73:22] {C:0} {A:{}}
-| keyword: end [74:1-74:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [74:1-74:3] {C:0} {A:{}}
 | whiteSpace:   [74:4-74:4] {C:0} {A:{}}
-| keyword: function [74:5-74:12] {C:0} {A:{\\"statement\\":true}}
+| statement: function [74:5-74:12] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [74:13-74:14] {C:0} {A:{}}
-| keyword: function [76:1-76:8] {C:0} {A:{\\"statement\\":true}}
+| statement: function [76:1-76:8] {C:0} {A:{}}
 | whiteSpace:   [76:9-76:9] {C:0} {A:{}}
 | identifier: f2 [76:10-76:11] {C:0} {A:{}}
 | operatorParenthesis: ( [76:12-76:12] {C:0} {A:{}}
 | operatorParenthesis: ) [76:13-76:13] {C:0} {A:{}}
 | newLine: \\\\n [76:14-76:14] {C:0} {A:{}}
 | whiteSpace:      [77:1-77:4] {C:0} {A:{}}
-| keyword: let [77:5-77:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [77:5-77:7] {C:0} {A:{}}
 | whiteSpace:   [77:8-77:8] {C:0} {A:{}}
 | identifier: x [77:9-77:9] {C:0} {A:{}}
 | whiteSpace:   [77:10-77:10] {C:0} {A:{}}
@@ -2574,7 +2605,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 0.0 [77:14-77:16] {C:0} {A:{}}
 | newLine: \\\\n [77:17-77:17] {C:0} {A:{}}
 | whiteSpace:      [78:1-78:4] {C:0} {A:{}}
-| keyword: let [78:5-78:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [78:5-78:7] {C:0} {A:{}}
 | whiteSpace:   [78:8-78:8] {C:0} {A:{}}
 | identifier: x [78:9-78:9] {C:0} {A:{}}
 | whiteSpace:   [78:10-78:10] {C:0} {A:{}}
@@ -2584,7 +2615,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 1.1 [78:14-78:16] {C:0} {A:{}}
 | newLine: \\\\n [78:17-78:17] {C:0} {A:{}}
 | whiteSpace:      [79:1-79:4] {C:0} {A:{}}
-| keyword: let [79:5-79:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [79:5-79:7] {C:0} {A:{}}
 | whiteSpace:   [79:8-79:8] {C:0} {A:{}}
 | identifier: x [79:9-79:9] {C:0} {A:{}}
 | whiteSpace:   [79:10-79:10] {C:0} {A:{}}
@@ -2594,7 +2625,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 2.2 [79:14-79:16] {C:0} {A:{}}
 | newLine: \\\\n [79:17-79:17] {C:0} {A:{}}
 | whiteSpace:      [80:1-80:4] {C:0} {A:{}}
-| keyword: let [80:5-80:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [80:5-80:7] {C:0} {A:{}}
 | whiteSpace:   [80:8-80:8] {C:0} {A:{}}
 | identifier: x [80:9-80:9] {C:0} {A:{}}
 | whiteSpace:   [80:10-80:10] {C:0} {A:{}}
@@ -2604,7 +2635,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 3.3 [80:14-80:16] {C:0} {A:{}}
 | newLine: \\\\n [80:17-80:17] {C:0} {A:{}}
 | whiteSpace:      [81:1-81:4] {C:0} {A:{}}
-| keyword: let [81:5-81:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [81:5-81:7] {C:0} {A:{}}
 | whiteSpace:   [81:8-81:8] {C:0} {A:{}}
 | identifier: x [81:9-81:9] {C:0} {A:{}}
 | whiteSpace:   [81:10-81:10] {C:0} {A:{}}
@@ -2614,7 +2645,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 4.4 [81:14-81:16] {C:0} {A:{}}
 | newLine: \\\\n [81:17-81:17] {C:0} {A:{}}
 | whiteSpace:      [82:1-82:4] {C:0} {A:{}}
-| keyword: let [82:5-82:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [82:5-82:7] {C:0} {A:{}}
 | whiteSpace:   [82:8-82:8] {C:0} {A:{}}
 | identifier: x [82:9-82:9] {C:0} {A:{}}
 | whiteSpace:   [82:10-82:10] {C:0} {A:{}}
@@ -2624,7 +2655,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 5.5 [82:14-82:16] {C:0} {A:{}}
 | newLine: \\\\n [82:17-82:17] {C:0} {A:{}}
 | whiteSpace:      [83:1-83:4] {C:0} {A:{}}
-| keyword: let [83:5-83:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [83:5-83:7] {C:0} {A:{}}
 | whiteSpace:   [83:8-83:8] {C:0} {A:{}}
 | identifier: x [83:9-83:9] {C:0} {A:{}}
 | whiteSpace:   [83:10-83:10] {C:0} {A:{}}
@@ -2634,7 +2665,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 6.6 [83:14-83:16] {C:0} {A:{}}
 | newLine: \\\\n [83:17-83:17] {C:0} {A:{}}
 | whiteSpace:      [84:1-84:4] {C:0} {A:{}}
-| keyword: let [84:5-84:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [84:5-84:7] {C:0} {A:{}}
 | whiteSpace:   [84:8-84:8] {C:0} {A:{}}
 | identifier: x [84:9-84:9] {C:0} {A:{}}
 | whiteSpace:   [84:10-84:10] {C:0} {A:{}}
@@ -2644,7 +2675,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 7.7 [84:14-84:16] {C:0} {A:{}}
 | newLine: \\\\n [84:17-84:17] {C:0} {A:{}}
 | whiteSpace:      [85:1-85:4] {C:0} {A:{}}
-| keyword: let [85:5-85:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [85:5-85:7] {C:0} {A:{}}
 | whiteSpace:   [85:8-85:8] {C:0} {A:{}}
 | identifier: x [85:9-85:9] {C:0} {A:{}}
 | whiteSpace:   [85:10-85:10] {C:0} {A:{}}
@@ -2654,7 +2685,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 8.8 [85:14-85:16] {C:0} {A:{}}
 | newLine: \\\\n [85:17-85:17] {C:0} {A:{}}
 | whiteSpace:      [86:1-86:4] {C:0} {A:{}}
-| keyword: let [86:5-86:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [86:5-86:7] {C:0} {A:{}}
 | whiteSpace:   [86:8-86:8] {C:0} {A:{}}
 | identifier: x [86:9-86:9] {C:0} {A:{}}
 | whiteSpace:   [86:10-86:10] {C:0} {A:{}}
@@ -2664,7 +2695,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 9.9 [86:14-86:16] {C:0} {A:{}}
 | newLine: \\\\n [86:17-86:17] {C:0} {A:{}}
 | whiteSpace:      [87:1-87:4] {C:0} {A:{}}
-| keyword: let [87:5-87:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [87:5-87:7] {C:0} {A:{}}
 | whiteSpace:   [87:8-87:8] {C:0} {A:{}}
 | identifier: x [87:9-87:9] {C:0} {A:{}}
 | whiteSpace:   [87:10-87:10] {C:0} {A:{}}
@@ -2674,7 +2705,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 10.10 [87:14-87:18] {C:0} {A:{}}
 | newLine: \\\\n [87:19-87:19] {C:0} {A:{}}
 | whiteSpace:      [88:1-88:4] {C:0} {A:{}}
-| keyword: let [88:5-88:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [88:5-88:7] {C:0} {A:{}}
 | whiteSpace:   [88:8-88:8] {C:0} {A:{}}
 | identifier: x [88:9-88:9] {C:0} {A:{}}
 | whiteSpace:   [88:10-88:10] {C:0} {A:{}}
@@ -2684,7 +2715,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 11.11 [88:14-88:18] {C:0} {A:{}}
 | newLine: \\\\n [88:19-88:19] {C:0} {A:{}}
 | whiteSpace:      [89:1-89:4] {C:0} {A:{}}
-| keyword: let [89:5-89:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [89:5-89:7] {C:0} {A:{}}
 | whiteSpace:   [89:8-89:8] {C:0} {A:{}}
 | identifier: x [89:9-89:9] {C:0} {A:{}}
 | whiteSpace:   [89:10-89:10] {C:0} {A:{}}
@@ -2694,7 +2725,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 12.12 [89:14-89:18] {C:0} {A:{}}
 | newLine: \\\\n [89:19-89:19] {C:0} {A:{}}
 | whiteSpace:      [90:1-90:4] {C:0} {A:{}}
-| keyword: let [90:5-90:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [90:5-90:7] {C:0} {A:{}}
 | whiteSpace:   [90:8-90:8] {C:0} {A:{}}
 | identifier: x [90:9-90:9] {C:0} {A:{}}
 | whiteSpace:   [90:10-90:10] {C:0} {A:{}}
@@ -2704,7 +2735,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 13.13 [90:14-90:18] {C:0} {A:{}}
 | newLine: \\\\n [90:19-90:19] {C:0} {A:{}}
 | whiteSpace:      [91:1-91:4] {C:0} {A:{}}
-| keyword: let [91:5-91:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [91:5-91:7] {C:0} {A:{}}
 | whiteSpace:   [91:8-91:8] {C:0} {A:{}}
 | identifier: x [91:9-91:9] {C:0} {A:{}}
 | whiteSpace:   [91:10-91:10] {C:0} {A:{}}
@@ -2714,7 +2745,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 14.14 [91:14-91:18] {C:0} {A:{}}
 | newLine: \\\\n [91:19-91:19] {C:0} {A:{}}
 | whiteSpace:      [92:1-92:4] {C:0} {A:{}}
-| keyword: let [92:5-92:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [92:5-92:7] {C:0} {A:{}}
 | whiteSpace:   [92:8-92:8] {C:0} {A:{}}
 | identifier: x [92:9-92:9] {C:0} {A:{}}
 | whiteSpace:   [92:10-92:10] {C:0} {A:{}}
@@ -2724,7 +2755,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 15.15 [92:14-92:18] {C:0} {A:{}}
 | newLine: \\\\n [92:19-92:19] {C:0} {A:{}}
 | whiteSpace:      [93:1-93:4] {C:0} {A:{}}
-| keyword: let [93:5-93:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [93:5-93:7] {C:0} {A:{}}
 | whiteSpace:   [93:8-93:8] {C:0} {A:{}}
 | identifier: x [93:9-93:9] {C:0} {A:{}}
 | whiteSpace:   [93:10-93:10] {C:0} {A:{}}
@@ -2734,7 +2765,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 16.16 [93:14-93:18] {C:0} {A:{}}
 | newLine: \\\\n [93:19-93:19] {C:0} {A:{}}
 | whiteSpace:      [94:1-94:4] {C:0} {A:{}}
-| keyword: let [94:5-94:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [94:5-94:7] {C:0} {A:{}}
 | whiteSpace:   [94:8-94:8] {C:0} {A:{}}
 | identifier: x [94:9-94:9] {C:0} {A:{}}
 | whiteSpace:   [94:10-94:10] {C:0} {A:{}}
@@ -2744,7 +2775,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 17.17 [94:14-94:18] {C:0} {A:{}}
 | newLine: \\\\n [94:19-94:19] {C:0} {A:{}}
 | whiteSpace:      [95:1-95:4] {C:0} {A:{}}
-| keyword: let [95:5-95:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [95:5-95:7] {C:0} {A:{}}
 | whiteSpace:   [95:8-95:8] {C:0} {A:{}}
 | identifier: x [95:9-95:9] {C:0} {A:{}}
 | whiteSpace:   [95:10-95:10] {C:0} {A:{}}
@@ -2754,7 +2785,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 18.18 [95:14-95:18] {C:0} {A:{}}
 | newLine: \\\\n [95:19-95:19] {C:0} {A:{}}
 | whiteSpace:      [96:1-96:4] {C:0} {A:{}}
-| keyword: let [96:5-96:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [96:5-96:7] {C:0} {A:{}}
 | whiteSpace:   [96:8-96:8] {C:0} {A:{}}
 | identifier: x [96:9-96:9] {C:0} {A:{}}
 | whiteSpace:   [96:10-96:10] {C:0} {A:{}}
@@ -2764,7 +2795,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 19.19 [96:14-96:18] {C:0} {A:{}}
 | newLine: \\\\n [96:19-96:19] {C:0} {A:{}}
 | whiteSpace:      [97:1-97:4] {C:0} {A:{}}
-| keyword: let [97:5-97:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [97:5-97:7] {C:0} {A:{}}
 | whiteSpace:   [97:8-97:8] {C:0} {A:{}}
 | identifier: x [97:9-97:9] {C:0} {A:{}}
 | whiteSpace:   [97:10-97:10] {C:0} {A:{}}
@@ -2774,7 +2805,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 20.20 [97:14-97:18] {C:0} {A:{}}
 | newLine: \\\\n [97:19-97:19] {C:0} {A:{}}
 | whiteSpace:      [98:1-98:4] {C:0} {A:{}}
-| keyword: let [98:5-98:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [98:5-98:7] {C:0} {A:{}}
 | whiteSpace:   [98:8-98:8] {C:0} {A:{}}
 | identifier: x [98:9-98:9] {C:0} {A:{}}
 | whiteSpace:   [98:10-98:10] {C:0} {A:{}}
@@ -2784,7 +2815,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 30.30 [98:14-98:18] {C:0} {A:{}}
 | newLine: \\\\n [98:19-98:19] {C:0} {A:{}}
 | whiteSpace:      [99:1-99:4] {C:0} {A:{}}
-| keyword: let [99:5-99:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [99:5-99:7] {C:0} {A:{}}
 | whiteSpace:   [99:8-99:8] {C:0} {A:{}}
 | identifier: x [99:9-99:9] {C:0} {A:{}}
 | whiteSpace:   [99:10-99:10] {C:0} {A:{}}
@@ -2794,7 +2825,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 40.40 [99:14-99:18] {C:0} {A:{}}
 | newLine: \\\\n [99:19-99:19] {C:0} {A:{}}
 | whiteSpace:      [100:1-100:4] {C:0} {A:{}}
-| keyword: let [100:5-100:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [100:5-100:7] {C:0} {A:{}}
 | whiteSpace:   [100:8-100:8] {C:0} {A:{}}
 | identifier: x [100:9-100:9] {C:0} {A:{}}
 | whiteSpace:   [100:10-100:10] {C:0} {A:{}}
@@ -2804,7 +2835,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 50.50 [100:14-100:18] {C:0} {A:{}}
 | newLine: \\\\n [100:19-100:19] {C:0} {A:{}}
 | whiteSpace:      [101:1-101:4] {C:0} {A:{}}
-| keyword: let [101:5-101:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [101:5-101:7] {C:0} {A:{}}
 | whiteSpace:   [101:8-101:8] {C:0} {A:{}}
 | identifier: x [101:9-101:9] {C:0} {A:{}}
 | whiteSpace:   [101:10-101:10] {C:0} {A:{}}
@@ -2814,7 +2845,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 60.60 [101:14-101:18] {C:0} {A:{}}
 | newLine: \\\\n [101:19-101:19] {C:0} {A:{}}
 | whiteSpace:      [102:1-102:4] {C:0} {A:{}}
-| keyword: let [102:5-102:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [102:5-102:7] {C:0} {A:{}}
 | whiteSpace:   [102:8-102:8] {C:0} {A:{}}
 | identifier: x [102:9-102:9] {C:0} {A:{}}
 | whiteSpace:   [102:10-102:10] {C:0} {A:{}}
@@ -2824,7 +2855,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 70.70 [102:14-102:18] {C:0} {A:{}}
 | newLine: \\\\n [102:19-102:19] {C:0} {A:{}}
 | whiteSpace:      [103:1-103:4] {C:0} {A:{}}
-| keyword: let [103:5-103:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [103:5-103:7] {C:0} {A:{}}
 | whiteSpace:   [103:8-103:8] {C:0} {A:{}}
 | identifier: x [103:9-103:9] {C:0} {A:{}}
 | whiteSpace:   [103:10-103:10] {C:0} {A:{}}
@@ -2834,7 +2865,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 80.80 [103:14-103:18] {C:0} {A:{}}
 | newLine: \\\\n [103:19-103:19] {C:0} {A:{}}
 | whiteSpace:      [104:1-104:4] {C:0} {A:{}}
-| keyword: let [104:5-104:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [104:5-104:7] {C:0} {A:{}}
 | whiteSpace:   [104:8-104:8] {C:0} {A:{}}
 | identifier: x [104:9-104:9] {C:0} {A:{}}
 | whiteSpace:   [104:10-104:10] {C:0} {A:{}}
@@ -2844,7 +2875,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 90.90 [104:14-104:18] {C:0} {A:{}}
 | newLine: \\\\n [104:19-104:19] {C:0} {A:{}}
 | whiteSpace:      [105:1-105:4] {C:0} {A:{}}
-| keyword: let [105:5-105:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [105:5-105:7] {C:0} {A:{}}
 | whiteSpace:   [105:8-105:8] {C:0} {A:{}}
 | identifier: x [105:9-105:9] {C:0} {A:{}}
 | whiteSpace:   [105:10-105:10] {C:0} {A:{}}
@@ -2854,7 +2885,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 1.001 [105:14-105:18] {C:0} {A:{}}
 | newLine: \\\\n [105:19-105:19] {C:0} {A:{}}
 | whiteSpace:      [106:1-106:4] {C:0} {A:{}}
-| keyword: let [106:5-106:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [106:5-106:7] {C:0} {A:{}}
 | whiteSpace:   [106:8-106:8] {C:0} {A:{}}
 | identifier: x [106:9-106:9] {C:0} {A:{}}
 | whiteSpace:   [106:10-106:10] {C:0} {A:{}}
@@ -2864,7 +2895,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 10.001 [106:14-106:19] {C:0} {A:{}}
 | newLine: \\\\n [106:20-106:20] {C:0} {A:{}}
 | whiteSpace:      [107:1-107:4] {C:0} {A:{}}
-| keyword: let [107:5-107:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [107:5-107:7] {C:0} {A:{}}
 | whiteSpace:   [107:8-107:8] {C:0} {A:{}}
 | identifier: x [107:9-107:9] {C:0} {A:{}}
 | whiteSpace:   [107:10-107:10] {C:0} {A:{}}
@@ -2874,7 +2905,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 100.001 [107:14-107:20] {C:0} {A:{}}
 | newLine: \\\\n [107:21-107:21] {C:0} {A:{}}
 | whiteSpace:      [108:1-108:4] {C:0} {A:{}}
-| keyword: let [108:5-108:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [108:5-108:7] {C:0} {A:{}}
 | whiteSpace:   [108:8-108:8] {C:0} {A:{}}
 | identifier: x [108:9-108:9] {C:0} {A:{}}
 | whiteSpace:   [108:10-108:10] {C:0} {A:{}}
@@ -2884,7 +2915,7 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | number: 1000.001 [108:14-108:21] {C:0} {A:{}}
 | newLine: \\\\n [108:22-108:22] {C:0} {A:{}}
 | whiteSpace:      [109:1-109:4] {C:0} {A:{}}
-| keyword: let [109:5-109:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [109:5-109:7] {C:0} {A:{}}
 | whiteSpace:   [109:8-109:8] {C:0} {A:{}}
 | identifier: x [109:9-109:9] {C:0} {A:{}}
 | whiteSpace:   [109:10-109:10] {C:0} {A:{}}
@@ -2893,9 +2924,9 @@ token:  [1:1-110:13] {C:1} {A:{}}
 | operatorMath: - [109:13-109:13] {C:0} {A:{}}
 | number: 10000.001 [109:14-109:22] {C:0} {A:{}}
 | newLine: \\\\n [109:23-109:23] {C:0} {A:{}}
-| keyword: end [110:1-110:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [110:1-110:3] {C:0} {A:{}}
 | whiteSpace:   [110:4-110:4] {C:0} {A:{}}
-| keyword: function [110:5-110:12] {C:0} {A:{\\"statement\\":true}}
+| statement: function [110:5-110:12] {C:0} {A:{}}
 | newLine: \\\\n [110:13-110:13] {C:0} {A:{}}
 
 ================================================================================",
@@ -2911,34 +2942,34 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\basic/strings.4gl\\"
 parserProcess: \\"program\\"
 =====================================input======================================
-main
-
-    let x, y = ''
-    let x, y = 'ABC,DEF'
-    let x, y = '\\"'
-    let x, y = 'ABC\\\\'DEF'
-    
-end main
-
-function f1()
-
-    let x, y = \\"\\"
-    let x, y = \\"ABC,DEF\\"
-    let x, y = \\"'\\"
-    let x, y = \\"ABC\\\\\\"DEF\\"
-    
-end function
-
+001:main
+002:
+003:    let x, y = ''
+004:    let x, y = 'ABC,DEF'
+005:    let x, y = '\\"'
+006:    let x, y = 'ABC\\\\'DEF'
+007:    
+008:end main
+009:
+010:function f1()
+011:
+012:    let x, y = \\"\\"
+013:    let x, y = \\"ABC,DEF\\"
+014:    let x, y = \\"'\\"
+015:    let x, y = \\"ABC\\\\\\"DEF\\"
+016:    
+017:end function
+018:
 =====================================output=====================================
 program:  [1:1-17:13] {C:1} {A:{}}
 | block:  [1:1-8:10] {C:3} {A:{}}
 | | beginBlock:  [1:1-1:6] {C:1} {A:{}}
-| | | keyword: main [1:1-1:4] {C:0} {A:{}}
+| | | statement: main [1:1-1:4] {C:0} {A:{}}
 | | | endLine: - [1:5-1:6] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [1:5-1:6] {C:0} {A:{}}
 | | bodyBlock:  [1:1-7:5] {C:1} {A:{}}
 | | | whiteSpace:      [3:1-3:4] {C:0} {A:{}}
-| | | keyword: let [3:5-3:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [3:5-3:7] {C:0} {A:{}}
 | | | whiteSpace:   [3:8-3:8] {C:0} {A:{}}
 | | | identifier: x [3:9-3:9] {C:0} {A:{}}
 | | | operatorSeparator: , [3:10-3:10] {C:0} {A:{}}
@@ -2950,7 +2981,7 @@ program:  [1:1-17:13] {C:1} {A:{}}
 | | | string: '' [3:16-3:17] {C:0} {A:{}}
 | | | newLine: \\\\n [3:18-3:18] {C:0} {A:{}}
 | | | whiteSpace:      [4:1-4:4] {C:0} {A:{}}
-| | | keyword: let [4:5-4:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [4:5-4:7] {C:0} {A:{}}
 | | | whiteSpace:   [4:8-4:8] {C:0} {A:{}}
 | | | identifier: x [4:9-4:9] {C:0} {A:{}}
 | | | operatorSeparator: , [4:10-4:10] {C:0} {A:{}}
@@ -2962,7 +2993,7 @@ program:  [1:1-17:13] {C:1} {A:{}}
 | | | string: 'ABC,DEF' [4:16-4:24] {C:0} {A:{}}
 | | | newLine: \\\\n [4:25-4:25] {C:0} {A:{}}
 | | | whiteSpace:      [5:1-5:4] {C:0} {A:{}}
-| | | keyword: let [5:5-5:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [5:5-5:7] {C:0} {A:{}}
 | | | whiteSpace:   [5:8-5:8] {C:0} {A:{}}
 | | | identifier: x [5:9-5:9] {C:0} {A:{}}
 | | | operatorSeparator: , [5:10-5:10] {C:0} {A:{}}
@@ -2974,7 +3005,7 @@ program:  [1:1-17:13] {C:1} {A:{}}
 | | | string: '\\"' [5:16-5:18] {C:0} {A:{}}
 | | | newLine: \\\\n [5:19-5:19] {C:0} {A:{}}
 | | | whiteSpace:      [6:1-6:4] {C:0} {A:{}}
-| | | keyword: let [6:5-6:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [6:5-6:7] {C:0} {A:{}}
 | | | whiteSpace:   [6:8-6:8] {C:0} {A:{}}
 | | | identifier: x [6:9-6:9] {C:0} {A:{}}
 | | | operatorSeparator: , [6:10-6:10] {C:0} {A:{}}
@@ -2988,14 +3019,14 @@ program:  [1:1-17:13] {C:1} {A:{}}
 | | | whiteSpace:      [7:1-7:4] {C:0} {A:{}}
 | | | newLine: \\\\n [7:5-7:5] {C:0} {A:{}}
 | | endBlock:  [1:1-8:10] {C:1} {A:{}}
-| | | keyword: end [8:1-8:3] {C:0} {A:{}}
+| | | statement: end [8:1-8:3] {C:0} {A:{}}
 | | | whiteSpace:   [8:4-8:4] {C:0} {A:{}}
-| | | keyword: main [8:5-8:8] {C:0} {A:{}}
+| | | statement: main [8:5-8:8] {C:0} {A:{}}
 | | | endLine: - [8:9-8:10] {C:0} {A:{}}
 | | | -newLine: \\\\n\\\\n [8:9-8:10] {C:0} {A:{}}
 | block:  [10:1-17:13] {C:3} {A:{}}
 | | beginBlock:  [10:1-10:15] {C:1} {A:{}}
-| | | keyword: function [10:1-10:8] {C:0} {A:{}}
+| | | statement: function [10:1-10:8] {C:0} {A:{}}
 | | | whiteSpace:   [10:9-10:9] {C:0} {A:{}}
 | | | identifier: f1 [10:10-10:11] {C:0} {A:{}}
 | | | argumentList:  [10:12-10:13] {C:1} {A:{}}
@@ -3005,7 +3036,7 @@ program:  [1:1-17:13] {C:1} {A:{}}
 | | | -newLine: \\\\n\\\\n [10:14-10:15] {C:0} {A:{}}
 | | bodyBlock:  [10:1-16:5] {C:1} {A:{}}
 | | | whiteSpace:      [12:1-12:4] {C:0} {A:{}}
-| | | keyword: let [12:5-12:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [12:5-12:7] {C:0} {A:{}}
 | | | whiteSpace:   [12:8-12:8] {C:0} {A:{}}
 | | | identifier: x [12:9-12:9] {C:0} {A:{}}
 | | | operatorSeparator: , [12:10-12:10] {C:0} {A:{}}
@@ -3017,7 +3048,7 @@ program:  [1:1-17:13] {C:1} {A:{}}
 | | | string: \\"\\" [12:16-12:17] {C:0} {A:{}}
 | | | newLine: \\\\n [12:18-12:18] {C:0} {A:{}}
 | | | whiteSpace:      [13:1-13:4] {C:0} {A:{}}
-| | | keyword: let [13:5-13:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [13:5-13:7] {C:0} {A:{}}
 | | | whiteSpace:   [13:8-13:8] {C:0} {A:{}}
 | | | identifier: x [13:9-13:9] {C:0} {A:{}}
 | | | operatorSeparator: , [13:10-13:10] {C:0} {A:{}}
@@ -3029,7 +3060,7 @@ program:  [1:1-17:13] {C:1} {A:{}}
 | | | string: \\"ABC,DEF\\" [13:16-13:24] {C:0} {A:{}}
 | | | newLine: \\\\n [13:25-13:25] {C:0} {A:{}}
 | | | whiteSpace:      [14:1-14:4] {C:0} {A:{}}
-| | | keyword: let [14:5-14:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [14:5-14:7] {C:0} {A:{}}
 | | | whiteSpace:   [14:8-14:8] {C:0} {A:{}}
 | | | identifier: x [14:9-14:9] {C:0} {A:{}}
 | | | operatorSeparator: , [14:10-14:10] {C:0} {A:{}}
@@ -3041,7 +3072,7 @@ program:  [1:1-17:13] {C:1} {A:{}}
 | | | string: \\"'\\" [14:16-14:18] {C:0} {A:{}}
 | | | newLine: \\\\n [14:19-14:19] {C:0} {A:{}}
 | | | whiteSpace:      [15:1-15:4] {C:0} {A:{}}
-| | | keyword: let [15:5-15:7] {C:0} {A:{\\"statement\\":true}}
+| | | statement: let [15:5-15:7] {C:0} {A:{}}
 | | | whiteSpace:   [15:8-15:8] {C:0} {A:{}}
 | | | identifier: x [15:9-15:9] {C:0} {A:{}}
 | | | operatorSeparator: , [15:10-15:10] {C:0} {A:{}}
@@ -3055,9 +3086,9 @@ program:  [1:1-17:13] {C:1} {A:{}}
 | | | whiteSpace:      [16:1-16:4] {C:0} {A:{}}
 | | | newLine: \\\\n [16:5-16:5] {C:0} {A:{}}
 | | endBlock:  [10:1-17:13] {C:1} {A:{}}
-| | | keyword: end [17:1-17:3] {C:0} {A:{}}
+| | | statement: end [17:1-17:3] {C:0} {A:{}}
 | | | whiteSpace:   [17:4-17:4] {C:0} {A:{}}
-| | | keyword: function [17:5-17:12] {C:0} {A:{}}
+| | | statement: function [17:5-17:12] {C:0} {A:{}}
 | | | endLine: - [17:13-17:13] {C:0} {A:{}}
 | | | -newLine: \\\\n [17:13-17:13] {C:0} {A:{}}
 
@@ -3074,30 +3105,30 @@ debug: false
 filepath: \\"W:\\\\\\\\ws_tds_vscode\\\\\\\\tds-parsers\\\\\\\\tests\\\\\\\\4gl\\\\\\\\basic/strings.4gl\\"
 parserProcess: \\"token\\"
 =====================================input======================================
-main
-
-    let x, y = ''
-    let x, y = 'ABC,DEF'
-    let x, y = '\\"'
-    let x, y = 'ABC\\\\'DEF'
-    
-end main
-
-function f1()
-
-    let x, y = \\"\\"
-    let x, y = \\"ABC,DEF\\"
-    let x, y = \\"'\\"
-    let x, y = \\"ABC\\\\\\"DEF\\"
-    
-end function
-
+001:main
+002:
+003:    let x, y = ''
+004:    let x, y = 'ABC,DEF'
+005:    let x, y = '\\"'
+006:    let x, y = 'ABC\\\\'DEF'
+007:    
+008:end main
+009:
+010:function f1()
+011:
+012:    let x, y = \\"\\"
+013:    let x, y = \\"ABC,DEF\\"
+014:    let x, y = \\"'\\"
+015:    let x, y = \\"ABC\\\\\\"DEF\\"
+016:    
+017:end function
+018:
 =====================================output=====================================
 token:  [1:1-17:13] {C:1} {A:{}}
-| keyword: main [1:1-1:4] {C:0} {A:{\\"statement\\":true}}
+| statement: main [1:1-1:4] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [1:5-1:6] {C:0} {A:{}}
 | whiteSpace:      [3:1-3:4] {C:0} {A:{}}
-| keyword: let [3:5-3:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [3:5-3:7] {C:0} {A:{}}
 | whiteSpace:   [3:8-3:8] {C:0} {A:{}}
 | identifier: x [3:9-3:9] {C:0} {A:{}}
 | operatorSeparator: , [3:10-3:10] {C:0} {A:{}}
@@ -3109,7 +3140,7 @@ token:  [1:1-17:13] {C:1} {A:{}}
 | string: '' [3:16-3:17] {C:0} {A:{}}
 | newLine: \\\\n [3:18-3:18] {C:0} {A:{}}
 | whiteSpace:      [4:1-4:4] {C:0} {A:{}}
-| keyword: let [4:5-4:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [4:5-4:7] {C:0} {A:{}}
 | whiteSpace:   [4:8-4:8] {C:0} {A:{}}
 | identifier: x [4:9-4:9] {C:0} {A:{}}
 | operatorSeparator: , [4:10-4:10] {C:0} {A:{}}
@@ -3121,7 +3152,7 @@ token:  [1:1-17:13] {C:1} {A:{}}
 | string: 'ABC,DEF' [4:16-4:24] {C:0} {A:{}}
 | newLine: \\\\n [4:25-4:25] {C:0} {A:{}}
 | whiteSpace:      [5:1-5:4] {C:0} {A:{}}
-| keyword: let [5:5-5:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [5:5-5:7] {C:0} {A:{}}
 | whiteSpace:   [5:8-5:8] {C:0} {A:{}}
 | identifier: x [5:9-5:9] {C:0} {A:{}}
 | operatorSeparator: , [5:10-5:10] {C:0} {A:{}}
@@ -3133,7 +3164,7 @@ token:  [1:1-17:13] {C:1} {A:{}}
 | string: '\\"' [5:16-5:18] {C:0} {A:{}}
 | newLine: \\\\n [5:19-5:19] {C:0} {A:{}}
 | whiteSpace:      [6:1-6:4] {C:0} {A:{}}
-| keyword: let [6:5-6:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [6:5-6:7] {C:0} {A:{}}
 | whiteSpace:   [6:8-6:8] {C:0} {A:{}}
 | identifier: x [6:9-6:9] {C:0} {A:{}}
 | operatorSeparator: , [6:10-6:10] {C:0} {A:{}}
@@ -3146,18 +3177,18 @@ token:  [1:1-17:13] {C:1} {A:{}}
 | newLine: \\\\n [6:26-6:26] {C:0} {A:{}}
 | whiteSpace:      [7:1-7:4] {C:0} {A:{}}
 | newLine: \\\\n [7:5-7:5] {C:0} {A:{}}
-| keyword: end [8:1-8:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [8:1-8:3] {C:0} {A:{}}
 | whiteSpace:   [8:4-8:4] {C:0} {A:{}}
-| keyword: main [8:5-8:8] {C:0} {A:{\\"statement\\":true}}
+| statement: main [8:5-8:8] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [8:9-8:10] {C:0} {A:{}}
-| keyword: function [10:1-10:8] {C:0} {A:{\\"statement\\":true}}
+| statement: function [10:1-10:8] {C:0} {A:{}}
 | whiteSpace:   [10:9-10:9] {C:0} {A:{}}
 | identifier: f1 [10:10-10:11] {C:0} {A:{}}
 | operatorParenthesis: ( [10:12-10:12] {C:0} {A:{}}
 | operatorParenthesis: ) [10:13-10:13] {C:0} {A:{}}
 | newLine: \\\\n\\\\n [10:14-10:15] {C:0} {A:{}}
 | whiteSpace:      [12:1-12:4] {C:0} {A:{}}
-| keyword: let [12:5-12:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [12:5-12:7] {C:0} {A:{}}
 | whiteSpace:   [12:8-12:8] {C:0} {A:{}}
 | identifier: x [12:9-12:9] {C:0} {A:{}}
 | operatorSeparator: , [12:10-12:10] {C:0} {A:{}}
@@ -3169,7 +3200,7 @@ token:  [1:1-17:13] {C:1} {A:{}}
 | string: \\"\\" [12:16-12:17] {C:0} {A:{}}
 | newLine: \\\\n [12:18-12:18] {C:0} {A:{}}
 | whiteSpace:      [13:1-13:4] {C:0} {A:{}}
-| keyword: let [13:5-13:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [13:5-13:7] {C:0} {A:{}}
 | whiteSpace:   [13:8-13:8] {C:0} {A:{}}
 | identifier: x [13:9-13:9] {C:0} {A:{}}
 | operatorSeparator: , [13:10-13:10] {C:0} {A:{}}
@@ -3181,7 +3212,7 @@ token:  [1:1-17:13] {C:1} {A:{}}
 | string: \\"ABC,DEF\\" [13:16-13:24] {C:0} {A:{}}
 | newLine: \\\\n [13:25-13:25] {C:0} {A:{}}
 | whiteSpace:      [14:1-14:4] {C:0} {A:{}}
-| keyword: let [14:5-14:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [14:5-14:7] {C:0} {A:{}}
 | whiteSpace:   [14:8-14:8] {C:0} {A:{}}
 | identifier: x [14:9-14:9] {C:0} {A:{}}
 | operatorSeparator: , [14:10-14:10] {C:0} {A:{}}
@@ -3193,7 +3224,7 @@ token:  [1:1-17:13] {C:1} {A:{}}
 | string: \\"'\\" [14:16-14:18] {C:0} {A:{}}
 | newLine: \\\\n [14:19-14:19] {C:0} {A:{}}
 | whiteSpace:      [15:1-15:4] {C:0} {A:{}}
-| keyword: let [15:5-15:7] {C:0} {A:{\\"statement\\":true}}
+| statement: let [15:5-15:7] {C:0} {A:{}}
 | whiteSpace:   [15:8-15:8] {C:0} {A:{}}
 | identifier: x [15:9-15:9] {C:0} {A:{}}
 | operatorSeparator: , [15:10-15:10] {C:0} {A:{}}
@@ -3206,9 +3237,9 @@ token:  [1:1-17:13] {C:1} {A:{}}
 | newLine: \\\\n [15:26-15:26] {C:0} {A:{}}
 | whiteSpace:      [16:1-16:4] {C:0} {A:{}}
 | newLine: \\\\n [16:5-16:5] {C:0} {A:{}}
-| keyword: end [17:1-17:3] {C:0} {A:{\\"statement\\":true}}
+| statement: end [17:1-17:3] {C:0} {A:{}}
 | whiteSpace:   [17:4-17:4] {C:0} {A:{}}
-| keyword: function [17:5-17:12] {C:0} {A:{\\"statement\\":true}}
+| statement: function [17:5-17:12] {C:0} {A:{}}
 | newLine: \\\\n [17:13-17:13] {C:0} {A:{}}
 
 ================================================================================",

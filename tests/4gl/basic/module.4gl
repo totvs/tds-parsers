@@ -1,3 +1,7 @@
-//DEFINE NOME CHAR(50) # abc
+DEFINE NOME CHAR(50) # abc
 
-//DATABASE ABC
+DATABASE ABC
+
+main 
+
+end main

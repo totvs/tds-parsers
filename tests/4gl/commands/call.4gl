@@ -5,7 +5,7 @@ main
   call fgl_winmessage("p1")
 
 
-  call log0030_mensagem("existe(m) ...", "exclamation");
+call log0030_mensagem("existe(m) ...", "exclamation")
 
 
   call fgl_winmessage("p1","p2", "p3")
@@ -19,20 +19,24 @@ function f1()
 
   call fgl_winmessage() returning var1 , var2
 
-call fgl_winmessage() returning var1,var2,var3
+ call fgl_winmessage() returning var1,var2,var3
 
 end function
 
-function f2()
+function f2(p1)
 
   call fgl_winmessage() returning var1[ind1]
 
 end function
 
-function f3()
+function f3(p1,p2)
 
-  call fgl_winmessage() returning rec1.var1
+ call fgl_winmessage() returning rec1.var1
 
   call fgl_winmessage() returning rec1.*
+
+end function
+
+function f3(p1,p2, p3)
 
 end function

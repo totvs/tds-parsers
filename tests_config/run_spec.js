@@ -12,7 +12,6 @@ global.run_spec = (dirname, processes, options) => {
   }
 
   fs.readdirSync(dirname).forEach((filename) => {
-  
     const filepath = dirname + '/' + filename;
     if (
       path.extname(filename) !== '.snap' &&
@@ -70,6 +69,12 @@ function mergeDefaultOptions(parserConfig) {
 
 function createSnapshot(input, output, options) {
   const separatorWidth = 80;
+  const inputNumered = input
+    .split('\n')
+    .map((line, index) => {
+      return ('000' + (index + 1)).slice(-3) + ':' + line;
+    })
+    .join('\n');
 
   return []
     .concat(
@@ -77,7 +82,7 @@ function createSnapshot(input, output, options) {
       printSeparator(separatorWidth, 'options'),
       printOptions(options),
       printSeparator(separatorWidth, 'input'),
-      input,
+      inputNumered,
       printSeparator(separatorWidth, 'output'),
       output,
       printSeparator(separatorWidth)
